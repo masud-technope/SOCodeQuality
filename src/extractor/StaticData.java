@@ -20,7 +20,8 @@ public class StaticData {
 	public static String Data_Directory="C:/MyWorks/Dataset/SOPost/qstans";
 	//public static String Data_Directory="D:/My MSc/MyDataset/SO Data";
 	
-	public static String SOPostData="C:/MyWorks/Thesis Works/Crowdsource_Knowledge_Base/ICSE2015Data";
+	//public static String SOPostData="C:/MyWorks/Thesis Works/Crowdsource_Knowledge_Base/ICSE2015Data";
+	public static String SOPostData="C:/My MSc/ThesisWorks/Crowdsource_Knowledge_Base/ICSE2015Data";
 	
 	
 	

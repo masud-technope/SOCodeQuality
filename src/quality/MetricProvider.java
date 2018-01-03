@@ -16,8 +16,6 @@ public class MetricProvider {
 	HashMap<Integer, Double> readabilityscores;
 	HashMap<Integer, Double> strength;
 	HashMap<Integer, Double> concerns;
-	HashMap<Integer, Integer> documentation;
-	HashMap<Integer, Integer> completemethod;
 
 	public MetricProvider() {
 		// initializing the maps
@@ -26,13 +24,9 @@ public class MetricProvider {
 		this.readabilityscores = new HashMap<>();
 		this.strength = new HashMap<>();
 		this.concerns = new HashMap<>();
-		this.documentation=new HashMap<>();
-		this.completemethod=new HashMap<>();
-		
 		this.loadAuthScores();
 		this.loadEditorScores();
 		this.loadCommentScores();
-		this.loadDocumethods();
 	}
 
 	protected void loadAuthScores() {
@@ -97,31 +91,6 @@ public class MetricProvider {
 		}
 	}
 
-	protected void loadDocumethods()
-	{
-		//loading documentation and method existence
-		String fileName = StaticData.SOPostData + "/documethod.txt";
-		try{
-			Scanner scanner = new Scanner(new File(fileName));
-			while (scanner.hasNext()) {
-				String line = scanner.nextLine();
-				String[] parts = line.split("\\s+");
-				int postID = Integer.parseInt(parts[0].trim());
-				int documentExisted = Integer.parseInt(parts[1].trim());
-				int comMethodExisted = Integer.parseInt(parts[2].trim());
-				this.documentation.put(postID, documentExisted);
-				this.completemethod.put(postID, comMethodExisted);
-			}
-			scanner.close();
-			System.out.println("Documentation and complete method score loaded.");
-			
-		}catch(Exception exc){
-			//handle the exception
-		}
-		
-	}
-	
-	
 	protected void collectReadabilityScores() {
 		// collecting readability
 		String fileName = StaticData.SOPostData + "/max_min_id.txt";
@@ -197,14 +166,6 @@ public class MetricProvider {
 					scoreline1 += concerns.get(post1) + "\t";
 				} else
 					scoreline1 += 0 + "\t";
-				if(documentation.containsKey(post1)){
-					scoreline1 += documentation.get(post1) + "\t";
-				}
-				if(completemethod.containsKey(post1)){
-					scoreline1 += completemethod.get(post1) + "\t";
-				}
-				
-				
 				System.out.println(scoreline1 + "\t" + 1);
 
 				int post2 = Integer.parseInt(elems[2].trim()); // 0
@@ -229,13 +190,6 @@ public class MetricProvider {
 					scoreline2 += concerns.get(post2) + "\t";
 				} else
 					scoreline2 += 0 + "\t";
-				if(documentation.containsKey(post2)){
-					scoreline2 += documentation.get(post2) + "\t";
-				}
-				if(completemethod.containsKey(post2)){
-					scoreline2 += completemethod.get(post2) + "\t";
-				}
-				
 				System.out.println(scoreline2 + "\t" + 0);
 			}
 			scanner.close();
@@ -250,4 +204,5 @@ public class MetricProvider {
 		provider.collectReadabilityScores();
 		provider.getPostScores();
 	}
+
 }

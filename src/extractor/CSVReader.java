@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import utility.ContentLoader;
 
 public class CSVReader {
@@ -57,22 +56,19 @@ public class CSVReader {
 	protected void extractEntries()
 	{
 		//parsing entries from the file
-		String content=ContentLoader.loadFileContent(this.csvFile);
+		String content=ContentLoader.loadFileContentSC(this.csvFile);
 		String[] entries=content.split("\"\n\"");
 		System.out.println("Entries:"+entries.length);
 		for(String entry:entries){
 			String[] cols=entry.split("\",\"");
-			System.out.println(cols[0]+" "+cols[1]+" "+cols[2]);
-			int postID=Integer.parseInt(cols[1].trim());
-			String postcontent=cols[3];
-			savePost(postID, postcontent);
+			//int postid=Integer.parseInt(cols[0]);
+			String body=cols[2];
 		}
 	}
 	
 	public static void main(String[] args){
-		String csvFile=StaticData.SOPostData+"/answers.csv";
+		String csvFile=config.StaticData.EXP_HOME  +"/low-voted-6316.csv";
 		CSVReader reader=new CSVReader(csvFile);
 		reader.extractEntries();
-		
 	}
 }
