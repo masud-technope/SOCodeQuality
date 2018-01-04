@@ -1,4 +1,4 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -16,6 +16,13 @@ Readability {L}ibrary.
 \bibitem[sow()]{sowiki}
 Stack{O}verflow.
 \newblock URL \url{http://en.wikipedia.org/wiki/Stack_Overflow}.
+
+\bibitem[Brandt et~al.(2009)Brandt, Guo, Lewenstein, Dontcheva, and
+  Klemmer]{twostudy}
+J.~Brandt, P.J. Guo, J.~Lewenstein, M.~Dontcheva, and S.R. Klemmer.
+\newblock Two {S}tudies of {O}pportunistic {P}rogramming: {I}nterleaving {W}eb
+  {F}oraging, {L}earning, and {W}riting {C}ode.
+\newblock In \emph{Proc. SIGCHI}, pages 1589--1598, 2009.
 
 \bibitem[Buse and Weimer(2010)]{readability}
 R.P.L. Buse and W.R. Weimer.
