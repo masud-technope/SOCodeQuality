@@ -1,0 +1,53 @@
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Buse and Weimer(2010)]{readability}
+R.P.L. Buse and W.R. Weimer.
+\newblock {L}earning a {M}etric for {C}ode {R}eadability.
+\newblock \emph{TSE}, 36\penalty0 (4):\penalty0 546--558, 2010.
+
+\bibitem[Le~Goues and Weimer(2012)]{specmining}
+C.~Le~Goues and W.~Weimer.
+\newblock {M}easuring {C}ode {Q}uality to {I}mprove {S}pecification {M}ining.
+\newblock \emph{TSE}, 38\penalty0 (1):\penalty0 175--190, 2012.
+
+\bibitem[Lochmann and Heinemann(2011)]{lochmann}
+K.~Lochmann and L.~Heinemann.
+\newblock {I}ntegrating {Q}uality {M}odels and {S}tatic {A}nalysis for
+  {C}omprehensive {Q}uality {A}ssessment.
+\newblock In \emph{Proc. of WETSoM}, pages 5--11, 2011.
+
+\bibitem[M\"{a}ntyl\"{a} and Lassenius(2006)]{subjective}
+M.V. M\"{a}ntyl\"{a} and C.~Lassenius.
+\newblock {S}ubjective {E}valuation of {S}oftware {E}volvability using {C}ode
+  {S}mells: {A}n {E}mpirical {S}tudy.
+\newblock \emph{ESE}, 11\penalty0 (3):\penalty0 395--431, 2006.
+
+\bibitem[Nasehi et~al.(2012)Nasehi, Sillito, Maurer, and Burns]{nasehi}
+S.~M. Nasehi, J.~Sillito, F.~Maurer, and C.~Burns.
+\newblock What {M}akes a {G}ood {C}ode {E}xample -{A} {S}tudy of {P}rogramming
+  {Q} and {A} in {S}tackoverflow.
+\newblock In \emph{Proc. ICSM}, pages 25 --35, 2012.
+
+\bibitem[Rawat et~al.(2012)Rawat, Mittal, and Dubey]{survey}
+M.S. Rawat, A.~Mittal, and S.K. Dubey.
+\newblock {S}urvey on {I}mpact of {S}oftware {M}etrics on {S}oftware {Q}uality.
+\newblock \emph{IJACSA}, 3\penalty0 (1), 2012.
+
+\bibitem[Taibi(2013)]{reusability}
+F.~Taibi.
+\newblock Reusability of {O}pen-{S}ource {P}rogram {C}ode: {A} {C}onceptual
+  {M}odel and {E}mpirical {I}nvestigation.
+\newblock \emph{SE Notes}, 38\penalty0 (4), 2013.
+
+\bibitem[Treude et~al.(2011)Treude, Barzilay, and Storey]{nier}
+C.~Treude, O.~Barzilay, and M.A. Storey.
+\newblock How {D}o {P}rogrammers {A}sk and {A}nswer {Q}uestions on the {W}eb?
+  ({NIER} {T}rack).
+\newblock In \emph{ICSE}, pages 804--807, 2011.
+
+\end{thebibliography}

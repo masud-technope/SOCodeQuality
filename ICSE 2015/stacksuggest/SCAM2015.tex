@@ -1,0 +1,556 @@
+% This is "sig-alternate.tex" V2.0 May 2012
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass[conference]{IEEEtran}
+
+%preambles
+\usepackage{alltt                                    % I like these
+          , multirow
+          , booktabs
+          , listings
+          , graphicx
+          ,float
+	,cite
+          ,verbatim
+         ,mathtools
+	,url
+	,amsmath
+}
+\usepackage[table]{xcolor}
+\usepackage[numbers]{natbib}     % this is a better citation system
+\usepackage{syntax}
+\usepackage{algorithmic, algorithm}
+\usepackage{enumitem}
+\usepackage{threeparttable}
+\usepackage{framed}
+
+\usepackage{expl3}
+\ExplSyntaxOn
+\newcommand\latinabbrev[1]{
+  \peek_meaning:NTF . {% Same as \@ifnextchar
+    #1\@}%
+  { \peek_catcode:NTF a {% Check whether next char has same catcode as \'a, i.e., is a letter
+      #1., \@ }%
+    {#1., \@}}}
+\ExplSyntaxOff
+
+%switch case statement
+\newcommand{\SWITCH}[1]{\STATE \textbf{switch} (#1)}
+\newcommand{\ENDSWITCH}{\STATE \textbf{end switch}}
+\newcommand{\CASE}[1]{\STATE \textbf{case} #1\textbf{:} \begin{ALC@g}}
+\newcommand{\ENDCASE}{\end{ALC@g}}
+\newcommand{\CASELINE}[1]{\STATE \textbf{case} #1\textbf{:} }
+\newcommand{\DEFAULT}{\STATE \textbf{default:} \begin{ALC@g}}
+\newcommand{\ENDDEFAULT}{\end{ALC@g}}
+\newcommand{\DEFAULTLINE}[1]{\STATE \textbf{default:} }
+%switch case statement
+\let\footnotesize\scriptsize
+
+
+\newsavebox{\supbox}% Superscript box
+\newcommand{\bsup}{\begin{lrbox}{\supbox}$\tt\scriptstyle}% Superscript begin
+\newcommand{\esup}{$\end{lrbox}{}^{\usebox{\supbox}}}% Superscript end
+\def\eg{\latinabbrev{e.g}}
+\def\ie{\latinabbrev{i.e}}
+
+%\dimen0=\ht\@acmtitlebox
+%\ifdim\dimen0<0.0pt\relax\vskip-\dimen0\fi}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+
+\definecolor{lightpurple}{rgb}{0.8,0.8,1}
+\definecolor{codebg}{RGB}{255,255,255}
+\definecolor{commentcolor}{RGB}{11,140,11}
+%listing settings
+\lstset{ 
+    language=java, % choose the language of the code
+    basicstyle=\fontfamily{pcr}\selectfont\scriptsize\color{black},
+    keywordstyle=\color{blue}\bfseries, % style for keywords
+   commentstyle=\color{commentcolor},
+    numbers=none, % where to put the line-numbers
+    numberstyle=\tiny, % the size of the fonts that are used for the line-numbers     
+    backgroundcolor=\color{codebg},
+    showspaces=false, % show spaces adding particular underscores
+    showstringspaces=false, % underline spaces within strings
+    showtabs=false, % show tabs within strings adding particular underscores
+    frame=single, % adds a frame around the code
+    tabsize=2, % sets default tabsize to 2 spaces
+    rulesepcolor=\color{gray},
+    %rulecolor=\color{black},
+    captionpos=b, % sets the caption-position to bottom
+    breaklines=true, % sets automatic line breaking
+    breakatwhitespace=false, 
+}
+
+%\newcommand{\footremember}[2]{%
+%   \footnote{#2}
+%    \newcounter{#1}
+%    \setcounter{#1}{\value{footnote}}%
+%}
+%\newcommand{\footrecall}[1]{%
+%    \footnotemark[\value{#1}]%
+%} 
+
+
+\begin{document}
+%
+% --- Author Metadata here ---
+%\conferenceinfo{WeTSOM}{'2014, Hyderabad India}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\title{StackOverflow Code Quality Model: An \\Exploratory Study\vspace{-.4cm}}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\author{\IEEEauthorblockN{Mohammad Masudur Rahman  ~~~ Chanchal K. Roy ~~~$^\dagger$Iman Keivanloo}
+\IEEEauthorblockA{University of Saskatchewan, $^\dagger$Queen's University, Canada\\
+\{masud.rahman, chanchal.roy\}@usask.ca, $^\dagger$iman.keivanloo@queensu.ca}
+}
+
+%\numberofauthors{3} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+%\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+%\alignauthor
+%\begin{tabular}[t]{@{}c@{}}
+%Mohammad Masudur Rahman~~~~~ Chanchal K. Roy \\
+%       \affaddr{University of Saskatchewan, Canada}\\
+%       \email{\{mor543, ckr353\}@mail.usask.ca}
+%% 2nd. author
+%\end{tabular}
+%% 3rd. author
+%\alignauthor
+%Iman Keivanloo\\
+%       \affaddr{Queen's University, Canada}\\
+%       \email{iman.keivanloo@queensu.ca}
+%}
+
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+%\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+%email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+%(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+%\date{30 July 1999}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+%StackOverflow, a popular programming Q \& A site, often contains working code examples that solve particular programming problems, as a part of the answers against the posted questions. Studies show that the community is highly interested of those code examples, and the examples contribute greatly to the promotion and demotion of the answers. 
+\maketitle
+
+\begin{abstract}
+In StackOverflow, code examples are generally analyzed and subjectively evaluated by a large crowd of technical users. Given the growing interest of the community to those examples and their undeniable role in answers, we are motivated to study whether the subjective quality of those examples as perceived by StackOverflow actually matches with their metric-based quality. 
+%This is an important piece of information for the developers willing to reuse such examples. 
+In this paper, we propose and evaluate a metric-based quality model for StackOverflow code examples by conducting an exploratory study where we analyze 160 carefully selected code examples from 80 programming problems. Our quality model agrees with StackOverflow for 87.03\% of the test examples in relative quality prediction, which is promising, and the finding reveals effectiveness and reliability of the subjective evaluation by StackOverflow. 
+%While the preliminary findings are promising, they must be evaluated with larger dataset.
+\end{abstract}
+
+% A category with the (minimum) three required fields
+%\category{H.4}{Information Systems Applications}{Miscellaneous}
+%A category including the fourth, optional field follows...
+%\category{D.2.8}{Software Engineering}{Metrics}[maintainability measures, reusability measures]
+%\terms{Theory, Metrics, Human factors}
+%\keywords{Code quality, readability, reusability, maintainability}
+\begin{IEEEkeywords}
+Objective code quality, subjective evaluation, maintainability, StackOverflow
+\end{IEEEkeywords}
+
+\IEEEpeerreviewmaketitle
+
+
+
+%\vspace{-.2cm}
+\section{Introduction}
+%introduction, why developer use working code examples
+%Therefore, the practice of reusing extracted code examples from the publicly available sites helps them to reduce the workload and make the development or maintenance process faster
+%. However, it also exposes their software projects to the risk of having low quality code, and consequently leads to more maintenance overhead in the long run.
+%different programming Q \& A sites, forums, discussion boards and other sources for helpful information.
+%A programming Q \& A site discusses about different programming issues and their possible fixations in the form of questions and answers respectively posted by the community. 
+StackOverflow \cite{sowiki}, a popular social programming Q \& A site,  has a large community of 2.7 million technical users, and it covers about 7.1 million programming questions from different programming domains (\eg\ android, API) and languages (\eg\ C, Java, C\#). In StackOverflow, users promote a question or an answer through up-voting when they find it useful and informative, and down-voting a post when they find its content erroneous or off-topic. The difference between up-votes and down-votes is considered as the \emph{score} for a post. 
+
+During development and maintenance of a software product, software developers deal with different programming problems or challenges, and they frequently look into the programming issues posted on StackOverflow. The answers posted on the site often contain working code examples. A code example is a code snippet that solves a particular programming problem or accomplishes a certain programming task \cite{nasehi}. The developers find such examples helpful and reusable, and they also frequently apply them in their daily problem solving or learning activities. 
+Although the code examples are subjectively evaluated by StackOverflow,
+%The posted code examples are generally viewed and subjectively evaluated (\ie\ voting) by a large crowd of technical users. However, 
+the objective quality of those examples is not often taken into consideration by the developers during reuse. Reusing or consulting with such code examples can be a threat if the promoted (\ie\ up-voted) examples by the crowd maintain low quality in terms of objective code metrics.
+Thus, we are interested to study if there exists a relation between the subjective evaluation of those examples and their objective evaluation based on metrics.
+
+\citet{nasehi} study the characteristics of the accepted answers of 163 programming questions from StackOverflow, and argue that  the accepted answers are most likely to contain efficient and concise code examples accompanied by comprehensive textual description. 
+%Their study also reveals that the discouraged (\ie\ extensively down-voted) answers from StackOverflow either do not contain code examples or miss the explanation about the code. 
+\citet{nier} study which type of questions are answered correctly for most of the time, and suggest that the answers of the \emph{code-review questions} (\ie\ containing code examples) have the maximum acceptance rate of 92\%.
+While these studies demonstrate the importance or the influence of StackOverflow code examples, the quality of those examples is not yet studied from metric-based point of view.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=7.1in ]{whole23}
+\vspace{-.6cm}
+\caption{(a) Promoted code example, (b) Discouraged code example}
+\vspace{-.4cm}
+%\label{fig_sim}
+\label{fig:example}
+\end{figure*}
+
+%Given that the code examples either in question posts or answer posts are of great interest to the community \cite{nasehi, nier}, it is reasonable to conjecture that  StackOverflow users often consult with them or more precisely reuse them in their everyday programming activities. Basically, this increased interest of the community on code examples provides us the motivation for their classification or reevaluation. As \citeauthor{nasehi} suggest, code examples arguably play a major role behind the \emph{acceptance} or \emph{rejection} of a programming answer by the community, 
+%
+%they also can be categorized as \emph{promoted} (\ie\ extracted from promoted answer) or \emph{discouraged} (\ie\ extracted from discouraged answer) ones analogously based on the \emph{scores} of their corresponding posts. However, it is essential to check the code level quality of those code examples given that millions of StackOverflow users are using them for their problem solving. 
+
+%However, the vote score-based classification of the code examples suffers from several limitations. First, the votes can be considered as the quantification of the evaluation by the community users, which is based on their subjective viewpoints. The viewpoints may vary based on the expertise level, interests or demographics of the users, and therefore, the \emph{vote score} may not reflect a representative measure for the quality of the code example. Second, evaluations (\ie\ votes) both from expert and novice users are considered with equal importance which makes the vote score unreliable. Third, vote score of a code example (\ie\ answer post) can be influenced by its age and exposure to the community. That means, a recently introduced good code example may have the vote score equal to that of a moderate quality example introduced long ago; however, the classification does not consider those factors and treats both code examples  as of equal merit. Thus, it is pretty evident that score-based annotation of the code examples is affected by certain unattended factors, and
+A number of existing studies focus on code level metrics for checking readability \cite{readability}, reusability \cite{reusability} or overall quality \cite{lochmann} of the software code. \citet{reusability} studies reusability of 33 open source projects based on code level metrics such as understandability, low complexity and modularity, and proposes 
+a reusability model with different heuristic weights (\ie\ importance) for different metrics. \citet{subjective} conduct an empirical study to determine correlation between subjective evaluation and metric-based evaluation of software quality (w.r.t., code smells), and suggest that no evaluation alone is completely reliable. However, to date, no studies focus on the metric-based quality analysis of the StackOverflow code examples. In this research, we are interested to check whether the perceived quality of the code examples based on code level and associated metrics complies with StackOverflow votes for the corresponding examples. More specifically, we attempt to find out whether the promoted code example (\eg\ Fig. \ref{fig:example}-(a)) is actually preferable to the discouraged one (\eg\ Fig. \ref{fig:example}-(b)) for a programming problem in terms of objective code metrics. We formulate the following research question:
+%\vspace{-.3cm}
+\begin{framed}
+\noindent
+RQ: Is the metric-based quality of a discouraged code example worse than that of a promoted code example?
+\end{framed}
+%\vspace{-.2cm}
+%\vspace{-.15cm}
+%\begin{itemize}
+%\setlength{\topsep}{0pt}
+%\item RQ1: Is the code level quality of a discouraged code example worse than that of a promoted code example?
+%\item RQ2: Why does not the metric-based classification of the code examples completely agree with vote score-based classification by StackOverflow?
+%\end{itemize}
+%\vspace{-.15cm}
+We conduct an exploratory study using 160 highly promoted and highly discouraged code examples from 80 programming problems posted on StackOverflow. We apply five code level metrics-- \emph{readability}, \emph{strength}, \emph{concern}, \emph{documentation} and \emph{methodexist} and two associated metrics-- \emph{author rank} and \emph{editor rank}, and develop an objective quality model to perceive the quality of those code examples.  Our model agrees with StackOverflow for 87.03\% of the test examples in \emph{relative quality prediction}.
+This preliminary result is promising, and it shows that the subjective evaluation by StackOverflow is effective and reliable.
+%which is promising, and it reveals the effectiveness and reliability of the subjective evaluation by StackOverflow. 
+We also investigate the examples for which the model does not agree with StackOverflow on quality analysis, and finally answer the research question.
+%The rest of the paper is organized as follows -- Section \ref{sec:theory}  focuses on our adopted methodology and code quality metrics, Section \ref{sec:experiment} discusses the conducted experiments and findings, and finally Section \ref{sec:conclusion} concludes the paper with future works.
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.1in]{sysdiag}
+\vspace{-.2cm}
+\caption{Schematic diagram of the conducted study}
+\vspace{-.4cm}
+\label{fig:sysdiag}
+\end{figure}
+\vspace{-.2cm}
+\section{Methodology}
+\label{sec:theory}
+Fig. \ref{fig:sysdiag} shows the schematic diagram of our conducted study.
+%our approach for objective quality analysis of StackOverflow code examples. 
+In this section, we discuss the detailed design of the study, our used metrics and the proposed model for objective quality analysis of StackOverflow code examples.
+\subsection{Data Collection}
+In order to collect data \cite{expdata}, we use StackExchange Data API \cite{api} that provides access to the data of several StackExchange sites. 
+For this study, we wanted to collect the code examples which are widely viewed or evaluated on StackOverflow, and the logical first step was to identify such programming questions.
+We discover 80 such questions in the domain of \emph{android applications} from StackOverflow using the API, where each of the questions has more than \emph{ten answers} that contain \emph{code examples}.
+%We collect 80 programming questions along with their answers from StackOverflow which are related to \emph{android platform} and \emph{android applications}.
+%It should be noted that each of those questions has more than \emph{ten answers} that contain \emph{code examples}. The idea is to collect such questions which are both widely discussed and related to coding. 
+We choose three top-ranked and three lowest-ranked answers based on StackOverflow votes for each of those questions. We then extract code examples from the raw HTML of those StackOverflow answers, and manually analyze them.
+We look for trivial examples such as \emph{novice's examples} (\ie\ intended for novice users), \emph{abstract examples} (\ie\ too generic) or \emph{small examples} (\ie\ contains less than three lines of code), and discard them in order to develop a list of qualified examples. 
+Finally, as discussed in Section \ref{sec:voteclass} below, we select two code examples out of the remaining examples for each question, and one of them is from highly promoted (\ie\ extensively up-voted) answer and the other is from highly discouraged (\ie\ down-voted) answer.
+
+%We collect the latest data dump\cite{dump} provided under creative commons, and extract 75 programming questions and their corresponding answers from it. It should be noted that each of those questions has \emph{more than ten answers that contain code examples}. The idea is to select questions which are widely discussed and coding related. We extract the code examples from the raw HTML of StackOverflow answers, and manually analyze those examples. We find that most of them are not directly compilable (\ie\ necessary to determine a few metrics), and we perform simple tweaking (\eg\ adding import statements or semicolons, declaring undeclared variables and so on) on the examples to make them compilable. However, we also find some code examples are too trivial or they cannot be compiled at all with simple tweaking, which are discarded. Finally, we select 55 programming questions and 110 promoted and discouraged code examples posted in their answers for the study. As discussed in Section \ref{sec:voteclass} below, we select two code examples out of all examples for each question, and one of them is highly promoted (\eg\ up-voted) and the other is highly discouraged (\eg\ down-voted).
+\vspace{-.1cm}
+\subsection{Vote Based Classification}\label{sec:voteclass}
+In StackOverflow, the technical merit or quality of a programming answer is recognized in terms of votes \cite{nasehi}, and code examples are generally posted as a part of those answers. Existing studies \cite{nasehi, nier} report and explain the undeniable role of code examples in the promotion or demotion of the posted answers. Thus the votes cast for those answers can also be considered to approximate the subjective quality of the code examples contained by those answers. Given that the subjective perception of quality may vary, we choose the code examples of two extreme quality perceptions-- highly promoted and highly discouraged. We examine the \emph{scores} (\ie\ difference between up-votes and down-votes) 
+achieved to date by different answers for each of the 80 programming questions. We then choose the corresponding code examples from the highly promoted (\ie\ up-voted) and the highly discouraged (\ie\ down-voted) answers for each question, and classify them as \emph{highly promoted} and \emph{highly discouraged} code examples respectively.
+%of the code examples, and calculate \emph{vote score per day} for each of them. Then, based on the scores gained per day, we choose \emph{a highly promoted} (\eg\ highest scores gained per day) and \emph{a highly discouraged} (\eg\ lowest scores gained per day) code examples for each of 55 questions. 
+%We also manually analyze each code example for possible false positives, and to perceive the difference of their relative quality .
+%The idea is to determine whether the subjective evaluation of the code examples agrees with the metric-based evaluation. We also manually analyze each code example for possible false positives, and to perceive their relative quality difference.
+%Generally StackOverflow code examples are small-sized code fragments; in our case, we find them less than 15 lines on average. The 
+\vspace{-.1cm}
+\subsection{Objective Quality Metrics}
+\label{sec:metrics}
+StackOverflow code examples are generally posted as a code snippet containing a few lines. 
+%and the entire \emph{class-structure} is often unlikely.
+Therefore, some of the code quality metrics such as \emph{object-oriented complexity} metrics are not applicable.
+In this research, we use a list of five code level metrics and two associated metrics that are proposed by earlier studies for code quality analysis.
+%for StackOverflow code examples, and this section discusses those metrics.
+%In this section, we discuss five code related metrics and two associated metrics used for the study. 
+
+\textbf{Readability (R)}: Readability of software code refers to a human judgement of how easy the code is to understand \cite{readability}. Reading (\ie\ understanding) code is one of the most time-consuming components of all software maintenance activities, and thus, readability is directly related to software maintainability. 
+%Study suggests that readability also greatly contributes to reusability and portability of the code \cite{readability}. Thus, readability is an established code quality metric, and 
+The baseline idea is -- the more readable or understandable the code is, the easier it is to reuse and maintain in the long run. \citet{readability} propose a code readability model trained on human perception of readability or understandability. The model uses different textual source features (\eg\ length of identifiers, number of comments, line length) that are likely to affect the humans' perception of readability, and predicts a \emph{readability score} on the scale from zero to one, inclusive, with one describing that the source code is highly readable. We use the readily available library \cite{readlib} by \citet{readability} for calculating the \emph{readability metric} of the code examples.
+ 
+\textbf{Author Rank (AR) \& Editor Rank (ER)}: Existing studies \cite{specmining} suggest that the expertise of the author or an editor of a code example is likely to influence its quality. 
+StackOverflow provides different incentives to the users who actively contribute to the body of knowledge by asking important questions, posting helpful answers or adding informative comments. One of those incentives is \emph{Reputation} (\ie\ an estimation of overall contribution to the site) which can be often considered as an approximation of one's expertise \cite{expert1}. 
+%\citet{specmining} s \emph{author expertise} as an influencer of code quality for specification mining, and in our study, we also use it with a focus on reusability of the code examples. 
+In order to determine \emph{author rank} and \emph{editor rank} of a code example, we collect the \emph{reputation scores} of the author and the last editor of that example. We then normalize these scores against the \emph{maximum user reputation} from StackOverflow, and provide both metrics on the scale from zero to one, where zero denotes the least expertise and vice versa.
+%consider the \emph{Reputation} of the corresponding author and the \emph{Maximum Reputation} among all authors of StackOverflow. Then we provide a normalized estimate on the scale from zero to one, where zero denotes the least experience.
+
+\textbf{Strength (S) and Concern (C)}: \citet{subjective} conduct an empirical study on software evolvability by employing subjective and metric-based identification of code smells.
+They analyze agreement level between the two techniques, and argue that neither technique alone is enough for detecting all the smells. 
+Similarly, we can conjecture that code level metrics are not sufficient enough to discover all defects or inefficiencies and possible scopes for improvement in the code examples. 
+In StackOverflow, users post their subjective observations on the code examples in the form of feedback comments 
+%StackOverflow facilitates to include the subjective evaluations for each code example in the form of comments 
+which often contain invaluable and insightful analysis about the code level quality of those examples. While one can argue that the comments are merely based on subjective viewpoints, we interestingly note that they also contain objective observations which can be exploited to approximate the utility (\ie\ \emph{strength}) and more specifically the weakness (\ie\ \emph{concern}) of a code example. In order to collect meaningful comments, we choose only those comments for a code example which have obtained at least \emph{one} up-vote to date from the technical crowd. 
+The baseline idea is -- the up-voted comments are more likely to contain objective observations as they are recognized by other users. 
+We then extract each of the individual sentences from those comments, and apply a state-of-the-art sentiment analyzer \cite{sentiment} on them. The tool analyzes each of the words in the sentence, determines their positivity or negativity based on a trained model, and finally returns the overall sentiment for the sentence on this scale-- \emph{very positive} (\ie\ "4"), \emph{positive} (\ie\ "3"), \emph{neutral} (\ie\ "2"), \emph{negative} (\ie\ "1"), and \emph{very negative} (\ie\ "0"). We adapt the scale so that \emph{neutral} point equals to "0",  and then estimate \emph{strength (S)} and \emph{concern (C)} of a code example as follows:  
+\begin{equation*}
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+P=\sum_{i}^{M}PS_{i}, ~N=\sum_{j}^{T}NS_{j}, ~S=\frac{P}{P+ |N|}, ~C=\frac{N}{P+|N|} 
+\end{equation*}
+Here $PS$, $NS$, $P$ and $N$ denote positive sentence set, negative sentence set, total positivity score and total negativity score respectively for a code example. While \emph{strength (S)} refers to an estimation of \emph{positivity} about the example, \emph{concern (C)} reports
+a heuristic quantification of the \emph{defects, concerns} or \emph{limitations} of the example that are identified by the technical crowd. Both metrics are normalized for the sake of simplicity in the development of the quality model.
+
+%derive metrics describing the soundness of the code example. We leverage the objective observations to identify the strengths and weaknesses of the code example. Basically, we analyze all the comments about a code example against the code and count their numbers discussing about positive aspects (\ie\ strength) and negative aspects (\ie\ weakness) of the code. Then we normalize the \emph{strength} and \emph{weakness} measures using \emph{maximum comment count} among the code examples of the \emph{same question} as follows.
+%\begin{equation}
+%\vspace{-.1cm}
+%S_{i}=\frac{S_{i, count}}{max(TC_{i})},~~~ W_{i}=\frac{W_{i, count}}{max(TC_{i})}
+%\vspace{-.1cm}
+%\end{equation}
+%Here, $S_{i, count}, W_{i, count}$ and $TC_{i}$ denote the positive comments count, negative comments count and total comments count of a code example respectively. Both the \emph{strength} and \emph{weakness} metrics provide a normalized score on the scale from zero to one, where zero represents the least measure of each metric. 
+
+\textbf{Documentation Existed (DE)}: According to \citet{nasehi}, discouraged answers in StackOverflow often miss the explanation about the contained code, which suggests that documentation is a complementary part of a code example.
+\citet{autocomm} suggest that the documentation for a code example can be found in a few sentences that precede the example in the answer. We manually analyze the answer posts, and determine \emph{documentation existed (DE)}, a binary metric, for each of the code examples in the dataset. 
+
+\textbf{IsAMethod (IM)}: In StackOverflow, each code example is posted either as an entire method or a code segment. We believe that the code examples with entire methods are easy to integrate into the development code for similar programming tasks, and thus they require less effort for further maintenance.
+We thus propose a binary ad-hoc metric, called, \emph{isamethod} to capture this maintainability aspect of the code examples.  We manually analyze each of the examples, look for method definitions, and determine the metric for the examples. 
+
+\begin{table}
+\centering
+\caption{Coefficients in Logistic Regression}\label{table:ppower}
+\vspace{-.2cm}
+\resizebox{2.9in}{!}{%
+\begin{threeparttable}
+\begin{tabular}{l|c||l|c}
+\hline
+\textbf{Metric} & \textbf{Weight} & \textbf{Metric} & \textbf{Weight}\\
+\hline
+\emph{strength} & 140.602 & \emph{author rank} & 12.412 \\
+\hline
+\emph{editor rank} & 1.945 & \emph{readability} & -0.071 \\
+\hline
+\emph{concern} & -2.899 & \emph{isamethod} & 0.128 \\
+\hline
+\emph{documentation existed} & 1.253 \\
+\hline
+\end{tabular}
+%\begin{tablenotes}
+%\item [1] No. of example pairs for which relative quality evaluation matches with that of StackOverflow
+%\item [2] \% of agreement, \item [3] \% of disagreement
+%$^1$Correlation, $^2$p-value
+ %\end{tablenotes}
+\end{threeparttable}
+
+%\vspace{-.2cm}
+}
+\vspace{-.5cm}
+\end{table}
+
+
+%Deviation from standard coding practices can be considered as an important measure to estimate the code quality of the code examples.
+%\textbf{Rule Violation (RV)}: Traditional metric-based quality evaluation is dominated by code analysis tools, and they try to analyze the code against a certain set of \emph{ recommended rules}. Most of the tools concentrate on  particular aspects of code. For example, \emph{CheckStyle} focuses on conventions, \emph{PMD} on bad practices and \emph{FindBugs} focuses on potential bugs or threats. Thus, rules and standards of one tool may vary from another, and the tools are no way competitive rather complementary. Given the facts about the tools, using any single one may not serve our purpose of detecting rule violations, and thus we use \emph{sonarQube}\footnote{http://www.sonarqube.org/} which combines the rules and standards of \emph{PMD, FindBugs, CheckStyles} and so on. We collect three types of violations -- critical, major and minor, in the code examples and determine \emph{violations per source line} for each of them. \citet{lochmann} propose a rule-based quality model for the comprehensive quality assessment of a complete software project using the rules extracted from static code analysis tools. However, given the coding structure and size of StackOverflow code examples, we hypothesize that \emph{violation per source line} is an important and credible metric to estimate the relative quality of the code examples. In order to preserve uniformity with other metrics, we normalize \emph{violation per source line} for each code example.
+\vspace{-.1cm}
+\subsection{Metric-Based Quality Model}
+We collect five code level and related metrics-- \emph{readability, strength, concern, documentation existed} and \emph{isamethod} and two associated metrics-- \emph{author rank} and \emph{editor rank} of StackOverflow code examples, and apply them in the development of an \emph{objective quality model} for those examples. Out of 160 code examples, we use 106 examples (\ie\ 66\%, through dataset splitting) for training where we employ logistic regression on the training set using \emph{Weka}, a machine learning workbench. Due to the exploratory nature of this study, we perform a step-wise logistic regression where 
+different metrics are gradually added to the model in order to optimize its overall fit \cite{kevic}. For example, when we add only \emph{author rank}, \emph{editor rank} and \emph{strength} to the model, we experience 75.93\% classification accuracy with the test set. However, when we also add \emph{concern} and \emph{documentation existed} to the model, we find the model with the maximum predictive power (\ie\ 87.03\% accuracy). Deletion or addition of any other metric to the model does not result into further improvement of the model.
+From Table \ref{table:ppower}, we also note that the remaining two metrics--\emph{readability} and \emph{isamethod} have the least weights (\ie\ collected from a training step with all seven metrics).
+We thus finalize our model for objective quality analysis of StackOverflow code examples by employing these five metrics-- \emph{strength, author rank, editor rank, documentation existed} and \emph{concern} as follows:
+%Thus, the model can predict the type of a code example as \emph{highly promoted} or \emph{highly discouraged} with the maximum accuracy when \emph{strength, concern, documentation existed, author rank} and \emph{editor rank}of the example are considered.
+%We consider readability, author's expertise, adherence to the best coding practices, identified issues and threats in the code examples to estimate the quality of the examples with the focus on their reusability. We randomly select 50 code examples from 25 programming questions in the dataset, analyze their quality, and manually label them either as \emph{promoted} or \emph{discouraged}. Then we use those labeled examples along with their computed metrics (\ie\ Section \ref{sec:metrics}), and use logistic regression-based classifier from \emph{Weka} to determine the relative predictive power of the proposed metrics. It should be noted that we use Odd Ratio \cite{specmining} of each metric, which is a logarithmic transformation of the metric coefficient in the regression equation of the classifier, and tune them under controlled iterations to determine the predictive power (\ie\ importance) of the metric. Since, we are interested in determining the relative quality (\ie\ without a threshold) of two code examples of the same question, we ignore the intercept of the equation, and develop the following quality model. 
+% Finally, we develop the following quality model to perform the relative quality analysis among the code examples, where the coefficients are the predictive power (\ie\ importance) of corresponding metrics.
+\begin{equation*}\label{eq:model}
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\begin{split}
+Class(example~e)=\frac{1}{1+e^{-Q(e)}}, ~with \\
+Q(e)= -2.270+ 12.746\times AR(e) +1.895\times ER(e)\\+140.113\times S(e) -2.899\times C(e)
++1.240\times DE(e)
+\end{split}
+\end{equation*}
+In the model, as the feature weights suggest, we find \emph{strength} and \emph{author rank} as the most predictive features (\ie\ metrics), whereas \emph{editor rank} and \emph{documentation existed} are found relatively less predictive. It also should be noted that \emph{concern} has a negative effect on the model. Thus, the model can predict a code example as \emph{highly promoted} only if StackOverflow community expresses a higher sense of positivity (\ie\ \emph{strength}) about the example, the author or the editor of the example is reputed (\ie\ \emph{author rank}, \emph{editor rank}), and the example code is associated with comprehensive documentation.  
+
+\vspace{-.1cm}
+\section{Evaluation Results and Discussions}
+\label{sec:experiment}
+
+%In our experiment, we use the proposed quality model to estimate the quality of 110 code examples against 55 programming questions (dataset can be found online\footnote{www.usask.ca/$\sim$masud.rahman/ss/expdata}). It should be noted that we use the quality estimates to perform the comparative analysis among the two code examples of the same question. The idea is to determine whether a code example promoted by StackOverflow is actually of better code quality than the one which is discouraged by it from metric-based point of view. Table \ref{table:result} shows the results of our preliminary experiments using Equation \eqref{eq:model}, where the metric-based relative quality of the code examples agrees with that of StackOverflow at best for 43 (78.18\%)  out of 55 questions. It also shows how different component quality metrics can influence the estimated overall quality of the code examples, and the empirical findings show that \emph{readability}(R), \emph{author rank}(AR) and \emph{strength}(S) are the most effective metrics for relative quality analysis when they are considered in combination. We note that \emph{weakness} and \emph{rule violation} metrics have a little or no influence to the proposed model, which refutes our initial assumption.
+\begin{table}
+\centering
+\caption{Experimental Results}\label{table:result}
+\vspace{-.2cm}
+\resizebox{3.2in}{!}{%
+\begin{threeparttable}
+\begin{tabular}{l|c|c|c|c|c}
+\hline
+\textbf{Metric Combination} & \textbf{RMSE}\tnote{1}& $\mathbf{\kappa}$\tnote{2}& $\mathbf{F_{1}}\tnote{3}$ &\textbf{AUC}\tnote{4} & \textbf{CA}\tnote{5}\\
+\hline
+\{S\} & 0.43 &0.42 & 0.68 & 0.71 & 70.37\%\\
+\hline
+\{S, AR\} & 0.40 & 0.53 &0.75 &0.88 & 75.93\%\\
+\hline
+\{S, AR, C\} & 0.33 & 0.74 & 0.87 & \textbf{0.91} & \textbf{87.03}\%\\
+\hline
+\{S, AR, C, ER\} & 0.33 &0.74 & 0.87 &0.90 & 87.03\%\\
+\hline
+\{S, AR, C, DE\} & 0.34 &0.74 & 0.87 &\textbf{0.92} & \textbf{87.03}\%\\
+\hline
+\{S, AR, C, ER, DE\} & 0.34 &0.74 & 0.87 & 0.91 & 87.03\%\\
+\hline
+\end{tabular}
+%\begin{tablenotes}
+%\item [1] No. of example pairs for which relative quality evaluation matches with that of StackOverflow
+%\item [2] \% of agreement, \item [3] \% of disagreement
+\center 
+$^1$Root Mean Squared Error, $^2$Kappa statistic, $^3F_{1}$ score, $^4$Area Under ROC Curve,
+$^5$Classification Accuracy
+ %\end{tablenotes}
+\end{threeparttable}
+
+%\vspace{-.2cm}
+}
+\vspace{-.5cm}
+\end{table}
+
+\begin{table}
+\centering
+\caption{Metric Correlation}\label{table:correlation}
+\vspace{-.2cm}
+\resizebox{2.6in}{!}{%
+\begin{threeparttable}
+\begin{tabular}{l|c|c||l|c|c}
+\hline
+\textbf{Metrics} & \textbf{CR}\tnote{1} & \textbf{P}\tnote{2} & \textbf{Metrics} & \textbf{CR}& \textbf{P}\\
+\hline
+ S, AR & 0.13 & 0.18 & S, C & -0.19 & 0.05 \\
+\hline
+AR, C & -0.50 & 0.00 & AR, DE & 0.38 & 0.00 \\
+\hline
+AR, ER & 0.11 & 0.24 & C, DE & -0.24 & 0.02 \\
+\hline
+\end{tabular}
+%\begin{tablenotes}
+%\item [1] No. of example pairs for which relative quality evaluation matches with that of StackOverflow
+%\item [2] \% of agreement, \item [3] \% of disagreement
+\center
+$^1$Correlation coefficient, $^2$p-values
+ %\end{tablenotes}
+\end{threeparttable}
+
+%\vspace{-.2cm}
+}
+\vspace{-.5cm}
+\end{table}
+
+
+\textbf{Classification Results:} In order to evaluate our proposed model, we develop a \emph{test set} containing 54 code examples (\ie\ 34\%, through dataset splitting) from the dataset. It should be noted that this set does not overlap with the \emph{training set}. Table \ref{table:result} reports how the performance of our model against the \emph{test set} evolves with the step-wise addition of different metrics. For example, being the most dominating predictor, \emph{strength} alone can predict the quality of 70.37\% of the samples correctly. However, the model performs poor in terms of \emph{Root Mean Squared Error (RMSE), Area Under Curve (AUC)} or $\kappa$-statistic. We then add the next best (\ie\ based on weights in Table \ref{table:ppower}) predictors--\emph{author rank} and \emph{concern}, and the model improves significantly in terms of all performance metrics. For example, the model predicts correctly for 87.03\% of the test samples with an improved $\kappa$-statistic (\eg\ 0.74) and a reduced error rate (\eg\ 0.33). We also add two other metrics--\emph{editor rank} and \emph{documentation existed} having moderate predictive power, which does not result into significant performance improvement for the model with our \emph{test set}. In order to investigate this finding, we determine the correlation among the metrics (Table \ref{table:correlation}). Although we did not experience any significant correlation between these two metrics with the previously added dominating metrics, we found an interesting scenario about \emph{reputed author}. From Table \ref{table:correlation}, we note that \emph{author rank} is moderately correlated with \emph{document existed} and \emph{concern}, which indicates that the code example written by a reputed user in StackOverflow is likely to be accompanied by a comprehensive explanation, and the community would generally have a reduced sense of negativity (\ie\ \emph{concerns}) towards that example.
+
+\textbf{Goodness of Fit Test}: We evaluate the goodness of fit of our model using two widely used statistical tests-- \emph{Chi-square statistic} \cite{kevic} and \emph{Classification table}. Using \emph{Wald test},  we find that no individual metrics, not even \emph{strength} has a significant overall effect on the model in isolation. On the other hand, when we consider \emph{author rank, editor rank, strength} and \emph{concern} in combination, we experience a significant effect (\emph{chi-square=15.6, P=0.003 with df=4}). We also check the overall fit of our model compared to a null model (\ie\ without any predictor variables) using \emph{log likelihood test}, and found that the model fits significantly (\emph{chi-square=73.22, P$<$.000 with df=5}) better than an empty or null model. We also analyze the test sample classification table, and find that the classifier provides a \emph{sensitivity} of 0.92 and a \emph{specificity} of 0.83, which indicates that the model fits significantly with the test data.    
+
+% that the answer is \emph{yes} for about 78\% of the time.
+%\emph{RQ: Is the code level quality of a discouraged code example worse than that of a promoted code example?} 
+\textbf{Answer to Research Question:}
+%Our preliminary results (Table \ref{table:result}) indicate that the overall objective quality of \emph{discouraged} code examples is worse than that of \emph{promoted} examples at 87.03\% of the times. 
+Based on the subjective evaluation by StackOverflow, we estimated the relative quality (\ie\ \emph{promoted} and \emph{discouraged}) of the two code examples for each of our selected questions, and our trained model correctly predicts such quality for 47 (\ie\ 87.03\%) out of 54 examples in the \emph{test set}.
+The finding essentially answers our research question that overall objective quality of \emph{promoted} code examples is better than that of \emph{discouraged} examples at 87.03\% of the times.
+We also investigate the examples for which the model fails to predict correctly. We observe that five out of seven such test examples miss the values for dominating metrics such as \emph{strength} and \emph{concern}, and the rest two contain either equal or counter-intuitive values for those metrics, which indicates a certain bias of the model. Thus, although the model performs significantly well with the \emph{test set}, it needs further training with more code examples in order to reduce the suppressor effects and to develop a more balanced objective model.
+One can also argue about the objectivity of \emph{strength} and \emph{concern} metrics as they are derived from feedback comments. However, we selected those comments carefully, and then accumulate \emph{positivity} and \emph{negativity} about an example from the large crowd using a reliable sentiment analyzer \cite{sentiment} in order to reduce subjectivity from those metrics. 
+
+
+%and determined the \emph{promoted} and the \emph{discouraged} ones. In order to determine their code level quality, we collected the target quality metrics (Section \ref{sec:metrics}) of each code example, and applied them to the proposed quality model. The model provides an estimate about the quality of each example, and we used those estimates to determine the relative code quality of the two code examples against a question. Then we compared the metric-based relative quality against the corresponding relative quality obtained from subjective evaluation. The result shows that the discouraged code examples are of inferior quality in terms of code metrics to the promoted ones for 43 (78.18\%) test cases out of 55 cases.
+
+%\emph{RQ2: Why does not the metric-based classification of the code examples completely agree with vote score-based classification by StackOverflow?} 
+%According to our experiment,  the two classifications agree mostly, about 78\%; however, the complete agreement may not be possible. We investigated the 12 cases (24 code examples and their metrics) for which our quality model does not match with StackOverflow, and found a few issues or scenarios. First, most of them do not contain comments given that metrics (\eg\ strength and weakness) from the comments play major parts in our model, and the model does not perform well for those cases (\ie\ 9 cases). Second, our model does not use any threshold to describe a code example either as promoted or discouraged, rather it uses relative quality analysis which may not be effective all the time. For example, if there is a little difference in the quality estimate of two code examples, the model still determines the promoted and discouraged ones; however, both of them should be considered either as promoted or discouraged in practical. We found one such case in the experiment. Third, StackOverflow contains some code examples, which are highly simplified with little technical merit, and are often intended for preliminary learning, and they are also highly voted. Our model does not perform well in that case (\ie\ 3 cases). 
+%Fourth, we also found some cases where \emph{vote score} does not necessarily represent the evaluation of the contained code examples or code examples do not play major part in answering the question, and our model does not perform well in those cases.
+
+%Given that \emph{code quality} of the software code is a multifaceted term \cite{survey}, we focus on the quality analysis to determine the \emph{reusability} of a code example. \emph{Readability}, \emph{strength}, \emph{weakness} and \emph{rule violation} metrics are greatly related to comprehensibility, efficiency, security, maintainability and other attributes (\ie\ quality) of the software code that stimulate its reuse \cite{readability}. In our experiment, we found \emph{strength}(\eg\ weight 8.05) and \emph{readability} (\eg\ weight 3.00) are the most predictive metrics while combined for quality analysis. On the other hand, \emph{weakness} and \emph{rule violation} metrics are found not predictive. We can speculate that \emph{rule violation} metric may not be properly applicable for StackOverflow code examples due to their fragmented nature, and \emph{weakness} metric may need to be refined for effective use; however, we need to experiment with more data to reach a conclusion.  
+%which validates the effectiveness of our quality model for reusability analysis of the crowdsource code examples. On the other hand, we note \emph{rule violation}
+%\vspace{-.3cm}
+\vspace{-.1cm}
+\section{Conclusion \& Future Work\vspace{-.1cm}}
+\label{sec:conclusion}
+Given the growing interest of StackOverflow community to the code examples, in this research, we study whether their subjective quality as perceived by the community matches with an objective quality evaluation. We propose and evaluate a metric-based quality model for StackOverflow code examples by conducting an 
+exploratory study with 160 code examples collected from 80 programming problems. The model agrees with StackOverflow in quality prediction for 87.03\% of the test examples, which reveals the effectiveness and reliability of StackOverflow votes. 
+While the model can assist the developers in reusing StackOverflow code examples with informed knowledge about their quality, our study also has the potential to encourage further research in the quality analysis of the code examples from other programming Q \& A sites.
+
+%and our developed quality model can assist the developers in reusing code examples with informed knowledge of metric-based quality. 
+%110 representative code examples against 55 programming questions, and found that the subjective evaluation agrees with the metric-based evaluation for 78\% of code examples. The finding is quite promising, and it reveals the effectiveness of StackOverflow votes. It also has the potential to encourage more research in the quality analysis of the code examples often found in the programming Q \& A sites, and our developed quality model can assist the developers in reusing code examples with informed knowledge of metric-based quality. 
+%However, the finding and the model must be evaluated with larger dataset to reach a reliable level.
+%\vspace{-.1cm}
+
+\bibliographystyle{plainnat}
+\setlength{\bibsep}{0pt plus 0.3ex}
+\scriptsize
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+% You must have a proper ".bib" file
+%  and remember to run:
+% latex bibtex latex latex
+% to resolve all references
+%
+% ACM needs 'a single self-contained file'!
+%
+%APPENDICES are optional
+%\balancecolumns
+\end{document}

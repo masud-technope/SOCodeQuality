@@ -1,0 +1,94 @@
+\begin{thebibliography}{15}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[exp()]{expdata}
+Stacksuggest experimental data.
+\newblock URL \url{homepage.usask.ca/~masud.rahman/ss/expdata}.
+
+\bibitem[Buse and Weimer(2010)]{readability}
+R.P.L. Buse and W.R. Weimer.
+\newblock Learning a metric for code readability.
+\newblock \emph{Softw. Eng., IEEE Trans.}, 36\penalty0 (4):\penalty0 546--558,
+  2010.
+
+\bibitem[Chawla and Chhabra(2012)]{ijert}
+Mandeep~K. Chawla and Indu Chhabra.
+\newblock Implementing source code metrics for software quality analysis.
+\newblock \emph{IJERT}, 1\penalty0 (5), July 2012.
+
+\bibitem[Knight and Myers(1991)]{readuse}
+John~C. Knight and E.~Ann Myers.
+\newblock Phased inspections and their implementation.
+\newblock \emph{SIGSOFT Softw. Eng. Notes}, 16\penalty0 (3):\penalty0 29--35,
+  July 1991.
+
+\bibitem[Le~Goues and Weimer(2012)]{specmining}
+C.~Le~Goues and W.~Weimer.
+\newblock Measuring code quality to improve specification mining.
+\newblock \emph{Softw. Eng., IEEE Trans.}, 38\penalty0 (1):\penalty0 175--190,
+  2012.
+
+\bibitem[Lochmann and Heinemann(2011)]{lochmann}
+Klaus Lochmann and Lars Heinemann.
+\newblock Integrating quality models and static analysis for comprehensive
+  quality assessment.
+\newblock In \emph{Proc. of WETSoM}, pages 5--11, 2011.
+
+\bibitem[M\"{a}ntyl\"{a} and Lassenius(2006)]{subjective}
+Mika~V. M\"{a}ntyl\"{a} and Casper Lassenius.
+\newblock Subjective evaluation of software evolvability using code smells: An
+  empirical study.
+\newblock \emph{Empirical Softw. Engg.}, 11\penalty0 (3):\penalty0 395--431,
+  September 2006.
+
+\bibitem[Meirelles et~al.(2010)Meirelles, Santos, Miranda, Kon, Terceiro, and
+  Chavez]{foss}
+P.~Meirelles, C.~Santos, J.~Miranda, F.~Kon, A.~Terceiro, and C.~Chavez.
+\newblock A study of the relationships between source code metrics and
+  attractiveness in free software projects.
+\newblock In \emph{Proc. SBES}, pages 11--20, 2010.
+
+\bibitem[Nasehi et~al.(2012)Nasehi, Sillito, Maurer, and Burns]{nasehi}
+S.~M. Nasehi, J.~Sillito, F.~Maurer, and C.~Burns.
+\newblock What makes a good code example -a study of programming q and a in
+  stackoverflow.
+\newblock In \emph{Proc. ICSM}, pages 25 --35, 2012.
+
+\bibitem[Posnett et~al.(2011)Posnett, Hindle, and Devanbu]{simpler}
+Daryl Posnett, Abram Hindle, and Premkumar Devanbu.
+\newblock A simpler model of software readability.
+\newblock In \emph{Proc. MSR}, pages 73--82, 2011.
+\newblock ISBN 978-1-4503-0574-7.
+
+\bibitem[Rawat et~al.(2012)Rawat, Mittal, and Dubey]{survey}
+Mrinal~Singh. Rawat, Arpita Mittal, and Sanjay~Kumar Dubey.
+\newblock Survey on impact of software metrics on software quality.
+\newblock \emph{IJACSA}, 3\penalty0 (1), 2012.
+
+\bibitem[Stamelos et~al.(2002)Stamelos, Angelis, Oikonomou, and Bleris]{oss}
+Ioannis Stamelos, Lefteris Angelis, Apostolos Oikonomou, and Georgios~L.
+  Bleris.
+\newblock Code quality analysis in open source software development.
+\newblock \emph{Info Systems J}, 12:\penalty0 43--60, 2002.
+
+\bibitem[Stroggylos and Spinellis(2007)]{refactoring}
+K.~Stroggylos and D.~Spinellis.
+\newblock Refactoring--does it improve software quality?
+\newblock In \emph{In Proc. WoSQ}, pages 10--, 2007.
+
+\bibitem[Taibi(2013)]{reusability}
+Fathi Taibi.
+\newblock Reusability of open-source program code: a conceptual model and
+  empirical investigation.
+\newblock \emph{SIGSOFT Softw. Eng. Notes}, 38\penalty0 (4), July 2013.
+
+\bibitem[Treude et~al.(2011)Treude, Barzilay, and Storey]{nier}
+Christoph Treude, Ohad Barzilay, and Margaret-Anne Storey.
+\newblock How do programmers ask and answer questions on the web? (nier track).
+\newblock In \emph{ICSE}, pages 804--807, 2011.
+
+\end{thebibliography}
