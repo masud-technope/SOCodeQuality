@@ -144,7 +144,7 @@
 %\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
 
-\title{Code Quality in the Eyes of Crowd and in Terms of Metrics: A Comparative Study using Stack Overflow}
+\title{Code Quality in the Eyes of Crowd of Stack Overflow and using Metrics: A Comparative Study}
 %
 % You need the command \numberofauthors to handle the 'placement
 % and alignment' of the authors beneath the title.
@@ -237,35 +237,35 @@ Objective code quality, readability, maintainability, subjective evaluation
 \IEEEpeerreviewmaketitle
 
 
-
 %\vspace{-.2cm}
 \section{Introduction}
-Studies suggest that software developers spend about 19\% of their development time in searching for relevant code on the web \cite{twostudy}. Stack Overflow, a popular online programming Q \& A site, contains 10 millions questions on various programming topics, and they are used by a large community of 4 million technical users as of April 2014 \cite{sowiki}. In this site, users promote a question or an answer through up-voting when they find it useful or informative, and down-voting a post when they find its content erroneous or off-topic. The difference between up-votes and down-votes is considered as the \emph{score} for the post. 
+Studies suggest that software developers spend about 19\% of their development time in searching for relevant code examples on the web \cite{twostudy,koderlog}. Stack Overflow is a popular online programming Q \& A site with more than 14 millions questions and more than 22 million answers on various programming topics \cite{nlp2code}. These questions and answeres are consulted by a large community of eight million technical users as of January 2018 \cite{sowiki}. In this site, users promote a question or an answer through up-voting when they find them useful or informative. Conversely, as a part of quality control mechanism, they discourage a question or an answer when they find their content erroneous, off-topic or of low quality. The difference between these up-votes and down-votes forms an evaluation metric called \emph{score} for both the question and the answer.
 
-During development and maintenance of a software product, software developers deal with different programming problems or challenges, and they frequently look into the programming issues posted on StackOverflow. The answers posted on the site often contain working code examples (\ie\ code fragments) that solve particular programming problems or accomplish certain programming tasks. The developers find such examples helpful and reusable, and they also frequently apply them in their daily problem solving or learning activities. The posted code examples are generally viewed and subjectively evaluated (\ie\ voting) by a large crowd of technical users. However, the objective quality of those examples is not often taken into consideration by the developers during reuse. Reusing or consulting with such code examples can be a threat if the promoted (\ie\ up-voted) examples by the crowd maintain low quality in terms of objective code metrics.
+Many of the promoted and discouraged posts (\ie\ either question or answer) of Stack Overflow contain working code snippets that are often reused (\ie\ copy-pasted) by the developers for problem solving or learning new technologies \cite{rabe}. For the sake of simplicity, we consider the snippets from promoted posts as \emph{promoted} code snippets, and vice versa as \emph{discouraged} code snippets. While these snippets might offer desired functionalities, existing study report that their reuse might also introduce unexpected quality issues (\eg\ security vulnerabilities \cite{security}) in the codebase. \citet{understanding} also report that only 49\% of the code snippets from Stack Overflow are self-explanatory. 
+Such findings above beg the question that whether the quality of code snippets perceived by the users of Stack Overflow actually matches with well-established coding practices and principles. In other words, an investigation is warranted whether the promoted and discouraged code snippets can be separated using established code quality metrics and machine learning algorithms or not. This paper reports the findings from such an investigation.
 
-\citet{nasehi} study the characteristics of the accepted answers of 163 programming questions from StackOverflow, and argue that  the accepted answers are most likely to contain efficient and concise code examples accompanied by comprehensive textual description. Their study also reveals that the discouraged (\ie\ extensively down-voted) answers from StackOverflow either do not contain code examples or miss the explanation about the code. \citet{nier} study which type of questions are answered correctly for most of the time, and suggest that the answers of the \emph{code-review questions} (\ie\ containing code examples) have the maximum acceptance rate of 92\%.
-While these studies demonstrate the importance or the influence of StackOverflow code examples, the quality of those examples is not yet studied from metric-based point of view.
-
+\citet{nasehi} study the characteristics of accepted answers of 163 programming questions from StackOverflow, and report that the accepted answers are highly likely to contain efficient and concise code examples accompanied by comprehensive textual explanation. \citet{nier} report that 92\% of the questions that contain a bit of code receive acceptable answers. \citet{qclassification} apply code readability and code level features (\eg\ method length, blank lines) to separate high quality questions from low quality ones. While the above studies suggest potential importance of code segments either in a question or in an answer, they do not address our research problem. 
 \begin{figure*}[!t]
 \centering
-\includegraphics[width=6.8in ]{whole23}
+\includegraphics[width=7in ]{whole23}
 \caption{(a) Promoted code example, (b) Discouraged code example}
 \vspace{-.2cm}
 %\label{fig_sim}
 \label{fig:example}
 \end{figure*}
+Several other studies use code level metrics for determining readability \cite{readability}, reusability \cite{reusability}, evolvability \cite{subjective} or overall quality \cite{lochmann, survey} of the software code. 
+In fact, \citet{subjective} conduct an empirical study to determine correlation between subjective evaluation and metric-based evaluation of software quality (w.r.t. code smells), and suggest that no evaluation alone is completely reliable. While these studies partially address our concern, they were performed on open source projects rather than code snippets. Code snippets from Stack Overflow are generally short, explanatory and often non-compilable. Thus, the findings from the earlier studies above might not apply to our problem context (\ie\ quality of code snippets) properly.     
 
-%Given that the code examples either in question posts or answer posts are of great interest to the community \cite{nasehi, nier}, it is reasonable to conjecture that  StackOverflow users often consult with them or more precisely reuse them in their everyday programming activities. Basically, this increased interest of the community on code examples provides us the motivation for their classification or reevaluation. As \citeauthor{nasehi} suggest, code examples arguably play a major role behind the \emph{acceptance} or \emph{rejection} of a programming answer by the community, 
-%
-%they also can be categorized as \emph{promoted} (\ie\ extracted from promoted answer) or \emph{discouraged} (\ie\ extracted from discouraged answer) ones analogously based on the \emph{scores} of their corresponding posts. However, it is essential to check the code level quality of those code examples given that millions of StackOverflow users are using them for their problem solving. 
 
-%However, the vote score-based classification of the code examples suffers from several limitations. First, the votes can be considered as the quantification of the evaluation by the community users, which is based on their subjective viewpoints. The viewpoints may vary based on the expertise level, interests or demographics of the users, and therefore, the \emph{vote score} may not reflect a representative measure for the quality of the code example. Second, evaluations (\ie\ votes) both from expert and novice users are considered with equal importance which makes the vote score unreliable. Third, vote score of a code example (\ie\ answer post) can be influenced by its age and exposure to the community. That means, a recently introduced good code example may have the vote score equal to that of a moderate quality example introduced long ago; however, the classification does not consider those factors and treats both code examples  as of equal merit. Thus, it is pretty evident that score-based annotation of the code examples is affected by certain unattended factors, and
-A number of existing studies focus on code level metrics for checking readability \cite{readability}, reusability \cite{reusability} or overall quality \cite{lochmann, survey} of the software code. \citet{reusability} studies reusability of 33 open source projects based on code level metrics such as understandability, low complexity and modularity, and proposes 
-a reusability model with different heuristic weights (\ie\ importance) for different metrics. \citet{subjective} conduct an empirical study to determine correlation between subjective evaluation and metric-based evaluation of software quality (w.r.t. code smells), and suggest that no evaluation alone is completely reliable. However, to date, no studies focus on the metric-based quality analysis of the StackOverflow code examples. In this research, we are interested to check whether the perceived quality of the code examples based on code level and associated metrics complies with StackOverflow votes for the corresponding examples. More specifically, we attempt to find out whether the promoted code example (\eg\ Fig. \ref{fig:example}-(a)) is actually preferable to the discouraged one (\eg\ Fig. \ref{fig:example}-(b)) for a programming problem in terms of different objective quality metrics. We formulate the following research question:
+In this paper, we investigate whether the perceived quality of the code snippets by Stack Overflow users matches with the quality estimate based on code level metrics or associated meta data.
+%complies with StackOverflow votes for the corresponding examples. 
+More specifically, we attempt to find out whether the promoted code example (\eg\ Fig. \ref{fig:example}-(a)) is actually preferable to the discouraged one (\eg\ Fig. \ref{fig:example}-(b)) for a programming problem in terms of different objective quality metrics. Given that code quality comprises of multiple aspects, we consider five important aspects--readability, reusability, changability, testability, and low complexity--for this work. We formulate our investigation in terms of following two research questions:
+%We formulate the following research question:
 \begin{framed}
 \noindent
-\textbf{RQ$_1$}: Is the metric-based quality of a discouraged code example worse than that of a promoted code example?
+\textbf{RQ$_1$}: Is the metric-based quality of a promoted code example better than that of a discouraged code example?
+
+\noindent
 \textbf{RQ$_2$}: Can meta data about code examples separate promoted code examples from the discouraged ones?
 
 \end{framed}

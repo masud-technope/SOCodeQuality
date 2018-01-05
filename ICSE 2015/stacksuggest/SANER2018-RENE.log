@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.12)  4 JAN 2018 03:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.11.29)  4 JAN 2018 19:33
 entering extended mode
 **./SANER2018-RENE.tex
 (SANER2018-RENE.tex
-LaTeX2e <2017-04-15>
-Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
+LaTeX2e <2016/03/31> patch level 3
+Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
 (IEEEtran.cls
 Document Class: IEEEtran 2012/12/27 V1.8 by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
@@ -93,13 +93,15 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 Package: alltt 1997/06/16 v2.0g defines alltt environment
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
-Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
+Package: multirow 2016/10/11 v2.1 Span multiple rows of a table
 \multirow@colwidth=\skip44
-\multirow@cntb=\count92
+\multirow@cnta=\count92
+\multirow@cntb=\count93
 \multirow@dima=\skip45
 \bigstrutjot=\dimen117
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\booktabs\booktabs.st
+y
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \heavyrulewidth=\dimen118
 \lightrulewidth=\dimen119
@@ -111,48 +113,48 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \cmidrulesep=\dimen125
 \cmidrulekern=\dimen126
 \defaultaddspace=\dimen127
-\@cmidla=\count93
-\@cmidlb=\count94
+\@cmidla=\count94
+\@cmidlb=\count95
 \@aboverulesep=\dimen128
 \@belowrulesep=\dimen129
-\@thisruleclass=\count95
-\@lastruleclass=\count96
+\@thisruleclass=\count96
+\@lastruleclass=\count97
 \@thisrulewidth=\dimen130
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.st
+y ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
-\lst@mode=\count97
+\lst@mode=\count98
 \lst@gtempboxa=\box27
 \lst@token=\toks16
-\lst@length=\count98
+\lst@length=\count99
 \lst@currlwidth=\dimen131
-\lst@column=\count99
-\lst@pos=\count100
+\lst@column=\count100
+\lst@pos=\count101
 \lst@lostspace=\dimen132
 \lst@width=\dimen133
-\lst@newlines=\count101
-\lst@lineno=\count102
+\lst@newlines=\count102
+\lst@lineno=\count103
 \lst@maxwidth=\dimen134
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count103
-\lst@skipnumbers=\count104
+\c@lstnumber=\count104
+\lst@skipnumbers=\count105
 \lst@framebox=\box28
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cf
+g
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2016/07/10 v1.0t Standard LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
@@ -163,7 +165,7 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
-File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+File: pdftex.def 2016/07/10 v0.06j Graphics/color for pdfTeX
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
@@ -171,20 +173,20 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count105
+\Gread@gobject=\count106
 ))
 \Gin@req@height=\dimen135
 \Gin@req@width=\dimen136
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count106
+\c@float@type=\count107
 \float@exts=\toks17
 \float@box=\box29
 \@float@everytoks=\toks18
 \@floatcapt=\box30
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\cite\cite.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\cite\cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
@@ -195,27 +197,27 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks20
 \verbatim@in@stream=\read1
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mathtools.sty"
-Package: mathtools 2017/05/24 v1.19 mathematical typesetting tools
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mathtools.
+sty
+Package: mathtools 2017/10/30 v1.20 mathematical typesetting tools
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count107
-\calc@Bcount=\count108
+\calc@Acount=\count108
+\calc@Bcount=\count109
 \calc@Adimen=\dimen137
 \calc@Bdimen=\dimen138
 \calc@Askip=\skip46
 \calc@Bskip=\skip47
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count109
+\calc@Ccount=\count110
 \calc@Cskip=\skip48
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mhsetup.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mhsetup.st
+y
 Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
-Package: amsmath 2016/11/05 v2.16a AMS math features
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2016/06/28 v2.15d AMS math features
 \@mathmargin=\skip49
 
 For additional information on amsmath, use the `?' option.
@@ -234,30 +236,30 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count110
-LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count111
-\leftroot@=\count112
-LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count113
-\DOTSCASE@=\count114
-LaTeX Info: Redefining \ldots on input line 472.
-LaTeX Info: Redefining \dots on input line 475.
-LaTeX Info: Redefining \cdots on input line 596.
+\inf@bad=\count111
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count112
+\leftroot@=\count113
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count114
+\DOTSCASE@=\count115
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
 \Mathstrutbox@=\box31
 \strutbox@=\box32
 \big@size=\dimen141
-LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count115
-\c@MaxMatrixCols=\count116
+LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
+\macc@depth=\count116
+\c@MaxMatrixCols=\count117
 \dotsspace@=\muskip10
-\c@parentequation=\count117
-\dspbrk@lvl=\count118
+\c@parentequation=\count118
+\dspbrk@lvl=\count119
 \tag@help=\toks22
-\row@=\count119
-\column@=\count120
-\maxfields@=\count121
+\row@=\count120
+\column@=\count121
+\maxfields@=\count122
 \andhelp@=\toks23
 \eqnshift@=\dimen142
 \alignsep@=\dimen143
@@ -269,14 +271,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \multlinegap=\skip50
 \multlinetaggap=\skip51
 \mathdisplay@stack=\toks25
-LaTeX Info: Redefining \[ on input line 2817.
-LaTeX Info: Redefining \] on input line 2818.
+LaTeX Info: Redefining \[ on input line 2739.
+LaTeX Info: Redefining \] on input line 2740.
 )
+
+LaTeX Warning: You have requested, on input line 116, version
+               `2016/11/05' of package amsmath,
+               but only version
+               `2016/06/28 v2.15d AMS math features'
+               is available.
+
 LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count122
+\g_MT_multlinerow_int=\count123
 \l_MT_multwidth_dim=\dimen148
 \origjot=\skip52
 \l_MT_shortvdotswithinadjustabove_dim=\dimen149
@@ -285,8 +294,7 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_below_intertext_sep=\dimen152
 \l_MT_above_shortintertext_sep=\dimen153
 \l_MT_below_shortintertext_sep=\dimen154
-)
-(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
+) (C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -298,11 +306,11 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\colortbl\colortbl.st
+y
 Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
-Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen155
 \extrarowheight=\dimen156
 \NC@list=\toks26
@@ -312,7 +320,7 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \everycr=\toks27
 \minrowclearance=\skip55
 )
-\rownum=\count123
+\rownum=\count124
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -334,8 +342,9 @@ Package natbib Warning: The `cite' package should not be used
 \bibsep=\skip57
 LaTeX Info: Redefining \cite on input line 694.
 LaTeX Info: Redefining \citenum on input line 708.
-\c@NAT@ctr=\count124
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\mdwtools\syntax.sty"
+\c@NAT@ctr=\count125
+)
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\mdwtools\syntax.sty
 Package: syntax 1996/05/17 1.07 Syntax typesetting (MDW)
 \grammarparsep=\skip58
 \grammarindent=\dimen157
@@ -348,38 +357,41 @@ Package: syntax 1996/05/17 1.07 Syntax typesetting (MDW)
 \sdcirclediam=\dimen159
 \sdindent=\dimen160
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\algorithms\algorithmic.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithms\algorithm
+ic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@ALC@unique=\count125
-\c@ALC@line=\count126
-\c@ALC@rem=\count127
-\c@ALC@depth=\count128
+\c@ALC@unique=\count126
+\c@ALC@line=\count127
+\c@ALC@rem=\count128
+\c@ALC@depth=\count129
 \ALC@tlm=\skip64
 \algorithmicindent=\skip65
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\algorithms\algorithm.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithms\algorithm
+.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 \@float@every@algorithm=\toks28
-\c@algorithm=\count129
+\c@algorithm=\count130
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\enumitem\enumitem.st
+y
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip66
 \enit@outerparindent=\dimen161
 \enit@toks=\toks29
 \enit@inbox=\box33
-\enitdp@description=\count130
+\enitdp@description=\count131
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\threeparttable\threeparttable.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\threeparttable\three
+parttable.sty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box34
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\framed\framed.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\framed\framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip67
 \fb@frw=\dimen162
@@ -387,23 +399,24 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameRule=\dimen164
 \FrameSep=\dimen165
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
-Package: expl3 2017/09/18 L3 programming layer (loader) 
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\l3kernel\expl3.sty
+Package: expl3 2017/11/14 L3 programming layer (loader) 
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex"
-Package: expl3 2017/09/18 L3 programming layer (code)
-\c_max_int=\count131
-\l_tmpa_int=\count132
-\l_tmpb_int=\count133
-\g_tmpa_int=\count134
-\g_tmpb_int=\count135
-\g__intarray_font_int=\count136
-\g__prg_map_int=\count137
-\c_log_iow=\count138
-\l_iow_line_count_int=\count139
-\l__iow_line_target_int=\count140
-\l__iow_one_indent_int=\count141
-\l__iow_indent_int=\count142
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\l3kernel\expl3-code.
+tex
+Package: expl3 2017/11/14 L3 programming layer (code)
+\c_max_int=\count132
+\l_tmpa_int=\count133
+\l_tmpb_int=\count134
+\g_tmpa_int=\count135
+\g_tmpb_int=\count136
+\g__intarray_font_int=\count137
+\g__prg_map_int=\count138
+\c_log_iow=\count139
+\l_iow_line_count_int=\count140
+\l__iow_line_target_int=\count141
+\l__iow_one_indent_int=\count142
+\l__iow_indent_int=\count143
 \c_zero_dim=\dimen166
 \c_max_dim=\dimen167
 \l_tmpa_dim=\dimen168
@@ -422,77 +435,77 @@ Package: expl3 2017/09/18 L3 programming layer (code)
 \l_tmpb_muskip=\muskip15
 \g_tmpa_muskip=\muskip16
 \g_tmpb_muskip=\muskip17
-\l_keys_choice_int=\count143
-\c__fp_leading_shift_int=\count144
-\c__fp_middle_shift_int=\count145
-\c__fp_trailing_shift_int=\count146
-\c__fp_big_leading_shift_int=\count147
-\c__fp_big_middle_shift_int=\count148
-\c__fp_big_trailing_shift_int=\count149
-\c__fp_Bigg_leading_shift_int=\count150
-\c__fp_Bigg_middle_shift_int=\count151
-\c__fp_Bigg_trailing_shift_int=\count152
-\c__fp_rand_size_int=\count153
-\c__fp_rand_four_int=\count154
-\c__fp_rand_eight_int=\count155
-\l__sort_length_int=\count156
-\l__sort_min_int=\count157
-\l__sort_top_int=\count158
-\l__sort_max_int=\count159
-\l__sort_true_max_int=\count160
-\l__sort_block_int=\count161
-\l__sort_begin_int=\count162
-\l__sort_end_int=\count163
-\l__sort_A_int=\count164
-\l__sort_B_int=\count165
-\l__sort_C_int=\count166
-\l__tl_build_start_index_int=\count167
-\l__tl_build_index_int=\count168
-\l__tl_analysis_normal_int=\count169
-\l__tl_analysis_index_int=\count170
-\l__tl_analysis_nesting_int=\count171
-\l__tl_analysis_type_int=\count172
-\l__regex_internal_a_int=\count173
-\l__regex_internal_b_int=\count174
-\l__regex_internal_c_int=\count175
-\l__regex_balance_int=\count176
-\l__regex_group_level_int=\count177
-\l__regex_mode_int=\count178
-\c__regex_cs_in_class_mode_int=\count179
-\c__regex_cs_mode_int=\count180
-\l__regex_catcodes_int=\count181
-\l__regex_default_catcodes_int=\count182
-\c__regex_catcode_D_int=\count183
-\c__regex_catcode_S_int=\count184
-\c__regex_catcode_L_int=\count185
-\c__regex_catcode_O_int=\count186
-\c__regex_catcode_A_int=\count187
-\c__regex_all_catcodes_int=\count188
-\l__regex_show_lines_int=\count189
-\l__regex_min_state_int=\count190
-\l__regex_max_state_int=\count191
-\l__regex_left_state_int=\count192
-\l__regex_right_state_int=\count193
-\l__regex_capturing_group_int=\count194
-\l__regex_min_pos_int=\count195
-\l__regex_max_pos_int=\count196
-\l__regex_curr_pos_int=\count197
-\l__regex_start_pos_int=\count198
-\l__regex_success_pos_int=\count199
-\l__regex_curr_char_int=\count266
-\l__regex_curr_catcode_int=\count267
-\l__regex_last_char_int=\count268
-\l__regex_case_changed_char_int=\count269
-\l__regex_curr_state_int=\count270
-\l__regex_step_int=\count271
-\l__regex_min_active_int=\count272
-\l__regex_max_active_int=\count273
-\l__regex_replacement_csnames_int=\count274
-\l__regex_match_count_int=\count275
-\l__regex_min_submatch_int=\count276
-\l__regex_submatch_int=\count277
-\l__regex_zeroth_submatch_int=\count278
-\g__debug_trace_regex_int=\count279
+\l_keys_choice_int=\count144
+\c__fp_leading_shift_int=\count145
+\c__fp_middle_shift_int=\count146
+\c__fp_trailing_shift_int=\count147
+\c__fp_big_leading_shift_int=\count148
+\c__fp_big_middle_shift_int=\count149
+\c__fp_big_trailing_shift_int=\count150
+\c__fp_Bigg_leading_shift_int=\count151
+\c__fp_Bigg_middle_shift_int=\count152
+\c__fp_Bigg_trailing_shift_int=\count153
+\c__fp_rand_size_int=\count154
+\c__fp_rand_four_int=\count155
+\c__fp_rand_eight_int=\count156
+\l__sort_length_int=\count157
+\l__sort_min_int=\count158
+\l__sort_top_int=\count159
+\l__sort_max_int=\count160
+\l__sort_true_max_int=\count161
+\l__sort_block_int=\count162
+\l__sort_begin_int=\count163
+\l__sort_end_int=\count164
+\l__sort_A_int=\count165
+\l__sort_B_int=\count166
+\l__sort_C_int=\count167
+\l__tl_build_start_index_int=\count168
+\l__tl_build_index_int=\count169
+\l__tl_analysis_normal_int=\count170
+\l__tl_analysis_index_int=\count171
+\l__tl_analysis_nesting_int=\count172
+\l__tl_analysis_type_int=\count173
+\l__regex_internal_a_int=\count174
+\l__regex_internal_b_int=\count175
+\l__regex_internal_c_int=\count176
+\l__regex_balance_int=\count177
+\l__regex_group_level_int=\count178
+\l__regex_mode_int=\count179
+\c__regex_cs_in_class_mode_int=\count180
+\c__regex_cs_mode_int=\count181
+\l__regex_catcodes_int=\count182
+\l__regex_default_catcodes_int=\count183
+\c__regex_catcode_D_int=\count184
+\c__regex_catcode_S_int=\count185
+\c__regex_catcode_L_int=\count186
+\c__regex_catcode_O_int=\count187
+\c__regex_catcode_A_int=\count188
+\c__regex_all_catcodes_int=\count189
+\l__regex_show_lines_int=\count190
+\l__regex_min_state_int=\count191
+\l__regex_max_state_int=\count192
+\l__regex_left_state_int=\count193
+\l__regex_right_state_int=\count194
+\l__regex_capturing_group_int=\count195
+\l__regex_min_pos_int=\count196
+\l__regex_max_pos_int=\count197
+\l__regex_curr_pos_int=\count198
+\l__regex_start_pos_int=\count199
+\l__regex_success_pos_int=\count266
+\l__regex_curr_char_int=\count267
+\l__regex_curr_catcode_int=\count268
+\l__regex_last_char_int=\count269
+\l__regex_case_changed_char_int=\count270
+\l__regex_curr_state_int=\count271
+\l__regex_step_int=\count272
+\l__regex_min_active_int=\count273
+\l__regex_max_active_int=\count274
+\l__regex_replacement_csnames_int=\count275
+\l__regex_match_count_int=\count276
+\l__regex_min_submatch_int=\count277
+\l__regex_submatch_int=\count278
+\l__regex_zeroth_submatch_int=\count279
+\g__debug_trace_regex_int=\count280
 \c_empty_box=\box35
 \l_tmpa_box=\box36
 \l_tmpb_box=\box37
@@ -534,17 +547,18 @@ Package: expl3 2017/09/18 L3 programming layer (code)
 \l__coffin_scaled_total_height_dim=\dimen195
 \l__coffin_scaled_width_dim=\dimen196
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\l3kernel\l3pdfmode.d
+ef
 File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count280
+\l__driver_color_stack_int=\count281
 \l__driver_tmp_box=\box50
 ))
 \supbox=\box51
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.st
+y
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(SANER2018-RENE.aux)
+) (SANER2018-RENE.aux)
 \openout1 = `SANER2018-RENE.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 139.
@@ -559,23 +573,23 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 139.
 LaTeX Font Info:    ... okay on input line 139.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 139.
 LaTeX Font Info:    ... okay on input line 139.
-\c@lstlisting=\count281
+\c@lstlisting=\count282
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(C:\Users\MasudRahman\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count282
+\scratchcounter=\count283
 \scratchdimen=\dimen197
 \scratchbox=\box52
-\nofMPsegments=\count283
-\nofMParguments=\count284
+\nofMPsegments=\count284
+\nofMParguments=\count285
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count285
+\MPscratchCnt=\count286
 \MPscratchDim=\dimen198
-\MPnumerator=\count286
-\makeMPintoPDFobject=\count287
+\MPnumerator=\count287
+\makeMPintoPDFobject=\count288
 \everyMPtoPDFconversion=\toks31
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
-Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
 )
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
@@ -583,7 +597,7 @@ Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -632,22 +646,31 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 <whole23.png, id=1, 1137.4997pt x 209.28188pt>
 File: whole23.png Graphic file (type png)
  <use whole23.png>
-Package pdftex.def Info: whole23.png used on input line 252.
-(pdftex.def)             Requested size: 491.43622pt x 90.41734pt.
+Package pdftex.def Info: whole23.png used on input line 250.
+(pdftex.def)             Requested size: 505.89pt x 93.07744pt.
 
-<sysdiag.png, id=3, 489.32813pt x 216.05719pt>
+Underfull \vbox (badness 10000) detected at line 271
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{C:/Users/MasudRahman/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+]
+<sysdiag.png, id=14, 489.32813pt x 216.05719pt>
 File: sysdiag.png Graphic file (type png)
  <use sysdiag.png>
 Package pdftex.def Info: sysdiag.png used on input line 283.
 (pdftex.def)             Requested size: 224.03743pt x 98.92265pt.
- [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
-
-
-] [2 <./whole23.png> <./sysdiag.png>]
+ [2 <./whole23.png> <./sysdiag.png>] [3]
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <7> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 400.
-
-[3] (SANER2018-RENE.bbl [4])
+ [4] (SANER2018-RENE.bbl
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no ¶ in font ptmr7t!
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -663,13 +686,13 @@ Before submitting the final camera ready copy, remember to:
 
 ] (SANER2018-RENE.aux) ) 
 Here is how much of TeX's memory you used:
- 14291 strings out of 493323
- 253790 string characters out of 3139047
- 336145 words of memory out of 3000000
- 17699 multiletter control sequences out of 15000+200000
+ 14362 strings out of 493333
+ 255962 string characters out of 3139175
+ 335395 words of memory out of 3000000
+ 17761 multiletter control sequences out of 15000+200000
  569829 words of font info for 88 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,18n,40p,10345b,319s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,18n,40p,10345b,318s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.en
 c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Fil
@@ -682,7 +705,7 @@ sy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 
 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
 rw/times/utmri8a.pfb>
-Output written on SANER2018-RENE.pdf (5 pages, 231700 bytes).
+Output written on SANER2018-RENE.pdf (5 pages, 233357 bytes).
 PDF statistics:
  71 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

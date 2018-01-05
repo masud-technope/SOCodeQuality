@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{18}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -17,6 +17,18 @@ Readability {L}ibrary.
 Stack{O}verflow.
 \newblock URL \url{http://en.wikipedia.org/wiki/Stack_Overflow}.
 
+\bibitem[Abdalkareem et~al.(2017)Abdalkareem, Shihab, and Rilling]{rabe}
+R.~Abdalkareem, E.~Shihab, and J.~Rilling.
+\newblock On code reuse from stackoverflow: An exploratory study on android
+  apps.
+\newblock \emph{Information and Software Technology}, 88\penalty0 (Supplement
+  C):\penalty0 148 -- 158, 2017.
+
+\bibitem[Bajracharya and Lopes(2012)]{koderlog}
+S.~K. Bajracharya and C.~V. Lopes.
+\newblock Analyzing and mining a code search engine usage log.
+\newblock \emph{EMSE}, 17\penalty0 (4-5):\penalty0 424--466, 2012.
+
 \bibitem[Brandt et~al.(2009)Brandt, Guo, Lewenstein, Dontcheva, and
   Klemmer]{twostudy}
 J.~Brandt, P.J. Guo, J.~Lewenstein, M.~Dontcheva, and S.R. Klemmer.
@@ -28,6 +40,25 @@ J.~Brandt, P.J. Guo, J.~Lewenstein, M.~Dontcheva, and S.R. Klemmer.
 R.P.L. Buse and W.R. Weimer.
 \newblock {L}earning a {M}etric for {C}ode {R}eadability.
 \newblock \emph{TSE}, 36\penalty0 (4):\penalty0 546--558, 2010.
+
+\bibitem[Campbell and Treude(2017)]{nlp2code}
+B.~A. Campbell and C.~Treude.
+\newblock Nlp2code: Code snippet content assist via natural language tasks.
+\newblock In \emph{Proc. ICSME}, pages 628--632, 2017.
+
+\bibitem[Duijn et~al.(2015)Duijn, Kucera, and Bacchelli]{qclassification}
+M.~Duijn, A.~Kucera, and A.~Bacchelli.
+\newblock Quality questions need quality code: Classifying code fragments on
+  stack overflow.
+\newblock In \emph{Proc. MSR}, pages 410--413, 2015.
+
+\bibitem[Fischer et~al.(2017)Fischer, Böttinger, Xiao, Stransky, Acar, Backes,
+  and Fahl]{security}
+F.~Fischer, K.~Böttinger, H.~Xiao, C.~Stransky, Y.~Acar, M.~Backes, and
+  S.~Fahl.
+\newblock Stack overflow considered harmful? the impact of copy paste on
+  android application security.
+\newblock In \emph{Proc. SP}, pages 121--136, 2017.
 
 \bibitem[Le~Goues and Weimer(2012)]{specmining}
 C.~Le~Goues and W.~Weimer.
@@ -62,6 +93,11 @@ F.~Taibi.
 \newblock Reusability of {O}pen-{S}ource {P}rogram {C}ode: {A} {C}onceptual
   {M}odel and {E}mpirical {I}nvestigation.
 \newblock \emph{SE Notes}, 38\penalty0 (4), 2013.
+
+\bibitem[Treude and Robillard(2017)]{understanding}
+C.~Treude and M.~P. Robillard.
+\newblock Understanding stack overflow code fragments.
+\newblock In \emph{Proc. ICSME}, pages 509--513, 2017.
 
 \bibitem[Treude et~al.(2011)Treude, Barzilay, and Storey]{nier}
 C.~Treude, O.~Barzilay, and M.A. Storey.
