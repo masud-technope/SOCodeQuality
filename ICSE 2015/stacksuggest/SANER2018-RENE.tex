@@ -67,7 +67,6 @@
 \usepackage{enumitem}
 \usepackage{threeparttable}
 \usepackage{framed}
-
 \usepackage{expl3}
 \ExplSyntaxOn
 \newcommand\latinabbrev[1]{
@@ -77,6 +76,20 @@
       #1., \@ }%
     {#1., \@}}}
 \ExplSyntaxOff
+
+\usepackage{tikz}
+\usepackage{verbatim}
+\usetikzlibrary{arrows,shapes,backgrounds}
+
+\tikzstyle{vertex}=[ellipse,fill=black!25,minimum size=20pt, inner sep=0pt]
+%\tikzstyle{selected vertex} = [vertex, fill=red!24]
+\tikzstyle{edge} = [draw,thin,-]
+\tikzstyle{glabel} = [text width=1cm,text centered,font=\bf]
+\pgfdeclarelayer{bg}    % declare background layer
+\pgfsetlayers{bg,main}  
+
+
+
 
 %switch case statement
 \newcommand{\SWITCH}[1]{\STATE \textbf{switch} (#1)}
@@ -259,16 +272,17 @@ In fact, \citet{subjective} conduct an empirical study to determine correlation 
 
 In this paper, we investigate whether the perceived quality of the code snippets by Stack Overflow users matches with the quality estimate based on code level metrics or associated meta data.
 %complies with StackOverflow votes for the corresponding examples. 
-More specifically, we attempt to find out whether the promoted code example (\eg\ Fig. \ref{fig:example}-(a)) is actually preferable to the discouraged one (\eg\ Fig. \ref{fig:example}-(b)) for a programming problem in terms of different objective quality metrics. Given that code quality comprises of multiple aspects, we consider five important aspects--readability, reusability, changability, testability, and low complexity--for this work. We formulate our investigation in terms of following two research questions:
+More specifically, we attempt to find out whether the promoted code example (\eg\ Fig. \ref{fig:example}-(a)) is actually preferable to the discouraged one (\eg\ Fig. \ref{fig:example}-(b)) for a programming problem in terms of different objective quality metrics. Given that code quality comprises of multiple aspects, we consider five important aspects--\emph{readability, reusability, changability, testability}, and \emph{low complexity}--in this work to estimate the quality of a code snippet. We formulate our investigation in terms of following two research questions:
+\begin{itemize}
+	\item \textbf{RQ$_1$}: Is metric-based quality of a promoted code example better than that of a discouraged code example?
+	\item \textbf{RQ$_2$}: Can meta data about code examples separate promoted code examples from the discouraged ones?
+\end{itemize}
+
 %We formulate the following research question:
-\begin{framed}
-\noindent
-\textbf{RQ$_1$}: Is the metric-based quality of a promoted code example better than that of a discouraged code example?
-
-\noindent
-\textbf{RQ$_2$}: Can meta data about code examples separate promoted code examples from the discouraged ones?
-
-\end{framed}
+%\begin{framed}
+%\noindent
+%\noindent
+%\end{framed}
 %\vspace{-.15cm}
 %\begin{itemize}
 %\setlength{\topsep}{0pt}
@@ -276,16 +290,94 @@ More specifically, we attempt to find out whether the promoted code example (\eg
 %\item RQ2: Why does not the metric-based classification of the code examples completely agree with vote score-based classification by StackOverflow?
 %\end{itemize}
 %\vspace{-.15cm}
-We conduct an exploratory study using 160 highly promoted and highly discouraged code examples (\ie\ code fragments) from 80 programming problems posted on StackOverflow. We apply five code level metrics-- \emph{readability}, \emph{strength}, \emph{concern}, \emph{documentation} and \emph{methodexist} and two associated metrics-- \emph{authorscore} and \emph{editorscore}, and develop a objective quality model to perceive the quality of those code examples.  Our model agrees with StackOverflow for 85.18\% of the test examples in \emph{relative quality prediction}, which is promising, and it reveals the effectiveness and reliability of the subjective evaluation by StackOverflow. We also investigate the examples for which the model does not agree with StackOverflow on quality analysis, and finally answer the research question.
-%The rest of the paper is organized as follows -- Section \ref{sec:theory}  focuses on our adopted methodology and code quality metrics, Section \ref{sec:experiment} discusses the conducted experiments and findings, and finally Section \ref{sec:conclusion} concludes the paper with future works.
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3.1in]{sysdiag}
-\caption{Schematic diagram of the conducted study}
-\vspace{-.2cm}
-\label{fig:sysdiag}
+Our investigation employs 160 highly promoted and highly discouraged code snippets from 80 programming Q \& A threads from Stack Overflow, XX code level metrics and YY meta data level metrics from the literature, and three machine learning algorithms. Our investigation reports several counter-intuitive but important findings as follows:  
+
+
+The rest of the paper is organized as follows -- Section \ref{sec:theory}  focuses on our adopted methodology and code quality metrics, Section \ref{sec:experiment} discusses the conducted experiments and findings, and finally Section \ref{sec:conclusion} concludes the paper with future works.
+
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.45in]{sysdiag}
+%\caption{Schematic diagram of the conducted study}
+%\vspace{-.2cm}
+%\label{fig:sysdiag}
+%\end{figure}
+%\vspace{-.2cm}
+
+
+\begin{figure}
+	\centering
+	\resizebox{3.35in}{!}{%
+		\begin{tikzpicture}[scale=.9, auto,swap]
+			
+		\begin{pgfonlayer}{bg}
+		\node[inner sep=0pt] (cm) at (-2,2.20)
+		{\includegraphics[width=.4in]{./sysdiag/cmetric.png}};
+		\node at (-2,3.5) (b) {Code quality metrics};
+		\node at (-2,3.1) (b) {\& meta data [\textbf{input}]};
+		\node[inner sep=0pt] (posts) at (-2,.7)
+		{\includegraphics[scale=.5]{./sysdiag/posts.png}};
+		\node at (-2,-.3) (b) {Questions \& answers};
+		\node at (-2,-.7) (b) {[\textbf{input}]};
+		\node[inner sep=0pt] (vote) at (-2,-1.5)
+		{\includegraphics[width=.75in]{./sysdiag/updown.jpg}};
+		\node at (-2,-2.4) (b) {User votes [\textbf{input}]};
+		
+		
+		\node[inner sep=0pt] (ce) at (1.5,0.7)
+		{\includegraphics[width=.35in]{./sysdiag/code.png}};
+		\node at (1.2,-.3) (b) {Code};
+		\node at (1.2,-.8) (b) {examples};
+		\draw[->,thick] (posts) -- (ce);
+		\node at (-.25,1) (b) {Data cleansing};
+		
+		
+		\node[inner sep=0pt] (mclass) at (3.2,2.2)
+		{\includegraphics[width=.4in]{./sysdiag/mclass.png}};
+		\node at (3.2,3.5) (b) {Metric-based};
+		\node at (3.2,3.1) (b) {classification};
+		%\node at (3.2,0.8) (b) {\scriptsize bug reports};
+		\draw[->,thick] (cm) -- (mclass);
+		\draw[->,thick] (ce) -- (mclass);
+		
+		
+		
+		\node[inner sep=0pt] (sclass) at (3.2,-1.5)
+		{\includegraphics[width=.5in]{./sysdiag/sclass.png}};
+		\node[inner sep=0pt] (pd) at (4.2,-1.4)
+		{\includegraphics[width=.2in]{./sysdiag/pd-code.png}};
+		\node at (3.2,-2.4) (b) {Score-based classification};
+		\draw[->,thick] (vote) -- (sclass);
+		\draw[->,thick] (ce) -- (sclass);
+		\draw[->,thick] (sclass) -- (mclass);
+	
+		
+		\node[inner sep=0pt] (ag) at (5.5,0.7)
+		{\includegraphics[width=.50in]{./sysdiag/agreement.jpg}};
+		\node at (5.7,-.3) (b) {Agreement};
+		\node at (5.7,-.7) (b) {analysis};
+		\draw[->,thick] (mclass) -- (ag);
+		\draw[->,thick] (sclass) -- (ag);
+		
+		\node at (7.5,1.5) [ellipse,draw,fill=orange!20] (rq1) {RQ$_1$};
+		\node at (7.5,0) [ellipse,draw,fill=gray!20] (rq2) {RQ$_2$};
+		\draw[->,thick] (ag) -- (rq1);
+		\draw[->,thick] (ag) -- (rq2);
+		
+		\node at (6.7,-1.3) (b) {[\textbf{Output}]};
+		
+		\end{pgfonlayer}
+		\end{tikzpicture}
+	}
+	\vspace{-.3cm}
+	\caption{Schematic diagram of the comparative study}
+	\label{fig:sysdiag}
+	\vspace{-.6cm}
 \end{figure}
-\vspace{-.2cm}
+
+
+
+
 \section{Methodology}
 \label{sec:theory}
 Fig. \ref{fig:sysdiag} shows the schematic diagram of our conducted study.
@@ -300,7 +392,7 @@ Finally, as discussed in Section \ref{sec:voteclass} below, we select two code e
 
 %We collect the latest data dump\cite{dump} provided under creative commons, and extract 75 programming questions and their corresponding answers from it. It should be noted that each of those questions has \emph{more than ten answers that contain code examples}. The idea is to select questions which are widely discussed and coding related. We extract the code examples from the raw HTML of StackOverflow answers, and manually analyze those examples. We find that most of them are not directly compilable (\ie\ necessary to determine a few metrics), and we perform simple tweaking (\eg\ adding import statements or semicolons, declaring undeclared variables and so on) on the examples to make them compilable. However, we also find some code examples are too trivial or they cannot be compiled at all with simple tweaking, which are discarded. Finally, we select 55 programming questions and 110 promoted and discouraged code examples posted in their answers for the study. As discussed in Section \ref{sec:voteclass} below, we select two code examples out of all examples for each question, and one of them is highly promoted (\eg\ up-voted) and the other is highly discouraged (\eg\ down-voted).
 \vspace{-.1cm}
-\subsection{Vote Based Classification}\label{sec:voteclass}
+\subsection{Score-Based Classification}\label{sec:voteclass}
 In StackOverflow, the technical merit or quality of a programming answer is recognized in terms of votes \cite{nasehi}, and code examples are generally posted as a part of those answers. Existing studies \cite{nasehi, nier} report and explain the undeniable role of code examples in the promotion or demotion of the posted answers. Thus the votes cast by thousands of technical users of StackOverflow for those answers can also be considered to approximate the subjective quality of the code examples contained by those answers. Given that the subjective perception of quality may vary, we choose the code examples of two extreme quality perceptions-- highly promoted and highly discouraged. We examine the \emph{scores} (\ie\ difference between up-votes and down-votes) 
 achieved to date (\ie\ November 01, 2014) by different answers for each of the 80 programming questions. We then choose the corresponding code examples from the highly promoted (\ie\ up-voted) and the highly discouraged (\ie\ down-voted) answers for each question, and classify them as \emph{highly promoted} and \emph{highly discouraged} code examples respectively.
 %of the code examples, and calculate \emph{vote score per day} for each of them. Then, based on the scores gained per day, we choose \emph{a highly promoted} (\eg\ highest scores gained per day) and \emph{a highly discouraged} (\eg\ lowest scores gained per day) code examples for each of 55 questions. 
