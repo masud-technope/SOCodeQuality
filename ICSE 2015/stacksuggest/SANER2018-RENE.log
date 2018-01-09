@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.11.29)  5 JAN 2018 12:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.11.29)  8 JAN 2018 19:30
 entering extended mode
 **./SANER2018-RENE.tex
 (SANER2018-RENE.tex
@@ -1041,66 +1041,66 @@ Package pdftex.def Info: whole23.png used on input line 263.
 
 
 ]
-<./sysdiag/cmetric.png, id=18, 96.36pt x 96.36pt>
+<./sysdiag/cmetric.png, id=19, 96.36pt x 96.36pt>
 File: ./sysdiag/cmetric.png Graphic file (type png)
  <use ./sysdiag/cmetric.png>
-Package pdftex.def Info: ./sysdiag/cmetric.png used on input line 371.
+Package pdftex.def Info: ./sysdiag/cmetric.png used on input line 372.
 (pdftex.def)             Requested size: 28.90755pt x 28.90674pt.
 
-<./sysdiag/posts.png, id=19, 109.1578pt x 59.47218pt>
+<./sysdiag/posts.png, id=20, 109.1578pt x 59.47218pt>
 File: ./sysdiag/posts.png Graphic file (type png)
 
 <use ./sysdiag/posts.png>
-Package pdftex.def Info: ./sysdiag/posts.png used on input line 371.
+Package pdftex.def Info: ./sysdiag/posts.png used on input line 372.
 (pdftex.def)             Requested size: 54.57877pt x 29.73601pt.
 
-<./sysdiag/updown.jpg, id=20, 334.24875pt x 151.56625pt>
+<./sysdiag/updown.jpg, id=21, 334.24875pt x 151.56625pt>
 File: ./sysdiag/updown.jpg Graphic file (type jpg)
 
 <use ./sysdiag/updown.jpg>
-Package pdftex.def Info: ./sysdiag/updown.jpg used on input line 371.
+Package pdftex.def Info: ./sysdiag/updown.jpg used on input line 372.
 (pdftex.def)             Requested size: 54.2025pt x 24.57718pt.
 
-<./sysdiag/code.png, id=21, 35.38219pt x 40.65187pt>
+<./sysdiag/code.png, id=22, 35.38219pt x 40.65187pt>
 File: ./sysdiag/code.png Graphic file (type png)
  <use ./sysdiag/code.png>
-Package pdftex.def Info: ./sysdiag/code.png used on input line 371.
+Package pdftex.def Info: ./sysdiag/code.png used on input line 372.
 (pdftex.def)             Requested size: 25.29494pt x 29.06276pt.
 
-<./sysdiag/mclass.png, id=22, 37.64063pt x 34.62938pt>
+<./sysdiag/mclass.png, id=23, 37.64063pt x 34.62938pt>
 File: ./sysdiag/mclass.png Graphic file (type png)
 
 <use ./sysdiag/mclass.png>
-Package pdftex.def Info: ./sysdiag/mclass.png used on input line 371.
+Package pdftex.def Info: ./sysdiag/mclass.png used on input line 372.
 (pdftex.def)             Requested size: 28.90755pt x 26.596pt.
 
-<./sysdiag/sclass.png, id=23, 42.1575pt x 42.1575pt>
+<./sysdiag/sclass.png, id=24, 42.1575pt x 42.1575pt>
 File: ./sysdiag/sclass.png Graphic file (type png)
 
 <use ./sysdiag/sclass.png>
-Package pdftex.def Info: ./sysdiag/sclass.png used on input line 371.
+Package pdftex.def Info: ./sysdiag/sclass.png used on input line 372.
 (pdftex.def)             Requested size: 36.135pt x 36.13571pt.
 
-<./sysdiag/pd-code.png, id=24, 39.14626pt x 94.85437pt>
+<./sysdiag/pd-code.png, id=25, 39.14626pt x 94.85437pt>
 File: ./sysdiag/pd-code.png Graphic file (type png)
 
 <use ./sysdiag/pd-code.png>
-Package pdftex.def Info: ./sysdiag/pd-code.png used on input line 371.
+Package pdftex.def Info: ./sysdiag/pd-code.png used on input line 372.
 (pdftex.def)             Requested size: 14.45377pt x 35.02174pt.
 
-<./sysdiag/agreement.jpg, id=25, 401.5pt x 385.44pt>
+<./sysdiag/agreement.jpg, id=26, 401.5pt x 385.44pt>
 File: ./sysdiag/agreement.jpg Graphic file (type jpg)
 
 <use ./sysdiag/agreement.jpg>
-Package pdftex.def Info: ./sysdiag/agreement.jpg used on input line 371.
+Package pdftex.def Info: ./sysdiag/agreement.jpg used on input line 372.
 (pdftex.def)             Requested size: 36.135pt x 34.6881pt.
  [2 <./whole23.png> <./sysdiag/cmetric.png> <./sysdiag/posts.png> <./sysdiag/up
 down.jpg> <./sysdiag/code.png> <./sysdiag/mclass.png> <./sysdiag/sclass.png> <.
 /sysdiag/pd-code.png> <./sysdiag/agreement.jpg>]
+[3]
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 492.
-
-[3] (SANER2018-RENE.bbl [4]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 494.
+ (SANER2018-RENE.bbl [4]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
 )
@@ -1119,28 +1119,29 @@ Before submitting the final camera ready copy, remember to:
 
 ] (SANER2018-RENE.aux) ) 
 Here is how much of TeX's memory you used:
- 26343 strings out of 493333
- 538434 string characters out of 3139175
- 604145 words of memory out of 3000000
- 29482 multiletter control sequences out of 15000+200000
- 569829 words of font info for 88 fonts, out of 3000000 for 9000
+ 26349 strings out of 493333
+ 538493 string characters out of 3139175
+ 603145 words of memory out of 3000000
+ 29485 multiletter control sequences out of 15000+200000
+ 570756 words of font info for 91 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,67p,10345b,743s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.en
-c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
-rw/times/utmri8a.pfb>
-Output written on SANER2018-RENE.pdf (5 pages, 254788 bytes).
+c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+y10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
+utmri8a.pfb>
+Output written on SANER2018-RENE.pdf (5 pages, 262550 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
+ 87 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -272,10 +272,11 @@ In fact, \citet{subjective} conduct an empirical study to determine correlation 
 
 In this paper, we investigate whether the perceived quality of the code snippets by Stack Overflow users matches with the quality estimate based on code level metrics or associated meta data.
 %complies with StackOverflow votes for the corresponding examples. 
-More specifically, we attempt to find out whether the promoted code example (\eg\ Fig. \ref{fig:example}-(a)) is actually preferable to the discouraged one (\eg\ Fig. \ref{fig:example}-(b)) for a programming problem in terms of different objective quality metrics. Given that code quality comprises of multiple aspects, we consider five important aspects--\emph{readability, reusability, changability, testability}, and \emph{low complexity}--in this work to estimate the quality of a code snippet. We formulate our investigation in terms of following two research questions:
+More specifically, we attempt to find out whether the promoted code example (\eg\ Fig. \ref{fig:example}-(a)) is actually preferable to the discouraged one (\eg\ Fig. \ref{fig:example}-(b)) for a programming problem in terms of different objective quality metrics. Given that code quality comprises of multiple aspects, we consider five important aspects--\emph{readability, reusability, changability, testability}, and \emph{low complexity}--in this work to estimate the quality of a code snippet. We formulate our investigation in terms of following three research questions:
 \begin{itemize}
-	\item \textbf{RQ$_1$}: Is metric-based quality of a promoted code example better than that of a discouraged code example?
-	\item \textbf{RQ$_2$}: Can meta data about code examples separate promoted code examples from the discouraged ones?
+	%\item \textbf{RQ$\mathbf{_1}$}: How promoted answers are different from the discouraged answers of Stack Overflow Q \& A site?
+	\item \textbf{RQ$\mathbf{_1}$}: Is metric-based quality of a promoted code example better than that of a discouraged code example?
+	\item \textbf{RQ$\mathbf{_2}$}: Can meta data about code examples separate promoted code examples from the discouraged ones?
 \end{itemize}
 
 %We formulate the following research question:
@@ -290,7 +291,7 @@ More specifically, we attempt to find out whether the promoted code example (\eg
 %\item RQ2: Why does not the metric-based classification of the code examples completely agree with vote score-based classification by StackOverflow?
 %\end{itemize}
 %\vspace{-.15cm}
-Our investigation employs 160 highly promoted and highly discouraged code snippets from 80 programming Q \& A threads from Stack Overflow, XX code level metrics and YY meta data level metrics from the literature, and three machine learning algorithms. Our investigation reports several counter-intuitive but important findings as follows:  
+Our investigation employs 310 highly promoted and highly discouraged code snippets from 155 programming Q \& A threads from Stack Overflow, XX code level metrics and YY meta data level metrics from the literature, and three machine learning algorithms. Our investigation reports several counter-intuitive but important findings as follows:  
 
 
 The rest of the paper is organized as follows -- Section \ref{sec:theory}  focuses on our adopted methodology and code quality metrics, Section \ref{sec:experiment} discusses the conducted experiments and findings, and finally Section \ref{sec:conclusion} concludes the paper with future works.
@@ -382,7 +383,10 @@ Fig. \ref{fig:sysdiag} shows the schematic diagram of our comparative study.
 %our approach for objective quality analysis of StackOverflow code examples. 
 In this section, we discuss the detailed design of the study, our adopted code level metrics, meta data and models for objective quality estimation of StackOverflow code snippets as follows:
 \subsection{Data Collection}
-We use StackExchange Data API \cite{api} (\ie\ provides access to the data of several StackExchange sites), and collect 80 programming questions along with their answers from StackOverflow which are related to \emph{android platform} and \emph{android applications}.
+We collect a total of 310 code snippets (\ie\ promoted 155, discouraged 155) from 155 programming Q \& A threads of Stack Overflow related to 15 popular topics \cite{understanding}. We use StackExchange Data API \cite{api}
+
+ 
+(\ie\ provides access to the data of several StackExchange sites), and collect 80 programming questions along with their answers from StackOverflow which are related to \emph{android platform} and \emph{android applications}.
 It should be noted that each of those questions has more than \emph{ten answers} that contain \emph{code examples}. The idea is to collect such questions which are both widely discussed and related to coding. 
 We choose three top-ranked and three lowest-ranked answers based on StackOverflow votes for each of those questions. We then extract code examples from the raw HTML of those StackOverflow answers, and manually analyze them.
 We look for trivial examples such as \emph{novice's examples} (\ie\ intended for novice users), \emph{abstract examples} (\ie\ too generic) or \emph{small examples} (\ie\ contains less than three lines of code), and discard them in order to develop a list of qualified examples. 
