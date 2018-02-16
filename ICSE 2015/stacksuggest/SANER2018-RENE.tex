@@ -373,8 +373,9 @@ The rest of the paper is organized as follows -- Section \ref{sec:theory}  focus
 	\vspace{-.3cm}
 	\caption{Schematic diagram of the comparative study}
 	\label{fig:sysdiag}
-	\vspace{-.6cm}
+	%\vspace{-.6cm}
 \end{figure}
+
 
 
 \section{Methodology}
@@ -382,10 +383,50 @@ The rest of the paper is organized as follows -- Section \ref{sec:theory}  focus
 Fig. \ref{fig:sysdiag} shows the schematic diagram of our comparative study.
 %our approach for objective quality analysis of StackOverflow code examples. 
 In this section, we discuss the detailed design of the study, our adopted code level metrics, meta data and models for objective quality estimation of StackOverflow code snippets as follows:
-\subsection{Data Collection}
-We collect a total of 310 code snippets (\ie\ promoted 155, discouraged 155) from 155 programming Q \& A threads of Stack Overflow related to 15 popular topics \cite{understanding}. We use StackExchange Data API \cite{api}
 
- 
+\begin{table}[!tb]
+	\centering
+	\caption{Study Dataset}\label{table:dataset}
+	\vspace{-.2cm}
+	\resizebox{3.45in}{!}{%
+		\begin{threeparttable}
+			\begin{tabular}{l|l|c|c}
+				\hline
+				\textbf{Topic} & \textbf{Tags} & \textbf{Threads} & \textbf{Selected}\\
+				\hline
+				Hibernate & \texttt{<java><hibernate>}& & 15\\
+				\hline
+				Concurrency & \texttt{<java><java.util.concurrent>} & & 05\\
+				\hline
+				Scanner & \texttt{<java><java.util.scanner>} & & 10\\
+				\hline
+				Java2D & \texttt{<java><java-2d>}& & 05 \\
+				\hline
+				Java Beans & \texttt{<java><javabeans>} & & 05\\
+				\hline
+				Java IO & \texttt{<java><java-io>} & & 10 \\
+				\hline
+				Java Mail & \texttt{<java><javamail>}& & 05 \\
+				\hline
+				Java Stream & \texttt{<java><java-stream>}& & 10\\
+				\hline
+				JAXB & \texttt{<java><jaxb>}& & 15 \\
+				\hline
+				
+				JDBC & \texttt{<java><jdbc>}& & 10 \\
+				\hline
+			\end{tabular}
+		\end{threeparttable}
+		
+		%\vspace{-.2cm}
+	}
+	\vspace{-.5cm}
+\end{table}
+
+\subsection{Data Collection}
+We collect a total of 310 code snippets (\ie\ promoted 155, discouraged 155) from 155 programming Q \& A threads of Stack Overflow that are related to 15 popular topics \cite{understanding}. We use StackExchange Data API \cite{api} for collecting the questions and answers. We first identify questions that deal with Java programming problems related to the topics presented in Table \ref{table:topic}.
+
+
 (\ie\ provides access to the data of several StackExchange sites), and collect 80 programming questions along with their answers from StackOverflow which are related to \emph{android platform} and \emph{android applications}.
 It should be noted that each of those questions has more than \emph{ten answers} that contain \emph{code examples}. The idea is to collect such questions which are both widely discussed and related to coding. 
 We choose three top-ranked and three lowest-ranked answers based on StackOverflow votes for each of those questions. We then extract code examples from the raw HTML of those StackOverflow answers, and manually analyze them.
@@ -522,11 +563,6 @@ $^1$Correlation, $^2$p-value
 }
 \vspace{-.5cm}
 \end{table}
-
-
-
-
-
 
 % that the answer is \emph{yes} for about 78\% of the time.
 \emph{RQ: Is the code level quality of a discouraged code example worse than that of a promoted code example?} Our preliminary results (Table \ref{table:result}) indicate that the code quality of discouraged code examples is worse than that of promoted code examples in 78\% of the examples. Based on the subjective evaluation (\eg\ score per day) by StackOverflow, we estimated the relative quality of the two code examples against each of our selected questions, and determined the \emph{promoted} and the \emph{discouraged} ones. In order to determine their code level quality, we collected the target quality metrics (Section \ref{sec:metrics}) of each code example, and applied them to the proposed quality model. The model provides an estimate about the quality of each example, and we used those estimates to determine the relative code quality of the two code examples against a question. Then we compared the metric-based relative quality against the corresponding relative quality obtained from subjective evaluation. The result shows that the discouraged code examples are of inferior quality in terms of code metrics to the promoted ones for 43 (78.18\%) test cases out of 55 cases.

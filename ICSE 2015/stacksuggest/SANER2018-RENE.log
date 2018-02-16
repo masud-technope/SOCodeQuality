@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.11.29)  8 JAN 2018 19:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.11.29)  11 JAN 2018 17:51
 entering extended mode
 **./SANER2018-RENE.tex
 (SANER2018-RENE.tex
@@ -1094,13 +1094,21 @@ File: ./sysdiag/agreement.jpg Graphic file (type jpg)
 <use ./sysdiag/agreement.jpg>
 Package pdftex.def Info: ./sysdiag/agreement.jpg used on input line 372.
 (pdftex.def)             Requested size: 36.135pt x 34.6881pt.
- [2 <./whole23.png> <./sysdiag/cmetric.png> <./sysdiag/posts.png> <./sysdiag/up
-down.jpg> <./sysdiag/code.png> <./sysdiag/mclass.png> <./sysdiag/sclass.png> <.
-/sysdiag/pd-code.png> <./sysdiag/agreement.jpg>]
-[3]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 425.
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+
+LaTeX Warning: Reference `table:topic' on page 2 undefined on input line 430.
+
+[2 <./whole23.png> <./sysdiag/cmetric.png> <./sysdiag/posts.png> <./sysdiag/upd
+own.jpg> <./sysdiag/code.png> <./sysdiag/mclass.png> <./sysdiag/sclass.png> <./
+sysdiag/pd-code.png> <./sysdiag/agreement.jpg>] [3]
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 494.
- (SANER2018-RENE.bbl [4]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 538.
+ [4] (SANER2018-RENE.bbl
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
 )
@@ -1117,31 +1125,35 @@ Before submitting the final camera ready copy, remember to:
 
 [5
 
-] (SANER2018-RENE.aux) ) 
+] (SANER2018-RENE.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 26349 strings out of 493333
- 538493 string characters out of 3139175
- 603145 words of memory out of 3000000
- 29485 multiletter control sequences out of 15000+200000
- 570756 words of font info for 91 fonts, out of 3000000 for 9000
+ 26386 strings out of 493333
+ 539015 string characters out of 3139175
+ 605145 words of memory out of 3000000
+ 29517 multiletter control sequences out of 15000+200000
+ 571271 words of font info for 93 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,67p,10345b,743s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.en
-c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
-y10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
-utmri8a.pfb>
-Output written on SANER2018-RENE.pdf (5 pages, 262550 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb
+i8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on SANER2018-RENE.pdf (5 pages, 274688 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
+ 91 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
