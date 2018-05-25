@@ -1,0 +1,4 @@
+String test = "The First American's style";
+    System.out.println("old text::"+test);      
+    test = test.replaceAll("'","");
+    System.out.println("new text::"+test);

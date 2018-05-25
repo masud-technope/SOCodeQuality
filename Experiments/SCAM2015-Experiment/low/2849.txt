@@ -1,0 +1,5 @@
+private BufferedImage get(String path) throws IOException{    
+    URL url = this.getClass().getClassLoader().getResource(path);     
+    String thing = url.getFile();       
+    return ImageIO.read(new File(thing));      
+}

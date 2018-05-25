@@ -1,0 +1,11 @@
+public static void getWord(String str1, ArrayList<String> list)
+{
+    for(int i = 0; i < list.size(); i++)
+    {
+        if(str1.toLowerCase().contains(list.get(i)))
+        {
+            System.out.println(list.get(i));
+        }
+    }
+
+}

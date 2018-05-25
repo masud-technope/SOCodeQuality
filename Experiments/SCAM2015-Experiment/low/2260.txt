@@ -1,0 +1,29 @@
+List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+
+  ResultSetMetaData rsMetaData = rs.getMetaData();  
+
+
+      while(rs.next()){
+
+              Map map = new HashMap();
+              for (int i = 1; i <= rsMetaData.getColumnCount(); i++) {
+                 String key = rsMetaData.getColumnName(i);
+
+                  String value = null;
+
+               if (rsmd.getColumnType(i) == java.sql.Types.VARCHAR) {
+                           value = rs.getString(key);
+               } else if(rsmd.getColumnType(i)==java.sql.Types.BIGINT)                         
+                             value = rs.getLong(key);
+               }                  
+
+
+                    map.put(key, value);
+              }
+              list.add(map);
+
+
+    }
+
+
+     json.put(list);

@@ -1,0 +1,5 @@
+public interface Command<T> {
+    void execute(String... args);
+    T getResult();
+    bool hasResult();
+}

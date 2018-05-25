@@ -1,0 +1,7 @@
+public class C extends B {
+
+    public static void main(String[] args) {
+        C c2 = new C();
+        System.out.println(D.class.isInstance(c2));
+    }
+}

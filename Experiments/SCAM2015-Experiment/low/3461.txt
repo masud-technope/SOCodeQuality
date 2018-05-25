@@ -1,0 +1,11 @@
+for(int column = 1; column <= 9; column++) {
+     for(int row = 1; row <= 9; row++) {
+      if(column <= row) { 
+          System.out.print(row);
+      } else {
+        System.out.print(" ");
+      }
+     }
+     System.out.println(); // println will create a newline
+
+}

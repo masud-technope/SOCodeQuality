@@ -1,0 +1,7 @@
+1) Import the java.util.List package.
+
+2)  another error I find is this.. How don't know your requirement Cannot suggest the solution.
+
+public MyAbstractClass(List<? extends Animal> animalList) {
+        this.myAnimalList = animalList; <==== problem you cannot assign List<? extends Animal> to List<Animal> .. Subtyping is not allowed in generic class.
+    }

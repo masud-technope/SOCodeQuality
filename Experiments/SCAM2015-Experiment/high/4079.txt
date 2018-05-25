@@ -1,0 +1,15 @@
+if(condition1) { 
+   //If condition1 is true (irrespective of state of condition 2), I can still do this 
+      System.out.println("In here..");
+    if (condition2) {
+        // I can do this only if condition2 is true.
+    }
+   //If condition1 is true (irrespective of state of condition 2), I can still do this 
+System.out.println("and here..");
+}
+
+
+
+if(condition1 && condition2) { // if one among condtion1 or condtion2 is false, then the if block will not be entered.
+    //something...
+}

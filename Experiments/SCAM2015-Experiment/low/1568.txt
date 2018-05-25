@@ -1,0 +1,10 @@
+public class Round {
+
+        public static float round(float targetValue, int roundToDecimalPlaces ){
+
+            int valueInTwoDecimalPlaces = (int) (targetValue * Math.pow(10, roundToDecimalPlaces));
+
+            return (float) (valueInTwoDecimalPlaces / Math.pow(10, roundToDecimalPlaces));
+        }
+
+    }

@@ -1,0 +1,15 @@
+public class TestClass implements Runnable {
+    public static void main(String[] args) {
+        TestClass tc = new TestClass();
+
+        Thread t1 = new Thread(tc);
+        System.out.println("Before Starting Thread " + Thread.currentThread().hashCode());
+        t1.start();
+        System.out.println("After Starting Thread " + Thread.currentThread().hashCode());
+    }
+
+    @Override
+    public void run() {
+        System.out.println("TestClass Run method is  Running with thread " + Thread.currentThread().hashCode());        
+    }
+}

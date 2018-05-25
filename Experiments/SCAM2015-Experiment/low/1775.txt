@@ -1,0 +1,10 @@
+public static void type(String characters) {
+Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+StringSelection stringSelection = new StringSelection( characters );
+clipboard.setContents(stringSelection, instance);
+//control+V is for pasting...
+robot.keyPress(KeyEvent.VK_CONTROL);
+robot.keyPress(KeyEvent.VK_V);
+robot.keyRelease(KeyEvent.VK_V);
+robot.keyRelease(KeyEvent.VK_CONTROL);
+}

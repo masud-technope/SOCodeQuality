@@ -1,0 +1,4 @@
+<c:forEach var="entry" items="${mapOnValueStack}">
+    Name:  ${entry.key} <br/>
+    Value: ${entry.value}
+</c:forEach>

@@ -1,0 +1,4 @@
+List<String> strings = Arrays.asList("one", "two", "three");
+String text = strins.asList();
+// in this case, you will get the same list.
+List<String> strings2=Arrays.asList(text.substring(1,text.length()-1).split(", "));

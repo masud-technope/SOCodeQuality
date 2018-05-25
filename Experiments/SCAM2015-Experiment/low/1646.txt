@@ -1,0 +1,12 @@
+Camera mCamera;
+Camera.Parameters mParameters;
+
+//Get a reference to the camera/parameters
+mCamera = Camera.open();
+mParameters = mCamera.getParameters();
+
+//Set the torch parameter
+mParameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+
+//Comit camera parameters
+mCamera.setParameters(mParameters);

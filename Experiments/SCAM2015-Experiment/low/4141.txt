@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Recursion
+{
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter n to start: ");
+        int n = in.nextInt();
+        System.out.println("Sum of numbers from 1 to " + n + ": " +new Recursion().sumUpTo(n));
+    }
+
+    /**
+     * Computes the sum of a range of numbers
+     * 
+     * @param n an integer
+     * @return the sum of n range
+     */
+    public int sumUpTo(int num){
+        if (num == 0) 
+        {
+            return 0;
+        }
+        else{
+            return (num + sumUpTo(num-1));
+        }
+    }
+}

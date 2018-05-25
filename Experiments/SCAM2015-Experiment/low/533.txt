@@ -1,0 +1,4 @@
+public void setValues(PreparedStatement ps) throws SQLException {
+    // first param inside IN clause with myList values
+    ps.setObject(1 , myList.toArray(), 2003); // 2003=array in java.sql.Types
+}

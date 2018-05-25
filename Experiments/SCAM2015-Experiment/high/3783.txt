@@ -1,0 +1,6 @@
+static <E extends Enum<E>> EnumSet<E> of(E e);
+static <E extends Enum<E>> EnumSet<E> of(E first, E... rest);
+static <E extends Enum<E>> EnumSet<E> of(E e1, E e2);
+static <E extends Enum<E>> EnumSet<E> of(E e1, E e2, E e3);
+static <E extends Enum<E>> EnumSet<E> of(E e1, E e2, E e3, E e4);
+static <E extends Enum<E>> EnumSet<E> of(E e1, E e2, E e3, E e4, E e5);

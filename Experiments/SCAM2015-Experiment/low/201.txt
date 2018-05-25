@@ -1,0 +1,4 @@
+template<typename T>
+void some_function(std::forward_iterator<T> data) {
+   ...
+}

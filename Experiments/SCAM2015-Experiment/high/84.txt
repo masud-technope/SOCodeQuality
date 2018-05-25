@@ -1,0 +1,5 @@
+interface Baz extends Foo, Bar { }
+
+public void caller(Object w) {
+  doSomething((Baz) w);
+}

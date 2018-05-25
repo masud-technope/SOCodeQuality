@@ -1,0 +1,12 @@
+List<String> words = 
+    new ArrayList(Arrays.asList("cat", "ball", "bat", "cup", "add", "ant"));
+    Map<String, List<String>> map = new HashMap();
+    for(String word: words){
+        String firstChar = String.valueOf(word.charAt(0));
+        if (map.get(firstChar) == null){
+            map.put(firstChar, new ArrayList(Arrays.asList(word)));
+        }
+        else{
+            map.get(firstChar).add(word);
+        }
+    }

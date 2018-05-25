@@ -1,0 +1,5 @@
+try{
+    driver.close();
+} catch(NoSuchWindowException ignored){
+    System.out.println("Window already closed");
+}

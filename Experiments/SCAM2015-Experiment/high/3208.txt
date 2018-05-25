@@ -1,0 +1,3 @@
+panel.add(new JButton ("Red")); 
+panel.add(new JButton ("Green"));
+panel.add(new JButton ("Blue"));

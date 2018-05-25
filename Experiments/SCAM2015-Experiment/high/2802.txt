@@ -1,0 +1,6 @@
+try {
+        FileInputStream fstream = new FileInputStream("prova.txt");
+        String strLine = br.readLine();
+    } catch (IOException e) {
+        e.printStackTrace(); 
+    }

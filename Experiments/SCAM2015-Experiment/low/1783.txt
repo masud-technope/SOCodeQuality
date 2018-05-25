@@ -1,0 +1,4 @@
+SpannableStringBuilder test = new SpannableStringBuilder();
+test.append("\n");
+test.append(Html.fromHtml("<sup>5</sup>/<sub>9</sub>"));
+test.append("\n");

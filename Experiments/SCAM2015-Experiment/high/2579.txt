@@ -1,0 +1,4 @@
+A a = new A();
+B b = new B(T obj1);
+a.equals(b) //will return false, because the references do not point at the same object
+b.equals(a) //should return false, but could return true based on implementation logic.

@@ -1,0 +1,35 @@
+/** More succinct */
+public static Map<Integer, Double> bulkCalcSuccincter(final Iterator<BigThing> it, final Calc calc, final int numThreads) {
+    final ConcurrentHashMap<Integer, Double> results = new ConcurrentHashMap<Integer, Double>();
+    final java.util.List<Future> futures = new ArrayList<Future>();
+    final ExecutorService e = Executors.newFixedThreadPool(numThreads);
+
+    for (int i = 0; i < numThreads; i++) {
+        futures.add(e.submit(new Runnable() {
+            public void run() {
+                while (true) {
+                    BigThing thing = null;
+                    synchronized (it) {
+                        thing = (it.hasNext()) ? it.next() : null;
+                    }
+                    if (thing == null) {
+                        break;
+                    }
+                    results.put(thing.getId(), calc.calc(thing));
+                }
+            }
+        }));
+    }
+    e.shutdown();
+
+    for (Future f : futures) {
+        try {
+            f.get();
+        } catch (InterruptedException ex) {
+        // swallowing is better than spitting it out
+        } catch (ExecutionException ex) {
+            throw Throwables.propagate(ex.getCause());
+        }
+    }
+    return results;
+}

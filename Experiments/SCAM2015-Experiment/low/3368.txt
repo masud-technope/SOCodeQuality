@@ -1,0 +1,11 @@
+class blah extends activity {
+ //// onCreate , initialization etc here
+
+     public void sss(context c)
+   {
+
+    Toast(c , "text" , toast.LENTGH_LONG) ;
+
+   }
+
+  }

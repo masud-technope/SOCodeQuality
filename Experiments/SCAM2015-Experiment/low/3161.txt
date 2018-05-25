@@ -1,0 +1,26 @@
+public static byte fromIntToByte(String value) throws Exception {
+        return fromIntToByte(Integer.parseInt(value));
+    }
+
+    public static byte fromIntToByte(int value) throws Exception {
+        String stringByte = "";
+        if (value < 0 && value > 255) {
+            throw new Exception("Must be from 0<=value<=255");
+        }
+        if (value <= 127) {
+            for (int i = 0; i < 8; i++) {
+                stringByte = String.valueOf(value % 2) + stringByte;
+                value = value / 2;
+            }
+        } else {
+            value = value / 2;
+            for (int i = 0; i < 7; i++) {
+                stringByte = String.valueOf(value % 2) + stringByte;
+                value = value / 2;
+            }
+            stringByte = "-" + stringByte;
+        }
+        System.out.println(stringByte);
+        byte b = Byte.parseByte(stringByte, 2);
+        return b;
+    }

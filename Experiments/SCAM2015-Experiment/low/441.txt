@@ -1,0 +1,3 @@
+const int64_ w = (int64_) a * (int64_) b;    
+if ((long) (w >> sizeof(long) * 8) != (long) w >> (sizeof(long) * 8 - 1))
+    // overflow

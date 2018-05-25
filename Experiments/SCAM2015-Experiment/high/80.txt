@@ -1,0 +1,6 @@
+1: Map codes = meta.getValidProgramCodes();
+ 2: Iterator i = codes.entrySet().iterator();
+ 3: while (i.hasNext()) {
+ 4:   Map.Entry e = (Map.Entry) i.next();
+ 5:   // Do something with e.
+ 6: }

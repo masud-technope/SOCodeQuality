@@ -1,0 +1,28 @@
+import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
+
+public class URLDecoding { 
+
+    String decoded = "";
+
+    public String decodeMethod(String url) throws UnsupportedEncodingException
+    {
+        decoded = java.net.URLDecoder.decode(url, "UTF-8"); 
+        return  decoded;
+//"You should use java.net.URI to do this, as the URLDecoder class does x-www-form-urlencoded decoding which is wrong (despite the name, it's for form data)."
+    }
+
+    public String getPathMethod(String url) throws URISyntaxException 
+    {
+        decoded = new java.net.URI(url).getPath();  
+        return  decoded; 
+    }
+
+    public static void main(String[] args) throws UnsupportedEncodingException, URISyntaxException 
+    {
+        System.out.println(" Here is your Decoded url with decode method : "+ new URLDecoding().decodeMethod("https%3A%2F%2Fmywebsite%2Fdocs%2Fenglish%2Fsite%2Fmybook.do%3Frequest_type")); 
+        System.out.println("Here is your Decoded url with getPath method : "+ new URLDecoding().getPathMethod("https%3A%2F%2Fmywebsite%2Fdocs%2Fenglish%2Fsite%2Fmybook.do%3Frequest")); 
+
+    } 
+
+}

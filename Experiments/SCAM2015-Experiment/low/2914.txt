@@ -1,0 +1,5 @@
+public String[] split(String regex)
+
+Splits this string around matches of the given regular expression.
+
+This method works as if by invoking the two-argument split method with the given expression and a limit argument of zero. Trailing empty strings are therefore not included in the resulting array.

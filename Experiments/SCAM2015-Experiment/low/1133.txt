@@ -1,0 +1,202 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.DOMException;
+import org.w3c.dom.DOMImplementation;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+public class XMLSplitter {
+
+    DocumentBuilder builder = null;
+    XPath xpath = null; 
+    Transformer transformer = null;
+    String filterElement;
+    String splitElement;
+    String xmlFileLocation;
+    boolean filter = true;
+
+
+    public static void main(String[] arg) throws Exception{
+
+        XMLSplitter xMLSplitter = null;
+        if(arg.length < 4){
+
+            if(arg.length < 2){
+                System.out.println("Insufficient arguments !!!");
+                System.out.println("Usage: XMLSplitter xmlFileLocation  splitElement filter filterElement ");
+                return;
+            }else{
+                System.out.println("Filter is off...");
+                xMLSplitter = new XMLSplitter();
+                xMLSplitter.init(arg[0],arg[1],false,null);
+            }
+
+        }else{
+            xMLSplitter = new XMLSplitter();
+            xMLSplitter.init(arg[0],arg[1],Boolean.parseBoolean(arg[2]),arg[3]);
+        }
+
+
+
+        xMLSplitter.start();    
+
+    }
+
+    public void init(String xmlFileLocation, String splitElement, boolean filter, String filterElement ) 
+                throws ParserConfigurationException, TransformerConfigurationException{
+
+        //Initialize the Document builder
+        System.out.println("Initializing..");
+        DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+        domFactory.setNamespaceAware(true);   
+        builder = domFactory.newDocumentBuilder();
+
+        //Initialize the transformer
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        transformer = transformerFactory.newTransformer();
+        transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+        transformer.setOutputProperty(OutputKeys.ENCODING,"UTF-8");
+        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+        //Initialize the xpath
+        XPathFactory factory = XPathFactory.newInstance();
+        xpath = factory.newXPath();
+
+        this.filterElement = filterElement;
+        this.splitElement = splitElement;
+        this.xmlFileLocation = xmlFileLocation;
+        this.filter = filter;
+
+
+    }   
+
+
+    public void start() throws Exception{
+
+            //Parser the file 
+            System.out.println("Parsing file.");
+            Document doc = builder. parse(xmlFileLocation);
+
+            //Get the root node name
+            System.out.println("Getting root element.");
+            XPathExpression rootElementexpr = xpath.compile("/");
+            Object rootExprResult = rootElementexpr.evaluate(doc, XPathConstants.NODESET);
+            NodeList rootNode = (NodeList) rootExprResult;          
+            String rootNodeName = rootNode.item(0).getFirstChild().getNodeName();
+
+            //Get the list of split elements
+            XPathExpression expr = xpath.compile("//"+splitElement);
+            Object result = expr.evaluate(doc, XPathConstants.NODESET);
+            NodeList nodes = (NodeList) result;
+            System.out.println("Total number of split nodes "+nodes.getLength());
+            for (int i = 0; i < nodes.getLength(); i++) {
+                //Wrap each node inside root of the parent xml doc
+                Node sigleNode = wrappInRootElement(rootNodeName,nodes.item(i));
+                //Get the XML string of the fragment
+                String xmlFragment = serializeDocument(sigleNode);
+                //System.out.println(xmlFragment);
+                //Write the xml fragment in file.
+                storeInFile(xmlFragment,i);         
+            }
+
+    }
+
+    private  Node wrappInRootElement(String rootNodeName, Node fragmentDoc) 
+                throws XPathExpressionException, ParserConfigurationException, DOMException, 
+                        SAXException, IOException, TransformerException{
+
+        //Create empty doc with just root node
+        DOMImplementation domImplementation = builder.getDOMImplementation();
+        Document doc = domImplementation.createDocument(null,null,null);
+        Element theDoc = doc.createElement(rootNodeName);
+        doc.appendChild(theDoc);
+
+        //Insert the fragment inside the root node 
+        InputSource inStream = new InputSource();     
+        String xmlString = serializeDocument(fragmentDoc);
+        inStream.setCharacterStream(new StringReader(xmlString));       
+        Document fr = builder.parse(inStream);
+        theDoc.appendChild(doc.importNode(fr.getFirstChild(),true));
+        return doc;
+    }
+
+    private String serializeDocument(Node doc) throws TransformerException, XPathExpressionException{
+
+        if(!serializeThisNode(doc)){
+            return null;
+        }
+
+        DOMSource domSource = new DOMSource(doc);                
+        StringWriter stringWriter = new StringWriter();
+        StreamResult streamResult = new StreamResult(stringWriter);
+        transformer.transform(domSource, streamResult);
+        String xml = stringWriter.toString();
+        return xml;
+
+    }
+
+    //Check whether node is to be stored in file or rejected based on input
+    private boolean serializeThisNode(Node doc) throws XPathExpressionException{
+
+         if(!filter){
+             return true;
+         }
+
+         XPathExpression filterElementexpr = xpath.compile("//"+filterElement);
+         Object result = filterElementexpr.evaluate(doc, XPathConstants.NODESET);
+         NodeList nodes = (NodeList) result;
+
+         if(nodes.item(0) != null){
+             return true;
+         }else{
+             return false;
+         }       
+    }
+
+    private void storeInFile(String content, int fileIndex) throws IOException{
+
+        if(content == null || content.length() == 0){
+            return;
+        }
+
+        String fileName = splitElement+fileIndex+".xml";
+
+        File file = new File(fileName);
+        if(file.exists()){
+            System.out.println(" The file "+fileName+" already exists !! cannot create the file with the same name ");
+            return;
+        }
+        FileWriter fileWriter = new FileWriter(file);
+        fileWriter.write(content);
+        fileWriter.close();
+        System.out.println("Generated file "+fileName);
+
+
+    }
+
+}

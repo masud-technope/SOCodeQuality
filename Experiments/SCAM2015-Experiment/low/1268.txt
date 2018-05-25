@@ -1,0 +1,6 @@
+for (customer cus: CustomerList) {
+     if(cus.returnFamilyName().equalsIgnoreCase(familyName)) {
+        System.out.println(cus.returnFamilyName());
+        return;
+     }
+}

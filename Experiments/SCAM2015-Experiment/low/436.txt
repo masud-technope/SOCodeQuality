@@ -1,0 +1,14 @@
+public static void main(final String[] args) {
+    final ContainerLifecycle lifecycle = WebBeansContext.currentInstance()
+            .getService(ContainerLifecycle.class);
+    lifecycle.startApplication(null);
+
+    final BeanManager beanManager = lifecycle.getBeanManager();
+    // replace Tester with your start up class
+    final Bean<?> bean = beanManager.getBeans(Tester.class).iterator()
+            .next();
+
+    final Tester b = (Tester) lifecycle.getBeanManager().getReference(bean,
+            Tester.class, beanManager.createCreationalContext(bean));
+    b.doInit();
+}

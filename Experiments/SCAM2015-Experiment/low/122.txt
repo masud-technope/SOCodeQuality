@@ -1,0 +1,10 @@
+String input = "=?iso-8859-1?Q?H=E4 ll?= what about in this case? :) =?iso-8859-1?Q?mo nk ey?=";
+
+Pattern p = Pattern.compile("=\\?(.*?)\\?=");
+Matcher m = p.matcher(input);
+StringBuffer sb = new StringBuffer();
+while (m.find()) {
+    m.appendReplacement(sb, m.group().replaceAll(" ", ""));
+}
+m.appendTail(sb);
+System.out.println(sb.toString());

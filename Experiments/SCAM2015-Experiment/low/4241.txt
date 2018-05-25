@@ -1,0 +1,63 @@
+public class ThreadedPrinting {
+    private Object locks[];
+
+    private static class Printer extends Thread {
+        int curVal;
+        int endVal;
+        Object myLock;
+        Object nextLock;
+        int step;
+
+        public Printer(int startFrom, int endVal, int step, Object myLock, Object nextLock){
+            this.curVal = startFrom;
+            this.endVal = endVal;
+            this.step = step;
+            this.myLock = myLock;
+            this.nextLock = nextLock;
+            this.step = step;
+        }
+
+        @Override
+        public void run(){
+            synchronized(myLock) {
+                while (curVal <= endVal) {
+                    try {
+                        myLock.wait();
+                        System.out.println(curVal);
+                        curVal += step;
+                    }
+                    catch(InterruptedException e) {}
+                    synchronized(nextLock) {
+                        nextLock.notify();
+                    }
+                }
+            }
+            synchronized(nextLock) {
+                nextLock.notify(); /// this ensures all worker threads exiting at the end
+            }
+        }
+    } // Printer
+
+    public ThreadedPrinting(int maxNum, int threads) {
+        locks = new Object[threads];
+        int i;
+        for(i = 0; i < threads; ++i) locks[i] = new Object();
+        for(i = 0; i < threads -1 ; ++i) {
+            Printer curPrinter = new Printer(i, maxNum, threads, locks[i], locks[i+1]);
+            curPrinter.start();
+        }
+        Printer lastPrinter = new Printer(i, maxNum, threads, locks[threads - 1], locks[0]);
+        lastPrinter.start();
+    }
+
+    public void start() {
+        synchronized (locks[0]) {
+            locks[0].notify();
+        }
+    }
+
+    public static void main(String[] args) {
+        ThreadedPrinting printer = new ThreadedPrinting(1000,7);
+        printer.start();
+    }
+}

@@ -1,0 +1,3 @@
+LocalDate localDate = LocalDate.of(2014, 9, 18); // assuming we picked 18 September 2014
+WeekFields weekFields = WeekFields.of(Locale.US);
+int weekNumber = localDate.get(weekFields.weekOfWeekBasedYear());

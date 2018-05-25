@@ -1,0 +1,4 @@
+public LabelMod(Shell parent, int style)
+{
+    super(parent, style);
+}

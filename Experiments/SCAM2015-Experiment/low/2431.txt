@@ -1,0 +1,10 @@
+trait RandomOrdering[T] extends Ordering[T]
+
+object RandomOrdering {
+  implicit def defaultOrdering[T] = new RandomOrdering[T] {
+    def compare(x:T, y:T) = (Random nextInt 3) - 1
+  }
+}
+
+def sample[A](items:List[A], sampleSize:Int)(implicit r:RandomOrdering[A]) =
+  items.sorted take sampleSize

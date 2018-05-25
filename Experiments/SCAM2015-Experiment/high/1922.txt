@@ -1,0 +1,4 @@
+assertThat(
+        myClass.getMyItems(),
+        IsIterableContainingInAnyOrder.<MyItem> containsInAnyOrder(hasProperty("name", is("foo")),
+            hasProperty("name", is("bar"))));

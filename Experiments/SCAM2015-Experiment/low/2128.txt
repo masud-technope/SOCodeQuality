@@ -1,0 +1,14 @@
+Scanner reader = new Scanner(System.in);
+
+String c = reader.nextLine();
+
+switch (c) {
+  case " a":
+    your code here..
+  break;
+  case "b":
+    your code here..
+  break;
+  default: 
+    your code here..
+}

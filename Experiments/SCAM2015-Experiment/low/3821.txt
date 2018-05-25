@@ -1,0 +1,35 @@
+public ArrayList Xreadexcel(String file) {        
+    boolean f = false;
+    ArrayList arraycontainer = new ArrayList();
+    try {
+        FileInputStream myInput = new FileInputStream(file);
+        XSSFWorkbook workbook = new XSSFWorkbook(file);
+        XSSFSheet sheet = workbook.getSheetAt(0);
+        int rowStart = sheet.getFirstRowNum();
+        int rowEnd = sheet.getLastRowNum() + 1;
+        int count = workbook.getNumberOfSheets();
+        if (count > 1) {
+            System.out.println("Only one Sheet Allowed");
+        } else {
+            for (int rowNum = rowStart; rowNum < rowEnd; rowNum++) {
+                Row row = sheet.getRow(rowNum);
+                int lastColumn = row.getLastCellNum();
+                ArrayList arraylist = new ArrayList();
+                int cn = 0;
+                for (cn = 0; cn < lastColumn + 1; cn++) {
+                    Cell cell = row.getCell(cn, Row.RETURN_NULL_AND_BLANK);
+                    if ((cell == null) || (cell.equals("")) || (cell.getCellType() == cell.CELL_TYPE_BLANK)) {
+                        arraylist.add("");
+                    } else {
+                        cell.setCellType(Cell.CELL_TYPE_STRING);
+                        arraylist.add(cell);
+                    }
+                }
+                arraycontainer.add(arraylist);
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return arraycontainer;
+}

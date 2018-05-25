@@ -1,0 +1,3 @@
+<c:if test="${bean.name1 ne bean.name2}">
+     fields that are supposed to appear _only_ when name1 is different from name2
+</c:if>

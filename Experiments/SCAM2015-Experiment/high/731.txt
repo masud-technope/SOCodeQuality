@@ -1,0 +1,7 @@
+private static final double log2div = 1.000000000001 / Math.log( 2 );
+public static int log2fp0( int bits )
+{
+    if( bits == 0 )
+        return 0; // or throw exception
+    return (int) ( Math.log( bits & 0xffffffffL ) * log2div );
+}

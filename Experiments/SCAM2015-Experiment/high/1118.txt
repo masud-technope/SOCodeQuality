@@ -1,0 +1,50 @@
+public static void main(String... args) throws IOException {
+    Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+    for(int i=0;i<100;i++)
+        map.put((int)(Math.random()*1000), i);
+    System.out.println("Unsorted "+map);
+    System.out.println("Sorted "+sort(map));
+    final String sortedToString = sort(map).toString();
+    final String treeMapToString = new TreeMap<Integer, Integer>(map).toString();
+    if (!sortedToString.equals(treeMapToString))
+        System.out.println(sortedToString+" != \n"+treeMapToString);
+}
+
+public static <K extends Comparable<K>, V> Map<K, V> sort(Map<K, V> map) {
+    return mergeSort(map);
+}
+
+// a very bad design idea, but needed for compatibility.
+public static <K extends Comparable<K>, V> HashMap<K, V> mergeSort(Map<K, V> map) {
+    Map.Entry<K, V>[] entries = map.entrySet().toArray(new Map.Entry[map.size()]);
+    mergeSort0(entries, 0, entries.length);
+    HashMap<K, V> ret = new LinkedHashMap<K, V>();
+    for (Map.Entry<K, V> entry : entries)
+        ret.put(entry.getKey(), entry.getValue());
+    return ret;
+}
+
+private static <K extends Comparable<K>, V> void mergeSort0(Map.Entry<K, V>[] entries, int start, int end) {
+    int len = end - start;
+    if (len < 2) return;
+    int mid = (end + start) >>> 1;
+    mergeSort0(entries, start, mid);
+    mergeSort0(entries, mid, end);
+    // merge [start, mid) and [mid, end)  to [start, end)
+    for(int p = start, l=start, r=mid; p < end && l < r && r < end; p++) {
+        int cmp = entries[l].getKey().compareTo(entries[r].getKey());
+        if (cmp <=  0) {
+            l++;
+            // the entry is in the right place already
+        } else if (p != r) {
+            // we need to insert the entry from the right
+            Map.Entry<K,V> e= entries[r];
+            // shift up.
+            System.arraycopy(entries, p, entries, p+1, r - p);
+            l++;
+            // move down.
+            entries[p] = e;
+            r++;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+String input = user_input.nextLine();
+char[] array = input.toCharArray();
+for(int i = 0; i < input.length(); i++) {
+    if (Character.isLetter(array[i])){
+        //use .split based on the output of the if statement
+    }
+}

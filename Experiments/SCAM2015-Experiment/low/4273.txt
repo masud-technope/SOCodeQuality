@@ -1,0 +1,13 @@
+public static void main(String[] args) {
+    ArrayList<Tbin<? extends Base>> test = new ArrayList<>();
+    test.add(new Tbin<Derived>());
+
+    TbinList<? extends Base> test2 = new TbinList<>();
+    Tbin<Derived> value2 = new Tbin<>();
+    add(test2, value2);
+}
+
+private static <T, Y extends T> void add(TbinList<? extends T> test2, Tbin<Y> value) {
+    TbinList<T> test3 = (TbinList<T>) test2;
+    test3.add((Tbin<T>) value);
+}

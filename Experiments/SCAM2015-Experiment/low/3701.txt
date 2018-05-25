@@ -1,0 +1,28 @@
+8
+*00 Test St NY
+0
+**0 Test St NY
+0
+*** Test St NY
+
+*** Test St NY
+T
+*** test St NY
+e
+*** tEst St NY
+s
+*** tESt St NY
+t
+*** tEST St NY
+
+*** tEST St NY
+S
+*** tEST st NY
+t
+*** tEST sT NY
+
+*** tEST sT NY
+N
+*** tEST sT nY
+Y
+*** tEST sT ny

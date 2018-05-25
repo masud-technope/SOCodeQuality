@@ -1,0 +1,5 @@
+for (int j = 0; j < allEds.size(); j++) {
+    items[j] = allEds.get(j).getText().toString();
+    data.putExtra("edData", items[j]);
+    data.putExtra("size", str);
+}

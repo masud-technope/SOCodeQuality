@@ -1,0 +1,3 @@
+public <T extends Enum> T getValue(key, Class<T extends Enum> enumClazz) {
+    return enumClazz.cast(...);
+}

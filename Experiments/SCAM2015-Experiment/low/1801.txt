@@ -1,0 +1,9 @@
+String matcher = ".*?(\\d+)(,\\1).*";
+String t1 = "111,222.333";
+String t2 = "111,111,222";
+String t3 = "11,1111,222";
+String t4 = "111,222,111";
+System.out.println(t1.matches(matcher)); //false
+System.out.println(t2.matches(matcher)); //true
+System.out.println(t3.matches(matcher)); //true
+System.out.println(t4.matches(matcher)); //false

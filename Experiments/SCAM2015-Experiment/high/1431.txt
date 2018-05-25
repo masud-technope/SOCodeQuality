@@ -1,0 +1,8 @@
+"\\(" +          // Match the character “(” literally
+"(" +           // Match the regular expression below and capture its match into backreference number 1
+   "[\\d,]" +       // Match a single character present in the list below
+                      // A single digit 0..9
+                      // The character “,”
+      "*" +           // Between zero and unlimited times, as many times as possible, giving back as needed (greedy)
+")" +
+"\\)"            // Match the character “)” literally

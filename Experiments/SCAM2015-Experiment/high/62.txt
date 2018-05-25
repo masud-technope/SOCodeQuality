@@ -1,0 +1,3 @@
+jdbc:postgresql:database
+jdbc:postgresql://host/database
+jdbc:postgresql://host:port/database

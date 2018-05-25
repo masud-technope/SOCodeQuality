@@ -1,0 +1,4 @@
+BiMap<Token, Character> tokenToChar = 
+    ImmutableBiMap.of(Token.LEFT_BRACKET, '[', Token.LEFT_PARENTHESIS, '(');
+Token token = tokenToChar.inverse().get('(');
+Character c = tokenToChar.get(token);

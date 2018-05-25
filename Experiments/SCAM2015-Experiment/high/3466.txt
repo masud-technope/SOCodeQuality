@@ -1,0 +1,17 @@
+private boolean isClicked;
+
+@Override
+public void onClick(final View v) {
+
+    if(isClicked) {
+        return;
+    }
+    isClicked = true;
+    v.postDelayed(new Runnable() {
+
+        @Override
+        public void run() {
+            isClicked = false;
+        }
+    }, 1000);
+}

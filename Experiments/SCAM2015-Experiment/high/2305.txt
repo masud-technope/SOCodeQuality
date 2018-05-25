@@ -1,0 +1,31 @@
+public abstract class ExampleFighter {
+    private String name;
+    private int health;
+    private boolean isDead = false;
+
+    public ExampleFighter(String name, int health) {
+        this.name = name;
+        this.health = health;
+    }
+
+    public void attack(ExampleFighter ef) {
+        int damage = 0; 
+        //calculate damage dealt
+        damage = 10;
+        ef.takeDamage(damage);
+    }
+
+    public void takeDamage(int damage) {
+        //manipulate the amount of damage taken
+        if(health - damage <= 0) {
+            health = 0;
+            isDead = true;
+        } else {
+            health -= damage;
+        }
+    }
+
+    public boolean isDead() {
+        return isDead;
+    }
+}

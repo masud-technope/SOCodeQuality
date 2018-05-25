@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class DeepCopy implements Cloneable {
+    private List<String> hobbiesList;
+    private int age;
+    private String name;
+    private float salary;
+
+    public static void main(String[] args) throws CloneNotSupportedException {
+        DeepCopy  original = new DeepCopy();
+        original.name="AAA";
+        original.age=20;
+        original.salary=10000;
+        original.hobbiesList = new ArrayList<String>();
+        original.hobbiesList.add("Cricket");
+        original.hobbiesList.add("Movies");
+        original.hobbiesList.add("Guitar");
+        original.hobbiesList.add("Eating");
+
+        DeepCopy  cloned = (DeepCopy) original.clone();
+        System.out.println("original:="+original);
+        System.out.println("cloned  :="+cloned);
+        System.out.println("After adding two more hobbies in 'original' which untimately reflected in 'cloned'");
+        cloned.name="BBB";
+        cloned.age=27;
+        cloned.salary=18237;
+        cloned.hobbiesList.add("Trecking");
+        System.out.println("original       :="+original);
+        System.out.println("cloned  changed:="+cloned);
+    }
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        DeepCopy clone = (DeepCopy)super.clone();
+        clone.hobbiesList = new ArrayList<String>(clone.hobbiesList);
+        return clone;
+    }
+    @Override
+    public String toString() {
+        return "My name is (String)"+name + " having age (int)"+age+". I earned (float)"+salary+" and hobbies are (ArrayList)"+hobbiesList;
+    }
+}

@@ -1,0 +1,6 @@
+double d = 1.9;
+int a, b;
+String dString = Double.toString(d);
+String bString = dString.substring(2);
+a = (int) d;
+b = Integer.parseInt(bString);

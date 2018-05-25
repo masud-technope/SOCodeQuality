@@ -1,0 +1,13 @@
+List<Integer> collection = new ArrayList<>();
+collection.add(...)
+...
+List<Integer> tempCollection = new ArrayList<>();    
+for (Integer lobId: collection ) {
+     ..
+     if (someCondition) {
+         tempCollection.add(something); 
+         break; 
+     }
+}
+
+collection.addAll(tempCollection);

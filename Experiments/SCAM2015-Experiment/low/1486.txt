@@ -1,0 +1,5 @@
+ThreadPoolExecutor ex =
+    new ThreadPoolExecutor(limit, limit, 20, TimeUnit.SECONDS, q);
+for (int i = 0; i < limit; i++) {
+  ex.execute(new RunnableObject(i + 1));
+}

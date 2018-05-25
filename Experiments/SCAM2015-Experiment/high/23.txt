@@ -1,0 +1,3 @@
+Calendar cal = Calendar.getInstance();
+cal.setTime(sampleDay.getTime());
+cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));

@@ -1,0 +1,25 @@
+// load data file
+       MediaMetadataRetriever metaRetriever = new MediaMetadataRetriever();
+       metaRetriever.setDataSource(filePath);
+
+String out = "";
+       // get mp3 info
+
+      // convert duration to minute:seconds
+String duration =  
+     metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
+    Log.v("time", duration);
+    long dur = Long.parseLong(duration);
+    String seconds = String.valueOf((dur % 60000) / 1000);
+
+    Log.v("seconds", seconds);
+    String minutes = String.valueOf(dur / 60000);
+    out = minutes + ":" + seconds;
+    if (seconds.length() == 1) {
+        txtTime.setText("0" + minutes + ":0" + seconds);
+    }else {
+        txtTime.setText("0" + minutes + ":" + seconds);
+    }
+    Log.v("minutes", minutes);
+      // close object
+       metaRetriever.release();

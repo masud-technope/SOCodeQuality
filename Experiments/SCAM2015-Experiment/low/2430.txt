@@ -1,0 +1,9 @@
+public class MyClass {
+    private int x;
+    public int getX(){
+        return x;
+    }
+    public void setX(int value){
+        x = value;
+    }
+}

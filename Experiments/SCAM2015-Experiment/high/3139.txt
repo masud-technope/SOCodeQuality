@@ -1,0 +1,10 @@
+String[] data = { "Word: Word1 Description: Desc1 Type: 1 ",
+        "Word: Word2 Description: Desc2 Type: 2 ",
+        "Word: Word3 Description: Desc3 Type: 3 ",
+        "Word: Word4 Description: Desc4 Type: 4 " };
+Pattern p = Pattern.compile(":\\s*(\\w+)");
+for (String s:data){
+    Matcher m = p.matcher(s);
+    while (m.find())
+        System.out.println(m.group(1));
+}

@@ -1,0 +1,3 @@
+DateTime dateTime = new DateTime( DateTimeZone.forID( "Asia/Kolkata" ) );
+DateTimeFormatter formatter = DateTimeFormat.forPattern( "ZZ" );
+String offset = formatter.print( dateTime );  // generates: +05:30

@@ -1,0 +1,6 @@
+String req = "CREATE TABLE " + db.getTable_Name() + " (";
+for (int i = 0; i < db.getColumns_number(); i++) {
+    req += (i > 0 ? ", " : "") + db.getField() + " " + db.getType() + "(" + db.getSize() + ")" + " " + db.getNullabilité();
+}
+
+req += ")";

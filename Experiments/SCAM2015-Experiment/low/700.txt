@@ -1,0 +1,52 @@
+class Relation {
+  String name;
+  Role roleFrom;
+  Role roleTo;
+
+  public int hashCode() {
+    // Just a sample. super.hashCode() would probably be better
+    return name.hashCode() & roleFrom.hashCode() | roleTo.hashCode();
+  }
+
+  public boolean equals(Object o) {
+    if(!(o instanceof Relation)) return false;
+    Relation other = (Relation)o;
+
+    return name.equals(other.name)
+      && roleFrom.equals(other.roleFrom)
+      && roleTo.equals(other.roleTo);
+  }
+}
+
+class Role {
+  RoleType roleType;
+  String details;
+
+  public int hashCode() {
+    // Just a sample. super.hashCode() would probably be better
+    return roleType.hashCode();
+  }
+
+  public boolean equals(Object o) {
+    if(!(o instanceof Role)) return false;
+    Role other = (Role)o;
+
+    return roleType.equals(other.roleType);
+  }
+}
+class RoleType {
+  String typeName;
+  String details;
+
+  public int hashCode() {
+    // Just a sample. super.hashCode() would probably be better
+    return typeName.hashCode();
+  }
+
+  public boolean equals(Object o) {
+    if(!(o instanceof RoleType)) return false;
+    RoleType other = (RoleType)o;
+
+    return typeName.equals(other.typeName);
+  }
+}

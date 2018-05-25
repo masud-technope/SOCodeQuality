@@ -1,0 +1,7 @@
+import sun.misc.BASE64Encoder;
+
+BASE64Encoder encoder = new BASE64Encoder();
+
+String toEncode = "encodeMe";
+
+String encoded = encodeBuffer(toEncode.getBytes());

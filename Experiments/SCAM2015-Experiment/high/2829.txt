@@ -1,0 +1,14 @@
+src: "ABC def" xxy"u
+out: "ABC def" xxy\"u
+
+src: "111" "222" "333" "4
+out: "111" "222" "333" \"4
+
+src: "AAA" "bbb" "CCC "DDD"
+out: "AAA" "bbb" \"CCC "DDD"
+
+src: "4 "111" "222"
+out: \"4 "111" "222"
+
+src: "11" "2 "333"
+out: "11" \"2 "333"

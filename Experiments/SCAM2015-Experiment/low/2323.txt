@@ -1,0 +1,15 @@
+enum IaaSProvider{
+    aws,
+    microsoft,
+    google
+}
+
+public static void main(String[] args){
+
+    IaaSProvider iaaSProvider = IaaSProvider.google;
+
+    if("google".equals(iaaSProvider.toString())){
+        System.out.println("The provider is google");
+    }
+
+}

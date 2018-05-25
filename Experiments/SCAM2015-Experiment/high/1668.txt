@@ -1,0 +1,7 @@
+initialize a map of appropriate size and type
+iterate the array to be processed. for each element in array:
+
+set key:= current element in array
+set value := value from map corresponding to key
+if value is null, initialize value to 1
+store value for key in map

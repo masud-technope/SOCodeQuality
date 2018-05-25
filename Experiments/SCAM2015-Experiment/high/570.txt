@@ -1,0 +1,3 @@
+if(throwable instanceof Exception && !(throwable instanceof RuntimeException)) {
+    // this is a checked Exception
+    }

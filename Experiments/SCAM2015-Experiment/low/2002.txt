@@ -1,0 +1,25 @@
+private String downloadHtml(String path) {
+    InputStream is = null;
+    try {
+        String result = "";
+        String line;
+
+        URL url = new URL(path);
+        is = url.openStream();  // throws an IOException
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+        while ((line = br.readLine()) != null) {
+            result += line;
+        }
+        return result;
+    } catch (IOException ioe) {
+        ioe.printStackTrace();
+    } finally {
+        try {
+            if (is != null) is.close();
+        } catch (IOException ioe) {
+            // nothing to see here
+        }
+    }
+    return "";
+}

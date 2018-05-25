@@ -1,0 +1,16 @@
+public class TestProb2 {
+
+@Test
+public void testSumOfMultiples(){
+    int actual = Prob2.sumOfEvenFibonacci(15);
+    assertEquals(10, actual);
+
+    actual = Prob2.sumOfEvenFibonacci(50);
+    assertEquals(44, actual);
+
+    actual = Prob2.sumOfEvenFibonacci(200);
+    assertEquals(188, actual);
+
+    actual = Prob2.sumOfEvenFibonacci(4000000);
+    assertEquals(4613732, actual);
+}

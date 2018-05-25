@@ -1,0 +1,4 @@
+lettersToNumbers.put("a",2);
+  lettersToNumbers.put("b",2");
+  lettersToNumbers.put("c",2";
+  //continue for the rest of the alphabet

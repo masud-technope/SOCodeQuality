@@ -1,0 +1,4 @@
+DateTime now = DateTime.now();
+DateTime dateTime = now.plusMinutes(10);
+Seconds seconds = Seconds.secondsBetween(now, dateTime);
+System.out.println(seconds.getSeconds());

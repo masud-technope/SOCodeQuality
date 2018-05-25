@@ -1,0 +1,6 @@
+String origStr = "how&nbsp;are&nbsp;you?";
+String newStr = origStr.replaceAll("&nbsp;"," ");
+String anotherStr = origStr.replaceAll("&nbsp;","");
+// origStr = "how&nbsp;are&nbsp;you?"
+// newStr = "how are you?"
+// anotherStr = howareyou?"

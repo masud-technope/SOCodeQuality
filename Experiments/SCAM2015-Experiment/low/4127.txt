@@ -1,0 +1,4 @@
+if(i % (j*j) == 0){
+    k=0; 
+    System.out.println(i);
+}

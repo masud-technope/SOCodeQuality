@@ -1,0 +1,10 @@
+public class SpringUserAccessor implements UserAccessor
+{
+    @Override
+    public User getUser()
+    {
+        SecurityContext context = SecurityContextHolder.getContext();
+        Authentication authentication = context.getAuthentication();
+        return (User) authentication.getPrincipal();
+    }
+}

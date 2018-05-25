@@ -1,0 +1,8 @@
+public int compareTo(MyClass o){
+  int ret = field1.compareTo(o.field1);
+  if (ret != 0) return ret;
+  ret = field2.compareTo(o.field2);
+  if (ret != 0) return ret;
+  ...
+  return fieldN.compareTo(o.fieldN);
+}

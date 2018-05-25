@@ -1,0 +1,6 @@
+ByteArrayOutputStream baos = new ByteArrayOutputStream
+... new GZIPOutputStream(baos));
+
+byte[] bytes = baos.toByteArray(); // < 100 MB?
+
+ByteArrayInputStream ....

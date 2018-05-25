@@ -1,0 +1,5 @@
+if ( ! findAlbumByName(coll, 'example song') )
+  {
+
+
+  }

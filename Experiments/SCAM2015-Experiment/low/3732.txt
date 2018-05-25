@@ -1,0 +1,3 @@
+String []result1 = s.split("&");
+String result2 = tempResult[1];
+String []result3 = result2.split("s_");

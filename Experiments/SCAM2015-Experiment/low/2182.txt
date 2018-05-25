@@ -1,0 +1,7 @@
+for (int i=n;i<n+1024;i++)
+            {
+                if(n<44100){
+                buffer2[i]=buffer[i];
+                }
+            }
+        }

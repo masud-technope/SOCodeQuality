@@ -1,0 +1,52 @@
+public class Test {
+    PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+    private String name;
+    private int age;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        String oldName = this.name;
+        this.name = name;
+        pcs.firePropertyChange("name", oldName, name);
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        int oldAge = this.age;
+        this.age = age;
+        pcs.firePropertyChange("age", oldAge, age);
+
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        pcs.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        pcs.removePropertyChangeListener(listener);
+    }
+
+    public Test(){
+
+    }
+    public static void main (String[] args){
+        Test myTestObject = new Test();
+        myTestObject.addPropertyChangeListener(new MyPropertyChangeListener());
+        myTestObject.setAge(12);
+        myTestObject.setName("Rick");
+        myTestObject.setName("Andrew");
+    }
+    private static class MyPropertyChangeListener implements  PropertyChangeListener {
+        @Override
+        public void propertyChange(PropertyChangeEvent event) {
+            String clazz = event.getSource().getClass().getName();
+            System.out.println(clazz+"::"+event.getPropertyName()+" changed from "+event.getOldValue()+" to "+event.getNewValue());
+        }
+    }
+}

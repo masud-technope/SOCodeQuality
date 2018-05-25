@@ -1,0 +1,12 @@
+int[] int_dmy( long timestamp ) // remember month is [0..11] !!!
+{
+  Calendar cal = new GregorianCalendar(); cal.setTimeInMillis( timestamp );
+  return new int[] { 
+    cal.get( Calendar.DATE ), cal.get( Calendar.MONTH ), cal.get( Calendar.YEAR )
+  };
+};
+
+
+int[] int_dmy( Date d ) { 
+ ...
+}

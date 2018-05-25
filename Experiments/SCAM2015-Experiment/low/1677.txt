@@ -1,0 +1,10 @@
+public class LongtoByte 
+    {
+            public static void main(String[] args)
+            {
+                long a=222;
+                byte b=(byte)(a);
+                System.out.println("the value of b is" +b);
+
+            }
+    }

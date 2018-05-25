@@ -1,0 +1,5 @@
+public class Overflow {
+    public static final void main(String[] args) {
+        main(args);
+    }
+}

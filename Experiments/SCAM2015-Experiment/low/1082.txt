@@ -1,0 +1,15 @@
+public static byte[] getSecure8ByteSalt(){
+    SecureRandom random = null;
+    try {
+        random = SecureRandom.getInstance("SHA1PRNG");
+        byte [] bSalt =  new byte[8];
+        random.nextBytes(bSalt);
+        return bSalt;
+    } catch (NoSuchAlgorithmException e) {
+        log.error(e.getMessage(),e);
+    }
+    return new byte[]{
+         (byte)0xA9, (byte)0x9B, (byte)0xC8, (byte)0x32,
+         (byte)0x56, (byte)0x34, (byte)0xE3, (byte)0x03
+     };
+}

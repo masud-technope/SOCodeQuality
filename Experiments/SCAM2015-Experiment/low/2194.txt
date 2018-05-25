@@ -1,0 +1,14 @@
+public void deleteFiles(){
+
+    File f = new File("log");
+    File[] fileArray = f.listFiles();
+    double timenow = System.currentTimeMillis();
+
+    double olderTenDays = timenow - 864000000;// MS for ten days
+
+    for (int i = 0; i < fileArray.length; i++) {
+
+        if(fileArray[i].lastModified()< olderTenDays )
+           fileArray[i].delete();
+    }
+ }

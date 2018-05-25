@@ -1,0 +1,3 @@
+String name=Vikash
+String upperCase=name.toUpperCase()
+String lowerCase=name.toLowerCase()

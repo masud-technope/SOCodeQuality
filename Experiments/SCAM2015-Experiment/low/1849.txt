@@ -1,0 +1,3 @@
+GenericNumber i = new GenericNumber(new Integer(5));
+GenericNumber j = new GenericNumber(new Double(7));
+System.out.println(GenericsTest.compare(i,j));

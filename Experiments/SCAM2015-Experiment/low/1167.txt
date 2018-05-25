@@ -1,0 +1,5 @@
+onCreate()
+{
+
+    button.setOnclickListner(this);
+}

@@ -1,0 +1,5 @@
+Pattern pattern = Pattern.compile("^/pep/v1/clients/(.+)/tester$");
+    Matcher m = pattern.matcher("/pep/v1/clients/ST-980/tester");
+    if (m.find()) {
+        System.out.println("clientId = " + m.group(1));
+    }

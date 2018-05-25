@@ -1,0 +1,4 @@
+LinkedBlockingQueue<String> myStrings = new LinkedBlockingQueue<String>(100);
+myStrings.offer("Hi!"); // returns false if limit is reached
+myStrings.add("Hi, again!"); // throws exception if limit is reached
+String s = myStrings.poll(); // returns null if queue is empty

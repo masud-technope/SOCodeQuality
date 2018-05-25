@@ -1,0 +1,3 @@
+while (number > 0) {
+    System.out.print( number % 10 + ((number/=10)>0 ? "," : ""));
+}

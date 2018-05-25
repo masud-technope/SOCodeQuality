@@ -1,0 +1,3 @@
+if(Arrays.binarySearch(newAlphabet, letters) < 0){
+  newAlphabet[I] = letters;
+ }

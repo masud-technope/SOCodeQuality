@@ -1,0 +1,4 @@
+public boolean equals(Object obj) {
+  A a = (A) obj;  <-- this cast is the most problematic issue from this example
+  return this.id.equals(a.getId());
+}

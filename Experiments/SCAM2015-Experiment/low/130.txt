@@ -1,0 +1,24 @@
+public abstract class Parent {
+
+    private Parent peer;
+
+    public Parent(Parent peer) {
+        this.peer = peer;
+    }
+
+    public Parent(String someString) {
+    }
+
+}
+
+public class Child1 extends parent {
+    public Child1() {
+        super(new Child1())
+    }
+}
+
+public class Child2 extends parent {
+    public Child2() {
+        super(new Child2())
+    }
+}

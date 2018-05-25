@@ -1,0 +1,19 @@
+HashMap<String, Integer> numbers = new HashMap<String, Integer>();
+    numbers.put("ace", 1);
+    numbers.put("two", 2);
+    numbers.put("three", 3);
+    numbers.put("four", 4);
+    numbers.put("five", 5);
+    numbers.put("six", 6);
+    numbers.put("seven", 7);
+    numbers.put("eight", 8);
+    numbers.put("nine", 9);
+    //etc...
+    HashMap<String, Integer> suits = new HashMap<String, Integer>();
+    suits.put("clubs", 0);
+    suits.put("spades", 3);
+    suits.put("hearts", 2);
+    suits.put("diamonds", 1);
+
+    numbers.get("zero");//use this to access the number
+    suits.get("spades");//use this to access the suit

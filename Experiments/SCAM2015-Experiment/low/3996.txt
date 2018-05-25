@@ -1,0 +1,8 @@
+String a = "#thispartneedstogo#";
+    String s = "anythingelsecanremain";
+
+    s = s+a;
+// to replace
+    System.out.println(s.replace("#thispartneedstogo#");
+// to add
+    System.out.println(a.concat(s));

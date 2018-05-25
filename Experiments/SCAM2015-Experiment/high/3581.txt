@@ -1,0 +1,5 @@
+for (String fromArray : array) {
+    if (fromArray.contains(mystring)) {
+        // put your code here
+    }
+}

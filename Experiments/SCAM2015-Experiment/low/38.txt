@@ -1,0 +1,21 @@
+private final String[] symbolsPossible = {"ax","bx","cx","dx","foo"};
+private boolean exists;
+private final String mutate(String s)
+{
+String[] tokens=s.split(" ");
+for(int j=0; j<tokens.length; j++)
+if(Math.random()<.1) //10% chance of mutation per token
+{
+//checking to see if the token is a supported symbol
+exists=false;
+for(int i=0; i<symbolsPossible.length; i++)
+    if(tokens[j].equals(symbolsPossible[i]))
+       exists=true;
+if(exists)
+    tokens[j]=symbolsPossible[(int)Math.random()*symbolsPossible.length];
+}
+StringBuffer result=new StringBuffer();
+for(String t:tokens)
+    result.append(t);
+return result;
+}

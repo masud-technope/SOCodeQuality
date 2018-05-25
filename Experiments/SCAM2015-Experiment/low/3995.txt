@@ -1,0 +1,19 @@
+private int totalTax(ArrayList<Shop> list1, ArrayList<House> list2) {
+
+ int total = 0;
+ int miSize = Math.min(list1.size(), list2.size());
+
+ for (int a = 0; a < minSize; a++)
+    total += list1.get(a).shopTax() + list2.get(a).houseTax();
+
+
+ if(list1.size() > minSize)
+    for (int a = minSize; a < list1.size(); a++)
+        total += list1.get(a).shopTax();
+ else
+    for (int a = minSize; a < list2.size(); a++)
+        total += list2.get(a).shopTax();
+
+
+ return total;
+}

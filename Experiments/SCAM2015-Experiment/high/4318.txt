@@ -1,0 +1,3 @@
+public <T> void put(TypedKey<T, K> key, Property<T> property)
+
+public <T> Property<T> get(TypedKey<T, K> key)

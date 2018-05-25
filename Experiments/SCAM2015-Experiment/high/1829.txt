@@ -1,0 +1,12 @@
+class IterableThing implements Iterable<Foo> {
+    private Collection<Bar> someStuff;
+
+    public Iterator<Foo> iterator() {
+        return (Iterator<Foo>)someStuff.iterator();
+    }
+}
+
+class Bar {
+}
+class Foo extends Bar {
+}

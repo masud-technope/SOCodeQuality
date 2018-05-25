@@ -1,0 +1,11 @@
+static MyObject *singleton = nil;
+
++ (void)initialize {
+  static dispatch_once_t pred;
+  dispatch_once(&pred, ^{ singleton = [[MyObject alloc] init]; } );
+}
+
+- (MyObject&)getSharedObject
+{
+  return singleton;
+}

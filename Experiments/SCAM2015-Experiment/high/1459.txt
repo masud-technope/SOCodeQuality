@@ -1,0 +1,19 @@
+public static <T> T get(Class<T> cls){
+    // No lock try
+    T ref = cache.get(cls);
+    if(ref != null){
+        return ref;
+    }
+    // Miss, so use create lock
+    synchronized(cls){ // singletons are double created
+        synchronized(cache){ // Prevent table rebuild/transfer contentions -- RARE
+            // Double check create if lock backed up
+            ref = cache.get(cls);
+            if(ref == null){
+                ref = cls.newInstance();
+                cache.put(cls,ref);
+            }
+            return ref;
+        }
+    }
+}

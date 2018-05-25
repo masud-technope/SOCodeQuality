@@ -1,0 +1,12 @@
+SpannableStringBuilder builder = new SpannableStringBuilder();
+
+        SpannableString redSpannable = new SpannableString("here first string");
+        redSpannable.setSpan(new ForegroundColorSpan(Color.parseColor("#ff0000")), 0, "here first string".length(), 0);
+        builder.append(redSpannable);
+        builder.append(" ");
+
+        String white =  upperCase.toUpperCase();
+        SpannableString whiteSpannable = new SpannableString("here second string");
+        whiteSpannable.setSpan(new ForegroundColorSpan(Color.parseColor("#00ff00")), 0, "here second string".length(), 0);
+        builder.append(whiteSpannable);
+TextView02.setText(builder, BufferType.SPANNABLE);

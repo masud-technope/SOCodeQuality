@@ -1,0 +1,9 @@
+public int countHigher(final SomeObject a) 
+{ 
+ return coun(a, new Filter<SomeObject>()
+           {   
+                 public boolean eligible(SomeObject b){
+                      return a.compareTo(b) == -1;
+                 }
+           }); 
+}

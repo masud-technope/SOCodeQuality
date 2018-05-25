@@ -1,0 +1,33 @@
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import java.util.zip.ZipEntry;
+
+
+public class JarReader {
+
+public static void readJar(String jarName) throws IOException {
+    String dir = new File(jarName).getParent();
+    JarFile jf = new JarFile(jarName);
+    Enumeration<JarEntry> en = jf.entries();
+    while(en.hasMoreElements()) { 
+        ZipEntry ze = (ZipEntry)en.nextElement();
+        if(ze.getName().endsWith(".jar")) { 
+            readJar(dir + System.getProperty("file.separator") + ze.getName());
+        } else {
+            InputStream is = jf.getInputStream(ze);
+            // ... read from input stream
+            is.close();
+            System.out.println("Processed class: " + ze.getName());
+        }   
+    }
+}
+
+public static void main(String[] args) throws IOException {
+    readJar(args[0]);
+}
+
+}

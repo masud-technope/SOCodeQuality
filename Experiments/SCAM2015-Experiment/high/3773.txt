@@ -1,0 +1,23 @@
+Scanner keyboard = new Scanner(System.in);
+
+String s;
+System.out.print("Enter string: ");
+
+s = keyboard.nextLine();
+
+Set<Character> occur=new HashSet<Character>();
+
+StringBuilder stb=new StringBuilder();
+
+for(int i=0;i<s.length();i++){
+
+    if(occur.contains(s.charAt(i)))
+        stb.append("*");
+    else
+        stb.append(s.charAt(i));
+
+    occur.add(s.charAt(i));         
+
+}
+
+System.out.println(stb.toString());

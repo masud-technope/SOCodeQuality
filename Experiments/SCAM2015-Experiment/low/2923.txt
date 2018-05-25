@@ -1,0 +1,14 @@
+int i;
+int j;
+
+int[] arrayCrit = new int[5];
+String[] crits = new String[5];
+
+for (i = 0; i < crits.length; i++) {
+  System.out.print("Criteria: ");
+  crits[i] = inpt.readLine();
+  for (j = 0; j < arrayCrit.length; j++) {
+    System.out.print("Percentage: ");
+    arrayCrit[j] = Integer.parseInt(inpt.readLine());
+  }
+}

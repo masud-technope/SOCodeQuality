@@ -1,0 +1,8 @@
+static Boolean parseBoolean(String s)
+{
+   if(s == null || s.equals(""))
+      return null;    
+   if ("1".equals(s)) return true;
+   if ("0".equals(s)) return false;
+    return null;
+}

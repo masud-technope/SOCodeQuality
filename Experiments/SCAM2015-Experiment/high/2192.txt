@@ -1,0 +1,3 @@
+newA3.y = 'c'
+newA2.y = 'cb'
+newA1.y = 'ba'

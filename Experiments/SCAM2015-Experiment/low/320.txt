@@ -1,0 +1,16 @@
+final StringBuilder result = new StringBuilder();
+final StringCharacterIterator iterator = new StringCharacterIterator(str);
+char character =  iterator.current();
+while (character != CharacterIterator.DONE )
+{
+  if (character == '\\\\') {
+     result.append("\\");
+  }
+  else {
+    result.append(character);
+  }
+
+  character = iterator.next();
+}
+
+System.out.print(result);

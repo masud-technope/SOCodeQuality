@@ -1,0 +1,14 @@
+Man Fred = null; 
+Try
+{   
+    Fred = new Man(); 
+} 
+catch (exception e) 
+{   
+    Print e  
+}  
+
+If(Fred != null)
+{
+    Print Fred.getName (); 
+}

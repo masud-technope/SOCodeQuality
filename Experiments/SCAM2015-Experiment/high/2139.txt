@@ -1,0 +1,5 @@
+class FortyTwo extends Number {
+      public byteValue() { return 42; }
+      public intValue()  { return 42; }
+      // etc
+}

@@ -1,0 +1,5 @@
+import com.google.common.io.Files;
+
+...
+
+byte[] fameBytes = Files.toByteArray(fame);

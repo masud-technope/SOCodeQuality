@@ -1,0 +1,8 @@
+String str = "filename.xml";
+if (!str.contains(".")) 
+    System.out.println("File Name=" + str); 
+else {
+    str = str.substring(0, str.lastIndexOf("."));
+    // Because extension is always after the last '.'
+    System.out.println("File Name=" + str);
+}

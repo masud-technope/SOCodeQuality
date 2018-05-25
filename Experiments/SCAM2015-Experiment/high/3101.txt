@@ -1,0 +1,13 @@
+boolean firstLine = true;               
+while ((line = br.readLine()) != null) 
+{
+   if (firstLine) 
+   {
+      firstLine = false;
+       continue;
+   } 
+   else if(line != null && line.startsWith("child's Last Name"))
+   {
+        list.add(line);
+   }
+}

@@ -1,0 +1,7 @@
+InputStream in = context.openFileInput("data.txt");
+ByteArrayOutputStream bais = new ByteArrayOutputStream();
+byte[] bytes = new byte[8192];
+for(int len; (lne = in.read(bytes) > 0;)
+   bais.write(bytes, 0, len);
+in.close();
+return bais.toByteArray();

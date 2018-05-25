@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+string result;
+vector<string> solutions;
+int N = 10;
+void generateBrackets(int pos, int balance)
+{
+    if(balance > N-pos) return;
+    if(pos == N)
+    {
+        //we have a valid solution
+        //generate substring from 0 to N-1
+        //and push it to the vector
+        string currentSolution;
+        for(int i = 0; i < N; ++i)
+        {
+            currentSolution.push_back(result[i]);
+        }
+        solutions.push_back(currentSolution);
+        return;
+    }
+    result[pos] = '(';
+    generateBrackets(pos+1, balance+1);
+    if(balance > 0)
+    {
+        result[pos] = ')';
+        generateBrackets(pos+1, balance-1);
+    }
+}
+int main()
+{
+    result.assign(N, 'a');
+    generateBrackets(0, 0);
+    cout<<"Printing solutions:\n";
+    for(int i = 0; i < solutions.size(); ++i)
+    {
+        cout<<solutions[i]<<endl;
+    }
+    return 0;
+}

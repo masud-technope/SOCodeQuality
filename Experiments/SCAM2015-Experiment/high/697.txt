@@ -1,0 +1,4 @@
+byte[] data = "<someXml />".getBytes();
+multipartContent.addPart("uploadedFile", new InputStreamBody(new ByteArrayInputStream(data), "text/xml", "somefile.xml"));
+multipartContent.addPart("otherPart", new StringBody("bar", "text/plain", Charset.forName("UTF-8")));
+multipartContent.addPart("foo", new FileBody(new File("c:\\foo.txt"), "text/plain"));

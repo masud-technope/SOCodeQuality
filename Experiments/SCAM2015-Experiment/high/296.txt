@@ -1,0 +1,5 @@
+Person me = new Person("Mario", "Fusco", 35);
+Person luca = new Person("Luca", "Marrocco", 29);
+Person biagio = new Person("Biagio", "Beatrice", 39);
+Person celestino = new Person("Celestino", "Bellone", 29);
+List<Person> people = asList(me, luca, biagio, celestino);

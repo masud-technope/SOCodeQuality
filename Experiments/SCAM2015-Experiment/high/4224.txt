@@ -1,0 +1,15 @@
+public class StringPractice{
+String sample = "sample";
+
+    String holder = sample;
+    if(sample == null)
+        return ""; 
+    else if(index == 0 && sample.length() == 1)
+        return ""; 
+    else if(sample.equalsIgnoreCase(""))
+        return ""; 
+    else if(index == sample.length())
+        return sample.substring(0, sample.length()-1);
+    else
+        return sample.substring(0, index) + holder.substring(index+1, holder.length());
+}

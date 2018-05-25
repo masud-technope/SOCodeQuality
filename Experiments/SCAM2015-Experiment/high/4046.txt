@@ -1,0 +1,11 @@
+String[] arr =  {"/pep/v1/clients/ST-980/tester",
+        "/pep/v1/clients/123/tester",
+        "/pep/v1/clients/Hello%20World/tester" };
+for (String s: arr)
+{
+    Matcher m = Pattern.compile("^/pep/v1/clients/([^/]+)/tester$").matcher(s);
+    while(m.find())
+    {
+        System.out.println(m.group(1));
+    }
+}

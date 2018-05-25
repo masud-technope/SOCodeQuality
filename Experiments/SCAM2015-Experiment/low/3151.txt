@@ -1,0 +1,9 @@
+private static int recursionTest(int num){
+   while(num < 10){
+        recursionTest(++num);
+        if(num < 10){
+            break;
+        }
+    }
+    return num;
+}

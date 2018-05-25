@@ -1,0 +1,5 @@
+void foo::bar()
+{
+    delete this;
+    this->some_function();
+}

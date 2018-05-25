@@ -1,0 +1,4 @@
+String str = "helloslkhellodjladfjhello";
+String findStr = "hello";
+
+System.out.println(StringUtils.countMatches(str, findStr));

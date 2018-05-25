@@ -1,0 +1,23 @@
+static int[] sumOddandEven(int array[]) {
+        int temp[] = null;
+        Scanner scan = new Scanner(System.in);
+
+
+        System.out.println("Enter the first number: ");
+        int u1 = scan.nextInt();
+        temp[0] = u1;
+        System.out.println("Enter the first number: ");
+        int u2 = scan.nextInt();
+        temp[1] = u2;
+        System.out.println("Enter the first number: ");
+        int u3 = scan.nextInt();
+        temp[2] = u3;
+        System.out.println("Enter the first number: ");
+        int u4 = scan.nextInt();
+        temp[3] = u4;
+        System.out.println("Enter the first number: ");
+        int u5 = scan.nextInt();
+        temp[4] = u5;
+        return temp;
+
+    }

@@ -1,0 +1,24 @@
+class Account {
+  AtomicLong balance = new AtomicLong ();
+}
+
+...
+Long oldDebtor = null;
+Long oldCreditor = null;
+try {
+  // Increase one.
+  oldDebtor = debtor.balance.getAndAdd(value);
+  // Decrease the other.
+  oldCreditor = creditor.balance.gtAndAdd(-value);
+} catch (Exception e) {
+  // Most likely (but still incredibly unlikely) InterruptedException but theoretically anything.
+  // Roll back
+  if ( oldDebtor != null ) {
+    debtor.getAndAdd(-value);
+  }
+  if ( oldCreditor != null ) {
+    creditor.getAndAdd(value);
+  }
+  // Re-throw after cleanup.
+  throw (e);
+}

@@ -1,0 +1,7 @@
+Map<String, Integer> map = new HashMap<String, Integer>();
+    map.put("java", 20);
+    map.put("C++", 45);
+
+    Set <Entry<String, Integer>> set = map.entrySet();
+
+    List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);

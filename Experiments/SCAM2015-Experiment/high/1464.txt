@@ -1,0 +1,18 @@
+public boolean isIntMultiplication(int a, int b) {
+    // signs are not important in this context
+    a = Math.abs(a);
+    b = Math.abs(b);
+    // optimization: I want to calculate a*b as the sum of a by itself repeated b times, so make sure b is the smaller one
+    // i.e., 100*2 is calculated as 100+100 which is faster than summing 2+2+2+... a hundred times
+    if (b > a) { int swap = a; a = b; b = swap; }
+
+    int n = 0, total = a;
+    while(++n < b) {
+        if (total <= Integer.MAX_VALUE - a) {
+            total += a;
+        } else {
+            return false;
+        }
+    }
+    return true;
+}

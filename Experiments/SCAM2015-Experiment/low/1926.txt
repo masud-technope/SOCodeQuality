@@ -1,0 +1,9 @@
+StringBuilder sb = new StringBuilder();
+    boolean firstEntry = true;
+    for (String serverId : serverIds) {
+      if (firstEntry)
+        firstEntry = false;
+      else
+        sb.append(",");      
+      sb.append(serverId);
+    }

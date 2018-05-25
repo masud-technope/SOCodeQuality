@@ -1,0 +1,3 @@
+String input = "1one2";
+String numerical = input.replaceAll("[^0-9.]", "");
+if (input.equals(numerical)) // If you remove all non numbers, still the same string

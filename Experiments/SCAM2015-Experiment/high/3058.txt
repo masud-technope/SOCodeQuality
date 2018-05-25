@@ -1,0 +1,11 @@
+//It returns the index of the number specified by the parameter is
+//located. If the number is not found, it returns -1.
+private int indexOf(int searchingNum)
+{
+    for (int index = 0; index < count; index++)
+        if (numberArray[index] == searchingNum){
+            return index;
+        }
+    }
+    return -1;
+}

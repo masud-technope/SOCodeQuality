@@ -1,0 +1,5 @@
+double randomWithRange(double min, double max)
+{
+   double range = Math.abs(max - min);     
+   return (Math.random() * range) + (min <= max ? min : max);
+}

@@ -1,0 +1,19 @@
+@SharedPref
+public interface ExamplePrefs {
+
+    // The name will have default value of "Anonymous"
+    @DefaultString("Anonymous")
+    String name();
+
+    // The field age will have default value 42
+    @DefaultInt(42)
+    int age();
+
+    // The field address will have default value of "MyAddress"
+    @DefaultString("MyAddress")
+    String name();
+
+    // The field lastUpdated will have default value 0
+    long lastUpdated();
+
+}

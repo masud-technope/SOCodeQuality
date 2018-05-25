@@ -1,0 +1,13 @@
+import java.util.Stack;
+public class Test {
+    String foo;
+    public static void main(String[] args) {
+        Test test = new Test();
+        test.foo = "bar";
+        Stack<Test> stack = new Stack<Test>();
+        stack.push(test);
+        Test otherTest = stack.pop();
+        otherTest.foo = "wibble";
+        System.out.println("Are the same object: "+(test.foo == otherTest.foo));
+    }
+}

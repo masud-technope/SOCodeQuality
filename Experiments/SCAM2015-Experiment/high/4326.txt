@@ -1,0 +1,9 @@
+public String concat(String str) {
+    int otherLen = str.length();//This is where NullPointerException is thrown
+    if (otherLen == 0) {
+        return this;
+    }
+    getChars(0, count, buf, 0);
+    str.getChars(0, otherLen, buf, count);
+    return new String(0, count + otherLen, buf);
+}

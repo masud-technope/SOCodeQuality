@@ -1,0 +1,4 @@
+public String getCuffSize()
+{
+   return (cuffSize == null) ? "" : cuffSize;
+}

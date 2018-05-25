@@ -1,0 +1,5 @@
+System.out.println(
+    lastName
+    + (( firstName.length() > 0 && lastName.length() > 0 ) ? ", " : "")
+    + firstName
+);

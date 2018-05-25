@@ -1,0 +1,12 @@
+testMethod(string ip){
+    if(ip.length()==1){
+        ip=ip.toUppercase();
+    }
+    For(int i=0;i<ip.length()-1;i++){
+        System.out.print(ip.charAt(i)+""+ip.charAt(i));
+    }
+    if(ip.length()>1){
+        System. out. println();
+        testMethod(ip.substring(1));
+    }
+}

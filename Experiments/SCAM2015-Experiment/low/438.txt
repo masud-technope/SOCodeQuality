@@ -1,0 +1,3 @@
+Dim MyDate As Date = #11/14/2012#  'This is just an example date
+
+MyDate = MyDate.AddDays(DateTime.DaysInMonth(MyDate.Year, MyDate.Month) - MyDate.Day)

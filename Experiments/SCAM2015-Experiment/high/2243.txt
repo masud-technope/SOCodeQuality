@@ -1,0 +1,16 @@
+/**
+ * Write to the connected OutStream.
+ * @param buffer  The bytes to write
+ */
+public void write(AbstractMessage buffer) {
+    try {
+        Log.v(TAG,"Writing \""+(buffer.serialize())+"\"");
+        mmOutStream.write(buffer.serialize());
+
+        // Share the sent message back to the UI Activity
+        mHandler.obtainMessage(AbstractMessageManager.MESSAGE_WRITE, -1, -1, buffer)
+                .sendToTarget();
+    } catch (IOException e) {
+        Log.e(TAG, "Exception during write", e);
+    }
+}

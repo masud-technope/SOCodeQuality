@@ -1,0 +1,10 @@
+for(int aValue : aList) {
+    if (aValue != aList.Count - 1)
+    {
+          tmpString += aValue + ",";
+    }
+    else
+    {
+          tmpString += aValue + ")";
+    }
+}

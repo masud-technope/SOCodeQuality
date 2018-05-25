@@ -1,0 +1,88 @@
+private void addPicture(final String fileName, final int id, int width, int height, final XWPFRun run)
+{
+    FileInputStream fileInputStream = null;
+
+    try
+    {
+        fileInputStream = new FileInputStream("/home/maq/ebworkspace/TeamForge_Tools/" + fileName);
+        final String blipId = run.getDocument().addPictureData(fileInputStream, Document.PICTURE_TYPE_JPEG);
+
+        final int EMU = 9525;
+        width *= EMU;
+        height *= EMU;
+        //String blipId = getAllPictures().get(id).getPackageRelationship().getId();
+
+        final CTInline inline = run.getCTR().addNewDrawing().addNewInline();
+
+        final String picXml = "" + "<a:graphic xmlns:a=\"http://schemas.openxmlformats.org/drawingml/2006/main\">"
+                + "   <a:graphicData uri=\"http://schemas.openxmlformats.org/drawingml/2006/picture\">" + "      <pic:pic xmlns:pic=\"http://schemas.openxmlformats.org/drawingml/2006/picture\">"
+                + "         <pic:nvPicPr>" + "            <pic:cNvPr id=\""
+                + id
+                + "\" name=\"Generated\"/>"
+                + "            <pic:cNvPicPr/>"
+                + "         </pic:nvPicPr>"
+                + "         <pic:blipFill>"
+                + "            <a:blip r:embed=\""
+                + blipId
+                + "\" xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\"/>"
+                + "            <a:stretch>"
+                + "               <a:fillRect/>"
+                + "            </a:stretch>"
+                + "         </pic:blipFill>"
+                + "         <pic:spPr>"
+                + "            <a:xfrm>"
+                + "               <a:off x=\"0\" y=\"0\"/>"
+                + "               <a:ext cx=\""
+                + width
+                + "\" cy=\""
+                + height
+                + "\"/>"
+                + "            </a:xfrm>"
+                + "            <a:prstGeom prst=\"rect\">"
+                + "               <a:avLst/>"
+                + "            </a:prstGeom>"
+                + "         </pic:spPr>"
+                + "      </pic:pic>" + "   </a:graphicData>" + "</a:graphic>";
+
+        //CTGraphicalObjectData graphicData = inline.addNewGraphic().addNewGraphicData();
+        XmlToken xmlToken = null;
+        xmlToken = XmlToken.Factory.parse(picXml);
+        inline.set(xmlToken);
+        //graphicData.set(xmlToken);
+
+        inline.setDistT(0);
+        inline.setDistB(0);
+        inline.setDistL(0);
+        inline.setDistR(0);
+
+        final CTPositiveSize2D extent = inline.addNewExtent();
+        extent.setCx(width);
+        extent.setCy(height);
+
+        final CTNonVisualDrawingProps docPr = inline.addNewDocPr();
+        docPr.setId(id);
+        docPr.setName("Picture " + id);
+        docPr.setDescr("Generated");
+    }
+    catch (final Exception e)
+    {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    finally
+    {
+        //close streams 
+        if (fileInputStream != null)
+        {
+            try
+            {
+                fileInputStream.close();
+            }
+            catch (final IOException ioEx)
+            {
+                //can be ignored
+            }
+        }
+    }
+
+}

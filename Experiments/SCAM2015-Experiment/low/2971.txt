@@ -1,0 +1,6 @@
+ObjectA objs[] = new ObjectA[10];       
+Arrays.fill(objs, getA());
+
+//just printing objects     
+for (int x = 0; x < objs.length; x ++)
+      System.out.println(objs[x]);

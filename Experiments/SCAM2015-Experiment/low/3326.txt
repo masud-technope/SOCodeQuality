@@ -1,0 +1,6 @@
+719     public synchronized E get(int index) {
+720         if (index >= elementCount)
+721             throw new ArrayIndexOutOfBoundsException(index);
+722 
+723         return elementData(index);
+724     }

@@ -1,0 +1,18 @@
+int currentMin;
+
+System.out.print("The largest number with these digits is: ");
+
+while(true) {
+  currentMin = Math.min(digit1, Math.min(digit2, Math.min(digit3, Math.min(digit4, digit5))));
+  //Invalidate the min digit
+  if (currentMin == digit1) digit1 = Integer.MAX_INT;
+  if (currentMin == digit2) digit2 = Integer.MAX_INT;
+  if (currentMin == digit3) digit3 = Integer.MAX_INT;
+  if (currentMin == digit4) digit4 = Integer.MAX_INT;
+  if (currentMin == digit5) digit5 = Integer.MAX_INT;
+  if (currentMin == Integer.MAX_INT) {
+    break;
+  } else {
+    System.out.print(currentMin + " ");
+  }
+}

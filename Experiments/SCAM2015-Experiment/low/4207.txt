@@ -1,0 +1,5 @@
+searchView.setIconified();
+    searchView.clearFocus();
+    searchView.onActionViewCollapsed();
+    return true;
+}

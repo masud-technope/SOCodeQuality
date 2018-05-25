@@ -1,0 +1,3 @@
+Parent p = getSomeOtherObject();
+Child c = (Child) p;
+c.beAGoodChild();

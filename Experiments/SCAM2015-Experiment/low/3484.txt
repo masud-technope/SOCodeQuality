@@ -1,0 +1,9 @@
+for (Information information: database) {
+    // check for ID is same as remove id
+   // if equals remove that entire object from list
+
+    if (information.ID.equals(removeID)) {
+        // remove object with ID same as removeid
+        database.remove(information);
+    }
+}

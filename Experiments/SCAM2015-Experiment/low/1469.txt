@@ -1,0 +1,13 @@
+public class MyClass implements ActionListener { 
+
+    private int difficultyLevel;
+
+    public MyClass(int difficultyLevel) {
+      this.difficultyLevel = difficultyLevel;
+    }
+
+    public void actionPerformed(ActionEvent e) { 
+        ...//code that reacts to action and does something based on difficultyLevel
+    }
+
+}

@@ -1,0 +1,19 @@
+$.hook("orientationLandscape").hookIn(
+     new $$hookee<Activity>(this){
+
+         @Override
+         public void call(String hookName, VaporBundle args){
+             // landscape code here
+         }
+
+     });
+
+$.hook("orientationPortrait").hookIn(
+     new $$hookee<Activity>(this){
+
+         @Override
+         public void call(String hookName, VaporBundle args){
+             // portrait code here
+         }
+
+     });

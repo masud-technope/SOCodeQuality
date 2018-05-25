@@ -1,0 +1,5 @@
+<select name="item">   
+       <c:forEach items="${itemsArray}" var="eachItem">   
+            <option value="${eachItem}">${eachItem}></option>   
+       </c:forEach>   
+   </select>

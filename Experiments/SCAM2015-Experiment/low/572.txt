@@ -1,0 +1,18 @@
+public int getDepthHelper( TreeNode< T > node ) { 
+    int treeHeightLeft; 
+    int treeHeightRight; 
+    //get height of left subtree 
+    if( node.leftNode == null ) 
+        treeHeightLeft = 1; 
+    else { 
+        treeHeightLeft = getDepthHelper( node.leftNode) + 1; 
+    } 
+
+    //get height of right subtree 
+    if( node.rightNode == null ) 
+        treeHeightRight = 1; 
+    else { 
+        treeHeightRight = getDepthHelper( node.rightNode) + 1; 
+    } 
+    return Math.max(treeHeightLeft, treeHeightRight); 
+}

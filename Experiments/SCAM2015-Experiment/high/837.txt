@@ -1,0 +1,6 @@
+List<String> strList = new ArrayList<String>();
+ List<?> wcList = strList;
+ wcList.add(Integer.valueOf(6));  //possible if add(?) is same as add(Object)
+
+ //...
+ String str = strList.get(0);

@@ -1,0 +1,44 @@
+[
+ {
+  "answer": true,
+  "questionId": 1,
+  "remark": "",
+  "checklistId": 2
+ },
+ {
+  "answer": false,
+  "questionId": 4,
+  "remark": "teesxfgtfghyfj",
+  "checklistId": 2
+ },
+ {
+  "answer": true,
+  "questionId": 4,
+  "remark": "",
+  "checklistId": 2
+ },
+ {
+  "answer": true,
+  "questionId": 4,
+  "remark": "",
+  "checklistId": 2
+ },
+ {
+  "answer": true,
+  "questionId": 4,
+  "remark": "",
+  "checklistId": 2
+ },
+ {
+  "answer": true,
+  "questionId": 4,
+  "remark": "",
+  "checklistId": 2
+ },
+ {
+  "answer": true,
+  "questionId": 4,
+  "remark": "",
+  "checklistId": 2
+ }
+]

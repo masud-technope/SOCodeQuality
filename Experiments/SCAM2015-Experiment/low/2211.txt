@@ -1,0 +1,9 @@
+URL url = Test.class.getResource(args[0]);  // reading demo file path from                                                   
+                                            // same location where class                                    
+File input=null;
+try {
+    input = new File(url.toURI());
+} catch (URISyntaxException e1) {
+    // TODO Auto-generated catch block
+    e1.printStackTrace();
+}

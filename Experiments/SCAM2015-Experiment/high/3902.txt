@@ -1,0 +1,6 @@
+public static void main(String[] args) {
+    printName("James", "Bond");
+    printName("James", null);
+    printName(null, "Bond");
+    printName(null, null);
+}

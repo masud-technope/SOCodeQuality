@@ -1,0 +1,5 @@
+String hql="select user.password from Users user where user.name=:name";
+Query query = session.createQuery(hql);
+query.setString("name", username);
+Object[] result =(Object[]) query.list().get(0);
+String password = result[0];

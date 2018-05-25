@@ -1,0 +1,37 @@
+JarFile jar = new JarFile(new File("path/to/your/jar-file"));
+
+// This call will throw a java.lang.SecurityException if someone has tampered
+// with the signature of _any_ element of the JAR file.
+// Alas, it will proceed without a problem if the JAR file is not signed at all
+InputStream is = jar.getInputStream(jar.getEntry("META-INF/MANIFEST.MF"));
+Manifest man = new Manifest(is);
+is.close();
+
+Set<String> signed = new HashSet();
+for(Map.Entry<String, Attributes> entry: man.getEntries().entrySet()) {
+    for(Object attrkey: entry.getValue().keySet()) {
+        if (attrkey instanceof Attributes.Name && 
+           ((Attributes.Name)attrkey).toString().indexOf("-Digest") != -1)
+            signed.add(entry.getKey());
+    }
+}
+
+Set<String> entries = new HashSet<String>();
+for(Enumeration<JarEntry> entry = jar.entries(); entry.hasMoreElements(); ) {
+    JarEntry je = entry.nextElement();
+    if (!je.isDirectory())
+        entries.add(je.getName());
+}
+
+// contains all entries in the Manifest that are not signed.
+// Ususally, this contains:
+//  * MANIFEST.MF itself
+//  * *.SF files containing the signature of MANIFEST.MF
+//  * *.DSA files containing public keys of the signer
+
+Set<String> unsigned = new HashSet<String>(entries);
+unsigned.removeAll(signed);
+
+// contains all the entries with a signature that are not present in the JAR
+Set<String> missing = new HashSet<String>(signed);
+missing.removeAll(entries);

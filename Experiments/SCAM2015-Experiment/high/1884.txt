@@ -1,0 +1,5 @@
+private int number;
+
+public void myMethod(int number){
+    number = 2;
+}

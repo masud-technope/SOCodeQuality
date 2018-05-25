@@ -1,0 +1,7 @@
+pID_Manager.addChangeListener(new ChangeListener() { 
+  public void textChanged(ChangeEvent e) {
+    pID_manager.removeChangeListener(this);
+    String pID = pID_Manage.getText();  
+    a.addtoArrayList("DATA:TAKE:PEOPLEs:"+pID+":"+pName_sub);
+    at.sendToServer("DATA:TAKE:PEOPLEs:"+pID+":"+pName_sub);
+}};

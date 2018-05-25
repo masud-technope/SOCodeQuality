@@ -1,0 +1,3 @@
+class ListObject<T extends Comparable<? super T>> {
+    ...
+}

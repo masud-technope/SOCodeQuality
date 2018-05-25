@@ -1,0 +1,15 @@
+Calendar cal = Calendar.getInstance();//getting the instance of the Calendar using the factory method
+we have a get() method to get the specified field of the calendar i.e year
+
+int year=cal.get(Calendar.YEAR);//for example we get 2013 here 
+
+cal.set(year, 0, 1); setting the date using the set method that all parameters like year ,month and day
+Here we have given the month as 0 i.e Jan as the month start 0 - 11 and day as 1 as the days starts from 1 to30.
+
+Date firstdate=cal.getTime();//here we will get the first day of the year
+
+cal.set(year,11,31);//same way as the above we set the end date of the year
+
+Date lastdate=cal.getTime();//here we will get the first day of the year
+
+System.out.print("the firstdate and lastdatehere\n");

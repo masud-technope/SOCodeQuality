@@ -1,0 +1,7 @@
+while(path != null){
+     try{
+       Thread.currentThread().sleep(50);
+     }catch(){
+       //do nothing
+     }
+    }

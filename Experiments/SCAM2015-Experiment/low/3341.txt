@@ -1,0 +1,10 @@
+for (int start = 0; start < test.size(); start += 5) {
+    if((start+5)<=index.size()){
+       List<String> group = test.subList(start, start+5);
+       System.out.println(group);
+       //System.out.println(output);
+       System.out.println("split");
+    }else{
+       break;
+    }        
+}

@@ -1,0 +1,5 @@
+String text = "Dear [[user.firstname]] [[user.lastname]]";
+for (String key : data.keySet()) {
+    String pattern = key.replace("[", "\\[").replace("]", "\\");
+    text = text.replaceAll(pattern, data.get(key));
+}

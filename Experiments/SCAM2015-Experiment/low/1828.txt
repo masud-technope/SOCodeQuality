@@ -1,0 +1,16 @@
+public String addStringInteger(String x1, Integer i){
+    String leading0 = "";
+    String nol = "";
+    boolean onLeading = true;
+    for(char c : x1.toCharArray()){
+        String l = Character.toString(c);
+        if(onLeading && l.equals("0")){
+            leading0 += "0";
+        }else{
+            onLeading = false;
+            nol += l;
+        }
+    }
+    int intO = Integer.parseInt(nol) + i; //you can change + to x, -, / etc
+    return leading0 + ""+ intO;
+}

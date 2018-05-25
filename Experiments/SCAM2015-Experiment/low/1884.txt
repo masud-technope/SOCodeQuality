@@ -1,0 +1,13 @@
+initialize(); //Method to initialize all variables you might want to use.
+//...Some code
+new Thread() {
+    public void run() {
+        try {
+            sleep(3000); //Time in milliseconds 
+            //to make this thread sleep before executing whatever other code.
+        } catch (Exception e) {
+        } finally {
+                pushScreen(new MyScreen()); //Push next screen
+        }
+    }
+}.start();

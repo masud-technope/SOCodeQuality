@@ -1,0 +1,3 @@
+button1.setBackground(Color.ORANGE);
+button2.setBackground(null);
+...

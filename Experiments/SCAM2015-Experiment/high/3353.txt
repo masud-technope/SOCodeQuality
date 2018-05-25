@@ -1,0 +1,6 @@
+public void swap(Person p1, Person p2)
+{
+        String temp = p1.name;
+        p1.name = p2.name;
+        p2.name = temp;
+}

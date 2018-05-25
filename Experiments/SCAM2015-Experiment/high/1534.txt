@@ -1,0 +1,12 @@
+public boolean isLegalPassword(String pass) {
+
+     if (!pass.matches(".*[A-Z].*")) return false;
+
+     if (!pass.matches(".*[a-z].*")) return false;
+
+     if (!pass.matches(".*\\d.*")) return false;
+
+     if (!pass.matches(".*[~!.......].*")) return false;
+
+     return true;
+}

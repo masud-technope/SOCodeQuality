@@ -1,0 +1,3 @@
+public void f(List<? extends A> list);
+public void g(List<A> list);
+public void h(List<? super B> list);

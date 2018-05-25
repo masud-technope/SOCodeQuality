@@ -1,0 +1,14 @@
+ResulerSet res= getDate();
+
+if(!res.next())
+{
+System.out.println("No Data Found.");
+}
+else
+{
+    res.previous();
+    while(res.next())
+    {
+      //code to display the data in the table.
+    }
+}

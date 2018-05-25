@@ -1,0 +1,66 @@
+public final class JButtonDemo {
+    private static DisabledJButton disabledBtnOne;
+    private static DisabledJButton disabledBtnTwo;
+
+    public static void main(String[] args){
+        SwingUtilities.invokeLater(new Runnable(){
+            @Override
+            public void run() {
+                createAndShowGUI();             
+            }
+        });
+    }
+
+    private static void createAndShowGUI(){
+        final JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        final JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        final JPanel disabledBtnPanel = new JPanel();
+        disabledBtnOne = new DisabledJButton();
+        disabledBtnTwo = new DisabledJButton();
+        disabledBtnPanel.add(disabledBtnOne);
+        disabledBtnPanel.add(disabledBtnTwo);
+        panel.add(disabledBtnPanel);
+
+        final JPanel enablerBtnPanel = new JPanel();
+        enablerBtnPanel.add(new EnablerJButton("Button 1"));
+        enablerBtnPanel.add(new EnablerJButton("Button 2"));
+        enablerBtnPanel.add(new EnablerJButton("Button 3"));
+        panel.add(enablerBtnPanel);
+
+        frame.add(panel);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    private static final class DisabledJButton extends JButton{
+        public DisabledJButton(){
+            super("Disabled");
+            setEnabled(false);
+        }
+    }
+
+    private static final class EnablerJButton extends JButton{
+        public EnablerJButton(final String s){
+            super(s);
+            addActionListener(new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(!disabledBtnOne.isEnabled()){
+                        disabledBtnOne.setEnabled(true);
+                        disabledBtnOne.setText("Enabled");
+                    }
+
+                    if(!disabledBtnTwo.isEnabled()){
+                        disabledBtnTwo.setEnabled(true);
+                        disabledBtnTwo.setText("Enabled");
+                    }
+                }
+            });
+        }
+    }
+}

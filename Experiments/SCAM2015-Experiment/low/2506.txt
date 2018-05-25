@@ -1,0 +1,5 @@
+Calendar cal = Calendar.getInstance();
+cal.set(Calendar.HOUR_OF_DAY, 18);
+cal.set(Calendar.MINUTE, 00);
+DateFormat df = new SimpleDateFormat("hh:mm");
+String timeOfDay = df.format(cal.getTime()); // "18:00"

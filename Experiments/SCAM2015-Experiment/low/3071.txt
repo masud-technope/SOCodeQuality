@@ -1,0 +1,3 @@
+public void inputData(Map<int,Map<String,String>> inputDetailsMap, String fileName){
+    System.out.println(inputDetailsMap.get(fileName));
+}

@@ -1,0 +1,15 @@
+try          
+    {     
+
+    Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");    
+
+    Connection con = DriverManager.getConnection("jdbc:odbc:ADB");    
+
+    Statement statement = con.createStatement();     
+
+    statement.executeUpdate("insert into Login " + "values  ('"+uname+"','"+pwd+"')");     
+     }
+   catch(Exception e)        
+    {      
+       System.out.println(e);      
+    }

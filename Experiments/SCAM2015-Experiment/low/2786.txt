@@ -1,0 +1,11 @@
+boolean flag = true;
+while(flag)
+{   
+    System.out.print(" Value: ");
+    current = input.nextInt();
+    int newtotal = current + total;
+    total = newtotal; 
+    System.out.println("The total so far is: " + total);
+    if(current == 0)
+        flag = false;
+}

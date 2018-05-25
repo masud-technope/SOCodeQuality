@@ -1,0 +1,11 @@
+public abstract class Enemy extends GameObject{
+    public abstract void updatePositionCommon(){ 
+        //code common to all
+
+        updatePosition();
+    }
+    public abstract void updatePosition(){ 
+        //override this method in children
+    }
+
+}

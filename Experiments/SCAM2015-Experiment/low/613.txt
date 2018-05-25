@@ -1,0 +1,5 @@
+Holder h = new Holder(5);
+  Field f = h.getClass().getDeclaredField("n");
+  f.setAccessible(true);
+  f.setInt(h, 10);
+  h.assertSanity();

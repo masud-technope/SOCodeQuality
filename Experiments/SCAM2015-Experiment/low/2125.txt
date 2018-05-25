@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+    /* Logic: Consider first character in the string and start counting occurrence of        
+              this character in the entire string. Now add this character to a empty
+              string "temp" to keep track of the already counted characters.
+              Next start counting from next character and start counting the character        
+              only if it is not present in the "temp" string( which means only if it is
+              not counted already)
+public class Counting_Occurences {
+
+    public static void main(String[] args) {
+
+
+        Scanner input=new Scanner(System.in);
+        System.out.println("Enter String");
+        String str=input.nextLine();
+
+        int count=0;
+        String temp=""; // An empty string to keep track of counted
+                                    // characters
+
+
+        for(int i=0;i<str.length();i++)
+        {
+
+            char c=str.charAt(i);  // take one character (c) in string
+
+            for(int j=i;j<str.length();j++)
+            {
+
+                char k=str.charAt(j);  
+    // take one character (c) and compare with each character (k) in the string
+            // also check that character (c) is not already counted.
+            // if condition passes then increment the count.
+                if(c==k && temp.indexOf(c)==-1)                                                                          
+                {
+
+                    count=count+1;
+
+                }
+
+            }
+
+             if(temp.indexOf(c)==-1)  // if it is not already counted
+             {
+
+
+            temp=temp+c; // append the character to the temp indicating
+                                         // that you have already counted it.
+
+System.out.println("Character   " + c + "   occurs   " + count + "    times");
+             }  
+            // reset the counter for next iteration 
+              count=0;
+
+        }
+
+
+    }
+
+
+}

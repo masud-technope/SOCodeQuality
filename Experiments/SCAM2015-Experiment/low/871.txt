@@ -1,0 +1,4 @@
+int val = 1 + new java.util.Random().nextInt(308915774); // [0 to 26^6 - 1)
+String word = Integer.toString(val, 26).toUpperCase(); // from [0-9,A-P]
+word = word.replace('0', 'Q');
+// etc for '1', through '9', where '9' -> Z

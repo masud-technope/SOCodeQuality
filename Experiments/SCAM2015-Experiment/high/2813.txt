@@ -1,0 +1,10 @@
+Given a compile-time reference type S (source) and a compile-time reference 
+type T (target), a casting conversion exists from S to T if no compile-time 
+errors occur due to the following rules.
+[...]
+If S is an array type SC[], that is, an array of components of type SC: 
+[...] 
+  - If T is an array type TC[], that is, an array of components of type TC, 
+    then a compile-time error occurs unless one of the following is true: 
+    - TC and SC are the same primitive type. 
+    - [...]

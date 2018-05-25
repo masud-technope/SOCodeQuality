@@ -1,0 +1,4 @@
+error: incompatible types: cannot infer type arguments for TbinList<>
+    ArrayList<Tbin<? extends Base>> test3 = new TbinList<>();
+                                                        ^
+    reason: no instance(s) of type variable(s) T exist so that TbinList<T> conforms to ArrayList<Tbin<? extends Base>>

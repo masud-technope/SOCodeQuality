@@ -1,0 +1,12 @@
+List<String> toRemove = new ArrayList<>();
+for(int i = 0; i < list.size(); i++)
+{
+    String element0 = list.get(i);
+    for(int j = 0; j < list.size(); j++)
+    {
+        String element1 = list.get(j);
+        if(!element0.equals(element1) && element0.contains(element1) && !toRemove.contains(element1)) toRemove.add(element1);
+    }
+}
+
+list.removeAll(toRemove);

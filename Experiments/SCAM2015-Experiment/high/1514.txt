@@ -1,0 +1,10 @@
+import java.util.regex.*;
+
+public class Main {
+  public static void main(String[] args) {
+    Pattern p = Pattern.compile("\\d+");
+    Matcher m = p.matcher("(345+3)*/3");
+    while(m.find())
+      System.out.println(m.group());
+  }
+}

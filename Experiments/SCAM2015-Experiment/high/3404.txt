@@ -1,0 +1,11 @@
+class GameOfNim {
+
+    public static void main(String[] args) {
+        [...]
+        if (difficulty == 0) {
+            System.out.println("The Computer is now in Beast Mode!");
+        } else if (difficulty == 1) {
+            System.out.println("The Computer is now in easy mode.");
+        }
+    }
+}

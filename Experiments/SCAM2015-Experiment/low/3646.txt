@@ -1,0 +1,13 @@
+boolean isTheSame;
+For(String myArrayCodes; code;) {
+  if (userCode.equals(myArrayCodes) || oldUser.equals(myArrayCodes))
+    isTheSame = true;
+  break;
+  }
+}
+
+if (isTheSame) { // usercode or oldUser is on array
+ doSomething();
+}
+else {
+}

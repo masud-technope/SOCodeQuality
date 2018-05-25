@@ -1,0 +1,7 @@
+public String altPairs(String str) {
+String result = "";
+for (int i = 0; i < str.length(); ) {
+result += str.substring(i, i+1);
+i+=4;
+}
+return result;}

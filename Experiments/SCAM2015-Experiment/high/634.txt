@@ -1,0 +1,11 @@
+ObservableBoolean b = new ObservableBoolean();
+
+//...
+
+// Start the "period of time":
+b.addChangeListener(iWantToBeNotifiedOfChanges);
+
+// ...
+
+// End the "period of time":
+b.removeChangeListener(iWantToBeNotifiedOfChanges);

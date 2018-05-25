@@ -1,0 +1,4 @@
+r1 = <create a new TestClass instance>
+f = r1;
+r1.x = 3;
+r1.y = 4;

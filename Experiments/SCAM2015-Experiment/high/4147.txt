@@ -1,0 +1,3 @@
+BlahChildOne bco = new BlahChildOne();
+add(bco.label); // It the label to the screen...
+BlahChildTwo bct = new BlahChildTwo();

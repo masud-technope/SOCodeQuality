@@ -1,0 +1,14 @@
+class B extends A
+{
+    B(int a, int b, int c){
+        super(a,b);
+        x=a;
+        z=b;
+        s=c;
+    }
+
+    void display(){
+        System.out.print("In B class...");
+        System.out.println("x+y+s :"+(x+z+s));
+    }
+}

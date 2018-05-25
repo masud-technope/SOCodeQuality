@@ -1,0 +1,4 @@
+int value = ((255 & 0xFF) << 24) | //alpha
+            (((int)rgb[0] & 0xFF) << 16) | //red
+            (((int)rgb[1] & 0xFF) << 8)  | //green
+            (((int)rgb[2] & 0xFF) << 0); //blue

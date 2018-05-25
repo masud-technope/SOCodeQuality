@@ -1,0 +1,8 @@
+for (Coffee c : coffees) {
+    try {
+        CoffeeMix blend = (CoffeeMix) c;
+        //whatever you want to do with CoffeeMix objects
+    } catch (ClassCastException cce) {
+        //whatever you want to do with Coffee objects
+    }
+}

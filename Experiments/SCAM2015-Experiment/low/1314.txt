@@ -1,0 +1,66 @@
+public class NumericTextField extends JTextField implements KeyListener{
+
+    private int value;
+
+    public NumericTextField(int value) {
+        super(value+ "");
+        this.addKeyListener(this);
+    }
+    public NumericTextField() {
+        super();
+        this.addKeyListener(this);
+    }
+    public Object getValue() {
+        return value;
+    }
+
+    public void setText(int value) {
+        super.setText(value + "");
+        this.value = value;
+    }
+
+    @Override
+    public void keyPressed(KeyEvent evt) {
+    }
+    @Override
+    public void keyReleased(KeyEvent arg0) {
+        isValidChar(arg0.getKeyChar());
+    }
+    @Override
+    public void keyTyped(KeyEvent arg0) {
+    }
+
+     //it is not good solution but acceptable
+    private void isValidChar(char ch){
+        if(this.getText().length() == 1 && this.getText().equals("-") ){
+            this.setText("-");
+        }
+        else {
+            if(!isNumeric(Character.toString(ch))){
+                try{
+                    this.setText(removeNonnumericChar(this.getText(), ch));
+                }catch(Exception e){
+                }
+            }
+        }
+    }
+
+    private boolean isNumeric(String text) {
+        try {
+            Integer.parseInt(text);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+    //remove nonnumeric character
+    private String removeNonnumericChar(String text, char ch){
+        StringBuilder sBuilder = new StringBuilder();
+        for (int i = 0; i < text.length(); i++) {
+            if(text.charAt(i) != ch){
+                sBuilder.append(text.charAt(i));
+            }
+        }
+        return sBuilder.toString();
+    }
+}

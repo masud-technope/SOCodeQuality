@@ -1,0 +1,9 @@
+public class ExtendedChicagoPizzaStore extends ChicagoPizzaStore {
+
+    Pizza createPizza(String item) {
+            if (item.equals("spicy")) {
+                    return new RidiculouslySpicyPizza();
+            } else {
+                    return super.createPizza(item);
+           }
+    }

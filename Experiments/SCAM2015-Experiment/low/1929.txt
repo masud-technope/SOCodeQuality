@@ -1,0 +1,11 @@
+From: <your_email_id>
+To: <recepient_eemail_id>
+Subject: Test Message
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+First Message using OAuth Protocol //its message u have 
+.
+250 2.0.0 OK 1360312537 a1sm52630615pav.2 - gsmtp
+Successfully authenticated to SMTP.

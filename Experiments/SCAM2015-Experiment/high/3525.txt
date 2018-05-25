@@ -1,0 +1,5 @@
+for (Rectangle rect : carList) {
+  if (rect.contains(testRectangle) {
+     // this item contains the test Rectangle
+  }
+}

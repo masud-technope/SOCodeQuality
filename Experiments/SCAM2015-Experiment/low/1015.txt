@@ -1,0 +1,12 @@
+// Determine the IP address of the local host
+public static String getLocalHostIP()
+{
+    try
+    {
+        return InetAddress.getLocalHost().getHostAddress();
+    }
+    catch (UnknownHostException ex)
+    {
+        return null;
+    }
+}

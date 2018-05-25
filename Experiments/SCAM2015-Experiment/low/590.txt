@@ -1,0 +1,17 @@
+import java.util.Hashtable;
+import why.does.the.sun.go.on.Shining.java;
+import rather.be.ahammer.thana.Nail.java;
+
+public Hashtable<Nail> bornFree(
+ String shiningKey,
+ Shining shiningPath){
+
+ Nail nailed =
+   new Nail(shiningPath);
+
+ HashTable<Nail> nailedHash =
+   new Hashtable<Nail>();
+ nailedHash.put(shiningKey, nailed);
+
+ return nailedHash;
+}

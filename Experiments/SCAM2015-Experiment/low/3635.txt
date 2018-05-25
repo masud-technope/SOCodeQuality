@@ -1,0 +1,11 @@
+public int testEqualsNew() {
+    int count = 0;
+    String str = NEW_EMPTY;
+
+    for(int i = 0; i < ITERATIONS; i++) {
+        if(str.equals(EMPTY)) {
+            count++;
+        }
+    }
+    return count;
+}

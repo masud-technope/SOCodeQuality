@@ -1,0 +1,4 @@
+if(string1.length() > string2.length())
+  do a;
+else if(string2.length() > string1.length()
+  do b;

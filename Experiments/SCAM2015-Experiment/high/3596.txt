@@ -1,0 +1,10 @@
+public long dotProduct(int [] a, int [] b) {
+    if (a == null) throw new IllegalArgumentException("a array cannot be null");
+    if (b == null) throw new IllegalArgumentException("b array cannot be null");
+    if (a.length != b.length) throw new IllegalArgumentException("arrays must have equal lengths");
+    long sum = 0L;
+    for (int i = 0; i < a.length; i++) {
+        sum += a[i]*b[i];
+    }
+    return sum;
+}

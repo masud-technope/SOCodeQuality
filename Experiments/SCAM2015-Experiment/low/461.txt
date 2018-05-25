@@ -1,0 +1,65 @@
+public class JaxbConverter {
+static final DateTimeFormatter dtf = ISODateTimeFormat.dateTimeNoMillis();
+static final DateTimeFormatter df = ISODateTimeFormat.date();
+static final DateTimeFormatter tf = ISODateTimeFormat.time();
+
+public static LocalDateTime parseDateTime(String s) {
+    try {
+        if (StringUtils.trimToEmpty(s).isEmpty())
+            return null;
+        LocalDateTime r = dtf.parseLocalDateTime(s);
+        return r;
+    } catch (Exception e) {
+        throw new IllegalArgumentException(e);
+    }
+}
+
+public static String printDateTime(LocalDateTime d) {
+    try {
+        if (d == null)
+            return null;
+        return dtf.print(d);
+    } catch (Exception e) {
+        throw new IllegalArgumentException(e);
+    }
+}
+
+public static LocalDate parseDate(String s) {
+    try {
+        if (StringUtils.trimToEmpty(s).isEmpty())
+            return null;
+        return df.parseLocalDate(s);
+    } catch (Exception e) {
+        throw new IllegalArgumentException(e);
+    }
+}
+
+public static String printDate(LocalDate d) {
+    try {
+        if (d == null)
+            return null;
+        return df.print(d);
+    } catch (Exception e) {
+        throw new IllegalArgumentException(e);
+    }
+}
+
+public static String printTime(LocalTime d) {
+    try {
+        if (d == null)
+            return null;
+        return tf.print(d);
+    } catch (Exception e) {
+        throw new IllegalArgumentException(e);
+    }
+}
+
+public static LocalTime parseTime(String s) {
+    try {
+        if (StringUtils.trimToEmpty(s).isEmpty())
+            return null;
+        return df.parseLocalTime(s);
+    } catch (Exception e) {
+        throw new IllegalArgumentException(e);
+    }
+}

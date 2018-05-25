@@ -1,0 +1,3 @@
+response.reset(); //workaround IE restriction against streaming to cache from SSL
+response.setContentType("myMIMEType");
+response.setHeader("Content-Disposition", "attachment; filename=\"" + whateverGoesHere + "\"");

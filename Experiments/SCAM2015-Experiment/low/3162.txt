@@ -1,0 +1,4 @@
+String time = "10:00";
+String parts = time.split(":");
+int hour = Integer.parseInt(parts[0]);
+int minute = Integer.parseInt(parts[1]);

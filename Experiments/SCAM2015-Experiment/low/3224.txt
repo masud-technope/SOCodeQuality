@@ -1,0 +1,3 @@
+if (opt==somve_integer_value_or_constraints){
+///your code
+}

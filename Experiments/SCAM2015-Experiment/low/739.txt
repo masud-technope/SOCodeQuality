@@ -1,0 +1,9 @@
+public static void main(String[] args) throws InterruptedException {
+        String [] dummy= new String [] {};
+        if(dummy[0] == null)
+        {
+            System.out.println("Proper Usage is: java program filename");
+            System.exit(0);
+        }
+
+    }

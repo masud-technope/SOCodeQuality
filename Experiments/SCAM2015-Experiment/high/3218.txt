@@ -1,0 +1,29 @@
+public class ZulHandler extends SelectorComposer {
+
+  @Wire("#win")
+  private Window myWin;
+  private Boolean manufacturing;
+  private Boolean manufactringChecked; 
+  @Override
+  public void doAfterCompose(Component window) throws Exception {
+    super.doAfterCompose(window);
+
+    if (arg.containsKey("isManufacturingKey")) {
+        manufacturing =  (Boolean) arg.get("isManufacturingKey"));
+    } else {
+       //Declare what is is when you don't have the arg
+    }
+    if (arg.containsKey("isManufactringChecked")) {
+        manufactringChecked =  (Boolean) arg.get("isManufactringChecked"));
+    } else {
+       //Declare what is is when you don't have the arg
+    }
+}
+
+public Boolean isManufacturing () {
+    return manufacturing;
+}
+
+public Boolean isManufactringChecked() {
+    return manufactringChecked ;
+}

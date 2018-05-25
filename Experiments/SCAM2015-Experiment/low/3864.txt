@@ -1,0 +1,20 @@
+public static void main(String args[]) throws IOException{
+     ArrayList<String> test = new ArrayList<String>();
+     test.add("football");
+     test.add("ballkeeping");
+     test.add("basket");
+     ArrayList<Integer> test1 = new ArrayList<Integer>();
+     int counter = 0;
+     for(String i : test)
+     {
+         if(i.contains("p"))
+         {
+             test1.add(counter);
+         }
+         counter++;
+     }
+     for(int i : test1)
+     {
+         System.out.print(" " + test.get(i));// print out strings that contain p
+     }
+ }

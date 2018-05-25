@@ -1,0 +1,3 @@
+private static String replaceWhitespaces(String string, String replacement) {
+    return string != null ? string.replaceAll("\\s", replacement) : null;
+}

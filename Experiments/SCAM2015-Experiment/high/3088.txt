@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Initialize variables
+program="$1"; shift
+child_pid=0
+
+# Register a signal handler procedure
+signalHandler() {
+    echo "Sending SIGKILL to process $child_pid and all its children"
+    [0 = $child_pid] || kill -9 -$child_pid
+    echo "Removing temporary folder: $tmp_folder"
+    rm -fr "$tmp_folder"
+}
+trap signalHandler 0 1 2 3 15
+
+# Create a temporary folder
+tmp_folder=$(mktemp -d --quiet)
+
+# Launch a child process in background
+program "$@" >$(tmp_folder)/somefile 2>&1 &
+
+# Remember the subprocess id
+child_pid=$!
+
+# Make tail exit when the subprocess exits
+# Maybe, this is a bad idea. I haven’t tested it
+# If it doesn't work, one can read from file with Java NIO
+tail --follow --pid=$child_pid $(tmp_folder)/somefile

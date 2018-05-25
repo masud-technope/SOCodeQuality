@@ -1,0 +1,3 @@
+dim animalobj as new List(Animal)
+  animalobj(0)=new dog()
+   animalobj(1)=new Cat()

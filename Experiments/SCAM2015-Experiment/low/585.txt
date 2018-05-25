@@ -1,0 +1,5 @@
+StrMatcher delims = StrMatcher.charSetMatcher(new char[] {' ', ',', '\n'});
+StrTokenizer str = new StrTokenizer(match.toString(), delims);
+while (str.hasNext()) {
+    System.out.println("Token:[" + str.nextToken() + "]");
+}

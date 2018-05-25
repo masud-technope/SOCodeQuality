@@ -1,0 +1,3 @@
+String text = "foo";
+char a_char = text.charAt(0);
+System.out.println( a_char ); // Prints f

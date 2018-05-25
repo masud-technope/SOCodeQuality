@@ -1,0 +1,5 @@
+ArrayList<Integer> mylist = new ArrayList<Integer>();
+while (sc.hasNextInt()) {
+    int i = sc.nextInt();
+    mylist.add(i);
+}

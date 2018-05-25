@@ -1,0 +1,4 @@
+String originValue = "10 = On Battery";
+String [] splitedValue = originValue.split("/s=/s");
+System.out.println(splitedValue[0]); // 10
+System.out.println(splitedValue[1]); // On Battery

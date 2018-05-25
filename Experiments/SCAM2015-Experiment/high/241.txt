@@ -1,0 +1,4 @@
+import static fj.data.Stream.fromString;
+import static fj.data.Stream.asString;
+...
+String abc = asString(fromString("abc").intersperse(','));

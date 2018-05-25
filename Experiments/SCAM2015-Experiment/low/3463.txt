@@ -1,0 +1,11 @@
+int number;
+    while(true){
+        System.out.print("\nEnter account number: ");
+        try{
+            number = input.nextInt();
+            break;
+        }catch(Exception e){
+               System.err.println("Error: Invalid Entry! Please try only Integers");
+                input=new Scanner(System.in);
+        }
+    }

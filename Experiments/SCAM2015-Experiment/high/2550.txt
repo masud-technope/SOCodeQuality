@@ -1,0 +1,12 @@
+<%
+ String StrBgEven = "#C6C6C6", strBgOdd = "#FFFFFF"; // outside loop
+ if( i%2 == 0 ){
+%>
+ <tr height="28px"  id="table_row" bgcolor="<%=strBgEven%>">
+<%  
+}else{
+%>
+ <tr height="28px"  id="table_row" bgcolor="<%=strBgOdd%>">
+<%
+} 
+%>

@@ -1,0 +1,4 @@
+public static void main(String[] args)
+    {
+        String summer  = new String("Summer");   //Line 1: The code creates a new String object 
+}

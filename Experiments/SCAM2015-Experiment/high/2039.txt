@@ -1,0 +1,11 @@
+for (RemoteObject<Foo> obj: iterable) {
+    try { 
+       foo = obj.get()
+    } catch (IOException ex) { 
+    /*
+     * 9 times out of 10, the lazy user just prints the stack trace 
+     * or something else inappropriate
+     * which is why I despise checked exceptions
+     */
+    }
+}

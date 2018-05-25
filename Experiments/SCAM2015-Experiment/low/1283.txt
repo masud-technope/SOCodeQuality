@@ -1,0 +1,22 @@
+public static void main(String[] args) {
+
+    // login event
+    String event = "login";
+    System.out.printf("Handling event: %s %s\n",event,getCurrentLogin());
+    sendMessage(event, getCurrentLogin());
+
+    final CountDownLatch latch = new CountDownLatch(1);
+
+    // logout or shutdown event
+    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+        @Override
+        public void run() {
+                String event = "logout";
+                System.out.printf("Handling event: %s %s\n",event,getCurrentLogin());
+                sendMessage(event, getCurrentLogin());
+                latch.countDown();
+        }
+    }));
+
+    latch.await();
+ }

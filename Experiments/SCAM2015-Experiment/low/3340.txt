@@ -1,0 +1,6 @@
+Object objectReplacedForKey = 
+  hashMapName.put(objectKey, objectToAdd); 
+
+hashMapName.putAll(mapToAdd); 
+hashMapName.remove(keyObject);  
+hashMapName.clear();

@@ -1,0 +1,3 @@
+for(int i=0;i<array.length;i++)
+           if(counter<array[i].length())
+               counter=array[i].length();

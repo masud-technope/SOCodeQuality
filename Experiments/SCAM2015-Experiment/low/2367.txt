@@ -1,0 +1,35 @@
+package main;
+
+public class A {
+public void f1(String str) {
+    System.out.println("A.f1(String)");
+    if (this instanceof B)
+        new A().f1(1, str);
+    else
+        this.f1(1, str);
+}
+
+public void f1(int i, String str) {
+    System.out.println("A.f1(int, String)");
+}
+
+}
+
+class B extends A {
+@Override
+public void f1(String str) {
+    System.out.println("B.f1(String)");
+    super.f1(str);
+}
+
+@Override
+public void f1(int i, String str) {
+    System.out.println("B.f1(int, String)");
+    super.f1(i, str);
+}
+
+public static void main(String[] args) {
+A a = new B();
+    a.f1("Hello");
+}
+}

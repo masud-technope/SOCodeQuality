@@ -1,0 +1,3 @@
+double AC = 33.2; // or Double.NaN if you prefer
+System.out.println("Please choose A or B")
+...

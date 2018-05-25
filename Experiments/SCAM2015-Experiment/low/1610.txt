@@ -1,0 +1,18 @@
+NetworkInterface ni;
+try {
+    Enumeration<NetworkInterface> interfaces NetworkInterface.getNetworkInterfaces();
+    while (interfaces.hasMoreElements()) {
+        ni = interfaces.nextElement();
+        if (ni.isUp()) {
+            Enumeration<InetAddress> inetAddresses = ni.getInetAddresses();
+            while (inetAddresses.hasMoreElements()) {
+                InetAddress ia = inetAddresses.nextElement();
+                if (!ia.isLinkLocalAddress()) {
+                    return ia;
+                }
+            }
+        }
+    }
+} catch (SocketException ex) {
+    throw new RuntimeException(ex);
+}

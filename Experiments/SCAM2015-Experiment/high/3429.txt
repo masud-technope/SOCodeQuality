@@ -1,0 +1,9 @@
+// Assuming this class extends Class1, and it is public, you 
+// can create an instance of this class from outside the package:
+ExtendedClass1 e = new ExtendedClass1(); 
+
+// This is using the public constructor that expects a Class1.
+// Although Class1 itself is NOT public, this constructor 
+// can be called with an instance of a (public) class that
+// extends Class1
+Class2 c = new Class2(e);

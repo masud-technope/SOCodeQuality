@@ -1,0 +1,26 @@
+public abstract class BaseClass {
+        public BaseClass(String input)
+        {
+          // assigments
+        }
+
+        public String process(){ //process is a template method
+         doSomething();
+         return getResult();
+        }
+
+        protected abstract void doSomething();
+
+        protected abstract String getResult();
+}
+
+public class ExtendedClass extends BaseClass {
+
+   protected void doSomething(){
+     //...
+   }
+
+   protected String getResult(){
+     //....
+   }
+}

@@ -1,0 +1,17 @@
+public ??? getEmployeeName(Object obj){
+
+if (obj instanceof Integer){
+
+  ...
+
+} else if (obj instanceof String){
+
+...
+
+} else if .... // and so on
+
+
+} else throw SomeMeaningFullRuntimeException()
+
+return employeeName
+}

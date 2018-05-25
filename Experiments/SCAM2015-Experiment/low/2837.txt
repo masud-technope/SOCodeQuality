@@ -1,0 +1,5 @@
+class Node{
+private float u =0;
+private float v =0;
+private float l =0;
+}

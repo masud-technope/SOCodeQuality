@@ -1,0 +1,17 @@
+/*
+  Here myItems is an arraylist MyItem added randomly 
+  MyItem got a property int id 
+  This method provide me myItems in ascending order of id's
+*/
+Collections.sort(myItems, new Comparator<MyItem>() {
+
+            @Override
+            public int compare(MyItem lhs, MyItem rhs) {
+                // TODO Auto-generated method stub
+
+                int lhsId = lhs.getId();
+                int rhsId = rhs.getId();
+
+                return lhsId>rhsId ? 1 : -1;
+            }
+        });

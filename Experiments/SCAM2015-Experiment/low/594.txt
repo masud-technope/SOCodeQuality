@@ -1,0 +1,12 @@
+public class Foo {
+
+  main {}
+
+  public class bar {
+    ....
+  }
+
+  public class qux {
+    ....
+  }
+}

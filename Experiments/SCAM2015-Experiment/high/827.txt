@@ -1,0 +1,10 @@
+Trial for zipcodelist size= 10
+Size=10, avg time = 0.16ms
+Trial for zipcodelist size= 1000
+Size=1000, avg time = 0.15ms
+Trial for zipcodelist size= 10000
+Size=10000, avg time = 0.0ms
+Trial for zipcodelist size= 100000
+Size=100000, avg time = 0.16ms
+Trial for zipcodelist size= 1000000
+Size=1000000, avg time = 0.0ms

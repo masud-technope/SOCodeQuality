@@ -1,0 +1,14 @@
+Hashtable<String, String> env = new Hashtable<String, String>();
+
+env.put("java.naming.factory.initial", "com.sun.jndi.dns.DnsContextFactory");
+
+DirContext ictx = new InitialDirContext(env);
+
+Attributes attrs = ictx.getAttributes(domainName, new String[] {"MX"});
+
+Attribute attr = attrs.get("MX");
+
+if (attr == null)
+    // No MX record
+else
+    // If attr.size() > 0, there is an MX record

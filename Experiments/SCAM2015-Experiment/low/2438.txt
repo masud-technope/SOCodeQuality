@@ -1,0 +1,18 @@
+public static double number;
+
+    if(speech=="hi")
+    {
+        number=1;
+    }
+    else if(speech=="thanks")
+    {
+        number=2;
+    }
+    else if(speech=="Bye")
+    {
+        number=0;
+    }
+    else
+    {
+        System.out.println("Word Not Found");
+    }

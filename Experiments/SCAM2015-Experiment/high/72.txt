@@ -1,0 +1,6 @@
+int count = 0;
+Scanner sc = new Scanner(new File("my-text-file.txt")); 
+while (sc.hasNext()) {
+   ++count;
+   sc.next();
+}

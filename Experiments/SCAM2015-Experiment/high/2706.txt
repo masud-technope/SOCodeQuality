@@ -1,0 +1,4 @@
+public double add1(double n)
+{
+   return number = number +  n;
+}

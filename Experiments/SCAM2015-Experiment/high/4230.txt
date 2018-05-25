@@ -1,0 +1,6 @@
+static void addAtPos(List list, int index, Object o) {
+    while (list.size() < index) {
+        list.add(null);
+    } 
+    list.add(index, o);
+}

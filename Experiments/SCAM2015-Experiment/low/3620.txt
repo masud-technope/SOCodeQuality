@@ -1,0 +1,30 @@
+public class Employee extends Person implements Serializable {
+    private String username;
+    private String password;
+    private String date;
+    private int hpw;
+    private int recordSold;
+    private float hourPay;
+
+    public Employee() {}
+
+    public Employee(String username, String name, String surname, String password, int id, int hpw, String date, int rSold, float hPay) {
+        super(id, name, surname);
+        this.username = username;
+        this.password = password;
+        this.hpw = hpw;
+        this.date = date;
+        this.recordSold = rSold;
+        this.hourPay = hPay;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    // And so on...
+}

@@ -1,0 +1,14 @@
+public class Action<T>{
+}
+
+public Class<?> getGenericType(Object action) throws ClassNotFoundException{
+   Type type =
+   ((ParameterizedType)action.getClass().getGenericSuperclass())
+      .getActualTypeArguments()[0];
+   String sType[] = type.toString().split(" ");
+
+   if(sType.length != 2)
+      throw new ClassNotFoundException();
+
+   return Class.forName(sType[1]);
+}

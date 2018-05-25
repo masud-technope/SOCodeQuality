@@ -1,0 +1,4 @@
+Human() {
+    this.age = 0;
+    this.name = "Unknown";
+}

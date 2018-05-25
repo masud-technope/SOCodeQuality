@@ -1,0 +1,3 @@
+if (person.getPhone() == null) {
+    throw new IllegalArgumentException("Can't call a person that hasn't got a phone");
+}

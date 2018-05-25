@@ -1,0 +1,13 @@
+public void onClick(View v)
+ {
+
+  int selectedId = radioGroup.getCheckedRadioButtonId();
+    if(selectedId !=-1)
+     {    
+        View radioButton = radioGroup.findViewById(selectedId );
+        int radioId = radioGroup.indexOfChild(radioButton);
+        RadioButton btn = (RadioButton) radioGroup.getChildAt(radioId);
+        String selection = (String) btn.getText();
+    Toast.makeText(Radio_Button.this, "This is: " + s,Toast.LENGTH_LONG).show();
+    }   
+ }

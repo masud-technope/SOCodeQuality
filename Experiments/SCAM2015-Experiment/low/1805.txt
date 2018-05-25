@@ -1,0 +1,15 @@
+string obj;
+    switch (n){
+
+    case 1 : obj="thumb"; break;
+    case 2 : obj="show"; break;
+    //Etc
+    }
+
+
+    }
+    println("This old man, he played " + n);
+    println("He played knick-knack on my" + obj);
+    println("With a knick-knack, paddy-whack,");
+    println("Give your dog a bone");
+    println("This old man came roiling home");

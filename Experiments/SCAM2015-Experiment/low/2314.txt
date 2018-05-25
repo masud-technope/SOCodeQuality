@@ -1,0 +1,3 @@
+if(args.length > 0) {
+    System.out.println("command line mode");
+}

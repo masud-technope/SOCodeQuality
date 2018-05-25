@@ -1,0 +1,13 @@
+int index = 0;
+while(true)
+{
+    if(enter button pressed)
+    {
+         print_item(array[index++]);
+    }
+}
+
+private void print_item(String item)
+{
+    System.out.println(item);
+}

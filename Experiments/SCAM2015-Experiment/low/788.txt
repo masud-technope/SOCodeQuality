@@ -1,0 +1,18 @@
+public class SingletonClass {
+    private static boolean hasObject = false;
+    private static SingletonClass singletonObject = null;
+
+    public static SingletonClass getObject() {
+        if (hasObject) {
+            return singletonObject;
+        } else {
+            hasObject = true;
+            singletonObject = new SingletonClass();
+            return singletonObject;
+        }
+    }
+
+    private SingletonClass() {
+        // Initialize your object.
+    }
+}

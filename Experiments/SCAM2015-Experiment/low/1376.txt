@@ -1,0 +1,4 @@
+public static void res(File arg) throws IOException {
+        if (arg.contains(".DS_Store")) {
+            return;
+        }

@@ -1,0 +1,5 @@
+newPrice: 565
+paid: 566
+change: 1
+Dispensing: 0 Quarters,0Dimes,0Nickels,1Pennies.
+Program written by Ashley

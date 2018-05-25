@@ -1,0 +1,12 @@
+public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    Scanner input = new Scanner(System.in);
+    String s = input.nextLine();
+    s = s.intern();
+    if(s=="Hello")
+        System.out.println("Hello");
+
+    String d = "Hello";
+    if(d=="Hello")
+        System.out.println("Hello");
+}

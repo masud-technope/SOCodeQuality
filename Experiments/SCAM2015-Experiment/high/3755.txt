@@ -1,0 +1,8 @@
+// Sample use: this override will allow the map to grow up to 100 entries and then delete the 
+// eldest entry each time a new entry is added, maintaining a steady state of 100 entries.
+
+ private static final int MAX_ENTRIES = 100;
+
+ protected boolean removeEldestEntry(Map.Entry eldest) {
+    return size() > MAX_ENTRIES;
+ }

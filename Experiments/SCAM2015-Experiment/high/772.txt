@@ -1,0 +1,5 @@
+try {
+  do stuff
+} catch(OutOfMemoryException) {
+  fail gracefully (don't try and do something else to achieve the same result)
+}

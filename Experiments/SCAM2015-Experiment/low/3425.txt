@@ -1,0 +1,4 @@
+public static void doCommand(String commandString) {
+    HashMap<String, InnerInterface> commandsMap = new HashMap<String, Command.InnerInterface>();
+    InnerInterface commandInterface = commandsMap.get(commandString);
+}

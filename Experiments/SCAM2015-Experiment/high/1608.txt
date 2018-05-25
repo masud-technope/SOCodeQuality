@@ -1,0 +1,5 @@
+void run(Object o) {
+    Method m = o.getClass().getMethod("generate", new Class[0]);
+    if (m!=null)
+        m.invoke(o, new Object[0]);
+}

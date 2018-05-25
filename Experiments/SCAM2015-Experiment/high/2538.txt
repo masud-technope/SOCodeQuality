@@ -1,0 +1,17 @@
+public static int regularNumel(Object array) {
+    if (array == null)
+        return 1;
+    int total = 1;
+    if (array.getClass().isArray()) {
+        int length = java.lang.reflect.Array.getLength(array);
+        if (length > 0) {
+            Object row = java.lang.reflect.Array.get(array, 0);
+            if (row == null || !row.getClass().isArray())
+                return length;
+            else //now we know that row is also array
+                return length * regularNumel(row);
+        } else
+            return 0;
+    }
+    return total;
+}

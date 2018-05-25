@@ -1,0 +1,5 @@
+// Set dimension to the size of the square matrix that you would like
+// Example, this will make a 3x3 matrix with ones on the diagonal and
+// zeros elsewhere.
+int dimension = 3;
+RealMatrix identity = RealMatrix.createRealIdentityMatrix(dimension);

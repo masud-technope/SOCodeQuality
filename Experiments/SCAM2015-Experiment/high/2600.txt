@@ -1,0 +1,11 @@
+public void run() {
+    try {
+        while (!Thread.currentThread.isInterrupted) {
+            sock1 = Ssocket.accept();
+            //rest of the code here
+        }
+    } catch (InterruptedException e) {
+        Thread.currentThread.interrupt(); //good practice
+    }
+    //cleanup code here: close sockets etc.
+}

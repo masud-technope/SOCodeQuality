@@ -1,0 +1,10 @@
+double truncate(double number)
+    {
+        int integerPart = (int) number;
+        double fractionalPart = number - integerPart;
+        fractionalPart *= 100;  //It is for upto two decimal values after point.
+                                //You can increase the zeros to fulfill your needs.
+        int fractPart = (int) fractionalPart;
+        fractionalPart = (double) (integerPart) + (double) (fractPart)/100;
+        return fractionalPart;
+    }

@@ -1,0 +1,8 @@
+public String higherPow() {
+    BigIntiger i = new Bigintger("2");
+    // doing a power(2^32)
+    i = i.pow(32);
+    // after 2^32 was made, do mod 100
+    i = i.mod(new Bigintiger("100"));
+    return i.toString();
+}

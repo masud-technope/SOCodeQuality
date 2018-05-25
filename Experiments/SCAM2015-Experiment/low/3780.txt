@@ -1,0 +1,5 @@
+java.util.Date android = new java.util.Date();
+      long t = android.getTime();
+      java.sql.Date sqlDate = new java.sql.Date(t);
+      java.sql.Time sqlTime = new java.sql.Time(t);
+      java.sql.Timestamp sqlTimestamp = new java.sql.Timestamp(t);

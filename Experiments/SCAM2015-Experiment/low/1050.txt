@@ -1,0 +1,4 @@
+if wasTimerSetup
+ {
+   timer.cancel();
+ }

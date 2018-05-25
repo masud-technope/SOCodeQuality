@@ -1,0 +1,8 @@
+File f = new File(exportFileName+".tmp");
+File f2 = new File(exportFileName);
+long l = f.length();
+FileInputStream fi = new FileInputStream(f);
+AudioInputStream ai = new AudioInputStream(fi,mainFormat,l/4);
+AudioSystem.write(ai, Type.WAVE, f2);
+fi.close();
+f.delete();

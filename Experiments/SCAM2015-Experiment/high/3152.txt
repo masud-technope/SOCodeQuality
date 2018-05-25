@@ -1,0 +1,3 @@
+abcde-dce-cbdbe-bacadaea
+
+(Total C(5,2) * 2 = 20 edges)

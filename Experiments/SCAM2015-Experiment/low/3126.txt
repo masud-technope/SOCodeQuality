@@ -1,0 +1,7 @@
+System.out.printf(+celsius, "degrees Celsius is" +fahrenheit "degrees Fahrenheit"); 
+
+Check your original statement. You have missed adding one +(append) to add strings.
+
+Use this 
+
+   System.out.printf("%f degrees Celsius is %f degrees Fahrenheit",celsius,fahrenheit);

@@ -1,0 +1,46 @@
+public class XMLCalendarToDateTime {
+
+    private static DatatypeFactory df = null;
+    static {
+        try {
+            df = DatatypeFactory.newInstance();
+        } catch (DatatypeConfigurationException dce) {
+            throw new IllegalStateException(
+                "Exception while obtaining DatatypeFactory instance", dce);
+        }
+    }  
+
+    private static XMLGregorianCalendar converToGregorianCal(DateTime dateTime) {
+        if (dateTime == null) {
+            return null;
+        } else {
+            GregorianCalendar gc = new GregorianCalendar();
+            gc.setTimeInMillis(dateTime.getMillis());
+            return df.newXMLGregorianCalendar(gc);
+        }
+    }
+
+    private static DateTime convertToDateTime(XMLGregorianCalendar xmlGregorianCalendar){
+         if (xmlGregorianCalendar == null) {
+                return null;
+            } else {
+                return new DateTime(xmlGregorianCalendar.toGregorianCalendar().getTime());
+            }
+    }
+
+    public static void main(String[] args) {
+
+        final DateTime dateTime = new DateTime(2014,1,1,1,1);
+
+        System.out.println("date = " + dateTime.toString());
+
+        final XMLGregorianCalendar xmlGregorianCalendar = converToGregorianCal(dateTime);
+
+        System.out.println("xmlGregorianCalendar = " + xmlGregorianCalendar);
+
+        final DateTime dateTimeConverted = convertToDateTime(xmlGregorianCalendar);
+
+        System.out.println("dateTimeConverted = "  + dateTimeConverted);
+
+    }
+}

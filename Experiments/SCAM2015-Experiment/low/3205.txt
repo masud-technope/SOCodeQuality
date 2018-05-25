@@ -1,0 +1,36 @@
+public static void main(String[] commandlineArguments) {
+  if (commandlineArguments.length == 0) {
+     System.out.println("Please enter a least one commandline!");
+  } 
+  else {
+     Integer number = new Integer(0); // initialize number
+     try {
+        number = Integer.parseInt(commandlineArguments[0]);
+     } 
+     catch (NumberFormatException exception) { // NumberFormatException
+        System.out.println(exception + " is not a integer!");
+        System.exit(1); // end program
+     }
+
+     Integer power = power5(number);
+     System.out.println(power);
+
+  }
+}
+
+public static Integer power5(Integer number){
+      Integer sum = 0;
+if(number == 0)
+{
+    return 1;
+}
+Integer pow = 1;
+for(int i = 0; i < a; i++)
+{
+    pow *= 2;
+}
+sum = pow + power5(a--);
+return sum;
+}
+
+}

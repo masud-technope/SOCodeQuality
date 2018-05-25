@@ -1,0 +1,6 @@
+if(checkNine.equals( "99999")) { 
+   <method-call> 
+}
+else { 
+     <another - method - call>
+}

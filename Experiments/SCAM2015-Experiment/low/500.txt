@@ -1,0 +1,133 @@
+public static float stringSimilarity(String string1, String  string2){
+
+    //null check:
+    if(string1==null || string2==null){
+        return (float) 0.5;
+    }
+
+
+    float score = 0;//similarity between 0 y 1.
+
+    ArrayList<String> charactersString1 = new  ArrayList<String>();
+    ArrayList<String> charactersString2 = new  ArrayList<String>();
+
+    for(int i=0 ; i < string1.length() ; i++){
+        String aCharacter = String.valueOf(string1.charAt(i));
+        charactersString1.add(aCharacter); 
+    }
+
+    for(int i=0 ; i < string2.length() ; i++){
+        String aCharacter = String.valueOf(string2.charAt(i));
+        charactersString2.add(aCharacter); 
+    }
+
+    //eliminate extraneous letters. 
+    boolean differentSize = false;
+    ArrayList<String> arrayLargo = new  ArrayList<String>();
+    ArrayList<String> arrayCorto = new  ArrayList<String>();
+    if(charactersString1.size() < charactersString2.size()){
+        arrayLargo = charactersString2;
+        arrayCorto = charactersString1;
+        differentSize = true;
+    }else{
+        if (charactersString2.size() < charactersString1.size()) {
+            arrayLargo = charactersString1;
+            arrayCorto = charactersString2;
+            differentSize = true;
+
+        }else{//they are the same size: yeah easy!
+            if (charactersString2.size() == charactersString1.size()) {
+                for (int i=0 ; i < charactersString1.size() ; i++) {
+
+                    String elementoS1 = charactersString1.get(i);
+                    String elementoS2 = charactersString2.get(i);
+
+                    if (elementoS1.equalsIgnoreCase(elementoS2) ) {
+                        score=score+1;
+                    }else{//if the elements are different.
+                        if (0<i) {//if i-1 exists (ie not at the first letter).
+
+                            String elementoS1Past = charactersString1.get(i-1);
+                            String elementoS2Past = charactersString2.get(i-1);
+
+                            if (elementoS1Past.equalsIgnoreCase(elementoS2) && elementoS1.equalsIgnoreCase(elementoS2Past)) {
+                                //switching letters, the score sould be increased by 1 (only 1 error
+                                score = score+1;
+                            }
+
+                        }
+                    }
+                }
+            }else{
+                System.out.print("logical error making the code in wordcorrector!");
+            }
+
+            score = score/charactersString1.size();//normalize
+        }
+    }
+
+
+
+
+    if (differentSize) {
+        int indice=0;
+        for (int i=0; i < arrayCorto.size();i++) {
+            String elementoS1 = arrayLargo.get(i);
+            String elementoS2 = arrayCorto.get(i);
+
+            if (elementoS1.equalsIgnoreCase(elementoS2)) {
+                score=score+1;
+            }else{//paila, dio cero
+                boolean switched = false; //the error in the characters is initailized as it is not a switching error.
+                if (i+1 < arrayCorto.size()) {//if i-1 exists (ie not at the first letter).
+                    String elementoS1Future = arrayLargo.get(i+1);
+                    String elementoS2Future = arrayCorto.get(i+1);
+                    if (elementoS1Future.equalsIgnoreCase(elementoS2)
+                            && elementoS1.equalsIgnoreCase(elementoS2Future)) {
+                        //switching letters, the score sould be increased by 1 (only 1 error
+                        score = score+1;
+                        i=i+1;// so it doesnt remove the next character.
+                        switched = true;//it is a switching error.
+                    }
+                }
+                if (!switched) {
+                    //Remove and Repeat (R&R)
+                    arrayLargo.remove(i);                       
+                    indice = i;
+                    i=i-1;//despues de esto no se puede volver a llamar al indice! por puede votar error
+                }
+            }
+            if (arrayLargo.size() == arrayCorto.size()) {
+                break;
+            }
+        }
+        if (arrayLargo.size() == arrayCorto.size()) {//does conventional same size score detection.
+            for (int i=indice; i < charactersString1.size() && i < charactersString2.size() ; i++) {
+                String elementoS1 = arrayLargo.get(i);
+                String elementoS2 = arrayCorto.get(i);
+                if (elementoS1.equalsIgnoreCase(elementoS2)) {
+                    score=score+1;
+                }else{//if the elements are different.
+                    if (0<i) {//if i-1 exists (ie not at the first letter).
+                        String elementoS1Past = charactersString1.get(i-1);
+                        String elementoS2Past = charactersString2.get(i-1);
+                        if (elementoS1Past.equalsIgnoreCase(elementoS2)
+                                && elementoS1.equalsIgnoreCase(elementoS2Past)) {
+                            //switching letters, the score sould be increased by 1 (only 1 error
+                            score = score+1;
+                        }
+
+                    }
+                }
+            }
+        }
+        int normalize;
+        if (charactersString2.size() <= charactersString1.size()) {
+            normalize = charactersString1.size();
+        }else{
+            normalize = charactersString2.size();
+        }
+        score = score/normalize;//normalize
+    }
+    return score;
+}

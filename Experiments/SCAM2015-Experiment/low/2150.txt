@@ -1,0 +1,30 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class DtoB {
+    public static void main(String[] args) {
+
+        try { // for Exception handling of taking input from user.
+
+            System.out.println("Please enter a number");
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String input = br.readLine();       
+            int x = Integer.parseInt(input);
+
+            int bin = 0;
+            int p = 1;
+            while (x > 0) {
+                int r = x % 2;
+                bin = (r * p) + bin;
+                x = x / 2;
+                p *= 10;
+            }
+            System.out.println("Binary of " + input + " is = " + bin);
+        } catch (Exception e) {
+            System.out.println("Please enter a valid decimal number.");
+            System.exit(1);
+            e.printStackTrace();
+        }
+    }
+}

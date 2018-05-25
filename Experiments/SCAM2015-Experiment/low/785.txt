@@ -1,0 +1,31 @@
+package play1;
+
+import java.util.*;
+
+public class Play
+{
+  public static void main (String args[])
+  {
+    List<String> list=new ArrayList<String>();
+    list.add("Hello");
+    list.add("Shalom");
+    list.add("Godspidanya");
+
+    ArrayTool<String> arrayTool=new ArrayTool<String>();
+    String[] array=arrayTool.arrayify(list);
+
+    for (int x=0;x<array.length;++x)
+    {
+      System.out.println(array[x]);
+    }
+  }
+}
+class ArrayTool<T>
+{
+  public T[] arrayify(List<T> list)
+  {
+    Class clazz=list.get(0).getClass();
+    T[] a=(T[]) Array.newInstance(clazz, list.size());
+    return list.toArray(a);
+  }
+}

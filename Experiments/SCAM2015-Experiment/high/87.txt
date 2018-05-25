@@ -1,0 +1,19 @@
+Connection db = ds.getConnection();
+try {
+  PreparedStatement ps = ...;
+  try {
+    ResultSet rs = ...
+    try {
+      ...
+    }
+    finally {
+      rs.close();
+    }
+  } 
+  finally {
+    ps.close();
+  }
+} 
+finally {
+  db.close();
+}

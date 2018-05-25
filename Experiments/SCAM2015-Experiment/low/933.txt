@@ -1,0 +1,9 @@
+public String asFirstnameLastname()
+{
+    return firstName + " " + lastName;
+}
+
+public String asLastNameFirstname()
+{
+   return lastName + " " + firstName;
+}

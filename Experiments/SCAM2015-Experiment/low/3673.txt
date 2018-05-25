@@ -1,0 +1,6 @@
+public novel(String title, String writer)
+{
+    super("novel");
+    this.title = title;
+    this.writer = writer;
+}

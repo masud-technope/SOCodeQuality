@@ -1,0 +1,4 @@
+if(nameOfYourArray != null && nameOfYourArray.length > 0){
+
+      // Your code here
+}

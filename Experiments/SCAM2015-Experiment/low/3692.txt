@@ -1,0 +1,7 @@
+if(Character.isDigit(evt.getKeyChar())){
+   // put something here
+
+ }
+ else if(!(Character.isDigit(evt.getKeyChar())){
+   //.......     
+    }

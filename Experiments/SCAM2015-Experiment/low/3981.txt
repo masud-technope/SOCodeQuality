@@ -1,0 +1,24 @@
+//your logic
+while(isValidClass());
+//your other logic
+
+
+public boolean isValidClass(){
+    String playerClass = classInput.nextLine();
+    boolean isValid = true;
+    if (playerClass.equals("Swordsman")){
+       out.println("You chose to be a Swordsman!");}
+    else if (playerClass.equals("Sorcerer")){
+        out.println("You chose to be a Sorcerer!");}
+    else if (playerClass.equals("Elementalist")){
+        out.println("You chose to be an Elementalist!");}
+    else if (playerClass.equals("Assassin")){
+        out.println("You chose to be an Assassin!");}
+    else if (playerClass.equals("Sharpshooter")){
+        out.println("You chose to be a Sharpshooter!");}
+    else {
+        out.println("Make sure your spelling is correct.");
+        isValid = false;
+    }
+    return isValid;
+}

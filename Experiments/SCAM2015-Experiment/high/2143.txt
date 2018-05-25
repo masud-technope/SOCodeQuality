@@ -1,0 +1,7 @@
+URL url = new URL("http://hostname:port/path?arg=value#anchor");
+String protocol = url.getProtocol(); // http
+String host = url.getHost(); // hostname
+String path = url.getPath(); // /path
+int port = url.getPort(); // port
+String query = url.getQuery(); // arg=value
+String ref = url.getRef(); // anchor

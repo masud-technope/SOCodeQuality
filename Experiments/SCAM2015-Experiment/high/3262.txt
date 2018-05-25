@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jxb:bindings version="2.1" xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <jxb:bindings schemaLocation="schema.xsd">
+        <jxb:bindings node="//xs:element[@name='foo']">
+            <jxb:property>
+                <jxb:baseType>
+                    <jxb:javaType 
+                       name="org.joda.time.DateTime" 
+                       parseMethod="com.example.MyConverter.parseDate" 
+                       printMethod="com.example.MyConverter.printDate" />
+                </jxb:baseType>
+            </jxb:property>
+        </jxb:bindings>
+    </jxb:bindings>
+</jxb:bindings>

@@ -1,0 +1,29 @@
+public boolean insertUser(UserBean u) {
+    return new UserDAO().insertUser(u);
+}
+
+public String validateUser(UserBean u) {
+    return new UserDAO().userValidate(u);
+}
+
+public boolean insertproducts(adminbean u) {
+    return new admindao().insertproducts(u);
+}
+
+public boolean getmessage(UserBean u) {
+    return new UserDAO().getmessage(u);
+}
+
+public ArrayList<String> getDescription() {
+    return new Prod_Details().getProd_Description();
+}
+ public ArrayList<String> getDetails(String pid) {
+    return new description().getDescription(pid);
+}
+ public boolean insertOrder(cartbean u) {
+    return new cartDAO().insertOrder(u);
+}
+
+public ArrayList<String> getOrder(String email) {
+    return new orderDAO().getOrder(email);    
+}

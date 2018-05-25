@@ -1,0 +1,5 @@
+String s = "prefix/dir1/dir2/dir3/dir4";
+String[] tokens = s.split("/");
+
+for (String t : tokens)
+  System.out.println(t);

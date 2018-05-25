@@ -1,0 +1,9 @@
+public static void main(String[] args) {
+    System.out.println(isNumber("100"));               // true
+    System.out.println(isNumber("100.00"));            // true
+    System.out.println(isNumber("1,5"));               // true
+    System.out.println(isNumber("1,000,000.00."));     // false
+    System.out.println(isNumber("100,00,2"));          // false
+    System.out.println(isNumber("123.123.23.123"));    // false
+    System.out.println(isNumber("123.123.123.123"));   // true       
+}

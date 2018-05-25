@@ -1,0 +1,10 @@
+public class PiCalc {
+public static void main(String[] args) {
+
+    BigDecimal nm = new BigDecimal(22);
+    BigDecimal dn = new BigDecimal(7);
+    BigDecimal pi = new BigDecimal(0);
+
+    pi = nm.divide(dn, 50, BigDecimal.ROUND_FLOOR);
+    System.out.println("The value is :" + pi);
+}}

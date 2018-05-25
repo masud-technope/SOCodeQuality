@@ -1,0 +1,3 @@
+String mystr= "How's your day going?";
+mystr = mystr.replaceAll("[^A-Za-z]+", "").toUpperCase();
+System.out.println(mystr);

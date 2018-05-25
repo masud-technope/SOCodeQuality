@@ -1,0 +1,14 @@
+void add() {
+    final int a = 30;
+    final int b = 10;
+    final int c;
+    c = 20;
+    final int cmp=b+c;
+    switch (a) {
+    case cmp:
+        System.out.println("In case b+c");
+        break;
+    default:
+        break;
+    }
+}

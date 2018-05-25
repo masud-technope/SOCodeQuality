@@ -1,0 +1,6 @@
+Class clazz = Class.forName("ReflectionTest");    
+Method m = clazz.getDeclaredMethod("getArray");
+Object o1 = m.invoke(o, arg);
+int array[][] = (int[][])o1;
+System.out.println("Array length: " + array.length);
+System.out.println("Array length: " + array[0].length);

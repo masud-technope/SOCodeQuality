@@ -1,0 +1,105 @@
+import java.util.Arrays;
+import java.util.Random;
+import java.math.*;
+/**
+ *
+ * @author Mason
+ */
+public class MODE{
+
+    public static void main(String args[])
+    {
+        System.out.print("Enter the quantity of random numbers  ===>>  ");
+        int listSize = Expo.enterInt();
+        System.out.println();
+        ArrayStats intStats = new ArrayStats(listSize);
+        intStats.randomize();
+        intStats.computeMean();
+        intStats.computeMedian();
+        intStats.computeMode();
+        intStats.displayStats();
+        System.out.println();
+    }
+}
+
+
+class ArrayStats
+{
+
+    private int list[];
+    private int size;
+    private double mean;        
+    private double median;      
+    private int mode;           
+
+    public ArrayStats(int s)//initializes class object
+    {
+        size = s;
+        list = new int[size];
+    }
+
+    public void randomize()
+    {
+        //This will provide same numbers every time... If you want to randomize this, you can
+        Random rand = new Random(555);
+        for (int k = 0; k < size; k++)
+            list[k] = rand.nextInt(11) + 10;  
+    }
+
+    public void computeMean()
+    {
+               double accumulator=0;
+               for (int index=0;index<size;index++)
+               accumulator+= list[index];
+
+               mean = accumulator/size;
+    }
+
+        public void computeMedian()
+{
+        Arrays.sort(list);
+                if((size%2!=0))
+                    median = list[((size-1)/2)];
+                else if(size!=1&&size%2==0)
+                {
+                    double a =(size)/2-0.5;
+                    int a2 =  (int)Math.ceil(a);
+                    double b =(size)/2-0.5;
+                    int b2 = (int)Math.floor(b);
+                    median = (double)(list[a2]+list[b2])/2;
+                }
+                else if (size ==1)
+                    median = list[0];
+        }
+
+    public void computeMode()
+    {
+ int popularity1 = 0;
+  int popularity2 = 0;
+  int array_item; //Array contains integer value. Make it String if array contains string value.
+  for(int i =0;i<list.length;i++){
+      array_item = list[i];
+      for(int j =0;j<list.length;j++){
+          if(array_item == list[j])
+             popularity1 ++;
+      }
+      if(popularity1 >= popularity2){
+          mode = array_item;
+          popularity2 = popularity1;
+      }
+
+
+      popularity1 = 0;
+  }}
+
+    public void displayStats()
+    {
+        System.out.println(Arrays.toString(list));
+        System.out.println();
+        System.out.println("Mean: " + mean);
+        System.out.println("Median: " + median);
+        System.out.println("Mode: " + mode);
+        System.out.println();
+    }
+
+}

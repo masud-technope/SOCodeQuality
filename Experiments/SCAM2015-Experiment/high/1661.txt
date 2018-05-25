@@ -1,0 +1,6 @@
+public static void main(String[] args) throws IOException {
+        for (File sourceImageFile : new File("imgs").listFiles()) {
+            if (sourceImageFile.getName().endsWith(".jpg"))
+                res(sourceImageFile.getAbsolutePath());
+        }
+    }

@@ -1,0 +1,6 @@
+while (sc.hasNext())
+  {    
+    s1 = sc.next();
+    System.out.println(s1);
+    System.out.print("Enter your sentence: ");
+  }

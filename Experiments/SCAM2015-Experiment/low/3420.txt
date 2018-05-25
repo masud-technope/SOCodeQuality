@@ -1,0 +1,11 @@
+private boolean equalsDoubleQuote(String string)    
+{
+    /*
+     *  The compiler will not be able to read three double-quote characters in 
+     *    align.
+     *  In this case, you use a the back-slash character.
+     *  It will 'escape' the character after it, allowing the compiler to
+     *    read it properly
+     */
+    return string.equals("\"");
+}

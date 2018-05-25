@@ -1,0 +1,5 @@
+String key = entry.getKey();
+ if ("name".equalsIgnoreCase(key))
+   //key
+ else
+   // company

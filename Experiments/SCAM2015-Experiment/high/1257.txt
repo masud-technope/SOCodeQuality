@@ -1,0 +1,12 @@
+1th number: 8
+The product is: 8
+2th number: 8
+The product is: 64
+3th number: 8
+The product is: 512
+4th number: 8
+The product is: 4096
+5th number: 8
+The product is: 32768
+Now the biggest one is: 59049
+Block number: 684

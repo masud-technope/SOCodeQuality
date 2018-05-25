@@ -1,0 +1,4 @@
+string = Utils.getContent(string);
+if (string != null) {
+    // String is usable and has actual content!
+}

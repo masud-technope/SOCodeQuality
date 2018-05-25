@@ -1,0 +1,4 @@
+public void printList(List<? extends SomeObject> someList) {
+        for(SomeObject myObj : someList) {
+             //process read operations on  myObj
+        }

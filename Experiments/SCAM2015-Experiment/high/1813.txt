@@ -1,0 +1,9 @@
+import org.json.JSONArray;
+
+    //The resource look like this
+    @Path("/path")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void setJsonl(String array){
+        JSONArray o = new JSONArray(last_data);
+        System.out.println(o.toString());

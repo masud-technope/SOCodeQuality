@@ -1,0 +1,13 @@
+public static class1 {
+    private static int var1;
+
+    public Class1(int index1, int index2)  {
+        //...
+        Class2 c2 = new Class2();
+        //..
+    }
+
+    public static int getVar1() {
+        return var1;
+    }
+}

@@ -1,0 +1,36 @@
+package mypackage;
+
+import java.util.Scanner;
+
+public class Collate {
+
+    public static void main(String[] args) {
+        Scanner in1 = null;
+        Scanner in2 = null;
+        try {
+            System.out.printf("Enter 1st word: ");
+            in1 = new Scanner(System.in);
+
+            String a = in1.next();
+
+            System.out.printf("Enter second word: ");
+            in2 = new Scanner(System.in);
+            String b = in2.next();
+
+            System.out.println(new Collate().collate(a, b));
+        } finally {
+            in1.close();
+            in2.close();
+        }
+
+    }
+
+    public String collate(String a, String b) {
+        String result = "";
+        for (int i = 0; i < Math.max(a.length(), b.length()); i++) {
+            result += a.charAt(i);
+            result += b.charAt(i);
+        }
+        return (result);
+    }
+}

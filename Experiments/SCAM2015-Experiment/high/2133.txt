@@ -1,0 +1,12 @@
+0.337: [Full GC (System) 0.337: [CMS: 0K->400K(63872K), 0.0219250 secs] 3296K->400K(83008K), [CMS Perm : 4423K->4422K(21248K)], 0.0220152 secs] [Times: user=0.04 sys=0.00, real=0.02 secs] 
+population done for batch: 0
+0.364: [Full GC (System) 0.364: [CMS: 400K->394K(63872K), 0.0161792 secs] 2492K->394K(83008K), [CMS Perm : 4425K->4425K(21248K)], 0.0162336 secs] [Times: user=0.01 sys=0.00, real=0.02 secs] 
+population done for batch: 1
+0.382: [Full GC (System) 0.382: [CMS: 394K->394K(63872K), 0.0160193 secs] 2096K->394K(83008K), [CMS Perm : 4425K->4425K(21248K)], 0.0160834 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+population done for batch: 2
+0.399: [Full GC (System) 0.399: [CMS: 394K->394K(63872K), 0.0160866 secs] 2096K->394K(83008K), [CMS Perm : 4425K->4425K(21248K)], 0.0161489 secs] [Times: user=0.02 sys=0.00, real=0.02 secs] 
+population done for batch: 3
+0.417: [Full GC (System) 0.417: [CMS: 394K->394K(63872K), 0.0156326 secs] 2096K->394K(83008K), [CMS Perm : 4425K->4425K(21248K)], 0.0156924 secs] [Times: user=0.02 sys=0.00, real=0.02 secs] 
+population done for batch: 4
+0.434: [Full GC (System) 0.434: [CMS: 394K->394K(63872K), 0.0157274 secs] 2096K->394K(83008K), [CMS Perm : 4425K->4425K(21248K)], 0.0157897 secs] [Times: user=0.02 sys=0.00, real=0.01 secs] 
+population done for batch: 5

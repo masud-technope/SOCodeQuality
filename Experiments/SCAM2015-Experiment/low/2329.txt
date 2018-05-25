@@ -1,0 +1,6 @@
+System.out.println(" NZ Local Time: 2011-10-06 03:35:05");
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+LocalDateTime localNZ = LocalDateTime.parse("2011-10-06 03:35:05",formatter);
+ZonedDateTime zonedNZ = ZonedDateTime.of(localNZ,ZoneId.of("+13:00"));
+LocalDateTime localUTC = zonedNZ.withZoneSameInstant(ZoneId.of("UTC")).toLocalDateTime();
+System.out.println("UTC Local Time: "+localUTC.format(formatter));

@@ -1,0 +1,10 @@
+Integer x = 5;
+Integer y = 2;
+Integer xy = x+y;
+int xy2 = x+y; // just testing to see if it makes a difference
+System.out.println("xy = " + xy); // outputs: 7
+System.out.println("xy2 = " + xy2); // outputs: 7
+
+**xy++;**
+System.out.println("xy = " + xy); // **outputs: 8**
+System.out.println("xy2 = " + xy2); // outputs: 7

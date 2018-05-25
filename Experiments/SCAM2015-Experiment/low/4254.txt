@@ -1,0 +1,32 @@
+class Human{
+
+    String name;
+    int age;
+
+    //default constructor
+    public Human (){
+    }
+
+
+    //paramete constructor
+    public Human(int a){
+        this.age=a;
+    }
+
+    void speak(){
+        System.out.println("My name is: " + this.name);
+    }
+
+    int calculateYearsToRetirement(){
+        int yearsLeft = 65 - age;
+        return yearsLeft;
+    }
+
+    int getAge(){
+        return this.age;
+    }
+
+    String getName(){
+        return this.name;
+    }
+}

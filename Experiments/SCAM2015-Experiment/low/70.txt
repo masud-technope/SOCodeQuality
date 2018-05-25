@@ -1,0 +1,63 @@
+public class WaitForAnyRedux {
+
+private static final int POOL_SIZE = 10;
+
+public static <T> T waitForAny(Collection<T> collection) throws InterruptedException, ExecutionException {
+
+    List<Callable<T>> callables = new ArrayList<Callable<T>>();
+    for (final T t : collection) {
+        Callable<T> callable = Executors.callable(new Thread() {
+
+            @Override
+            public void run() {
+                synchronized (t) {
+                    try {
+                        t.wait();
+                    } catch (InterruptedException e) {
+                    }
+                }
+            }
+        }, t);
+        callables.add(callable);
+    }
+
+    BlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(POOL_SIZE);
+    ExecutorService executorService = new ThreadPoolExecutor(POOL_SIZE, POOL_SIZE, 0, TimeUnit.SECONDS, queue);
+    return executorService.invokeAny(callables);
+}
+
+static public void main(String[] args) throws InterruptedException, ExecutionException {
+
+    final List<Integer> integers = new ArrayList<Integer>();
+    for (int i = 0; i < POOL_SIZE; i++) {
+        integers.add(i);
+    }
+
+    (new Thread() {
+        public void run() {
+            Integer notified = null;
+            try {
+                notified = waitForAny(integers);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            System.out.println("notified=" + notified);
+        }
+
+    }).start();
+
+
+    synchronized (integers) {
+        integers.wait(3000);
+    }
+
+
+    Integer randomInt = integers.get((new Random()).nextInt(POOL_SIZE));
+    System.out.println("Waking up " + randomInt);
+    synchronized (randomInt) {
+        randomInt.notify();
+    }
+  }
+}

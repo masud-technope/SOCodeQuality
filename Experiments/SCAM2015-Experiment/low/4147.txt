@@ -1,0 +1,17 @@
+import org.json.JSONObject;
+ //Other lines of code
+URL seatURL = new URL("http://freemusicarchive.org/
+ api/get/genres.json?api_key=60BLHNQCAOUFPIBZ&limit=2");
+ //Return the JSON Response from the API
+ BufferedReader br = new BufferedReader(new         
+ InputStreamReader(seatURL.openStream(),
+ Charset.forName("UTF-8")));
+ String readAPIResponse = " ";
+ StringBuilder jsonString = new StringBuilder();
+ while((readAPIResponse = br.readLine()) != null){
+   jsonString.append(readAPIResponse);
+ }
+ JSONObject jsonObj = new JSONObject(jsonString.toString());
+ System.out.println(jsonString);
+ System.out.println("---------------------------");
+ System.out.println(jsonObj);

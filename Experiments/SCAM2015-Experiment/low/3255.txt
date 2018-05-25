@@ -1,0 +1,11 @@
+public class ProcessInvoice {
+
+    private Invoice[] invoices;
+
+    ........
+
+    public Invoice[] getInvoices() {
+        return invoices;
+
+    }
+}

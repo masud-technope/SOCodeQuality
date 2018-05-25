@@ -1,0 +1,15 @@
+String htmlString ="<font color='#00ff00' size='100'> SampleText </font>";
+            int pos1=htmlString.indexOf("size='");
+            if(pos1!=-1){
+                int pos3=pos1+6; /*6 is the length of size=' */
+                String tempString=htmlString.substring(pos3, htmlString.length());
+                int pos2=tempString.indexOf("'");
+                if(pos2!=-1){
+                    String sizeString=htmlString.substring(pos3, pos3+pos2);
+                    String stringToReplace=htmlString.substring(pos1,pos3+pos2+1);
+                    int size=Integer.parseInt(sizeString);
+                    int newSize=size/4;
+                    String newString="size'"+newSize+"'";                        
+                    htmlString=htmlString.replace(stringToReplace, newString);
+                }
+            }

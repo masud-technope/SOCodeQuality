@@ -1,0 +1,14 @@
+Scanner input=new Scanner(System.in);
+char ch = Character.toLowerCase(input.next().charAt(0));
+String str = input.nextLine().trim().toLowerCase();
+input.close();
+StringBuffer buf = new StringBuffer();
+for (int i = 0; i < str .length(); i++) {
+  if (str.charAt(i) == ch) {
+    buf.append(i);
+  }
+  else {
+    buf.append(str.charAt(i));
+  }
+}
+System.out.println(buf.toString());

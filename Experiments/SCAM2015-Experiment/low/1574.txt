@@ -1,0 +1,10 @@
+def getPrimeFactores(i: Int) = {
+  def loop(i: Int, mod: Int, primes: List[Int]): List[Int] = {
+    if (i < 2) primes      // might be i == 1 as well and means we are done
+    else {
+      if (i % mod == 0) loop(i / mod, mod, mod :: primes)
+      else loop(i, mod + 1, primes)
+    }
+  }
+  loop(i, 2, Nil).reverse
+}

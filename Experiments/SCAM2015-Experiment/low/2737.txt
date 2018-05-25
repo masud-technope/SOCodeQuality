@@ -1,0 +1,35 @@
+//INDENT TO DISPLAY CODE ON STACK-OVERFLOW
+@SuppressWarnings("unchecked")
+public static void simpleBubbleSort_ascending(@SuppressWarnings("rawtypes") Comparable[] arrayOfDoubles)
+{
+//VARS
+    //looping
+    int end      =      arrayOfDoubles.length - 1;//the last index in our loops
+    int iterationsMax = arrayOfDoubles.length - 1;
+
+    //swapping
+    @SuppressWarnings("rawtypes")
+    Comparable tempSwap = 0.0;//a temporary double used in the swap process
+    int elementP1 = 1;//element + 1,   an index for comparing and swapping
+
+
+//CODE
+    //do up to 'iterationsMax' many iterations
+    for (int iteration = 0; iteration < iterationsMax; iteration++)
+    {
+        //go through each element and compare it to the next element
+        for (int element = 0; element < end; element++)
+        {
+            elementP1 = element + 1;
+
+            //if the elements need to be swapped, swap them
+            if (arrayOfDoubles[element].compareTo(arrayOfDoubles[elementP1])==1)
+            {
+                //swap
+                tempSwap = arrayOfDoubles[element];
+                arrayOfDoubles[element] = arrayOfDoubles[elementP1];
+                arrayOfDoubles[elementP1] = tempSwap;
+            }
+        }
+    }
+}//END public static void simpleBubbleSort_ascending(double[] arrayOfDoubles)

@@ -1,0 +1,18 @@
+class TopLevelClass
+{
+     public class PublicClass
+     {
+     }
+
+     protected class ProtectedClass
+     {
+     }
+
+     /*package private*/ class PackagePrivateClass
+     {
+     }
+
+     private class PrivateClass
+     {
+     }
+}

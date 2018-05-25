@@ -1,0 +1,16 @@
+public class Foo {
+    private volatile static final Foo instance = null;
+
+    private Foo() {
+    }
+
+    public static Foo instance() {
+        if (instance != null) return instance;
+        synchronized(instance) {
+           Foo result = instance;
+           if (instance == null) {
+                result = instance = new Foo();
+           return result;
+        }
+    }
+}

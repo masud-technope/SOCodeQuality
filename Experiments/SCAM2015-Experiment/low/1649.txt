@@ -1,0 +1,63 @@
+public class Main {
+    public static void main(String... args) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<book>\n");
+        for (int i = 0; i < 1000000; i += 3)
+            sb.append("<person>\n" +
+                    "  <first>Kiran</first>\n" +
+                    "  <last>Pai</last>\n" +
+                    "  <age>22</age>\n" +
+                    "</person>\n" +
+                    "<person>\n" +
+                    "  <first>Bill</first>\n" +
+                    "  <last>Gates</last>\n" +
+                    "  <age>46</age>\n" +
+                    "</person>\n" +
+                    "<person>\n" +
+                    "  <first>Steve</first>\n" +
+                    "  <last>Jobs</last>\n" +
+                    "  <age>40</age>\n" +
+                    "</person>\n");
+        sb.append("</book>\n");
+        String text = sb.toString();
+
+        for (int i = 0; i < 3; i++) {
+            timeIndexOf(text);
+            timeSplitXML(text);
+        }
+    }
+
+    private static void timeSplitXML(String text) {
+        long start = System.nanoTime();
+        String[] parts = text.split("</[^>]+>\\s*<[^>]+>");
+        parts[0] = parts[0].split(">")[2];
+        List<String[]> nodes = new ArrayList<String[]>();
+        for (int i = 1; i < parts.length - 2; i += 3)
+            nodes.add(Arrays.copyOfRange(parts, i, i + 3));
+        long time = System.nanoTime() - start;
+        System.out.printf("Parsing using split %,d nodes took %.1f seconds%n", nodes.size(), time / 1e9);
+    }
+
+    private static void timeIndexOf(String text) {
+        long start = System.nanoTime();
+        int pos = text.indexOf('>') + 1;
+        List<String[]> nodes = new ArrayList<String[]>();
+        while (pos > 0) {
+            pos = text.indexOf('>', text.indexOf('>', pos + 1) + 1) + 1;
+            String[] node = new String[3];
+            int pos2 = text.indexOf('<', pos);
+            node[0] = text.substring(pos, pos2);
+            if (node[0].trim().length() < 1) break;
+            pos = text.indexOf('>', text.indexOf('>', pos2 + 1) + 1) + 1;
+            pos2 = text.indexOf('<', pos);
+            node[1] = text.substring(pos, pos2);
+            pos = text.indexOf('>', text.indexOf('>', pos2 + 1) + 1) + 1;
+            pos2 = text.indexOf('<', pos);
+            node[2] = text.substring(pos, pos2);
+            pos = text.indexOf('>', text.indexOf('>', pos2 + 1) + 1) + 1;
+            nodes.add(node);
+        }
+        long time = System.nanoTime() - start;
+        System.out.printf("Parsing using indexOf %,d nodes took %.1f seconds%n", nodes.size(), time / 1e9);
+    }
+}

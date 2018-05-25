@@ -1,0 +1,7 @@
+public static void main(String[] args) {
+    int[] values = new int[] {894, 260, 392, 281, 27};
+    int[] weights = new int[] {8, 6, 4, 0, 21};
+    int W = 30;
+    int[] tab = new int[W+1];
+    System.out.println(knapsack(values, weights, W, tab, 0));
+}

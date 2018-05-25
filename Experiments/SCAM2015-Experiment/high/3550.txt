@@ -1,0 +1,12 @@
+class Shape {
+    ...
+}
+
+class ShapeVolumeComparator implements Comparator<Shape> {
+    int compare(Shape s1, Shapes2) {
+       return Math.signum(s1.getVolume()-s2.getVolume());
+    }
+}
+
+ArrayList<Shape> myShapes = ...;
+Shape minShape = Collections.min(myShapes, new ShapeVolumeComparator() );

@@ -1,0 +1,5 @@
+public class ByteComparator implements Comparator<byte> {
+  public int compare(byte b1, byte b2) {
+    return new Byte(b1).compareTo(b2);
+  }
+}

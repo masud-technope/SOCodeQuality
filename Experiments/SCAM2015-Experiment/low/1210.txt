@@ -1,0 +1,27 @@
+package Jclasspackage
+
+public class Jclass {
+
+    public String uname ;
+    /**
+     * @return the uname
+     */
+    public String getUname() {
+        return uname;
+    }
+
+    /**
+     * @param uname the uname to set
+     */
+    public void setUname(String uname) {
+        this.uname = uname;
+    }
+
+    public Jclass() {
+        this.uname = null;
+    }
+
+    public static void main(String[] args) {
+
+    }
+}

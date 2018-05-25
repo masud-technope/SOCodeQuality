@@ -1,0 +1,8 @@
+public init() {
+    if (map==null) {
+        synchronized(Helper.class) {
+            if (map==null)
+                 map = new HashMap();
+        }
+    }
+}

@@ -1,0 +1,9 @@
+final EditText barText=(EditText) textEntryView.findViewById(R.id.dialog_FOO);
+ final EditText barText1=(EditText) textEntryView.findViewById(R.id.dialog_FOO1);
+
+ // these gets returned empty.
+ bar= barText.getText().toString();
+ bar1= barText.getText().toString();
+
+ System.out.println("foo: "+bar);
+ System.out.println("foo: "+bar1);

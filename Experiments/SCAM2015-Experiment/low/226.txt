@@ -1,0 +1,7 @@
+try{
+FileWriter out = new FileWriter(“test.txt”);
+out.write(“example”);
+out.close();
+} catch(Exception e) {
+    //handle exception
+}

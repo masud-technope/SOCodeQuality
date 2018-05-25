@@ -1,0 +1,4 @@
+@Test(expected=<YourExpectedException>.class)
+public void testExceptionThrown() {
+// call the method that throws exception
+    }

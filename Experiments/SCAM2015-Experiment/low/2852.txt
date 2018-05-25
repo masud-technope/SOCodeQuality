@@ -1,0 +1,3 @@
+BigDecimal num = new BigDecimal("1620");
+ BigDecimal divider = new BigDecimal(100);
+ BigDecimal result = num.divide(divider, 2, RoundingMode.HALF_EVEN);

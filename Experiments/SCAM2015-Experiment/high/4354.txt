@@ -1,0 +1,19 @@
+public interface HasEndpoints {
+  int getEndX();
+  int getEndY();
+}
+
+public class Rectangle implements HasEndpoints {
+   ...
+   public int getEndX() {return endx;}
+   ...
+}
+
+for (Figures figure: myList) {
+  int x = figure.getStartX(); // Method common and declared in Figures  
+  if (figure instanceof HasEndpoints) { // Rectangle and Line will go there
+    System.out.println("HasEndpoints implementor");
+    int endX = ((HasEndpoints)figure).getEndX();
+    ...
+  }
+}

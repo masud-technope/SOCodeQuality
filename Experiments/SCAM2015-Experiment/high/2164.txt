@@ -1,0 +1,17 @@
+public static <T> List<List<List<T>>> list3DCopy(List<List<List<T>>> source) {
+    List<List<List<T>>> result = new ArrayList<>(source.size());
+    Cloner cloner = new Cloner();   
+    for(List<List<T>> innerList : source) {
+        List<List<T>> copy = new ArrayList<>(innerList.size());
+        for (List<T> innerInnerList : innerList) {
+            List<T> innerCopy = new ArrayList<>(innerInnerList.size());
+            for (T item : innerInnerList) {
+                T clone = cloner.deepClone(item);
+                innerCopy.add(clone);
+            }
+            copy.add(innerCopy);
+        }
+        result.add(copy);
+    }
+    return result;
+}

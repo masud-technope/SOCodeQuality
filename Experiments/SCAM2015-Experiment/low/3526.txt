@@ -1,0 +1,10 @@
+private String functionName(String condition) {
+
+    if (check your condition here) {
+        return;
+        // or do whatever you have to do  
+    }
+
+    // call your function again
+    functionName();
+}

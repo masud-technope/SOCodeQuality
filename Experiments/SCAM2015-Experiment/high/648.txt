@@ -1,0 +1,4 @@
+String space10 = new String(new char[10]).replace('\0', ' ');
+
+System.out.println("[" + space10 + "]");
+// prints "[          ]"

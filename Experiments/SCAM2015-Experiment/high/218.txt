@@ -1,0 +1,8 @@
+Internal frame
+internal frame,
+title pane
+internal frame.
+
+title pane
+maximize button,
+window not focused state

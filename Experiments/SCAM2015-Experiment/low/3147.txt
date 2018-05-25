@@ -1,0 +1,19 @@
+public static class BuilderFinal extends BuilderC {
+
+    @Override
+    public BuilderFinal a(int v) {
+        return (BuilderFinal) super.a(v);
+    }
+
+    @Override
+    public BuilderFinal b(int v) {
+        return (BuilderFinal) super.b(v);
+    }
+
+    public Foo build() {
+        return new Foo(
+                a(),
+                b(),
+                c());
+    }
+}

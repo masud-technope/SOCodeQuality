@@ -1,0 +1,500 @@
+/**
+ * Abstract base implementation of {@link NavigableMap} that provides all but
+ * the following methods:
+ * 
+ * <ul>
+ * <li>{@link Map#containsKey(Object)}</li>
+ * <li>{@link Map#get(Object)}</li>
+ * <li>{@link Map#remove(Object)}</li>
+ * <li>{@link SortedMap#comparator()}</li>
+ * <li>{@link NavigableMap#lowerEntry(Object)}</li>
+ * <li>{@link NavigableMap#floorEntry(Object)}</li>
+ * <li>{@link NavigableMap#ceilingEntry(Object)}</li>
+ * <li>{@link NavigableMap#higherEntry(Object)}</li>
+ * <li>{@link NavigableMap#firstEntry()}</li>
+ * <li>{@link NavigableMap#lastEntry()}</li>
+ * </ul>
+ * 
+ * Note that {@link Collection#size()} is implemented in terms of iteration
+ * using {@code firstEntry} and {@code higherEntry}, and therefore executes in
+ * time proportional to the map size. Subclasses may wish to provide a more
+ * efficient implementation.
+ * 
+ * @param <K> the type of keys maintained by this map
+ * @param <V> the type of mapped values
+ */
+public abstract class AbstractNavigableMap<K, V> extends AbstractMap<K, V> implements
+        NavigableMap<K, V> {
+
+    @Override
+    public abstract boolean containsKey(Object key);
+
+    @Override
+    public abstract V get(Object key);
+
+    @Override
+    public abstract V remove(Object key);
+
+    @Override
+    public K firstKey() {
+        return firstEntry().getKey();
+    }
+
+    @Override
+    public K lastKey() {
+        return lastEntry().getKey();
+    }
+
+    @Override
+    public K lowerKey(K key) {
+        return lowerEntry(key).getKey();
+    }
+
+    @Override
+    public K floorKey(K key) {
+        return floorEntry(key).getKey();
+    }
+
+    @Override
+    public K ceilingKey(K key) {
+        return ceilingEntry(key).getKey();
+    }
+
+    @Override
+    public K higherKey(K key) {
+        return higherEntry(key).getKey();
+    }
+
+    @Override
+    public Map.Entry<K, V> pollFirstEntry() {
+        final Map.Entry<K, V> e = firstEntry();
+        if (e != null) {
+            remove(e.getKey());
+        }
+        return e;
+    }
+
+    @Override
+    public Map.Entry<K, V> pollLastEntry() {
+        final Map.Entry<K, V> e = lastEntry();
+        if (e != null) {
+            remove(e.getKey());
+        }
+        return e;
+    }
+
+    @Override
+    public NavigableMap<K, V> descendingMap() {
+        return new ForwardingNavigableMap<K, V>() {
+            @Override
+            protected NavigableMap<K, V> delegate() {
+                return AbstractNavigableMap.this;
+            }
+
+            @Override
+            public NavigableMap<K, V> descendingMap() {
+                return new StandardDescendingMap();
+            }
+        }.descendingMap();
+    }
+
+    @Override
+    public NavigableSet<K> navigableKeySet() {
+        return new ForwardingNavigableMap<K, V>() {
+            @Override
+            protected NavigableMap<K, V> delegate() {
+                return AbstractNavigableMap.this;
+            }
+
+            @Override
+            public NavigableSet<K> navigableKeySet() {
+                return new StandardNavigableKeySet();
+            }
+        }.navigableKeySet();
+    }
+
+    @Override
+    public NavigableSet<K> descendingKeySet() {
+        return descendingMap().navigableKeySet();
+    }
+
+    @Override
+    public SortedMap<K, V> subMap(K fromKey, K toKey) {
+        return subMap(fromKey, true, toKey, false);
+    }
+
+    @Override
+    public NavigableMap<K, V> subMap(K fromKey, boolean fromInclusive, K toKey, boolean toInclusive) {
+        return NavigableMapSubMap.subMapOf(this, fromKey, fromInclusive, toKey, toInclusive);
+    }
+
+    @Override
+    public SortedMap<K, V> headMap(K toKey) {
+        return headMap(toKey, false);
+    }
+
+    @Override
+    public NavigableMap<K, V> headMap(K toKey, boolean inclusive) {
+        return NavigableMapSubMap.headMapOf(this, toKey, inclusive);
+    }
+
+    @Override
+    public SortedMap<K, V> tailMap(K fromKey) {
+        return tailMap(fromKey, true);
+    }
+
+    @Override
+    public NavigableMap<K, V> tailMap(K fromKey, boolean inclusive) {
+        return NavigableMapSubMap.tailMapOf(this, fromKey, inclusive);
+    }
+
+    @Override
+    public Set<Map.Entry<K, V>> entrySet() {
+        return new NavigableMapEntrySet<K, V>(this);
+    }
+}
+
+/**
+ * Provides a {@link NavigableMap} view of a key range of an underlying
+ * {@link NavigableMap}.
+ * 
+ * @param <K> the type of keys maintained by this map
+ * @param <V> the type of mapped values
+ */
+class NavigableMapSubMap<K, V> extends AbstractNavigableMap<K, V> {
+
+    private static final int UNSPECIFIED = 0;
+    private static final int INCLUSIVE = 1;
+    private static final int EXCLUSIVE = 2;
+
+    private final NavigableMap<K, V> base;
+    private final Comparator<? super K> comparator;
+    @NullableDecl
+    private final K fromKey;
+    private final int fromBound;
+    @NullableDecl
+    private final K toKey;
+    private final int toBound;
+
+    private NavigableMapSubMap(NavigableMap<K, V> base, K fromKey, int fromBound, K toKey,
+            int toBound) {
+        this.base = base;
+        comparator = effectiveComparator(base.comparator());
+        if (fromBound != UNSPECIFIED && toBound != UNSPECIFIED &&
+                comparator.compare(fromKey, toKey) > 0) {
+            throw new IllegalArgumentException("fromKey > toKey");
+        }
+        this.fromKey = fromKey;
+        this.fromBound = fromBound;
+        this.toKey = toKey;
+        this.toBound = toBound;
+    }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    private static <K> Comparator<? super K> effectiveComparator(
+            @NullableDecl Comparator<? super K> comparator) {
+        return comparator != null ? comparator : (Comparator) Ordering.natural();
+    }
+
+    static <K, V> NavigableMap<K, V> subMapOf(NavigableMap<K, V> base, K fromKey,
+            boolean fromInclusive, K toKey, boolean toInclusive) {
+        return new NavigableMapSubMap<>(base, fromKey, fromInclusive ? INCLUSIVE : EXCLUSIVE,
+                toKey, toInclusive ? INCLUSIVE : EXCLUSIVE);
+    }
+
+    static <K, V> NavigableMap<K, V> headMapOf(NavigableMap<K, V> base, K toKey, boolean inclusive) {
+        return new NavigableMapSubMap<>(base, null, UNSPECIFIED, toKey, inclusive ? INCLUSIVE
+                : EXCLUSIVE);
+    }
+
+    static <K, V> NavigableMap<K, V> tailMapOf(NavigableMap<K, V> base, K fromKey, boolean inclusive) {
+        return new NavigableMapSubMap<>(base, fromKey, inclusive ? INCLUSIVE : EXCLUSIVE, null,
+                UNSPECIFIED);
+    }
+
+    @Override
+    public Comparator<? super K> comparator() {
+        return base.comparator();
+    }
+
+    @NullableDecl
+    private boolean aboveLowerBound(@NullableDecl K key, boolean inclusive) {
+        if (fromBound != UNSPECIFIED) {
+            final int cmp = comparator.compare(fromKey, key);
+            if (fromBound == INCLUSIVE || !inclusive ? cmp > 0 : cmp >= 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @NullableDecl
+    private boolean belowUpperBound(@NullableDecl K key, boolean inclusive) {
+        if (toBound != UNSPECIFIED) {
+            final int cmp = comparator.compare(key, toKey);
+            if (toBound == INCLUSIVE || !inclusive ? cmp > 0 : cmp >= 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @NullableDecl
+    private boolean inBounds(@NullableDecl K key, boolean inclusive) {
+        return aboveLowerBound(key, inclusive) && belowUpperBound(key, inclusive);
+    }
+
+    @NullableDecl
+    private Map.Entry<K, V> lowerBound(@NullableDecl Map.Entry<K, V> e) {
+        if (e != null && fromBound != UNSPECIFIED) {
+            final int cmp = comparator.compare(fromKey, e.getKey());
+            if (fromBound == INCLUSIVE ? cmp > 0 : cmp >= 0) {
+                return null;
+            }
+        }
+        return e;
+    }
+
+    @NullableDecl
+    private Map.Entry<K, V> upperBound(@NullableDecl Map.Entry<K, V> e) {
+        if (e != null && toBound != UNSPECIFIED) {
+            final int cmp = comparator.compare(e.getKey(), toKey);
+            if (toBound == INCLUSIVE ? cmp > 0 : cmp >= 0) {
+                return null;
+            }
+        }
+        return e;
+    }
+
+    @NullableDecl
+    private Map.Entry<K, V> bound(@NullableDecl Map.Entry<K, V> e) {
+        return lowerBound(upperBound(e));
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public boolean containsKey(Object key) {
+        return inBounds((K) key, true) && base.containsKey(key);
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public V get(Object key) {
+        return inBounds((K) key, true) ? base.get(key) : null;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public V remove(Object key) {
+        return inBounds((K) key, true) ? base.remove(key) : null;
+    }
+
+    @Override
+    public Map.Entry<K, V> lowerEntry(K key) {
+        return bound(base.lowerEntry(key));
+    }
+
+    @Override
+    public Map.Entry<K, V> floorEntry(K key) {
+        return bound(base.floorEntry(key));
+    }
+
+    @Override
+    public Map.Entry<K, V> ceilingEntry(K key) {
+        return bound(base.floorEntry(key));
+    }
+
+    @Override
+    public Map.Entry<K, V> higherEntry(K key) {
+        return bound(base.higherEntry(key));
+    }
+
+    @Override
+    public Map.Entry<K, V> firstEntry() {
+        switch (fromBound) {
+        case UNSPECIFIED:
+            return base.firstEntry();
+        case INCLUSIVE:
+            return upperBound(base.floorEntry(fromKey));
+        default:
+            return upperBound(base.higherEntry(fromKey));
+        }
+    }
+
+    @Override
+    public Map.Entry<K, V> lastEntry() {
+        switch (toBound) {
+        case UNSPECIFIED:
+            return base.firstEntry();
+        case INCLUSIVE:
+            return lowerBound(base.ceilingEntry(toKey));
+        default:
+            return lowerBound(base.lowerEntry(toKey));
+        }
+    }
+
+    private NavigableMap<K, V> subMap(K fromKey, int fromBound, K toKey, int toBound) {
+        if (fromBound == UNSPECIFIED) {
+            fromKey = this.fromKey;
+            fromBound = this.fromBound;
+        } else if (!inBounds(fromKey, fromBound == INCLUSIVE)) {
+            throw new IllegalArgumentException("fromKey out of range");
+        }
+        if (toBound == UNSPECIFIED) {
+            toKey = this.toKey;
+            toBound = this.toBound;
+        } else if (!inBounds(toKey, toBound == INCLUSIVE)) {
+            throw new IllegalArgumentException("toKey out of range");
+        }
+        return new NavigableMapSubMap<>(base, fromKey, fromBound, toKey, toBound);
+    }
+
+    @Override
+    public NavigableMap<K, V> subMap(K fromKey, boolean fromInclusive, K toKey, boolean toInclusive) {
+        return subMap(fromKey, fromInclusive ? INCLUSIVE : EXCLUSIVE, toKey,
+                toInclusive ? INCLUSIVE : EXCLUSIVE);
+    }
+
+    @Override
+    public NavigableMap<K, V> headMap(K toKey, boolean inclusive) {
+        return subMap(null, UNSPECIFIED, toKey, inclusive ? INCLUSIVE : EXCLUSIVE);
+    }
+
+    @Override
+    public NavigableMap<K, V> tailMap(K fromKey, boolean inclusive) {
+        return subMap(fromKey, inclusive ? INCLUSIVE : EXCLUSIVE, null, UNSPECIFIED);
+    }
+
+    @Override
+    public Set<Map.Entry<K, V>> entrySet() {
+        return new NavigableMapEntrySet<K, V>(this) {
+            @Override
+            protected Map.Entry<K, V> higherEntry(Map.Entry<K, V> from) {
+                // omit unnecessary lower bound check of outer higherEntry
+                return upperBound(base.higherEntry(from.getKey()));
+            }
+        };
+    }
+}
+
+/**
+ * Provides a {@link Map#entrySet()} implementation based on a
+ * {@link NavigableMap} using the following methods:
+ * 
+ * <ul>
+ * <li>{@link NavigableMap#firstEntry()}</li>
+ * <li>{@link NavigableMap#higherEntry(Object)}</li>
+ * <li>{@link Map#get(Object)}</li>
+ * <li>{@link Map#remove(Object)}</li>
+ * </ul>
+ * 
+ * Note that {@link Collection#size()} is implemented in terms of iteration
+ * using {@code firstEntry} and {@code higherEntry}, and therefore executes in
+ * time proportional to the map size. Subclasses may wish to provide a more
+ * efficient implementation.
+ * 
+ * @param <K> the type of keys maintained by this map
+ * @param <V> the type of mapped values
+ */
+public class NavigableMapEntrySet<K, V> extends AbstractSet<Map.Entry<K, V>> {
+
+    private final NavigableMap<K, V> map;
+
+    /**
+     * Constructs a {@link NavigableMapEntrySet} for the given map.
+     * 
+     * @param map the map whose entries are being represented
+     */
+    public NavigableMapEntrySet(NavigableMap<K, V> map) {
+        this.map = map;
+    }
+
+    /**
+     * Used by {@link #iterator()} to return an entry associated with the least
+     * key in this map, or {@code null} if the map is empty. The default
+     * implementation simply calls {@link NavigableMap#firstEntry()}; subclasses
+     * may wish to provide a more efficient implementation.
+     * 
+     * @return an entry with the least key, or null if the map is empty
+     */
+    protected Map.Entry<K, V> firstEntry() {
+        return map.firstEntry();
+    }
+
+    /**
+     * Used by {@link #iterator()} to return an entry associated with the least
+     * key strictly greater than the key of the given entry, or {@code null} if
+     * there is no such key. The default implementation simply calls
+     * {@link NavigableMap#higherEntry(Object)} with the key of the given entry;
+     * subclasses may wish to provide a more efficient implementation.
+     * 
+     * @param from the reference entry, which must have been returned from this
+     *            entry set
+     * @return an entry with the least key greater than the given entry, or null
+     *         if there is no such key
+     */
+    protected Map.Entry<K, V> higherEntry(Map.Entry<K, V> from) {
+        return map.higherEntry(from.getKey());
+    }
+
+    @Override
+    public Iterator<Map.Entry<K, V>> iterator() {
+        return new Iterator<Map.Entry<K, V>>() {
+            @NullableDecl
+            Map.Entry<K, V> prevEntry = null;
+            @NullableDecl
+            Map.Entry<K, V> nextEntry = firstEntry();
+
+            @Override
+            public boolean hasNext() {
+                return nextEntry != null;
+            }
+
+            @Override
+            public Map.Entry<K, V> next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                prevEntry = nextEntry;
+                nextEntry = higherEntry(nextEntry);
+                return prevEntry;
+            }
+
+            @Override
+            public void remove() {
+                if (prevEntry == null) {
+                    throw new IllegalStateException();
+                }
+                map.remove(prevEntry.getKey());
+                prevEntry = null;
+            }
+        };
+    }
+
+    @Override
+    public int size() {
+        return Iterators.size(iterator());
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        if (o instanceof Map.Entry) {
+            final Map.Entry<?, ?> e = (Map.Entry<?, ?>) o;
+            return Objects.equals(map.get(e.getKey()), e.getValue());
+        }
+        return false;
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        if (o instanceof Map.Entry) {
+            final Map.Entry<?, ?> e = (Map.Entry<?, ?>) o;
+            final Object key = e.getKey();
+            if (Objects.equals(map.get(key), e.getValue())) {
+                map.remove(key);
+                return true;
+            }
+        }
+        return false;
+    }
+}

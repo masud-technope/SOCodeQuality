@@ -1,0 +1,13 @@
+boolean go = true;
+
+ System.out.println("What's the highest roll you want? \n");
+      while(go){
+      try{
+      highnum = userin.nextInt();
+      go = false;
+     catch(Exception e){
+         System.out.println("Please type in an integer: ");
+         highnum = userin.nextInt();
+      }
+
+}

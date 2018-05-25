@@ -1,0 +1,5 @@
+StringBuilder result = new StringBuilder(chars.size());
+for (Character c : chars) {
+  result.append(c);
+}
+String output = result.toString();

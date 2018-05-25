@@ -1,0 +1,5 @@
+public static String escape(String text)
+{
+   String r = replace(text, "\", "\\");
+   return r;
+}

@@ -1,0 +1,18 @@
+int chkNum = 0;
+int lottMtch = 0;
+
+for (int i = 0; i < 6; i++)
+{
+    chkNum = myArray[i];
+    lottMtch = count(chkNum, rndNum);
+
+}
+
+if (lottMtch > 0)
+{
+    System.out.println(lottMtch + "matches found");
+    System.out.print(chkNum);
+}
+else {
+    System.out.print("no matches found");
+}

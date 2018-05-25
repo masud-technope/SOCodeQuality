@@ -1,0 +1,6 @@
+file.lock();
+     try {
+         ...
+     } finally {
+         file.unlock();
+     }

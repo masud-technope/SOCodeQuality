@@ -1,0 +1,32 @@
+import javax.swing.*;
+
+public class FirstFrame extends Jframe implements ActionListener{
+
+
+  JButton button;    
+
+  public FirstFrame(){
+   setVisible(true);
+   setSize(500,500);
+
+    button=new JButton("Click me");
+    button.addActionListner(this);
+   add(button);     
+  }
+
+  public static void main(String[] args)
+  {
+   new FirstFrame();
+  }
+
+  public void actionPerformed(ActionEvent e)
+   {
+   if(e.getSource()==button)
+    {
+        NewFrame nf=new NewFrame();    // Clicking on the Button will OPEN new Frame in NewFrame.java file 
+        dispose();  //this method will close the FirstFrame 
+     }
+   }
+
+
+}

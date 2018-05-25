@@ -1,0 +1,34 @@
+#include <unordered_map>
+int convert_roman_2_int(string& str)
+    {
+    int ans = 0;
+    if( str.length() == 0 )
+        {
+        return ans;
+        }
+
+    std::unordered_map<char, int> table;
+    table['I'] = 1;
+    table['V'] = 5;
+    table['X'] = 10;
+    table['L'] = 50;
+    table['C'] = 100;
+    table['D'] = 500;
+    table['M'] = 1000;
+
+    ans = table[ str[ str.length() - 1 ] ];
+
+    for( int i = str.length() - 2; i >= 0; i--)
+        {
+        if(table[ str[i] ] < table[ str[i+1] ] )
+            {
+            ans -= table[ str[i] ];
+            }
+        else
+            {
+            ans += table[ str[i] ];
+            }
+        }
+
+    return ans;
+    }

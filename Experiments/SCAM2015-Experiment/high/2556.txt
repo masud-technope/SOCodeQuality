@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="vertical" >
+
+<ImageView
+    android:id="@+id/imageView1"
+    android:layout_width="fill_parent"
+    android:layout_height="0dp"
+    android:layout_weight="40"
+    android:scaleType="centerCrop"
+    android:src="@drawable/actionbar_bg" />
+
+<LinearLayout
+    android:id="@+id/1st row"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_below="@id/imageid"
+    android:layout_weight="30"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:text="row1 col1" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:text="row1 col2" />
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/2nd row"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_below="@id/1st row"
+    android:layout_weight="30"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:text="row2 col1" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:text="row2 col2" />
+</LinearLayout>
+
+</LinearLayout>

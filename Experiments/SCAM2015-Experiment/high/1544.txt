@@ -1,0 +1,18 @@
+public class outside.Test extends java.lang.Object{
+public outside.Test();
+  Code:
+   0:   aload_0
+   1:   invokespecial   #1; //Method java/lang/Object."<init>":()V
+   4:   return
+
+public static void main(java.lang.String[]);
+  Code:
+   0:   invokestatic    #2; //Method java/lang/System.currentTimeMillis:()J
+   3:   invokestatic    #3; //Method java/lang/String.valueOf:(J)Ljava/lang/String;
+   6:   astore_1
+   7:   getstatic       #4; //Field java/lang/System.out:Ljava/io/PrintStream;
+   10:  aload_1
+   11:  invokevirtual   #5; //Method java/io/PrintStream.println:(Ljava/lang/String;)V
+   14:  goto    0
+
+}

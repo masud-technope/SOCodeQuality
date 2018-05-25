@@ -1,0 +1,49 @@
+try {           
+                // Getting The Array "Courses" from json1 & json2   
+                Courses1 =json1.getJSONArray(TAG_COURSES1);
+                Courses2 = json2.getJSONArray(TAG_COURSES);
+
+                //LOOP FOR JSON1
+                for(int i = 0; i < Courses1.length(); i++){
+                    //LOOP FOR JSON2
+                    for(int ii = 0; ii < Courses2.length(); ii++){
+                        JSONObject courses1 = Courses1.getJSONObject(i);
+                        JSONObject courses2 = Courses2.getJSONObject(ii);
+
+                        // Storing each json1 item in variable
+                        int courseID1 = courses1.getInt(TAG_COURSEID1);
+                        Log.e("COURSEID2:", Integer.toString(courseID1));
+                        String Rating1 = courses1.getString(TAG_RATING1);
+                        int Status1 = courses1.getInt(TAG_STATUS1);
+                        Log.e("Status1:", Integer.toString(Status1));      //Put the actual value for Status1 in log.             
+
+                        // Storing each json2 item in variable
+                        int courseID2 = courses2.getInt(TAG_COURSEID);
+                        Log.e("COURSEID2:", Integer.toString(courseID));   //Put the actual value for CourseID in log
+                        String Title2 = courses2.getString(TAG_TITLE);                      
+                        String instructor2 = courses2.getString(TAG_INSTRUCTOR);
+                        String length2 = courses2.getString(TAG_LENGTH);
+                        String rating2 = courses2.getString(TAG_RATING);
+                        String subject2 = courses2.getString(TAG_SUBJECT);
+                        String description2 = courses2.getString(TAG_DESCRIPTION);
+
+                        //Status1 = 5 from json1; Incomplete, Status1 =-1 Complete 
+                        if(Status1 == 5 && courseID2 == courseID1){                                  
+
+                        // creating new HashMap
+                        HashMap<String, String> map = new HashMap<String, String>();         
+                        //Storing the elements if condition is true.
+                        map.put(TAG_COURSEID, Integer.toString(courseID2)); //pend for compare
+                        map.put(TAG_TITLE, Title2);
+                        map.put(TAG_INSTRUCTOR, instructor2);
+                        map.put(TAG_LENGTH, length2);
+                        map.put(TAG_RATING, rating2);
+                        map.put(TAG_SUBJECT, subject2); //show it
+                        map.put(TAG_DESCRIPTION, description2);
+
+                        //adding HashList to ArrayList
+                        contactList.add(map);
+                        }//if
+                    }//for2 (json2)
+                } //for1 (json1)                
+            }//Try

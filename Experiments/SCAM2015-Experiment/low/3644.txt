@@ -1,0 +1,31 @@
+public static void main(String[] args) throws IOException {
+    String output = new String();
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String line = br.readLine();
+    int N = Integer.parseInt(line);
+    for (int i = 0; i < N; i++) {
+        String strArr[] = br.readLine().split("\\*");
+        int enemy=0;
+        for(String str:strArr){
+            if(str.contains("X")){
+                continue;
+            }
+            if(count('X',str)==0){
+                enemy=enemy+str.length();
+            }
+        }
+        output=output+enemy+"\n";
+    }
+    System.out.println(output);
+}
+
+private static int count(char c,String str){
+    int count=0;
+    char charArr[] = str.toCharArray();
+    for(char c2:charArr){
+        if(c==c2){
+            count++;
+        }
+    }
+    return count;
+}

@@ -1,0 +1,8 @@
+Collection<String> lines = new ArrayList<String>();
+BufferedReader reader = new BufferedReader( new InputStreamReader( Foo.getInputStream()));
+while(reader.ready())
+{
+    lines.add( reader.readLine());
+}
+
+myClass.processData(lines); //Process the data after it is off the network.

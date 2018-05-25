@@ -1,0 +1,17 @@
+class Concurrency implements Runnable {
+    private static Integer s = 2; // volatile not needed
+    private static final Object monitor = new Object(); // create a monitor object shared by all instances
+
+
+    @Override
+    public void run() {
+        function();
+    }
+
+    public void function() {
+        synchronized (monitor) { // synchronize on monitor object
+            s = s * 5;
+            monitor.notify(); // notify on the monitor object, although this is not needed since you don't have a wait().
+        }
+    }
+}

@@ -1,0 +1,7 @@
+String strA = "AC-11234X-DD+++1" ;
+String strB = "AC-11234X-DD+++1";    
+
+if(strA.equals(strB))
+       //they are equal
+else
+       //they are not

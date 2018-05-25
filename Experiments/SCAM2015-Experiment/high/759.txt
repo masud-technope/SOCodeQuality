@@ -1,0 +1,5 @@
+T[] a = Expression;
+for (int i = 0; i < a.length; i++) {
+    Type Identifier = a[i];
+    Statement
+}

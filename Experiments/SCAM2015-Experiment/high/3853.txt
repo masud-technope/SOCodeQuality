@@ -1,0 +1,50 @@
+public class MyTask
+  implements Runnable
+{
+  private AtomicInteger counter;
+
+  public MyTask ( AtomicInteger counter )
+  {
+    this.counter = counter;
+  }
+
+  public void run ()
+  {
+    while ( true )
+    {
+      String output = task();
+      if ( output != null )
+      {
+        int count = counter.getAndIncrement( );
+
+        System.out.println(output);
+        if ( count >= 100 )
+        {
+          break;
+        }
+      }
+    }
+  }
+
+  public static String task() {
+    return rand.nextDouble() > 0.5 ? "output" : null;
+  }
+
+  public static void main (
+      String[] args
+    ) throws InterruptedException
+  {
+    AtomicInteger counter = new AtomicInteger( );
+
+    ExecutorService pool = Executors.newFixedThreadPool(4);
+
+    for (int i = 0; i < 4; ++i)
+    {
+        pool.execute( new MyTask( counter ) );
+    }
+
+    // Simplified shutdown, do not use this in production
+    pool.shutdown( );
+    pool.awaitTermination(1, TimeUnit.HOURS);
+  }
+}

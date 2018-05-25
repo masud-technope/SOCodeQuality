@@ -1,0 +1,21 @@
+private interface GetObjects {
+    List<SomeObject> get();
+}
+
+public void method1(int a, int b) {
+    impl(a, b, new GetObjects() { public List<SomeObject> get() {
+        return service.getListA(c, d);
+    }});
+}
+
+public void method2(int a, int b) {
+    impl(a, b, new GetObjects() { public List<SomeObject> get() {
+        return service.getListB(c, d, e);
+    }});
+}
+
+private void impl(int a, int b, GetObjects getObjects) {
+    //body (the same in both of methods)
+    List<SomeObject> list = getObjects.get();
+    //rest of the body (the same in both of methods)
+}

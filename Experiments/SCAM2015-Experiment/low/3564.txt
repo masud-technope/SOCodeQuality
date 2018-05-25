@@ -1,0 +1,24 @@
+//import list of words 
+BufferedReader File = new BufferedReader(new FileReader(LOC)); 
+
+//Create a temporary ArrayList to store data
+ArrayList<String> words = new ArrayList<String>();
+
+//Find number of lines in txt file
+String line;
+String delimiter = "\t";
+// adds all the words into the list.
+while ((line = File.readLine()) != null)
+{
+    String[] wordsInLine = line.split(delimiter);
+    for(int i=0, ; i < wordsInLine.length; i++){
+       // compute alg and store the value some how to the word.
+        words.add(wordsInLine[i])
+    }
+}
+
+// notice outside the while loop.
+// .size() is used for lists and .length is used for arrays.
+for(int i = 0; i < words.size(); i++){
+   // compare
+}

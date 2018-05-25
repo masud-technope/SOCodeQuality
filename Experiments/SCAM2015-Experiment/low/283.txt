@@ -1,0 +1,3 @@
+@echo off
+set d=%~dp0
+java -classpath myprogram.jar de.vogella.eclipse.ide.first.MyFirstClass

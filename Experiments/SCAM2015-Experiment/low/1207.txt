@@ -1,0 +1,76 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.Timer;
+import javax.swing.border.EmptyBorder;
+
+public class UsePopupFactory {
+
+    private JFrame frame = new JFrame("PopupFactory Sample");
+    private PopupFactory factory = PopupFactory.getSharedInstance();
+    private Popup popup;
+
+    public UsePopupFactory() {
+        JPanel btnPanel = new JPanel();
+        btnPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
+        btnPanel.setLayout(new GridLayout(0, 3));
+        ActionListener actionListener = new ShowPopup(frame);
+        JButton start3 = new JButton("Pick Me for Popup");
+        JButton start = new JButton("Pick Me for Popup");
+        JButton start2 = new JButton("Pick Me for Popup");
+        btnPanel.add(start3);
+        btnPanel.add(start);
+        btnPanel.add(start2);
+        start3.setVisible(false);
+        start2.setVisible(false);
+        start.addActionListener(actionListener);
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(btnPanel, BorderLayout.SOUTH);
+        frame.setSize(new Dimension(d.width / 4, d.height / 4));
+        frame.setVisible(true);
+    }
+
+    private class ShowPopup implements ActionListener {
+
+        private Component component;
+
+        ShowPopup(Component component) {
+            this.component = component;
+        }
+
+        public synchronized void actionPerformed(ActionEvent actionEvent) {
+            JPanel pnl = new JPanel();
+            JComboBox combo = new JComboBox();
+            JButton button = new JButton("any action");
+            pnl.add(combo);
+            pnl.add(button);
+            pnl.setPreferredSize(new Dimension(250, 40));
+            popup = factory.getPopup(component, pnl,
+                    frame.getWidth() / 2 - pnl.getPreferredSize().width / 2,
+                    frame.getHeight() / 2 - pnl.getPreferredSize().height / 2);
+            popup.show();
+            Timer timer = new Timer(3000, hider);
+            timer.start();
+        }
+    }
+    private Action hider = new AbstractAction() {
+
+        private static final long serialVersionUID = 1L;
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            popup.hide();
+        }
+    };
+
+    public static void main(final String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                UsePopupFactory uPF = new UsePopupFactory();
+            }
+        });
+    }
+}

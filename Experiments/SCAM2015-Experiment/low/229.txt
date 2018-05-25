@@ -1,0 +1,12 @@
+public class Foo<E> implements Runnable {
+     private final E e;
+     public Foo(E e) { ... }
+     @Override
+     public void run() {
+         do something with e.
+     }
+ }
+
+ Foo<String> foo = new Foo("hello");
+ Thread bar = new Thread(foo);
+ bar.start();

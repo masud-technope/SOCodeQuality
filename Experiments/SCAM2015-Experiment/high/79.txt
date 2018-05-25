@@ -1,0 +1,3 @@
+HashMap codes = new HashMap();
+codes.putAll(source);
+meta.setValidProgramCodes(codes);

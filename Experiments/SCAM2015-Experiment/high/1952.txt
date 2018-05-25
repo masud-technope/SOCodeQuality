@@ -1,0 +1,4 @@
+String resultingOutput = "";
+ if( !(input.contains("<body>")) && !(input.contains("</body>")) ){
+      resultingOutput = output.replace("<body>", "").replace("</body>","");
+ }

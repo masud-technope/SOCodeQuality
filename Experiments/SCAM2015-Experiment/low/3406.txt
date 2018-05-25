@@ -1,0 +1,5 @@
+public boolean contains(final int[] array, final int key) 
+{  
+     Arrays.sort(array);  
+     return Arrays.binarySearch(array, key) >= 0;  
+}

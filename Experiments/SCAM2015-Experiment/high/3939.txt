@@ -1,0 +1,4 @@
+Table<Integer, String, Double> table = HashBasedTable.create();
+
+table.put(1, "a", 2.0);
+double v = table.get(1, "a"); // getting 2.0

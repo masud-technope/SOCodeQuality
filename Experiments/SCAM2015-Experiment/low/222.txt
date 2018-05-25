@@ -1,0 +1,7 @@
+public void testEnterFormFields()
+  try {
+    enterFormFields();
+  } catch(SeleniumException e) {
+    //do screenshot, logging, dumping, stacktracing or whatever here
+  }
+}

@@ -1,0 +1,23 @@
+public class Customer {
+
+    Set<JobUnit> jobs=new HashSet<JobUnit>();    
+    private Long id;
+    public Customer(Long id){        
+        this.id = id;
+    }
+
+    public boolean add(JobUnit unit) throws Exception{
+       if(!unit.get().getCustomer().id.equals(id))
+           throw new Exception(" cannot assign job to this customer");
+        return jobs.add(unit);
+    }
+
+     public boolean remove(JobUnit unit){
+        return jobs.remove(unit);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+}

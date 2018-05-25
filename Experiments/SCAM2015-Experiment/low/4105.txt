@@ -1,0 +1,12 @@
+bool trigger = (true/false);
+do {
+    if (...) {
+        if (...){...}
+        else if (...) {...}
+        else {
+            print out retry statement;
+            trigger = false; 
+        }
+    }
+}
+while (trigger == true);

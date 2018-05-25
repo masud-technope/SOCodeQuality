@@ -1,0 +1,9 @@
+public static List<File> subdirectories(File root, String toFind) {
+    List<File> ret = new ArrayList<File>();
+    for(File dir : root.listFiles()) {
+        File dir2 = new File(dir, toFind);
+        if (dir2.isDirectory())
+            ret.add(dir2);
+    }
+    return ret;
+}

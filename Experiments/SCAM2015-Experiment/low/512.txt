@@ -1,0 +1,5 @@
+public class A{
+private String a;
+private String b;
+//getter and setter are here
+}

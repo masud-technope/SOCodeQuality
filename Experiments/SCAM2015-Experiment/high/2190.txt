@@ -1,0 +1,3 @@
+Set<Integer> set1, set2, set3;
+...
+Set<Integer> u = unique(set1, set2, set3);

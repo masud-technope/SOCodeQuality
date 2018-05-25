@@ -1,0 +1,3 @@
+for(datatype intialization;condition;increment/Decrement) {  
+
+}

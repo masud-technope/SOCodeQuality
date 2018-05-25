@@ -1,0 +1,9 @@
+public static void main(String[] args) {
+    String text = "\"xxx\"|\"yyy\"|\"zzz\"|\"nnn\"|\"....\"";
+    String regex = "[\"][|][\"]";
+
+    String[] textArray= text.split(regex);
+    for(String part:textArray){
+        System.out.println(part);
+    }        
+}

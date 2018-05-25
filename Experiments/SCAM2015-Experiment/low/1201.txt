@@ -1,0 +1,63 @@
+public class Worker implements Runnable
+{
+
+    private ConcurrentLinkedQueue<Integer> outputQueue;
+
+    public Worker(ConcurrentLinkedQueue<Integer> outputQueue)
+    {
+        this.outputQueue = outputQueue;
+    }
+
+    @Override
+    public void run()
+    {
+
+       // Do whatever it is you're doing
+       ...
+       // place result on queue
+       outputQueue.add(result);
+
+    }
+
+} 
+
+public class Main
+{
+
+    static void main(String[] args)
+    {
+
+        ArrayList<ConcurrentLinkedQueue<Integer>> myQueues =
+            new ArrayList<ConcurrentLinkedQueue<Integer>>();
+
+        Thread[] myThreads = new Thread[numThreads];
+
+        // Create queue, create thread with Worker(queue),  
+        // start thread
+        for (int i = 0; i < numThreads; i++)
+        {
+            ConcurrentLinkedQueue<Integer> queue =
+                new ConcurrentLinkedQueue<Integer>();
+
+            myQueues.add(queue);           
+
+            myThreads[i] = new Thread(new Worker(queue)).start();
+
+        }
+
+        // Wait for all threads to finish, print their results
+        for (int i = 0; i < numThreads; i++)
+        {
+            join(myThreads[i]);
+
+            // Get the queue for the thread we just joined, 
+            // pull off each result and output
+            Integer j;
+            while ((j = myQueues.get(i).poll()) != null)
+            {
+                System.out.println(j);
+            }
+
+        }
+    }
+}

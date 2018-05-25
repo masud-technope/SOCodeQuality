@@ -1,0 +1,37 @@
+population done for batch: 0
+population done for batch: 1
+population done for batch: 2
+population done for batch: 3
+population done for batch: 4
+population done for batch: 5
+population done for batch: 6
+population done for batch: 7
+population done for batch: 8
+population done for batch: 9
+0.332: [GC 0.332: [ParNew: 17024K->410K(19136K), 0.0024479 secs] 17024K->410K(83008K), 0.0025219 secs] [Times: user=0.01 sys=0.00, real=0.01 secs] 
+population done for batch: 10
+population done for batch: 11
+population done for batch: 12
+population done for batch: 13
+population done for batch: 14
+population done for batch: 15
+population done for batch: 16
+population done for batch: 17
+population done for batch: 18
+population done for batch: 19
+0.344: [GC 0.344: [ParNew: 17434K->592K(19136K), 0.0011238 secs] 17434K->592K(83008K), 0.0011645 secs] [Times: user=0.00 sys=0.01, real=0.00 secs] 
+population done for batch: 20
+population done for batch: 21
+population done for batch: 22
+population done for batch: 23
+population done for batch: 24
+population done for batch: 25
+population done for batch: 26
+population done for batch: 27
+population done for batch: 28
+population done for batch: 29
+population done for batch: 30
+0.353: [GC 0.353: [ParNew: 17616K->543K(19136K), 0.0011398 secs] 17616K->543K(83008K), 0.0011770 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+population done for batch: 31
+population done for batch: 32
+population done for batch: 33

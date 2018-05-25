@@ -1,0 +1,5 @@
+private static final Pattern repeatMatcher = Pattern.compile("^(?:(.)(?!\\1))*$");
+
+public static boolean hasRepeatedCharacters(String input) {
+    return !repeatMatcher.matcher(input).matches();
+}

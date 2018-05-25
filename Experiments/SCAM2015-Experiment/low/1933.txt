@@ -1,0 +1,4 @@
+Department department = (Department)cbDepartment.getSelectedItem();
+Person person = new Person(tfFirstName.getText(), tfLastName.getText());
+Contract contract = new Contract(tfPositionName.getText(), Integer.parseInt(tfSalary.getText()));
+department.hire(person, contract);

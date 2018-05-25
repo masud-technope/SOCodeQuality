@@ -1,0 +1,7 @@
+List<Integer> intList = new ArrayList<Integer>();  //Create a new list of integers
+List<String> strList = new ArrayList<String>(); //You can't actually create a List.  Use one of the derived classes like ArrayList instead
+
+strList.add("A string!");  // Now the list has one String in it
+strList.add(3);  //You can't do this because strList can only hold Strings
+
+ArrayList< ArrayList<String> > strMatrix = new ArrayList< ArrayList<String> >()

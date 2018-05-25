@@ -1,0 +1,4 @@
+Resource read = resource;
+if (read == null)   // reading the local variable, not the static field
+    read = resource = new Resource();
+return read;

@@ -1,0 +1,5 @@
+ProcessBuilder pb = new ProcessBuilder("grep", "-r", "foo");
+pb.directory(new File("myDir"));
+Process p = pb.start();
+InputStream in = p.getInputStream();
+//Do whatever you prefer with the stream

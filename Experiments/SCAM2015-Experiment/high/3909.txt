@@ -1,0 +1,4 @@
+while ((strLine = fbr.readLine()) != null)   {
+    Customer temp = new Customer();
+
+    // and so on

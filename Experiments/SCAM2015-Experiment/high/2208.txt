@@ -1,0 +1,3 @@
+catch (SomeException e){
+    jLabel6.setText("Error!");
+}

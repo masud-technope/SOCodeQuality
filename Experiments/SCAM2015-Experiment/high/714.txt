@@ -1,0 +1,5 @@
+public <T> T[] toArray(List<T> list) {
+    Class clazz = list.get(0).getClass(); // check for size and null before
+    T[] array = (T[]) java.lang.reflect.Array.newInstance(clazz, list.size());
+    return list.toArray(array);
+}

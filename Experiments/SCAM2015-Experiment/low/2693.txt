@@ -1,0 +1,11 @@
+Collections.sort(list, new Comparator() {
+            @Override
+            public int compare(String s1, String s2) {
+
+                // ascending order
+                 return id1.compareTo(id2);
+
+                // descending order
+                //return id2.compareTo(id1);
+            }
+        });

@@ -1,0 +1,5 @@
+using System.Text.RegularExpressions;
+
+
+            Regex r = new Regex( "[0-9]" );
+            Console.WriteLine( "Matches " + r.Matches("if string contains 2485083572085748 then" ).Count );

@@ -1,0 +1,4 @@
+@Temporal(TemporalType.TIMESTAMP)
+public Date getCreated() {
+    return this.created;
+}

@@ -1,0 +1,8 @@
+Scanner scan = new Scanner(System.in);
+
+String input = scan.ReadLine();
+
+if(input.equals("quit"))
+{
+   //close the program
+}

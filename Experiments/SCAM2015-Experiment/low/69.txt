@@ -1,0 +1,7 @@
+FileLock fileLock = filechannel.lock(position, size, shared);
+reentrantReadWriteLock.lock();
+
+// do stuff
+
+fileLock.release();
+reentrantReadWriteLock.unlock();

@@ -1,0 +1,4 @@
+Object o = new Object();
+byte[] data1 = new byte[size];
+GC.Collect()
+byte[] data2 = new byte[size];

@@ -1,0 +1,4 @@
+int[] array = {1, 2};
+// no generics because of type erasure
+List listOfArrays = Arrays.asList(new Object[]{array});
+System.out.println(listOfArrays.contains(1));

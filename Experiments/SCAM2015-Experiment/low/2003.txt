@@ -1,0 +1,3 @@
+<form id="reg-input" action="/Myservlet" method="post" data-ajax="false">
+    <!-- .. -->
+</form>

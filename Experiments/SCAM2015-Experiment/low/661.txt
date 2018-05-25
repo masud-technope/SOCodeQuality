@@ -1,0 +1,18 @@
+public static String removeAccents(String s) { 
+    if (s == null) 
+        return null; 
+    StringBuilder sb = new StringBuilder(); 
+    int n = s.length(); 
+    int pos = -1;
+    for (int i = 0; i < n; i++) { 
+        pos = -1; //set it here just in case.
+        char c = s.charAt(i); 
+        pos = UNICODE.indexOf(c); 
+        if (pos > -1) { 
+            sb.append(PLAIN_ASCII.charAt(pos)); 
+        } else { 
+            sb.append(c); 
+        } 
+    } 
+    return sb.toString(); 
+}

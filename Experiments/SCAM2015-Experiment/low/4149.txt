@@ -1,0 +1,10 @@
+int strArrayLength = intString.length;
+int row = strArrayLength/4 //since in each row you need 4 columns
+int[][] intArray = new int[row][];
+
+int strArrayCounter = strArrayLength-1;
+for(i=0; i<row,strArrayCounter>=0; i++){
+   for(j=0; j<4; j++){
+      intArray[i][j] = Integer.parseInt(strArrayLength[strArrayCounter--]);
+   }
+}

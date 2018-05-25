@@ -1,0 +1,15 @@
+package p1;
+
+import p.CallProtectedTest;
+
+public class CallProtectedTestFromp2 {
+    public void CallProtectedTestFromp2Method(){
+        CallProtectedTest cpt = new CallProtectedTest();
+        cpt.CallProtectedTestMethod();
+    }
+
+    public static void main(String[] args) {
+        CallProtectedTestFromp2 cptf2 = new CallProtectedTestFromp2();
+        cptf2.CallProtectedTestFromp2Method();
+    }
+}

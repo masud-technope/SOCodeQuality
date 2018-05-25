@@ -1,0 +1,8 @@
+ArrayList<Name> listOne = new ArrayList<Name>();
+listOne.add(new Name("Nellai", 10);
+listOne.add(new Name("Gujarath", 10);
+listOne.add(new Name("Delhi", 30);
+listOne.add(new Name("Nellai", 5);
+listOne.add(new Name("Delhi", 20);
+
+Collection.sort(listOne);

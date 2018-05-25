@@ -1,0 +1,12 @@
+String target = "28 ?a?t??? 2014, 14:00";
+    Locale locale = new Locale("el", "GR");
+    try
+    {
+        DateFormat df = new SimpleDateFormat("dd MMM yyyy, HH:mm", locale);
+        Date result =  df.parse(target);
+        System.out.println(result);
+    }
+    catch(ParseException e)
+    {
+        e.printStackTrace();
+    }

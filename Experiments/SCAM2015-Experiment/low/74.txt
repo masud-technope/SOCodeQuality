@@ -1,0 +1,8 @@
+Arrays.sort(ary, new Comparator<String>() {
+    @Override
+    public int compare(String o1, String o2) {
+        String r1 = new StringBuffer(o1).reverse().toString();
+        String r2 = new StringBuffer(o2).reverse().toString();
+        return r1.compareTo(r2);
+    }
+});

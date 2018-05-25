@@ -1,0 +1,12 @@
+public class TestEquals{
+
+ private int id;
+
+ public int getId(){
+    int temp;
+    id++;
+    temp=id;
+    id++;
+    return temp;
+ }
+}

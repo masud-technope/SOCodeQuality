@@ -1,0 +1,12 @@
+public class Main {
+    public void one() {
+        Integer five = two(3, 4);
+        System.out.println(five);
+    }
+    public Integer two(Integer three, Integer four) {
+        return three + four;
+    }
+    public static void main(String[] args) {
+        new Main().one();
+    }
+}

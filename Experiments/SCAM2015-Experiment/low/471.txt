@@ -1,0 +1,4 @@
+public synchronized void start() {
+    var = true;
+    thread.start();
+}

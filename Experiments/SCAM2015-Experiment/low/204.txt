@@ -1,0 +1,7 @@
+class MyZip extends java.util.zip.ZipOutputStream {
+
+  synchronized public void write(byte[] b, int off, int len) throws IOException {
+    super.write( b, off, len);
+  }
+
+}

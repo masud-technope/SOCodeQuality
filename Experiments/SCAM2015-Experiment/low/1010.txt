@@ -1,0 +1,6 @@
+try{
+    methodWhichUsesTheString(a);
+}catch (Exception NullPointerException){
+    //string a seems to be null
+    a = "Re-assign some desired value that would make things work" ;
+}

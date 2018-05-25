@@ -1,0 +1,13 @@
+public static void main(String[] args) {
+    System.out.println(power10x(4,1)); //replace ur X value with 4
+
+}
+
+
+public static int power10x(int a,int val){
+     if(a==0)
+        return val;
+     else
+         return power10x(a-1,val*10);
+
+}

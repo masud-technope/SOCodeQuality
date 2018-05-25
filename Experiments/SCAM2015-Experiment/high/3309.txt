@@ -1,0 +1,7 @@
+@Test
+public void cdIntoNonExistantFolder() {
+    catchException(cdTool).changeDirectory("nonexistant");
+
+    assertThat(caughtException(), instanceOf(IllegalArgumentException.class));
+    assertThat(cdTool.getStatusCode(), not(equalTo(0)));
+}

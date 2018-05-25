@@ -1,0 +1,3 @@
+JSONArray jsonRoot = new JSONArray(value);
+JSONObject quote = jsonRoot.get(0);
+System.out.println ("e = " + quote.getString("e"));

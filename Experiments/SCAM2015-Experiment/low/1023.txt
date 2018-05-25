@@ -1,0 +1,3 @@
+public void methodFoo (int val) throws IllegalArgumentException  {
+    if (val <0) throw new IllegalArgumentExecption();
+}

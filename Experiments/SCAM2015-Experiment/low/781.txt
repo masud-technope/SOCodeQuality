@@ -1,0 +1,38 @@
+class name implements Comparable
+{
+private String name;
+private int number;
+
+public Name(String name, int number)
+{
+this.name= name;
+this.number= number;
+}
+
+public String getName()
+{
+        return this.name;
+}
+public int getNumber()
+{
+        return this.number;
+} 
+public int compareTo(Object otherName) //  must be defined if we are implementing //Comparable interface
+{
+ if(otherName instanceif Name)
+{
+throw new ClassCastException("Not valid Name object"):
+}
+Name tempName = (Name)otherName;
+// eliminate the duplicates when you sort 
+if(this.getNumber() >tempName.getNumber())
+  {
+     return 1;
+  }else if (this.getNumber() < tempName.getNumber()){
+     return -1;
+  }else{
+     return 0;
+  }
+}
+
+}

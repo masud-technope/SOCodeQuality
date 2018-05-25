@@ -1,0 +1,11 @@
+namespace Some
+{
+  void fun(int i)
+  { 
+    while(i != 0)
+    {
+      cout<<"i = "<<i<<endl;
+      i --;
+    }  // semicolon not needed
+  }  // semicolon not needed
+} // semicolon not needed

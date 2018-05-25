@@ -1,0 +1,14 @@
+int value(String s) {
+  // Start at zero so first * 10 has no effect.
+  int v = 0;
+  // Work from the end of the string backwards.
+  for ( int i = s.length() - 1; i >= 0; i-- ) {
+    char c = s.charAt(i);
+    // Ignore non-digits.
+    if ( Character.isDigit(c)) {
+      // Mul curent by 10 and add digit value.
+      v = (v * 10) + (c - '0');
+    }
+  }
+  return v;
+}

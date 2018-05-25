@@ -1,0 +1,63 @@
+package so4168937;
+
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
+
+public class Main {
+
+  // unused, since the question was initially unclear
+  public static void consumeFourInARow(Reader rd, CharConsumer consumer) throws IOException {
+    char[] chars = new char[4];
+    while (true) {
+      for (int i = 0; i < chars.length; i++) {
+        int c = rd.read();
+        if (c == -1) {
+          if (i == 0)
+            return;
+          throw new EOFException("Incomplete read after " + i + " characters.");
+        }
+        chars[i] = (char) c;
+      }
+      consumer.consume(chars);
+    }
+  }
+
+  public static void consume(Reader rd, CharConsumer consumer) throws IOException {
+    char[] chars = new char[4];
+    int c;
+
+    for (int i = 0; i < chars.length; i++) {
+      if ((c = rd.read()) == -1) {
+        return;
+      }
+      chars[i] = (char) c;
+    }
+    consumer.consume(chars);
+
+    while ((c = rd.read()) != -1) {
+      System.arraycopy(chars, 1, chars, 0, chars.length - 1);
+      chars[chars.length - 1] = (char) c;
+      consumer.consume(chars);
+    }
+  }
+
+  interface CharConsumer {
+    void consume(char[] chars);
+  }
+
+  public static void main(String[] args) throws IOException {
+    final StringBuilder sb = new StringBuilder();
+    consume(new StringReader("hi my name is joe..."), new CharConsumer() {
+      @Override
+      public void consume(char[] chars) {
+        sb.append('<');
+        sb.append(chars);
+        sb.append('>');
+      }
+    });
+    System.out.println(sb.toString());
+  }
+
+}

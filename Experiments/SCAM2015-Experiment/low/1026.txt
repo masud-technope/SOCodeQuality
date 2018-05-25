@@ -1,0 +1,37 @@
+public class SampleThread  implements Runnable{
+/**
+ * @param args
+ */
+Thread t=null;
+
+public SampleThread(String threadName)
+{
+    t=new Thread(this,threadName);
+    t.start();
+
+}
+@Override
+public void run() {
+         if(t.getName().equals("one"))
+         {
+             One();
+         }
+         else if(t.getName().equals("two"))
+         {
+             Two();
+         }
+}
+public void One()
+{
+    System.out.println(" ---- One ---- ");
+}
+public void Two()
+{
+    System.out.println(" ---- Two ---- ");
+}
+
+public static void main(String[] args) {
+     SampleThread t1=new SampleThread("one");
+     SampleThread t2=new SampleThread("two");
+
+}

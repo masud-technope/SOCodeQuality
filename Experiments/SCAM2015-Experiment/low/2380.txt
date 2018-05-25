@@ -1,0 +1,10 @@
+List<Integer> visibleItems = new ArrayList<Integer>();
+
+    JPanel[] myPanels = new JPanel[]{BenderPanel1, BenderPanel2, BenderPanel3};
+
+    for (int i = 0; i < myPanels .length; i++) {
+        myPanels[i].setVisible(false);
+        if(visibleItems.contains(i) ){
+            myPanels[i].setVisible(true);
+        } 
+    }

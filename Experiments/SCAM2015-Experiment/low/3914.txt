@@ -1,0 +1,4 @@
+public Manager cloneManager() throws CloneNotSupportedException
+    {
+           throw new CloneNotSupportedException(); 
+    }

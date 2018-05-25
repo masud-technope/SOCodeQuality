@@ -1,0 +1,8 @@
+Runtime runtime = Runtime.getRuntime();
+Process proc = runtime.exec("ping www.serverURL.com"); //<- Try ping -c 1 www.serverURL.com
+int mPingResult = proc .waitFor();
+if(mPingResult == 0){
+    return true;
+}else{
+    return false;
+}

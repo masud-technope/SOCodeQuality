@@ -1,0 +1,3 @@
+public static boolean isValidEmail(String emailAddress) {
+    return emailAddress.contains(" ") == false && emailAddress.matches(".+@.+\\.[a-z]+");
+}

@@ -1,0 +1,6 @@
+public static int[] down(int[] lane){       
+    int lan = lane.length; // length of array
+    int[]newLane = Arrays.copyOf(lane,lan)  // creates new 1d matrix
+    Arrays.sort(newLane);
+    return newLane;
+}

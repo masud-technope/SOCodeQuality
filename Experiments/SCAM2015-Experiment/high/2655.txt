@@ -1,0 +1,36 @@
+public class Daily {
+
+    private final Scanner scanner;
+
+    public Daily() {
+        scanner = new Scanner(System.in);
+    }
+
+    public int getRows() {
+
+        System.out.println("Please enter amount of rows");
+        return scanner.nextInt();
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        Daily daily = new Daily();
+        int rows = daily.getRows();
+
+        int mainOption = daily.getMainOption(rows);
+        switch (mainOption) {
+        case 0: // TODO: refactor to use enums
+            System.exit(0);
+        }
+    }
+
+    public int getMainOption(int rows) {
+        System.out.println("Enter 1 To View Number of Markets");
+        System.out.println("Enter 2 To View Start and End Dates of Markets");
+        System.out.println("Enter 3 To View Start and End Dates of Contracts");
+        System.out.println("Enter 4 To View Averages of Markets");
+        System.out.println("Enter 0 To Quit Program");
+
+        return scanner.nextInt();
+    }
+}

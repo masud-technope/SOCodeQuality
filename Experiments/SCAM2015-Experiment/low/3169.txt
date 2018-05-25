@@ -1,0 +1,3 @@
+MyClass mc = new MyClass()
+Thread t1 = new Thread(mc);
+Thread t2 = new Thread(mc);

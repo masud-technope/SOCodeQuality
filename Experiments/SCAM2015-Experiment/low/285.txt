@@ -1,0 +1,4 @@
+public boolean isExpired() {
+
+    return (NEVER == expires) ? false : (expires < System.currentTimeMillies());
+}

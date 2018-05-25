@@ -1,0 +1,37 @@
+public class Locker<T> {
+    private final Object lock = new Object();
+    private final Map<T, Value> map = new TreeMap<T, Value>();
+
+    public Value<T> lock(T id) {
+        Value r;
+        synchronized (lock) {
+            if (!map.containsKey(id)) {
+                Value value = new Value();
+                value.id = id;
+                value.count = 0;
+                value.lock = new ReentrantLock();
+                map.put(id, value);
+            }
+            r = map.get(id);
+            r.count++;
+        }
+        r.lock.lock();
+        return r;
+    }
+
+    public void unlock(Value<T> r) {
+        r.lock.unlock();
+        synchronized (lock) {
+            r.count--;
+            if (r.count == 0)
+                map.remove(r.id);
+        }
+    }
+
+    public static class Value<T> {
+
+        private Lock lock;
+        private long count;
+        private T id;
+    }
+}

@@ -1,0 +1,5 @@
+public static char[] rotateString(char[] s, int rotateAmount){
+    String oldStr=new String(s);
+    String newStr=oldStr.substring(oldStr.length()-rotateAmount,oldStr.length())+oldStr.substring(0,oldStr.length()-rotateAmount);
+    return newStr.toCharArray();
+}

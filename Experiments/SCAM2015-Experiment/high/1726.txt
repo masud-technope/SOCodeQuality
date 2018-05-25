@@ -1,0 +1,5 @@
+cursor.moveToFirst();
+while(cursor.isAfterLast() == false) {
+    intRoundsSUM += c.getInt(2);
+    cursor.moveToNext();
+}

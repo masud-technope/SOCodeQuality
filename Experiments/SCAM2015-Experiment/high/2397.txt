@@ -1,0 +1,7 @@
+for (begin=3; begin <= end; begin++) {
+    /** For each number, check whether it's prime or not **/
+    if (isPrime(begin)) {
+        /** Is Prime, add it to list **/
+        primeList.add(begin);
+    }
+}

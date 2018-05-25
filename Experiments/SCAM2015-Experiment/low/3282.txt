@@ -1,0 +1,22 @@
+public static void main(String[] args) {
+
+
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Enter x1 for point A");
+    double x1 = scan.nextDouble();
+    System.out.println("Enter y1 for point A");
+    double y1 = scan.nextDouble();
+    System.out.println("Enter x2 for point A");
+    double x2 = scan.nextDouble();
+    System.out.println("Enter y2 for point A");
+    double y2 = scan.nextDouble();
+    System.out.println("Enter x3 for point A");
+    double x3 = scan.nextDouble();
+    System.out.println("Enter y3 for point A");
+    double y3 = scan.nextDouble();
+    System.out.println("Set up a Triangle with coordinates " +"("+x1+","+y1+")"+ ","+ "("+x2+","+y2+")" +","+ "("+x3+","+y3+")");
+
+    Triangle triangle1 = new Triangle(x1,x2,y1,y2,x3,y3);
+    System.out.println("Length of side c " + triangle1.getLengthC());
+
+}

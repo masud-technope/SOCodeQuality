@@ -1,0 +1,4 @@
+for(Object[] obj : list){
+String val = String.valueOf(obj[1]);
+int code =Integer.parseint(String.valueof(obj[0]));
+}

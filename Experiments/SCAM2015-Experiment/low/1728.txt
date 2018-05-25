@@ -1,0 +1,3 @@
+public long diff(int i1, int i2) {
+     return ((long) i1) - i2;
+}

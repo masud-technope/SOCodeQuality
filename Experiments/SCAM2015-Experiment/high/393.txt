@@ -1,0 +1,5 @@
+Scanner s = new Scanner(new File("input.txt"));
+name = s.nextLine();
+phone = s.nextLine();
+mobile = s.nextLine();
+address = s.nextLine();

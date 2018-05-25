@@ -1,0 +1,14 @@
+TOKEN { <CAT: "cat"> , <DOG:"gog"> }
+
+input: (cat() | dog())*
+
+
+cat: <CAT>
+   {
+   animals.add(new Animal("Cat"));
+   }
+
+dog: <DOG>
+   {
+   animals.add(new Animal("Dog"));
+   }

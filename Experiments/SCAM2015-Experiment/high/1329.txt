@@ -1,0 +1,7 @@
+public String getAge() {
+    return (30 == age)? "old":
+           (18 == age)? "young":
+                // because you said 18 is young, 30 is old, but didn't say
+                // anything about all of the other ages!
+                "I don't understand!";
+}

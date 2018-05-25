@@ -1,0 +1,40 @@
+import java.util.*;
+class Anagrams 
+{
+    public static void main(String[] args) 
+    {
+        System.out.println("Enter the two words");
+        Scanner scan = new Scanner(System.in);
+        String word1 = scan.next();
+        String word2=scan.next();
+
+        StringBuilder sb1= new StringBuilder(word1);
+        StringBuilder sb2= new StringBuilder(word2);
+        int count=0;
+        System.out.println("length ! "+sb1.length());
+        System.out.println("Length ! "+sb2.length());
+        if(sb1.length()==sb2.length()){
+            for(int i=0;i<sb1.length();i++){
+                for(int k=0;k<sb2.length();k++){
+                    if(sb1.charAt(i)==sb2.charAt(k)){
+                        sb2.deleteCharAt(k);
+                        count++;
+                        System.out.println("Count is "+count);
+                        break;
+                    }
+                }
+            }
+
+            if(count==sb1.length()){
+
+                System.out.println("Anagrams!");
+            }
+            else{
+                System.out.println("Not Anagrams");
+            }
+        }
+        else{
+            System.out.println("Not equal in length");
+        }
+    }
+}

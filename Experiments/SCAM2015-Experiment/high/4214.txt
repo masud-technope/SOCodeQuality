@@ -1,0 +1,12 @@
+public static void main(String[] argh) {
+    int myChar;
+    Scanner in = new Scanner(System.in);
+    do {
+        System.out.print("choose a player: ");
+        myChar = in.nextInt();
+    } while (myChar <= 0 || myChar >= 4);
+
+    System.out.println("--------");
+    System.out.println("you chose " + myChar);
+
+}

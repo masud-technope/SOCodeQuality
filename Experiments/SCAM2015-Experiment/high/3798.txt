@@ -1,0 +1,11 @@
+String ip_pattern ="\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b";
+ String input="from abc.xyz.com [112.35.4.152](abc.xyz.com. by xx.yy.com with ESMTPS id ";
+ Pattern pattern = Pattern.compile(ip_pattern);
+ Matcher matcher = pattern.matcher(input);
+
+ if (matcher.find()) {
+     System.out.println(matcher.group());
+  }
+ else{
+     System.out.println("No ip found in given input");
+  }

@@ -1,0 +1,4 @@
+void printClassName(Object obj)
+{  
+ System.out.println("The object's" + " class is " + obj.getClass().getSimpleName());
+}

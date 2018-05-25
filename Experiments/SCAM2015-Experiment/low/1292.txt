@@ -1,0 +1,7 @@
+for (int p=0; p<= myArray.length ; p++)
+{ 
+     if( myArray[p]==0){
+     continue;
+     }
+//execute other methods.. 
+}

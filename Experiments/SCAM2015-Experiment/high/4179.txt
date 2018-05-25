@@ -1,0 +1,5 @@
+private static Map<Class<?>, Map<String, ?>> valueCache = new HashMap<>();
+
+public <T extends IFoo> Map<String, T> getMap(Class<T> key) {
+    return (Map<String, T>)value cache.get(key);
+}

@@ -1,0 +1,3 @@
+String a = "[ hello, char[]={a,b,c} ... bye ] ";
+a.substring(1,23);
+System.out.println(a);

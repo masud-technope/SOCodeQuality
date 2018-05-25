@@ -1,0 +1,16 @@
+public static void main(String[] args)
+{
+	Object[] result = methodReturningStatus();
+	if(!(Boolean)result[0])
+		System.out.println("Method return: "+ result[1]);
+}
+
+static Object[] methodReturningStatus()
+{
+	Object[] result = new Object[2];
+
+	result[0] = false;
+	result[1] = "Error happened";
+
+	return result;
+}

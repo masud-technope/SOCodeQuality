@@ -1,0 +1,4 @@
+private static Random rd = new Random();
+public static <T> T randomItem(List<T> elts) {
+    return elts.get(rd.nextInt(elts.size());
+}

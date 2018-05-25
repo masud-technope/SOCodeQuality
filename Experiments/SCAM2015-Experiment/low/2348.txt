@@ -1,0 +1,3 @@
+FileInputStream is = new FileInputStream(fileOrPath);
+    Scanner scanner = new Scanner(is, "cp1250");
+    String out = scanner.next();

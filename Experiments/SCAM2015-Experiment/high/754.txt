@@ -1,0 +1,3 @@
+for (char c : string.toCharArray()) {
+    System.out.printf("U+%04x ", (int) c);
+}

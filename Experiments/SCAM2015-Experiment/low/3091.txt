@@ -1,0 +1,14 @@
+try
+  {
+  FileInputStream in = new FileInputStream("BOTsettings.txt");
+  BufferedReader br = new BufferedReader(new InputStreamReader(in));
+  String strLine;
+
+  while((strLine = br.readLine())!= null)
+  {
+   System.out.println(strLine);
+  }
+
+  }catch(Exception e){
+   System.out.println(e);
+  }

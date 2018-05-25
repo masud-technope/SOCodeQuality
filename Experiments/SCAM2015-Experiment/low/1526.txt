@@ -1,0 +1,18 @@
+<appender name="ASYNC" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="./applogs/logger.log" />           
+         <param name="Append" value="true" />           
+        <param name="Threshold" value="debug" />          
+         <appendToFile value="true" /> 
+         <param name="DatePattern" value="'.'yyyy_MM_dd_HH_mm"/> 
+         <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy"> 
+         <param name="fileNamePattern" value="./applogs/logger_%d{ddMMMyyyy HH:mm:ss}.log"/>
+         <param name="rollOver" value="TRUE"/>   
+         </rollingPolicy>            
+         <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ddMMMyyyy HH:mm:ss,SSS}^[%X{l4j_mdc_key}]^[%c{1}]^ %-5p %m%n" />
+         </layout>
+    </appender>
+    <root>
+        <level value="info" />
+        <appender-ref ref="ASYNC" />
+    </root>

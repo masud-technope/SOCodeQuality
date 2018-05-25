@@ -1,0 +1,14 @@
+public abstract class AbstractClassCreationTest {
+
+    public void hello(){
+        System.out.println("I'm the abstract class' instance!");
+    }
+}
+
+public class MyExtClass extends AbstractClassCreationTest() {
+}
+
+public static void main(String[] args) {
+    MyExtClass acct = new MyExtClass(){};
+    acct.hello();
+}

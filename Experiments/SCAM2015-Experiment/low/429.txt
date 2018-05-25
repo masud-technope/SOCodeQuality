@@ -1,0 +1,5 @@
+DataInputStream in=new DataInputStream(System.in);
+System.out.println("Enter the a character")
+byte b = in.readByte();
+char ch=(char)b;
+System.out.println("Char : " +ch );

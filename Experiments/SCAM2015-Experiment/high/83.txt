@@ -1,0 +1,5 @@
+public enum ThreeState {
+    TRUE,
+    FALSE,
+    TRALSE
+};

@@ -1,0 +1,4 @@
+for (int i = 0 ; i < uaCount.get(args[1]).occurrences ; i++)
+{
+    out.write(String.valueOf(uaCount.get(args[1]).singleValues.get(i)));
+}

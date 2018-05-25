@@ -1,0 +1,6 @@
+// Find an element and define it
+WebElement elementToClick = driver.findElement(By.xpath("some xpath"));
+// Scroll the browser to the element's Y position
+((JavascriptExecutor) driver).executeScript("window.scrollTo(0,"+elementToClick.getLocation().y+")");
+// Click the element
+elementToClick.click();

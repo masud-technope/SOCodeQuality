@@ -1,0 +1,5 @@
+JSONArray answers = new JSONArray();
+
+ChecklistAnswer answer = new ChecklistAnswer(questions.get(id).id, 2, cb.isChecked(),         text.getText().toString());
+
+answers.put(answer.toJsonObject());

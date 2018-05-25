@@ -1,0 +1,10 @@
+public String getReversedSentence(String partialResult) {
+        if (next==null) {
+            partialResult+=this.word;
+            return partialResult + ".";
+        }
+        else{
+            partialResult=next.getReversedSentence(partialResult) + this.word; // <---
+            return partialResult;
+            }
+    }

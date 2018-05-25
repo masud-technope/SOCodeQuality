@@ -1,0 +1,4 @@
+<activity
+    android:name="com.my_package.MyActivity" 
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+    android:configChanges="navigation|orientation|screenLayout|layoutDirection">

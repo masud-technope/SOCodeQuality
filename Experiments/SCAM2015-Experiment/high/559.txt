@@ -1,0 +1,3 @@
+void writeDelimitedTo(OutputStream output)
+/*  Like writeTo(OutputStream), but writes the size of 
+    the message as a varint before writing the data.   */

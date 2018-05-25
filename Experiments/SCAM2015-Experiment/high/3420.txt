@@ -1,0 +1,4 @@
+"UPDATE CartItem c SET c.removedDate = :currentDateTime "
+            + " WHERE c.cart.id = :cartId" 
+            + " AND c.pro.id = :pro"
+            + " AND c.removedDate is null"

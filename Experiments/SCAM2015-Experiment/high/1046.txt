@@ -1,0 +1,4 @@
+@Override
+public MyObject clone() {
+    return (MyObject)super.clone();
+}

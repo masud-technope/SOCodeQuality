@@ -1,0 +1,10 @@
+if (b1) {
+    while (true) {
+        doThis();
+    }
+}
+if (b2) {
+    while (true) {
+        doThat();
+    }
+}

@@ -1,0 +1,4 @@
+String input = "2012-02-05 17:00:34.123456789";
+java.sql.Timestamp timestampInput = java.sql.Timestamp.valueOf( input ); // Parsing string.
+java.time.Instant instant = timestampInput.toInstant();
+java.time.ZonedDateTime dateTimeMontréal = ZonedDateTime.ofInstant( instant, ZoneId.of( "America/Montreal" ) );

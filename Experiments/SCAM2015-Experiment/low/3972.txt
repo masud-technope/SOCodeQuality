@@ -1,0 +1,13 @@
+int day[] = new int[365];
+
+    for(int i=1; i<day.length; i++){
+        day[i-1] = i;
+        System.out.print(day[i-1]+" ");
+        if((i % 10) == 0){
+            System.out.println();
+        }
+        if(i==day.length-1){
+            day[i] = i+1;
+            System.out.print(day[i]+" ");
+        }
+    }

@@ -1,0 +1,13 @@
+public class Car implements Comparable {
+    private int speed;
+
+    public Car(int s) {
+        speed = s;
+    }
+
+
+    public int compareTo(Object o) {
+        Car other = (Car) o;
+        return this.speed - other.speed;
+    }
+}

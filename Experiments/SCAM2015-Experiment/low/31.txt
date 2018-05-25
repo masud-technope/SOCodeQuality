@@ -1,0 +1,3 @@
+jRadioOne = new javax.swing.JRadioButton();
+jRadioTwo = new javax.swing.JRadioButton();
+jRadioThree = new javax.swing.JRadioButton();

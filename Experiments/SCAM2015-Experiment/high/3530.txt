@@ -1,0 +1,16 @@
+interface CommonMethodHaver {
+     void commonMethod();
+}
+
+class Class1 implements CommonMethodHaver {
+     yadda yadda yadda;
+     void commonMethod() {
+         do class1-specific stuff here;
+     }
+}
+
+...
+public void aMethod(CommonMethodHaver cmh) {
+    cmh.commonMethod();
+    // Do some stuff here
+}

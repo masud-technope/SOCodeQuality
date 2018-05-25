@@ -1,0 +1,16 @@
+public class C1 {
+    private static String STRIN1;
+    private static Object SYNC_STRING1 = new Object();
+
+    public static String getSTRING1(){
+        synchronized (SYNC_STRING1) {
+               return STRIN1;
+        }
+    }
+
+    public static String setSTRING1(String newSTRIN1){
+        synchronized (SYNC_STRING1) {
+               STRIN1 = newSTIRNG1;
+        }
+    }
+}

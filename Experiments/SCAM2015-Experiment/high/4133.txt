@@ -1,0 +1,4 @@
+Arrays.stream(carList)
+    .sorted((c1, c2) -> c2.currentDistance - c1.currentDistance)
+    .map(c -> c.getName())
+    .limit(3);

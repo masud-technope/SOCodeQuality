@@ -1,0 +1,8 @@
+itemLayoutView.setOnClickListener(new View.setOnClickListener() {
+    @Override
+    public boolean onLongClick(View v) {
+        Toast.makeText(v.getContext(), "on item click", Toast.LENGTH_SHORT).show();
+
+        return true;
+    }
+});

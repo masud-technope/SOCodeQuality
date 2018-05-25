@@ -1,0 +1,8 @@
+number    # Match "number"
+\d+       # Match one of more digits
+(?:       # Match...
+ (?!      #  (as long as we're not right at the start of the text
+  number  #   "number"
+ )        #  )
+ .        # any character
+)*        # Repeat as needed.

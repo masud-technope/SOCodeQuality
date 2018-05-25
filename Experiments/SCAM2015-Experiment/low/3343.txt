@@ -1,0 +1,9 @@
+Boolean b = false;
+for(String x: list1){
+    for(String y: list2){
+        if(x.equalsIgnoreCase(y)){
+           System.out.print((b ? "," : "") + list1.indexOf(x));
+           b = true;
+        }
+    }
+}

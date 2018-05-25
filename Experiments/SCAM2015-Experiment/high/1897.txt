@@ -1,0 +1,3 @@
+public convert(List<Integer> list) {
+ int[] ar = Ints.toArray(list); //Ints is the class from Guava library
+}

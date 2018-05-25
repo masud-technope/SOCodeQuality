@@ -1,0 +1,40 @@
+public class Match {
+ void comp(String s1, String s2) {
+    char[] charArray1 = s1.toCharArray();
+    char[] charArray2 = s2.toCharArray();
+
+    int length1 = charArray1.length;        
+
+    int length2 = charArray2.length;       
+    int flag = 0;
+
+    if (length1 == length2) {
+        for (int i = 0; i <= length1 - 1; i++) {
+            if (charArray1[i] == charArray2[i]) {
+                System.out.println("index are matched:" + " " + charArray1[i] + " " + "in index-" + i);
+
+            } else {
+                flag = 1;
+                System.out.println("index are not matched:" + " " + charArray1[i] + " " + "in index-" + i);
+                System.out.println("index are not matched:" + " " + charArray2[i] + " " + "in index-" + i);                    
+            }
+        }
+    } else {
+        System.out.println("Your string are not matched by length");
+    }
+    if (flag == 0) {
+        System.out.println("Your string  matched with other String");
+    } else {
+        System.out.println("Your string are not matched");
+    }
+}
+public static void main(String[] args) {
+    java.util.Scanner sc = new java.util.Scanner(System.in);
+    System.out.println("Enter the 1st String:");
+    String s1 = sc.nextLine();
+    System.out.println("Enter the 2nd string");
+    String s2 = sc.nextLine();
+    Match m = new Match();
+    m.comp(s1, s2);
+}
+}

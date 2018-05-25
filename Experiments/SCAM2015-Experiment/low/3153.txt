@@ -1,0 +1,15 @@
+Integer a = 100;
+        Integer b = 100;
+        Integer c = 1000;
+        Integer d = 1000;
+        if (a.equals(b)) {
+            System.out.println("a & b are Equal");
+        }
+        else {
+            System.out.println("a & b are Not Equal");
+        }
+        if (c.equals(d)) {
+            System.out.println("c & d are Equal");
+        } else {
+            System.out.println("c & d are Not Equal");
+        }

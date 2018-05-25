@@ -1,0 +1,25 @@
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
+import java.nio.charset.CodingErrorAction;
+
+public class UtfFix {
+    public static void main(String[] args) throws InterruptedException, CharacterCodingException {
+        CharsetDecoder decoder = Charset.forName("UTF-8").newDecoder();
+        decoder.onMalformedInput(CodingErrorAction.REPLACE);
+        decoder.onUnmappableCharacter(CodingErrorAction.REPLACE);
+        ByteBuffer bb = ByteBuffer.wrap(new byte[] {
+            (byte) 0xD0, (byte) 0x9F, // '?'
+            (byte) 0xD1, (byte) 0x80, // '?'
+            (byte) 0xD0,              // corrupted UTF-8, was '?'
+            (byte) 0xD0, (byte) 0xB2, // '?'
+            (byte) 0xD0, (byte) 0xB5, // '?'
+            (byte) 0xD1, (byte) 0x82  // '?'
+        });
+        CharBuffer parsed = decoder.decode(bb);
+        System.out.println(parsed);
+        // this prints: ??????
+    }
+}

@@ -1,0 +1,7 @@
+public static void main(String[] args) throws InterruptedException
+{
+    new Prac().call(); //line 1
+    System.gc();
+    Thread.sleep(1000); //line 2 object a is eligible for GC.
+
+}

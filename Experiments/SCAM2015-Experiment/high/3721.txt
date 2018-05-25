@@ -1,0 +1,3 @@
+final Map<Integer, Character> a = new LinkedHashMap<>();
+a.put(2, 'a');
+a.put(20, 'b');

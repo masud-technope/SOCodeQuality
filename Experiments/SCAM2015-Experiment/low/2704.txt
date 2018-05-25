@@ -1,0 +1,12 @@
+Scanner keyboard = new Scanner(System.in);    
+      System.out.println("Enter a line of text. No punctuaton please");
+      String sentence = keyboard.nextLine();
+      System.out.println(sentence);
+      int spacePosition = sentence.indexOf(" ");
+      String firstString = sentence.substring(0, spacePosition).trim();
+      String restOfSentence = sentence.substring(spacePosition, sentence.length()).trim();
+      String firstChar = restOfSentence.substring(0, 1);
+      firstChar = firstChar.toUpperCase();
+      restOfSentence = firstChar + restOfSentence.substring(1, restOfSentence.length());
+      System.out.println(restOfSentence + " " + firstString);
+      keyboard.close();

@@ -1,0 +1,6 @@
+void createEntry(int hash, K key, V value, int bucketIndex) {
+HashMap.Entry<K,V> old = table[bucketIndex];
+Entry<K,V> e = new Entry<K,V>(hash, key, value, old);
+table[bucketIndex] = e;
+e.addBefore(header);
+size++;

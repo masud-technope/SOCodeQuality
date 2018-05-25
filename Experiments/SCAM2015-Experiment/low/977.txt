@@ -1,0 +1,30 @@
+DefaultTableModel tableModel = new DefaultTableModel(){
+public boolean isCellEditable(int nRow, int nCol) {
+                return false;
+            }
+};
+JTable table = new JTable();
+
+Timer t = new Timer(300, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addColumns();
+                remakeData(set);
+                table.setModel(model);
+            }
+        });
+        t.start();
+
+private void addColumns() {
+        model.setColumnCount(0);
+        model.addColumn("NAME");
+            model.addColumn("EMAIL");} 
+
+ private void remakeData(CollectionType< Objects > name) {
+    model.setRowCount(0);
+    for (CollectionType Objects : name){
+    String n = Object.getName();
+    String e = Object.getEmail();
+    model.insertRow(model.getRowCount(),new Object[] { n,e });
+    }}

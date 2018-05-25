@@ -1,0 +1,5 @@
+public Result toResult() {
+   MyPojo result = new MyPojo();
+   JsonNode node = objectMapper.valueToTree(result);
+   return ok(node);
+}

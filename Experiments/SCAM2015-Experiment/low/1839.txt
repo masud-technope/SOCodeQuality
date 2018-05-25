@@ -1,0 +1,15 @@
+public Object call () throws IOException {
+        int bytesRead;
+        byte[] b = new byte [ this.maxBlockSize ];
+
+        try {
+            while ( ( bytesRead = this.input.read ( b ) ) != -1 ) {
+                this.output.write ( b, 0, bytesRead );
+            }
+        } finally {
+            if ( this.output != null ) {
+                this.output.close ();
+            }
+        }
+        return null;
+    }

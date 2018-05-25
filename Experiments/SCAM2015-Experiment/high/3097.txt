@@ -1,0 +1,11 @@
+void foo () {
+    int a = 1;
+    int b = 2;
+    bar(a,b);
+    System.out.println("a = " + a + ", b = " + b);
+}
+
+void bar (int a, int b) {
+    a = 4;
+    b = 8;
+}

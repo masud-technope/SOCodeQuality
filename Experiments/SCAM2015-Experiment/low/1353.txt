@@ -1,0 +1,7 @@
+****String s1="Azad"; ----One object will create in String cons. pool
+
+System.out.println(s1);--output--Azad
+
+s1=s1.concat("Raja");  Two object will create 1-Raja,2-AzadRaja and address of AzadRaja Store in reference s1 and cancel ref.of Azad object 
+
+System.out.println(s1);  --output AzadRaja****

@@ -1,0 +1,3 @@
+Exception in thread "main" java.lang.NumberFormatException: For input string: "1one"
+at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:1241)
+at java.lang.Double.parseDouble(Double.java:540)

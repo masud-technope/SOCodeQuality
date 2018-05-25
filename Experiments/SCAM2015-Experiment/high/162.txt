@@ -1,0 +1,38 @@
+/* pp */ class final BarImpl<T> {
+    private final Foo<T> foo;
+    private T t;
+
+    BarImpl(Foo<T> foo) {
+        this.foo = foo;
+    }
+
+    public void startStuff() {
+        t = foo.getOne();
+    }
+
+    public void finishStuff() {
+        foo.useOne(t);
+    }
+}
+
+public final class Bar {
+    private BarImpl<?> impl;
+
+    /* ... */
+
+    // Need to capture this wildcard, because constructors suck (pre-JDK7?).
+    public void setFoo(Foo<?> foo) {
+        setFooImpl(foo);
+    }
+    private <T> void setFooImpl(Foo<T> foo) {
+        impl = new BarImpl<T>(foo);
+    }
+
+    public void startStuff() {
+        impl.startStuff();
+    }
+
+    public void finishStuff() {
+        impl.finishStuff();
+    }
+}

@@ -1,0 +1,4 @@
+System.out.println("Enter a number to find the factorial of it: ");
+    number= sc.nextInt();
+    int factor = factorial(number);
+    System.out.println("The factorial of  "+number+" is = " +factor); // print in the main

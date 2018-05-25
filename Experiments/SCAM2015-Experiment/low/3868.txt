@@ -1,0 +1,37 @@
+public class CD {
+    String artistname = "";
+    String albumname = "";
+    double cdprice = 0;
+    int amountinstock = 0;
+
+    public String ValidationMessage = "";
+
+    public CD(final String artistname, final String albumname, final double cdprice, final int amountinstock) {
+        this.artistname = artistname;
+        this.albumname = albumname;
+        this.cdprice = cdprice;
+        this.amountinstock = amountinstock;
+    }
+
+    public boolean ValidateCD()
+    {
+        this.ValidationMessage = "";
+        if (/*insert validation condition here*/)
+        {
+            this.ValidationMessage = "CD IS NOT VALID BECAUSE TITLE IS WRONG";
+            return false;
+        }
+        return true;
+    }
+
+    public static void main(final String[] arg) throws Exception {
+
+        final CD cd1 = new CD("Muse", "The Resistance", 11.99, 20);
+
+        final boolean isValid = cd1.ValidateCD();
+        if (!isValid) {
+            System.out.println(cd1.ValidationMessage);
+        }
+
+    }
+}

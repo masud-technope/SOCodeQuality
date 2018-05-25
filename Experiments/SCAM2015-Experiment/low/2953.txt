@@ -1,0 +1,5 @@
+String str = "12-34  - 56--7 89";
+String[] arraySplit = str.split("[-\\ ]+");
+for (String s : arraySplit){
+    System.out.println(s);
+}

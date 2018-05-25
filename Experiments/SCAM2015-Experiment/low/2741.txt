@@ -1,0 +1,8 @@
+public static void main(String []s)
+     {
+        for(i=0;i<=200;i=i+2)
+          {
+            sum=sum+i;
+          }
+     System.out.println(sum)
+    }

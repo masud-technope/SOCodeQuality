@@ -1,0 +1,10 @@
+protected String getStringExtra(Bundle savedInstanceState, String id) {
+    String l;
+    l = (savedInstanceState == null) ? null : (String) savedInstanceState
+            .getSerializable(id);
+    if (l == null) {
+        Bundle extras = getIntent().getExtras();
+        l = extras != null ? extras.getString(id) : null;
+    }
+    return l;
+}

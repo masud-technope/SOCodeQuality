@@ -1,0 +1,107 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class ShakingButtonDemo implements Runnable {
+
+    private JButton button;
+    private JRadioButton radioWholeButton;
+    private JRadioButton radioTextOnly;
+
+    public static void main(String[] args) throws Exception {
+        SwingUtilities.invokeLater(new ShakingButtonDemo());
+    }
+
+    @Override
+    public void run() {
+        radioWholeButton = new JRadioButton("The whole button");
+        radioTextOnly = new JRadioButton("Button text only");
+        radioWholeButton.setSelected(true);
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(radioWholeButton);
+        bg.add(radioTextOnly);
+        button = new JButton("  Shake with this Button  ");
+        button.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                shakeButton(radioWholeButton.isSelected());
+            }
+        });
+        JPanel p1 = new JPanel();
+        p1.setBorder(BorderFactory.createTitledBorder("Shake Options"));
+        p1.setLayout(new GridLayout(0, 1));
+        p1.add(radioWholeButton);
+        p1.add(radioTextOnly);
+        JPanel p2 = new JPanel();
+        p2.setLayout(new GridLayout(0, 1));
+        p2.add(button);
+        JFrame frame = new JFrame();
+        frame.setTitle("Shaking Button Demo");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(p1, BorderLayout.NORTH);
+        frame.add(p2, BorderLayout.SOUTH);
+        frame.setSize(240, 160);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    private void shakeButton(final boolean shakeWholeButton) {
+        final Point point = button.getLocation();
+        final Insets margin = button.getMargin();
+        final int delay = 75;
+        Runnable r = new Runnable() {
+
+            @Override
+            public void run() {
+                for (int i = 0; i < 30; i++) {
+                    try {
+                        if (shakeWholeButton) {
+                            moveButton(new Point(point.x + 5, point.y));
+                            Thread.sleep(delay);
+                            moveButton(point);
+                            Thread.sleep(delay);
+                            moveButton(new Point(point.x - 5, point.y));
+                            Thread.sleep(delay);
+                            moveButton(point);
+                            Thread.sleep(delay);
+                        } else {// text only
+                            setButtonMargin(new Insets(margin.top, margin.left + 3, margin.bottom, margin.right - 2));
+                            Thread.sleep(delay);
+                            setButtonMargin(margin);
+                            Thread.sleep(delay);
+                            setButtonMargin(new Insets(margin.top, margin.left - 2, margin.bottom, margin.right + 3));
+                            Thread.sleep(delay);
+                            setButtonMargin(margin);
+                            Thread.sleep(delay);
+                        }
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        };
+        Thread t = new Thread(r);
+        t.start();
+    }
+
+    private void moveButton(final Point p) {
+        SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                button.setLocation(p);
+            }
+        });
+    }
+
+    private void setButtonMargin(final Insets margin) {
+        SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                button.setMargin(margin);
+            }
+        });
+    }
+}

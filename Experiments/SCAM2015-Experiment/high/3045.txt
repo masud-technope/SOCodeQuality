@@ -1,0 +1,4 @@
+String a = "Hey!"; // mention the difference to the example above:
+String b = "Hey!"; // I did NOT use the `String()` cosntructor here!
+if (a == b) System.out.println("true");
+else System.out.println("false");

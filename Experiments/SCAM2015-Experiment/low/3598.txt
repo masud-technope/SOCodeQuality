@@ -1,0 +1,79 @@
+#include <algorithm>
+#include <iostream>
+#include <chrono>
+#include <iomanip>
+
+using namespace std;
+
+typedef std::pair<int, int> Point;
+
+#define LARGEUR_GRILLE 22
+Point* positions;
+size_t index = 0;
+
+inline bool verifierNonPrise( Point const& emplacement ) 
+{
+    for ( size_t p = 0; p != index; ++p )
+    {
+        Point& pos = positions[p];
+        if ( pos.first != emplacement.first)
+        {
+            if ( pos.second == emplacement.second ) 
+            {
+                return false;
+            }
+            if ( abs(pos.second - emplacement.second) ==
+                 abs(pos.first - emplacement.first) ) 
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+inline bool placerDame(int i) 
+{
+    for (int j = 1; j <= LARGEUR_GRILLE; j++) 
+    {
+        positions[index].first = i;
+        positions[index].second = j;
+        if (verifierNonPrise(positions[index++]) && (i == LARGEUR_GRILLE || placerDame(i + 1))) 
+        {
+            return true;
+        }
+        else 
+        {
+            --index;
+        }
+    }
+
+    return false;
+}
+
+int main()
+{
+    std::chrono::system_clock::time_point begin_time =
+        std::chrono::system_clock::now();
+
+    positions = new Point[LARGEUR_GRILLE];
+    placerDame(1);
+
+    for ( size_t p = 0; p != index; ++p ) 
+    {
+        cout << "(" << positions[p].first << "; " << positions[p].second << ")" << endl;
+    }
+
+    std::chrono::system_clock::time_point end_time =
+        std::chrono::system_clock::now();
+    long long elapsed_milliseconds =
+        std::chrono::duration_cast<std::chrono::milliseconds>(
+            end_time - begin_time).count();
+    std::cout << "Duration (milliseconds): " << elapsed_milliseconds
+              << std::endl;
+
+    delete [] positions;
+
+    return 0;
+}

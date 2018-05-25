@@ -1,0 +1,6 @@
+public Pizza(int s, String t, double c)
+   {
+      sise = s;
+      topping = t;
+      cost = c;
+   }

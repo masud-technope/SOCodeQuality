@@ -1,0 +1,14 @@
+syncrhonized(sharedObject){
+  if(conditionIsFalse){
+       sharedObject.wait(timeout);
+       if(conditionIsFalse){ //check if this was woken up by a notify or something else
+           //report some error
+       }
+       else{
+           //do stuff when true
+       }
+  }
+  else{
+      //do stuff when true
+  }
+}

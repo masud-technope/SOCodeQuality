@@ -1,0 +1,26 @@
+public class PrimeSum {
+
+    public static void main(String args[]){
+        System.out.println("Hi, in main!");
+        // Now create instance, run initialization block..
+        new PrimeSum();
+        // .. but really, just put the code in main, or better,
+        // a method called from main ..
+        System.out.println("Sum is " + calculateSum());
+    }
+
+    /* private double sum = 0.0; <-- note newlines added here for clarity */
+
+    {
+       // This is an instance initialization block, it does NOT run
+       // until/when an instance is created.
+       // (The original never ran code in here, because an instance was
+       //  never created.)
+       System.out.println("Hi, in instance initialization block!");
+    }
+
+    static double calculateSum() {
+        // Do math, return value
+        return 42;
+    }
+}

@@ -1,0 +1,6 @@
+static String readFirstLineFromFileWithFinallyBlock(String path)
+        throws Exception {
+    try (BufferedReader br = new BufferedReader(new FileReader(path));) {
+        return br.readLine();
+    }
+}

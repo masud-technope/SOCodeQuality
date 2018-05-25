@@ -1,0 +1,30 @@
+@Dependent
+@Stateful
+public class ReportService {
+    @PersistenceContext(name = "persistence/AbcPU", unitName = "AbcPU")
+
+    public abstract EntityManager getEntityManager() {
+       EntityManager em = null;
+       try {
+          Context envCtx = InitialContext.doLookup("java:comp/env");
+          em = (EntityManager) envCtx.lookup("persistence/AbcPU");
+       } catch (NamingException ne) {
+          //Handle Exception
+       }
+       return em;
+    }
+
+    public void saveDog() {
+        System.out.println("BBBBB Start ReportService.saveDog();");
+        Doggy doggy = new Doggy();
+        doggy.setDogName("Wuffi");
+        try {
+            System.out.println("BBBBB Persist Success ReportService.saveDog();");
+            getEntityManager().persist(doggy);
+        } catch (Exception ex) {
+            System.out.println("BBBBB Persist Fail ReportService.saveDog();");
+            System.err.println("Error with em.persist(doggy): " + ex.getMessage());
+        }
+        System.out.println("BBBBB Stop ReportService.saveDog();");
+    }
+}

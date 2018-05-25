@@ -1,0 +1,8 @@
+Certificate chain
+ 0 s:/O=www.yourserver.com/OU=Go to 
+   https://www.thawte.com/repository/index.html/OU=Thawte SSL123 
+   certificate/OU=Domain Validated/CN=www.yourserver.com
+   i:/C=US/O=Thawte, Inc./OU=Domain Validated SSL/CN=Thawte DV SSL CA
+ 1 s:/C=US/O=Thawte, Inc./OU=Domain Validated SSL/CN=Thawte DV SSL CA
+   i:/C=US/O=thawte, Inc./OU=Certification Services Division/OU=(c) 
+   2006 thawte, Inc. - For authorized use only/CN=thawte Primary Root CA

@@ -1,0 +1,3 @@
+while (cursor.moveToNext()) {
+    intRoundsSUM += c.getInt(2);
+}

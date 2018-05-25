@@ -1,0 +1,3 @@
+while(!flights.isEmptry) {
+  System.out.println(flights.removeFirst());
+}

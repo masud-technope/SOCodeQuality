@@ -1,0 +1,3 @@
+String original = MyConstants.LOCATION_PATH + File.seperator 
+    + myObject.getStLocation();
+System.out.println(original.replace("\\\\", "\\"));

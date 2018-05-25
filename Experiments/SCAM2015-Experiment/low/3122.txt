@@ -1,0 +1,3 @@
+String regex = "(?i)GOOF";
+String parsedInput = input.replaceAll(regex, "");
+// And that's the only bit of Java you're getting!!

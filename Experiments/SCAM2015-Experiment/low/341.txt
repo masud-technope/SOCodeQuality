@@ -1,0 +1,3 @@
+JTextField tf = new JTextField() ;
+tf.setVisible(true) ;
+panel.add(tf) ;

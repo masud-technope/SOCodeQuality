@@ -1,0 +1,7 @@
+Console console = System.console();
+   if (console==null){
+      System.out.print("console not available ");
+   }else {
+      String line = console.readLine("Enter name :");
+      System.out.print("your name :"+line);
+   }

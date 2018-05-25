@@ -1,0 +1,4 @@
+if(userSelectedCard() == cards.HEARTS)
+    graphic=loadFile("Heart.jpg");
+if(userSelectedCard() == cards.SPADES)
+    graphic=loadFile("Spade.jpg");

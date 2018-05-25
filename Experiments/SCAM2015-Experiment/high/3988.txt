@@ -1,0 +1,13 @@
+// master file TicketAdminTestSuite.java
+import Help;
+public class TicketAdminTestSuite extends something {
+
+   void printStuff(){
+        System.out.println(Help.bar);
+   } 
+}
+
+// help file Help.java
+public class Help  {
+    public static final String bar = "blah";
+}

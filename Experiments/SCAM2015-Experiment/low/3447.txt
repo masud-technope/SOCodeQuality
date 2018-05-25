@@ -1,0 +1,7 @@
+if (condition1) {
+    if (condition2) {
+        if (conditionN) {
+            // do something
+        }
+    }
+}

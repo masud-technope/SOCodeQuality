@@ -1,0 +1,3 @@
+String text = "Retrieve this from shared preferences".
+TextView textView = findViewById("mytext");
+textView.setText(text);

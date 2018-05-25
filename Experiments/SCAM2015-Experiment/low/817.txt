@@ -1,0 +1,15 @@
+//Make menu items
+JMenuItem font = new JMenuItem();
+font.addActionListener(new ActionListener() {
+  showWindow(new FontFrame());
+});
+JMenuItem admin = new JMenuItem();
+admin.addActionListener(new ActionListener() {
+  showWindow(new AdminFrame());
+});
+...
+//define frame handling method
+void showWindow(JFrame f) {
+  ...
+  f.setVistible(true);
+}

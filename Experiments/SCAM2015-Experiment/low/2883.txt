@@ -1,0 +1,6 @@
+Double  dValue= someVariable;
+
+if(!dValue.isNaN())
+{
+ // you code here
+}

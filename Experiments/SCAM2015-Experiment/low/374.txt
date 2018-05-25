@@ -1,0 +1,29 @@
+import java.io.*;
+public class Upch2
+{
+   BufferedReader br= new BufferedReader( new InputStreamReader(System.in));
+   public void main()throws IOException
+    { 
+        System.out.println("Pl. Enter A Line");
+        String s=br.readLine();
+        String s1=" ";
+        s=" "+s;
+        int len=s.length();
+        s= s.toLowerCase();
+        for(int j=1;j<len;j++)
+         {
+           char  ch=s.charAt(j);
+
+           if(s.charAt(j-1)!=' ')
+           {
+             ch=Character.toLowerCase((s.charAt(j)));
+           }
+           else
+           {
+             ch=Character.toUpperCase((s.charAt(j)));
+            }
+            s1=s1+ch;
+          }
+     System.out.println(" "+s1);
+  }
+}

@@ -1,0 +1,5 @@
+Vec2<Integer> intvec = Vec2.ofInt(5, 3);
+intvec.addX(8);
+
+Vec2<Double> dblvec = Vec2.ofDouble(5.2, 8.9);
+dblvec.addY(-.9);

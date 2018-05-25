@@ -1,0 +1,3 @@
+while (notifyAllExample.status != 2){
+    notifyAllExample.wait();
+}

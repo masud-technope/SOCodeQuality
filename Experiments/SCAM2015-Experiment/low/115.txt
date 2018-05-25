@@ -1,0 +1,8 @@
+public class OtherClass {
+  public void doEverything() {
+    SomeClass sc = SomeClass.geInstance();
+    Object o = sc.doSomething();
+
+    // some more stuff here...
+  }
+}

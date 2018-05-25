@@ -1,0 +1,33 @@
+public static void main(String[] args) {
+    int i = 0;
+    Scanner input = new Scanner(System.in);
+    System.out.print("Give me an integer that would represent the length of an array: ");
+    int integer = input.nextInt();
+    int[] test = new int[integer];
+    System.out.println("Enter " + integer + " " + "value(s)");
+    while (i < integer) {
+        System.out.println("Value #" + i + ": ");
+        test[i] = input.nextInt();
+        i++;
+    }
+    System.out.print("Your current array: ");
+    i = 0;
+    while (i < integer) {
+        System.out.print(test[i] + " | ");
+        i++;
+    }
+    i = 0;
+    while (i <= integer / 2) {
+        int temp = test[i]; //a = b
+        test[i] = test[(integer - i - 1)]; //b = c
+        test[(integer - i - 1)] = temp;// c = a
+        i++;
+    }
+    System.out.println("");
+    System.out.print("Your array reversed: ");
+    i = 0;
+    while (i <= integer - 1) {
+        System.out.print(test[i] + " | ");
+        i++;
+    }
+}

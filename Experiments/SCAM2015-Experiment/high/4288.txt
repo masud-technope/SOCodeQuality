@@ -1,0 +1,10 @@
+public boolean areTheseDiceEqual() {
+    double firstDie = -1;
+    for(oneDie : sequence) {
+        firstDie = (firstDie == -1 ? oneDie : firstDie);
+        if(firstDie != oneDie) {
+            return false;
+        }
+    }
+    return true;
+}

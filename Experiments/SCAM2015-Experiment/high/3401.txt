@@ -1,0 +1,5 @@
+public boolean areNamesEqual(Person p1, Person p2)  {
+   return  (person1 != null  &&  person2 != null  &&
+      Objects.equal(p1.getFirstName(), p2.getFirstName())  &&
+      Objects.equal(p1.getSecondName(), p2.getSecondName()));
+}

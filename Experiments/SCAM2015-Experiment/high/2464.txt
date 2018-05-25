@@ -1,0 +1,9 @@
+public double pow2(double x,int y){
+    return _pow2(1.0, x, y);
+}
+
+private double _pow2(double res, double x, int y) {
+    if (y < 0) return _pow2(res/x, x, y+1);
+    if (y > 0) return _pow2(res*x, x, y-1);
+    return res;
+}

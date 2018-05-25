@@ -1,0 +1,3 @@
+for (javax.swing.JPanel panel : BenderPanels) {
+    // ...
+}

@@ -1,0 +1,22 @@
+@Named
+@ViewScoped
+public class LoginModel implements Serializable {
+    private String userName;
+    private String password;
+
+    //Getters and setters ...
+}
+
+@Named
+@ViewScoped
+public class LoginController implements Serializable {
+
+    @Inject
+    private LoginModel loginData;
+
+    public String logIn(){
+        if(isLoginDataValid(loginData)){
+            return "index.xhtml";
+        }
+    }
+}

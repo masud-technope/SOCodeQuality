@@ -1,0 +1,6 @@
+final Timer imageTimer = new Timer();
+    imageTimer.scheduleAtFixedRate( new TimerTask() {
+        public void run() {
+            setImage();
+        }
+    }, 0, 10000 );

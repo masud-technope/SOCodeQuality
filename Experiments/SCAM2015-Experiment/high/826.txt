@@ -1,0 +1,8 @@
+Trial for size= 10
+Size=10, avg time = 0.0ms
+Trial for size= 1000
+Size=1000, avg time = 0.0ms
+Trial for size= 10000
+Size=10000, avg time = 100.0ms
+Trial for size= 100000
+Size=100000, avg time = 9923.3ms

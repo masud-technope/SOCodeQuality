@@ -1,0 +1,5 @@
+int size = randInts.size() - 1;
+for (int i = size; i >= 0; i--){
+   if (randInts.get(i).equals(removeInt))
+       randInts.remove(i);
+}

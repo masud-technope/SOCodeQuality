@@ -1,0 +1,3 @@
+public static Groupe fromStringArray(String... nom)
+
+public static Groupe fromCommaSeparatedString(String nom)

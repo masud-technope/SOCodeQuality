@@ -1,0 +1,8 @@
+public static void one(){
+    Integer three;
+    Integer four;
+    Integer five;
+    three = 3;
+    four = 4;
+    five = two(three, four); // Assign the value returned by the 'two()' method
+}

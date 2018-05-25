@@ -1,0 +1,5 @@
+try {
+   ...
+} catch (Exception e) {
+    log.error( "failed!", e );
+}

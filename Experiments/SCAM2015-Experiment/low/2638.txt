@@ -1,0 +1,5 @@
+def letters = ['a', 'e', 'f', 'f', 'g', 'i', 'r', 'q']
+def dictionary = ['abacus', 'deltoid', 'gaff', 'giraffe', 'microphone', 'reef', 'qar']
+println dictionary
+    .findAll{ it.toList().intersect(letters).size() == it.size() }
+    .sort{ -it.size() }.head()

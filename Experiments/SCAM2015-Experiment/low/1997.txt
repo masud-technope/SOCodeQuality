@@ -1,0 +1,14 @@
+someMethod(5, "Hello", new MyRunnable() {
+
+    @Override
+    public void run(int data) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void run() {
+        // TODO Auto-generated method stub
+
+    }
+});

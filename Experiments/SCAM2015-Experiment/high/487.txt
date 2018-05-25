@@ -1,0 +1,8 @@
+public class SimpleParams {
+    Resource r1;
+    Resource r2;
+    // Imagine there are setters and getters here but I'm too lazy 
+    // to write it out. you can make it the parameter class 
+    // "immutable" if you don't have setters and only set the 
+    // resources through the SimpleParams constructor
+}

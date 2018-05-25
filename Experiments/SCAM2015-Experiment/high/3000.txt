@@ -1,0 +1,4 @@
+List<Number> numberList = new ArrayList<Integer>();  // not allowed
+// This would have been allowed, even though the argument is
+// boxed to a `Double`, not a `Integer`.
+numberList.add(8.6);

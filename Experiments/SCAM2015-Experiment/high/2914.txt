@@ -1,0 +1,6 @@
+Set<Integer> values = new HashSet<Integer>();
+for(Point3d point : coordinates.values()) {
+    values.add(point.x());
+}
+
+return values.size();

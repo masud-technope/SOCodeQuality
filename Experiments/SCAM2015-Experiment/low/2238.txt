@@ -1,0 +1,12 @@
+//just try to make a quick example to make b to have the same precision as a has, by using BigDecimal
+
+ private double getDesiredPrecision(Double a, Double b){
+     String[] splitter = a.toString().split("\\.");
+     splitter[0].length();   // Before Decimal Count
+     int numDecimals = splitter[1].length(); //After Decimal Count
+
+     BigDecimal bBigDecimal = new BigDecimal(b);
+     bBigDecimal = bBigDecimal.setScale(numDecimals,BigDecimal.ROUND_HALF_EVEN);
+
+     return bBigDecimal.doubleValue();  
+ }

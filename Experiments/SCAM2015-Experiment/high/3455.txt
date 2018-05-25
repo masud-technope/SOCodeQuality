@@ -1,0 +1,12 @@
+boolean f = false;
+   if (condition1) { 
+       System.out.println("First condition"); 
+       f = true;
+   }
+   if (!f && condition2) { 
+       System.out.println("Second condition"); 
+       f = true;
+   }
+   if (!f && condition3) { 
+       System.out.println("Third condition"); 
+   }

@@ -1,0 +1,9 @@
+// Get the Todos
+    System.out.println(service.path("rest").path("todos").accept(
+            MediaType.TEXT_XML).get(String.class));
+    // Get XML for application
+    System.out.println(service.path("rest").path("todos").accept(
+            MediaType.APPLICATION_JSON).get(String.class));
+    // Get JSON for application
+    System.out.println(service.path("rest").path("todos").accept(
+            MediaType.APPLICATION_XML).get(String.class));

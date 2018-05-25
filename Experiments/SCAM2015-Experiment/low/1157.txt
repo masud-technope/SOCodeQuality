@@ -1,0 +1,3 @@
+List<Integer> results = ClassA.findAll(pattern, dataToSearch);
+results.addAll(ClassB.findAll(pattern, dataToSearch));
+// etc.

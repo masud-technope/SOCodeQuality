@@ -1,0 +1,14 @@
+<table class="machine" name="">
+   <tr>
+     <th class="partdescriptor" colspan="2">
+     <th class="part" colspan="4">
+   </tr>
+   <tr>
+     <td class="partdescriptor group"></td>
+     <td class="partdescriptor" id=""></td>
+     <td class="part group"></td>
+     <td class="part" id=""></td>
+     <td class="description"></td>
+     <td class="compat"></td>
+    </tr>
+ </table>

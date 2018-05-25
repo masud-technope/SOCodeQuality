@@ -1,0 +1,6 @@
+public static void main(String args[])
+{
+   Card card = new Card();
+   Deck deck = new Deck();
+   deck.add(card);
+}

@@ -1,0 +1,4 @@
+int y = 0;
+for (Iterator<E> it=list.iterator(); it.hasNext(); y++) {
+   process(it.next(), y);
+}

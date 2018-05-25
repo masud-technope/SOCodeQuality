@@ -1,0 +1,38 @@
+class Bicycle(object):
+  cadence = 0
+  speed = 0
+  gear = 1
+
+  def changeCadence(self, newValue):
+    self.cadence = newValue
+
+  def changeGear(self, newValue):
+    self.gear = newValue
+
+  def speedUp(self, increment):
+    speed += increament
+
+  def applyBrakes(self, descrement):
+    speed -= decreament
+
+  def printStates(self):
+    print 'cadence: %s speed: %s gear: %s' % (self.cadence, self.speed, self.gear)
+
+if __name__ == "__main__":
+  # Create two different Bicycle objects
+  bike1 = Bicycle()
+  bike2 = Bicycle()
+
+  # Invoke methods on those objects
+  bike1.changeCadence(50)
+  bike1.speedUp(10)
+  bike1.changeGear(2)
+  bike1.printStates()
+
+  bike2.changeCadence(50)
+  bike2.speedUp(10)
+  bike2.changeGear(2)
+  bike2.changeCadence(40)
+  bike2.speedUp(10)
+  bike2.changeGear(3)
+  bike2.printStates()

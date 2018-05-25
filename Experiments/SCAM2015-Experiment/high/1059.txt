@@ -1,0 +1,3 @@
+Type listType = new TypeToken<ArrayList<YourClass>>() {
+                    }.getType();
+ List<YourClass> yourClassList = new Gson().fromJson(jsonArray, listType);

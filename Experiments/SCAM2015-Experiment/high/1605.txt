@@ -1,0 +1,4 @@
+List<List<?>> listOfGenericLists;
+List<List<String>> listOfStrings = new LinkedList<List<String>>();
+//does not work "only because" String extends Object:
+listOfGenericLists = listOfStrings; //compile error

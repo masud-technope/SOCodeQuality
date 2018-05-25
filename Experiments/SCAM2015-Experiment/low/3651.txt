@@ -1,0 +1,3 @@
+<tomcat-users>
+<user username="ide" password="Vh4fsrwh" roles="manager-script,admin"/>
+</tomcat-users>

@@ -1,0 +1,25 @@
+public enum ValueEnum {
+
+    FOO("foo", "bar", "hey"),
+    ANOTHER("another", "1", "two", "THREE"),
+
+    ;
+
+    private final String key;
+
+    private final Set<String> values;
+
+    private ValueEnum(String key, String... values) {
+        this.key = key;
+        this.values = Collections.unmodifiableSet(new HashSet<String>(Arrays.asList(values)));
+    }
+
+    public final boolean isInMap(Map<String,String> map) {
+        if(map.containsKey(key)) {
+            return values.contains(map.get(key));
+        }
+        else {
+            return false;
+        }
+    }
+}

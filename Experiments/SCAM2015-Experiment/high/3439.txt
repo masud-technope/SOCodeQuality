@@ -1,0 +1,12 @@
+ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
+DataOutputStream dataout = new DataOutputStream(byteOut)
+
+dataout.writeShort(shortValue);
+...
+
+ShortBuffer buf =ByteBuffer.wrap(byteOut.toByteArray())
+                           .asShortBuffer();
+
+int length = buf.remaining();
+short[] asShorts = new short[length];
+buf.get(asShorts);

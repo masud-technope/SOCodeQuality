@@ -1,0 +1,5 @@
+List<int> deviceID = new List<int>()
+    for(int i = 292; i <= 305; i++)
+    {
+        deviceID.add(i);
+    }

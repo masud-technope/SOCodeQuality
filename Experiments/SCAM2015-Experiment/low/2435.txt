@@ -1,0 +1,4 @@
+if(dInt <= 0)
+   Toast.makeText(getApplicationContext(), "Game Over",Toast.LENGTH_SHORT).show();
+   Intent intent = new Intent();
+   ......

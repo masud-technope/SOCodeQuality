@@ -1,0 +1,5 @@
+class YourComparator implements Comparator<InstructorTreeNode> {
+@Override
+public int compare(final  InstructorTreeNode 01, final InstructorTreeNode o2) {
+    return o2.getYourCompVal().compareTo(o1.getYourCompVal());
+}

@@ -1,0 +1,7 @@
+public Object clone() {
+   CurrentClass newObject = new CurrentClass();
+
+   newObject.field1 = this.field1; // for simple types: int, long, etc
+   newObject.referenceField = this.referenceField.clone(); // for agregate objects or references.
+   return newObject;
+}

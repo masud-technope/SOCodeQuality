@@ -1,0 +1,6 @@
+public static void add(int position, LinkedList<String> list) {
+      System.err.println(list.size());
+      list.add(list.size(), "aaa");
+      System.out.println(list.get(1));
+
+     }

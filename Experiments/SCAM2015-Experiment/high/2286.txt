@@ -1,0 +1,4 @@
+METHOD_NAME="PutRecipeImagesPost";
+NAMESPACE ="iscservices.dedicated.co.za";       
+SOAP_ACTION ="iscservices.dedicated.co.za/InterfaceiPhysioIntelWCFService/PutRecipeImagesPost";
+URL ="http://10.0.2.2:51809/iPhysioIntelService.svc/second/";

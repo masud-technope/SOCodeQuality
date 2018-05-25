@@ -1,0 +1,4 @@
+while(input.readLine()!=null) // skipping odd lines
+{
+    value+=input.readLine(); // reading even lines
+}

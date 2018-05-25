@@ -1,0 +1,7 @@
+Pattern myPattern = Pattern.compile("\".*\"");
+Pattern myPattern1 = Pattern.compile("\"([^\"]*)$");
+var input=yourString;//assign your string to a new variable
+input=input.replaceAll(myPattern,' match ');//replace all portions in " with your own string
+if(input.matches("\"")) {
+   yourString.replaceAll(myPattern1,/\\/);//if there is a dangling ", replace with a \ in your original string
+}

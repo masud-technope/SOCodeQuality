@@ -1,0 +1,14 @@
+@Entity
+@Table(name="PERSON")
+public class Person implements Serializable {
+    ...
+   private String email = null;
+    ...
+   @Column(name="email")
+   public String getEmail() {
+      return email;
+   }
+   public void setEmail(String email) {
+      this.email=email;
+   }
+}

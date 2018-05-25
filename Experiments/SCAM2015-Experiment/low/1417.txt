@@ -1,0 +1,21 @@
+textArea.addKeyListener(new KeyAdapter() {
+
+    public void keyPressed(KeyEvent event) {
+
+        int code = event.getKeyCode();          
+        int caret = textArea.getCaretPosition();
+        int last = textArea.getText().lastIndexOf(">> ") + 3;
+
+        if(caret <= last) {
+
+            if(code == KeyEvent.VK_BACK_SPACE) {
+
+                textArea.append(" ");
+
+                textArea.setCaretPosition(last + 1);
+            }
+
+            textArea.setCaretPosition(textArea.getText().length());
+         }
+     }
+ });

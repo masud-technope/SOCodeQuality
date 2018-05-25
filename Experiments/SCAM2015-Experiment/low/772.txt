@@ -1,0 +1,14 @@
+Assert.assertTrue(jumble().isEmpty());
+// this first one should have been very easy, just return an empty list
+Assert.assertEquals(Arrays.asList("a"), jumble("a"));
+// this one is easy too, just return the input string in a list and it will work
+Assert.assertEquals(Arrays.asList("ab", "ba"), jumble("ab"));
+// now it has started to get a bit harder, return a list with the input string normally and reversed
+Assert.assertEquals(Arrays.asList("abc", "acb", "bac", "bca", "cab", "cba"), jumble("abc"));
+// with the above you need to start treating the characters separately.
+// Try building upon the existing solution so that you break down this problem recursively...
+Assert.assertEquals(Arrays.asList("abb", "abb", "bab", "bba", "bab", "bba"), jumble("abb"));
+// or, instead of the one above, you might want to test for ...
+Assert.assertEquals(Arrays.asList("abb", "bab", "bba"), jumble("abb"));
+// depending upon whether one 'b' is the same as another.
+// (in which case the return type should probably be Set<Character>, not List<Character>

@@ -1,0 +1,11 @@
+public class StringSplit {
+    public static void main(String[] args) 
+    {
+        String src = "first second third";
+        String[] stringArray = src.split("\\s+");
+
+        System.out.println(stringArray[0]);
+        System.out.println(stringArray[1]);
+        System.out.println(stringArray[2]);
+    }
+}

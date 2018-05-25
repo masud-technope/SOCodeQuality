@@ -1,0 +1,7 @@
+public class PrintStackTraceUtil
+ {
+ public static void printStackTrace(Throwable err)
+     {
+     err.printStackTrace();
+     }
+ }

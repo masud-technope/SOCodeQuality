@@ -1,0 +1,13 @@
+void reverseArray(int[] arr) {
+   reverse(arr, 0, arr.length - 1);
+}
+
+void reverse(int[] arr, int s, int e) {
+    if(s < e) {
+       /* swap start and end index elements */
+       int tmp = arr[s];
+       arr[s] = arr[e];
+       arr[e] = tmp;
+       reverse(arr, ++s, --e);
+    }   
+}

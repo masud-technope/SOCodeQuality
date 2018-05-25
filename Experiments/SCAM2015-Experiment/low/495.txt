@@ -1,0 +1,38 @@
+final static int SHORT_ISO_8601_TIME_LENGTH =  "1994-11-05T08:15:30Z".length ();
+                                            // 01234567890123456789012
+final static int LONG_ISO_8601_TIME_LENGTH = "1994-11-05T08:15:30-05:00".length ();
+
+
+public static Date fromISO8601( String string ) {
+    if (isISO8601 ( string )) {
+        char [] charArray = Reflection.toCharArray ( string );//uses unsafe or string.toCharArray if unsafe is not available
+        int year = CharScanner.parseIntFromTo ( charArray, 0, 4 );
+        int month = CharScanner.parseIntFromTo ( charArray, 5, 7 );
+        int day = CharScanner.parseIntFromTo ( charArray, 8, 10 );
+        int hour = CharScanner.parseIntFromTo ( charArray, 11, 13 );
+
+        int minute = CharScanner.parseIntFromTo ( charArray, 14, 16 );
+
+        int second = CharScanner.parseIntFromTo ( charArray, 17, 19 );
+
+        TimeZone tz ;
+
+         if (charArray[19] == 'Z') {
+
+             tz = TimeZone.getTimeZone ( "GMT" );
+         } else {
+
+             StringBuilder builder = new StringBuilder ( 9 );
+             builder.append ( "GMT" );
+             builder.append( charArray, 19, LONG_ISO_8601_TIME_LENGTH - 19);
+             String tzStr = builder.toString ();
+             tz = TimeZone.getTimeZone ( tzStr ) ;
+
+         }
+         return toDate ( tz, year, month, day, hour, minute, second );
+
+    }   else {
+        return null;
+    }
+
+}

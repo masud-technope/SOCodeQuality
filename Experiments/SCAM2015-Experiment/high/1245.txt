@@ -1,0 +1,5 @@
+List<MyDataClass> arrayList = new ArrayList<MyDataClass>();
+
+Set<MyDataClass> uniqueElements = new HashSet<MyDataClass>(arrayList);
+arrayList.clear();
+arrayList.addAll(uniqueElements);

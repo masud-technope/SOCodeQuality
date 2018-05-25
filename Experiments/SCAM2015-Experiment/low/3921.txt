@@ -1,0 +1,3 @@
+int num = 7;
+
+int[] arr = {num};  // arr is an array containing num

@@ -1,0 +1,5 @@
+IsHeightBalanced(tree)
+    return (tree is empty) or 
+           (IsHeightBalanced(tree.left) and
+            IsHeightBalanced(tree.right) and
+            abs(Height(tree.left) - Height(tree.right)) <= 1)

@@ -1,0 +1,21 @@
+public static String escape(String s) {
+    Matcher matcher = Pattern.compile("['\"]")
+        .matcher(s);
+    StringBuilder buffer = new StringBuilder("concat(");
+    int start = 0;
+    while (matcher.find()) {
+      buffer.append("'")
+          .append(s.substring(start, matcher.start()))
+          .append("',");
+      buffer.append("'".equals(matcher.group()) ? "\"'\"," : "'\"',");
+      start = matcher.end();
+    }
+    if (start == 0) {
+      return "'" + s + "'";
+    }
+    return buffer.append("'")
+        .append(s.substring(start))
+        .append("'")
+        .append(")")
+        .toString();
+  }

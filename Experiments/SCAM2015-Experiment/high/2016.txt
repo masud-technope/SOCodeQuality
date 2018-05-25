@@ -1,0 +1,4 @@
+ArrayList<Person> nameFromText = new ArrayList<Person>();
+fillArrayList(nameFromText, pullFile);
+// Sort ArrayList
+Collections.sort(nameFromText);  // How to sort?

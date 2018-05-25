@@ -1,0 +1,4 @@
+StringBuilder sb = new StringBuilder();
+     for (int i=1; i<10; i++)
+         sb.append(i + "..........." + i*i + "\n");
+     return sb.toString();

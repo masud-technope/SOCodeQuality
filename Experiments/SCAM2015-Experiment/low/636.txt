@@ -1,0 +1,20 @@
+public class MinimumHolder {
+    private int min;
+    private int secondMin;
+    public MinimumHolder(int min, int secondMin) {
+        this.min = min;
+        this.secondMin = secondMin;
+    }
+
+    //getters...
+}
+
+public MinimumHolder findTwoMinimums(Set<Integer> numbers) {
+    // ...
+    return new MinimumHolder(...);
+}
+
+public MinimumHolder manipulateData(MinimumHolder mins) {
+    // do stuff with the data, this method could also be
+    // declared as void if MinimumHolder was mutable
+}

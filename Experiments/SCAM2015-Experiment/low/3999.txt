@@ -1,0 +1,5 @@
+ArrayDataType[] ArrayName=new ArrayDataType[Dimensions];
+    for(int i=0;i<Dimensions;i++){
+    Arrayname[i]=new ObjectDataType();  
+    \\ where the ObjectDatatype can be either ArrayDataType or SubType
+    }

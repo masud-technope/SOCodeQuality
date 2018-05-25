@@ -1,0 +1,3 @@
+ASCII:       Gs   v  0 
+Decimal:     29 118 48 m xL xH yL yH [d]k 
+Hexadecimal: 1D  76 30 m xL xH yL yH [d]k

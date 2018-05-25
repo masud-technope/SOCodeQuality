@@ -1,0 +1,25 @@
+private static final class Lock { }
+     private final Object lock = new Lock();
+
+    @Test
+    public void testRun() {
+        ThreadWorker worker = new ThreadWorker();
+        System.out.println ("Starting worker");
+        worker.start();
+        System.out.println ("Worker started - telling it to wait");
+        try {
+            synchronized (lock) {
+                worker.wait();
+            }
+        } catch (InterruptedException e1) {
+            String msg = "InterruptedException: [" + e1.getLocalizedMessage() + "]";
+            System.out.println (msg);
+            e1.printStackTrace();
+            System.out.flush();
+        }
+        System.out.println ("Worker done waiting, we're now waiting for it by joining");
+        try {
+            worker.join();
+        } catch (InterruptedException ex) { }
+
+    }

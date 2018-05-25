@@ -1,0 +1,11 @@
+public class Main
+{
+    public static void main(final String[] argv) 
+    {
+        String str;
+
+        str = "hello\r\njava\r\nbook";
+        str = str.replaceAll("(\\r|\\n)", "");
+        System.out.println(str);
+    }
+}

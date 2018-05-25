@@ -1,0 +1,8 @@
+public void run() {
+    while(!isInterrupted()) {
+        // doStuff
+    try {
+    } catch (InterruptedException ex) {
+        interrupt();
+    }
+}

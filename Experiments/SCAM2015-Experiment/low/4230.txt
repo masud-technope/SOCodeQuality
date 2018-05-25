@@ -1,0 +1,8 @@
+@Controller
+public class IndexController {
+
+    @RequestMapping("/classic")
+    public String classic() {
+        return "classic";
+    }
+}

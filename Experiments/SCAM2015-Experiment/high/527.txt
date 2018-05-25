@@ -1,0 +1,15 @@
+public static User getPreviousVersion(User user, int current_rev) {
+    AuditReader reader = AuditReaderFactory.get(em);
+
+    Number prior_revision = (Number) reader.createQuery()
+    .forRevisionsOfEntity(User.class, false, true)
+    .addProjection(AuditEntity.revisionNumber().max())
+    .add(AuditEntity.id().eq(user.getId()))
+    .add(AuditEntity.revisionNumber().lt(current_rev))
+    .getSingleResult();
+
+    if (prior_revision != null)
+        return (User) reader.find(User.class, user.getId(), prior_revision);
+    else
+        return null
+}

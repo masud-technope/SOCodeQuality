@@ -1,0 +1,3 @@
+Two t = new Two();
+One o = t;
+o.doThing(new Two());

@@ -1,0 +1,7 @@
+Pattern pattern = Pattern.compile("^[-+]?\\d+(\\.\\d+)?$");
+  Matcher matcher = pattern.matcher(var1);
+  if (matcher.find()){
+      // Your string is a number  
+  } else {
+      // Your string is not a number
+  }

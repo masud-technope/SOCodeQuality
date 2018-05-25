@@ -1,0 +1,4 @@
+final HSSFSheet fs = wb.createSheet("sheet1");
+final HSSFRow row0 = fs.createRow(0);
+final HSSFCell cellA1 = row0.createCell(0);
+row0.setHeight((short)700);

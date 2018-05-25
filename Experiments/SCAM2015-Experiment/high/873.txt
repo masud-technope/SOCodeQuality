@@ -1,0 +1,4 @@
+@JsonProperty("foo")
+public void setFoo(Map<String, Object> foo) {
+  bar = (Integer) foo.get("bar");
+}

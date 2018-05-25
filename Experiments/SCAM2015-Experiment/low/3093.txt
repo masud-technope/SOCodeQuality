@@ -1,0 +1,9 @@
+class Container[T : Manifest]() { 
+  def createArray(size:Int) = Array.ofDim[T](size) 
+}
+
+scala> val f = new Container[String]
+f: Container[String] = Container@12f3aa66
+
+scala> f.createArray(5)
+res7: Array[String] = Array(null, null, null, null, null)

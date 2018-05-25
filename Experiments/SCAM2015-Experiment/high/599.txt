@@ -1,0 +1,5 @@
+CreatePaymentRecords(TermDates, FYEProcessing);  
+if (FYEProcessing) {
+    //run again
+    CreatePaymentRecords(TermDates, FYEProcessing);  
+}

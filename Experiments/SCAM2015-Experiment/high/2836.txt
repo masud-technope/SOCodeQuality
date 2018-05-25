@@ -1,0 +1,6 @@
+public void printItems(Iterator<Object> items){
+    while(items.hasNext()){
+        Object item = items.next();
+        System.out.println(item.toString());
+    }
+}

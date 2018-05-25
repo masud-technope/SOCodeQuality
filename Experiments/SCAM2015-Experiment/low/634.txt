@@ -1,0 +1,5 @@
+List<Foobar> returns = (List<Foobar>) session
+                .createCriteria.(Foobar.class, "foobars")
+                .createAlias("foobars.uuids", "uuids")
+                  .add(Restrictions.like("uuids.str", "%abc123%"))
+                .list();

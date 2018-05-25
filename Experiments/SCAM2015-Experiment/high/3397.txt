@@ -1,0 +1,19 @@
+public abstract class Graph {
+   public Graph(int width, int height) {
+       // do actual things with width and height
+   }
+}
+
+public class LineGraph extends Graph{
+   public LineGraph(int width, int height) {
+      super(width, height);
+      // additional inits.
+   }
+}
+
+public class BarGraph extends Graph{
+   public BarGraph(int width, int height) {
+      super(width, height);
+      // additional inits.
+   }
+}

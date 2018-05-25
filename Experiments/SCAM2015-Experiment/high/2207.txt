@@ -1,0 +1,3 @@
+public enum DefaultCache implements ICache {
+     INSTANCE
+}

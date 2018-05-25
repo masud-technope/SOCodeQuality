@@ -1,0 +1,18 @@
+public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+        Hashtable siCache = new Hashtable();
+        siCache.put("key", "value");
+        siCache.put("key1", "value1");
+        Enumeration keys = siCache.keys();  //siCache is Hashtable
+
+        while(keys.hasMoreElements())
+        {
+            String k = (String) keys.nextElement();
+            Object v = siCache.get(k);
+
+           if(true) siCache.remove(k);
+
+        }
+        System.out.println(siCache.size());
+    }

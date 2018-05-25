@@ -1,0 +1,6 @@
+amountField = new JFormattedTextField(amountFormat);
+amountField.setValue(new Double(amount));
+amountField.setColumns(10);
+amountField.addPropertyChangeListener("value", this);
+...
+amountFormat = NumberFormat.getNumberInstance();

@@ -1,0 +1,5 @@
+StringBuilder sb = new StringBuilder("abc");  // 1
+sb.setLength(2);                              // 2
+System.out.println(sb);                       // 3
+sb.append('d');                               // 4
+System.out.println(sb);                       // 5

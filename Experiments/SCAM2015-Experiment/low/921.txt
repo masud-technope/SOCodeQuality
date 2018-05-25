@@ -1,0 +1,10 @@
+switch(card.suit)
+case Suit.HEARTS:
+    load_graphic(Suit.HEARTS);
+    // or better yet:
+    Suit.HEARTS.loadGraphic();
+    break;
+case Suit.SPADES:
+    Suit.SPADES.loadGraphic();
+
+...

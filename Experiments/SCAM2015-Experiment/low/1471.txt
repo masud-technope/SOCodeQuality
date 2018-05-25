@@ -1,0 +1,3 @@
+String pat = "hj10134532";
+if ("Assets/Topics/Update/filename_hj10134532.html.xls".contains (pat))
+    return pat;

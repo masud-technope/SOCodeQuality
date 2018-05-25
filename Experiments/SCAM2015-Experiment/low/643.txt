@@ -1,0 +1,8 @@
+public static void giveHint (int guess, int actual) {
+    int min = actual - 5;
+    int max = actual + 5;
+    if ((guess > min) && (guess < max)) {
+        System.out.println("Hot..");
+    } else {
+        System.out.println("Cold..");
+    }

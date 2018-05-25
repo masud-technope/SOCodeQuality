@@ -1,0 +1,19 @@
+class HighScore implements Comparable<HighScore> {
+    private static final AtomicLong NEXT_ID = new AtomicLong(1);
+
+    protected final String name;
+    protected final long id = NEXT_ID.getAndIncrement();
+    protected final int score;
+
+    // ...
+
+    public int compareTo(HighScore o) {
+        int diff = score - o.score;
+        if (diff != 0) { return diff; }
+
+        long idDiff = id - o.id;
+        if (idDiff < 0) { return -1; }
+        else if (idDiff > 0) { return 1; }
+        else { return 0; }
+    }
+}

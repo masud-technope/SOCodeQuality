@@ -1,0 +1,20 @@
+// The "E006" class.
+import java.awt.*;
+import hsa.Console;
+
+public class E006
+{
+    static Console c;           // The output console
+
+    public static void main (String[] args)
+    {
+        c = new Console();
+        int i, j;
+        for(i = 0; i < 10; i++) {
+            for(j = 0; j < i; j++) {
+                c.print(" ");
+            }
+            c.println("*");
+        }
+    } // main method
+} // E006 class

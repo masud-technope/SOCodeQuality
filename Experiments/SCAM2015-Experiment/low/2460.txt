@@ -1,0 +1,4 @@
+static int rez;
+
+   static int ShowConfirm(String caption, String msg, Context context) {
+   ...

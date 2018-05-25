@@ -1,0 +1,6 @@
+static 
+{
+
+ // Do some static work 
+
+}

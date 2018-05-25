@@ -1,0 +1,5 @@
+public void test_findAnnotatedClosures() {
+    Map<String, List<Class>> annotatedClosures =
+        annotationScannerService.findAnnotatedClosures(MyController.class,
+            MyRequiredAnnotation.class)
+}

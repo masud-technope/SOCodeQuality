@@ -1,0 +1,17 @@
+java.vendor=IBM Corporation
+java.vendor.url=http://www.ibm.com/
+java.version=1.5.0
+java.vm.info=J2RE 1.5.0 IBM J9 2.3 Linux x86-32 j9vmxi3223-20061001 (JIT enabled)
+J9VM - 20060915_08260_lHdSMR
+JIT  - 20060908_1811_r8
+GC   - 20060906_AA
+java.vm.name=IBM J9 VM
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.specification.vendor=Sun Microsystems Inc.
+java.vm.specification.version=1.0
+java.vm.vendor=IBM Corporation
+java.vm.version=2.3
+os.arch=x86
+os.name=Linux
+os.version=2.6.24-23-generic
+sun.arch.data.model=32

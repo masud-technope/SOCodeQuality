@@ -1,0 +1,4 @@
+rs.next();
+            if ((user.equals(rs.getString("username"))) && (pass.equals(rs.getString("password")))) {
+                JOptionPane.showMessageDialog(null, "You are now logon!");
+            }

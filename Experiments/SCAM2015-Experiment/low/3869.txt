@@ -1,0 +1,13 @@
+String line;
+BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
+try {
+    while((line = read.readLine()) != null) {
+        try {
+            n = Integer.parseInt(line);
+            //other stuff with n
+        } catch (NumberFormatException e) {
+              continue; // do nothing, and move on to the next line
+        }
+    }
+}
+ catch (IOException e) {}

@@ -1,0 +1,99 @@
+new CountDownTimer(365*24*60*60, 3000) {
+
+ public void onTick(long millisUntilFinished) {
+     String timeStamp = new SimpleDateFormat(
+                        "yyyy.MM.dd HH:mm:ss").format(Calendar
+                        .getInstance().getTime());
+                System.out.println("TimeStamp: " + timeStamp);
+                // Read And Write Register Sample
+                port = Integer.parseInt(gConstants.port);
+                String refe = "0";// HEX Address
+                ref = Integer.parseInt(refe, 16);// Hex to int
+                count = 10; // the number Address to read
+                SlaveAddr = 1;
+                astr = gConstants.ip; // Modbus Device
+
+                InetAddress addr;
+                try {
+                    addr = InetAddress.getByName(astr);
+                    con = new TCPMasterConnection(addr); // the
+                    // connection
+                } catch (UnknownHostException e2) {
+                    // TODO Auto-generated catch block
+                    e2.printStackTrace();
+                }
+
+                // 1.Prepare the request
+                /************************************/
+                Rreq = new ReadMultipleRegistersRequest(ref, count);
+                Rres = new ReadMultipleRegistersResponse();
+
+                Rreq.setUnitID(SlaveAddr); // set Slave Address
+                Rres.setUnitID(SlaveAddr); // set Slave Address
+
+                // 2. Open the connection
+                con.setPort(port);
+                try {
+                    con.connect();
+                    System.out.println("Kapcsolódva!");
+                } catch (Exception e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+                con.setTimeout(2500);
+                // 3. Start Transaction
+                trans = new ModbusTCPTransaction(con);
+                trans.setRetries(5);
+                trans.setReconnecting(true);
+                trans.setRequest(Rreq);
+
+                try {
+                    trans.execute();
+                } catch (ModbusIOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (ModbusSlaveException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (ModbusException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                /* Print Response */
+                Rres = (ReadMultipleRegistersResponse) trans
+                        .getResponse();
+
+                System.out.println("Connected to=  " + astr
+                        + con.isConnected() + " / Start Register "
+                        + Integer.toHexString(ref));
+
+                count = 10;
+                for (int k = 0; k < count; k++) {
+                    System.out.println("The value READ: "
+                            + Rres.getRegisterValue(k) + " "
+                            + Rres.getUnitID());
+                    ki_adat = ki_adat + Rres.getRegisterValue(k) + "\n";
+
+
+                    // Adatbázisba írás
+                    ContentValues modbusData = new ContentValues();
+                    modbusData.put("Value", Rres.getRegisterValue(k)); // tábla
+                                                                        // +
+                                                                        // érték
+                    modbusData.put("timeStamp", timeStamp);
+                    try {
+                        gConstants.db.beginTransaction();
+                        gConstants.db
+                                .insert("Modbus", null, modbusData);
+                        gConstants.db.setTransactionSuccessful();
+                    } finally {
+                        gConstants.db.endTransaction();
+                    }
+
+                }
+                kiir.setText(ki_adat);
+                ki_adat = "";
+ }
+
+ public void onFinish() {}
+}.start();

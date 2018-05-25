@@ -1,0 +1,13 @@
+class F1() {
+  int a;
+  int b;
+  void execute() {
+    a = 1;
+    b = 2;
+    two(this);
+  };
+}
+
+void two(F1 f1) {
+  int c = f1.a + f1.b;
+}

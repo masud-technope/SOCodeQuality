@@ -1,0 +1,13 @@
+public class Example {
+    private int thousands;
+    private int units;
+
+    public void setValue(int value) {
+        thousands = value / 1000;
+        units = value % 1000;
+    }
+
+    public int getValue() {
+        return 1000 * thousands + units;
+    }
+}

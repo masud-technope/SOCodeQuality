@@ -1,0 +1,76 @@
+// in your Camb class if possible
+//...
+private boolean nuker = false;
+// more code that changes the nuker variable
+public static boolean isNuker(){
+    return nuker;
+}
+
+
+// in this class
+if(Camb.isNuker()){
+        whenToStop++;
+        byte byte0 = 3;
+        checkWhenToStop(whenToStop)
+        checkBytes(byte0)
+}else{
+    whenToStop = 0;
+}
+
+public void checkWhenToStop(int whenToStop){
+    if(whenToStop < 60){
+        mc.thePlayer.setPosition(posX, posY, posZ-1.5);
+    }
+    if(whenToStop > 60 && whenToStop < 65){
+        mc.thePlayer.setPosition(posX-1.2, posY, posZ);
+    }
+    if(whenToStop > 65 && whenToStop < 124){
+        mc.thePlayer.setPosition(posX, posY, posZ+1.5);
+    }
+    if(whenToStop > 124 && whenToStop < 129){
+        mc.thePlayer.setPosition(posX-1.2, posY, posZ);
+    }
+    if(whenToStop > 129 && whenToStop < 188){
+        mc.thePlayer.setPosition(posX, posY, posZ-1.5);
+    }
+    if(whenToStop > 188 && whenToStop < 193){
+        mc.thePlayer.setPosition(posX-1.2, posY, posZ);
+    }
+    if(whenToStop > 193 && whenToStop < 252){
+        mc.thePlayer.setPosition(posX, posY, posZ+1.5);
+    }
+    if(whenToStop > 252 && whenToStop < 257){
+        mc.thePlayer.setPosition(posX-1.2, posY, posZ);
+    }
+    if(whenToStop > 257 && whenToStop < 316){
+        mc.thePlayer.setPosition(posX, posY, posZ-1.5);
+    }
+    if(whenToStop > 316 && whenToStop < 321){
+        mc.thePlayer.setPosition(posX-1.2, posY, posZ);
+    }
+    if(whenToStop > 321 && whenToStop < 376){
+        mc.thePlayer.setPosition(posX, posY, posZ+1.5);
+    }
+}
+
+public void checkBytes(byte byte0){
+        for(int k = byte0; k > -byte0; k--){
+            for(int i1 = byte0; i1 > -byte0; i1--){
+                for(int j1 = byte0; j1 > -byte0; j1--){
+                    double d1 = mc.thePlayer.posX + (double)k;
+                    double d3 = mc.thePlayer.posY + (double)i1;
+                    double d5 = mc.thePlayer.posZ + (double)j1;
+                    int k1 = (int)d1;
+                    int l1 = (int)d3;
+                    int i2 = (int)d5;
+                    int j2 = mc.theWorld.getBlockId(k1, l1, i2);
+                    Block block = Block.blocksList[j2];
+                    if(block != null){
+                       ((EntityClientPlayerMP)mc.thePlayer).sendQueue.addToSendQueue(new Packet14BlockDig(0, k1, l1, i2, 1));
+                       ((EntityClientPlayerMP)mc.thePlayer).sendQueue.addToSendQueue(new Packet14BlockDig(2, k1, l1, i2, 1));
+                    }
+                }
+            }
+
+        }
+}

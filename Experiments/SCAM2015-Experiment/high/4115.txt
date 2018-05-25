@@ -1,0 +1,10 @@
+Iterator<Shop> shopIterator = list1.iterator();
+while (shopIterator.hasNext()) {
+    Shop shop = shopIterator.next();
+    total += shop.shopTax();
+}
+Iterator<House> houseIterator = list2.iterator();
+while (houseIterator.hasNext()) {
+    House house = houseIterator.next();
+    total += house.shopTax();
+}

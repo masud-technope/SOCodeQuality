@@ -1,0 +1,10 @@
+private static final Pattern DEFAULT_VALUE_PATTERN
+        = Pattern.compile("default = (.*?);");
+
+private String extractDefaultValueFrom(String text) {
+    Matcher matcher = DEFAULT_VALUE_PATTERN.matcher(text);
+    if (!matcher.find()) {
+        throw new RuntimeException("Failed to find default value in text");
+    }
+    return matcher.group(1);
+}

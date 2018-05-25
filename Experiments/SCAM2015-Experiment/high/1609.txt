@@ -1,0 +1,6 @@
+List<Map<String, String>> listEntries = new ArrayList<Map<String,String>>();
+            Map<String,String> entry = new HashMap<String,String>();
+            entry.put("1", "abc");
+            entry.put("2", "xyz");
+            listEntries.add(entry);
+            System.out.println(listEntries);

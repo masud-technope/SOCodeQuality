@@ -1,0 +1,6 @@
+private class SearchForQuestions extends AsyncTask<String, Void, DataHandler> {
+    Activity activity;
+    public void SearchForQuestions(Activity activity){
+        this.activity = activity;
+    }
+//... rest of the code

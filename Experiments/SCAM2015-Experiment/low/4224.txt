@@ -1,0 +1,9 @@
+public String printMyArrayList(ArrayList<String> list)
+{
+   String result = "";
+   for(String s : list)
+   {
+      result += s + ", ";
+   }
+   return result.substring(0, result.length()-2);
+}

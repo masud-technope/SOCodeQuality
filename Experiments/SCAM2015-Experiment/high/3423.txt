@@ -1,0 +1,7 @@
+String s = "my very long string to test";
+
+for(String st : s.split(" ")){
+    if(st.startsWith("t")){
+        System.out.println(st);
+    }
+}

@@ -1,0 +1,21 @@
+public class MyClass {
+
+   volatile int x = 0;
+
+   public static void main(String[] args) {
+
+      final int i = x;
+      new Thread() {
+         int j = i;
+         public void run() {
+            j = 10;
+            final int k = j;
+            new Thread() {
+               public void run() {
+                  MyClass.x = k;
+               }               
+            }.start();
+         }
+      }.start();
+   }
+}

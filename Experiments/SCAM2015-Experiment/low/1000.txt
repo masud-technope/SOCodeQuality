@@ -1,0 +1,5 @@
+lots of stuff which might not throw any exception
+try {
+something that throws exception
+} catch (Exception e) {
+}

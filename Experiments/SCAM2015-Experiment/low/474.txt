@@ -1,0 +1,11 @@
+private void heapifyUp(int current) {
+int parent = (current - 1) / 2;
+if (current < 0)return;
+while (current > 0 && arr[current] > arr[parent]) {
+   int temp = arr[parent];
+   arr[parent] = arr[current];
+   arr[current] = temp;
+   current = parent;
+  parent = (current - 1) / 2;
+ } return;
+}

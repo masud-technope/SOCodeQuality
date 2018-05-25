@@ -1,0 +1,8 @@
+public class SingletonObject
+{
+public static SingletonObject REF = new SingletonObject();
+
+private SingletonObject()
+{
+    // no code req'd
+}

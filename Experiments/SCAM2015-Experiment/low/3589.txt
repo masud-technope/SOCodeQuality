@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<project name="CodeGen" basedir="." default="build-jar"> 
+    <property environment="env"/>
+    <property file="build.properties"/>
+    <path id="master-classpath"> 
+        <fileset dir="${dependenet_jar.dir}"> 
+            <include name="**/*.jar"/> 
+    </path> 
+
+    <!-- 
+    ==============================================================================
+    Compiles the Java files to .class files
+    ==============================================================================
+    -->
+    <target name="build" description="Compile source tree java files"> 
+        <mkdir dir="${build.dir}"/> 
+        <javac destdir="${build.dir}" source="1.6" target="1.6"> 
+            <src path="${src.dir}"/> 
+            <classpath refid="master-classpath"/> 
+        </javac> 
+    </target> 
+
+    <!-- 
+    ==============================================================================
+    Cleans the existing built files
+    ==============================================================================
+    -->
+    <target name="clean" description="Clean the output directories"> 
+        <delete> 
+            <fileset dir="${build.dir}"> 
+                <include name="**/*.class"/> 
+                <include name="**/*.jar"/> 
+            </fileset>  
+        </delete> 
+        <delete file="./mdcodegen.jar"/>
+        <delete dir="${build.dir}"/>
+    </target> 
+
+    <!-- 
+    ==============================================================================
+    Builds mdcodegen.jar plugin from the .class files
+    ==============================================================================
+    -->
+    <target name="build-jar" depends="build" description="Builds the plugin JAR"> 
+        <jar destfile="mdcodegen.jar">
+            <fileset dir="${build.dir}"/>
+        </jar> 
+    </target>
+
+
+
+</project>

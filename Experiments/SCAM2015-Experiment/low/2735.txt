@@ -1,0 +1,7 @@
+TextView tv =(TextView)findViewById(R.id.id of textview in xml);
+
+ tv.setPadding(15, 0, 0, 0);
+//tv.setPadding(left, top, right, bottom);
+ tv.setText( "Work");
+ tv.setTextSize(17);
+ tv.setTextColor(Color.parseColor("#000000"));

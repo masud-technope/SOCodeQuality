@@ -1,0 +1,9 @@
+public static void garbageCollector(Map references){
+    Iterator iterator = references.entrySet().iterator();
+    while (iterator.hasNext()) {
+        Map.Entry pair = (Map.Entry)iterator.next();
+        if (pair.getValue() == null) {
+            iterator.remove(); // avoids a ConcurrentModificationException
+        }
+    }
+ }

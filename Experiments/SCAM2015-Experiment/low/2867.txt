@@ -1,0 +1,7 @@
+public static int powersOf2(int k){
+    int x=1;
+    for (i=0; i < k; i++){
+        x*=2;
+    }
+    return x;   
+}

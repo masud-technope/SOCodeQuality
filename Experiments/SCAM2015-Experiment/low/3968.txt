@@ -1,0 +1,9 @@
+if (conditionA) { 
+
+    //Only conditionA is true you can write more code and other logic here
+    if (conditionB) { 
+        return true;
+    } 
+    //conditionB is true or false, you can write more code and other logic here
+    return false;
+}

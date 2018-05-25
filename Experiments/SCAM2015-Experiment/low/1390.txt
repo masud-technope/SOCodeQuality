@@ -1,0 +1,4 @@
+try
+{
+ MyFrame.jta.append(mother.toString() + "\n");
+}catch(NullPointerException ignore){}

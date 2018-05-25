@@ -1,0 +1,5 @@
+excel.(class)=fi.utu.seurantaraporttisuodatin.service.Raportti  
+index.(class)=org.springframework.web.servlet.view.urlBasedView  
+index.viewClass =org.springframework.web.servlet.view.JstlView  
+index.prefix = /WEB-INF/jsp/  
+index.suffix =.jsp

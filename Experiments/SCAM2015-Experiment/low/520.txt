@@ -1,0 +1,24 @@
+ArrayList<table> libel = new ArrayList<table>();
+try {
+SessionFactory sf = new Configuration().configure().buildSessionFactory();
+Session s = sf.openSession();
+s.beginTransaction();
+
+String hql = "FROM table ";
+
+org.hibernate.Query query = s.createQuery(hql);
+libel= (ArrayList<table>) query.list();
+Iterator it = libel.iterator();
+while(it.hasNext()) {
+table cat = (table) it.next();
+
+cat.getLibCat();//table colonm getter
+
+
+combobox.addItem(cat.getLibCat());
+}
+s.getTransaction().commit();
+s.close();
+sf.close();
+} catch (Exception e) {
+System.out.println("Exception in getSelectedData::"+e.getMessage());

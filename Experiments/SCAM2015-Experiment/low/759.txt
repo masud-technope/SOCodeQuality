@@ -1,0 +1,3 @@
+Method m = clazz.getDeclaredMethod("valueOf", String.class);
+      T str = (T) m.invoke(null, from);
+      return str;

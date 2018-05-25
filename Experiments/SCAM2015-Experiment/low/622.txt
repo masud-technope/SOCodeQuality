@@ -1,0 +1,4 @@
+for (int left=0, int right=b.length-1; left<right; left++, right--) {
+    // exchange the first and last
+    int temp = b[left]; b[left]  = b[right]; b[right] = temp;
+}

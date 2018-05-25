@@ -1,0 +1,5 @@
+vararg(null, null, null); // prints "3"
+vararg(null, null);       // prints "2"
+vararg(null);             // throws NullPointerException!
+
+vararg((Object) null);    // prints "1"

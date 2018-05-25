@@ -1,0 +1,24 @@
+public class Rep {
+    public static void main( String [] args ) {
+       System.out.println( trimChar( '\\' , "\\\\\\joe\\jill\\\\\\\\" )  ) ;
+       System.out.println( trimChar( '\\' , "joe\\jill" )  ) ;
+    }
+    private static String trimChar( char toTrim, String inString ) { 
+        int from = 0;
+        int to = inString.length();
+
+        for( int i = 0 ; i < inString.length() ; i++ ) {
+            if( inString.charAt( i ) != toTrim) {
+                from = i;
+                break;
+            }
+        }
+        for( int i = inString.length()-1 ; i >= 0 ; i-- ){ 
+            if( inString.charAt( i ) != toTrim ){
+                to = i;
+                break;
+            }
+        }
+        return inString.substring( from , to );
+    }
+}

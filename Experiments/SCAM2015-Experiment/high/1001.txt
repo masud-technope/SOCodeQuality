@@ -1,0 +1,3 @@
+Remote stub = UnicastRemoteObject.exportObject(new WutManager(), 0);
+Registry registry = LocateRegistry.createRegistry(1099);
+registry.rebind("WutManager", stub);

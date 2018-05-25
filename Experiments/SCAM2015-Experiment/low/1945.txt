@@ -1,0 +1,30 @@
+public  String compareDate( PaymentTxnRequest request ) throws ParseException { 
+        Date debitDate= request.getPaymentTxn().getCrValDt();
+        Date now = new Date();
+        String response="";
+        SimpleDateFormat sdfDate = new SimpleDateFormat("dd/MM/yyyy");
+        String strCurrDate = sdfDate.format(now);
+        String strDebitDate = sdfDate.format(debitDate);
+        System.out.println("Current Date: " + strCurrDate);
+        Date currentDate =  new SimpleDateFormat("dd/MM/yyyy").parse(strCurrDate);
+        Date txnDate =  new SimpleDateFormat("dd/MM/yyyy").parse(strDebitDate);
+        System.out.println("C -> "+currentDate);
+        System.out.println("C -> "+txnDate); 
+         if (txnDate!=null){
+         if (currentDate.equals(txnDate))
+         {
+             System.out.println("Valid Txn");
+             response="valid";
+         }
+         if (currentDate.after(txnDate))
+         {
+            System.out.println("--> Not  Valid TXN Past");   
+            response="notValid";
+         }
+        if (currentDateenter code here.before(txnDate)){
+            System.out.println("Future Valid TXn");
+             response="future";
+        }
+     }
+        return response;
+    }

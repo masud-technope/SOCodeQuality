@@ -1,0 +1,37 @@
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    Button button1, button2, button3;
+    button1 = ((Button) findViewById(R.id.button1));
+    button2 = ((Button) findViewById(R.id.button2));
+    button3 = ((Button) findViewById(R.id.button3));
+    button1.setOnClickListener(this);
+    button2.setOnClickListener(this);
+    button3.setOnClickListener(this);
+    TextView textview1, textview2, textview3, questionView, questionView2, questionNumber;
+
+    textview1 = ((TextView) findViewById(R.id.textView1));
+    textview2 = ((TextView) findViewById(R.id.textView2));
+    textview3 = ((TextView) findViewById(R.id.textView3));
+    questionView = ((TextView) findViewById(R.id.questionView));
+    questionView2 = ((TextView) findViewById(R.id.questionView2));
+    questionNumber = (TextView) findViewById(R.id.questionNumber);
+}
+
+   @Override
+
+        public void onClick( View v) {
+            switch (v.getId()) {
+                case R.id.button1:
+
+
+
+                    if(questionIndex < questions.length -1
+                            )
+
+                        if (questionIndex != 5){
+                            textview2.setText("");
+                        } if (questionIndex == 5){
+                    textview2.setText(halfQues8);
+                }

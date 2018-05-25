@@ -1,0 +1,5 @@
+int offset=0;
+        while(offset<length) {
+            int cnt=ois.read(bytes,offset, length-offset); // key string bytes
+            offset+=cnt;
+        }

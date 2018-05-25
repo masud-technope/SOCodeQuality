@@ -1,0 +1,8 @@
+Calendar now = Calendar.getInstance();
+
+    int currentWeek = now.get(Calendar.WEEK_OF_YEAR);
+    System.out.println("current week = " + currentWeek);
+
+now.add(Calendar.WEEK_OF_YEAR, -1);
+    int test = now.get(Calendar.WEEK_OF_YEAR);
+    System.out.println(" test date = " + test);

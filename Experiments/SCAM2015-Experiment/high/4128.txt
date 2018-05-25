@@ -1,0 +1,5 @@
+int arraySize = 35;
+Test[] t = new Test[arraySize];
+for (i = 0; i < arraySize; i++) {
+    t[i] = new Test(10, 20);
+}

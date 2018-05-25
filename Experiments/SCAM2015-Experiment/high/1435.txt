@@ -1,0 +1,3 @@
+String timeStamp = new SimpleDateFormat().format( new Date() );
+FileHandler fh = new FileHandler("./jay_log_%u.%g_" +timeStamp +".log", 30000,4);  
+logger.addHandler(fh);

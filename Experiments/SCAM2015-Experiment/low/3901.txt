@@ -1,0 +1,11 @@
+//for example we have:"123456789"
+ String S = "123456789";
+ //you want to print "1236789"
+ String P = "";//Null
+ for(int x = 0; x < = 2 ; x++)
+      P+="1, 2, 3";
+ for(int x = 5; x < S.length() ; x++)
+      P+="6, 7, 8, 9";
+ //final
+ System.out.print(P);
+}

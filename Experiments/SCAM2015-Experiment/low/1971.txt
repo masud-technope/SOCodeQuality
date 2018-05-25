@@ -1,0 +1,13 @@
+public static FileInputStream getFile(File fileImport) throws IOException {
+      FileInputStream fileStream = null;
+    try {
+        PrintWriter writer = new PrintWriter(fileImport);
+        writer.print(StringUtils.EMPTY);
+        fileStream = new FileInputStream(fileImport);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            writer.close();
+        }
+         return fileStream;
+}

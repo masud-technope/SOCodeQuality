@@ -1,0 +1,25 @@
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    // TODO Auto-generated method stub
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.prvi);
+
+    final MediaPlayer mpButtonClick1 = MediaPlayer.create(this, R.raw.spalshm);
+
+    boolean isOn = false;
+
+    Button dugme = (Button) findViewById(R.id.dugme);
+    dugme.setOnClickListener(new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            is(!isOn) { // if not playing
+                mpButtonClick1.start(); // start
+                isOn = true; // now it is
+            } else { // otherwise it's already on
+                mpButtonClick1.stop(); // turn it off
+                isOn = false; // now it's off
+            }
+        }
+    });     
+}

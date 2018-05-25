@@ -1,0 +1,8 @@
+switch(n){
+    case 5:
+    case 13:
+    ...
+        return true;
+    default:
+        return false;
+}

@@ -1,0 +1,17 @@
+import com.google.common.collect.*;
+import com.google.common.collect.Multiset.Entry;
+
+...
+
+  final Multiset<String> words = HashMultiset.create();
+  words.addAll(...);
+
+  Ordering<Entry<String>> byIncreasingCount = new Ordering<Entry<String>>() {
+    @Override public int compare(Entry<String> a, Entry<String> b) {
+      // safe because count is never negative
+      return left.getCount() - right.getCount();
+    }
+  });
+
+  Entry<String> maxEntry = byIncreasingCount.max(words.entrySet())
+  return maxEntry.getElement();

@@ -1,0 +1,8 @@
+class MyJobDoer extends Thread{
+          public void run(){
+             //something
+          }
+       }
+
+      MyJobDoer mjd=new MyJobDoer();
+      mjd.start();

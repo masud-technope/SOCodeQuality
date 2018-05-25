@@ -1,0 +1,22 @@
+public void methodA(){
+     int[] values = {1,2}; 
+    // MethodA stack frame has a register that contains a 
+    //   memory address (let's say it's 0x1F) that points to a contiguous section of 
+    //   memory sized for an integerarray of size 2. 
+     methodB(values); // Pass the **memory address** (aka REFERENCE) not the register address
+     System.out.println(values[0]); // Prints "100"
+ } 
+
+ public void methodB(int[] ints){
+     // MethodB stack frame now has a register with the memory address (0x1F)
+     //    of 'ints' which is the same address that MethodA stack frame has.
+     //    The same REFERENCE
+     ints[0] = 100; // Alter the value in mem of 0x1F+0
+     ints = new int[2]; // The local register overwrites the memory address of 
+                        // the REFERENCE value that was there with 
+                        // a new memory address -- say 0x5A
+                        // since it's not storing it in the same register 
+                        // as MethodA, MethodA will not reflect this.
+
+
+ }

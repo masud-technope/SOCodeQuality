@@ -1,0 +1,7 @@
+if (jCheckBox6.isSelected()== true)
+jCheckBox6.equals(56);
+new Form6().setVisible(true); 
+
+else
+if (jCheckBox1.isSelected()== false)
+jCheckBox1.equals(0);

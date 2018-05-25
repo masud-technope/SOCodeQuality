@@ -1,0 +1,11 @@
+public static Integer getRandom(Integer pSize) {
+
+    if(pSize<=0) {
+        return null;
+    }
+    Double min_d = Math.pow(10, pSize.doubleValue()-1D);
+    Double max_d = (Math.pow(10, (pSize).doubleValue()))-1D;
+    int min = min_d.intValue();
+    int max = max_d.intValue();
+    return RAND.nextInt(max-min) + min;
+}

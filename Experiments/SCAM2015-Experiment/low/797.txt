@@ -1,0 +1,4 @@
+if(hm.put("John","1") != null)
+{
+  // "John" was already a key in the map.  The sole value for this key is now "1".
+}

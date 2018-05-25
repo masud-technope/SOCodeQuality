@@ -1,0 +1,6 @@
+String number = String.valueOf(a);
+
+    String firstNumber =  number.substring(0, 1);
+    String secondNumber = number.substring(1);
+
+    sum = Integer.parseInt(firstNumber) +  Integer.parseInt(secondNumber);

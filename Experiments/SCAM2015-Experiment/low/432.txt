@@ -1,0 +1,20 @@
+public class Swap
+{
+    public static void main (String[]args)
+    {
+        int y = 5;
+        int x = 4;
+        int c;
+
+        System.out.println("y = "+y);
+        System.out.println("x = "+x);
+
+        c=x; //c = 4
+        x=y; //x = 5;
+        y=c;
+
+        System.out.println("\n");
+        System.out.println("y= "+y);
+        System.out.println("x= "+x);
+    }    
+}

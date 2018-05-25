@@ -1,0 +1,42 @@
+public class ExampleGame {
+
+    private ExampleHero hero;
+    private ExampleRival rival;
+
+    public static void main(String... args) {
+        ExampleGame game = new ExampleGame();
+        game.start();
+    }
+
+    public ExampleGame() {
+         hero = new ExampleHero();
+         rival = new ExampleRival();
+         //what ever other game setup you need to do.
+         //alternately you could have a load() method
+         //that takes care of most of this.          
+    }
+
+    private void start() {
+        //make your run loop or query the user for input
+        //or whatever you need to do. I will create an 
+        //example run loop
+        boolean running = true;
+        while(running) {
+            //this whole block should be moved
+            //to another method called gameUpdate()
+            //or something similar but since this
+            //is a quick example I'll just leave it
+            //here
+            hero.attack(rival);
+            rival.attack(hero);
+            if(rival.isDead()) {
+                hero.improveReputation();
+                System.out.println(“Your rival is dead!");
+                running = false;
+            } else if(hero.isDead()) {
+                System.out.println("you died :(");
+                running = false;
+            }
+        }
+    }
+}

@@ -1,0 +1,4 @@
+public void reserver(String...nom){
+    Groupe gr = new Groupe(nom);
+    passager.add(gr);       
+}

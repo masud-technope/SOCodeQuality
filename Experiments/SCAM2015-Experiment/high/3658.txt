@@ -1,0 +1,3 @@
+public static boolean valueEquals(Number n1, Number n2) {
+    return n1.longValue() == n2.longValue() && n1.doubleValue() == n2.doubleValue();
+}

@@ -1,0 +1,15 @@
+var total = 0;
+
+if(arguments.length > 0) {
+
+ for(var i = 0, n = arguments.length; i < n; i++) {
+
+  total += parseFloat(arguments[i]);
+
+ }
+
+ total /= arguments.length;
+
+}
+
+return total;

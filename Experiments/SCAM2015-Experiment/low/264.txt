@@ -1,0 +1,7 @@
+BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+ String str = "";
+ while (str != null) {
+     System.out.print("> prompt ");
+     str = in.readLine();
+     process(str);
+ }

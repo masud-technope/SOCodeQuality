@@ -1,0 +1,6 @@
+public class Week   
+{
+    private long ride_id;
+    private double trip_average_speed;  
+    //other parameters and it's getter and setter method.    
+}

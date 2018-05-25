@@ -1,0 +1,3 @@
+static <T> boolean isInstance(Object myVar, Class<T> expectedType) {
+    return expectedType.isInstance(myVar);
+}

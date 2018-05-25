@@ -1,0 +1,20 @@
+public class PurchaseOrder {
+
+   @Property
+   private Customer customer;
+
+   @Property
+   private String name;
+
+   pulic void setCustomer(Customer c)
+   {
+       this.customer = c;
+   }
+
+   public Customer getCustomer()
+   {
+       return customer;
+   }
+
+   // The same for name
+}

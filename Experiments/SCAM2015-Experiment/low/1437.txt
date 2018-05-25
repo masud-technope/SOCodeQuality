@@ -1,0 +1,12 @@
+void List<Integer> makeSequence(int begin, int end) {
+
+  AtomicInteger ai=new AtomicInteger(begin);
+  List<Integer> ret = new ArrayList(end-begin+1);
+
+  while ( end-->begin) {
+
+    ret.add(ai.getAndIncrement());
+
+  }
+  return ret;  
+}

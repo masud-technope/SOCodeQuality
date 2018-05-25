@@ -1,0 +1,10 @@
+JTextField txtFirstName = new JTextField();
+txtFirstName.addKeyListener(new KeyAdapter() {
+    @Override
+    public void keyTyped(KeyEvent arg0) {
+        char charecter = arg0.getKeyChar();
+            if (Character.isLowerCase(charecter)) {
+                arg0.setKeyChar(Character.toUpperCase(charecter));
+            }
+        }
+    });

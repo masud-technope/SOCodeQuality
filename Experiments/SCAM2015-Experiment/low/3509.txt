@@ -1,0 +1,25 @@
+public class Test {
+
+    static class TestType {}
+
+    static class Pair<A,B>{}
+
+    public static <T extends TestType> void main( String [] args ) throws Exception {
+
+        Collection<T> val = null;
+
+        List<T> single = testSingle( val ); // OK
+
+        Pair<String,List<T>> pair = testPair( val ); // OK
+
+    }
+
+    static <T extends TestType> List<T> testSingle( Collection<T> val ){
+        return null;
+    }
+
+    static <T extends TestType> Pair<String,List<T>> testPair( Collection<T> val ){
+        return null;
+    }
+
+}

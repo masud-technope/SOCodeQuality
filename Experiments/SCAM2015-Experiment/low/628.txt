@@ -1,0 +1,9 @@
+try
+{
+   props.load(...);
+}
+catch (FileNotFoundException ex)
+{
+   Thread.sleep(x * 1000);
+   props.load(...);
+}

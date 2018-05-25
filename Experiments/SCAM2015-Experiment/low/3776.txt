@@ -1,0 +1,13 @@
+public class HelloWorld{
+
+ public static void main(String []args){
+    String test = "Hello #Wor@l@d";
+    int hasHashTag = 0;
+    int hasAt = 0;
+    for (int i = 0; i < test.length(); i++) {
+        if (test.charAt(i) == '#') hasHashTag++;
+        if (test.charAt(i) == '@') hasAt++;
+    }
+    System.out.println(hasHashTag);
+    System.out.println(hasAt);
+ }

@@ -1,0 +1,9 @@
+Set allowedTitles = new HashSet();
+allowedTitles.add("MR");
+allowedTitles.add("MRS");
+allowedTitles.add("MS");
+allowedTitles.add("MISS");
+if (! allowedTitles.contains(textBoxTitle.getText().trim().toUpperCase()) {
+   //print exception
+}
+else { title = textBoxTitle.getText().trim());

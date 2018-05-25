@@ -1,0 +1,4 @@
+String[] data=null;
+if(args.length>0){
+  data = args[0].split("|");
+}

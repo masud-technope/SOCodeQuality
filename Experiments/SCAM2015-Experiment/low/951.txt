@@ -1,0 +1,8 @@
+// Can be also used with files and streams
+Scanner sc = new Scanner(something);
+sc.useDelimiter("\t");
+
+while (sc.hasNext()) {
+   System.out.println(sc.next());
+}
+sc.close();

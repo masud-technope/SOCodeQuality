@@ -1,0 +1,3 @@
+IWebElement dropDownListBox = driver.findElement(By.Id("selection"));
+SelectElement clickThis = new SelectElement(dropDownListBox);
+clickThis.SelectByText("Germany");

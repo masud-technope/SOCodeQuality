@@ -1,0 +1,6 @@
+[albus_square]
+name: Albus Square
+items: Flowers, Traffic Cone
+north: lecture_theatre
+west: library_enchanted_books
+south: furnesspuff_college

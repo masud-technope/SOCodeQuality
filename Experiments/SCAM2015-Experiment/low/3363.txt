@@ -1,0 +1,32 @@
+public class Test extends JFrame {
+
+private JButton field[];
+
+public JButton[] getField() {
+    return field;
+}
+
+public void test(int n) {
+    JPanel panel = new JPanel();
+    panel.setLayout(new GridLayout(0, 1));
+    field = new JButton[n];
+    for (int i = 0; i < field.length; i++) {
+        field[i] = new JButton("" + i + "");
+        field[i].addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("clicked button");
+            }
+        });
+        panel.add(field[i]);
+    }
+    add(panel);
+}
+
+public static void main(String[] args) {
+    Test test = new Test();
+    test.setSize(300, 300);
+    test.setVisible(true);
+    test.setLocationRelativeTo(null);
+    test.test(5);
+}

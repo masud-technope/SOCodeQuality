@@ -1,0 +1,10 @@
+package p;
+
+public class CallProtectedTest {
+    public void CallProtectedTestMethod() {
+        System.out.println("CallProtectedTestMethod called :::::::::::::::::");
+        ProtectedTest p = new ProtectedTest();
+        Object obj = p.ProtectedMethod();
+        System.out.println("obj >>>>>>>>>>>>>>>>>>>>>>>"+obj);
+    }
+}

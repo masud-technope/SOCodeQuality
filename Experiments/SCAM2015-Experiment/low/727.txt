@@ -1,0 +1,12 @@
+<bean id="genericEntityFactory" class="com.xx.xx.common.index.GenericEntityFactoryImpl">
+  <property name="indexEntityMap" ref="indexEntityMapBean"/>
+</bean>
+
+<util:map id="indexEntityMapBean" 
+       map-class="java.util.HashMap" 
+       key-type="com.xx.xx.common.index.IndexType" 
+       value-type="com.xx.xx.common.index.GenericEntityFactoryImpl">
+           <entry key="com.xx.xx.common.index.IndexType.CELL">
+                <ref bean="cell"/>
+           </entry>
+</util:map>

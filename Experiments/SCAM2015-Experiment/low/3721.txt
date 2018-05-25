@@ -1,0 +1,17 @@
+public class Greeter{
+   private String inputName;    
+
+   public Greeter(){
+
+   }
+
+   public Greeter (String inputName) {
+     this.inputName = inputName;
+   }
+
+   public String greet()
+   {
+      return "Hello " + inputName;
+   }
+
+}

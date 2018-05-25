@@ -1,0 +1,11 @@
+Log.info("Clicking on Softwarepack dropdown");
+JavascriptExecutor executor31 = (JavascriptExecutor)driver;
+executor31.executeScript("document.getElementById('swpacksId').style.display='block';");
+Select select31 = new Select(driver.findElement(By.id("swpacksId")));
+select31.deselectAll();
+select31.selectByVisibleText("ADVLEG");
+Thread.sleep(6000);
+JavascriptExecutor executor32 = (JavascriptExecutor)driver;
+executor32.executeScript("document.getElementById('swpacksId').style.display='block';");
+Select select32 = new Select(driver.findElement(By.id("swpacksId")));
+select32.selectByVisibleText("SIP");

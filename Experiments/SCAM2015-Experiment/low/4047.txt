@@ -1,0 +1,155 @@
+import java.util.Scanner;
+
+public class stringprogram {
+    public static void stringinputmethod()
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter a String");
+        String strs = scan.nextLine();
+
+        int numa = 0;
+        int numb = 0;
+        int numc = 0;
+        int numd = 0;
+        int nume = 0;
+        int numf = 0;
+        int numg = 0;
+        int numh = 0;
+        int numi = 0;
+        int numj = 0;
+        int numk = 0;
+        int numl = 0;
+        int numm = 0;
+        int numn = 0;
+        int numo = 0;
+        int nump = 0;
+        int numq = 0;
+        int numr = 0;
+        int nums = 0;
+        int numt = 0;
+        int numu = 0;
+        int numv = 0;
+        int numw = 0;
+        int numx = 0;
+        int numy = 0;
+        int numz = 0;
+
+        String randaf;
+
+        for(int i=0; i<=strs.length()-1;i++)
+        {
+            randaf = strs.substring(i, i+1);
+
+            if(randaf.equals("a"))
+            {
+                numa = numa + 1;
+            }
+            else if(randaf.equals("b"))
+            {
+                numb = numb + 1;
+            }
+            else if(randaf.equals("c"))
+            {
+                numc = numc + 1;
+            }
+            else if(randaf.equals("d"))
+            {
+                numd = numd + 1;
+            }
+            else if(randaf.equals("e"))
+            {
+                nume = nume + 1;
+            }
+            else if(randaf.equals("f"))
+            {
+                numf = numf + 1;
+            }
+            else if(randaf.equals("g"))
+            {
+                numg = numg + 1;
+            }
+            else if(randaf.equals("h"))
+            {
+                numh = numh + 1;
+            }
+            else if(randaf.equals("i"))
+            {
+                numi = numi + 1;
+            }
+            else if(randaf.equals("j"))
+            {
+                numj = numj + 1;
+            }
+            else if(randaf.equals("k"))
+            {
+                numk = numk + 1;
+            }
+            else if(randaf.equals("l"))
+            {
+                numl = numl + 1;
+            }
+            else if(randaf.equals("m"))
+            {
+                numm = numm + 1;
+            }
+            else if(randaf.equals("n"))
+            {
+                numn = numn + 1;
+            }
+            else if(randaf.equals("o"))
+            {
+                numo = numo + 1;
+            }
+            else if(randaf.equals("p"))
+            {
+                nump = nump + 1;
+            }
+            else if(randaf.equals("q"))
+            {
+                numq = numq + 1;
+            }
+            else if(randaf.equals("r"))
+            {
+                numr = numr + 1;
+            }
+            else if(randaf.equals("s"))
+            {
+                nums = nums + 1;
+            }
+            else if(randaf.equals("t"))
+            {
+                numt = numt + 1;
+            }
+            else if(randaf.equals("u"))
+            {
+                numu = numu + 1;
+            }
+            else if(randaf.equals("v"))
+            {
+                numv = numv + 1;
+            }
+            else if(randaf.equals("w"))
+            {
+                numw = numw + 1;
+            }
+            else if(randaf.equals("x"))
+            {
+                numx = numx + 1;
+            }
+            else if(randaf.equals("y"))
+            {
+                numy = numy + 1;
+            }
+            else if(randaf.equals("z"))
+            {
+                numz = numz + 1;
+            }
+        }
+        System.out.println("a: "+numa +"\nb: "+ numb +"\nc: "+ numc +"\nd: "+ numd +"\ne: "+ nume +"\nf: "+ numf +"\ng: "+ numg +"\nh: "+ numh +"\ni: "+ numi +"\nj: "+ numj +"\nk: "+ numk +"\nl: "+ numl +"\nm: "+ numm +"\nn: "+ numn +"\no: "+ numo +"\np: "+ nump +"\nq: "+ numq +"\nr: "+ numr +"\ns: "+ nums +"\nt: "+ numt +"\nu: "+ numu +"\nv: "+ numv +"\nw: "+ numw +"\nx: "+ numx +"\ny: "+ numy +"\nz: "+ numz);
+    }
+
+    public static void main(String[] args)
+    {
+        stringinputmethod();
+    }
+}

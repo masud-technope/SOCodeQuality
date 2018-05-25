@@ -1,0 +1,3 @@
+String str = "/folder1/folder2/folder3/";
+int index = nthOccurrence(str, '/', 2);
+System.out.println(str.substring(index));

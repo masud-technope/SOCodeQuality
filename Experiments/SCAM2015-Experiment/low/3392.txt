@@ -1,0 +1,5 @@
+for(int i=0;i<val.size();i++){
+    if(val.get(i).contains("abcd") || val.get(i).contains("ABCD")){
+      // do some thing here
+    }
+}

@@ -1,0 +1,3 @@
+Random rn = new Random();
+int i = rn.nextInt() % lista.size();
+System.out.println(lista.get(i));

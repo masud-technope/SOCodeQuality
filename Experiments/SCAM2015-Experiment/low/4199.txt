@@ -1,0 +1,9 @@
+class Animal implements Serializable
+{
+    String type;
+
+    Animal(String something)
+    {
+        System.out.println("Animal's default constructor");
+    }
+}

@@ -1,0 +1,16 @@
+public int fightMath(int one, int two) {
+    return Calculate(one,two)
+
+    }
+
+
+    private int Calculate(int one,int two){
+
+    if (one==0){
+        if(two==0){
+     //return value}
+    }else if (one==1){
+   // return value as per condtiion
+    }
+
+    }

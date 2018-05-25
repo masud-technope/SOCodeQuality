@@ -1,0 +1,28 @@
+public void saveArray(String filename, String[] output_field) {
+         try {
+            FileOutputStream fos = new FileOutputStream(filename);
+            GZIPOutputStream gzos = new GZIPOutputStream(fos);
+            ObjectOutputStream out = new ObjectOutputStream(gzos);
+            out.writeObject(output_field);
+            out.flush();
+            out.close();
+         }
+         catch (IOException e) {
+             e.getStackTrace(); 
+         }
+      }
+
+    public String[] loadArray(String filename) {
+          try {
+            FileInputStream fis = new FileInputStream(filename);
+            GZIPInputStream gzis = new GZIPInputStream(fis);
+            ObjectInputStream in = new ObjectInputStream(gzis);
+            String[] read_field = (String[])in.readObject();
+            in.close();
+            return read_field;
+          }
+          catch (Exception e) {
+              e.getStackTrace();
+          }
+          return null;
+      }

@@ -1,0 +1,3 @@
+String a = "hello";
+String b = "world";
+boolean c = (a + b).equals(b + a);

@@ -1,0 +1,58 @@
+public class Item {
+
+public Item(int id, string name, float price, int amount, int ArrayID) {
+if (ArrayID == 1) { 
+ID1 = id;
+name1 = name;
+price1 = price;
+amount1 = amount;
+}
+if (ArrayID == 2) { 
+ID2 = id;
+name2 = name;
+price2 = price;
+amount2 = amount;
+}
+if (ArrayID == 3) { 
+ID3 = id;
+name3 = name;
+price3 = price;
+amount3 = amount;
+}
+if (ArrayID == 4) { 
+ID4 = id;
+name4 = name;
+price4 = price;
+amount4 = amount;
+}
+
+}
+
+//ArrayID #1
+public static int ID1;
+public static String name1;
+public static float price1;
+public static int amount1;
+
+//ArrayID #2
+public static int ID2;
+public static String name2;
+public static float price2;
+public static int amount2;
+
+//ArrayID #3
+public static int ID3;
+public static String name3;
+public static float price3;
+public static int amount3;
+
+//ArrayID #4
+public static int ID4;
+public static String name4;
+public static float price4;
+public static int amount4;
+
+
+public static int[] id = ID1, ID2 ID3, ID4;
+//so forth...
+}

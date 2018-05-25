@@ -1,0 +1,17 @@
+import java.math.BigDecimal;
+
+public class BigDecimalFormat
+{
+   private static int ROUNDING_MODE = BigDecimal.ROUND_HALF_EVEN;
+   private static int DECIMALS = 1;
+
+  public static void main(String[] args) {
+      double[] dArr = {5.05, 5.15, 5.25, 5.35, 5.45, 5.55};
+      for (double d : dArr)
+        System.out.println(rounded(new BigDecimal(d)));
+  }   
+
+   public static BigDecimal rounded(BigDecimal number){
+    return number.setScale(DECIMALS, ROUNDING_MODE);
+  }
+}

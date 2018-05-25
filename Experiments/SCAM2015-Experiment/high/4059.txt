@@ -1,0 +1,7 @@
+ListIterator<T> listIterator = linkedListNode.listIterator(0);
+if(yourCondition && listIterator.hasNext()){
+    T next = listIterator.next();
+}
+else if (listIterator.hasPrevious()){
+    T previous = listIterator.previous();
+}

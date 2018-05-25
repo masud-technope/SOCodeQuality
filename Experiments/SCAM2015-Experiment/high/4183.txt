@@ -1,0 +1,7 @@
+public void run() {
+    while(true) {
+        t.waitB();
+        System.out.println("I am B");
+        t.signalA();
+    }
+}

@@ -1,0 +1,10 @@
+Callback<PersonBean, Observable[]> extractor = new Callback<PersonBean, Observable[]>() {
+
+    @Override
+    public Observable[] call(PersonBean arg0) {
+        return new Observable[] {new PojoAdapter<PersonBean>(arg0)};
+    }
+
+};
+ObservableList<Person> teamMembers = FXCollections.observableArrayList(extractor);
+// fill list

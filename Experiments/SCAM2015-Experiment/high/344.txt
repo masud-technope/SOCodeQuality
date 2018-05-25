@@ -1,0 +1,3 @@
+if (word.contains("d")) {
+    System.out.println("Goodbye!");
+}

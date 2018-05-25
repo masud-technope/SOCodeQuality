@@ -1,0 +1,27 @@
+public class test{
+
+   int counter=0;int last;
+    public static void main(String[] args){
+        test t1=new test(); //object of test
+        String line="This is a working code"; //line in which char to be counted
+        char c='q'; // char to be counted
+        t1.last=line.length()-1;  //setting last
+        System.out.println("In sentence: "+line);
+        if(t1.count(line, c)!=-1)
+        System.out.println("The character "+c+" is "+t1.counter+" times"); //printing result
+        else
+        System.out.println("The character "+c+" is not found");
+    }
+    public int count (String line, char c){
+        if (last<0){   // case for empty string or nil char.
+            return counter;                     // recursion ends here and return counted
+        }
+        else if(line.charAt(last)==c)
+        {
+            counter++;  //counting
+        }
+        last--;  //shitin last;
+        count(line, c);
+        return -1;  //if even a single times is not found then return -1;
+      }
+}

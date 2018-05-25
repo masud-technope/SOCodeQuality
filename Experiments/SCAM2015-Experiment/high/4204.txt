@@ -1,0 +1,5 @@
+if (scanf("%d%d", &i, &j) == 2) {
+    ... // Got 2 numbers
+} else {
+    fprintf(stderr, "Wrong input! Expected two numbers.");
+}

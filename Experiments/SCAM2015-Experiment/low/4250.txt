@@ -1,0 +1,11 @@
+//My own binary converter method
+public int baseTwo(int number){
+    int counter=0; //keeps the digits place
+    int remainder = 0; //keeps binary number form 
+    while(number>=1){
+        remainder += (number%2)*(Math.pow(10, counter));
+        counter+=1;
+        number = number/2;
+    }
+    return remainder;
+}

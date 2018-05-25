@@ -1,0 +1,8 @@
+int i = 0;
+ while((line = reader.readLine()) != null){
+     if(i != 0){
+     //line is not the first one.
+     //do some work.
+     }
+     i++;
+ }

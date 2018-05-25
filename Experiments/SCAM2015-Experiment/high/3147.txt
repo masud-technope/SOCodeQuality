@@ -1,0 +1,5 @@
+for (int i = 0; i < myClass.length; i++) {
+  if (myClass[i] != null) {
+    System.out.println(myClass[i]);
+  } 
+}

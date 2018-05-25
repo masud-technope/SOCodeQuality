@@ -1,0 +1,7 @@
+public class MyClass {
+
+   public void synchronized doSomething() {
+       doItAtomic1():
+      doItAtomic2():
+   }  
+}

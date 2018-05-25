@@ -1,0 +1,4 @@
+def getSize(v: Int): Int = {
+  val thresholds = Vector(145, 117, 68, 51, 22, 10)
+  thresholds.zipWithIndex.find(v > _._1).map(_._2).getOrElse(0) + 1
+}

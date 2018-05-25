@@ -1,0 +1,8 @@
+public class MapKey {
+    public Object keyFirstPart;
+    public Object keySecondPart;
+
+    // You'll need to implement equals, hashcode, etc
+}
+
+Map myyMap <MapKey, value>

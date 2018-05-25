@@ -1,0 +1,3 @@
+File srcFile = new File(origFilename);
+ File destFile = new File(newFilename);
+ srcFile.renameTo(destFile);

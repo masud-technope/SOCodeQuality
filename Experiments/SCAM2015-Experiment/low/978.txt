@@ -1,0 +1,8 @@
+String[] array1 = new String[10];
+array1[0] = "Hello";
+
+String[] array2 = new String[10];
+array2[0] = "Hello my world";
+array2[1] = "Hi buddy";
+
+int index = ArrayUtils.indexOf(array2, array1[0]);

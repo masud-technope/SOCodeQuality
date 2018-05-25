@@ -1,0 +1,6 @@
+String Exit = null;
+
+do {
+    // do something
+    Exit = input.nextLine();
+} while (Exit != 'y');

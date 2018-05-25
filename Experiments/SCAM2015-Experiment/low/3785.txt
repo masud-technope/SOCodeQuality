@@ -1,0 +1,23 @@
+int indexOfNoDup(string aChar, int startPosition){
+  int posInString; // character position in static String "string"
+  int lenString;   // length of static String "string"
+  int pos;         // temporal
+
+  for (posInString=startPosition, posInString<lenString; posInString)
+    {
+       if (aChar == string[posInStrings])
+         {
+           if ((posInString+1<lenString) && (aChar == String[posInStrings+1])) { // followed by same  character
+               if(posInString+2<lenString){
+                 return -1; // no more characters after successive charecters.
+               } else {
+                 for (pos = posInString+2; (pos < lenString) && (aChar == string[pos]); pos++)
+                   ; // skip successive characers.
+                 posInString = pos; // character at posInString is other character or end of string.
+               }
+             } else {  // found isolated character!
+               return posInStrings;
+             }
+         }
+    }
+}

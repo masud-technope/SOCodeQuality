@@ -1,0 +1,4 @@
+List<IData> dataAList = new ArrayList<IData>();
+ dataList.add(new DataA());
+ DataDAO dataADAO = new DataDAO(dataAList);
+ dataADAO.doSomething();

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<project name="testproj" default="mycopy" basedir=".">
+  <target name="mycopy">
+      <copy file="myfile.txt" tofile="mycopy.txt" />
+  </target>
+</project>

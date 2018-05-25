@@ -1,0 +1,50 @@
+public class SimplePaint {
+
+    public static void main(String[] args) {
+        new SimplePaint();
+    }
+
+    public SimplePaint() {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (ClassNotFoundException ex) {
+                } catch (InstantiationException ex) {
+                } catch (IllegalAccessException ex) {
+                } catch (UnsupportedLookAndFeelException ex) {
+                }
+
+                JFrame frame = new JFrame("Test");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setLayout(new BorderLayout());
+                frame.add(new PaintPane());
+                frame.setSize(200, 200);
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+            }
+        });
+    }
+
+    protected class PaintPane extends JPanel {
+
+        @Override
+        protected void paintComponent(Graphics g) {
+
+            super.paintComponent(g);
+
+            Graphics2D g2d = (Graphics2D) g.create();
+            String text = "Look ma, no hands";
+            FontMetrics fm = g2d.getFontMetrics();
+            int x = (getWidth() - fm.stringWidth(text)) / 2;
+            int y = ((getHeight() - fm.getHeight()) / 2) + fm.getAscent();
+            g2d.drawString(text, x, y);
+            g2d.dispose();
+
+
+        }
+
+    }
+
+}

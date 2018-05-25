@@ -1,0 +1,15 @@
+#include "jvmti.h"
+#include "jni.h"
+
+jvmtiEnv *jvmti;
+
+JNIEXPORT jint JNICALL
+Agent_OnLoad(JavaVM *vm, char *options, void *reserved) {
+    (*vm)->GetEnv(vm, (void **)&jvmti, JVMTI_VERSION_1);
+    return JNI_OK;
+}
+
+JNIEXPORT void JNICALL my_managled_function_name_that_is_entirely_too_long_to_be_easy_to_use (JNIEnv *env) {
+    error = (*jvmti)->ForceGarbageCollection(jvmti);
+//    you can trap the error if you want;
+}

@@ -1,0 +1,12 @@
+boolean intVal = false;
+    for(int i=0;i<str.length;i++) {
+            intVal = false;
+            try {
+                if (Integer.parseInt(str[i]) > 0) {
+                    intVal = true;
+                }
+            } catch (java.lang.NumberFormatException e) {
+                intVal = false;
+            }
+        m.put(str[i], !intVal);
+    }

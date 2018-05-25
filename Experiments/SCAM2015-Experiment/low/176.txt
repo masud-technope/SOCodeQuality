@@ -1,0 +1,26 @@
+def zip (String zipFile, String [] filesToZip){ 
+    def result = new ZipOutputStream(new FileOutputStream(zipFile))
+    result.withStream { zipOutStream ->
+    	filesToZip.each {fileToZip ->
+    		ftz = new File(fileToZip)
+    		if(ftz.isDirectory()){
+    			pathlength = new File(ftz.absolutePath).parentFile.absolutePath.size()
+    			ftz.eachFileRecurse {f ->				
+    				if(!f.isDirectory()) writeZipEntry(f, zipOutStream, f.absolutePath[pathlength..-1])	
+    			}
+    		}				
+    		else writeZipEntry(ftz, zipOutStream, '')
+    	}
+    }
+}
+
+def writeZipEntry(File plainFile, ZipOutputStream zipOutStream, String path) {
+    zipOutStream.putNextEntry(new ZipEntry(path+plainFile.name))
+    new FileInputStream(plainFile).withStream { inStream ->
+    	def buffer = new byte[1024]
+    	def count
+    	while((count = inStream.read(buffer, 0, 1024)) != -1) 
+    		zipOutStream.write(buffer)					
+    }
+    zipOutStream.closeEntry()
+}

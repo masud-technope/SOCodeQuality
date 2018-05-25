@@ -1,0 +1,3 @@
+sql = "INSERT INTO Identities"
+              + " VALUES"
+              + "('John', 'Smith', '38 Turpington Lane', 'Farnborough', 'Hampshire', 'HA6 7AF', '1990-03-01',"+ PKmod+", "+PKexpo+")";

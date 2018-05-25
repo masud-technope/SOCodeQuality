@@ -1,0 +1,4 @@
+System.out.println( "stdout 1" ); System.out.flush(); Thread.sleep( 1 );
+System.err.println( "stderr 1" ); System.err.flush(); Thread.sleep( 1 );
+System.out.println( "stdout 2" ); System.out.flush(); Thread.sleep( 1 );
+System.err.println( "stderr 2" ); System.err.flush(); Thread.sleep( 1 );

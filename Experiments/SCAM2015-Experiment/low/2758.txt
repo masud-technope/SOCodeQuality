@@ -1,0 +1,6 @@
+public static <E> List<? extends E> union(List<? extends E> a, List<? extends E> b) {
+    HashSet<E> set = new HashSet<E>();
+    set.addAll(a);
+    set.addAll(b);
+    return new ArrayList<E>(set);
+}

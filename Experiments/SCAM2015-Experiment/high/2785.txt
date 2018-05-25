@@ -1,0 +1,12 @@
+public Foo createFoo(){ 
+      Foo a = new Foo();
+          a.foo = "Test";
+      return a;
+   } 
+
+   public Bar createBar(Foo f) {
+
+      Bar b = new Bar();
+          b.bar = f.foo; 
+      reutrn b;
+   }

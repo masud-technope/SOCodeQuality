@@ -1,0 +1,14 @@
+public static <T> T[][] fillMatrix(Object fill, int row, int col) {
+    T[][] matrix = (T[][]) Array.newInstance(fill.getClass(), row, col);
+
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            matrix[i][j] = (T) fill;
+        }
+    }
+
+    return matrix;
+}    
+
+Integer[][] zeroMatrix = fillMatrix(0, 3, 3); // a zero-filled 3x3 matrix
+String[][] stringMatrix = fillMatrix("B", 2, 2); // a B-filled 2x2 matrix

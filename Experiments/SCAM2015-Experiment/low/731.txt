@@ -1,0 +1,5 @@
+String toSplit = ":alpha;beta:gamma;delta "
+toSplit = toSplit.replace(":", "~:")
+toSplit = toSplit.replace(";", "~;")
+//repeat for all you possible seperators
+String[] splitStrings = toSplit.split("~")

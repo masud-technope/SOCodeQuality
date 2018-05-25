@@ -1,0 +1,3 @@
+res/values/strings.xml
+res/values-es/strings.xml
+res/values-fr/string.xml

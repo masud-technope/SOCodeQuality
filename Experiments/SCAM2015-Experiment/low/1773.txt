@@ -1,0 +1,11 @@
+public abstract Animal extends AnimalCard {
+  public void hide() { ... }
+  public void show() { ... }
+  public boolean equals(Object obj) { ... }  
+  public abstract String speak();       
+}
+
+public class Puppy extends Animal {
+  // Here is where I need to define the speak method.
+  public String speak() { ... }
+}

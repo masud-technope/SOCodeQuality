@@ -1,0 +1,24 @@
+File[] f= new File[6];
+
+     f[1]= new File("p1.png");
+
+     f[2]= new File("p2.png");
+
+     f[3]= new File("p3.png");
+
+     f[4]= new File("p4.png");
+
+     f[5]=new file("p5.png");
+
+     for(int i=1;i<5;i++)  
+    {   
+     compare(f[i],f[i+1]);
+    }
+
+    public void compare(File f1,File f2)
+    {
+     BufferedImage image = ImageIO.read(f1);
+     BufferedImage image = ImageIO.read(f2);
+ // compare as you like
+
+}

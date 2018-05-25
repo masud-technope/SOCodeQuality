@@ -1,0 +1,30 @@
+public abstract class Shape 
+{
+
+    public static void main(String[] args)  {
+      Shape rectangle = new Rectangle (14, 10);
+      System.println ("rectangle's area=" + rectangle.getArea ());
+      ...
+    }
+
+}
+
+class Circle extends Shape  {
+   ...
+}
+
+class Rectangle extends Shape  {
+
+   int l;
+   int b;
+
+   public Rectangle (int l, int b) {
+     this.l = l;
+     this.b = b;
+   }
+
+   public int getArea () {
+     return l * b;
+   }
+}
+...

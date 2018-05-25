@@ -1,0 +1,6 @@
+private double centre_x;
+private double centre_y; 
+GraphicsHierarchy(){
+    centre_x = GraphicsHierarchy.BOX_WIDTH / 2;
+    centre_y = GraphicsHierarchy.BOX_HEIGHT * 0.5;
+}

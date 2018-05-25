@@ -1,0 +1,57 @@
+// you can also use imports, for example:
+// import java.util.*;
+import java.util.Stack;
+// you can use System.out.println for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+   public int solution(String s) {
+
+        if (s.length() % 2 != 0) {
+            return 0;
+        }
+
+        Character openingBrace = new Character('{');
+        Character openingBracket = new Character('[');
+        Character openingParen = new Character('(');
+        Stack<Character> openingStack = new Stack<Character>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == openingBrace || c == openingBracket || c == openingParen) {
+                openingStack.push(c);
+            } else  {
+                if (openingStack.isEmpty()) {
+                    return 0;
+                }
+                Character openingCharacter = openingStack.pop();
+                switch (c) {
+                case '}':
+                    if (!openingCharacter.equals(openingBrace)) {
+                        return 0;
+                    }
+                    break;
+                case ']':
+                    if (!openingCharacter.equals(openingBracket)) {
+                        return 0;
+                    }
+                    break;
+                case ')':
+                    if (!openingCharacter.equals(openingParen)) {
+                        return 0;
+                    }
+                    break;
+
+                default:
+                    break;
+                }
+            } 
+        }
+        if (!openingStack.isEmpty()) {
+            return 0;
+        }
+
+        return 1;
+
+    }
+}

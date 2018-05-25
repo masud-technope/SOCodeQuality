@@ -1,0 +1,5 @@
+public Jbutton decorateButton(JButton b, boolean isHoveredOver){
+    if(isHoveredOver)
+        b.setBackground(getContentPane().getBackground().GREEN);
+    return b;
+}

@@ -1,0 +1,9 @@
+Button submitRating = (Button) findViewById(R.id.submitRatingButton);
+        submitRating.setOnClickListener(new View.onClickListener)
+        {
+             @Override
+         public void onClick(View v) 
+            {
+                              //Insert your code here
+                    }
+        }

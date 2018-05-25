@@ -1,0 +1,58 @@
+package foo.bar;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class InputStreamMultiplier {
+    protected static final int BUFFER_SIZE = 1024;
+    private ExecutorService executorService = Executors.newCachedThreadPool();
+
+    public InputStream[] multiply(final InputStream source, int count) throws IOException {
+        PipedInputStream[] ins = new PipedInputStream[count];
+        final PipedOutputStream[] outs = new PipedOutputStream[count];
+
+        for (int i = 0; i < count; i++)
+        {
+            ins[i] = new PipedInputStream();
+            outs[i] = new PipedOutputStream(ins[i]);
+        }
+
+        executorService.execute(new Runnable() {
+            public void run() {
+                try {
+                    copy(source, outs);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        return ins;
+    }
+
+    protected void copy(final InputStream source, final PipedOutputStream[] outs) throws IOException {
+        byte[] buffer = new byte[BUFFER_SIZE];
+        int n = 0;
+        try {
+            while (-1 != (n = source.read(buffer))) {
+                //write each chunk to all output streams
+                for (PipedOutputStream out : outs) {
+                    out.write(buffer, 0, n);
+                }
+            }
+        } finally {
+            //close all output streams
+            for (PipedOutputStream out : outs) {
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}

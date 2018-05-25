@@ -1,0 +1,24 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class JavaApplication10 {
+    private final static int FRAME_HEIGHT = 600;
+    private final static int FRAME_WIDTH = 600;
+    public static void main(String[] args){
+        JFrame win = new JFrame();
+        win.setContentPane(new MyBoxContainer());
+        win.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        win.setVisible(true);
+    }
+
+    private static class MyBoxContainer extends Container {
+        @Override
+        public void paint(Graphics g) {
+            super.paint(g);
+            g.setColor(Color.MAGENTA);
+            g.fillRect(0, 0, getWidth(), getHeight());
+            g.setColor(Color.BLACK);
+            g.fillRect(80, 350, 400, 250);
+        }
+    }
+}

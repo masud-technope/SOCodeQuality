@@ -1,0 +1,7 @@
+<sshexec trust="true"
+           host="host_ip"        
+           verbose="true/false"
+           username="UserName"
+           keyfile="KeyFile_location"                     
+           command="some_command">
+</sshexec>

@@ -1,0 +1,14 @@
+import java.io.File;
+import java.util.Arrays;
+import java.util.Collections;
+
+public class Shuffle {
+   public static void main(String[] argv) 
+   throws Exception {
+
+      File dir = new File(".");
+      String[] children = dir.list();
+      Collections.shuffle(Arrays.asList(children));
+      System.out.println(children[0]);
+   }   
+}

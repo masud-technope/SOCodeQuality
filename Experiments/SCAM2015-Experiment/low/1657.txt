@@ -1,0 +1,37 @@
+/**
+ * 
+ * @param cmdarray      command and parameter of System call
+ * @param dir           the directory execute system call
+ * @param returnImmediately   true indicate return after system call immediately; 
+     *                          false otherwise.
+ *  if set true, the returned call result does not have reference value
+ * @return the return code of system call , default is -1
+ */
+public static int systemCall(String[] cmdarray,File dir,boolean returnImmediately)
+{
+  int result = -1;
+  try {
+   Process p = Runtime.getRuntime().exec(cmdarray,null,dir);
+  if(!returnImmediately)
+  {
+   java.io.InputStream stdin = p.getInputStream();
+   java.io.InputStreamReader isr = new java.io.InputStreamReader(stdin);
+   java.io.BufferedReader br = new java.io.BufferedReader(isr);
+   String line = null;
+   while ( (line = br.readLine()) != null)
+      System.out.println(line);
+      }
+      try{result =  p.exitValue();}
+        catch(Exception ie){;}
+      } catch (IOException e) {
+        e.printStackTrace();}
+
+  return result;
+}
+
+public static void main(String[] argc){             
+  String[] cmdarray = {"jar","cvf","s2.jar","*"};
+  File dir = new File("D:\\src\\struts-2.3.1");
+  int k = systemCall(cmdarray,dir,true);
+  System.out.println("k="+k);
+ }

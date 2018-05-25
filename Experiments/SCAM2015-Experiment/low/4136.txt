@@ -1,0 +1,35 @@
+Thread A = new Thread(workerA)...;
+Thread B = new Thread(workerB)...;
+Thread C = new Thread(workerC)...;
+Thread D = new Thread(workerD)...;
+
+workerA() {
+   ... 
+}
+
+workerB() {
+   if (input==0)
+       A.join();
+   ...
+}
+
+workerC() {
+  if (input==0)
+     { A.join(); D.join(); }
+  else B.join();
+...
+}
+
+workerD() {
+  if (input==1)
+     { A.join(); B.join(); }
+  ...
+}
+
+A.start(); // start thread A
+B.start();
+C.start();
+D.start();
+if (input==0)
+   { B.join(); C.join(); }
+else { C.join(); D.join(); }

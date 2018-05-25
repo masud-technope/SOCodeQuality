@@ -1,0 +1,6 @@
+Matcher m = Pattern.compile("(.+)(\\[.+\\])").matcher(a);
+if (m.matches())
+{
+    String b = m.group(1), c = m.group(2);
+    // do something
+}

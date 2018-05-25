@@ -1,0 +1,23 @@
+public class Threads implements Runnable
+{
+    int a = 0;
+
+    public void run() { }
+
+    public int FirstThread()
+    {
+        a = 3;
+        Thread.sleep(2000);
+        a = a + 1;
+
+        return a;
+    }
+
+    public int SecondThread()
+    {
+        a = 5;
+        a = a + 7;
+
+        return a;
+    }
+}

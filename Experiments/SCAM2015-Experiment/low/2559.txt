@@ -1,0 +1,10 @@
+for(int j=0; j<children.getLength();j++) {
+   if (children.item(j) instanceof Element == false)
+       continue;
+
+   NamedNodeMap n = children.item(j).getAttributes();
+   passwordTagAttr=(Attr) n.getNamedItem("name");
+   passwordTagAttr=(Attr) n.getNamedItem("uri");
+   passwordTag=stopTagAttr.getValue();  
+   passwordList.add(passwordTag);                   
+}

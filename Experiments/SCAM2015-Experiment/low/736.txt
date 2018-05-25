@@ -1,0 +1,10 @@
+private void DownloadFile()
+
+{
+
+//Download file here...
+
+//Refresh this page.
+this.Response.Redirect(Request.Url.AbsolutePath);
+
+}

@@ -1,0 +1,14 @@
+//Snippet
+void minInArray(){
+    int[] arr = new int[]{55,42,11,20,584,63,21,27,84,96,32,30};
+    int[] cArr = Arrays.copyOf(arr, arr.length);
+
+    Arrays.sort(cArr);
+    int idx = Arrays.asList(arr).indexOf(cArr[0]);
+    String s = new StringBuilder("The min value is: ")
+               .append(cArr[0])
+               .append(" located at index: ")
+               .append(idx)
+               .toString();
+    System.out.println(s);
+}

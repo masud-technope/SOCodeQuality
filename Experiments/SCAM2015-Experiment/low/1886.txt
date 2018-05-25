@@ -1,0 +1,5 @@
+if (DoHashMD5(myPass).equals(rs.getString(2))) {
+    System.out.print("You are registered user!!!");
+} else {
+    System.out.print("Invalid user!!!");
+}

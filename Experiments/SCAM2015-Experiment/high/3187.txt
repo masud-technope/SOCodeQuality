@@ -1,0 +1,3 @@
+if(person.contains("Joe") || person.contains("Jasha")){
+  // do something
+  }

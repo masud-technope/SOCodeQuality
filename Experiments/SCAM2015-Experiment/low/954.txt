@@ -1,0 +1,33 @@
+//Import any libraries
+import acm.program.*;
+import acm.graphics.*;
+
+public class GraphicsHierarchy extends GraphicsProgram {
+public void run() {
+    placeGRect();
+}   
+//Define constants
+public static final double CENTRE_X= 100.00; 
+public static final double CENTRE_Y = 37.50;
+//placeGRect method
+public void placeGRect() {
+    for (int count = 0; count < 4; count++) {
+        GRect box = new GRect (200, 75);
+        add(box);
+        switch (count) {
+        case 0:
+            box.setLocation(GraphicsHierarchy.CENTRE_X, 75);
+            break;
+        case 1:
+            box.setLocation((GraphicsHierarchy.CENTRE_X * 0.5), 250);
+            break;
+        case 2:
+            box.setLocation(GraphicsHierarchy.CENTRE_X, 250);
+            break;
+        case 3:
+            box.setLocation((GraphicsHierarchy.CENTRE_X * 1.5), 250);
+            break;
+        }
+    }
+}
+}

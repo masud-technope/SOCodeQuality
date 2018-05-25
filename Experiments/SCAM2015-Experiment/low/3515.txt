@@ -1,0 +1,18 @@
+Class A 
+{
+    // make the variables private so that they cannot be access directly from outside of the class
+    private ArrayList<SomeTypeB> typeBList;
+    private ArrayList<SomeTypeC> typeCList;
+
+    // more member variables
+
+    //Getters and setters for typeBList;
+    public synchronized void updateTypeBList(Object obj){
+        // do something with typeBList
+    }
+
+    //Getters and setters for typeCList;
+    public synchronized void updateTypeCList(Object obj){
+        // do something with typeCList
+    }
+}

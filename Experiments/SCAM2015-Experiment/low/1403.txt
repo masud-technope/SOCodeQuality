@@ -1,0 +1,4 @@
+C:\docs\Projects> java FillSpace 12345678
+method 1: append single spaces for 12345678 times. Time taken is **234ms**. Length of String is 12345678
+method 2: append 100 spaces for 123456 times. Time taken is **141ms**. Length of String is 12345678
+Process java exited with code 0

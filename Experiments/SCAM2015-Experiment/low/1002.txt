@@ -1,0 +1,12 @@
+public class Foo {
+
+    public void test() {
+        final Foo foo1 = new Foo();
+        final Foo foo2 = Foo();
+    }
+
+    public Foo Foo() {
+        System.out.println("hello world");
+        return this;
+    }
+}

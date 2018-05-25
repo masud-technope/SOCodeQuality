@@ -1,0 +1,8 @@
+// Drop "0x" in order to parse
+String c = "6d4b";
+// Parse hexadecimal integer
+int i = Integer.parseInt( c, 16 );
+// Note that this method returns char[]
+char[] cs = Character.toChars( i );
+// Prints ?
+System.out.println( cs );

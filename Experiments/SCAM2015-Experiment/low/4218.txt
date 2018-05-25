@@ -1,0 +1,6 @@
+int i, len = s.length();
+byte bytes[] = new byte[len];
+String retval = name;
+for (i = 0; i < len; i++) {
+    bytes[i] = (byte) name.charAt(i);
+}

@@ -1,0 +1,6 @@
+try {
+    Color color = Color.parseColor(myColorString);
+    // color is a valid color
+} catch (IllegalArgumentException iae) {
+    // This color string is not valid
+}

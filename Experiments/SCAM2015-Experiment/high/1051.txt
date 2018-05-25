@@ -1,0 +1,3 @@
+final File TEST_FILE = new File("src/test/resources/test.jpg");
+final DiskFileItem diskFileItem = new DiskFileItem("file", "image/jpeg", true, TEST_FILE.getName(), 100000000, TEST_FILE.getParentFile());
+diskFileItem.getOutputStream();

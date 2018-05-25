@@ -1,0 +1,5 @@
+Collections.sort(books, new Comparator<Book>() {
+   public int compare(Book b1, Book b2) {
+      return if b1 is greater return +1, if b2 is smaller return -1 otherwise 0
+   }
+});

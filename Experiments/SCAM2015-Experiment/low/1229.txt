@@ -1,0 +1,19 @@
+public abstract class Log{
+  public void logError(String msg){
+    this.log(msg,1)
+  }
+  public void logSuccess(String msg){
+    this.log(msg,2)
+  }
+  public abstract void log(String msg,int level){}
+}
+
+public class ConsoleLog{
+  public void log(String msg,int level){
+    if(level=1){
+       System.err.println(msg)
+    }else{
+       System.out.println(msg)
+    }
+  }
+}

@@ -1,0 +1,7 @@
+public static int countItems(HashMap<String, ArrayList<Item>> yourMap){
+    int counter = 0;
+    for(ArrayList<Item>> list: yourMap.values()){
+        counter += list.size();
+    }
+    return counter;
+}

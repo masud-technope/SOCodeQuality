@@ -1,0 +1,12 @@
+public class ClassA {
+    private boolean ClassAattr = false;
+
+    public ClassA() {    
+        ClassAHandler handler = new ClassAHandler();
+    }
+
+    class ClassAHandler extends GeneralHandler {
+
+        // magically sees the instantiating ClassA members and methods
+    }
+}

@@ -1,0 +1,6 @@
+import static java.lang.Math.abs;
+import static java.lang.Math.max;
+
+int xDist = abs(destination.getX() - x);
+int yDist = abs(destination.getY() - y);
+return max(xDist, yDist);

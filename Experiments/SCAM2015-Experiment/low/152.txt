@@ -1,0 +1,12 @@
+public static void main(String[] args) {
+	// TODO Auto-generated method stub
+	String str = readIndex();
+	String comp[] = str.split("}");
+
+	StringBuffer sb = new StringBuffer();
+	for (String s : comp) {
+		sb.append(s);
+		sb.append("}\n");
+	}
+	System.out.println (sb.toString());
+}

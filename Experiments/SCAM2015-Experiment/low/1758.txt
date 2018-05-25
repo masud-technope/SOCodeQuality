@@ -1,0 +1,43 @@
+public class LazyViewHolder {
+        private EditText et;
+        private TextView text;
+        private Button btnSub;
+        public LazyViewHolder() {
+            // TODO Auto-generated constructor stub
+        }
+
+        LazyViewHolder(TextView textView,EditText ed,Button btn) {
+            super();
+            this.setEt(ed);
+            this.setText(textView);
+            this.setBtnSub(btn);
+        }
+
+        public EditText getEt() {
+            return et;
+        }
+
+        public void setEt(EditText et) {
+            this.et = et;
+        }
+
+        public TextView getText() {
+            return text;
+        }
+
+        public void setText(TextView text) {
+            this.text = text;
+        }
+
+        public Button getBtnSub() {
+            return btnSub;
+        }
+
+        public void setBtnSub(Button btnSub) {
+            this.btnSub = btnSub;
+        }
+
+
+
+
+    }

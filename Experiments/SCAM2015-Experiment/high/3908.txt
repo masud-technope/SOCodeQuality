@@ -1,0 +1,6 @@
+final Pattern p = Pattern.compile("#([^,\\s]+)#");
+    final Matcher m = p.matcher("Items:#1 #1000#,#2000#");
+    while (m.find())
+    {
+        System.out.println("m.group(1) = " + m.group(1));
+    }

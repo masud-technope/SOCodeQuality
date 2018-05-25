@@ -1,0 +1,9 @@
+public ArrayList<Person> people;
+
+public void remove(String name){
+        for(Person i : people){
+            if (i.getName().equals(name)){
+                people.remove(i);
+            }
+        }
+    }

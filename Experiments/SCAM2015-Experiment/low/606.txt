@@ -1,0 +1,21 @@
+class DirFileFilter extends FileFilter {
+  boolean accept(File pathname) {
+    return pathname.isDirectory();
+  }
+}
+
+DirFileFilter filter = new DirFileFilter();
+HashSet<File> files = new HashSet<File>();
+
+void rec(File root) {
+  // add itself to the list
+  files.put(root);
+  File[] subdirs = root.list(filter);
+
+  // bound of recursion: must return 
+  if (subdirs.length == 0)
+    return;
+  else //this is the recursive case: can call itself
+    for (File file : subdirs)
+      rec(file);
+}

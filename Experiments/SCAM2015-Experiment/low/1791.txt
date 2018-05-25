@@ -1,0 +1,11 @@
+private static void force_gc()
+{
+    Object obj = new Object();
+    WeakReference<Object> ref = new WeakReference<Object>(obj);
+    obj = null;
+    while (ref.get() != null)
+    {
+        Log.d(LOGTAG, "Forcing gc() ...");
+        System.gc();
+    }
+}

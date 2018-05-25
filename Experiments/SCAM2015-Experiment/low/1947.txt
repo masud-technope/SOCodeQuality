@@ -1,0 +1,32 @@
+<%@ page import="java.sql.*" %>
+
+<HTML>
+<HEAD>
+<TITLE>Simple JSP Oracle Test</TITLE>
+</HEAD><BODY>
+<%
+Connection conn = null;
+try {
+    Class.forName("oracle.jdbc.OracleDriver");
+    conn = DriverManager.getConnection("jdbc:oracle:thin:@XXX.XXX.XXX.XXX:XXXX:dbName", "user", "password");
+    Statement stmt = conn.createStatement();
+    out.println("Connection established!");
+}
+catch (Exception ex)
+{
+    out.println("Exception: " + ex.getMessage() + "");
+
+}
+finally
+{
+    if (conn != null) {
+        try {
+            conn.close();   
+        }
+        catch (Exception ignored) {
+            // ignore
+        }
+    }
+}
+
+%>

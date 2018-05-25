@@ -1,0 +1,31 @@
+public class SortedArrayOps {
+public SortedArrayOps() {
+
+}
+
+// Print at the system out the first two ints found in the sorted array:
+// sortedInts[] whose sum is equal to Sum in a single pass over the array
+// sortedInts[] with no 0 value allowed.
+// i.e. sortedInts[i] + sortedInts[?] = Sum where ? is the target index to
+// be found to complete the task.
+static void PrintIntSumValues(int Sum, int sortedInts[]) {
+    // need to test to see if the Sum value is contained in the array
+    // sortedInts. And, if not do nothing.
+    for (int i = 0; i < sortedInts.length; i++) {
+        // ... do some work: algebra and logic ...
+        // System.out.println sortedInts[i]+sortedInts[?] sums to Sum.
+        int remainder = Sum - sortedInts[i];
+        if( remainder <= sortedInts.length && remainder>0 && remainder!=sortedInts[i]) {
+            System.out.print(String.format("%d + %d = %d", sortedInts[i], sortedInts[remainder-1], Sum));
+            break;
+        }
+    }
+}
+
+public static void main(String[] args) {
+    final int[] sortedArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+            14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+            30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
+            46, 47, 48, 49, 50 };
+    PrintIntSumValues(48, sortedArray);
+}

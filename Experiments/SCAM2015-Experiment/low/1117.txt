@@ -1,0 +1,21 @@
+class WaitingThread extends Thread
+{    
+    private Thread previousThread;
+
+    public WaitingThread(final Thread previous)
+    {
+        this.previousThread = previous;
+    }
+
+    public void run()
+    {
+        doParallelTask();
+
+        if(previousThread != null)
+        {
+             previousThread.join();
+        }
+
+        doProcesingAndUpdating();
+    }
+}

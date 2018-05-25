@@ -1,0 +1,3 @@
+// Or whatever type you're interested in...
+Iterable<Map.Entry<Integer, Object>> firstEntries =
+    Iterables.limit(map.entrySet(), 100);

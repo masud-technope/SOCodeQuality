@@ -1,0 +1,6 @@
+private BuildResult result;
+    .....
+    public methodName(){
+        .....
+    result = SwingJavaBuilder.build(this).setVisible(true);
+    }

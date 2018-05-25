@@ -1,0 +1,5 @@
+Random Number is: 95
+Random Number is: 89
+Random Number is: 9
+Random Number is: 73
+Random Number is: 20

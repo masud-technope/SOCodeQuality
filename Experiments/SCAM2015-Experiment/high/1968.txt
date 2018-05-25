@@ -1,0 +1,11 @@
+int count =0, min= 3 , max = 5;
+Set<String> s = new HashSet<String>();
+
+Iterator<String> itr  = s.iterator();
+
+while (itr.hasNext()) {
+    if ( count > min && count < max ) {
+        //Do something
+    }
+    count++;
+}

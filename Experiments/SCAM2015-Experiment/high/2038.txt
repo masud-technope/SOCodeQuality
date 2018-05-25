@@ -1,0 +1,3 @@
+interface RemoteObject<T> {
+    T get() throws IOException
+}

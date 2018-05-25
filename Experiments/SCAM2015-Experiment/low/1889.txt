@@ -1,0 +1,83 @@
+public class Fibo {
+    public static void main(String[] args) {
+        // try the methods
+    }
+
+    public static long computeRecursively(int n) {
+
+        if (n > 1) {
+            System.out.println(computeRecursively(n - 2)
+                    + computeRecursively(n - 1));
+            return computeRecursively(n - 2) + computeRecursively(n - 1);
+        }
+        return n;
+    }
+
+    public static long computeRecursivelyWithLoop(int n) {
+        if (n > 1) {
+            long result = 1;
+            do {
+                result += computeRecursivelyWithLoop(n - 2);
+                n--;
+            } while (n > 1);
+            System.out.println(result);
+            return result;
+        }
+        return n;
+    }
+
+    public static long computeIteratively(int n) {
+        if (n > 1) {
+            long a = 0, b = 1;
+            do {
+                long tmp = b;
+                b += a;
+                a = tmp;
+                System.out.println(a);
+            } while (--n > 1);
+            System.out.println(b);
+            return b;
+        }
+        return n;
+    }
+
+    public static BigInteger computeRecursivelyFasterUsingBigInteger(int n) {
+        if (n > 1) {
+            int m = (n / 2) + (n & 1); // not obvious at first – wouldn’t it be
+                                        // great to have a better comment here?
+            BigInteger fM = computeRecursivelyFasterUsingBigInteger(m);
+            BigInteger fM_1 = computeRecursivelyFasterUsingBigInteger(m - 1);
+            if ((n & 1) == 1) {
+                // F(m)^2 + F(m-1)^2
+                System.out.println(fM.pow(2).add(fM_1.pow(2)));
+                return fM.pow(2).add(fM_1.pow(2)); // three BigInteger objects
+                                                    // created
+            } else {
+                // (2*F(m-1) + F(m)) * F(m)
+                System.out.println( fM_1.shiftLeft(1).add(fM).multiply(fM));
+                return fM_1.shiftLeft(1).add(fM).multiply(fM); // three
+                                                                // BigInteger
+                                                                // objects
+                                                                // created
+            }
+        }
+        return (n == 0) ? BigInteger.ZERO : BigInteger.ONE; // no BigInteger
+                                                            // object created
+    }
+
+    public static long computeRecursivelyFasterUsingBigIntegerAllocations(int n) {
+        long allocations = 0;
+        if (n > 1) {
+            int m = (n / 2) + (n & 1);
+            allocations += computeRecursivelyFasterUsingBigIntegerAllocations(m);
+            allocations += computeRecursivelyFasterUsingBigIntegerAllocations(m - 1);
+            // 3 more BigInteger objects allocated
+            allocations += 3;
+            System.out.println(allocations);
+        }
+        return allocations; // approximate number of BigInteger objects
+                            // allocated when
+                            // computeRecursivelyFasterUsingBigInteger(n) is
+                            // called
+    }
+}

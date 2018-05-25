@@ -1,0 +1,3 @@
+myPrint(2);
+myPrint((byte) 2);
+myPrint((char) 2);

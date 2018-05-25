@@ -1,0 +1,4 @@
+if (hasConsonants(userInput))
+    results += "The input contains consonants";
+else
+    results += "The input contains no consonants";

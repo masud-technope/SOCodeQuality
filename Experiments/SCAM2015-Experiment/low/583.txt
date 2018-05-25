@@ -1,0 +1,9 @@
+broken = False
+
+try:
+    for i in list:
+        if i.condition == True:
+            raise Exception
+except Exception:
+    # you know something has broken the flow
+    broken = True

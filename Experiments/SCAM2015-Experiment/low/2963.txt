@@ -1,0 +1,6 @@
+boolean boolToEval = Boolean.parseBoolean(args[0]);
+//OR
+boolean boolToEval = Boolean.valueOf(args[0]);    
+
+//THEN
+(boolToEval ? printSomething() : printSomethingElse());

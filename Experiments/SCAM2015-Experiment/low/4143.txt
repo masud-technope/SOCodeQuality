@@ -1,0 +1,10 @@
+if(itemCode1 == null) 
+{
+ //-1
+}
+else{
+   if( itemCode2 ==null){
+     {//1}
+   else{
+i1.getItemCode().compareTo(itemCode2)
+}

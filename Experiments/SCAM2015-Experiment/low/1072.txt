@@ -1,0 +1,25 @@
+private static void generatePrimes(int maxNum) {
+
+    boolean[] isPrime = new boolean[maxNum + 1];
+    for (int i = 2; i <= maxNum; i++)
+        isPrime[i] = true;
+
+    // mark non-primes <= N using Sieve of Eratosthenes
+    for (int i = 2; i * i <= Math.sqrt(maxNum); i++) {
+
+    // if i is prime, then mark multiples of i as nonprime
+    if (isPrime[i]) {
+        for (int j = i; i * j <= maxNum; j++)
+        isPrime[i * j] = false;
+        }
+    }
+
+    // count primes
+    int primes = 0;
+    for (int i = 2; i <= maxNum; i++)
+        if (isPrime[i]) {
+        System.out.println("Prime - " + i);
+        primes++;
+        }
+            System.out.println("The number of primes <= " + maxNum + " is "+ primes);
+    }

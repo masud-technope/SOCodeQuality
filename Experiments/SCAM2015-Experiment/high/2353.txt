@@ -1,0 +1,9 @@
+InputStream input = item.getInputStream();
+OutputStream output = new FileOutputStream(storeFile);
+
+try {
+    IOUtils.copy(input, output);
+} finally {
+    IOUtils.closeQuietly(output);
+    IOUtils.closeQuietly(input);
+}

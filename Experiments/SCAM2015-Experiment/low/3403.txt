@@ -1,0 +1,6 @@
+Map<String, String> map = new HashMap<String, String>();
+map.put(...);
+
+if (map.containsKey("a key")) {
+   //do something
+}

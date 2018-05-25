@@ -1,0 +1,24 @@
+class myFileReaderThatStarts with arguments
+{
+
+ class MissingArgumentException extends Exception{      
+      MissingArgumentException(String s)
+  {
+     super(s);
+  }
+
+   }    
+public static void main(String[] args) throws MissingArgumentException
+{
+//You can test args array for value 
+if(args.length>0)
+{
+    // do something with args[0]
+}
+else
+{
+// default in a path 
+// or 
+   throw new MissingArgumentException("You need to start this program with a path");
+}
+}

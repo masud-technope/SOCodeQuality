@@ -1,0 +1,40 @@
+public class Box<T> {
+
+      public T j,k;
+      int l;
+      float f;
+
+      @SuppressWarnings("unchecked")
+    public void add(T j,T k) {
+        this.j = j;
+        this.k=k;
+
+        if(j.toString().contains("."))
+        {
+              this.f=Float.parseFloat(j.toString())+Float.parseFloat(k.toString());
+
+
+        } else{
+        this.l=Integer.parseInt(j.toString())+Integer.parseInt(k.toString());
+        }
+      }
+
+      public int getInt() {
+        return l;
+      }
+
+      public float getFloat() {
+            return f;
+          }
+
+      public static void main(String[] args) {
+         Box<Integer> integerBox = new Box<Integer>();
+         Box<Float> floatBox = new Box<Float>();
+
+         integerBox.add(new Integer(10),new Integer(20));
+         floatBox.add(new Float(2.2),new Float(3.3));
+
+         System.out.printf("Integer Value :%d\n\n", integerBox.getInt());
+         System.out.printf("float Value :%f\n", floatBox.getFloat());
+      }
+    }

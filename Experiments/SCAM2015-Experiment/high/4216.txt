@@ -1,0 +1,4 @@
+public static void main(String[] args) {
+    String s = "0,prop,dummy";
+    System.out.println(s.split(",")[1]);
+}

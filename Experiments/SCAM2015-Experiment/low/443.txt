@@ -1,0 +1,17 @@
+textfield.addKeyListener(new KeyAdapter()
+{
+      public void keyTyped(KeyEvent ke)
+{
+
+
+    char c = ke.getKeyChar();
+    if((!(Character.isDigit(c))) && // Only digits
+    (c ! '\b') ) // For backspace
+    {
+         ke.consume();
+    }
+ }
+
+public void keyReleased(KeyEvent e){}
+public void keyPressed(KeyEvent e){}
+});

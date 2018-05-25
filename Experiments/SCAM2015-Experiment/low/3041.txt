@@ -1,0 +1,27 @@
+String s="20*12";
+    String opReg="\\D";
+    Pattern opp=Pattern.compile(opReg);
+    Matcher m = opp.matcher(s);
+    int output=0;
+    if(m.find()){
+        String op=m.group();
+        String[] vars=s.split(opReg);
+        int var1=Integer.valueOf(vars[0]),
+                var2=Integer.valueOf(vars[1]);
+        System.out.println(op);
+        switch(op.charAt(0)){
+        case '*':
+            output=var1*var2;
+            break;
+        case '/':
+            output=var1/var2;
+            break;
+        case '+':
+            output=var1+var2;
+            break;
+        case '-':
+            output=var1-var2;
+            break;
+        }
+    }
+    System.out.println(output);

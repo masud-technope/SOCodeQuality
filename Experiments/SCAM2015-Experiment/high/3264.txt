@@ -1,0 +1,4 @@
+int hours = (parsed from input);
+DateTimeFormatter dtf = DateTimeFormat.forPattern("HH:mm");     
+LocalTime startTime = dtf.parseLocalTime(stringWithTimeFromUser);
+LocalTime endTime = startTime.plusHours(hours);

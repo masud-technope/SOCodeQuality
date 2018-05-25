@@ -1,0 +1,18 @@
+public int rom2int(String s)
+{               
+    if(s.length() == 0)   
+        // no string --> 0
+        return  0;
+    else if(s.length() == 1)
+        // One Character --> Value of Character
+        return valueOf(s.charAt(0)); 
+    else if((valueOf(s.charAt(0)) > valueOf(s.charAt(1))) ) 
+        // The value is NOT followed by a greater value --> We had the value
+        return rom2int(s.substring(1, s.length())) + valueOf(s.charAt(0));      
+    else if(valueOf(s.charAt(0)) <= valueOf(s.charAt(1)) )
+        // The value is followed by a greater (or same) value --> We substract the value
+        return rom2int(s.substring(1, s.length())) - valueOf(s.charAt(0));
+    else
+        // Shouldn't Happen. 0 as neutral element in in a Sum.
+        return 0;
+}

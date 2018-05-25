@@ -1,0 +1,17 @@
+class Fordemo
+{
+
+
+public static void main(String args[])
+{
+
+int k,x=0;
+
+for(k=1;k<=10;k++)
+{
+
+x=k*2;
+
+System.out.println("multiple of 2 is "+x);
+
+}}}

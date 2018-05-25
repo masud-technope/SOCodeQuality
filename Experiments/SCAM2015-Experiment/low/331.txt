@@ -1,0 +1,13 @@
+import java.io.*;
+public class FileTest
+{
+    public static void main (String [] args) throws IOException
+    {
+        BufferedReader wow = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter File Name: ");
+        String fileInput = wow.readLine();
+
+        FileInputStream in = new FileInputStream(fileInput);
+        //FileInputStream out = new FileInputStream(fileOutput);
+    }
+}

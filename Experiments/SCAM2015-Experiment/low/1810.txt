@@ -1,0 +1,10 @@
+doMyBatchJob() {
+   if (listener == null) {
+       return; // if listener is null, do nothing
+   }
+   listener.progressStarted(params);
+   while (x) {
+      listener.progressUpdated(current, expected)
+   }
+   listener.progressFinished(params);
+}

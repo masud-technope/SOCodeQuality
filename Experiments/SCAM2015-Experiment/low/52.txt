@@ -1,0 +1,6 @@
+Object a = new Object();
+Object b = a;
+
+b.someAction();
+
+// A and B point to the same object and both have had the 'someAction()' performed

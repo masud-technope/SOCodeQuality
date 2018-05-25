@@ -1,0 +1,4 @@
+if (!singleton)  
+   @synchronized(something)  
+      if (!singleton)  
+         instantiate;

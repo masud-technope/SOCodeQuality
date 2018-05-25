@@ -1,0 +1,3 @@
+public interface Adder<T> {
+    public void add(T newObject, List<T> myList);
+}

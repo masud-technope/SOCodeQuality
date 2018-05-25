@@ -1,0 +1,5 @@
+public void theTest(){
+    if (System.getProperty("skipMyTest") == null){
+         //execute the test
+    }
+}

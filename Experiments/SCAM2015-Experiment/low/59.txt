@@ -1,0 +1,7 @@
+Map<String, String> map = new HashMap<String, String>();
+map.put("R1", "R2");
+map.put("R2", "R3");
+
+for(String key: map.keySet()) {
+  str.replaceAll(key, map.get(key));
+}

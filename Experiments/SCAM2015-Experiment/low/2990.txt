@@ -1,0 +1,53 @@
+public class Example implements Serializable {
+        private static final long serialVersionUID = 8845294179690379902L;
+        public int score;
+        public String name;    
+        public Example(String name, int score) {
+            this.name = name;
+            this.score = score;
+        }
+        //public Date eventDate; // suppose this date object was removed from Example class
+
+        private Object writeReplace() {
+            System.out.println("writeReplace called");
+            return new ExampleProxy(this);
+        }
+
+        private static class ExampleProxy implements Serializable {
+            private static final long serialVersionUID = 8845294179690379902L;
+            public int score;
+            public String name;
+            public Date eventDate;
+
+            public ExampleProxy(Example example) {
+                this.score = example.score;
+                this.name = example.name;
+                // Replace evendate with somethng you want, here: current date
+                this.eventDate = new Date();
+            }
+
+            private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException{
+                System.out.println("readObject called");            
+                in.defaultReadObject();
+                // here you can access whatever was written
+                System.out.println("Name:" + name + "Score:" + score + "Date:" + eventDate);
+            }
+
+            private Object readResolve(){
+                System.out.println("readResolve called");
+                return new Example(name, score );
+            }
+        }
+
+        public static void main(String[] a) throws IOException, ClassNotFoundException {
+            ByteArrayOutputStream byteAryOs = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(byteAryOs);
+            oos.writeObject(new Example("Nitin", 100));
+
+            ByteArrayInputStream byteAryIs = new ByteArrayInputStream(byteAryOs.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(byteAryIs);
+            Example o = (Example)ois.readObject();
+
+            System.out.println(o);
+        }
+}

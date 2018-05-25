@@ -1,0 +1,15 @@
+class A extends Thread{
+          public void update(SomeClass c){}
+          public void run(){
+               update(c)
+          }
+          public static void main(String args[]){
+
+               A t1 = new A();
+               A t2 = new A();
+
+               t1.start();
+               t2.start();
+
+          }
+   }

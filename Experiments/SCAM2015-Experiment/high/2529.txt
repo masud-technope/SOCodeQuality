@@ -1,0 +1,12 @@
+private final static Pattern WB_PATTERN = Pattern.compile("(?<=\\w)\\b");
+
+private String truncateAfteWords(int n, String s) {
+   if (s == null) return null;
+   if (n <= 0) return "";
+   Matcher m = WB_PATTERN.matcher(s);
+   for (int i=0; i<n && m.find(); i++);
+   if (m.hitEnd())
+      return s;
+   else
+      return s.substring(0, m.end());
+}

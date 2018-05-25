@@ -1,0 +1,5 @@
+Pattern p = Pattern.compile("[a-z]"); // The regex needs to be compiled.
+Matcher m = p.matcher("hello");       // The input is given to the matcher
+while (m.find()) {                    // In this case, returns true 5 times
+    System.out.println(m.group() + ", ");
+}

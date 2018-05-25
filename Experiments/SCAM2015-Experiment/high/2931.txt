@@ -1,0 +1,7 @@
+<a id="myLink" href="http://www.google.com">Google</a>
+
+    var anchor = document.getElementById("myLink");
+
+    alert(anchor.getAttribute("href")); // Extract link
+
+    alert(anchor.innerHTML); // Extract Text

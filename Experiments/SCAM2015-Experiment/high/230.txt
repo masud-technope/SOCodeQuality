@@ -1,0 +1,3 @@
+Random generator = new Random();
+Object[] values = myHashMap.values().toArray();
+Object randomValue = values[generator.nextInt(values.length)];

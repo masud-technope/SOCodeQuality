@@ -1,0 +1,6 @@
+LocalDate date1 = new LocalDate(2010, 3, 22);
+LocalDate date2 = new LocalDate(2010, 5, 30);
+PeriodType monthDay = PeriodType.yearMonthDay().withoutYears();
+Period difference = new Period(date1, date2, monthDay);
+int months = difference.getMonths();
+int days = difference.getDays();

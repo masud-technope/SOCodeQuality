@@ -1,0 +1,13 @@
+public String convertToString(char[] array, int length)
+{
+String char_string;
+String return_string="";
+int i;
+
+   for(i=0;i<length;i++)
+   {
+       char_string=Character.toString(array[i]);
+       return_string=return_string.concat(char_string);
+   }
+   return return_string;
+}

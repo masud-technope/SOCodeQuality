@@ -1,0 +1,9 @@
+private static class Container<Key, Value> implements
+        Comparable<Container<? extends Comparable<? super Key>, ?>> {
+
+    //fields and constructors...
+
+    public int compareTo(Container<? extends Comparable<? super Key>, ?> o) {
+        return -o.key.compareTo(key);
+    }
+}

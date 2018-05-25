@@ -1,0 +1,8 @@
+try{
+        Process tr = Runtime.getRuntime().exec( new String[]{ "wkhtmltopdf",frontPage,frontPagePDF});
+        tr.waitFor();
+    } catch (Exception ex) {
+        EverLogger.logEntry("Error al pasar a PDF la portada", "error", "activity");
+        return;
+    } 
+some more code here.

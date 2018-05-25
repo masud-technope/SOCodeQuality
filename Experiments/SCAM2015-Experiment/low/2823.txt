@@ -1,0 +1,31 @@
+class NullableInt {
+    private int value;
+    private boolean isNull;
+    public NullableInt() { isNull = true; }
+    public NullableInt(int value) { 
+      this.value = value; 
+      isNull = false;
+    }
+    public NullableInt(String intRep) {
+      try { value = Integer.parseInt(intRep);
+      } catch (NumberFormatException) {
+         isNull = true;
+      }
+    }
+    boolean isNull() { return isNull; }
+    void setNull(boolean toNull) { isNull = toNull; }
+    void setValue(int value) { this.value = value; }
+    int getValue() { return value; }
+    @Override 
+    public String toString() { return isNull ? "" : value; }
+}
+
+NullableInt integer1 = new NullableInt(56);
+NullableInt integer2 = new NullableInt();
+
+System.out.pritnln(integer1); // >> "56"
+System.out.println(integer2); // >> ""
+
+// and finally, to address the actual question:
+String id = "";
+System.out.println(new NullableInt(id)); // >> ""

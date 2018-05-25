@@ -1,0 +1,10 @@
+StringBuilder querySelect = new StringBuilder("select * from messages ");
+StringBuilder queryWhere = new StringBuilder("where msg_id=?");
+
+if (fileRSVO.getFileName()!= null){
+    queryWhere.append("and descr LIKE %?% ");
+}
+querySelect.append(queryWhere);
+
+List<Map<String, Object>> list = getJdbcTemplate().queryForList(querySelect.toString(), params.toArray()); 
+...

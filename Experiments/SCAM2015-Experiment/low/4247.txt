@@ -1,0 +1,5 @@
+CsvParserSettings parserSettings =  new CsvParserSettings();
+parserSettings.setParseUnescapedQuotes(true); //this is enabled by default
+
+CsvParser parser = new CsvParser(parserSettings);
+List<String[]> allRows = parser.parseAll(getReader("/examples/bean_test.csv"));

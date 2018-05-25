@@ -1,0 +1,8 @@
+public static int[] invertieren(int[] werte) {
+    int[] werte1 = new int[werte.length];
+    int len = werte.length - 1;
+    for (int i = 0; i < len; i++) {
+        werte1[len-i] = werte[i];
+    }
+    return werte1;
+}

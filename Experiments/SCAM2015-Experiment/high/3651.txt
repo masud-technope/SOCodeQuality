@@ -1,0 +1,4 @@
+String s1="C:\\Users\\me\\Desktop\\here";
+String s2="C:\\Users\\me\\Desktop\\files\\1\\sample.txt";
+String s3=s2.substring(s2.indexOf("\\files"));
+System.out.println(s1+s3);

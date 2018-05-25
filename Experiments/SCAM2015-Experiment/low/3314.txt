@@ -1,0 +1,7 @@
+try (
+        ByteArrayOutputStream baos = new ByteArrayOutputStream(); ObjectOutputStream oos = new ObjectOutputStream( baos );
+        FileOutputStream fos = new FileOutputStream( outputFileName ); )
+{
+    oos.writeObject( groupList );
+    fos.write( baos.toByteArray() );
+}

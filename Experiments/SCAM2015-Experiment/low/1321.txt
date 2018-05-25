@@ -1,0 +1,50 @@
+/* A number using thousand separator must have
+   groups of 3 digits, except the first one.
+   Numbers following the decimal separator can
+   of course be unlimited. */
+private final static int GROUP_SIZE=3;
+
+public static boolean isNumber(String input) {
+    boolean inThousandSep = false;
+    boolean inDecimalSep = false;
+    boolean endsWithDigit = false;
+    char thousandSep = '\0';
+    int prevDigits = 0;
+
+    for(int i=0; i < input.length(); i++) {
+        char c = input.charAt(i);
+
+        switch(c) {
+            case ',':
+            case '.':
+            case ' ':
+                endsWithDigit = false;
+                if(inDecimalSep)
+                    return false;
+                else if(inThousandSep) {
+                    if(c != thousandSep)
+                        inDecimalSep = true;
+                    if(prevDigits != GROUP_SIZE)
+                        return false; // Invalid use of separator
+                }
+                else {
+                    if(prevDigits > GROUP_SIZE || prevDigits == 0)
+                        return false;
+                    thousandSep = c;
+                    inThousandSep = true;
+                }
+                prevDigits = 0;
+                break;
+
+            default:
+                if(Character.isDigit(c)) {
+                    prevDigits++;
+                    endsWithDigit = true;
+                }
+                else {
+                    return false;
+                }
+        }
+    }
+    return endsWithDigit;
+}

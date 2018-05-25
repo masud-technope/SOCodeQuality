@@ -1,0 +1,5 @@
+List<? extends Object> genericList; // List<?> is short for List<? extends Object>
+List<String> concreteList = new LinkedList<String>();
+
+genericList = concreteList;
+concreteList = (List<String>) genericList; //(caution: uncheck cast)

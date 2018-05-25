@@ -1,0 +1,26 @@
+public void performInsertIF(String insertSQL) {
+Connection connection = null;
+PreparedStatement insertStmt = null;
+try {
+    connection = dataSource.getConnection();
+    insertStmt = connection.prepareStatement(insertSQL);
+    // bind value to prepare statements
+    insertStmt.executeUpdate();
+}
+catch (SQLException e) {
+    // TODO: handle exception
+}
+finally {
+
+    try {
+        insertStmt.close();
+    }
+    catch(Exception ignore) {
+    }
+
+    try {
+        connection.close();
+    }
+    catch(Exception ignore) {
+    }
+}

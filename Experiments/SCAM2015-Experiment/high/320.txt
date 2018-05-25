@@ -1,0 +1,6 @@
+BigInteger tmp = BigInteger.valueOf(X).multiply(BigInteger.valueOf(Y)).multiply(BigInteger.valueOf(Z));
+ if(BigInteger.valueOf(Long.MAX_VALUE).compareTo(tmp)>=0){
+  long aLong = tmp.longValue();
+ }else{
+  System.out.println("Overflow");
+ }

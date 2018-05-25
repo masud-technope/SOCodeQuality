@@ -1,0 +1,7 @@
+String CalculateCheckSum( Integer[] bytes ){
+        Integer CheckSum = 0, i = 0;
+        for( i = 0; i < bytes.length; i++ ){
+            CheckSum += bytes[i];
+        }
+        return Integer.toHexString(CheckSum);
+    }

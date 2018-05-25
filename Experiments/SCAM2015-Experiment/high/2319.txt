@@ -1,0 +1,55 @@
+/**
+ * Adapt a Pojo to an Observable.
+ * Note: extending ObservableValue is too much, but there is no ObservableBase ...
+ *
+ * @author Jeanette Winzenburg, Berlin
+ */
+public class PojoAdapter<T> extends ObservableValueBase<T> {
+
+    private T bean;
+    private PropertyChangeListener pojoListener;
+    public PojoAdapter(T pojo) {
+        this.bean = pojo;
+        installPojoListener(pojo);
+    }
+
+    /**
+     * Reflectively install a propertyChangeListener for the pojo, if available.
+     * Silently does nothing if it cant.
+     * @param item
+     */
+    private void installPojoListener(T item) {
+        try {
+            Method method = item.getClass().getMethod("addPropertyChangeListener", 
+                  PropertyChangeListener.class);
+            method.invoke(item, getPojoListener());
+        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | 
+                  IllegalArgumentException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Returns the propertyChangeListener to install on each item.
+     * Implemented to call notifyList.
+     * 
+     * @return
+     */
+    private PropertyChangeListener getPojoListener() {
+        if (pojoListener == null) {
+            pojoListener = new PropertyChangeListener() {
+
+                @Override
+                public void propertyChange(PropertyChangeEvent evt) {
+                    fireValueChangedEvent();
+                }
+            };
+        }
+        return pojoListener;
+    }
+
+    @Override
+    public T getValue() {
+        return bean;
+    }
+
+}

@@ -1,0 +1,10 @@
+HttpURLConnection conn=(HttpURLConnection) url.openConnection()
+//Any response code starting with 2 is acceptable
+if(!String.valueOf(conn.getResponseCode()).startsWith('2'))
+    //Provide a nice useful exception
+    throw new IOException("Incorrect response code "+conn.getResponseCode()+" Message: " +getResponseMessage());
+InputStream rawIn=conn.getInputStream()
+OutputStream rawOut=conn.getOutputStream()
+//You may want to add buffering to reduce the number of packets sent
+BufferedInputStream bufIn=new BufferedInputStream(rawIn);
+BufferedOutputStream bufOut=new BufferedInputStream(rawOut);

@@ -1,0 +1,10 @@
+public class StringOutOfMemory {
+    public static void main(String[] args) {
+        int i = 0;
+        StringBuilder s = new StringBuilder("a");
+        while (true) {
+            s.append("ahgsdgjsdffsdfhsdgfsdfsdsfhdsgksdgkfgsdkfkdghfksdkfsdkfdkjfskdfkjsdfkdksdkdfjksjkhsdfjkfsdkjfsdhjkfsdjkfhdjkfkjsdfkjdsjkfd");
+            System.out.println(i++); 
+        }
+    }
+}

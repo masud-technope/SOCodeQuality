@@ -1,0 +1,10 @@
+private void WaitTimer(long ms)
+{
+    long t = 0;
+    long x = System.currentTimeMillis();
+
+    while(t < ms)
+    {
+       t = System.currentTimeMillis() - x;
+    }
+}

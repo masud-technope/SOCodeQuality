@@ -1,0 +1,3 @@
+public class Store implements Serializable{
+  Hashtable<Key, Item> store = new Hashtable<Key,Item>();
+}

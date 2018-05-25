@@ -1,0 +1,79 @@
+public class ComparatorTest {
+
+    static class ComaparableObject implements Comparable {
+        private Object value1;
+        private Object value2;
+
+        public ComaparableObject(Object value1, Object value2) {
+            this.value1 = value1;
+            this.value2 = value2;
+        }
+
+        @Override
+        public int compareTo(Object o) {
+            int multiplier = 65535;
+            ComaparableObject co = (ComaparableObject) o;
+            int result = (value1.hashCode() * multiplier + value2.hashCode()) - (co.value1.hashCode() * multiplier + co.value2.hashCode()) ;
+            return result;
+        }
+
+        public Object getValue1() {
+            return value1;
+        }
+
+        public void setValue1(Object value1) {
+            this.value1 = value1;
+        }
+
+        public Object getValue2() {
+            return value2;
+        }
+
+        public void setValue2(Object value2) {
+            this.value2 = value2;
+        }
+
+        public String toString() {
+            String result = "value1=" + value1 + ", " + "value2=" + value2;
+            return result;
+        }
+
+    }
+
+    public static void main(String[] args) {
+        ArrayList<ComaparableObject> al;
+
+
+        al = new ArrayList<ComaparableObject>();
+        ComaparableObject co;
+        int value1 = 2;
+        co = new ComaparableObject(value1, 3);
+        al.add(co);
+        co = new ComaparableObject(value1, 1);
+        al.add(co);
+        co = new ComaparableObject(value1, 2);
+        al.add(co);
+        value1 = 1;
+        co = new ComaparableObject(value1, 3);
+        al.add(co);
+        co = new ComaparableObject(value1, 1);
+        al.add(co);
+        co = new ComaparableObject(value1, 2);
+        al.add(co);
+
+        System.out.println("Before sort: " + al);
+
+        Collections.sort(al, new Comparator<ComaparableObject>() {
+            @Override
+            public int compare(ComaparableObject co1, ComaparableObject co2) {
+                int result;
+                result = co1.compareTo(co2);
+                return result;
+            }
+        });
+
+        System.out.println("After sort: " + al);
+
+        }
+
+}

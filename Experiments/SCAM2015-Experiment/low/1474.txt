@@ -1,0 +1,3 @@
+String path = null;
+FileChooser fc=new FileChooser(path);
+fc.showOpenDialog(null);

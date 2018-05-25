@@ -1,0 +1,7 @@
+public int[] reverse3(int[] nums) {
+  int[] values = new int[nums.length];
+  for(int i=0; i<nums.length; i++) {
+   values[nums.length  - (i + 1)]=nums[i];
+  }
+  return values;
+  }

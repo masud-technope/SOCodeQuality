@@ -1,0 +1,3 @@
+DateFormat df = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL);
+df.setTimeZone(TimeZone.getTimeZone("PST"));
+final String dateTimeString = df.format(new Date());

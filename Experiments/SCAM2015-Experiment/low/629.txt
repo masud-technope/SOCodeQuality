@@ -1,0 +1,9 @@
+public void printTriangle(int count)
+{    
+    if (count == 0) return;
+    printTriangle(count - 1);
+    for (int x = 1; x <= count; x++) { 
+        System.out.print("*"); 
+    }
+    System.out.print("\n"); 
+}

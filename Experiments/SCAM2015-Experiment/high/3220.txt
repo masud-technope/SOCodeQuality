@@ -1,0 +1,3 @@
+apply="handlers.ZulHandler">
+<checkbox id="checkbox_id" label="check" checked="${$composer.manufactringChecked}"
+    visible="${$composer.manufacturing}"/>

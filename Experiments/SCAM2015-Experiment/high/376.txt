@@ -1,0 +1,7 @@
+def m = Membership.findByPersonAndGroup(person, group)
+ if (!m) {
+        m = new Membership()
+        person?.addToMemberships(m)
+        group?.addToMemberships(m)
+        m.save()
+}

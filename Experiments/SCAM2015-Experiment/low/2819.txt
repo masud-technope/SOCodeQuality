@@ -1,0 +1,7 @@
+int retval = Double.compare(nextArea, smallestArea);
+
+if(retval < 0)
+{
+  System.out.println("smallestArea is greater than nextArea");
+  smallest = next;
+}

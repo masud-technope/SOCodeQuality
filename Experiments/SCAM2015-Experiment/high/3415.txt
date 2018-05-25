@@ -1,0 +1,4 @@
+String saveUser = "user";
+String timeOfMAking = String.valueOf(new Date().getTime());
+CharSequence title = saveUser +"-"+ timeOfMAking;
+System.out.println(title);

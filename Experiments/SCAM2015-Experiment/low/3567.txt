@@ -1,0 +1,11 @@
+// prepare data
+Properties data = new Properties();
+data.setProperty("key1", "value1");
+
+// save data
+data.store(new FileOutputStream(new File("config.properties")), "example");
+
+// load data
+Properties loaded = new Properties();
+loaded.load(new FileInputStream(new File("config.properties")));
+System.out.println("loaded: " + loaded);

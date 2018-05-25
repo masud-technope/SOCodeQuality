@@ -1,0 +1,3 @@
+str.replaceAll("@apple", "apple"); 
+str.replaceAll("@banna", "banna"); 
+str.replaceAll("@?", "?");

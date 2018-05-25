@@ -1,0 +1,4 @@
+<servlet-mapping>
+    <servlet-name>Persistent Faces Servlet</servlet-name>
+    <url-pattern>*.faces</url-pattern>
+</servlet-mapping>

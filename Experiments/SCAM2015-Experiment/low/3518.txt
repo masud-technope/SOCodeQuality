@@ -1,0 +1,17 @@
+// create a LinkedList
+  LinkedList list = new LinkedList();
+
+  // add some elements
+  list.add("Hello");
+  list.add(2);
+  list.add("Chocolate");
+  list.add("10");
+
+  // print the list
+  System.out.println("LinkedList:" + list);
+
+  // remove "10"
+  System.out.println("10 is in the list:" + list.remove("10"));
+
+  // print the list
+  System.out.println("LinkedList:" + list);

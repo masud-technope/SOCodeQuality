@@ -1,0 +1,57 @@
+public void processParameters( byte bytes[], int start, int len, 
+                                   String enc ) {
+        int end=start+len;
+        int pos=start;
+
+        if( debug>0 ) 
+            log( "Bytes: " + new String( bytes, start, len ));
+
+        do {
+            boolean noEq=false;
+            int valStart=-1;
+            int valEnd=-1;
+
+            int nameStart=pos;
+            int nameEnd=ByteChunk.indexOf(bytes, nameStart, end, '=' );
+            // Workaround for a&b&c encoding
+            int nameEnd2=ByteChunk.indexOf(bytes, nameStart, end, '&' );
+            if( (nameEnd2!=-1 ) &&
+                ( nameEnd==-1 || nameEnd > nameEnd2) ) {
+                nameEnd=nameEnd2;
+                noEq=true;
+                valStart=nameEnd;
+                valEnd=nameEnd;
+                if( debug>0) log("no equal " + nameStart + " " + nameEnd + " " + new String(bytes, nameStart, nameEnd-nameStart) );
+            }
+            if( nameEnd== -1 ) 
+                nameEnd=end;
+
+            if( ! noEq ) {
+                valStart= (nameEnd < end) ? nameEnd+1 : end;
+                valEnd=ByteChunk.indexOf(bytes, valStart, end, '&');
+                if( valEnd== -1 ) valEnd = (valStart < end) ? end : valStart;
+            }
+
+            pos=valEnd+1;
+
+            if( nameEnd<=nameStart ) {
+                log.warn("Parameters: Invalid chunk ignored.");
+                continue;
+                // invalid chunk - it's better to ignore
+            }
+            tmpName.setBytes( bytes, nameStart, nameEnd-nameStart );
+            tmpValue.setBytes( bytes, valStart, valEnd-valStart );
+
+            try {
+                addParam( urlDecode(tmpName, enc), urlDecode(tmpValue, enc) );
+            } catch (IOException e) {
+                // Exception during character decoding: skip parameter
+                log.warn("Parameters: Character decoding failed. " + 
+                         "Parameter skipped.", e);
+            }
+
+            tmpName.recycle();
+            tmpValue.recycle();
+
+        } while( pos<end );
+    }

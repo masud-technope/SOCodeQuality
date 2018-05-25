@@ -1,0 +1,6 @@
+public class MyClass {
+    public static void main(String[] args) {
+      char[] alphabet = new char[26];
+      alphabet[0] = 'a';
+    }
+}

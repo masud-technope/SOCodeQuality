@@ -1,0 +1,6 @@
+while (itr.hasNext()) {
+    Vehicle vc=(Vehicle) itr.next();
+    if(vc.getVehicleType().equalsIgnoreCase(s)) {
+        count++;
+    }
+}

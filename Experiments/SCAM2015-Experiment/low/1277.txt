@@ -1,0 +1,6 @@
+Bundle bundle = getIntent().getExtras();
+    String choice= blabla// your solution to get song name
+    String debug = "R.raw." + choice;   
+    Uri myUri = Uri.parse(debug);        
+    mPlayer = MediaPlayer.create(activity.this, myUri);
+    mPlayer.start();

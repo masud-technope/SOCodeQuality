@@ -1,0 +1,4 @@
+class Triangle
+{
+static Set<Triangle> cache = new TreeSet<Triangle>();
+...

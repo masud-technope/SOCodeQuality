@@ -1,0 +1,9 @@
+Int A = new Int(300);
+Int B = new Int(400);
+Int C = new Int(1000);
+Int D = new Int(500);
+
+Int []abcd = {A,B,C,D};
+Arrays.sort(abcd);
+for (int i = 0; i < abcd.length; i++)
+    abcd[i].setInt(i+1);

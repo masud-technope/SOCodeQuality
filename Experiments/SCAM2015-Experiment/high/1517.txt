@@ -1,0 +1,9 @@
+public void searchCustomer( String familyName ) {
+
+    for ( customer current : CustomerList ) {           
+        if ( current.returnFamilyName().equalsIgnoreCase( familyName )) {
+            System.out.println( current.returnFamilyName() );
+            break;
+        }
+     }
+}

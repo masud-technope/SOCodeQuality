@@ -1,0 +1,4 @@
+List<Object> leak = new ArrayList<Object>();
+while(true) {
+    leak.add(new Object());
+}

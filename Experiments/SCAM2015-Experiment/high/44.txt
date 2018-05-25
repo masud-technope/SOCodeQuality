@@ -1,0 +1,5 @@
+using(InputStream is1 as new FileInputStream("/tmp/foo")){
+    using(InputStream is2 as new FileInputStream("/tmp/bar")){
+        /* do stuff with s1 and s2 */
+    }
+}

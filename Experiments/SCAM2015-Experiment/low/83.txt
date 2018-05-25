@@ -1,0 +1,17 @@
+int[] somenumbers = getAnArrayOfSomenumbers();
+int numbertoLookFor = getTheNumberToLookFor();
+
+ArrayList<Integer> l = new ArrayList<Integer>(
+  Arrays.asList(somenumbers)
+);
+Collections.sort(l);
+while(l.size()>1) {
+  if(numbertoolookfor <= l.get((l.size()/2)-1)) {
+    l = l.subList(0, l.size()/2);
+  }
+  else {
+    l = l.subList(l.size()/2, l.size); 
+  }
+}
+
+System.out.println("nearest number is" + l.get(0));

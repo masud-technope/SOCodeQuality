@@ -1,0 +1,9 @@
+String s1 = "£2";
+Matcher m = Pattern.compile("(\\D+)|(\\d+)").matcher(s1);
+while(m.find())
+{
+if (m.group(1) != null)
+System.out.println("Currency Type: " + m.group(1));
+if (m.group(2) != null)
+System.out.println("Currency Value: " + m.group(2));
+}

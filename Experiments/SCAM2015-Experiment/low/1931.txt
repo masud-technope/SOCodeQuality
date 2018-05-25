@@ -1,0 +1,3 @@
+void setCustomer (Customer c) {
+    customer = c;
+}

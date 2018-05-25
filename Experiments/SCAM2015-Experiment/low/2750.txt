@@ -1,0 +1,11 @@
+public void addString(String[] myString) 
+    {
+       StringBuilder sb = new StringBuilder();
+       sb.append("(");
+       for(int i = 0; i < myString.length; i++){
+          sb.append(myString[i] + " AND ");
+       }
+       sb.append(")")
+
+       System.out.println(sb);
+    }

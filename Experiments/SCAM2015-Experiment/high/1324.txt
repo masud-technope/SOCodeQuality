@@ -1,0 +1,22 @@
+private Map<String, ReentrantLock> lockMap = new HashMap<String, ReentrantLock>();
+
+public void deposit(String clientId) {
+    updateLockMap(clientId);
+
+    ReentrantLock lock = lockMap.get(clientId);
+    try {
+        if(lock.tryLock(1, TimeUnit.MINUTES)) {
+            // do deposit stuff
+        }
+    } catch (InterruptedException e) {
+        // log
+    } finally {
+        lock.unlock();
+    }
+}
+
+private void updateLockMap(String clientId) {
+    if(!lockMap.keySet().contains(clientId)) {
+        lockMap.put(clientId, new ReentrantLock());
+    }
+}

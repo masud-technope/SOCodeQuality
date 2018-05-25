@@ -1,0 +1,5 @@
+private JTextField gnFilePath;
+
+public String getText(){
+       return gnFilePath.getText();// NullPointerException is throw here.
+}

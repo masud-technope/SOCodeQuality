@@ -1,0 +1,26 @@
+{
+    "title":"Free Music Archive - Genres",
+    "message":"",
+    "errors":[
+    ],
+    "total":"163",
+    "total_pages":82,
+    "page":1,
+    "limit":"2",
+    "dataset":[
+    {
+    "genre_id":"1",
+    "genre_parent_id":"38",
+    "genre_title":"Avant-Garde",
+    "genre_handle":"Avant-Garde",
+    "genre_color":"#006666"
+    },
+    {
+    "genre_id":"2",
+    "genre_parent_id":null,
+    "genre_title":"International",
+    "genre_handle":"International",
+    "genre_color":"#CC3300"
+    }
+    ]
+    }

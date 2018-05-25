@@ -1,0 +1,11 @@
+class Value<T> extends Object
+{
+    T value;
+    String name;
+
+    public Value(String name, T value)
+    {
+        this.name = name;
+        this.value = value;
+    }
+}

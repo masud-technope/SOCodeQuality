@@ -1,0 +1,16 @@
+.
+.
+.
+int fcell = row.getFirstCellNum();// first cell number of excel
+int lcell = row.getLastCellNum(); //last cell number of excel
+while (rows.hasNext()) {
+row = (XSSFRow) rows.next();//increment the row iterator
+for (int i = fcell; i < lcell; i++) {
+    row.getCell(i).setCellType(org.apache.poi.ss.usermodel.Cell.CELL_TYPE_STRING);
+    .
+    .
+    ..//processing
+    .
+    .
+    }
+}

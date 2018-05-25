@@ -1,0 +1,22 @@
+import java.util.*;
+import java.text.*;
+
+public class StringToDate
+{
+ public static void main(String[] args) 
+ {
+ try 
+ {  
+   String str_date="11-June-07";
+   DateFormat formatter ; 
+   Date date ; 
+   formatter = new SimpleDateFormat("yyyy-MM-dd");
+   date = (Date)formatter.parse(str_date);  
+
+  } 
+  catch (ParseException e)
+  {
+    System.out.println("Exception :"+e);  
+  }  
+ }
+}

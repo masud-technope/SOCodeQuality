@@ -1,0 +1,20 @@
+private void searchAPK(File dir){
+        File[] files = dir.listFiles();
+        Log.i("DIR", "Found " + files.length + " in " + dir.getAbsolutePath());
+        for (File file : files) {
+            if(file.isFile() && isAPK(file)){
+                list.add(file);
+                Log.i("APK found", file.getName());
+            }else if(file.isDirectory()){
+                searchAPK(file.getAbsoluteFile()); 
+            }
+        }
+    }
+
+    private boolean isAPK(File file){
+        boolean is = false;
+        if(file.getName().endsWith(".apk") || file.getName().endsWith(".APK")){
+            is = true;
+        }
+        return is;
+    }

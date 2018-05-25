@@ -1,0 +1,9 @@
+public static void main(String[] args) {
+    File parentFile = new File("path to your parent file");
+    File[] files = parentFile.listFiles();
+    Arrays.sort(files, new Comparator<File>() {
+    @Override
+    public int compare(File o1, File o2) {
+        return new Long(o1.length()).compareTo(o2.length());
+    }
+});

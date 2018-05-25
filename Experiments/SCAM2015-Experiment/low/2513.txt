@@ -1,0 +1,24 @@
+public class Cell<E>
+{
+   private E elem;
+   public Cell(E elem)
+   { 
+      this.elem = elem;
+   }
+   public E GetElement()
+   { 
+      return elem;
+   }
+   public void SetElement(E elem)
+   { 
+      this.elem = elem;
+   } 
+}
+
+boolean test()
+{ 
+  Cell<Integer> IntCell(10); 
+  Cell<String> StrCell(“Hello”);
+  return IntCell.getClass() ==
+         StrCell.getClass(); // returns true
+}

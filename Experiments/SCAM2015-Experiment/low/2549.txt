@@ -1,0 +1,19 @@
+public class Item {
+  public String blah;
+  ...
+  public void printThisString() {
+    System.out.println(blah);
+  }
+  ...
+}
+
+...
+
+Hashtable store = new Hashtable();
+Item item = new Item();
+item.blah = "Hello world!";
+store.put("FirstKey",item);
+store.put("SecondKey","Hello world!");
+...
+store.get("FirstKey").printThisString();//Works fine!
+store.get("SecondKey").printThisString();//Fails because String does not have a printThisString method.

@@ -1,0 +1,4 @@
+if(getLetters.indexOf(userCharInput)==-1) //getLetters is the StringBuilder, and the userCharInput is a String.
+{
+     playerCounter++;
+}

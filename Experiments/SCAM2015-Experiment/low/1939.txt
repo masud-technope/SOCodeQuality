@@ -1,0 +1,7 @@
+public void youAreHired(Department department) {
+        assert(department != null);
+        assert(mDepartment == null);
+        assert(department.isBeingHired(this));
+
+        mDepartment = department;
+    }

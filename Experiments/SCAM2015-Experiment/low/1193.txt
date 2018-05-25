@@ -1,0 +1,7 @@
+public static void reverse(int[] originalArray) {
+    int[] newArray = new int[originalArray.length];
+
+    for (int i = 0; i < originalArray.length; i++) {
+        newArray[i] = originalArray[originalArray.length - i - 1];
+    }
+}

@@ -1,0 +1,5 @@
+attributes = new Attributes[sizeOfInput];
+
+for (int i=0; i<sizeOfInput; i++) {
+    attributes[i] = itemList[i];
+}

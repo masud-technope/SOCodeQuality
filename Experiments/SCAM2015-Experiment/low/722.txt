@@ -1,0 +1,10 @@
+...
+try{
+assertTrue(condition);
+}
+
+catch (SomeException e)
+        {
+            fail("exception = " + e.getReason());
+        }
+...

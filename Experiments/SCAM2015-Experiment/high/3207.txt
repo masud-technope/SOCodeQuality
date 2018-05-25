@@ -1,0 +1,3 @@
+final JButton redButton = new JButton ("Red");
+ final JButton greenButton = new JButton ("Green");
+ final JButton blueButton = new JButton ("Blue");

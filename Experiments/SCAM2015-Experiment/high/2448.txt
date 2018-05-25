@@ -1,0 +1,6 @@
+StringBuilder b = new StringBuilder();
+for(int i = 3; i < 100000; i += 1)
+    if(isPrime(i))
+      b.append(i).append("\n");
+
+System.out.println(b.toString());

@@ -1,0 +1,3 @@
+double[] cArray= new double[Arrayweight.length + Arraypulse.length];
+System.arraycopy(Arrayweight, 0, cArray, 0, Arrayweight.length);
+System.arraycopy(Arraypulse, 0, cArray, Arrayweight.length, Arraypulse.length);

@@ -1,0 +1,7 @@
+private ArrayList<String> arrayList = new ArrayList<String>();
+private ArrayAdapter resultAdapter;
+
+// Inside onCreate() or any other method.
+//Currently List is empty
+resultAdapter = new ArrayAdapter<String>(this, android.R.layout. simple_list_item_1, arrayList)
+result.setAdapter( resultAdapter );

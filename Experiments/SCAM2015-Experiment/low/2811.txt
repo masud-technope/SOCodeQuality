@@ -1,0 +1,6 @@
+Iterator<String> iter = li.iterator();
+   while(iter.hasNext()){
+    if(iter.next().equalsIgnoreCase("some value"))
+      iter.remove();
+    }
+   }

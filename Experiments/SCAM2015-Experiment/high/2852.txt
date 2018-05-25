@@ -1,0 +1,3 @@
+Math.exp(D)      Total:     7405 ms,     Per Op: 0.0004414 ms
+(F)Math.exp(F)   Total:     5153 ms,     Per Op: 0.0003071 ms
+FloatMath.exp(F) Total:     8533 ms,     Per Op: 0.0005086 ms

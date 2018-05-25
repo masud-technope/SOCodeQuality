@@ -1,0 +1,7 @@
+import java.util.regex.*;
+
+String myString = "I Need 5000 points";
+Pattern pattern = Pattern.compile("\\d+");
+Matcher matcher = pattern.matcher(myString);
+if(matcher.find())            
+    System.out.println(matcher.group(0));

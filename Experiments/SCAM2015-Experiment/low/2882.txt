@@ -1,0 +1,5 @@
+while (!Thread.currentThread().isInterrupted()) {
+  while (scanner.hasNextLine()) {
+    ...
+  }
+}

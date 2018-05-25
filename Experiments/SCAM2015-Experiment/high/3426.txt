@@ -1,0 +1,7 @@
+class Athlete extends Person implements Swimmable, Walkable {
+    @Override
+    void swim(){ }
+
+    @Override
+    void walk(){ }
+}

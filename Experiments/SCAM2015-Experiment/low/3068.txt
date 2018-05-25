@@ -1,0 +1,11 @@
+int small = Integer.MAX_VALUE;
+    int i = 0;
+    int index = 0;
+    for(int j : tenIntArray){
+        if(j < small){
+            small = j;
+            i++;
+            index = i;
+        }
+    }
+    System.out.print("The smallest value is"+small+"at position"+ index +"in array");

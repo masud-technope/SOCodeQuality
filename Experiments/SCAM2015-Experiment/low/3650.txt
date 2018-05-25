@@ -1,0 +1,15 @@
+Exception ex=null;
+    try {
+        while ((testBean = csvReader.read(TestBean.class, headers, getCellProcessors())) != null) {
+            System.out.println("no excpetion");
+            i = 5;
+        }
+    } catch (SuperCsvException csvExc) {
+        System.out.println("superCSV excpetion");
+        i = 0;
+        ex=csvExc;
+    } catch (Exception ex) {
+        System.out.println("excpetion");
+        i = 0;
+    }
+    Assert.assertNotNull(ex);

@@ -1,0 +1,4 @@
+A a = new A(T obj1);
+B b = new B(T obj1, V obj2);
+a.equals(b) //will return true, because objects a and b have the same T reference.
+b.equals(a) //will return false because a is not an instanceof B

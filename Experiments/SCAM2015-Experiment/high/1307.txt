@@ -1,0 +1,4 @@
+interface ProcessStates {
+  int PS_RUNNING = 0;
+  int PS_SUSPENDED = 1;
+}

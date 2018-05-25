@@ -1,0 +1,9 @@
+public static void main(String[] args) {
+    List<Integer> aList = new ArrayList<Integer>(Arrays.asList(1,2,3));
+    List<Integer> view = aList.subList(0, 2);
+
+    view.add(new Integer(4));
+    view.remove(new Integer(2));
+    System.out.println("aList: " + aList);
+    System.out.println("view : " + view);        
+}

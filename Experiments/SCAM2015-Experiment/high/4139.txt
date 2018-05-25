@@ -1,0 +1,8 @@
+for(int i = 0; i < lenEncode; i++)
+{
+    String update = encodedMessage.substring(count, count + 1);
+    count = count + 10;
+    decodedMessage = decodedMessage + update; 
+}
+return decodedMessage;
+}

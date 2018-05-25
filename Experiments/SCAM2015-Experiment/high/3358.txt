@@ -1,0 +1,12 @@
+@Override
+public void functionToBeRateLimited(@Nonnull final String caller)
+{
+    // do some stuff every time here
+    super.timesCalled.get(caller).incrementAndGet();
+
+    // do some stuff only after a certain time has elapsed since the last time it was done
+    if (LIMITER.get(caller).tryAcquire())
+    {
+        System.out.println(String.format("%s Called Rate Limited Logic up to 2 times a second ( 500 ms )", caller));
+    }
+}

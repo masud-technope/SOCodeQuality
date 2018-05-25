@@ -1,0 +1,11 @@
+DataInputStream dis = new DataInputStream(new FileInputStream("file.dat")); 
+try {
+   while(true) {
+      byte b = dis.readByte();
+      //Do something with the byte
+   } 
+} catch (EOFException eofe) {
+//Stream Ended
+} catch (IOException ioe) {
+//Input exception
+}

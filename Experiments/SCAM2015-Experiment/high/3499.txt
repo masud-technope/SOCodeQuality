@@ -1,0 +1,7 @@
+if (guesses.add(guess)) {
+        //check if the letter guessed is in the secretWord
+        guessInWord = (secretWord.indexOf(guess))!= -1;
+        // etc.
+    } else {
+        System.out.println("You have already guessed this character!");
+    }

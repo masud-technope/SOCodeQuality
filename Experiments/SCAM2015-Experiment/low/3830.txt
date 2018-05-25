@@ -1,0 +1,16 @@
+Set<String> windows = driver.getWindowHandles();
+Iterator<String> itr = windows.iterator();
+
+//patName will provide you parent window
+String patName = itr.next();
+
+//chldName will provide you child window
+String chldName = itr.next();
+
+//Switch to child window
+driver.switchto().window(chldName);
+
+//Do normal selenium code for performing action in child window
+
+//To come back to parent window
+driver.switchto().window(patName);

@@ -1,0 +1,3 @@
+public string LastSubString(this string str) {
+    return str.Reverse().Substring(0,1);
+}

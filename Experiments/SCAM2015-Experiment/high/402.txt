@@ -1,0 +1,7 @@
+int sumDepthOfAllChildren(Node node, int depth)
+{
+    if ( node == null )
+        return 0;  // starting to see a pattern?
+    return depth + sumDepthOfAllChildren(node.getLeft(), depth + 1) + 
+                   sumDepthOfAllChildren(node.getRight(), depth + 1);
+}

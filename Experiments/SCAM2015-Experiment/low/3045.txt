@@ -1,0 +1,9 @@
+List<String> list=new ArrayList<>();
+
+ // put file string here using Scanner
+
+ String searchWord= "omar";// Read Search word here,
+
+ if(!list.contain(searchWord)){// Check weather word contain at list.
+      System.out.println("doesn't exist");
+ }

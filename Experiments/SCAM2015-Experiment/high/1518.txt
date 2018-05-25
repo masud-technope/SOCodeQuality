@@ -1,0 +1,8 @@
+public Customer searchCustomer( String familyName ) {
+    for ( Customer current : customerList ) {
+       if ( current.getFamilyName().equalsIgnoreCase( familyName ) )  {
+          return current;
+       }
+     }
+     return null;
+ }

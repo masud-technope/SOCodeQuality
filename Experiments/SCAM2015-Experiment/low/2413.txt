@@ -1,0 +1,10 @@
+public Enum Doors {
+    DOOR1
+    ,DOOR2
+    ,DOOR3
+    ,DOOR4
+    ,DOOR5
+    ,DOOR6
+    ,DOOR7
+    ,DOOR8
+}

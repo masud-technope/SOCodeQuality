@@ -1,0 +1,4 @@
+public List<Map<String, Object>> getUsers() {
+  Factory sql = new Factory(Database.getInstance().connect(), SQLDialect.MYSQL);
+  return sql.select().from("users").fetchMaps();
+}

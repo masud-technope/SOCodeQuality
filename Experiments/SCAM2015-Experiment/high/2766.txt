@@ -1,0 +1,6 @@
+public void webClick(View v) 
+{
+    Intent intent = new Intent(this, Webview.class);
+    intent.putExtra("weblink", urls.get(v.getId()));
+    startActivity(intent);
+}

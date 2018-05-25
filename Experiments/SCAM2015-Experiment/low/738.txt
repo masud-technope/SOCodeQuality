@@ -1,0 +1,19 @@
+bool Contains0InBase10( unsigned int i, unsigned int& next )
+{
+ unsigned int divisor = 10;
+ unsigned int remainder = 0;
+ while( divisor <= i )
+ {
+  unsigned int newRemainder = i%divisor;
+  if( newRemainder - remainder == 0)
+  {
+   // give back information allowing a program to skip closer to the next
+   // number that doesn't contain 0
+   next = i + (divisor / 10) - remainder;
+   return true;
+  }
+  divisor *= 10;
+  remainder = newRemainder;
+ }
+ return false;
+}

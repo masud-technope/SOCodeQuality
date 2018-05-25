@@ -1,0 +1,9 @@
+ArrayList<Integer> StringToInteger(String x)
+{Pattern p = Pattern.compile("a*b");
+Matcher m = p.matcher("aaaaab");
+ArrayList<Integer> result = new ArrayList<>();
+while(m.find()){
+       result.add(Intger.parseInt(m.group()));
+}
+return result;
+}

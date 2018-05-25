@@ -1,0 +1,7 @@
+#A Test to write properties
+#Fri Apr 08 15:28:26 ADT 2011
+com.app.ip=127.0.0.1
+com.app.port=8080
+#Where does this go?
+#Fri Apr 08 15:28:26 ADT 2011
+com.app.another=Hello World

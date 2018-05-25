@@ -1,0 +1,16 @@
+<settings>
+    .......
+    <proxies>
+        <proxy>
+            <active>true</active>
+            <protocol>http</protocol>
+            <host>your_proxy_host</host>
+            <port>your_proxy_port</port>
+            <!-- Its optional  if you need user name and password to connect proxy remove comment.
+            <username>proxyuser</username>
+            <password>somepassword</password>
+            <nonProxyHosts>*.yourdomain.com|*.yourOtherDomain.com</nonProxyHosts>
+            -->
+        </proxy>
+    </proxies>
+</settings>

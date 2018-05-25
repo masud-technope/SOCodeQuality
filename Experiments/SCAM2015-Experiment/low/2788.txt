@@ -1,0 +1,14 @@
+Scanner input = new Scanner(System.in);
+
+System.out.print("Type in a bunch of values and I'll ad them up. ");
+System.out.println( "I'll stop when you type a zero." );
+
+int total = 0;
+for (int current = -1; current != 0;) {
+    System.out.print(" Value: ");
+    current = input.nextInt();
+    total += current; 
+    System.out.println("The total so far is: " + total);
+}
+
+System.out.println( "Final total: " + total);

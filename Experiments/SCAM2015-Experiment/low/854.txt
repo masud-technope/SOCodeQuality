@@ -1,0 +1,9 @@
+public boolean isDescendant(Member x) {
+   if(equals(x))
+      return true;
+   for(Member child : children) {
+      if(child.isDescendant(x))
+        return true;
+   }
+   return false;
+}

@@ -1,0 +1,6 @@
+public void myMethod()
+    {
+        // B stuff
+        super.myMethod();
+        // B stuff
+    }

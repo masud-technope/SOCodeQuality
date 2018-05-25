@@ -1,0 +1,14 @@
+public class GenericsTest {
+    //statement 1
+    public ArrayList<Integer>[] lists;
+
+    public GenericsTest()
+    {
+        //statement 2
+        lists = new ArrayList[4];
+        //statement 3
+        lists[0].add(new Integer(0));
+        //statement 4
+        lists[0].add(new String(""));
+    }
+}

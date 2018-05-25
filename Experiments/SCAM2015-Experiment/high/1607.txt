@@ -1,0 +1,3 @@
+List<? extends List<Integer>> listOfIntegerLists;
+listOfIntegerLists = (List<List<Integer>>) genericListOfLists; //(caution: uncheck cast)
+listOfIntegerLists = (List<List<Integer>>) genericListOfStringLists; //OUCH (no compilation error just an unchecked cast!)

@@ -1,0 +1,9 @@
+validate:
+      - mandatory.text: {label: Mandatory Field, mandatory: true}
+      - date.text: {label: Date Field, dateFormat: "yyyy/mm/dd"}
+      - email.text: {label: E-Mail, email: true}
+      - minmax.text: {label: Min/Max Length, minLength: 5, maxLength: 10}
+      - regex.text: {label: Regex, regex: "[a-zA-Z0-9]+"}
+      - regex2.text: {label: Regex, regex: "[a-zA-Z0-9]+", 
+               regexMessage: "''{0}'' must be a number or letter"}
+      - long.text: {label: Min/Max Long, minValue: 5, maxValue: 50, mandatory: true}

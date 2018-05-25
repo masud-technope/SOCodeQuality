@@ -1,0 +1,5 @@
+int yourID = 1;
+String tablename = "table";
+String query = "SELECT * FROM " + tableName + " where id = ?";´
+PreparedStatement statement = con.prepareStatement(query);
+statement.setInt(1, yourID);

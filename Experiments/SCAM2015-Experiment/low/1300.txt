@@ -1,0 +1,10 @@
+public void refresh() throws BeansException, IllegalStateException {
+      //Do something that does not affect the state of the object
+      System.out.println("I am inside the refresh method() and will accquire lock on the object now");
+      prepareRefresh();
+}
+
+private synchronized void preparedRefresh() {
+    //Do something thread safe here
+    //Since the thread here has the monitor it can safely alter the state of the class instance here with causing inconsistensy
+}

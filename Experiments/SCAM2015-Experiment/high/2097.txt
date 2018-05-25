@@ -1,0 +1,32 @@
+Method[] intMethods = int.class.getMethods();
+
+if(intMethods.length == 0) {
+    System.out.println("No methods.");
+}
+else {
+    for(Method method : intMethods) {
+        System.out.println(method.getName());
+    }
+}
+
+Constructor[] intConstructors = int.class.getConstructors();
+
+if(intConstructors.length == 0) {
+    System.out.println("No constructors.");
+}
+else {
+    for(Constructor constructor: intConstructors) {
+        System.out.println(constructor.getName());
+    }
+}
+
+Field[] intFields = int.class.getFields();
+
+if(intFields.length == 0) {
+    System.out.println("No fields.");
+}
+else {
+    for(Field field: intFields) {
+        System.out.println(field.getName());
+    }
+}

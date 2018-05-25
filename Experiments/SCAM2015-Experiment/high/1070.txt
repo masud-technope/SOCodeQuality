@@ -1,0 +1,12 @@
+class St1 {
+    static {
+        System.out.println("In static initializer");
+    }
+}
+
+public class St2 {
+    public static void main(String[] args) {
+        System.out.println(St1.class);
+        System.out.println(new St1());
+    }
+}

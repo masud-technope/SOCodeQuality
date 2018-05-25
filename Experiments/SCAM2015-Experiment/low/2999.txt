@@ -1,0 +1,8 @@
+public void paint (Graphics g) {
+    super.paint(g);
+    draw_shape(g);
+}
+
+private void draw_shape(Graphics g) {                                         
+    g.drawLine(0, 0, 100, 100);
+}

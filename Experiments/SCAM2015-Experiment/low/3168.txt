@@ -1,0 +1,10 @@
+MyClass implements Runnable {
+
+ public void run() {
+ ....synchronized(this)..
+ }
+
+}
+
+Thread t1 = new Thread(new MyClass());
+Thread t2 = new Thread(new MyClass());

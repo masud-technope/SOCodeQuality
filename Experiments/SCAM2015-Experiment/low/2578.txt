@@ -1,0 +1,49 @@
+public static void main(String arg[])
+{
+    List<Double> testList=new ArrayList();
+
+   /*Adding The values to the List*/
+
+    testList.add(0.5);
+    testList.add(0.2);
+    testList.add(0.9);
+    testList.add(0.1);
+    testList.add(0.1);
+    testList.add(0.1);
+    testList.add(0.54);
+    testList.add(0.71);
+    testList.add(0.71);
+    testList.add(0.71);
+    testList.add(0.92);
+    testList.add(0.12);
+    testList.add(0.65);
+    testList.add(0.34);
+    testList.add(0.62);
+
+    /*Declare a new List for storing sorted Results*/
+
+    List<Double> finalList=new ArrayList();
+
+
+    while(!testList.isEmpty()) //perform operation until all elements are moved to new List
+    {
+        double rank=0;
+        int i=0;
+            for(double d: testList)
+            {
+                if(d>=rank)
+                {
+                    rank=d;
+                }
+
+            }
+            finalList.add(rank);
+
+            testList.remove(testList.indexOf(rank));
+
+     }
+    for(double d : finalList) {
+        System.out.println(d);
+    }
+
+}

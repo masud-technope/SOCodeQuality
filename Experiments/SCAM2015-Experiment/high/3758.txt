@@ -1,0 +1,3 @@
+String message =editText.getText().toString();
+ int intMessage = Integer.parseInt(message);
+ int result = intMessage*10; //Now you can multiply with another value

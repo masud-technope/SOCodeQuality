@@ -1,0 +1,3 @@
+BigDecimal d = new BigDecimal("59.0000");
+String d1 = new DecimalFormat().format(d);
+System.out.println("d1 is " + d1);

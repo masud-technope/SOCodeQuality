@@ -1,0 +1,5 @@
+List<Integer> list = new ArrayList<Integer>();
+  for (int index = 0; index < array.length; index++)
+  {
+    list.add(array[index]);
+  }

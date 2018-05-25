@@ -1,0 +1,3 @@
+String input = "this is a [cent[cent] and [cent]cent] string";
+         Pattern p = Pattern.compile("\\[((?:[^\\[\\]]++|\\[[^\\[\\]]*+\\])*+)\\]");
+         Matcher m = p.matcher(input);

@@ -1,0 +1,4 @@
+public int doSum(int num1, int num2)
+{
+    return doTheSum(num1, num2);
+}

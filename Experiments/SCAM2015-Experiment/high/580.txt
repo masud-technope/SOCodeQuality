@@ -1,0 +1,17 @@
+//CONSTRUCTOR
+public MyClass() {
+    try {
+         throw new RuntimeException("Must be instantiated from with Spring container!");
+    }
+    catch (RuntimeException e) {
+        StackTraceElement[] els  = e.getStackTrace();
+        //NOW WALK UP STACK AND re-throw if you don't find a springframework package
+        boolean foundSpring = false;
+        for (StackTraceElements el : els) {
+            if (el.getDeclaringClass().startsWith("org.springframework")) {
+                foundSpring = true; break;
+            }
+        }
+        if (!foundSpring) throw e;
+    }
+}

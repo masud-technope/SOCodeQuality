@@ -1,0 +1,3 @@
+Locale locale = Locale.UK;
+Currency curr = Currency.getInstance(locale);
+System.out.println("Symbol: " + curr.getSymbol());

@@ -1,0 +1,18 @@
+one way to laod jar file .. it may helpful to you.
+
+
+
+ public class JarLoad {
+        public static void main(String[] args) throws ZipException, IOException {
+    File jarfile = new File("C\\scan.jar");
+    if(! jarfile.isDirectory()){
+        ZipFile jar = new ZipFile(jarfile);
+        Enumeration enumeration = jar.entries();
+        while(enumeration.hasMoreElements()){
+            ZipEntry zipEntry = (ZipEntry)enumeration.nextElement();
+            System.out.println(zipEntry.getName());
+        }
+
+    }
+
+}

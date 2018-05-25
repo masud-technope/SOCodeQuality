@@ -1,0 +1,28 @@
+int height,num,space,i,j,k=0;
+public void main()throws IOException
+{
+    System.out.println("Enter the heigheight");
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    height= Integer.parseInt(br.readLine());
+    for (num=height-1;num>=0;num--)
+    {
+        for(space=num;space>=1;space--)
+        System.out.print(" ");
+        if((height-num)%2==0)//if height-num is even
+        {
+            for(i=1;i<=((height-num)/2);i++)//1 2 3 4 5
+            System.out.print(i+" ");
+            for(i=((height-num)/2);i>=1;i--)//5 4 3 2 1
+            System.out.print(i+" ");
+        }
+        else
+        {
+            k++;
+            for(i=1;i<=k;i++)//1 2 3 4 5
+            System.out.print(i+" ");
+            for(j=i-2;j>=1;j--)//4 3 2 1
+            System.out.print(j+" ");
+        }
+        System.out.println("");
+    }
+}

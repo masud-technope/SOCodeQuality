@@ -1,0 +1,9 @@
+String xml =
+    "<xml><foo bar=\"Larry &quot;Basher&quot; O'Niven\">Ringworm</foo></xml>";
+String query =
+    String.format("//foo[@bar=%s]", escape("Larry \"Basher\" O'Niven"));
+System.out.println(query);
+String book = XPathFactory.newInstance()
+    .newXPath()
+    .evaluate(query, new InputSource(new StringReader(xml)));
+System.out.println(query + " > " + book);

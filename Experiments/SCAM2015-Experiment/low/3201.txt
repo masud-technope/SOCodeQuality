@@ -1,0 +1,3 @@
+Switch(str){
+case:strCheck
+}

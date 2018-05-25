@@ -1,0 +1,5 @@
+String s = "chapterId=c_1&sectionId=s_24666";
+    //OR
+    //String s = "chapterId=c_1&sectionId=s_24666&isHL=1&cssFileName=haynes";
+    s=s.replaceAll(".*?s_(\\d+).*","$1");
+    System.out.println(s);

@@ -1,0 +1,21 @@
+public class TEST
+{
+    public static void main(String arg[]){
+        boolean success=false;
+        try
+        {
+            System.out.println("execute try");
+            //what should I write hear that finally does not run.
+            success=true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        finally{
+            if (!success)
+            {
+                System.out.println("execute finally");
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+doAsynchronousTask = new TimerTask() {
+
+            @Override
+            public void run() {
+                // timer.schedule(doAsynchronousTask, 0, 5000);
+.
+.
+.
+.
+.
+}
+}

@@ -1,0 +1,5 @@
+grid = new char[15][15];
+
+grid.length is 15
+
+grid[i].length is 15

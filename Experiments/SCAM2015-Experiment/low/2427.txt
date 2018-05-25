@@ -1,0 +1,15 @@
+private void tset(){
+    int min1; float somefloat;
+    try {
+        //setting values for min and somefloat
+        min1 = 1;
+        somefloat = 0.92f;
+    while (true){
+        //warning: variables min1 and somefloat may not be initialized.
+        float value1 = (1023 - min1) * somefloat;
+        System.out.println("Value: " + value1);
+    }
+    } catch (Exception ioe) {
+        System.err.println("Read Exception");
+    } 
+}

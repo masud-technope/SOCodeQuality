@@ -1,0 +1,4 @@
+/* set1 intersection set2: results in set1 having only common elements */
+set1.retainAll(set2);
+/* Finally intersection of previous result and set3: final result in set1 */
+set1.retainAll(set3);

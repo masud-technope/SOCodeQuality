@@ -1,0 +1,13 @@
+// pool of names that are being locked
+HashSet<String> pool = new HashSet<String>(); 
+
+lock(name)
+    synchronized(pool)
+        while(pool.contains(name)) // already being locked
+            pool.wait();           // wait for release
+        pool.add(name);            // I lock it
+
+unlock(name)
+    synchronized(pool)
+        pool.remove(name);
+        pool.notifyAll();

@@ -1,0 +1,10 @@
+private int[] myCoordinates(int x, int y)
+ {
+   int []retCord = new int[2];
+
+   //Do some operation
+   retCord[0] = x;
+   retCord[1] = y;
+
+  retutn retCord;
+ }

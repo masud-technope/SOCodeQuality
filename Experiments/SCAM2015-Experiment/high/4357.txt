@@ -1,0 +1,3 @@
+foreach element in data.split(&)
+   array = element.split(=)
+   get second element from array

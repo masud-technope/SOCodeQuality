@@ -1,0 +1,4 @@
+System.out.println(getPath("http://myfile.com/File1/beauty.png"));
+System.out.println(getPath("https://myfile.com/File1/beauty.png"));
+System.out.println(getPath("www1.myfile.com/File1/beauty.png"));
+System.out.println(getPath("myfile.co.uk/File1/beauty.png"));;

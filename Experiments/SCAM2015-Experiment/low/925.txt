@@ -1,0 +1,8 @@
+// Store them into the 16 bit datatype.
+char c1_8bit = 'a';
+char c2_8bit = 'h';
+char two_chars = (c1_8bit << 8) + c2_8bit;
+
+// extract them
+char c1_8bit = two_chars >> 8;
+char c2_8bit = two_chars & 0xFF;

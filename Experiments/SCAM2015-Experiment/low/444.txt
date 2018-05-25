@@ -1,0 +1,22 @@
+package com.nisarg.threads;
+
+
+public class CurrentlyActiveThreads {
+    public static void main(String[] args) {
+        ThreadGroup threadGroup = Thread.currentThread().getThreadGroup();
+        ThreadGroup parent;
+        while((parent = threadGroup.getParent()) != null) {
+            if(null != threadGroup) {
+                threadGroup = parent;
+                if(null != threadGroup) {
+                    Thread [] threadList = new Thread[threadGroup.activeCount()];
+                    threadGroup.enumerate(threadList);
+                    for (Thread thread : threadList)
+                        System.out.println(new StringBuilder().append(thread.getThreadGroup().getName())
+                                .append("::").append(thread.getName()).append("::PRIORITY:-")
+                                .append(thread.getPriority()));
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+for(String operator : OPERATORS)
+{
+    if(Pattern.compile("[\\s\\w]" + operator + "[\\s\\w]").matcher(line).find())
+    {
+        System.out.println(operator + " found in " + line);
+    }
+}

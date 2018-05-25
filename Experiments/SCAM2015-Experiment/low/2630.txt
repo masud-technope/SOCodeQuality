@@ -1,0 +1,15 @@
+public class CopyZip
+{
+  public static void main(String[] args)
+  {
+     FileInputStream fin = new FileInputStream(new File("source_folder\migrate.zip"));
+     ZipInputStream zin = new ZipInputStream(fin);
+     byte[] in_bytes = new bytes[1000];
+     zin.read(in_bytes,0,1000);
+
+
+     FileOutputStream fout = new FileOutputStream(new File("dest_folder\migrate.zip"));
+     ZipOutputSrream zout = new ZipOutputStream(fout);
+     zout.write(in_bytes,0,in_bytes.length);
+  }
+}

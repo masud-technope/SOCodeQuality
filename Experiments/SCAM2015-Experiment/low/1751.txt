@@ -1,0 +1,8 @@
+public class TimeTest {
+
+    public static void main(String [] args) {
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+        System.out.println(cal.currentTimeMillis());
+
+    }
+}

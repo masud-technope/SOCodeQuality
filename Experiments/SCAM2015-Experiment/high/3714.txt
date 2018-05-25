@@ -1,0 +1,4 @@
+synchronized (s) { // monitor on "s = 2"
+    s = s * 5;     // different object! "s = 10"
+    s.notify();    // notify on "s = 10", this is not allowed! 
+}

@@ -1,0 +1,21 @@
+package JavaPractice;
+
+public class CountNumberOfWords {
+public static void main(String[] args) {
+    String str = "My name is srikanth. srikanth is working on a java program. " + 
+            "srikanth dont know how many errors atr there. so, " +
+            "srikanth is going to find it.";
+    String Iwant = "srikanth";
+    int wordIndex = 0;
+    int count =0;
+    for (int start = 0; start < str.length(); start++) {
+      if (Character.isWhitespace(str.charAt(start))) wordIndex++;
+      if (str.substring(start).startsWith(Iwant)) {
+        System.out.println("Index of the String Iwant "+wordIndex);
+        count++;
+      }
+    }
+    System.out.println("Number of times srikanth in str is="+count);
+
+}
+}

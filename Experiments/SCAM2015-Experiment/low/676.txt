@@ -1,0 +1,5 @@
+for(MobileSuit ms : MobileSuits) {
+    for(Pilot p : pilots){
+        //TODO
+    }
+}

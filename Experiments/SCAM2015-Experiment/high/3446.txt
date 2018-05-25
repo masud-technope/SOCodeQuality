@@ -1,0 +1,34 @@
+[C:\java_code\]java TimeIteratorVsIndexIntegerList 1000000
+Test A: 3,429,929,976 nanoseconds
+Test B: 5,262,782,488 nanoseconds
+A faster by 1,832,852,512 nanoseconds (34.326681820485675% faster)
+
+[C:\java_code\]java TimeIteratorVsIndexIntegerList 1000000
+Test A: 2,907,391,427 nanoseconds
+Test B: 3,957,718,459 nanoseconds
+A faster by 1,050,327,032 nanoseconds (26.038700083921256% faster)
+
+[C:\java_code\]java TimeIteratorVsIndexIntegerList 1000000
+Test A: 2,566,004,688 nanoseconds
+Test B: 4,221,746,521 nanoseconds
+A faster by 1,655,741,833 nanoseconds (38.71935684115413% faster)
+
+[C:\java_code\]java TimeIteratorVsIndexIntegerList 1000000
+Test A: 2,770,945,276 nanoseconds
+Test B: 3,829,077,158 nanoseconds
+A faster by 1,058,131,882 nanoseconds (27.134122749113843% faster)
+
+[C:\java_code\]java TimeIteratorVsIndexIntegerList 1000000
+Test A: 3,467,474,055 nanoseconds
+Test B: 5,183,149,104 nanoseconds
+A faster by 1,715,675,049 nanoseconds (32.60101667104192% faster)
+
+[C:\java_code\]java TimeIteratorVsIndexIntList 1000000
+Test A: 3,439,983,933 nanoseconds
+Test B: 3,509,530,312 nanoseconds
+A faster by 69,546,379 nanoseconds (1.4816434912159906% faster)
+
+[C:\java_code\]java TimeIteratorVsIndexIntList 1000000
+Test A: 3,451,101,466 nanoseconds
+Test B: 5,057,979,210 nanoseconds
+A faster by 1,606,877,744 nanoseconds (31.269164666060377% faster)

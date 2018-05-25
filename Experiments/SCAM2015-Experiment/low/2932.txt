@@ -1,0 +1,13 @@
+Class ClassX{  
+   private static ClassX objX = null;
+
+   public static ClassX getInstance(){
+      if(objX == null)
+          synchronized(this) {
+              if(objX == null)
+              objX = new ClassX();
+          }
+
+      return objX;
+   }
+}

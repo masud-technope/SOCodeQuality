@@ -1,0 +1,3 @@
+Document original = null;
+...
+original.parse("data.xml");//input source as an XML document

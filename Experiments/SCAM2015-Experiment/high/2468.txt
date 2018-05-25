@@ -1,0 +1,18 @@
+public double[] Convertir(double Number) {
+    Number = nombre;
+    double[] all = new double[3];
+    while ((Number - 365) >= 0) {
+        annee += 1;   //this calculates the number of years    
+    }
+    all[0] = annee;
+    double nombreSemaine = Number - (annee * 365);
+    while ((nombreSemaine - 7) >= 0) {
+        semaine = semaine + 1;
+    }//this calculates the number of weeks
+    all[1] = semaine;
+    double nombreJour = Number - (annee * 365) - (semaine * 7);
+    nombreJour = jour;
+    all[2] = jour;
+
+    return all
+}

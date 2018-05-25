@@ -1,0 +1,37 @@
+public static void main(String[] args) 
+{
+    String s1,s2;
+
+    Scanner s = new Scanner(System.in);
+    System.out.println("Enter 2 strings");
+    s1 = s.nextLine();
+    s2 = s.nextLine();
+
+    mixString(s1,s2);
+
+}
+
+    private static void mixString(String s1, String s2) 
+    {
+        int a,b;
+        a = s1.length();
+        b = s2.length();
+        char[] c = new char[a+b];
+        int d = 0;
+        for(int i=0,j=0;i+j<=(a+b+1);i++,j++)
+        {
+            try {
+                if(i<a)
+                {
+                c[d]  = s1.charAt(i);
+                d++;
+                }
+                c[d]  = s2.charAt(j);d++;
+            } catch (StringIndexOutOfBoundsException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        System.out.println(c);
+
+    }

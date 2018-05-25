@@ -1,0 +1,7 @@
+Vehicle vehicle1 = new Vehicle();
+vehicle1.setModelNo(111);
+
+Vehicle vehicle2 = new Vehicle();
+vehicle2.setModelNo(111);
+
+System.out.println(vehicle1.equals(vehicle2));

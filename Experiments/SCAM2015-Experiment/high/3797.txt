@@ -1,0 +1,12 @@
+public void testEqualsIntern_avgt_jmhLoop(InfraControl control, RawResults result, MyBenchmark_1_jmh l_mybenchmark0_0, Blackhole_1_jmh l_blackhole1_1) throws Throwable {
+    long operations = 0;
+    long realTime = 0;
+    result.startTime = System.nanoTime();
+    do {
+        l_blackhole1_1.consume(l_mybenchmark0_0.testEqualsIntern());
+        operations++;
+    } while(!control.isDone);
+    result.stopTime = System.nanoTime();
+    result.realTime = realTime;
+    result.operations = operations;
+}

@@ -1,0 +1,15 @@
+public String[] getemailAddr(String strAccountnbr) throws Exception {
+    final List<String> emailAddress = new ArrayList<>();
+    final String strQuery2 = "SELECT c.EmailAddress AS EmailAddress"
+            + " FROM customeremailid c "
+            + "WHERE c.AccountNbr = ? ";
+    try (final PreparedStatement ps = getDBConn().prepareStatement(strQuery2)) {
+        ps.setString(1, strAccountnbr);
+        try (final ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                emailAddress.add(rs.getString("EmailAddress"));
+            }
+        }
+    }
+    return emailAddress.toArray(new String[emailAddress.size()]);
+}

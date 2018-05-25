@@ -1,0 +1,10 @@
+Map<String, String> idToColor = new HashMap<>();
+
+for (...) {
+  if (idToColor.contains(entry.id)) {
+    entry.color = idToColor.get(id);
+  } else {
+    entry.color = generateNewColor();
+    idToColor.put(entry.id, entry.color);
+  }
+}

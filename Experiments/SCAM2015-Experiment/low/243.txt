@@ -1,0 +1,7 @@
+boolean java.util.regex.Matcher.matches()
+Attempts to match the entire input sequence against the pattern. 
+
+If the match succeeds then more information can be obtained via the start, end, and group methods. 
+
+Returns:
+true if, and only if, the entire input sequence matches this matcher's pattern

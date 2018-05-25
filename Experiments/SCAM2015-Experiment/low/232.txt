@@ -1,0 +1,18 @@
+xparm=0
+word=""
+loop
+  get next char
+  if no char
+    exit loop
+  if char=='='
+    param_name[xparm]=word
+    word=""
+  else if char=='&'
+    param_value[xparm]=word
+    word=""
+    xparm=xparm+1
+  else if char=='%'
+    read next two chars
+    word=word+interpret the chars as hex digits to make a byte
+  else
+    word=word+char

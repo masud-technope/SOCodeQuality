@@ -1,0 +1,21 @@
+public boolean equals(Object o) {
+
+    boolean result = false;
+
+    if(o instanceof CategoryEnum) {
+
+        CategoryEnum ce = (CategoryEnum) o;
+        result = ce.toString().equals(name);
+
+    }       
+    return result;
+
+}
+
+
+public int hashCode()
+{
+  int hash = 6;
+  hash += 32 * name.hashCode();
+  return hash;
+}

@@ -1,0 +1,5 @@
+while(){
+//...
+}
+reader.close();
+writer.close();

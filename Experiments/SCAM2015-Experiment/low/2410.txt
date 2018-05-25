@@ -1,0 +1,3 @@
+object = new Integer(1);
+object = new Integer(2);
+object = new Integer(3);

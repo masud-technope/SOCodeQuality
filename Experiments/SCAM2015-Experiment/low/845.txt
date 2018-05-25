@@ -1,0 +1,3 @@
+String str= 21*90'89;
+String part= str.split("[*|']");
+System.out.println(part[0] +""+part[1]);

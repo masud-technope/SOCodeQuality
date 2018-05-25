@@ -1,0 +1,3 @@
+// arr = arr2; // <--my attempt to alter runner variable
+arr.clear(); // <-- empty arr
+arr.addAll(arr2); // <-- copy arr2 contents to arr.

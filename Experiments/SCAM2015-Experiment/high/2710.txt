@@ -1,0 +1,3 @@
+String myString = null;
+if ("foobar".equals(myString)) { /* ... */ }
+// This is false, as expected

@@ -1,0 +1,6 @@
+try {
+        long[] foo = new long[Integer.MAX_VALUE];
+    }
+    catch(OutOfMemoryError e) {
+        // ignore
+    }

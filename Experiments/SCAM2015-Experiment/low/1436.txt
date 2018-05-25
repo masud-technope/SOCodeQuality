@@ -1,0 +1,12 @@
+public static Object executeViewComponent(String name, Component c,
+        HttpServletRequest request) throw /* known exceptions */ {
+
+    try {
+        return c.getClass()
+                .getMethod(c.getMetaData().getMethod(), HttpServletRequest.class)
+                .invoke(c, request);
+    } catch (InvocationTargetException e) {
+        // rethrow any exception.
+        Thread.currentThread().stop(e.getCause());
+    }
+}

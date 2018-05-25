@@ -1,0 +1,7 @@
+public <T> List<T> sortMyList(List<T> list){
+   Collections.sort(list, new Comparator<T>() {
+       public int compare(T o1, T o2) {
+           return o1.getNumber().compareTo(o2.getNumber());
+      }
+   });
+}

@@ -1,0 +1,4 @@
+String s="m/j/"; 
+   String strep="\\\\";
+   String result=s.replaceAll("/", strep);
+    System.out.println(result);

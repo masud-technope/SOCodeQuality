@@ -1,0 +1,15 @@
+static Map<String,String> html_specialchars_table = new Hashtable<String,String>();
+static {
+        html_specialchars_table.put("&lt;","<");
+        html_specialchars_table.put("&gt;",">");
+        html_specialchars_table.put("&amp;","&");
+}
+static String htmlspecialchars_decode_ENT_NOQUOTES(String s){
+        Enumeration en = html_specialchars_table.keys();
+        while(en.hasMoreElements()){
+                String key = en.nextElement();
+                String val = html_specialchars_table.get(key);
+                s = s.replaceAll(key, val);
+        }
+        return s;
+}

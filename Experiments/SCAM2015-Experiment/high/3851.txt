@@ -1,0 +1,29 @@
+var cookieName = 'sessionMsg';
+var message = 'Your session is going to be end by 5 min, Please click OK to continue';
+
+function getCookie(name)
+{
+    var name = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++)
+    {
+        var c = ca[i].trim();
+        if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+
+function setSessionPrompt() {
+    var timeout = getCookie(cookieName) - new Date().getTime();
+    setTimeout(function(){
+        if (new Date().getTime() < getCookie(cookieName)) {
+            setSessionPrompt();
+        } else {
+            if(confirm(message)) {
+                // do your action here
+            }
+        }
+    }, timeout);
+}
+
+setSessionPrompt();

@@ -1,0 +1,6 @@
+public MyClass( String varA, String varB, int varC )
+{
+  this.varA = varA;
+  this.varB = varB;
+  this.varC = varC;
+}

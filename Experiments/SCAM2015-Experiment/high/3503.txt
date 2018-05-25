@@ -1,0 +1,32 @@
+import java.util.Arrays;
+
+
+public class Test056 {
+
+    public static void main(String[] args) {
+
+        String[] arrNull = new String[10000];
+        String[] arrString = new String[10000];
+
+        long t1 = System.nanoTime();
+
+        for (int i=0; i<10000; i++){
+            System.arraycopy(arrNull, 0, arrString, 0, arrNull.length);
+        }
+
+        long t2 = System.nanoTime();
+
+        System.out.println(t2 - t1);
+
+        long t3 = System.nanoTime();
+
+        for (int i=0; i<10000; i++){
+            Arrays.fill(arrString, null);
+        }
+
+        long t4 = System.nanoTime();
+
+        System.out.println(t4 - t3);
+    }
+
+}

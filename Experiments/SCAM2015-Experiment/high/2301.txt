@@ -1,0 +1,9 @@
+@Override
+public void onConfigurationChanged(Configuration newConfig) {
+     super.onConfigurationChanged(newConfig);
+     if(newConfig.orientation == COnfiguration.ORIENTATION_LANDSCAPE) {
+          getActionBar().hide();
+     } else {
+          getActionBar().hide();
+     }
+}

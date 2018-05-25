@@ -1,0 +1,6 @@
+1   for each character x:
+2       if x is uppercase:
+3           convert x to lowercase
+4       else:
+5           if x is lowercase:
+6                convert x to uppercase.

@@ -1,0 +1,14 @@
+public class Shift  {
+  private CrackerGUI gui;
+
+  // pass in a reference to the displayed CrackerGUI object
+  public Shift(CrackerGUI gui) {
+    this.gui = gui;
+  }
+
+  public void btnClear() {
+    //CrackerGUI gui = new CrackerGUI();
+    gui.setPlainText(" ");
+    System.out.println("testing");
+  } 
+}

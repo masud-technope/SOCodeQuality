@@ -1,0 +1,4 @@
+JButton button = new JButton("Button");
+frame.add(button);
+//add other components
+frame.pack();

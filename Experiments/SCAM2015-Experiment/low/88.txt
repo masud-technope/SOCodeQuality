@@ -1,0 +1,3 @@
+COPY i to tmp
+INCREMENT tmp
+SAVE tmp as i

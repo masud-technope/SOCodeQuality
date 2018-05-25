@@ -1,0 +1,5 @@
+0000004d WSRdbManagedC W   DSRA0180W: Exception detected during 
+ManagedConnection.destroy().  The exception is:  
+com.ibm.ws.exception.WsException: DSRA0080E: An exception was received by 
+ the Data Store Adapter Invalid operation: Connection is closed. ERRORCODE=- 
+4470, SQLSTATE=08003. With SQL State: 08003 SQL Code : -4470

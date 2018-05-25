@@ -1,0 +1,14 @@
+Try this.
+
+ public static void main(String a[]){
+ String days [] = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+    Date d = new Date();
+    SimpleDateFormat  st = new SimpleDateFormat ("EEEEE");
+    String day = st.format(d);
+    for(int i=0;i<days.length;i++){
+        if(days[i].equals(day)){
+            System.out.println(days[i+2]);
+            break;
+        }
+    }
+}

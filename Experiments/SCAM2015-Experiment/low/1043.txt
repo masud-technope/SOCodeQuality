@@ -1,0 +1,14 @@
+@Test
+public void someTest()
+{
+    new Expectations() {
+        @Mocked Files files;
+        @Input  List<String> lines = asList("Line 1", "Another line", "...");
+    };
+
+    // Called from code under test:
+    List<String> lines = Files.readLines(someFile, charSet);
+    // These "lines" will be the same as the "@Input" lines.
+
+    // asserts...
+}

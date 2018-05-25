@@ -1,0 +1,5 @@
+public String date() {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd_hh:mm:ss");  
+        df.setTimeZone(TimeZone.getTimeZone("PST"));  
+        return df.format(new Date());
+}

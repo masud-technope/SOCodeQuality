@@ -1,0 +1,44 @@
+package ravi.tutorial.java.gc;
+
+/**
+ * Just to test GC. RUn with below VM arguments.
+ * 
+ * -verbose:gc -XX:+PrintGCTimeStamps -XX:+PrintGCDetails
+ * 
+ * 
+ * @author ravi.k
+ * 
+ */
+public class TestGC {
+
+    public static A a;
+
+    /**
+     * @param args
+     * @throws InterruptedException
+     */
+    public static void main(String[] args) throws InterruptedException {
+
+        for (int i = 0; i < 100; i++) {
+            populateObjects();
+            System.out.println("population done for batch: " + i);
+        }
+
+    }
+
+    public static void populateObjects() {
+        for (int i = 0; i < 100000; i++) {
+            a = new A("A");
+        }
+        //System.gc();
+    }
+
+}
+
+class A {
+    String s;
+
+    public A(String s) {
+        this.s = s;
+    }
+}

@@ -1,0 +1,26 @@
+use POSIX qw(mktime);
+use Time::localtime;
+use strict;
+
+my $week;
+my $year;
+&num_of_week(\$week,\$year);
+printf "this week: %d of year %s\n",$week,$year;
+
+
+sub num_of_week {
+my $p_week=shift;
+
+my $lt=localtime();
+my $tz=0;
+my $tNowSeconds=mktime(@$lt[0],@$lt[1],@$lt[2],@$lt[3],@$lt[4],@$lt[5],0,0,$tz);
+my $week_day=@$lt[6];
+my $thursday_offset=4-$week_day; #week num is the week num of the thursday
+my $tThursdaySeconds = $tNowSeconds+$thursday_offset*3600*24; #
+$lt=localtime($tThursdaySeconds); # recompute using thursday
+my $seconds_1_jan=mktime(0,0,0,1,0,@$lt[5],0,0,0); # use year of thursday
+my $week_num=1+($tThursdaySeconds-$seconds_1_jan)/(24*3600*7);
+
+$$p_year=@$lt[5]+1900;
+$$p_week=$week_num;
+}

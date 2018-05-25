@@ -1,0 +1,4 @@
+protected void checkSubclass()
+{
+    /* Allow us to subclass this widget. */
+}

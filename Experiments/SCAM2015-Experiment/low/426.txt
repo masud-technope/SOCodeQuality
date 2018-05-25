@@ -1,0 +1,38 @@
+public static String[] order(String key, String list[], int index) {
+    ArrayList<String> order_List = new ArrayList<String>();
+    ArrayList<String> temp_Order_List = null;
+    char[] key_char = key.toCharArray();
+    for (int offset = 0; offset < key_char.length; offset++) {
+        if (key_char.length >= offset + index) {
+            String str = (index > 1 ? list[0].substring(0, index - 1) : "")
+                    + new String(key_char, offset, 1);
+            for (int i = 0; i < list.length; i++) {
+                temp_Order_List = new ArrayList<String>();
+                for (int k = 0; k < list.length; k++) {
+                    if (!order_List.contains(list[k])
+                            && !temp_Order_List.contains(list[k])) {
+                        if (list[k].equalsIgnoreCase(str))
+                            order_List.add(list[k]);
+                        else if (list[k].toLowerCase().startsWith(str.toLowerCase())) {
+                            temp_Order_List.add(list[k]);
+
+                        }
+                    }
+                }
+                if (temp_Order_List.size() > 0) {
+                    if (temp_Order_List.size() > 1) {
+                        String[] add = order(key,
+                                temp_Order_List.toArray(new String[temp_Order_List
+                                        .size()]), index + 1);
+                        for (String s : add) {
+                            order_List.add(s);
+                        }
+                    } else {
+                        order_List.add(temp_Order_List.get(0));
+                    }
+                }
+            }
+        }
+    }
+    return order_List.toArray(new String[order_List.size()]);
+}

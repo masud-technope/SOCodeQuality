@@ -1,0 +1,4 @@
+static Boolean parseBoolean(String s)
+{
+    return ("1".equals(s) ? Boolean.TRUE : ("0".equals(s) ? Boolean.FALSE : null));
+}

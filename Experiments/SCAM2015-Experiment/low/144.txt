@@ -1,0 +1,6 @@
+Process process = Runtime.getRuntime().exec("su jim && ls ~bob");
+
+OutputStream standardInput = process.getOutputStream();
+Writer standardInputWriter = new OutputStreamWriter(standardInput);
+standardInputWriter.write("password\n");
+standardInputWriter.close();

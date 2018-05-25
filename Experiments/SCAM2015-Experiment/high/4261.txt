@@ -1,0 +1,4 @@
+var compareResult = lhs.CompareTo(rhs);
+
+if (compareResult == CompareResult.LessThan || compareResult == CompareResult.Equals)
+    ...

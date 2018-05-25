@@ -1,0 +1,11 @@
+// Use these together
+import android.support.v4.content.CursorLoader;
+import android.support.v4.app.LoaderManager.LoaderCallbacks;
+import android.support.v4.content.Loader;
+import android.support.v4.widget.SimpleCursorAdapter;
+
+// Or use these, but don't mix and match
+import android.content.CursorLoader;
+import android.content.Loader;
+import android.app.LoaderManager.LoaderCallbacks;
+import android.widget.SimpleCursorAdapter;

@@ -1,0 +1,13 @@
+String repeat(String a, int count) {
+    StringBuilder rv;
+
+    if (count <= 0) {
+        return "";
+    }
+
+    rv = new StringBuilder(a.length() * count);
+    while (count-- > 0) {
+        rv.append(a);
+    }
+    return rv.toString();
+}

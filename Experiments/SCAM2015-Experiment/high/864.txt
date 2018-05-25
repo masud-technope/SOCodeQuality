@@ -1,0 +1,3 @@
+public static <T extends Number> Function<String, T> parseFunctionFor(Class<T> type) {
+  // lookup the function for the type in an ImmutableMap and return it
+}

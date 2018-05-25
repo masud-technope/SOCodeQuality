@@ -1,0 +1,7 @@
+<groupId>foo</groupId>
+<artifactId>bar</artifactId>
+<version>${my.project.version}</version>
+
+<properties>
+    <my.project.version>1.0</my.project.version>
+</properties>

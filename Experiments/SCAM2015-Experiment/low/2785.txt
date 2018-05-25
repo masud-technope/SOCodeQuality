@@ -1,0 +1,7 @@
+class Stats {
+public static void foo() {
+GoobyPls gbp=new GoobyPls();
+    string Health =  gbp.getCHealth + "/" + MHealth ;
+    string Agility = gbp.getCAgility + "/" + MAgility;
+    string Defence = gbp.getCDefence + "/" + MDefence;
+}

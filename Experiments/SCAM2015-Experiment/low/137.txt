@@ -1,0 +1,3 @@
+int i = mylist
+  .OfType<int>()
+  .Aggregate( (soFar, next) => soFar*10 + next);

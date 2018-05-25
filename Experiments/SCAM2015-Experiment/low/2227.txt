@@ -1,0 +1,11 @@
+JTextArea ta = new JTextArea(text);
+    ta.setEditable(false);
+    ta.setLineWrap(true);
+    ta.setWrapStyleWord(true);
+    JLabel lb = new JLabel();
+    Font f = lb.getFont();
+    ta.setFont(f.deriveFont(f.getSize2D() * 0.9f));
+    ta.setBorder(lb.getBorder());
+    ta.setBackground(new Color(lb.getBackground().getRGB(), true));
+    ta.setForeground(new Color(lb.getForeground().getRGB(), true));
+    ta.setOpaque(lb.isOpaque());

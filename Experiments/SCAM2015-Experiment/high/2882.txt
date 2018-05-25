@@ -1,0 +1,3 @@
+CustomScrollView myScrollView = (CustomScrollView) findViewById(R.id.myScroll);
+        myScrollView.setEnableScrolling(false); // disable scrolling
+        myScrollView.setEnableScrolling(true); // enable scrolling

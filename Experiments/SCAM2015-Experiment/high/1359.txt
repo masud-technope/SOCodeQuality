@@ -1,0 +1,8 @@
+Long.parseLong("0", 10)        // returns 0L
+ Long.parseLong("473", 10)      // returns 473L
+ Long.parseLong("-0", 10)       // returns 0L
+ Long.parseLong("-FF", 16)      // returns -255L
+ Long.parseLong("1100110", 2)   // returns 102L
+ Long.parseLong("99", 8)        // throws a NumberFormatException
+ Long.parseLong("Hazelnut", 10) // throws a NumberFormatException
+ Long.parseLong("Hazelnut", 36) // returns 1356099454469L

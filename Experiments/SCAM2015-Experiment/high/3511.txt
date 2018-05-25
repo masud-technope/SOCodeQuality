@@ -1,0 +1,41 @@
+import javax.swing.*;
+
+import java.awt.event.*;
+
+public class NewButtonOnRunTime {
+static JPanel panel;
+
+static JFrame frame;
+
+public static void main(String[] args){
+    javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        @Override
+        public void run() {
+            frame = new JFrame("Add Buttons");
+
+            JButton button = new JButton("Simulate new Client");
+            button.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e)
+                {
+                    JButton jb = new JButton("A new Client");
+                    jb.addActionListener(new ActionListener() {
+
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            JOptionPane.showMessageDialog(null, "This is an button action");
+
+                        }
+                    });
+                    panel.add(jb);
+                    frame.revalidate();
+                }
+            });
+            panel = new JPanel();
+            panel.add(button);
+            frame.add(panel);
+            frame.setSize(400, 400);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
+        }
+    });
+}

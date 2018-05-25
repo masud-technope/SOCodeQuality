@@ -1,0 +1,5 @@
+Random randomGenerator = new Random();
+int red = randomGenerator.nextInt(255);
+int green = randomGenerator.nextInt(255);
+int blue = randomGenerator.nextInt(255); 
+Color randomColour = new Color(red,green,blue);

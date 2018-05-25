@@ -1,0 +1,50 @@
+Calling 11 8 7 6 5  with cap: 20
+ +Calling 8 7 6 5  with cap: 20
+ |  Calling 7 6 5  with cap: 20
+ |    Calling 6 5  with cap: 20
+ |      Calling 5  with cap: 20
+ |      Result: 5
+ |      Calling 5  with cap: 14
+ |      Result: 5
+ |    Result: 11
+ |    Calling 6 5  with cap: 13
+ |      Calling 5  with cap: 13
+ |      Result: 5
+ |      Calling 5  with cap: 7
+ |      Result: 5
+ |    Result: 11
+ |  Result: 18
+ |  Calling 7 6 5  with cap: 12
+ |    Calling 6 5  with cap: 12
+ |      Calling 5  with cap: 12
+ |      Result: 5
+ |      Calling 5  with cap: 6
+ |      Result: 5
+ |    Result: 11
+ |    Calling 6 5  with cap: 5
+ |      Calling 5  with cap: 5
+ |      Result: 5
+ |    Result: 5
+ |  Result: 12
+ +Result: 20
+  Calling 8 7 6 5  with cap: 9
+    Calling 7 6 5  with cap: 9
+      Calling 6 5  with cap: 9
+        Calling 5  with cap: 9
+        Result: 5
+        Calling 5  with cap: 3
+        Result: 0
+      Result: 6
+      Calling 6 5  with cap: 2
+        Calling 5  with cap: 2
+        Result: 0
+      Result: 0
+    Result: 7
+    Calling 7 6 5  with cap: 1
+      Calling 6 5  with cap: 1
+        Calling 5  with cap: 1
+        Result: 0
+      Result: 0
+    Result: 0
+  Result: 8
+Result: 20

@@ -1,0 +1,25 @@
+Thread A = ...;
+Thread B = ...;
+Thread C ...
+Thread D ...
+
+if (input==0)
+  {  A.start(); // start thread A
+     A.join(); // wait here until thread A finishes
+     C.start();
+     C.join();
+     B.start();
+     D.start();
+     B.join();
+     D.join();
+   }
+else
+  {  A.start(); 
+     A.join(); 
+     D.start();
+     D.join();
+     B.start();
+     C.start();
+     B.join();
+     C.join();
+   }

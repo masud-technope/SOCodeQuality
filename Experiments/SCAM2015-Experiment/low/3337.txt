@@ -1,0 +1,51 @@
+public class Demonstration
+{
+  public Demonstration2()
+  {
+    int[][] lists = getListOfList();
+
+    printList(lists);
+  }
+
+  private int[][] getListOfList()
+  {
+    final int maxSize = 6;
+
+    int[][] list = new int[maxSize * maxSize * maxSize * maxSize][];
+    int rowIndex = 0;
+
+    for (int i = 0; i < maxSize; ++i)
+    {
+      for (int j = 0; j < maxSize; ++j)
+      {
+        for (int k = 0; k < maxSize; ++k)
+        {
+          for (int w = 0; w < maxSize; ++w)
+          {
+            list[rowIndex++] = new int[]{i, j, k, w};
+          }
+        }
+      }
+    }
+
+    return list;
+  }
+
+  private void printList(int[][] lists)
+  {
+    for (int[] list : lists)
+    {
+      for (int item : list)
+      {
+        System.out.print(item + " ");
+      }
+
+      System.out.println();
+    }
+  }
+
+  public static void main(String[] args)
+  {
+    new Demonstration();
+  }
+}

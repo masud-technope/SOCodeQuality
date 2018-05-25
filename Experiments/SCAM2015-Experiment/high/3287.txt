@@ -1,0 +1,7 @@
+(?m:                # non capturing group with the multiline modifier
+    ^               # anchor: start of the line
+    U\d+:           # literal "U" followed by digits and : 
+  |                 # OR
+    \G/             # literal "/" contiguous to a precedent match 
+)
+%x\[(-?\d+),(-?\d+)\]

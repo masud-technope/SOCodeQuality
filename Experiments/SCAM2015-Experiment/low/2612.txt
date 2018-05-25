@@ -1,0 +1,7 @@
+package com.bad;
+
+public interface IAlpha {
+    public String getName();
+    // Sort Alphabetically by Name
+    public int compareTo(IAlpha other);
+}

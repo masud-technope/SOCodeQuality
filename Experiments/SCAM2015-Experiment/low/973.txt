@@ -1,0 +1,5 @@
+Adding 500K 192 took ms
+Adding 500K 154 took ms
+Adding 500K 95 took ms
+Adding 500K 211 took ms
+Adding 500K 424 took ms

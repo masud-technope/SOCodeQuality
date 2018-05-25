@@ -1,0 +1,3 @@
+AddVMOption -XX:MaxPermSize=256M
+AddVMOption -Xms256M
+AddVMOption -Xmx768M

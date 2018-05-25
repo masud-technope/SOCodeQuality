@@ -1,0 +1,150 @@
+package gaming;
+
+import java.util.Random;
+
+public class game2 {
+
+public static char c;
+public static Random r = new Random();
+public static int i = r.nextInt(25);
+public static int i2 = r.nextInt(25);
+public static int i3 = r.nextInt(25);
+public static int i4= r.nextInt(25);
+public static int i5 = r.nextInt(25);
+public static int num2 = r.nextInt(9);
+public static int num3= r.nextInt(9);
+public static String s1 = String.valueOf(num2);
+public static String s2 = String.valueOf(num3);
+
+public static void main(String[] args){
+
+
+    System.out.print("The pin is: ");
+    changeToString(i);
+    System.out.print(c);
+    changeToString(i2);
+    System.out.print(c);
+    changeToString(i3);
+    System.out.print(c);
+    changeToString(i4);
+    System.out.print(c);
+    changeToString(i5);
+    System.out.print(c);
+    System.out.print(s1);
+    System.out.print(s2);
+
+}
+
+public static void changeToString(int rand){
+
+    switch (rand){
+
+    case 0:
+
+        c = 'A';
+        break;
+    case 1:
+
+        c = 'B';
+        break;
+    case 2:
+
+        c = 'C';
+        break;
+    case 3:
+
+        c = 'D';
+        break;
+    case 4:
+
+        c = 'E';
+        break;
+    case 5:
+
+        c = 'F';
+        break;
+    case 6:
+
+        c = 'G';
+        break;
+    case 7:
+
+        c = 'H';
+        break;
+    case 8:
+
+        c = 'I';
+        break;
+    case 9:
+
+        c = 'J';
+        break;
+    case 10:
+
+        c = 'K';
+        break;
+    case 11:
+
+        c = 'L';
+        break;
+    case 12:
+
+        c = 'M';
+        break;
+    case 13:
+
+        c = 'N';
+        break;
+    case 14:
+
+        c = 'O';
+        break;
+    case 15:
+
+        c = 'P';
+        break;
+    case 16:
+
+        c = 'Q';
+        break;
+    case 17:
+
+        c = 'R';
+        break;
+    case 18:
+
+        c = 'S';
+        break;
+    case 19:
+
+        c = 'T';
+        break;
+    case 20:
+
+        c = 'U';
+        break;
+    case 21:
+
+        c = 'V';
+        break;
+    case 22:
+
+        c = 'W';
+        break;
+    case 23:
+
+        c = 'X';
+        break;
+    case 24:
+
+        c = 'Y';
+        break;
+    case 25:
+
+        c = 'Z';
+        break;
+
+    }
+
+}
+}

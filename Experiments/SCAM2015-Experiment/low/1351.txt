@@ -1,0 +1,40 @@
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class FileReader {
+
+    public static List<String> readFile() throws IOException {
+        List<String> fileContents = new ArrayList<String>();
+        FileInputStream fileInputStream = new FileInputStream("C:/Users/compaq/Desktop/file.txt");
+        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        String strLine = null;
+        while((strLine=bufferedReader.readLine())!=null) {
+            fileContents.add(strLine);
+        }
+        fileInputStream.close();
+        return fileContents;
+    }
+
+    public static void printFileInReverse(List<String> fileContents, int numberOfLines) {
+        int counter = 0;
+        for(int i=(fileContents.size()-1);i>=0;i--) {
+            if(counter==numberOfLines) { break; }
+            System.out.println(fileContents.get(i));
+            counter++;
+        }
+    } 
+
+    public static void main(String[] args) throws IOException {
+        List<String> fileContents = new ArrayList<String>();
+        fileContents = FileReader.readFile();
+        int numberOfLines = 5;// Number of lines that you would like to print from the bottom of your text file.
+        FileReader.printFileInReverse(fileContents, numberOfLines);
+    }
+
+}

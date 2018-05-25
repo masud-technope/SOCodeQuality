@@ -1,0 +1,5 @@
+public static int testIntegerA = 42;
+
+Intent intentInteger = new Intent(getActivityContext(), ActivityB.class);
+intentInteger.putExtra("INTENT_EXTRA", testIntegerA);
+startActivity(intentInteger);

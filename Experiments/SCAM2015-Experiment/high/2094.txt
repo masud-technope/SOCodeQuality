@@ -1,0 +1,9 @@
+int[] numbers = new int[5];  // 1
+
+string[,] names = new string[5,4]; // 2
+
+int[][] detail = new int[7][];    // 3
+for (int d = 0; d < detail.Length; d++)
+{
+  detail[d] = new int[10];
+}

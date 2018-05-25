@@ -1,0 +1,14 @@
+class A {
+    private String getStringRepresentation() {
+        return one + " | " + two;
+    }
+    public String toString() {
+        return bRef.toString();
+    }
+}
+
+class B {
+    public String toString() {
+        return three + "[" + aRef.getStringRepresentation() + "]"
+    }
+}

@@ -1,0 +1,11 @@
+public static long recFact(int n, long val)
+{
+    if(n==1)
+    {
+        return val;
+    }
+    else
+    {
+        return recFact(n-1, val) * n;
+    }
+}

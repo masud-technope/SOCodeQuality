@@ -1,0 +1,5 @@
+static void modify(String m)
+    {
+       m = "Else";
+       System.out.println(m);
+    }

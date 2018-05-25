@@ -1,0 +1,40 @@
+BufferedInputStream inputStream = null;
+  OutputStream out = null;
+
+  String fileName = null;
+  String path = null;
+  File savedFile = null;
+
+  try
+  {
+      // Replace your URL here.
+      URL fileURL = new URL("http://enter.your.url.here");
+      URLConnection connection = fileURL.openConnection();
+      connection.connect();
+
+      inputStream = new java.io.BufferedInputStream(connection.getInputStream());
+
+      // Replace your save path here.
+      File fileDir = new File("path/to/save");
+      fileDir.mkdirs();
+      savedFile = new File("path/to/save", fileName);
+      out = new FileOutputStream(savedFile);
+
+      byte buf[] = new byte[1024];
+      int len;
+
+      long total = 0;
+
+      while ((len = inputStream.read(buf)) != -1)
+      {
+        total += len;
+        out.write(buf, 0, len);
+      }
+
+      out.close();
+      inputStream.close();
+  }
+  catch (Exception)
+  {
+
+  }

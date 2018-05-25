@@ -1,0 +1,3 @@
+for (Car car : carsList) {  // carsList is the object of List<Car>
+    System.out.println(car);
+}

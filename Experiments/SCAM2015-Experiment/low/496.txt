@@ -1,0 +1,55 @@
+public static int parseIntFromTo ( char[] digitChars, int offset, int to ) {
+    int num = digitChars[ offset ] - '0';
+    if ( ++offset < to ) {
+        num = ( num * 10 ) + ( digitChars[ offset ] - '0' );
+        if ( ++offset < to ) {
+            num = ( num * 10 ) + ( digitChars[ offset ] - '0' );
+            if ( ++offset < to ) {
+                num = ( num * 10 ) + ( digitChars[ offset ] - '0' );
+                if ( ++offset < to ) {
+                    num = ( num * 10 ) + ( digitChars[ offset ] - '0' );
+                    if ( ++offset < to ) {
+                        num = ( num * 10 ) + ( digitChars[ offset ] - '0' );
+                        if ( ++offset < to ) {
+                            num = ( num * 10 ) + ( digitChars[ offset ] - '0' );
+                            if ( ++offset < to ) {
+                                num = ( num * 10 ) + ( digitChars[ offset ] - '0' );
+                                if ( ++offset < to ) {
+                                    num = ( num * 10 ) + ( digitChars[ offset ] - '0' );
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return num;
+}
+
+
+public static boolean isISO8601( String string ) {
+      boolean valid = true;
+
+      if (string.length () == SHORT_ISO_8601_TIME_LENGTH) {
+          valid &=  (string.charAt ( 19 )  == 'Z');
+
+      } else if (string.length () == LONG_ISO_8601_TIME_LENGTH) {
+          valid &=  (string.charAt ( 19 )  == '-' || string.charAt ( 19 )  == '+');
+          valid &=  (string.charAt ( 22 )  == ':');
+
+      } else {
+          return false;
+      }
+
+    //  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4
+    // "1 9 9 4 - 1 1 - 0 5 T 0 8 : 1 5 : 3 0 - 0 5 : 0 0
+
+    valid &=  (string.charAt ( 4 )  == '-') &&
+                (string.charAt ( 7 )  == '-') &&
+                (string.charAt ( 10 ) == 'T') &&
+                (string.charAt ( 13 ) == ':') &&
+                (string.charAt ( 16 ) == ':');
+
+    return valid;
+}

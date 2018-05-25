@@ -1,0 +1,4 @@
+C:\docs\Projects> java FillSpace 10000000
+method 1: append single spaces for 10000000 times. Time taken is **157ms**. Length of String is 10000000
+method 2: append 100 spaces for 100000 times. Time taken is **109ms**. Length of String is 10000000
+Process java exited with code 0

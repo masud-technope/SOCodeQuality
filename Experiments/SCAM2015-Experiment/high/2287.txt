@@ -1,0 +1,26 @@
+SoapObject req = new SoapObject(NAMESPACE,METHOD_NAME);
+            //SoapObject req = new SoapObject(Namespace_Server,MethodName_Server);
+
+    //req.addProperty(KEY, VALUE);
+//Key : - parameter name that is there in URL of webservice
+//value:- value we want to send to the parameter
+    req.addProperty("ImageData", data);
+    req.addProperty("login", CommonStaticData.getusername());
+    req.addProperty("password",CommonStaticData.getpassword());
+    req.addProperty("recipeId",FileID);
+
+    MarshalBase64 mbase = new MarshalBase64();// marshal is used to serialize the byte array
+
+    SoapSerializationEnvelope envelop = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+    envelop.bodyOut = req;
+    envelop.encodingStyle = SoapSerializationEnvelope.ENC2001;
+    envelop.dotNet = true;
+    envelop.setOutputSoapObject(req);
+
+
+    HttpTransportSE aht = new HttpTransportSE(URL);
+
+    mbase.register(envelop);
+
+
+    aht.call(SOAP_ACTION,envelop);

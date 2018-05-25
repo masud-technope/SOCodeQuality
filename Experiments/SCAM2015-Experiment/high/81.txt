@@ -1,0 +1,3 @@
+ArrayList backup = new ArrayList();
+for (Object obj : data)
+   backup.add(obj.clone());

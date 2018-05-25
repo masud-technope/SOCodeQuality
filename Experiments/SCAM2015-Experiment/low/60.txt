@@ -1,0 +1,27 @@
+public class Replacement {
+
+    private String newS;
+    private String old;
+
+    public Replacement(String old, String newS) {
+        this.newS = newS;
+        this.old = old;
+    }
+
+    public String getOld() {
+        return old;
+    }
+
+    public String getNew() {
+        return newS;
+    }
+}
+
+SortedMap<Integer, Replacement> map = new TreeMap<Integer, Replacement>();
+
+map.put(new Integer(1), new Replacement("R2", "R3"));
+map.put(new Integer(2), new Replacement("R1", "R2"));
+
+for(Integer key: map.keySet()) {
+   str.replaceAll(map.get(key).getOld(), map.get(key).getNew());
+}

@@ -1,0 +1,7 @@
+if (margin % 10 == 0) {
+    System.out.println(margin + " ");
+    margin++;
+} else {
+    System.out.print(margin + " ");
+    margin++;
+}

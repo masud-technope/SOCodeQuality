@@ -1,0 +1,3 @@
+Query query = new Query();
+query.addCriteria(Criteria.where("id").is(10).orOperator(Criteria.where("id").is(20));
+this.client.findOne(query, clazz);

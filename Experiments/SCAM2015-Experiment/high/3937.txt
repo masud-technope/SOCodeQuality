@@ -1,0 +1,23 @@
+public class Rating {
+  private User ratedBy;
+  private Item itemRated;
+
+  public Item getItem() { return itemRated; }
+}
+
+public class User {
+  private Set<Rating> allRatings = new HashSet<>();
+
+  public Rating getRatingFor(Item item) {
+      for(Rating rating: allRatings) {
+          if(item.equals(rating.getItem()) {
+              return rating;
+          }
+      }
+      return null;
+  }
+}
+
+public class Item {
+  private Set<Rating> allRatings = new HashSet<>();
+}

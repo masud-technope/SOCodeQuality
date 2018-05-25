@@ -1,0 +1,29 @@
+package com.java.util.collection.advance.datastructure.queue;
+/**
+* A deque is a double-ended queue. You can insert items at either end and delete them
+* from either end. The methods might be called insertLeft() and insertRight(), and 
+* removeLeft() and removeRight().
+* @author vsinha
+*
+* @param <E>
+*/
+public interface DeQueue<E> extends Queue<E>{
+
+    boolean addL(E element);
+
+    E removeR();
+
+}
+
+package com.java.util.collection.advance.datastructure.queue;
+
+
+@SuppressWarnings("hiding")
+public interface FindMinMaxQueue<Integer> extends Queue<Integer>{
+
+    public Integer min();
+
+    public Integer max();
+}
+
+package com.java.util.collection.advance.datastructure.queue;

@@ -1,0 +1,5 @@
+for (String str : array){
+            if(str.contains(mystring)){
+                System.out.println(str + " Conatins" + mystring);
+            }
+        }

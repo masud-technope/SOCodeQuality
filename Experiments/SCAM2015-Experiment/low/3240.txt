@@ -1,0 +1,3 @@
+st = "What's your name again?"
+st.repaleAll("\\s|'|\+","")
+st.repaleAll("'","")

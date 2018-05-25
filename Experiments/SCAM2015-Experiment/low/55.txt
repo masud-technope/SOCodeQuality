@@ -1,0 +1,7 @@
+public class IntegerCreator implements Creator<Integer> 
+{
+  public Integer create() 
+  { 
+    ...
+  }
+}

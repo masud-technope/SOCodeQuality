@@ -1,0 +1,11 @@
+List<List<String>> listOfLists = new ArrayList<List<String>>();
+
+	List<String> firstVector = new ArrayList<String>();
+
+	firstVector.add( "one" );
+	firstVector.add( "two" );
+
+	listOfLists.add(  firstVector );
+
+    System.out.println( listOfLists.get(0).get(0) == "one" );
+    System.out.println( listOfLists.get(0).get(1) == "two" );

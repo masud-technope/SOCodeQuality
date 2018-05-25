@@ -1,0 +1,7 @@
+private Map<String, Choice> nameMap3() {
+    final Map<String, Choice> hashMap = new HashMap<>();
+    choices.stream().forEach((choice) -> {
+        hashMap.put(choice.getName(), choice);
+    });
+    return hashMap;
+}

@@ -1,0 +1,3 @@
+public Simple(SimpleParams params) {
+    this(params.getR1(), params.getR2());
+}

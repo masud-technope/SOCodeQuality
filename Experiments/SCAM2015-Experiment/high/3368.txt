@@ -1,0 +1,5 @@
+if (inputNumber<4 || inputNumber>10) {
+    System.out.println("Invalid grade!");
+} else if (count==0) {
+    System.out.print("You didn't enter any data!");
+}

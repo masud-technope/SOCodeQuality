@@ -1,0 +1,19 @@
+import static java.util.Calendar.*;
+
+public static void main(String[] args) {
+    System.out.println(getNextMonthFirstWed(new Date(112, 3 - 1, 24)));
+    System.out.println(getNextMonthFirstWed(new Date(112, 4 - 1, 05)));
+}
+
+private static Date getNextMonthFirstWed(Date date) {
+    Calendar c = getInstance();
+    c.setTime(date);
+    c.add(MONTH, 1);
+    c.set(DAY_OF_MONTH, 1);
+
+    // search until wednesday
+    while (c.get(DAY_OF_WEEK) != WEDNESDAY) {
+        c.add(DAY_OF_MONTH, 1);
+    }
+    return c.getTime();
+}

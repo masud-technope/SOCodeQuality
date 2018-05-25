@@ -1,0 +1,10 @@
+@RequestMapping("/userGrid?_search=${search}&nd=${nd}&rows=${rows}&page=${page}&sidx=${sidx}&sord=${sord}")
+public @ResponseBody GridModel getUsersForGrid(
+@RequestParam(value = "search") String search, 
+@RequestParam(value = "nd") int nd, 
+@RequestParam(value = "rows") int rows, 
+@RequestParam(value = "page") int page, 
+@RequestParam(value = "sidx") int sidx, 
+@RequestParam(value = "sort") Sort sort) {
+...............
+}

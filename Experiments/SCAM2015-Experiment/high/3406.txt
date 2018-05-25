@@ -1,0 +1,7 @@
+for(int i = 0; i < 7; i++){
+        for(int j = 0; j < 10; j++){
+            OT2Field[i][j] = new JTextField();
+            OT1Field[i][j] = new JTextField();
+            STField[i][j] = new JTextField();
+        }
+    }

@@ -1,0 +1,14 @@
+String str = "6.6";
+String str2 = "6";
+
+// If only digits are there, then it is integer
+if (str2.matches("[+-]?\\d+")) {  
+    int val = Integer.parseInt(str2);
+    qt += val;
+}
+
+// digits followed by a `.` followed by digits
+if (str.matches("[+-]?\\d+\\.\\d+")) {  
+    double val = Double.parseDouble(str);
+    wt += val;
+}

@@ -1,0 +1,32 @@
+Class Test
+{
+ public int a;
+ public Test()
+ {
+  a = 0;
+ }
+ public getA()
+ {
+  return a;
+ }
+
+ public setA(int a)
+ {
+   this.a = a
+ }
+}
+
+Class TestMain
+{
+  main()
+ {
+   Test t = new Test();
+   System.out.println(t.a);   // This prints 0;
+   int a = t.getA();
+   a = 10;
+   System.out.println(t.a);   // This still prints 0;
+
+   t.a = 20;
+   System.out.println(t.a);   // This prints 20;
+ }
+}

@@ -1,0 +1,3 @@
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+String dateString = sdf.format(calendar.getTime());
+System.out.println(dateString); // 2009-06-21 15:51:25

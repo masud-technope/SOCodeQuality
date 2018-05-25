@@ -1,0 +1,16 @@
+class TheUIThread implements NonUIThreadDelegate /*assuming you've decided to make NonUIThreadDelegate an interface*/ { // the "delegator"
+    /*
+    your code
+    */
+
+    private void initiateNonUIThread() {
+        NonUIThread nonUIThread;
+        /*do whatever needed*/
+        nonUIThread.setDelegate(this);
+        nonUIThread.start();
+    }
+
+    public void someMethodThatUpdatesThatComponent() { //will be called by the non ui thread
+        //update the UI
+    }   
+ }

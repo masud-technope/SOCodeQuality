@@ -1,0 +1,18 @@
+Class Outer
+ {    
+    public static flag=true;
+    Outer()
+    {
+        new Test().start();
+    } 
+    class Test extends Thread
+    {               
+       public void run()
+       {
+         while(Outer.flag)
+         {
+          //do ur work here
+         }  
+       }
+    }
+  }

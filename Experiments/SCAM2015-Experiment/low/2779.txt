@@ -1,0 +1,5 @@
+int range = 1000;
+List<Integer> arr = new ArrayList<Integer>(range);
+for(int i=0;i<range;i++) {
+    arr.add((int)(Math.random()*i), new Integer(i));
+}

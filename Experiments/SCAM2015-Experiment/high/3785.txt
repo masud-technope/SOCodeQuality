@@ -1,0 +1,6 @@
+<application
+        android:name="packagename.GlobalClass"
+        ....
+        ....
+        //other codes here
+</application>

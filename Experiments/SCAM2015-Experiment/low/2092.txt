@@ -1,0 +1,8 @@
+float result = 0;
+ if (TextUtils.isEmpty(et.getText().toString()) {
+  return;
+}
+
+result = Float.parseFloat(et.getText().toString());
+
+tv.setText(result);

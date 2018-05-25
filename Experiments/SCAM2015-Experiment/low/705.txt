@@ -1,0 +1,5 @@
+@ManyToMany 
+@JoinTable(name="TAG_ARTICLE", 
+      joinColumns=@JoinColumn(name="ARTICLE_ID"),
+      inverseJoinColumns=@JoinColumn(name="TAG_ID"))
+private Collection<Tag> tags;

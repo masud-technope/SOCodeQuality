@@ -1,0 +1,5 @@
+PreparedStatement pstmt = 
+                conn.prepareStatement("select * from employee where id in (?)");
+Array array = conn.createArrayOf("VARCHAR", new Object[]{"1", "2","3"});
+pstmt.setArray(1, array);
+ResultSet rs = pstmt.executeQuery();

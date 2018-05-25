@@ -1,0 +1,37 @@
+import java.util.*;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.text.*;
+
+public class EPOCH {
+
+
+public static void main(String[] args) throws InterruptedException {
+
+try {
+
+InputStreamReader isr = new InputStreamReader(System.in);
+System.out.print("pelase enter Epoch tme stamp : ");
+BufferedReader br = new BufferedReader(isr);
+String s=br.readLine();
+long l=Long.parseLong(s); 
+l=l*1000;  
+
+Date date = new Date(l);
+
+ DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+ format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
+ String formatted = format.format(date);
+  System.out.println(formatted);
+  format.setTimeZone(TimeZone.getTimeZone("IST"));
+
+formatted = format.format(date);
+Calendar c=Calendar.getInstance();
+c.setTime(format.parse(formatted));
+formatted = format.format(c.getTime());  
+System.out.println(formatted);
+}
+catch (Exception e) {
+e.printStackTrace();
+}}}

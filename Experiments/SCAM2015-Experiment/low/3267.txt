@@ -1,0 +1,3 @@
+if ( item != null && item.getId() == id){
+    return item;
+ }

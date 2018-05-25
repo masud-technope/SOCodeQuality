@@ -1,0 +1,12 @@
+try {
+   //use resource
+} catch (FirstException e) {
+   // dispose resource
+   // log first exception
+} catch (SecondException e) {
+   // dispose resource
+   // log first exception
+} catch (ThirdException e) {
+   // dispose resource
+   // log first exception
+}

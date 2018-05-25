@@ -1,0 +1,13 @@
+final Thread [] threads = new Thread[25];
+
+    for(int i = 0; i < 25; i++)
+    {
+        if(i == 0)
+        {
+            threads[i] = new WaitinThread(null);
+        }
+        else
+        {
+            threads[i] = new WaitingThread(threads[i - 1]);
+        }
+    }

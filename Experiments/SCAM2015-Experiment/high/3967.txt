@@ -1,0 +1,26 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_content" >
+
+    <ImageView
+        android:id="@+id/image_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_drawable_1"
+        android:onClick="doSomething" />
+
+    <ImageView
+        android:id="@+id/image_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_drawable_2"
+        android:onClick="doSomething" />
+
+    <ImageView
+        android:id="@+id/image_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_drawable_3"
+        android:onClick="doSomething" />
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+String line ="a a b b b b a q c c";
+...
+Map<String,Integer> map = new HashMap<String,Integer>();
+Scanner scanner = new Scanner(line); 
+while (scanner.hasNext()) {
+    String s = scanner.next();
+    Integer count = map.put(s,1); 
+    if(count!=null) map.put(s,count + 1);
+}
+...
+System.out.println(map);

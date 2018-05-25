@@ -1,0 +1,3 @@
+String password = "MyPassword123";
+String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
+System.out.println(hashed);  // $2a$12$QBx3/kI1SAfwBDFOJK1xNOXK8R2yC7vt2yeIYusaqOisYbxTNFiMy

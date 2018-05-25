@@ -1,0 +1,3 @@
+ArrayList<Double> temporary = new ArrayList<Double>();
+temporary.add(0.46567);
+...

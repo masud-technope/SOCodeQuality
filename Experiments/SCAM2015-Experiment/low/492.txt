@@ -1,0 +1,5 @@
+for(int i=0; i<drive.length ; i++)
+        {
+            Str[i]= drivex[i].toString();
+            System.out.println(Str[i]); 
+        }

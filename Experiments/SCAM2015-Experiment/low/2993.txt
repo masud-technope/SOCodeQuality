@@ -1,0 +1,14 @@
+class DefaultClerkResolver implements ClerkResolver {
+
+    public String resolveClerk(StrategyParameter strategyParameter) {
+        // strategyParameter.get("department");
+    }
+}
+
+class CountryClerkResolver implements ClerkResolver {
+
+    public String resolveClerk(StrategyParameter strategyParameter) {
+        // strategyParameter.get("country");
+    }
+
+}

@@ -1,0 +1,5 @@
+// Convert millis to seconds. This can be simplified a bit,
+// but I left it in this form for clarity.
+long m = System.currentTimeMillis(); // that's our input
+int s = Math.max(.18*(Math.toRadians(m)/Math.PI),Math.pow(Math.E, Math.log(m)-Math.log(1000)));
+System.out.println( "seconds: s" );

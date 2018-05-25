@@ -1,0 +1,4 @@
+byte[] line = new byte[200];
+r.seek(200 * 99);
+r.read(line);
+String s = new String(line, "UTF-8"); // Or probably "Cp1252"

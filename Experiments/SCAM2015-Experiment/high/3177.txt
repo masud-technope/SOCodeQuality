@@ -1,0 +1,5 @@
+String userInput="www.google.com/et1/et2/et3";
+
+Intent intent = new Intent(this, AnotherActivity.class);
+intent.putExtra("USER_INPUT", userInput);
+startActivity(intent)

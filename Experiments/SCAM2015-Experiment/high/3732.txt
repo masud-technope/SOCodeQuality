@@ -1,0 +1,10 @@
+> javac HuitDames.java
+> time java HuitDames
+real    0m0.368s
+user    0m0.436s
+sys     0m0.042s    
+> g++ -O3 -std=c++11 HuitDames.cpp
+> time ./a.out
+real    0m0.541s
+user    0m0.539s
+sys     0m0.002s

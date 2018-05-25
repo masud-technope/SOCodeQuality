@@ -1,0 +1,11 @@
+boolean aCanTalk;
+
+  Thread a;
+  Thread b;
+  void t() {
+    aCanTalk = true;
+    a = new Thread(new A(this));
+    b = new Thread(new B(this));
+    a.start();
+    b.start();
+}

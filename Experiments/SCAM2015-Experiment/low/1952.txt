@@ -1,0 +1,3 @@
+public abstract class GenericClass<T>{
+    public abstract Class<T> getMyType();
+}

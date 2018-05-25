@@ -1,0 +1,4 @@
+if ((UserID.equals(EnteredUserID) && (Password.equals(EnteredPassword)) && (StudentNumber == EnteredStudentNumber))
+            || (UserID2.equals(EnteredUserID) && (Password2.equals(EnteredPassword)) && (StudentNumber2 == EnteredStudentNumber))
+            [...]
+            )

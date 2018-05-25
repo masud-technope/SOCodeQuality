@@ -1,0 +1,3 @@
+String text = "13567";
+CharMatcher charMatcher = CharMatcher.DIGIT;
+int output = charMatcher.countIn(text);

@@ -1,0 +1,5 @@
+Exception in thread "main" java.lang.NoClassDefFoundError: 
+Nestedclasstest/NestedClassTest$Y
+...
+Caused by: java.lang.ClassNotFoundException:
+nestedclasstest.NestedClassTest$Y

@@ -1,0 +1,5 @@
+using System.Security.Cryptography.X509Certificates;    
+
+X509Certificate2 xcert = new X509Certificate2("C:\some_cert.cerpub");
+string certSubject = xcert.Subject;
+string certThumbprint =  xcert.Thumbprint;

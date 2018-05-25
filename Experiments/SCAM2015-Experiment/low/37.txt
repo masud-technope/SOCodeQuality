@@ -1,0 +1,7 @@
+try{
+    throw new Exception("Message");		
+} catch (Exception ex){
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    ex.printStackTrace(new PrintStream(out));
+    System.out.println(new String(out.toByteArray()));
+}

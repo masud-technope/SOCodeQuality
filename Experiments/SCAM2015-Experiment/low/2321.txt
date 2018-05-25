@@ -1,0 +1,10 @@
+File filePath=new File("your_file_path");
+String dir="";
+if (filePath.isDirectory())
+{
+    dir=filePath.getAbsolutePath();
+}
+else
+{
+    dir=filePath.getAbsolutePath().replaceAll(filePath.getName(), "");
+}

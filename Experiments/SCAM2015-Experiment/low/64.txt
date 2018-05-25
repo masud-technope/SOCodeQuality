@@ -1,0 +1,8 @@
+int q;
+for(q=0;q<MAX;q++){
+    String s;
+    int ix;
+    // other stuff
+    s = new String("Hello, there!");
+    // do something with s
+}

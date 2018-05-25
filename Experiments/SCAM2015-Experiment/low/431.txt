@@ -1,0 +1,34 @@
+import java.io.BufferedReader;
+
+import java.io.IOException;
+
+import java.io.InputStreamReader; 
+
+public class doubleExample {
+
+        public static void main(String[] args) {
+
+                Double myDouble = new Double("0");
+                System.out.println("Please enter a number:");
+
+                try
+                {
+                        //get the number from console
+                        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                        myDouble = Double.parseDouble(br.readLine());
+                }
+                //if invalid value was entered
+                catch(NumberFormatException ne)
+                {
+                        System.out.println("Invalid value" + ne);
+                        System.exit(0);
+                }
+    catch(IOException ioe)
+                {
+                        System.out.println("IO Error :" + ioe);
+                        System.exit(0);
+                }
+
+                System.out.println("Double value is " + myDouble);
+        }
+}

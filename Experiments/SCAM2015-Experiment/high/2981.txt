@@ -1,0 +1,3 @@
+Set<String> set1 = new HashSet(Arrays.asList(arr1));
+Set<String> set2 = new HashSet(Arrays.asList(arr2));
+Set<String> set3 = new HashSet(Arrays.asList(arr3));

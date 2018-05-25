@@ -1,0 +1,3 @@
+javac -classpath .:jna.jar -g com/sun/jna/examples/HelloWorld.java
+
+java -classpath .:jna.jar com.sun.jna.examples.HelloWorld

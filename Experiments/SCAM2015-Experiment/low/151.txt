@@ -1,0 +1,9 @@
+class CustomerConnections implements Map<String,LastConnection> {
+    private Map<String, LastConnection> customerConnections;
+
+    @Override
+    public LastConnection get(Object srvUrl) { 
+        return customerConnections.get(srvUrl);
+    }
+    // all other needed operations;
+}

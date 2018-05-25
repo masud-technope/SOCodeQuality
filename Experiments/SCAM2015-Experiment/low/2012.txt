@@ -1,0 +1,5 @@
+Console cons;
+if ((cons = System.console()) == null) {
+    System.err.println("Unable to obtain console");
+    ...
+}

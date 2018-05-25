@@ -1,0 +1,14 @@
+import org.json.*;
+
+public class Test {
+    public static void main(String[] args) throws JSONException {
+        String json = 
+            "[{\"id\":\"{ID1}\",\"time\":123}, {\"id\":\"{ID2}\",\"time\":124}]";
+        JSONArray array = new JSONArray(json);
+
+        for (int i = 0; i < array.length(); i++) {
+            JSONObject o = array.getJSONObject(i);
+            System.out.println(o.getString("id"));
+        }
+    }
+}

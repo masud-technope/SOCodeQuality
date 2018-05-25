@@ -1,0 +1,7 @@
+public int hashCode() {
+
+int hash = 7; hash = 59 * hash + this.x; hash = 59 * hash + this.y;
+boolean faraway=farAway(this.x, other.x, this.y, other.y,5);
+hash=59*hash+(faraway?1:0); //include faraway also as part of hashcode computation
+
+ return hash;

@@ -1,0 +1,16 @@
+final StringBuilder sb = new StringBuilder();
+
+    Listener selection = new Listener() {
+
+        public void handleEvent(Event event) {
+        ...
+        switch (comboVal) {
+             case "A": sb.delete(0, sb.length()).append("a");
+             case "B": sb.delete(0, sb.length()).append("b");
+            ...
+        }
+       }
+    };
+
+...
+System.out.println(sb.toString());

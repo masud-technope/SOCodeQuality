@@ -1,0 +1,4 @@
+if(Character.isUpperCase(YourString.charAt(0))==true)
+    print something//
+else
+    print somethingelse//

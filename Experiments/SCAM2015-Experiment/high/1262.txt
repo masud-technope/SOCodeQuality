@@ -1,0 +1,5 @@
+String[] retArray = new String[tds.length+tds2.length+tds3.length];
+System.arrayCopy(tds,  0, retArray, 0, tds.length);
+System.arrayCopy(tds2, 0, retArray, tds.length, tds2.length);
+System.arrayCopy(tds3, 0, retArray, tds.length+tds2.length, tds3.length);
+return retArray

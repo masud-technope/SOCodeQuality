@@ -1,0 +1,11 @@
+private void f(Button b, final int a[]) {
+
+    b.addClickHandler(new ClickHandler() {
+
+        @Override
+        public void onClick(ClickEvent event) {
+            a[0] = a[0] * 5;
+
+        }
+    });
+}

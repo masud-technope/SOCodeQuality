@@ -1,0 +1,19 @@
+public class BetterProgrammerTask {
+
+    public static int getSumOfNumbers(String s) {
+        int sum = 0;
+        String tokens[] = s.split(" ");
+
+        String trimmed = s.trim();
+
+        for(String token : tokens) {
+            if (token == null || !token.isEmpty()) {
+                try {
+                    sum += new Integer(token);
+                } catch (NumberFormatException e) {
+                }
+            }
+        }
+        return sum;
+    }
+}

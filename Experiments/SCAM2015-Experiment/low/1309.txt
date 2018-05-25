@@ -1,0 +1,15 @@
+public static <T> void print(Iterable<T> iterable){
+
+    if(iterator == null) { //We throw an exception if method can not operater
+       throw new IllegelArgumentException("The argument iterable must not be null".
+    }
+
+    StringBuilder sb = new StringBuilder();
+
+    for(T element : iterable) { //for each loop
+       sb.apppend(String.valueOf(element)); 
+       sb.append("\n");
+    }
+
+    JOptionPane.showMessageDialog(null,sb.toString());
+}

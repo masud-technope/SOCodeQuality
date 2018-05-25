@@ -1,0 +1,10 @@
+class Program
+{    
+    bool DUBUG_MODE = true;
+    public static void main (String args[]) //Please excuse any poor coding here. Again, I am not used to Java.
+    {
+        //Your code here.
+        if(DEBUG_MODE) throw e;
+
+    }
+}

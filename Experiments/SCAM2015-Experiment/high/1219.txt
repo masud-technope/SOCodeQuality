@@ -1,0 +1,9 @@
+double recursivePower(double x, int k) {
+    if (k < 0) {
+        return power(x, ++k) / x;
+    } else if (k == 0) {
+        return 1;
+    } else {
+        return power(x, --k) * x;
+    }
+}

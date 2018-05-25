@@ -1,0 +1,10 @@
+InputStream input = new FileInputStream("c:\\data\\input-text.txt");
+
+int data = input.read();
+while(data != -1) {
+  //do something with data...
+  doSomethingWithData(data);
+
+  data = input.read();
+}
+input.close();

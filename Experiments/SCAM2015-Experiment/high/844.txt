@@ -1,0 +1,4 @@
+public void setTitle(final String title)
+{
+  title.matches("^Mrs|Mr|Miss|Ms$")) ? this.title= title: this.title= "Not Set";
+}

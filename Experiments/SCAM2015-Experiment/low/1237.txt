@@ -1,0 +1,8 @@
+public int[][] tiles, temp;
+
+// Add values to tiles, wherever you end up doing that, then:
+System.arraycopy(tiles, 0, temp, 0, tiles.length);
+
+for(int row = 0; row < tiles.length; row++) // Loop over rows
+  for(int col = 0; col < tiles[row].length; col++) // Loop over columns
+    tiles[col][row] = temp[row][col]; // Rotate

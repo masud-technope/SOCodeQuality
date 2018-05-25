@@ -1,0 +1,7 @@
+File sendFile = new File(fileName);
+FileInputStream fileIn = new FileInputStream(sendFile);
+byte buf[] = new byte[1024];
+
+while(fileIn.read(buf) > 0) {
+    System.out.println(Arrays.toString(buf));
+}

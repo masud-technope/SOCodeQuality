@@ -1,0 +1,3 @@
+NumberFormat nf = NumberFormat.getInstance();
+Number number = nf.parse("100.000");
+long l = number.longValue();

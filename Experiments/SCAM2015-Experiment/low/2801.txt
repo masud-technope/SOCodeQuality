@@ -1,0 +1,28 @@
+public interface Arguments{
+
+   void foo();
+}
+
+public class OneArgument implements Arguments{
+
+
+   public void foo(){
+      // do whatever
+   }
+}
+
+public class TwoArguments implements Arguments{
+
+
+   public void foo(){
+      // do whatever
+   }
+}
+
+public class ThreeArguments implements Arguments{
+
+
+   public void foo(){
+      // do whatever
+   }
+}

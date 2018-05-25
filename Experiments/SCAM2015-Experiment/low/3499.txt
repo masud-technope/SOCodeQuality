@@ -1,0 +1,3 @@
+String name = "Rafael";    
+String lastname = " Nunes";    
+String fullname = name + lastname;

@@ -1,0 +1,6 @@
+//NOTE length should be 2* num shorts since we allocate in bytes
+ByteBuffer buf = ByteBuffer.allocate(length);
+
+ShortBuffer shortBuf = buf.asShortBuffer();
+shortBuf.put(shortValue);
+shortBuf.put(shortArray);

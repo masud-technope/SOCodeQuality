@@ -1,0 +1,22 @@
+class Rectangle
+{
+public:
+    virtual double getHeight() = 0;
+    virtual double getWidth() = 0;
+    double getHeight(){
+        return getWidth()*getHeight();
+    }
+};
+
+class Container
+{
+public:
+    virtual void printTypes() = 0;
+    virtual void printEachElement() = 0;
+};
+
+class Array: public Rectangle, public Container
+{
+    // If the pure virtual member functions in the base classes
+    // are not implemented then this class is also abstract.
+};

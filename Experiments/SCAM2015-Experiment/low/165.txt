@@ -1,0 +1,4 @@
+ArrayList<int> al = new ArrayList<int>();
+// populate al
+int[] values = new int[al.size()];
+al.toArray(values);

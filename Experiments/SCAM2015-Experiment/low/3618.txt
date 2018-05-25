@@ -1,0 +1,32 @@
+public class Person {
+
+    protected int       id;
+    protected String    name;
+    protected String    surname;
+
+    public Person(int id, String name, String surname) {
+        this.id      = id;
+        this.name    = name;
+        this.surname = surname;
+    }
+}
+
+public class Employee extends Person implements Serializable {
+    private String  username;
+    private String  password;
+    private String  date;
+    private int     hpw;
+    private int     recordSold;
+    private float   hourPay;
+
+    public Employee(String username, String name, String surname, String pswd, int id,
+            int hpw, String date, int rSold, float hPay) {
+        super(id,name,surname);
+        this.username   = username;
+        this.password   = pswd;
+        this.hpw        = hpw;
+        this.date       = date;
+        this.recordSold = rSold;
+        this.hourPay    = hPay;
+    }
+}

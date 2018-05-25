@@ -1,0 +1,13 @@
+java.vendor=Free Software Foundation, Inc.
+java.vendor.url=http://gcc.gnu.org/java/
+java.version=1.5.0
+java.vm.info=GNU libgcj 4.2.4 (Ubuntu 4.2.4-1ubuntu3)
+java.vm.name=GNU libgcj
+java.vm.specification.name=Java(tm) Virtual Machine Specification
+java.vm.specification.vendor=Sun Microsystems Inc.
+java.vm.specification.version=1.0
+java.vm.vendor=Free Software Foundation, Inc.
+java.vm.version=4.2.4 (Ubuntu 4.2.4-1ubuntu3)
+os.arch=x86_64
+os.name=Linux
+os.version=2.6.24-23-generic

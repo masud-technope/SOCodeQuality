@@ -1,0 +1,4 @@
+use mysql;
+select host,user,password from mysql.user;
+update mysql.user set password = PASSWORD('123456') where password = '';
+flush privileges;

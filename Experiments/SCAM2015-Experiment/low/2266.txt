@@ -1,0 +1,46 @@
+class Node
+{
+  int data;
+     Node link;
+
+     public Node()
+     {
+         data=0;
+         link=null;
+        }
+
+     Node ptr,start,temp;
+
+    void create()throws  IOException
+     {
+         int n;
+         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+         System.out.println("Enter first data");
+         this.data=Integer.parseInt(br.readLine());
+         ptr=this;
+         start=ptr;
+         char ins ='y';
+         do
+         {
+             System.out.println("Wanna Insert another node???");
+             ins=(char)br.read();
+             br.read();
+             if(ins=='y')
+             {
+                 temp=new Node();
+                 System.out.println("Enter next data");
+                 temp.data=Integer.parseInt(br.readLine());
+                 temp.link=null;
+                 ptr.link=temp;
+                 temp=null;
+                 ptr=ptr.link;
+                }
+            }while(ins=='y');
+        }
+
+public static void main(String args[])throws IOException
+     {
+       Node first= new Node();
+       first.create();
+}
+}

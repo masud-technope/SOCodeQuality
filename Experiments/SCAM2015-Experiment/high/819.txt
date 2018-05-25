@@ -1,0 +1,8 @@
+<bean id="versionService" class="my.service.VersionService" 
+        p:animalDAOMap-ref="animalDAOMap"/>
+
+<util:map id="p:animalDAOMap">
+    <entry key="chicken" value-ref="chickenDAO"/>
+    <entry key="monkey" value-ref="monkeyDAO"/>
+    <entry key="pig" value-ref="pigDAO"/>
+</util:map>

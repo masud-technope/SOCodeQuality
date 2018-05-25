@@ -1,0 +1,13 @@
+public boolean verifyPwd(){
+        if (!(pword.equals(pwdRetypePwd.getText()))){
+                  txtaError.setEditable(true);
+                  txtaError.setText("*Password didn't match!");
+                  txtaError.setForeground(Color.red);
+                  txtaError.setEditable(false);
+                  return false;
+           }
+        else {
+            addNewUser();
+            return true;
+        }
+}

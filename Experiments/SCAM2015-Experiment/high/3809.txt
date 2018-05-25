@@ -1,0 +1,16 @@
+class Feline {
+    public String type = "f ";
+    public void hh(){ System.out.print(type);}
+}
+
+
+public class Cougar extends Feline {
+    public void hh(){ 
+        super.hh();
+        this.type = "c ";
+        System.out.print(this.type + super.type);
+    }
+
+    public static void main(String[] args) { new Cougar().hh(); }
+
+}

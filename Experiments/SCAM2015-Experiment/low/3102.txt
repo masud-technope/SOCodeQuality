@@ -1,0 +1,3 @@
+ServerResponse = response.toString();
+ ServerResponse = ServerResponse.replaceAll("[^a-zA-Z]", ""); 
+ list =ServerResponse.split("\n");

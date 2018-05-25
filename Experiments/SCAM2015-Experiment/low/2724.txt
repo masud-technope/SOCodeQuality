@@ -1,0 +1,9 @@
+public class BusinessLogic {
+
+  private BaseClassOfBeanAandB bean;
+
+  public void methodCalledByUserAorB() {
+    bean.doFoo();
+  }
+
+}

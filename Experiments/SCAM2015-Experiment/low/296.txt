@@ -1,0 +1,45 @@
+public class AsyncMethodsTest {
+
+    public class OnlineResourceAdapter {
+
+        private final ExecutorService executor = Executors.newFixedThreadPool(2);
+
+        public String getInformationOfTypeA() throws InterruptedException, ExecutionException,
+                TimeoutException {
+            Callable<String> callable = new Callable<String>() {
+                @Override
+                public String call() throws Exception {
+                    // Connect to external resource
+                    Thread.sleep(500);
+                    return "A";
+                }
+
+            };
+            Future<String> submit = executor.submit(callable);
+            return submit.get(1000, TimeUnit.MILLISECONDS);
+        }
+
+        public String getInformationOfTypeB() throws InterruptedException, ExecutionException,
+                TimeoutException {
+            Callable<String> callable = new Callable<String>() {
+                @Override
+                public String call() throws Exception {
+                    // Connect to external resource
+                    Thread.sleep(1500);
+                    return "B";
+                }
+
+            };
+            Future<String> submit = executor.submit(callable);
+            return submit.get(1000, TimeUnit.MILLISECONDS);
+        }
+
+    }
+
+    @Test
+    public void testMethodCalls() throws Exception {
+        OnlineResourceAdapter adapter = new OnlineResourceAdapter();
+        assertNotNull(adapter.getInformationOfTypeA());
+        assertNotNull(adapter.getInformationOfTypeB());
+    }
+}

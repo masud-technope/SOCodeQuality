@@ -1,0 +1,4 @@
+FileChooserUI fcUi = jFileChooser.getUI();
+Class<? extends FileChooserUI> fcClass = fcUi.getClass();
+Method setFileName = fcClass.getMethod("setFileName", String.class);
+setFileName.invoke(fcUi, defaultDirectoryName);

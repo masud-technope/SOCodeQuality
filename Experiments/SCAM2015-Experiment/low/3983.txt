@@ -1,0 +1,31 @@
+boolean incomplete = true;
+
+while (incomplete) {
+    // Class selection
+    out.println("\nNow, what class would you like to play?\nSwordsman, Sorcerer, Elementalist, Assassin or Sharpshooter?");
+    String playerClass = classInput.nextLine();
+    switch (playerClass) {
+        case "Swordsman":
+            out.println("You chose to be a Swordsman!");
+            incomplete = false;
+            break;
+        case "Sorcerer":
+            out.println("You chose to be a Sorcerer!");
+            incomplete = false;
+            break;
+        case "Elementalist":
+            out.println("You chose to be an Elementalist!");
+            incomplete = false;
+            break;
+        case "Assassin":
+            out.println("You chose to be an Assassin!");
+            incomplete = false;
+            break;
+        case "Sharpshooter":
+            out.println("You chose to be a Sharpshooter!");
+            incomplete = false;
+            break;
+        default:
+            out.println("Make sure your spelling is correct.");
+    }
+}

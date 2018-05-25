@@ -1,0 +1,10 @@
+String html = "<a href='www.google.com'>Google</a>";
+Document doc = Jsoup.parse(html);
+Element link = doc.select("a").first();
+
+String linkHref = link.attr("href"); // "www.google.com"
+String linkText = link.text(); // "Google""
+
+String linkOuterH = link.outerHtml(); 
+// "<a href='www.google.com'>Google</a>";
+String linkInnerH = link.html(); // "<b>example</b>"

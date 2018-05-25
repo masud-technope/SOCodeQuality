@@ -1,0 +1,12 @@
+BufferedImage buffImg = new BufferedImage(176, 144, BufferedImage.TYPE_INT_RGB);
+
+            /*Setting RGB values to BufferedImage*/
+            int[] raw = new int[rgbCameraData.length * 4 / 3];
+            for (int i = 0; i < rgbCameraData.length / 3; i++) {
+                raw[i] = 0xFF000000
+                        | ((rgbCameraData[3 * i + 0] & 0xFF) << 16)
+                        | ((rgbCameraData[3 * i + 1] & 0xFF) << 8)
+                        | ((rgbCameraData[3 * i + 2] & 0xFF));
+            }
+            buffImg.setRGB(0, 0, 176, 144, raw, 0, 176);
+            System.out.println("BufferedImage  :" + img);

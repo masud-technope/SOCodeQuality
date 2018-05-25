@@ -1,0 +1,15 @@
+SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+
+        Calendar cal = Calendar.getInstance();
+        String strDate = sdf.format(cal.getTime());
+
+        Date date1 = sdf.parse("02/26/2013");
+        Date date2 = sdf.parse(strDate);
+
+     if(date1.compareTo(date2)>0){
+            System.out.println("Date1 is after Date2");
+        }else if(date1.compareTo(date2)<0){
+            System.out.println("Date1 is before Date2");
+        }else if(date1.compareTo(date2)==0){
+            System.out.println("Date1 is equal to Date2");
+        }

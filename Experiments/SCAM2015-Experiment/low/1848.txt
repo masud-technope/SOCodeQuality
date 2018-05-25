@@ -1,0 +1,8 @@
+public class GenericNumber implements Comparable<GenericNumber> {
+    private Number num;
+    public GenericNumber(Number num) {
+        this.num = num;
+    }
+    // write compare function that compares num member of two
+    // GenericNumber instances
+}

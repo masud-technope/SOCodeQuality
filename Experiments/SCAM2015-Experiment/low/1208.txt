@@ -1,0 +1,11 @@
+public Class getColumnClass(int c) 
+    {     
+    for(int rowIndex = 0; rowIndex < data.size(); rowIndex++)
+    {
+        Object[] row = data.get(rowIndex);
+        if (row[c] != null) {
+            return getValueAt(rowIndex, c).getClass();
+        }   
+    }
+    return String.class;
+}

@@ -1,0 +1,228 @@
+# region "Functions"
+
+    # region "Get Single Values"
+
+    public object GetValue(string SQL, ValueDataType VluType)
+    {
+        SqlConnection con = new SqlConnection(strConnection);
+        SqlCommand SqlCMD = new SqlCommand(SQL, con);
+
+        try
+        {
+            object RtVlu;
+            con.Open();
+            RtVlu = SqlCMD.ExecuteScalar();
+            return Convert_Value(RtVlu, VluType);
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Error occurred :-" + e.Message);
+        }
+        finally
+        {
+            SqlCMD.Dispose();
+            con.Close();
+            con.Dispose();
+        }
+    }
+
+    public object GetValue(string SQL, ValueDataType VluType, SqlTransaction SqlTrn, SqlConnection con)
+    {
+        SqlCommand SqlCMD = new SqlCommand(SQL, con);
+
+        try
+        {
+            SqlCMD.Transaction = SqlTrn;
+            object RtVlu;
+            RtVlu = SqlCMD.ExecuteScalar();
+            return Convert_Value(RtVlu, VluType);
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Error occurred :-" + e.Message, e);
+        }
+        finally
+        {
+            SqlCMD.Dispose();
+            con.Close();
+        }
+    }
+
+    #endregion
+
+    # region "Execute Commands"
+
+    public bool RunCommand(string strSQL, SqlTransaction SqlTrn, SqlConnection con)
+    {
+        SqlCommand Sqlcmd = new SqlCommand();
+
+        try
+        {
+            Sqlcmd.CommandType = CommandType.Text;
+            Sqlcmd.Connection = con;
+            Sqlcmd.Transaction = SqlTrn;
+
+            Sqlcmd.CommandText = strSQL;
+            Sqlcmd.ExecuteNonQuery();
+            return true;
+        }
+        catch (Exception e)
+        {
+            con.Close();
+            SqlTrn.Rollback();
+            throw new Exception("Error Occured :-" + e.Message, e);
+        }
+        finally
+        {
+            Sqlcmd.Dispose();
+        }
+    }
+
+    public bool RunCommand(string strSQL)
+    {
+        SqlCommand Sqlcmd = new SqlCommand();
+        SqlConnection con = new SqlConnection(strConnection);
+
+        try
+        {
+            Sqlcmd.CommandType = CommandType.Text;
+            Sqlcmd.Connection = con;
+
+            Sqlcmd.CommandText = strSQL;
+            con.Open();
+            Sqlcmd.ExecuteNonQuery();
+            return true;
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Error Occured :-" + e.Message, e);
+        }
+        finally
+        {
+            Sqlcmd.Dispose();
+            con.Close();
+            con.Dispose();
+        }
+    }
+
+    # endregion
+
+    # region "Fill Tables with Normal Sql Queries"
+
+
+    public DataTable GetDataTable(string strSQL)
+    {
+        SqlConnection con = new SqlConnection(strConnection);
+        SqlCommand SqlCmd = new SqlCommand(strSQL, con);
+
+        try
+        {
+            DataTable dt = new DataTable();
+            con.Open();
+            dt.Load(SqlCmd.ExecuteReader());
+            return dt;
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Error occurred :-" + e.Message);
+        }
+        finally
+        {
+            con.Close();
+            SqlCmd.Dispose();
+            con.Dispose();
+        }
+    }
+
+    public DataSet GetDataSet(string strSQL)
+    {
+        SqlConnection con = new SqlConnection(strConnection);
+        SqlDataAdapter da = new SqlDataAdapter(strSQL, con);
+
+        try
+        {
+            DataSet dt = new DataSet();
+            con.Open();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Error occurred :-" + e.Message);
+        }
+        finally
+        {
+            con.Close();
+            da.Dispose();
+            con.Dispose();
+        }
+    }
+
+    public SqlDataReader GetDataReader(string strSQL, SqlConnection con)
+    {
+        SqlDataReader dr = null;
+        SqlCommand SqlCmd = new SqlCommand();
+
+        try
+        {
+            SqlCmd.CommandType = CommandType.Text;
+            SqlCmd.Connection = con;
+            SqlCmd.CommandText = strSQL;
+            dr = SqlCmd.ExecuteReader();
+            return dr;
+        }
+        catch (Exception e)
+        {
+            dr.Close();
+            con.Close();
+            throw new Exception("Error occurred :-" + e.Message);
+        }
+        finally 
+        {
+            SqlCmd.Dispose();
+        }
+    }
+
+    public SqlDataReader GetDataReader(string strSQL,SqlTransaction SqlTrn, SqlConnection con)
+    {
+        SqlDataReader dr=null;
+        SqlCommand SqlCmd = new SqlCommand();
+
+        try
+        {
+            SqlCmd.CommandType = CommandType.Text;
+            SqlCmd.Connection = con;
+            SqlCmd.CommandText = strSQL;
+            dr = SqlCmd.ExecuteReader();
+            return dr;
+        }
+        catch (Exception e)
+        {
+            dr.Close();
+            con.Close();
+            SqlTrn.Rollback();
+            throw new Exception("Error occurred :-" + e.Message);
+        }
+        finally
+        {
+            SqlCmd.Dispose();
+        }
+
+    }
+    # endregion
+
+    # endregion
+
+
+    # region "Constructors"
+
+        public SQLDentry(string ConnectionString):base(true, ConnectionString)
+        {
+            strConnection = ConnectionString;
+        }
+
+    #endregion
+
+
+
+}

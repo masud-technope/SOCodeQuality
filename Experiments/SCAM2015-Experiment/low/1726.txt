@@ -1,0 +1,12 @@
+class StudentComparator implements Comparator {
+
+    public int compare(Object stud1, Object stud2) {
+        List<Group> list1Grp = ((Student) stud1).getGroups();
+        List<Group> list2Grp = ((Student) stud2).getGroups();
+
+        Collections.sort(list1Grp, new GroupComparator());
+        Collections.sort(list2Grp, new GroupComparator());
+        return list1Grp.get(0).getCreationDate().compareTo(list2Grp.get(0).getCreationDate());
+    }
+
+}

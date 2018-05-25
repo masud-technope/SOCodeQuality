@@ -1,0 +1,6 @@
+for (File file: files){
+     if (file.listFiles != null){
+          //It's a subdirectory
+          File [] subdirFiles = file.listfiles;
+     }
+}

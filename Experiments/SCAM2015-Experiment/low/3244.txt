@@ -1,0 +1,22 @@
+package com.snippet;
+import java.util.ArrayList;
+public class Largest {
+
+public Largest() {
+}
+
+public int getIndexOfLargest(ArrayList<Integer> list) {
+    int index;
+
+    if (list == null) {
+        index = -1;
+    } else {
+        index = 0;
+        for (int i = 1; i < list.size(); i++) {
+            if (list.get(i) > list.get(index)) {
+                index = i;
+            }
+        }
+    }
+    return index;
+}

@@ -1,0 +1,38 @@
+public class MyModel {
+    private boolean higher = false;
+    private boolean same = false;
+
+    public boolean isHigher() {
+        return higher;
+    }
+
+    public void setHigher(boolean higher) {
+        this.higher = higher;
+    }
+
+    public boolean isSame() {
+        return same;
+    }
+
+    public void setSame(boolean same) {
+        this.same = same;
+    }
+
+
+}
+
+
+private MyModel isNextCardHigher(TCard lastCard, TCard nextCard, HigherSame highersame, MyModel myModel ){
+
+    if (nextCard.rank == lastCard.rank){//Higher = game over
+
+
+    if(nextCard.rank == lastCard.rank){
+        myModel.setSame(true);
+    }
+
+    if (nextCard.rank > lastCard.rank){
+        myModel.setHiger(true);
+    }
+    return myModel;
+    }}

@@ -1,0 +1,6 @@
+Map<String, List> mainMap = new HashMap<String, List>();
+
+for(int i=0; i<something.size(); i++){
+  Set set = getSet(...); //return different result each time
+  mainMap.put(differentKeyName, new ArrayList(set));
+}

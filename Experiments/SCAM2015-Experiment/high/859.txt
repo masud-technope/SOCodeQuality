@@ -1,0 +1,3 @@
+9:   ldc #4; //String 
+   11:  invokevirtual   #5; //Method java/lang/StringBuilder.append:
+(Ljava/lang/String;)Ljava/lang/StringBuilder;

@@ -1,0 +1,3 @@
+static boolean isInstance(Object myVar) {
+    return (myVar instanceof Foo);
+}

@@ -1,0 +1,10 @@
+String elementType = StringUtility.substringBetween(elementValue.getElementType(), "{", "}");
+                                      Map<String, String>  eleTypeMap = new HashMap<String, String>();
+                                      StringTokenizer token = new StringTokenizer(elementType, ",");
+                                      while(token.hasMoreElements()){
+                                          String str = token.nextToken();
+                                          StringTokenizer furtherToken = new StringTokenizer(str,"=");
+                                          while(furtherToken.hasMoreTokens()){
+                                              eleTypeMap.put(furtherToken.nextToken(), furtherToken.nextToken());
+                                          }
+                                      }

@@ -1,0 +1,6 @@
+public void doStuff(List<Number> arg);
+public void doStuff(List<Integer> arg);
+public void doStuff(List<Double> arg);
+public void doStuff(List<Float> arg);
+public void doStuff(List<BigDecimal> arg);
+...

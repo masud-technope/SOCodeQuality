@@ -1,0 +1,3 @@
+SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+Date date = sdf.parse("12/31/10");
+String str = sdf.format(new Date());

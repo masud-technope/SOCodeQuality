@@ -1,0 +1,31 @@
+LinkedList<String> solutions = new LinkedList<String>();
+//String[] vars and operators are initialized elsewhere.
+int start = 0, end = solutions.size()-1;
+
+//creating the first solutions
+for(String s : vars)
+    solutions.add(s);
+
+
+//precompute pairs of operators and variables
+String[] pairs = new String[operators.length * vars.length];
+for(int i=0, j=0; j<operators.length; j++)
+for(int k=0; k<vars.length; k++)
+{
+	pairs[i++]= operators[j]+vars[k];
+}
+
+//while the the terms in equations is under maximum
+while(solutions.get(solutions.size()-1).split("[+/*-]").length<4)
+{
+    for(int i=start; i<end; i++)
+    {
+    	String soln = solutions.get(i);
+    	for(int j=0; j<pairs.length; j++)
+    	{
+    		solutions.add(soln+pairs[j]);
+    	} 
+    }
+    start = end +1;
+    end = solutions.size()-1;
+}

@@ -1,0 +1,25 @@
+private final int INDENTSIZE = 4;
+
+public void printNodes() {
+    for (Node n : roots) {
+        System.out.print("- " + n.getName());
+        printNode(n, 1);
+    }
+}
+
+private void printNode(Node n, int depth) {
+    List<Node> children = n.getChildren();
+
+    for (Node child : children) {
+        printIndent(depth);
+        System.out.print("- " + child.getName());
+        printNode(child, depth + 1);
+    }
+}
+
+private void printIndent(int depth) {
+    System.out.println();
+    for (int i = 0; i < depth * INDENTSIZE; i++) {
+        System.out.print(" ");
+    }
+}

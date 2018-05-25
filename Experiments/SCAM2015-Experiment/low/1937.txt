@@ -1,0 +1,44 @@
+package com.example.payroll;
+
+import com.example.payroll.domain.*;
+
+public class App {
+
+    private static Department resAndDev;
+    private static Department production;
+    private static Department[] departments;
+
+    static {
+        resAndDev = new Department("Research & Development");
+        production = new Department("Production");
+        departments = new Department[] {resAndDev, production};
+    }
+
+    public static void main(String[] args) {
+
+        Person person = new Person("John", "Smith");
+
+        printEmployees();
+        resAndDev.hire(person, new Contract("Project Manager", 3270));
+        printEmployees();
+        production.hire(person, new Contract("Quality Control Analyst", 3680));
+        printEmployees();
+        production.fire(person);
+        printEmployees();
+    }
+
+    private static void printEmployees() {
+
+        for (Department department : departments) {
+            System.out.println(String.format("Department: %s", department.getName()));
+
+            for (Person employee : department.getEmployees()) {
+                Contract contract = department.getContract(employee);
+
+                System.out.println(String.format("  %s. %s, %s. Salary: EUR %d", contract.getPositionName(), employee.getFirstName(), employee.getLastName(), contract.getSalary()));
+            }
+        }
+
+        System.out.println();
+    }
+}

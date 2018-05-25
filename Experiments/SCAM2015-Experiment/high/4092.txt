@@ -1,0 +1,5 @@
+String string = "demo string string demo";
+
+if (string.startsWith("demo")) {
+    System.out.println(string.replaceFirst("demo", "xyz"));
+}

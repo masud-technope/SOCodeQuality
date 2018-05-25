@@ -1,0 +1,3 @@
+if (board[x][y] != null) {
+    // it's not null, but that doesn't mean it's "set" either.  You may want to do further checking to ensure the object or primitive data here is valid
+  }

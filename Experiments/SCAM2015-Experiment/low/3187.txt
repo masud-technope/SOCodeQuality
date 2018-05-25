@@ -1,0 +1,10 @@
+public static void main(String[] args) {
+  StringBuilder variable = new StringBuilder("'previous String reference'");
+  passByReference(variable);
+  System.out.println(variable); // I want this to print 'new String reference'
+}
+
+public static void passByReference(StringBuilder someString) {
+  String nr = "'new String reference'";
+  someString.replace(0, nr.length() - 1, nr);
+}

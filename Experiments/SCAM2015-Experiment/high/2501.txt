@@ -1,0 +1,4 @@
+List<Integer> l1;
+List<Number> l2;
+l1 = l2; // incompatible types
+l2 = l1; // also incompatible

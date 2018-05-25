@@ -1,0 +1,4 @@
+public class NormalCard implements Card {
+    public void handleUserEvent(UserEvent event) {
+          // do something here
+    }

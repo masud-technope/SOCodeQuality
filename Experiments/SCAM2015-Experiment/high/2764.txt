@@ -1,0 +1,6 @@
+public void webClick(View v) 
+{
+    Intent intent = new Intent(this, Webview.class);
+    intent.putExtra("weblink","file:///android_asset/chapter/chapter" + v.getId() + ".html");
+    startActivity(intent);
+}

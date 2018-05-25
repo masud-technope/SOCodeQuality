@@ -1,0 +1,10 @@
+Type genericType = lst.getType();
+
+if(genericType instanceof ParameterizedType){
+    ParameterizedType aType = (ParameterizedType) genericType;
+    Type[] fieldArgTypes = aType.getActualTypeArguments();
+    for(Type fieldArgType : fieldArgTypes){
+        Class fieldArgClass = (Class) fieldArgType;
+        System.out.println("fieldArgClass = " + fieldArgClass);
+    }
+}

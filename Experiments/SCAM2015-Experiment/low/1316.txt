@@ -1,0 +1,7 @@
+int data[] = getFilled();
+int outdata[] = initializeme()
+for (int y = 0; y < data.length; y++)
+    int sum = 0;
+    for (int x = y; x < y-5; x++)
+        sum+=data[x];
+    outdata[y] = sum / 5;

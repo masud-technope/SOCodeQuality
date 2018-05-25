@@ -1,0 +1,5 @@
+for (Integer[] outer : yourList) {
+  for(Integer inner : outer) {
+    System.out.println(inner);
+  }
+}

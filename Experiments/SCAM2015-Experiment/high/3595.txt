@@ -1,0 +1,14 @@
+public long weightedSum(int [] a ,int [] b)
+{
+    long value = 0;
+    long sum = 0 ;
+
+    for (int i = 0 ; i < a.length ; i++)
+    {
+        value = a[i] * b [i];
+        sum = sum +value ;
+
+    }
+
+    return sum;
+}

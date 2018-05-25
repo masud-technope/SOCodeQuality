@@ -1,0 +1,23 @@
+C:\temp>javac -cp . apples.java
+
+C:\temp>dir apples
+ Volume in drive C is HP_PAVILION
+ Volume Serial Number is 0200-EE0C
+
+ Directory of C:\temp
+
+C:\temp>dir ap*
+ Volume in drive C is HP_PAVILION
+ Volume Serial Number is 0200-EE0C
+
+ Directory of C:\temp
+
+08/15/2010  09:15 PM               418 apples.class
+08/15/2010  09:15 PM               123 apples.java
+               2 File(s)            541 bytes
+               0 Dir(s)  107,868,696,576 bytes free
+
+C:\temp>java -cp . apples
+Hello World!
+
+C:\temp>

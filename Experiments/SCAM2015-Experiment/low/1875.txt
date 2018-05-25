@@ -1,0 +1,3 @@
+catch(MyException e){
+    jLabel6.setText(e.getMessage());
+}

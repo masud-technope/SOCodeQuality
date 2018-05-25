@@ -1,0 +1,18 @@
+public void insert( Town d ) {
+
+  if ( d.equals(data1) < 0 ) //ERROR HERE
+  {
+     if ( left == null )
+        left = new TreeNode( d );
+     else
+        left.insert( d );
+  }
+     else if ( d.equals(data1) > 0 ) //ERROR HERE
+  {
+     if ( right == null )
+        right = new TreeNode( d );
+     else
+        right.insert( d );
+  }
+ }
+}

@@ -1,0 +1,6 @@
+byte myByte = 0x5B;
+
+boolean bits = new boolean[8];
+
+for(int i = 0 ; i < 8 ; i++)
+    bit[i] = (myByte%2 == 1);

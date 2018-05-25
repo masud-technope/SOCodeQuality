@@ -1,0 +1,60 @@
+/*
+ *  the below program is like 
+ * tread t1 will first run , and it comes to "notify()" method
+ * there are no threds waiting bcoz this is the first thread.
+ * so it will not invoke any other threads. next step is "wait()" method
+ *will be called and the thread t1 in waiting state. next stament 
+ * "System.out.println("The value is ..."+wd.display());" will not be  executed
+ * because thread t1 is in waiting state.
+ * 
+ * thread t2 will run ,and it comes to "notify()" method ,there is already 
+ * thread t1 is in waiting state ,then it will be invoked.now thread t1 will
+ * continue execution and it prints the statement "System.out.println("The value is ..."+wd.display())"
+ * and thread t2 will be in waiting state now.
+ * 
+ * if you uncomment "notifyAll()" method then, after t1 thread completes its execution
+ *then immediately "notifyAll()" method will be called,by that time thread t2 is 
+ * already in waiting state , then thread t2 will be invoked and continues execution.
+ *or
+ * if any other threadds are in waiting state all those threads will be invoked.
+ */
+package threadsex;
+
+/**
+ *
+ * @author MaheshM
+ */
+/**
+ * @param args the command line arguments
+ */
+public class WaitNotifyNotifyAllDemo implements Runnable {
+    WaitDemo wd = new WaitDemo();
+
+    public static void main(String[] args) {
+        WaitNotifyNotifyAllDemo cd1 = new WaitNotifyNotifyAllDemo();
+        Thread t1 = new Thread(cd1);
+        t1.setName("mahi1");
+        Thread t2 = new Thread(cd1);
+        t2.setName("mahi2");
+        t1.start();         
+        t2.start();
+    }
+
+    @Override
+    public void run() {
+        synchronized (this) {
+            try {
+
+                System.out.println("The thread is=" + 
+                        Thread.currentThread().getName());
+                notify();
+                wait();
+                System.out.println("The value is ..." + wd.display());
+                //         notifyAll();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+}

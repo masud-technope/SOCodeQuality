@@ -1,0 +1,24 @@
+public Set<String> getUnique(List<String> source) {
+            HashSet<String> result = new HashSet<String>();
+
+            boolean contains = false;
+            for (String s : source) {
+                for (String unique : result) {
+                    if (unique.contains(s)) {
+                        contains = true;
+                        break;
+                    } else if (s.contains(unique)) {
+                        result.remove(unique);
+                        result.add(s);
+                        contains = true;
+                        break;
+                    }
+                }
+                if (!contains) {
+                    result.add(s);
+                }
+            }
+
+            return result;
+
+        }

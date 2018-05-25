@@ -1,0 +1,5 @@
+for (int i = 0; i < chararray.length; i++) {
+    if (Character.isLetterOrDigit(chararray[i])) {
+        // this character is a letter or a digit
+    }
+}

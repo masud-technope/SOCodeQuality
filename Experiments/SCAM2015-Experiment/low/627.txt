@@ -1,0 +1,5 @@
+string test = (string)Spinner.getSelectedItem();
+if (test == "hello") 
+{
+    //Do something
+}

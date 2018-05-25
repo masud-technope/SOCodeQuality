@@ -1,0 +1,6 @@
+@rem MyApp.bat
+@echo off
+set JVM={{path where java.exe is located}}
+set FLAGS={{optional JVM flags}}
+set JARFILE={{location of your jarfile}}
+%JVM%\java %FLAGS% -cp %JARFILE% {{Package}}.{{Class}} {{args...}}

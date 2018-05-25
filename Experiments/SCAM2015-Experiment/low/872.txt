@@ -1,0 +1,18 @@
+public void remove(int ID){
+ boolean found = false;
+ int i = 0;
+ for(i=0; i<size ; i++)
+    if (ID[i].equals(ID)
+ {
+   found = true;
+   break;
+
+ }
+ if (found) {
+    // remove the item and push all subsequent items to save space.
+    while (i < size - 1; i++) {
+       ID[i] = ID[i + 1];
+    }
+ }
+ return found;
+}

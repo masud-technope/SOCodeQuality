@@ -1,0 +1,7 @@
+private static class SingletonHolder { 
+     public static final SomeObject INSTANCE = new SomeObject();
+   }
+
+   public static SomeObject getInstance() {
+     return SingletonHolder.INSTANCE;
+   }

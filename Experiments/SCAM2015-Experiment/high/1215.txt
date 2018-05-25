@@ -1,0 +1,5 @@
+try {
+     do something that might cause an exception
+catch(ExpectedException e) {
+     throw new DifferetnException(e);
+}

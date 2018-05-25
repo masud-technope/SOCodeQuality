@@ -1,0 +1,4 @@
+Vector v = new Vector();
+if(v.length() == 0){    v.length() itself is thread safe!
+  v.add("elem");        v.add() itself is also thread safe individually!
+}

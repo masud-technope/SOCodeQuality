@@ -1,0 +1,27 @@
+/**
+     * Read from file
+     *
+     * @param file the path to the file to be read
+     * @return the text in a string or false if the reading failed
+     */
+    public static String readFile(String file)
+    {
+
+//      READ FILE
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(file));
+            String str = "", strBuffer;
+
+            while ((strBuffer = in.readLine()) != null) {
+                str = str.concat(strBuffer);
+            }
+
+            in.close();
+            return str;
+
+        } catch (Exception ex) {
+            System.err.println("Could not read file: " + file);
+            ex.printStackTrace();
+            return false;
+        }
+    }

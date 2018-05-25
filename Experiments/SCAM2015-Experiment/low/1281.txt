@@ -1,0 +1,3 @@
+imgView.setLayoutParams( new Gallery.LayoutParams(
+   Gallery.LayoutParams.FILL_PARENT, 
+   Gallery.LayoutParams.FILL_PARENT) );

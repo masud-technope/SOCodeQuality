@@ -1,0 +1,17 @@
+List<String> abc = new ArrayList<String>();
+
+    abc.add("D. Bwer");
+    abc.add("Z. abc");
+    abc.add("X. RDS");
+
+      List<String> string1= new ArrayList<String>();
+
+        for(String str1: abc){
+            String new1= str1.split("\\s+")[0]; 
+            String new2= str1.split("\\s+")[1]; 
+            String temp = new2+","+ new1;
+
+            string1.add(temp );
+        }
+
+    }

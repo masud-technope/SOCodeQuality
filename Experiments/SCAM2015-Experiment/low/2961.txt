@@ -1,0 +1,18 @@
+import org.mockito.Mockito;
+    import org.powermock.api.mockito.PowerMockito;
+    import org.powermock.modules.junit4.PowerMockRunner;
+
+    @RunWith (PowerMockRunner.class)
+    public class MyClassTest  {
+
+        @Test
+        public void test_MyClass_methodA_enters_if_condition()  {
+            final MyClass myClass = Mockito.mock (MyClass.class);
+            CustomObject object1 = new CustomObject("input1");
+            CustomObject object2 = new CustomObject("input2");
+            Mockito.when (myClass.methodB(object1, object2)).thenReturn (true);
+            Mockito.when (myClass.methodA(object1, object2)).thenCallRealMethod ();
+
+            assertEquals(myClass.methodA(object1, object2), "Result");
+        }
+    }

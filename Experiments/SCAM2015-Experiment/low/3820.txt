@@ -1,0 +1,4 @@
+JsonArray jArray = //Your Json Array;
+JSONObject jObj = new JSONObject();
+jObj.put("test", jArray);
+String requiredString = jObj.optString("test");

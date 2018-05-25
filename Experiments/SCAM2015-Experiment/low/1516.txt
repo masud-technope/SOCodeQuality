@@ -1,0 +1,8 @@
+android:configChanges="orientation|keyboardHidden|screenSize"
+
+@Override
+public void onConfigurationChanged(Configuration newConfig) {
+   // super.onConfigurationChanged(newConfig);
+
+
+}

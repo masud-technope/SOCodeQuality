@@ -1,0 +1,28 @@
+earth.setPlanetColonies(1);  //Set planet colonies to 1
+    earth.setPlanetMilitary(1); // set planet military to 1 
+    earth.setColonyImmigration(1000); // set planet population to 1000 
+    earth.setBaseProtection(100);   // set Planet armed force to 100
+    earth.turnForceFieldOn();  // Turn on the planet force field
+
+ setStartUpScreenText() ;
+    TextView planetNameValue = (TextView)findViewById(R.id.dataView1);
+    planetNameValue.setText(earth.planetName);
+    TextView planetMassValue = (TextView)findViewById(R.id.dataView2);
+    planetMassValue.setText(String.valueOf(earth.planetMass));
+    TextView planetGravityValue = (TextView)findViewById(R.id.dataView3);
+    planetGravityValue.setText(String.valueOf(earth.planetGravity));
+    TextView planetColoniesValue = (TextView)findViewById(R.id.dataView4);
+    planetColoniesValue.setText(String.valueOf(earth.planetColonies));
+    TextView planetPopulationValue = (TextView)findViewById(R.id.dataView5);
+    planetPopulationValue.setText(String.valueOf(earth.planetPopulation));
+    TextView planetMilitaryValue = (TextView)findViewById(R.id.dataView6);
+    planetMilitaryValue.setText(String.valueOf(earth.planetMilitary));
+    TextView planetBasesValue = (TextView)findViewById(R.id.dataView7);
+    planetBasesValue.setText(String.valueOf(earth.planetBases));
+    TextView planetForceFieldValue = (TextView)findViewById(R.id.dataView8);
+    planetForceFieldValue.setText(String.valueOf(earth.planetProtection));      
+}
+private void setStartUpScreenText() {
+    // TODO Auto-generated method stub
+
+}

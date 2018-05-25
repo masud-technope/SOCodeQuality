@@ -1,0 +1,29 @@
+interface Request<RETURNVALUE>{Response<RETURNVALUE> execute();}
+
+interface Response<RETURNVALUE>{RETURNVALUE getValue();}
+
+//IMPL
+class Client{
+
+String requestTypeA(){
+    Request<String> q = new RequestA();
+    return q.execute().getValue();
+}
+}
+
+class RequestA implements Request<String>{
+
+@Override
+public Response<String> execute() {
+    return new ResponseA();
+}
+
+}
+
+class ResponseA implements Response<String>{
+
+@Override
+public String getValue() {
+    return null;
+}
+}

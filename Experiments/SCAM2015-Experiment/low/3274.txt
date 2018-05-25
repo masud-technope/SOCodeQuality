@@ -1,0 +1,62 @@
+static void Main(string[] args)
+{
+    string sentence = "are you cracy";
+
+    int length = Program.StringLength(sentence);
+
+    int currentpos = 0;
+
+    List<string> wordList = new List<string>();
+
+    int wordCount = 0;
+    while (currentpos < length)
+    {
+        // find the next space
+        int spacepos = sentence.IndexOf(' ', currentpos);
+
+        string word;
+
+        if (spacepos < 0)
+        {
+            // end of string reached.
+            word = sentence.Substring(currentpos, length - currentpos);
+            wordList.Add(word);
+            wordCount++;
+
+            // no need to continue.
+            break;
+        }
+
+        word = sentence.Substring(currentpos, spacepos - currentpos);
+        wordList.Add(word);
+        wordCount++;
+
+        currentpos = spacepos + 1;
+    }
+
+    // display
+    for (int i = wordList.Count - 1; i >= 0; i--)
+    {
+        // after first word is display, add spaces to the output
+        if (i < wordList.Count - 1)
+        {
+            Console.WriteLine(" ");
+        }
+
+        // display word
+        Console.WriteLine(wordList[i]);
+    }
+}
+
+public static int StringLength(String sentence)
+{
+    int numberOfChars = 0;
+
+    while (!sentence.Equals(""))
+    {
+        sentence = sentence.Substring(1);
+        ++numberOfChars;
+    }
+
+    return numberOfChars;
+}

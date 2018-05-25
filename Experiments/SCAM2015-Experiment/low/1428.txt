@@ -1,0 +1,12 @@
+private int capacity;
+
+// proper constructor
+
+public boolean add(E e) {
+  synchronized(mutex) {
+    if (super.size() == capacity) {
+      super.remove(super.element());
+    }
+  }
+  return super.add(e);
+}

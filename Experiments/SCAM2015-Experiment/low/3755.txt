@@ -1,0 +1,11 @@
+//here initialize 'given' array
+//get the user input in a string that is 'input[0]' in your case
+int count = 0; 
+for (String s : given) {
+   if (s != null && s.matches(input[0])) {
+      //it matches and print it
+   } else {
+      //either it's not a match or the 'given' array has a null at this index
+   }
+   count++;
+}

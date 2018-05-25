@@ -1,0 +1,25 @@
+package example;
+
+import java.util.TreeMap;
+
+public class Dictionary {
+
+    static final TreeMap<Character,Character> myDict = new TreeMap();
+
+    static Character choose(TreeMap<Character,Character> dict, 
+                            Character x, Character def) {
+        Character result = dict.get(x);
+        if (result==null) result = def;
+        return result;
+    }
+
+    public static void main(String[] args) {
+        myDict.put('a','b');
+        myDict.put('b','a');
+        myDict.put('r','t');
+        System.out.println(choose(myDict,'a','z'));
+        System.out.println(choose(myDict,'b','z'));
+        System.out.println(choose(myDict,'r','z'));
+        System.out.println(choose(myDict,'X','z'));
+    }
+}

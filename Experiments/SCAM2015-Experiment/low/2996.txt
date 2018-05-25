@@ -1,0 +1,8 @@
+if (strPscId.startsWith("99999"))
+{
+     bla bla
+}
+else
+{
+     sth else than bla bla
+}

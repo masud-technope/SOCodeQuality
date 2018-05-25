@@ -1,0 +1,8 @@
+private List<Integer> list = new ArrayList<Integer>(51);
+
+public void add(int value) {
+  list.add(0, value); //other elements are shifted right, you need do nothing else
+
+  //then limit the list to 50 elements
+  while(list.size() > 50) list.remove(list.size() - 1);
+}

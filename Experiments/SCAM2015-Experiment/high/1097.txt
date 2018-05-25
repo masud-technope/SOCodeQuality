@@ -1,0 +1,4 @@
+if (something)
+{
+    Object o = new Object(); 
+} // as you leave the block, the reference is deleted. Later on the garbage collector will delete he object itself.

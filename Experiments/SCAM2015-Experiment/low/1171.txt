@@ -1,0 +1,38 @@
+public Test() {
+    this.area = new JTextArea();
+
+    this.getContentPane().setLayout(new BorderLayout());
+    this.getContentPane().add(area, BorderLayout.CENTER);
+
+    JButton button = new JButton(new MyClickAction(this));
+    button.setText("Click Me!");
+
+    this.getContentPane().add(button, BorderLayout.SOUTH);
+
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    this.setPreferredSize(new Dimension(500, 200));
+
+    this.area.setText("this is just a test");
+
+    this.pack();
+    this.setVisible(true);
+}
+
+public static void main(String[] args) {
+    new Test();
+}
+
+private class MyClickAction extends AbstractAction 
+{
+    private JFrame frame;
+
+    public MyClickAction(JFrame frame) {
+        this.frame = frame;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        area.setBackground(new Color(0, 0, 123, 138));
+        frame.repaint();
+    } 
+}

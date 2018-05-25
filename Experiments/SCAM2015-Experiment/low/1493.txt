@@ -1,0 +1,5 @@
+for(Student s : list)
+{
+    int current_id = s.getID();
+    // Do something with current_id
+}

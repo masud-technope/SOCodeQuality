@@ -1,0 +1,3 @@
+Image picture;  
+picture = getImage(getDocumentBase(),"sonoo.jpg");  
+g.drawImage(picture, 30,30, this);

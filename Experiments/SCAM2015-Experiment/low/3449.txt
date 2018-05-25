@@ -1,0 +1,7 @@
+if (i <= 33) {
+    variable = x;
+} else if (i <= 66) {
+    variable = y;
+} else {
+    variable = z;
+}

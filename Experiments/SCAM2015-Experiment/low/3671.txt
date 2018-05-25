@@ -1,0 +1,11 @@
+public class MyObject {
+
+  public MyObject(String arg) {
+    // ...
+  }
+
+  public MyObject(String[] args) {
+    // ...
+  }
+
+}

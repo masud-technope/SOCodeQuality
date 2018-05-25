@@ -1,0 +1,6 @@
+<top xmlns:abc="http://abc.ru">
+   <abc:href var="link1"/>
+   <abc:href var="link2"/>
+   <abc:href var="link3"/>
+   <abc:href var="link4"/>
+</top>

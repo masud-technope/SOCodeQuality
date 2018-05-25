@@ -1,0 +1,3 @@
+int four = 1234;  
+int first = four / 100;   
+int second = four % 100;

@@ -1,0 +1,7 @@
+public static void main(String[] args) {
+    String str = ":One;Two:Three;Four:Five;Six:Seven;";
+    String [] tokens = str.replaceAll(";\\w*:?",":").split(":");
+    for (int i = 0; i < tokens.length; i++) {
+        System.out.println("token[" + i + "] = " + tokens[i]);
+    }
+}

@@ -1,0 +1,3 @@
+synchronized (i) {
+    i.wait(); // or i.notify();
+}

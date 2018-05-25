@@ -1,0 +1,4 @@
+Set<String> keys = hashMap.keySet();
+for(String key : keys){
+ out.println(hashMap.get(key));
+}

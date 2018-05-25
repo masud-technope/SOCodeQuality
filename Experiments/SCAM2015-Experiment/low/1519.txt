@@ -1,0 +1,17 @@
+public class MyClass{
+
+   private static MyClass unique_instance = new MyClass() ;
+
+   private MyClass(){
+
+         // Initialize the state of the object here
+    }
+
+   public static MyClass getInstance(){
+
+
+          return unique_instance;
+
+      }
+
+    }

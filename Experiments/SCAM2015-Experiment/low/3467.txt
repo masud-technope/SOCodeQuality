@@ -1,0 +1,15 @@
+class SomeClass {
+    private Map<String, String> someMap = null;
+
+    public String getValue(String key) {
+        if (someMap == null) {
+            synchronized (SomeClass.class) {
+
+                  someMap  = Collections.synchronizedMap(new HashMap<String, String>());
+                // initialize the map contents by loading some data from the database.
+                // possible for the map to be empty after this.
+            }
+        }
+        return someMap.get(key);  // the key might not exist even after initialization
+    }
+}

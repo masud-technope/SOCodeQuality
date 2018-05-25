@@ -1,0 +1,13 @@
+public static void main(String[] args) {
+    assert returnsTrue(new Runnable() {
+        @Override
+        public void run() {
+            // your logging code
+        }
+    });
+}
+
+public static boolean returnsTrue(Runnable r) {
+    r.run();
+    return true;
+}

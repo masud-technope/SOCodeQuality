@@ -1,0 +1,10 @@
+try {
+         final int a = Integer.parseInt(aStr);
+      } catch (final NumberFormatException ex) {
+         System.out.println("a is not a integer");
+      }
+      try {
+         final int b = Integer.parseInt(bStr);
+      } catch (final Exception e) {
+         System.out.println("b is not a integer");
+      }

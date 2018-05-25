@@ -1,0 +1,3 @@
+public String getEmployeeDetails() {
+    return "Name: " + name;
+}

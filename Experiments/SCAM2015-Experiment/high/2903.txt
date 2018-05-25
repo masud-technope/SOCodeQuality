@@ -1,0 +1,4 @@
+public static final Calendar calendarUTC = Calendar.getInstance(
+       TimeZone.getTimeZone("UTC"));
+
+ d = rs.getDate(i, calendarUTC);

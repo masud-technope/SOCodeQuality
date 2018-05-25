@@ -1,0 +1,5 @@
+for (int i = 0; i < jsonArray.length(); i++) {
+
+    whateverTheObjectIs = jsonArray.getObject(i);
+
+}

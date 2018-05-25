@@ -1,0 +1,12 @@
+public void someMethod(List<Object> a) {
+    for (int j = 0; j < a.size(); j++) {
+        if (a.get(j).equals(10)) {
+            System.out.println(a.get(j));
+        } else {
+            do {
+                System.out.println(a.get(j));
+            } while (a.get(j).equals(20));
+            return;
+        }
+    }
+}

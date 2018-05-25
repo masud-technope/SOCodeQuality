@@ -1,0 +1,26 @@
+string[] arr = new string[4]; // Initialize
+        arr[0] = "one";               // Element 1
+        arr[1] = "two";               // Element 2
+        arr[2] = "three";             // Element 3
+        arr[3] = "four";              // Element 4
+
+        // Loop over strings
+        foreach (string s in arr)
+        {
+            if (!String.IsNullOrEmpty(s))
+            {
+                Console.WriteLine(s);
+            }
+        }
+
+        // do while
+        var aValue = "Not Empty";
+        do
+        {
+            //loop through elements here
+            for (int a = 0; a < arr.Length; a++)
+            {
+                aValue = arr[a];
+            }
+
+        } while (!String.IsNullOrEmpty(aValue));

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+JARS=/home/guest/lib
+CONFIG=/home/guest/AnalyticServer.properties
+
+echo JARS=$JARS
+echo CONFIG=$CONFIG
+
+for file in `ls $JARS/*.jar`;
+do
+    classpath=$classpath:$file
+done
+
+cmd="java -classpath $classpath com.test.ASDataSourceClient DELETE -c $CONFIG -n test_ds"
+echo $cmd
+exec $cmd

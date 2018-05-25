@@ -1,0 +1,10 @@
+requestSocket = new Socket("localhost", 2004);
+out = requestSocket.getOutputStream();
+PrintWriter pw = new PrintWriter(out);
+String line =  "...1000 characters long..."; 
+for (int i = 0; i < 2000000 - 1; i++) {
+    pw.println(line);
+}
+line = "done";
+pw.println(line);
+pw.flush();

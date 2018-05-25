@@ -1,0 +1,7 @@
+NumberFormat us = NumberFormat.getCurrencyInstance(Locale.US);
+String usFormat = us.format(56.45);
+System.out.println(usFormat);
+
+NumberFormat uk = NumberFormat.getCurrencyInstance(Locale.UK);
+String ukFormat = uk.format(56.45);
+System.out.println(ukFormat);

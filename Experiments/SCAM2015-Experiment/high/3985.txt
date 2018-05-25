@@ -1,0 +1,4 @@
+MyEnum[] values = MyEnum.values();
+List<MyEnum> list = new ArrayList<>(values.length - 1);
+for (int i = 1; i < values.length; i++)
+    list.add(values[i]);

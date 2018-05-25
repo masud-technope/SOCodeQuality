@@ -1,0 +1,15 @@
+String[] arr0 = ["a1", "a2"];
+    String[] arr1 = ["b1", "b2", "b3", "b4"];
+    String[] arr2 = ["c1"];
+    int length = arr0.length + arr1.length + arr2.length;
+    int max = Math.max(arr0.length, Math.max(arr1.length, arr2.length));
+    int index = 0;
+    String[] result = new String[length];
+    for (int i=0; i<max; i++){
+        if (i<arr0.length)
+           result[index++] = arr0[i];
+        if (i<arr1.length)
+           result[index++] = arr1[i];
+        if (i<arr2.length)
+           result[index++] = arr2[i];
+    }

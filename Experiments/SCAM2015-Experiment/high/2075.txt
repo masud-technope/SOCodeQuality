@@ -1,0 +1,9 @@
+public void actionPerformed ( ActionEvent e )
+{
+    theta += Math.PI / 18;
+    if ( theta >= Math.PI * 2 )
+    {
+        theta = 0;
+    }
+    repaint ();
+}

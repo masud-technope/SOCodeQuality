@@ -1,0 +1,13 @@
+public boolean method1() {
+
+  if (something) {
+
+    return true;
+
+  }
+
+  return false;
+
+  method2();//This will be dead code
+
+}

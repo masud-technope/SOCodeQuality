@@ -1,0 +1,32 @@
+public class Overhead {
+
+public static void main(String[] args) {
+    String testString = "";
+
+    long startTimeTry = System.nanoTime();
+    tryTrim(testString);
+    long estimatedTimeTry = System.nanoTime() - startTimeTry;
+
+    long startTimeIf = System.nanoTime();
+    ifTrim(testString);
+    long estimatedTimeIf = System.nanoTime() - startTimeIf;
+
+    System.out.println("Try time:" + estimatedTimeTry);
+    System.out.println("If time:" + estimatedTimeIf);
+
+}
+
+public static String tryTrim(String raw) {
+    try {
+        return raw.trim();
+    } catch (Exception e) {
+    }
+    return null;
+}
+
+public static String ifTrim(String raw) {
+    if (raw == null) {
+        return null;
+    }
+    return raw.trim();
+}

@@ -1,0 +1,3 @@
+DownloadManager dm= (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+DownloadManager.Request request = new DownloadManager.Request(Uri.parse("https://www.google.com.tw/images/srpr/logo4w.png"));
+dm.enqueue(request);

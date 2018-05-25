@@ -1,0 +1,5 @@
+Double d1 = 0.84551240822557006;
+String s = d1.toString();
+Double d2 = Double.parseDouble(s);
+
+boolean equal = d1 == d2; << FALSE

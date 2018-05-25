@@ -1,0 +1,15 @@
+@Override
+public int hashCode() {
+    return groupId;
+}
+@Override
+public boolean equals(Object o) {
+        return ((o instanceof MyThing) && (groupId == ((MyThing)o).groupId));
+}
+static MyThing[] noRepetition(MyThing[] array) {
+        Set<MyThing> set = new HashSet<MyThing>();
+        for (MyThing s : array) {
+                set.add(s);
+        };
+        return set.toArray(new MyThing[set.size()]);
+}

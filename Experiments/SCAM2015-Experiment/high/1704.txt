@@ -1,0 +1,20 @@
+public class Counter {
+
+int val;
+
+ public Counter (int start) {
+   val = start;
+ }
+ public void increment() {
+    val ++;
+ }
+ public String toString () {
+   return Integer.toString (val);
+ }
+
+ public static void main(String[] args) {
+    Counter counter = new Counter (0);
+    counter.increment ();
+    System.out.println(counter.toString ());
+ }
+}

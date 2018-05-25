@@ -1,0 +1,16 @@
+void setup() {
+
+  int[] x = new int[100];
+  int i=0;
+  int sum=0;
+
+  for(i=0; i<100; i++) {
+    if (i%2==0) {
+      sum += i;
+            if(sum<1768){
+
+                 num +=1; 
+            }
+    }
+  }
+}

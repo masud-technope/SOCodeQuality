@@ -1,0 +1,37 @@
+{
+    "objectHTMLTableElement": [
+        {
+            "classname": "machine",
+            "name": ""
+        },
+        {
+            "tr": [
+                {
+                    "HTMLTableCellElement": {"classname":"partdescriptor","colspan":2}
+                },
+                {
+                    "HTMLTableCellElement": {"classname":"part","colspan":4}
+                }
+            ]
+        },
+        {
+            "tr": [
+                {
+                    "HTMLTableCellElement": {"classname":"partdescriptor group"}
+                },
+                {
+                    "HTMLTableCellElement": {"classname":"partdescriptor","id":""}
+                },
+                {
+                    "HTMLTableCellElement": {"classname":"part","id":""}
+                },
+                {
+                    "HTMLTableCellElement": {"classname":"description"}
+                },
+                {
+                    "HTMLTableCellElement": {"classname":"compat"}
+                }
+            ]
+        }
+    ]
+}

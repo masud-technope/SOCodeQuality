@@ -1,0 +1,27 @@
+class Binary
+    {
+        public StringBuffer calBinary(int decnum){
+
+          StringBuffer sBuf = new StringBuffer();
+               int temp=0;
+               while(decnum>0){
+                      temp = decnum%2;
+                      sBuf.append(temp);
+                     decnum = decnum / 2;
+               }
+         return sBuf.reverse();
+   } }  
+
+
+ public class Sri {
+
+   public static void main(String[] args) throws IOException {
+    System.out.println(" please enter the decimal number to convert into binary");
+    BufferedReader br = new   BufferedReader(new InputStreamReader(System.in));
+    int num = Integer.parseInt(br.readLine());
+
+    Binary K = new Binary();
+    StringBuffer result = K.calBinary(decnum);
+    System.out.println(result);
+              }
+ }

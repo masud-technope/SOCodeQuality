@@ -1,0 +1,3 @@
+//open file in override mode
+FileOutputStream out = new FileOutputStream("filename.ext");
+//now anything that we write here will remove the old one so just write space ("") here

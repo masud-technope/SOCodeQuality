@@ -1,0 +1,27 @@
+JPopupMenu popup = new JPopupMenu();
+    final Action action = new AbstractAction("empty") {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // TODO Auto-generated method stub
+        }
+    };
+    popup.add(action); 
+    JTree tree = new JTree() {
+
+        /** 
+         * @inherited <p>
+         */
+        @Override
+        public Point getPopupLocation(MouseEvent e) {
+            if (e != null) {
+               TreePath path = getClosestPathForLocation(e.getX(), e.getY());
+               action.putValue(Action.NAME, String.valueOf(path.getLastPathComponent()));
+               return e.getPoint();
+            }
+            action.putValue(Action.NAME, "no mouse"); 
+            return null;
+        }
+
+    };
+    tree.setComponentPopupMenu(popup);

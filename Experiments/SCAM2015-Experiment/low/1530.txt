@@ -1,0 +1,3 @@
+Date dateNow = currentDate.getTime(); // instead of getTimeInMillis()
+...
+if (dateNow.compareTo(date)) { // this will now work

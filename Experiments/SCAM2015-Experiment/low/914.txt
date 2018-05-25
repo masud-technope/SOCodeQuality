@@ -1,0 +1,4 @@
+struct A {
+// ... declare members
+}; // declaration; put semicolon
+int a[] = {0, 1, 2};  // initialization; put semicolon

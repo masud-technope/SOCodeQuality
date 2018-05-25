@@ -1,0 +1,15 @@
+public static int  has_even_pair(int [ ] values,int n)  //method definition to find sum
+{
+      int i;
+      for(i=0; i< n; i++)
+      {
+          if (values[i] % 2 == 0 )
+          {
+               return 1;
+
+           }
+
+      }
+
+      return 0 ;
+ }

@@ -1,0 +1,23 @@
+public class ExampleHero extends ExampleFighter {
+
+    int reputation; //the general opinion of the hero
+
+    public ExampleHero() {
+        super("Hero Oreh of Herosville", 100);
+        reputation = 0;
+    }
+
+    public void improveReputation() {
+        reputation++;
+    }
+
+}
+
+
+public class ExampleRival extends ExampleFighter {
+
+    public ExampleRival() {
+        super("Your greatest rival", 101);
+    }
+
+}

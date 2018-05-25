@@ -1,0 +1,10 @@
+123
+ +- 123          - swap 1 and 1 (these are positions, not numbers)
+ |   +- 123      - swap 2 and 2
+ |   +- 132      - swap 2 and 3
+ +- 213          - swap 1 and 2
+ |   +- 213      - swap 2 and 2
+ |   +- 231      - swap 2 and 3
+ +- 321          - swap 1 and 3
+     +- 321      - swap 2 and 2
+     +- 312      - swap 2 and 3

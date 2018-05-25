@@ -1,0 +1,3 @@
+String myString = null;
+if (myString.equals("foobar")) { /* ... */ }
+// This causes a NullPointerException in Java

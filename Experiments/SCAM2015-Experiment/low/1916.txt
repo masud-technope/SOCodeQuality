@@ -1,0 +1,42 @@
+private static void dom(int[] a) {
+        int position = 0;
+        int max = 0;
+        int score = 0;
+        int counter = 0;
+        int[]result = new int[a.length];
+
+        for(int i = 0; i < a.length; i++){
+            score = 0;
+            for(int c = 0; c < a.length;c++){
+
+                if(a[i] == a[c] && c != i ){
+                    score = score + 1;
+                    result[i] = score; 
+                    if(result[i] > position){
+                        position = i;
+                    }
+            }
+
+            }
+        }
+
+
+                 //This is just to facilitate the print function and MAX = the number of times that dominator number was found in the list.
+
+        for(int x = 0 ; x < result.length-1; x++){
+            if(result[x] > max){
+                max = result[x] + 1;
+            }
+
+        }
+
+
+
+
+  System.out.println(" The following number is the dominator " + a[position] +  " it appears a total of " + max);
+
+
+
+
+
+}

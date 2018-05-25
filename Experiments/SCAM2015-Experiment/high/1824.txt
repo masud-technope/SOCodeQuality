@@ -1,0 +1,4 @@
+String hardPuzzle = "009000000080605020501078000000000700706040102004000000000720903090301080000000600";
+char[] chrs = hardPuzzle.toCharArray();
+for (int i=0; i<chrs.length; i++)
+    System.out.println("Chrs :: "+chrs[i]);

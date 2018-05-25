@@ -1,0 +1,13 @@
+public Bitmap stringtoBitmap(String string) {
+    Bitmap bitmap = null;
+    try {
+        YuvImage yuvimage = new YuvImage(base64.getBytes(),ImageFormat.YUY2, 120, 30, null);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        yuvimage.compressToJpeg(new Rect(0, 0, 20, 20), 100, baos);
+        byte[] jdata = baos.toByteArray();
+        bitmap = BitmapFactory.decodeByteArray(jdata, 0, jdata.length);
+    } catch (Exception e) {
+
+    }
+    return bitmap;
+}

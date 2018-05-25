@@ -1,0 +1,12 @@
+public class Test {
+    private int dog = 10;
+    private String anything = "dog";
+
+    public static void main(String[] args){
+        Test obj = new Test();
+        Object field = obj.getClass()
+                          .getDeclaredField(obj.anything)
+                          .get(obj);            
+        System.out.println(field);
+    }
+}

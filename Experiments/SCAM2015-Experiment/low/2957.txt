@@ -1,0 +1,12 @@
+int number;
+     do 
+      {
+         String textinput = JOptionPane.showInputDialog("give me a number between 0 and 5");
+         number = Integer.parseInt(textinput);
+         if ( number > 5 || number  < 0)
+         {
+             System.out.println("Please enter number between 0 to 5");
+             return;
+         }
+          } while (!(number >= 0 && number <= 5));
+}

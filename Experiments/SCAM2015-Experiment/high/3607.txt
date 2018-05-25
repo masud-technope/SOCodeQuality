@@ -1,0 +1,11 @@
+@Override
+public int hashCode() {
+    int result = (stuck ? 1 : 0); // needs 1 bit (2 possible values)
+    result += (facing ? 1 : 0) << 1; // needs 1 bit (2 possible values)
+    result += marioMode << 2; // needs 2 bits (3 possible values)
+    result += (onGround ? 1 : 0) << 4; // needs 1 bit (2 possible values)
+    result += (canJump ? 1 : 0) << 5; // needs 1 bit (2 possible values)
+    result += (wallNear ? 1 : 0) << 6; // needs 1 bit (2 possible values)
+    result += (nearestEnemyX + 16) << 7; // needs 6 bits (33 possible values)
+    result += (nearestEnemyY + 16) << 13; // needs 6 bits (33 possible values)
+}

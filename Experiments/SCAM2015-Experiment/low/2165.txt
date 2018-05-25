@@ -1,0 +1,22 @@
+else if(choice == 2){//quadratic start
+     alert("the equation is of the form : ax^2 + bx + c == 0 , only input the coefficients i.e - the value of ax^2 is a, or the value of bx is b, not bx. The value of b for the equation 5x^2 + 7x +3 is 7, not 7x");
+     var a = prompt("Put in the value of a");//declaring variables
+     var b = prompt("Put in the value of b, if the bx part of the equation doesn't exist, input 0. Ex for equation 2x^+6==0 , b ==0, since its technically 2x^2 + 0b + 6 == 0");
+     var c = prompt("Put in the value of c, if the c part of the equation doesn't exist, input 0. Ex for equation 2x^+6x==0 , c ==0, since its technically 2x^2 + 6b + 0 == 0");
+     var D = ((b*b)-(4*a*c));//computing discriminant
+     if(D < 0){
+     alert("The quadratic equation doesn't have real roots; the closest value is : " + (-b/2) +" + i/2");
+     }
+     else{
+     root1 = (- b + Math.sqrt(D))/(2*a);
+     root2 = (- b - Math.sqrt(D))/(2*a);
+     }
+     if(D===0){
+     console.log("Both roots are equal, their value is " + root1);
+     alert("Both roots are equal, their value is " + root1);
+     }
+     else if ( D > 0){
+     console.log("The roots of the equation are: " + root1 + " and " + root2);
+     alert("The roots of the equation are: " + root1 + " and " + root2 );
+     }
+     }//quadratic end

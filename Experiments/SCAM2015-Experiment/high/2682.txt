@@ -1,0 +1,13 @@
+$matches Array:
+(
+    [0] => Array
+        (
+            [0] => <a bogus='href=""' class="aClass" target="_blank">link2</a>
+        )
+
+    [1] => Array
+        (
+            [0] => 
+        )
+
+)

@@ -1,0 +1,6 @@
+PROCEDURE someAlgorithm(number: Integer)
+    number <- number + 42
+    IF number > 50
+        number -> DISPLAY
+    END IF
+END PROCEDURE

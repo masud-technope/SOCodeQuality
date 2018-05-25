@@ -1,0 +1,5 @@
+String data = "254980";
+List<Integer> list = new ArrayList<Integer>();
+for (int i = 0; i < data.length(); i++) {
+    list.add(new Integer(data.substring(i,i+1)));
+}

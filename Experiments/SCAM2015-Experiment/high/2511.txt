@@ -1,0 +1,11 @@
+# 1
+   return from ^ to;
+
+   # 2
+   return to*to+from*from;
+
+   # 3
+   int res = 17;
+   res = res * 31 + Math.min(from, to);
+   res = res * 31 + Math.max(from, to);
+   return res;

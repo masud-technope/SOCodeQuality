@@ -1,0 +1,13 @@
+import java.util.*;
+class dt
+{
+    Date d;
+    String mon;         
+    dt()
+    {   d= new Date();
+        mon = ""+(d.getMonth()+1)+"";
+        System.out.println(" mon is "+);        
+    }
+    public static void main(String[]avi)
+    {     new dt();   }
+}

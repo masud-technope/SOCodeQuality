@@ -1,0 +1,3 @@
+AClass[] array;
+...
+array = new AClass[]{object1, object2};

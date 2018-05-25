@@ -1,0 +1,5 @@
+public class Resource {
+    public static final int COAL = 0;
+    public static final int IRON = 1;
+
+}

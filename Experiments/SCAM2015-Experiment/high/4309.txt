@@ -1,0 +1,13 @@
+guess = 0;        
+
+do {
+    guess = keyboard.nextInt(); 
+
+    if (guess > random) {
+        System.out.print("Lower!");
+        attempts += 1; 
+    } else {
+        System.out.print("Higher!");
+        attempts +=1;
+    }
+ } while (guess != random);

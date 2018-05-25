@@ -1,0 +1,10 @@
+Path file = ...;
+try {
+    DosFileAttributes attr = Attributes.readDosFileAttributes(file);
+    System.out.println("isReadOnly is " + attr.isReadOnly());
+    System.out.println("isHidden is " + attr.isHidden());
+    System.out.println("isArchive is " + attr.isArchive());
+    System.out.println("isSystem is " + attr.isSystem());
+} catch (IOException x) {
+    System.err.println("DOS file attributes not supported:" + x);
+}

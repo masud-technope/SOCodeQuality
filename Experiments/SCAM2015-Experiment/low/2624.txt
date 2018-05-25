@@ -1,0 +1,4 @@
+if(o1 instanceof Class)  
+{  
+     long s1 = ((Class)o1).getSize();
+}

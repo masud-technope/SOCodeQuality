@@ -1,0 +1,30 @@
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import javax.swing.*;
+
+public class BasicLayout {
+
+    BasicLayout() {
+        JPanel gui = new JPanel(new BorderLayout(2,2));
+
+        gui.add(new JTextField(), BorderLayout.PAGE_START);
+        gui.add(new JTextArea(3,15));
+
+        JPanel controls = new JPanel(new FlowLayout(FlowLayout.CENTER,5,5));
+        controls.add(new JButton("Button1"));
+        controls.add(new JButton("Button2"));
+
+        gui.add(controls, BorderLayout.PAGE_END);
+
+        JOptionPane.showMessageDialog(null, gui);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new BasicLayout();
+            }
+        });
+    }
+}

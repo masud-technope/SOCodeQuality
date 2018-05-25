@@ -1,0 +1,3 @@
+if (str.matches("(MIN|MAX|SUM|AVERAGE): \\d+(\\.\\d+)?(, \\d+(\\.\\d+)?)*") {
+    // yes, format is OK
+}

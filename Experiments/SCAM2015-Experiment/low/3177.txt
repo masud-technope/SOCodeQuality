@@ -1,0 +1,36 @@
+//// Activity 
+public class RssfeedActivity extends Activity implements MyListFragment.OnItemSelectedListener {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_rssfeed);
+        Button btn = (Button) findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Log.d("Annv - Fragment", "onClick here");
+            }
+        });
+    }
+
+    // if the wizard generated an onCreateOptionsMenu you can delete
+    // it, not needed for this tutorial
+
+    @Override
+    public void onRssItemSelected(String link) {
+        //        DetailFragment fragment = (DetailFragment) getFragmentManager()
+        //                .findFragmentById(R.id.detailFragment);
+        //        if (fragment != null && fragment.isInLayout()) {
+        //          fragment.setText(link);
+        //        } 
+        //        Intent start = new Intent(this, RssfeedSecondActivity.class);
+        //        startActivity(start);
+        DetailFragment fragment = (DetailFragment) getFragmentManager()
+                .findFragmentById(R.id.detailFragment);
+        if (fragment != null && fragment.isInLayout()) {
+            fragment.setText(link);
+        }
+    }
+
+}

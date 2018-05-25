@@ -1,0 +1,3 @@
+try {
+   // Read from the InputStream
+    bytes = mmInStream.read(buffer);

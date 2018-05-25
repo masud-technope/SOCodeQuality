@@ -1,0 +1,5 @@
+Object[] array = new String[1];
+array[0] = 1; // throws ArrayStoreException
+
+ArrayList list = new ArrayList<String>();
+list.add(1); // causes heap pollution

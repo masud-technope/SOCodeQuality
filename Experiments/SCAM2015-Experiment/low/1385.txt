@@ -1,0 +1,3 @@
+get(String s){
+    return list2.get( list1.indexOf(s) );
+}

@@ -1,0 +1,7 @@
+private static class SomeContainer<E>
+{
+    E createContents(Class<E> clazz)
+    {
+        return clazz.newInstance();
+    }
+}

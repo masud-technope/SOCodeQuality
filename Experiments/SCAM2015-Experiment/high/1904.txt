@@ -1,0 +1,8 @@
+connection.setAutoCommit(false);  
+PreparedStatement ps = connection.prepareStatement(query);            
+for (Record record : records) {
+    // etc.
+    ps.addBatch();
+}
+ps.executeBatch();
+connection.commit();

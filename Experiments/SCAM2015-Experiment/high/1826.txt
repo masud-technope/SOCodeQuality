@@ -1,0 +1,5 @@
+Function[] functions = {new GetNameFunction()};
+    for(int i = 0; i < functions.length; i++){
+        functions[i].run();
+    }
+}

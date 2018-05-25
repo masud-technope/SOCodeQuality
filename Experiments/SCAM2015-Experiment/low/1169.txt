@@ -1,0 +1,22 @@
+public class Sample 
+{
+    public Sample()
+    {
+        System.out.println("Object created");
+    }
+    @Override
+    public void finalize()
+    {
+        System.out.println("Object Destroyed");
+    }
+    public static void main(String args[])
+    {
+        Sample x=new Sample();
+        Sample y=new Sample();
+
+        x=null;
+        y=null;
+
+        System.gc();
+    }
+}

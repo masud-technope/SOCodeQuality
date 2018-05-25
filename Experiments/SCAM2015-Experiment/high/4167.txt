@@ -1,0 +1,7 @@
+HSSFWorkbook workbook=new HSSFWorkbook();
+            HSSFSheet sheet =  workbook.createSheet("FirstSheet");  
+            HSSFRow rowhead=   sheet.createRow((short)0);
+            HSSFCellStyle style = workbook.createCellStyle();
+            style.setWrapText(true);
+            row.setRowStyle(style);
+            row.getCell(0).setCellStyle(style);

@@ -1,0 +1,3 @@
+Object myObject;
+... // other code that might use myObject
+myObject = new Object();

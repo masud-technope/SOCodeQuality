@@ -1,0 +1,4 @@
+public class MyString implements MyInterface {
+  private String string;
+....
+}

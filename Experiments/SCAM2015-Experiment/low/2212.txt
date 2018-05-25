@@ -1,0 +1,9 @@
+while(doINeedToKeepRunning()){
+    if(hasMoreTasks()){
+        getFirstTask().run();.
+    }
+    else
+    {
+        waitForOtherTasks();
+    }
+}

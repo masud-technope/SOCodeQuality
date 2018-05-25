@@ -1,0 +1,11 @@
+// Thread 1
+synchronized (list) {
+    Integer someElement = getElement(list);
+    use(someElement);
+    // use can be outside the synchronized block if it is ok to use 
+    // an element that is no longer in the list
+}
+//Thread 2
+synchronized (list) {
+    modify(list); // call some function that modifies the list
+}

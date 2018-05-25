@@ -1,0 +1,8 @@
+for(int i = 0; i < accounts.size(); i++)
+{
+Account a = accounts.get(i);
+if(a.getAccountNumber().equals(accountNumber))
+{
+return accounts.remove(i);
+}
+}

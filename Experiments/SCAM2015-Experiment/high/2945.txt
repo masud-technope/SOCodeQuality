@@ -1,0 +1,3 @@
+String out= Environment.getExternalStorageDirectory().getAbsolutePath() + "/X/Y/Z/" ; 
+
+        File outFile = new File(out, Filename);

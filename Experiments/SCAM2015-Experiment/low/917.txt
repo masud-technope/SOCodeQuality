@@ -1,0 +1,6 @@
+String msg = "a is not an integer";
+try {
+    // parse a
+    msg = "b is not an integer";
+    // parse b
+} catch (...) { println(msg); }

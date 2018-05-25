@@ -1,0 +1,9 @@
+public void doGet(HttpServletRequest req, HttpServletResponse resp)
+ throws IOException {
+
+        // Get client's IP address
+        String ipAddress = req.getRemoteAddr(); // ip 
+
+        // Get client's hostname
+        String hostname = req.getRemoteHost(); // hostname
+    }

@@ -1,0 +1,9 @@
+static JFrame jj = new JFrame("Test frame");
+
+public static void main (String[] args) {
+
+    jj.setBounds(100, 200, 400, 300);
+    jj.setVisible(true);
+    jj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    jj.add(new JButton("My JButton"), "North");
+}

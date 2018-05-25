@@ -1,0 +1,14 @@
+String s= time ;
+
+     DateFormat f1 = new SimpleDateFormat("kk:mm");
+     Date d = null;
+        try {
+             d = f1.parse(s);
+             DateFormat f2 = new SimpleDateFormat("h:mma");
+             time = f2.format(d).toUpperCase(); // "12:18am"
+
+    } catch (ParseException e) {
+
+        // TODO Auto-generated catch block
+            e.printStackTrace();
+        }

@@ -1,0 +1,5 @@
+void logError(String control, Object... parameters) {
+    // Forwarding the unknown number of arguments from one variadic method
+    // to the next: String.format(String, Object...)
+    log.message(String.format(control, parameters));  
+}

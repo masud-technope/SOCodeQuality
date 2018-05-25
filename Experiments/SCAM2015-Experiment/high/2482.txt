@@ -1,0 +1,12 @@
+import java.net.URL;
+import org.apache.tika.Tika; //Including Tika
+
+public class TestTika {
+
+    public static void main(String[] args) {
+        Tika tika = new Tika();
+        String fileType = tika.detect(new URL("http://example.com/someFile.jpg"));
+        System.out.println(fileType);
+    }
+
+}

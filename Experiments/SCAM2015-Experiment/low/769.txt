@@ -1,0 +1,17 @@
+GregorianCalendar gc= new GregorianCalendar();
+gc.setTimeInMillis(System.currentTimeMillis());
+gc.roll(GregorianCalendar.DAY_OF_MONTH, true);
+
+Date d1 = new Date();
+Date d2 = gc.getTime();
+
+SimpleDateFormat sf= new SimpleDateFormat("yyyy-MM-dd");
+
+if(sf.format(d2).hashCode() < sf.format(d1).hashCode())
+{
+    System.out.println("date 2 is less than date 1");
+}
+else
+{
+    System.out.println("date 2 is equal or greater than date 1");
+}

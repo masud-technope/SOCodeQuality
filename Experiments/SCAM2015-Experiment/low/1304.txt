@@ -1,0 +1,7 @@
+if( value | 0x40 ) return 7;
+else if( value | 0x20 ) return 6;
+else if( value | 0x10 ) return 5;
+else if( value | 0x8 ) return 4;
+else if( value | 0x4 ) return 3;
+else if( value | 0x2 ) return 2;
+else if( value | 0x1 ) return 1;

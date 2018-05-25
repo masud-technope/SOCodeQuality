@@ -1,0 +1,10 @@
+long time1, time2;
+time1 = System.currentMillis();
+
+.. drink coffee
+
+time2 = System.currentMillis();
+
+long difference = time2 - time1 // millies between time1 and time2
+
+java.util.Date differneceDate = new Date(difference);

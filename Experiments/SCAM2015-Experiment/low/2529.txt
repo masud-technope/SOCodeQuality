@@ -1,0 +1,11 @@
+public static void removeEvenLength(ArrayList <String> stringList){
+        for(int i=0;i<stringList.size();i++){
+            String word=stringList.get(i);
+            System.out.println(word+" "+word.length()+" "+word.length()%2);
+            if(word.length()%2==0){//even
+                System.out.println("Rmoving "+word);
+                stringList.remove(word);
+                removeEvenLength(stringList);//Recursive call
+            }
+        }
+    }

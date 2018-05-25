@@ -1,0 +1,11 @@
+public void keyReleased(KeyEvent e)
+{
+    int key=e.getKeyCode();
+    if(e.getSource()==textField)
+    {
+        if(key==KeyEvent.VK_ENTER)
+        { 
+            Toolkit.getDefaultToolkit().beep();
+            textField_1.requestFocusInWindow();                     
+        }
+    }

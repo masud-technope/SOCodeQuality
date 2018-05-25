@@ -1,0 +1,13 @@
+String temp = "Hi \n Wssup??";          
+System.out.println(temp);
+
+StringBuilder result = new StringBuilder();
+
+StringTokenizer t = new StringTokenizer(temp, "\n");
+
+while (t.hasMoreTokens()) {
+    result.append(t.nextToken().trim()).append("");
+}
+String result_of_temp = result.toString();
+
+System.out.println(result_of_temp);

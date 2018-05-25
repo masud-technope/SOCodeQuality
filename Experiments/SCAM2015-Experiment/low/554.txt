@@ -1,0 +1,30 @@
+public class Not_a_Number {
+
+public static void main(String[] args) {
+    // TODO Auto-generated method stub
+
+    String message = "0.0/0.0 is NaN.\nsimilarly Math.sqrt(-1) is NaN.";        
+    String dottedLine = "------------------------------------------------";     
+
+    Double numerator = -2.0;
+    Double denominator = -2.0;      
+    while (denominator <= 1) {
+        Double x = numerator/denominator;           
+        Double y = new Double (x);
+        boolean z = y.isNaN();
+        System.out.println("y =  " + y);
+        System.out.println("z =  " + z);
+        if (z == true){
+            System.out.println(message);                
+        }
+        else {
+            System.out.println("Hi, everyone"); 
+        }
+        numerator = numerator + 1;
+        denominator = denominator +1;
+        System.out.println(dottedLine);         
+    } // end of while
+
+} // end of main
+
+} // end of class

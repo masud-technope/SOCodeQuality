@@ -1,0 +1,7 @@
+// here it is 0 millis
+blahblah(); // do some stuff
+// here it is 2 millis
+new Thread(new MyRunnable()).start(); // We start an other thread
+// here it is 2 millis
+Thread.sleep(1000);
+// here it is 1002 millis

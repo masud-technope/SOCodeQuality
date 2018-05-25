@@ -1,0 +1,4 @@
+interface StateMachineState<R extends StateMachineState,T> {
+    /* returns next state */
+    R execute(T otherState); 
+}

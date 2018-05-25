@@ -1,0 +1,425 @@
+using System.Diagnostics;
+using System;
+using System.Runtime.InteropServices;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+
+using FFTWSharp;
+
+using unsigned1 = System.Byte;
+using signed2 = System.Int16;
+using signed8 = System.Int64;
+
+public class Subimage
+{
+    /**
+     * This program finds a subimage in a larger image. It expects two arguments.
+     * The first is the image in which it must look. The secon dimage is the
+     * image that is to be found. The program relies on a number of different
+     * steps to perform the calculation.
+     *
+     * It will first normalize the input images in order to improve the
+     * crosscorrelation matching. Once the best crosscorrelation is found
+     * a sad-matchers is applied in a grid over the larger image.
+     *
+     * The following two article explains the details:
+     *
+     *   Werner Van Belle; An Adaptive Filter for the Correct Localization
+     *   of Subimages: FFT based Subimage Localization Requires Image
+     *   Normalization to work properly; 11 pages; October 2007.
+     *   http://werner.yellowcouch.org/Papers/subimg/
+     *
+     *   Werner Van Belle; Correlation between the inproduct and the sum
+     *   of absolute differences is -0.8485 for uniform sampled signals on
+     *   [-1:1]; November 2006
+     */
+    unsafe public static Point FindSubimage_fftw(string[] args)
+    {
+        if (args == null || args.Length != 2)
+        {
+            Console.Write("Usage: subimg\n" + "\n" + "  subimg is an image matcher. It requires two arguments. The first\n" + "  image should be the larger of the two. The program will search\n" + "  for the best position to superimpose the needle image over the\n" + "  haystack image. The output of the the program are the X and Y\n" + "  coordinates.\n\n" + "  http://werner.yellowouch.org/Papers/subimg/\n");
+            return new Point();
+        }
+
+        /**
+         * The larger image will be called A. The smaller image will be called B.
+         *
+         * The code below relies heavily upon fftw. The indices necessary for the
+         * fast r2c and c2r transforms are at best confusing. Especially regarding
+         * the number of rows and colums (watch our for Asx vs Asx2 !).
+         *
+         * After obtaining all the crosscorrelations we will scan through the image
+         * to find the best sad match. As such we make a backup of the original data
+         * in advance
+         *
+         */
+        int Asx = 0, Asy = 0;
+        signed2[] A = read_image(args[0], ref Asx, ref Asy);
+        int Asx2 = Asx / 2 + 1;
+
+        int Bsx = 0, Bsy = 0;
+        signed2[] B = read_image(args[1], ref Bsx, ref Bsy);
+
+        unsigned1[] Asad = new unsigned1[Asx * Asy];
+        unsigned1[] Bsad = new unsigned1[Bsx * Bsy];
+
+        for (int i = 0; i < Bsx * Bsy; i++)
+        {
+            Bsad[i] = (unsigned1)B[i];
+            Asad[i] = (unsigned1)A[i];
+        }
+        for (int i = Bsx * Bsy; i < Asx * Asy; i++)
+            Asad[i] = (unsigned1)A[i];
+
+        /**
+         * Normalization and windowing of the images.
+         *
+         * The window size (wx,wy) is half the size of the smaller subimage. This
+         * is useful to have as much good information from the subimg.
+         */
+        int wx = Bsx / 2;
+        int wy = Bsy / 2;
+        normalize(ref B, Bsx, Bsy, wx, wy);
+        normalize(ref A, Asx, Asy, wx, wy);
+
+        /**
+         * Preparation of the fourier transforms.
+         * Aa is the amplitude of image A. Af is the frequence of image A
+         * Similar for B. crosscors will hold the crosscorrelations.
+         */
+        IntPtr Aa = fftw.malloc(sizeof(double) * Asx * Asy);
+        IntPtr Af = fftw.malloc(sizeof(double) * 2 * Asx2 * Asy);
+        IntPtr Ba = fftw.malloc(sizeof(double) * Asx * Asy);
+        IntPtr Bf = fftw.malloc(sizeof(double) * 2 * Asx2 * Asy);
+
+        /**
+         * The forward transform of A goes from Aa to Af
+         * The forward tansform of B goes from Ba to Bf
+         * In Bf we will also calculate the inproduct of Af and Bf
+         * The backward transform then goes from Bf to Aa again. That
+         * variable is aliased as crosscors;
+         */
+        //#original: fftw_plan_dft_r2c_2d
+        //IntPtr forwardA = fftwf.dft(2, new int[] { Asy, Asx }, Aa, Af, fftw_direction.Forward, fftw_flags.Estimate);//equal results
+        IntPtr forwardA = fftwf.dft_r2c_2d(Asy, Asx, Aa, Af, fftw_flags.Estimate);
+        //#original: fftw_plan_dft_r2c_2d
+        //IntPtr forwardB = fftwf.dft(2, new int[] { Asy, Asx }, Ba, Bf, fftw_direction.Forward, fftw_flags.Estimate);//equal results
+        IntPtr forwardB = fftwf.dft_r2c_2d(Asy, Asx, Ba, Bf, fftw_flags.Estimate);
+        double* crosscorrs = (double*)Aa;
+        //#original: fftw_plan_dft_c2r_2d
+        //IntPtr backward = fftwf.dft(2, new int[] { Asy, Asx }, Bf, Aa, fftw_direction.Backward, fftw_flags.Estimate);//equal results
+        IntPtr backward = fftwf.dft_c2r_2d(Asy, Asx, Bf, Aa, fftw_flags.Estimate);
+
+        /**
+         * The two forward transforms of A and B. Before we do so we copy the normalized
+         * data into the double array. For B we also pad the data with 0
+         */
+        for (int row = 0; row < Asy; row++)
+            for (int col = 0; col < Asx; col++)
+                ((double*)Aa)[col + Asx * row] = A[col + Asx * row];
+        fftw.execute(forwardA);
+
+        for (int j = 0; j < Asx * Asy; j++)
+            ((double*)Ba)[j] = 0;
+        for (int row = 0; row < Bsy; row++)
+            for (int col = 0; col < Bsx; col++)
+                ((double*)Ba)[col + Asx * row] = B[col + Bsx * row];
+        fftw.execute(forwardB);
+
+        /**
+         * The inproduct of the two frequency domains and calculation
+         * of the crosscorrelations
+         */
+        double norm = Asx * Asy;
+        for (int j = 0; j < Asx2 * Asy; j++)
+        {
+            double a = ((double*)Af)[j * 2];//#Af[j][0];
+            double b = ((double*)Af)[j * 2 + 1];//#Af[j][1];
+            double c = ((double*)Bf)[j * 2];//#Bf[j][0];
+            double d = ((double*)Bf)[j * 2 + 1];//#-Bf[j][1];
+            double e = a * c - b * d;
+            double f = a * d + b * c;
+            ((double*)Bf)[j * 2] = (double)(e / norm);//#Bf[j][0] = (fftw_real)(e / norm);
+            ((double*)Bf)[j * 2 + 1] = (double)(f / norm);//Bf[j][1] = (fftw_real)(f / norm);
+        }
+        fftw.execute(backward);
+
+        /**
+         * We now have a correlation map. We can spent one more pass
+         * over the entire image to actually find the best matching images
+         * as defined by the SAD.
+         * We calculate this by gridding the entire image according to the
+         * size of the subimage. In each cel we want to know what the best
+         * match is.
+         */
+        int sa = 1 + Asx / Bsx;
+        int sb = 1 + Asy / Bsy;
+        int sadx = 0;
+        int sady = 0;
+        signed8 minsad = Bsx * Bsy * 256L;
+        for (int a = 0; a < sa; a++)
+        {
+            int xl = a * Bsx;
+            int xr = xl + Bsx;
+            if (xr > Asx) continue;
+            for (int b = 0; b < sb; b++)
+            {
+                int yl = b * Bsy;
+                int yr = yl + Bsy;
+                if (yr > Asy) continue;
+
+                // find the maximum correlation in this cell
+                int cormxat = xl + yl * Asx;
+                double cormx = crosscorrs[cormxat];
+                for (int x = xl; x < xr; x++)
+                    for (int y = yl; y < yr; y++)
+                    {
+                        int j = x + y * Asx;
+                        if (crosscorrs[j] > cormx)
+                            cormx = crosscorrs[cormxat = j];
+                    }
+                int corx = cormxat % Asx;
+                int cory = cormxat / Asx;
+
+                // We dont want subimages that fall of the larger image
+                if (corx + Bsx > Asx) continue;
+                if (cory + Bsy > Asy) continue;
+
+                signed8 sad = 0;
+                for (int x = 0; sad < minsad && x < Bsx; x++)
+                    for (int y = 0; y < Bsy; y++)
+                    {
+                        int j = (x + corx) + (y + cory) * Asx;
+                        int i = x + y * Bsx;
+                        sad += Math.Abs((int)Bsad[i] - (int)Asad[j]);
+                    }
+
+                if (sad < minsad)
+                {
+                    minsad = sad;
+                    sadx = corx;
+                    sady = cory;
+                    // printf("* ");
+                }
+                // printf("Grid (%d,%d) (%d,%d) Sip=%g Sad=%lld\n",a,b,corx,cory,cormx,sad);
+            }
+        }
+        //Console.Write("{0:D}\t{1:D}\n", sadx, sady);
+        /**
+         * Aa, Ba, Af and Bf were allocated in this function
+         * crosscorrs was an alias for Aa and does not require deletion.
+         */
+        fftw.free(Aa);
+        fftw.free(Ba);
+        fftw.free(Af);
+        fftw.free(Bf);
+        return new Point(sadx, sady);
+    }
+
+    private static void normalize(ref signed2[] img, int sx, int sy, int wx, int wy)
+    {
+        /**
+         * Calculate the mean background. We will subtract this
+         * from img to make sure that it has a mean of zero
+         * over a window size of wx x wy. Afterwards we calculate
+         * the square of the difference, which will then be used
+         * to normalize the local variance of img.
+         */
+        signed2[] mean = boxaverage(img, sx, sy, wx, wy);
+        signed2[] sqr = new signed2[sx * sy];
+        for (int j = 0; j < sx * sy; j++)
+        {
+            img[j] -= mean[j];
+            signed2 v = img[j];
+            sqr[j] = (signed2)(v * v);
+        }
+        signed2[] var = boxaverage(sqr, sx, sy, wx, wy);
+        /**
+         * The normalization process. Currenlty still
+         * calculated as doubles. Could probably be fixed
+         * to integers too. The only problem is the sqrt
+         */
+        for (int j = 0; j < sx * sy; j++)
+        {
+            double v = Math.Sqrt(Math.Abs((double)var[j]));//#double v = sqrt(fabs(var[j])); <- ambigous
+            Debug.Assert(!double.IsInfinity(v) && v >= 0);
+            if (v < 0.0001) v = 0.0001;
+            img[j] = (signed2)(img[j] * (32 / v));
+            if (img[j] > 127) img[j] = 127;
+            if (img[j] < -127) img[j] = -127;
+        }
+        /**
+         * As a last step in the normalization we
+         * window the sub image around the borders
+         * to become 0
+         */
+        window(ref img, sx, sy, wx, wy);
+    }
+
+    private static signed2[] boxaverage(signed2[] input, int sx, int sy, int wx, int wy)
+    {
+        signed2[] horizontalmean = new signed2[sx * sy];
+
+        Debug.Assert(horizontalmean != null);
+        int wx2 = wx / 2;
+        int wy2 = wy / 2;
+        int from = (sy - 1) * sx;
+        int to = (sy - 1) * sx;
+        int initcount = wx - wx2;
+        if (sx < initcount) initcount = sx;
+        int xli = -wx2;
+        int xri = wx - wx2;
+        for (; from >= 0; from -= sx, to -= sx)
+        {
+            signed8 sum = 0;
+            int count = initcount;
+            for (int c = 0; c < count; c++)
+                sum += (signed8)input[c + from];
+            horizontalmean[to] = (signed2)(sum / count);
+            int xl = xli, x = 1, xr = xri;
+            /**
+             * The area where the window is slightly outside the
+             * left boundary. Beware: the right bnoundary could be
+             * outside on the other side already
+             */
+            for (; x < sx; x++, xl++, xr++)
+            {
+                if (xl >= 0) break;
+                if (xr < sx)
+                {
+                    sum += (signed8)input[xr + from];
+                    count++;
+                }
+                horizontalmean[x + to] = (signed2)(sum / count);
+            }
+            /**
+             * both bounds of the sliding window
+             * are fully inside the images
+             */
+            for (; xr < sx; x++, xl++, xr++)
+            {
+                sum -= (signed8)input[xl + from];
+                sum += (signed8)input[xr + from];
+                horizontalmean[x + to] = (signed2)(sum / count);
+            }
+            /**
+             * the right bound is falling of the page
+             */
+            for (; x < sx; x++, xl++)
+            {
+                sum -= (signed8)input[xl + from];
+                count--;
+                horizontalmean[x + to] = (signed2)(sum / count);
+            }
+        }
+
+        /**
+         * The same process as aboe but for the vertical dimension now
+         */
+        int ssy = (sy - 1) * sx + 1;
+        from = sx - 1;
+        signed2[] verticalmean = new signed2[sx * sy];
+        Debug.Assert(verticalmean != null);
+        to = sx - 1;
+        initcount = wy - wy2;
+        if (sy < initcount) initcount = sy;
+        int initstopat = initcount * sx;
+        int yli = -wy2 * sx;
+        int yri = (wy - wy2) * sx;
+        for (; from >= 0; from--, to--)
+        {
+            signed8 sum = 0;
+            int count = initcount;
+            for (int d = 0; d < initstopat; d += sx)
+                sum += (signed8)horizontalmean[d + from];
+            verticalmean[to] = (signed2)(sum / count);
+            int yl = yli, y = 1, yr = yri;
+            for (; y < ssy; y += sx, yl += sx, yr += sx)
+            {
+                if (yl >= 0) break;
+                if (yr < ssy)
+                {
+                    sum += (signed8)horizontalmean[yr + from];
+                    count++;
+                }
+                verticalmean[y + to] = (signed2)(sum / count);
+            }
+            for (; yr < ssy; y += sx, yl += sx, yr += sx)
+            {
+                sum -= (signed8)horizontalmean[yl + from];
+                sum += (signed8)horizontalmean[yr + from];
+                verticalmean[y + to] = (signed2)(sum / count);
+            }
+            for (; y < ssy; y += sx, yl += sx)
+            {
+                sum -= (signed8)horizontalmean[yl + from];
+                count--;
+                verticalmean[y + to] = (signed2)(sum / count);
+            }
+        }
+        return verticalmean;
+    }
+
+    private static void window(ref signed2[] img, int sx, int sy, int wx, int wy)
+    {
+        int wx2 = wx / 2;
+        int sxsy = sx * sy;
+        int sx1 = sx - 1;
+        for (int x = 0; x < wx2; x++)
+            for (int y = 0; y < sxsy; y += sx)
+            {
+                img[x + y] = (signed2)(img[x + y] * x / wx2);
+                img[sx1 - x + y] = (signed2)(img[sx1 - x + y] * x / wx2);
+            }
+
+        int wy2 = wy / 2;
+        int syb = (sy - 1) * sx;
+        int syt = 0;
+        for (int y = 0; y < wy2; y++)
+        {
+            for (int x = 0; x < sx; x++)
+            {
+                /**
+                 * here we need to recalculate the stuff (*y/wy2)
+                 * to preserve the discrete nature of integers.
+                 */
+                img[x + syt] = (signed2)(img[x + syt] * y / wy2);
+                img[x + syb] = (signed2)(img[x + syb] * y / wy2);
+            }
+            /**
+             * The next row for the top rows
+             * The previous row for the bottom rows
+             */
+            syt += sx;
+            syb -= sx;
+        }
+    }
+
+    private static signed2[] read_image(string filename, ref int sx, ref int sy)
+    {
+        Bitmap image = new Bitmap(filename);
+        sx = image.Width;
+        sy = image.Height;
+        signed2[] GreyImage = new signed2[sx * sy];
+        BitmapData bitmapData1 = image.LockBits(new Rectangle(0, 0, image.Width, image.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+        unsafe
+        {
+            byte* imagePointer = (byte*)bitmapData1.Scan0;
+
+            for (int y = 0; y < bitmapData1.Height; y++)
+            {
+                for (int x = 0; x < bitmapData1.Width; x++)
+                {
+                    GreyImage[x + y * sx] = (signed2)((imagePointer[0] + imagePointer[1] + imagePointer[2]) / 3.0);
+                    //4 bytes per pixel
+                    imagePointer += 4;
+                }//end for x
+                //4 bytes per pixel
+                imagePointer += bitmapData1.Stride - (bitmapData1.Width * 4);
+            }//end for y
+        }//end unsafe
+        image.UnlockBits(bitmapData1);
+        return GreyImage;
+    }
+}

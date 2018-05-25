@@ -1,0 +1,5 @@
+public class Numbers {
+  public static Function<String, Integer> parseIntegerFunction() { ... }
+  public static Function<String, Long> parseLongFunction() { ... }
+  ...
+}

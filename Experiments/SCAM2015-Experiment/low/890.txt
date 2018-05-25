@@ -1,0 +1,12 @@
+private static List<Type> VALUES= new ArrayList<Type>();
+static {
+   VALUES.add(TypeA);
+   VALUES.add(TypeA);
+   VALUES.add(TypeB);
+}
+
+
+public static Type randomType()  {
+        //will return A twice as often as B              
+        return VALUES.get(RANDOM.nextInt(VALUES.size()));
+}

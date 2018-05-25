@@ -1,0 +1,14 @@
+<mirrors>
+<mirror>
+  <!--This sends everything else to nexus repo -->
+  <id>nexus</id>
+  <mirrorOf>*</mirrorOf>
+  <url>http://<ip>:8081/nexus/content/groups/nexus</url>
+</mirror>
+ <mirror>
+  <!--This sends everything else to /public -->
+  <id>external</id>
+  <mirrorOf>*</mirrorOf>
+  <url>http://<ip>:8081/nexus/content/groups/external</url>
+</mirror>
+</mirrors>

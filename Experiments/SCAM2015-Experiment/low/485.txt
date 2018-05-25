@@ -1,0 +1,9 @@
+BigInt{
+
+ArrayList<Integer> myNumber = new ArrayList <Integer>();        
+
+public BigInt(){}
+
+public BigInt(String number){ for(int i; i<number.length; i++){ myNumber.add(number.indexOf(i)); } }
+
+}

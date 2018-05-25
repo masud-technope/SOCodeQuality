@@ -1,0 +1,4 @@
+double totalRoll = 7.0;
+
+// We expect this to stop the loop..
+while(totalRoll != 7.0 || totalRoll != 11.0)

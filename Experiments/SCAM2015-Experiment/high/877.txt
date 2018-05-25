@@ -1,0 +1,23 @@
+import java.util.List;
+
+public MyBean {
+
+private List<String> stringList;
+
+public void add(String str) {
+    stringList.add(str);
+}
+
+public String get(int i) {
+    return stringList.get(i);
+}
+
+public String[] getElements() {
+    String[] elements;
+    stringList.toArray(elements);        
+    return elements;
+}
+
+// ... Your bean struct here
+
+}

@@ -1,0 +1,3 @@
+InitialContext ctx = new InitialContext();
+HelloWorld helloWorldRemote = (HelloWorld) ctx.lookup("ejb/helloWorldBeanJndiName");
+System.out.println(helloWorldRemote.sayHello());

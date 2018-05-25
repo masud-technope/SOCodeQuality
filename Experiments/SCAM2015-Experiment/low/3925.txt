@@ -1,0 +1,10 @@
+public void Foo () {
+    int a = 5;
+    System.out.println(a);//prints 5
+    setA(a);
+    System.out.println(a);//prints 5
+}
+
+public void setA (int a) {
+    a = 3;
+}

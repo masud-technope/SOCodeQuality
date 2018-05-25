@@ -1,0 +1,21 @@
+int rollnumber;
+nigh = 1; // added
+do {  
+ try {       
+     System.out.println("how many times");
+     String response = scanner.nextLine(); // changed
+
+     rollnumber = scanner.nextInt();     
+     nigh=2;
+    if(if("q".equalsIgnoreCase(response)){){  // changed
+       System.exit(0);
+     } else {
+             rollnumber = scanner.nextInt();     
+             nigh=2;
+     }
+  }
+ catch (Exception e){
+    System.out.println("invalid. re-enter");
+    scanner.nextLine();    
+   }     
+ }while (nigh==1);

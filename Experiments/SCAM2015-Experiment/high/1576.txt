@@ -1,0 +1,4 @@
+public Magazine (double price, int numberOfPages, PaperQuality paperQuality) {
+    ...
+    this.paperQuality = paperQuality;
+}

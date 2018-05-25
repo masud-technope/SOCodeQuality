@@ -1,0 +1,5 @@
+if (connection.isWrapperFor(OracleConnection.class)){
+   OracleConnection oracleConnection= connection.unwrap(OracleConnection.class);  
+}else{
+   // recover, not an oracle connection
+}

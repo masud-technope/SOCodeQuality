@@ -1,0 +1,7 @@
+public boolean test(boolean var){
+    boolean flag;
+    if (var == true){
+        flag = true;
+    }
+    return flag;
+}

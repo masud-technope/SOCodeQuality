@@ -1,0 +1,8 @@
+if(arraryTemplist.size()>0){
+      adapter = new ListViewAdapter(ListOfContacts.this, arrayTemplist);
+                    listview.setAdapter(adapter);
+  }else{
+
+     adapter = new ListViewAdapter(ListOfContacts.this, arraylist);
+                    listview.setAdapter(adapter);
+}

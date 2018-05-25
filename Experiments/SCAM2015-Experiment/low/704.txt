@@ -1,0 +1,4 @@
+List<String> args = new ArrayList<String>();
+// add the args to the list here
+Method method = myClass.getClass().getMethod(method, List.class);
+Object o = method.invoke(myClass, args);

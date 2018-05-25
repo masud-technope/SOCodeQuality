@@ -1,0 +1,4 @@
+buttonGroup1.add(jRadioOne);
+jRadioOne.setText("One");
+jRadioOne.setActionCommand(ONE);
+jRadioOne.addActionListener(radioButtonActionListener);

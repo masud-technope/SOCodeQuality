@@ -1,0 +1,11 @@
+currloc = null
+while( line from file )
+    if line begins w/ whitespace
+        (dir, loc) = split( line, ", " )
+        add dir, loc to currloc
+    else
+        newlocdata = split( line, ", " )
+        currloc = newlocdata[0]
+        for i = 1 to size( newlocdata ) - 1
+            item = newlocdata[i]
+            add item to currloc

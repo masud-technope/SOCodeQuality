@@ -1,0 +1,5 @@
+public static String join(Object[] array,
+                              char separator)
+
+   public static String join(Iterable<?> iterator,
+                              char separator)

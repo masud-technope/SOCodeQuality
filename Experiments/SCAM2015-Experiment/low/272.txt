@@ -1,0 +1,24 @@
+class BulkCalc3
+{
+    final Calc calc;
+
+    public BulkCalc3(Calc calc)
+    {
+        this.calc = calc;
+    }
+
+    public TreeMap<Integer, Double> calc(Iterator<BigThing> in)
+    {
+        final ConcurrentMap<Integer, Double> resultMap = new MapMaker().makeMap();
+        ThreadedIteratorProcessor<BigThing> processor = new ThreadedIteratorProcessor<BigThing>();
+        processor.processIterator(in, new ThreadedIteratorProcessor.ElementProcessor<BigThing>()
+        {
+            @Override
+            public void processElement(BigThing o)
+            {
+                resultMap.put(o.getId(), calc.calc(o));
+            }
+        });
+        return new TreeMap<Integer, Double>(resultMap);
+    }
+}

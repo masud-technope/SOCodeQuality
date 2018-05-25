@@ -1,0 +1,17 @@
+import java.lang.Scanner;
+/*put the program parts here*/
+Scanner input = new Scanner(System.in);
+String str = input.next();
+List<char> chars = Arrays.asList(/*put chars here, seperated with commas*/);
+for(int x = 0; x < chars.size();x++)
+{
+    if(str.contains(chars[x]))
+    {
+        //event if it contains one
+    }
+    else
+    {
+        //event if it does not contain one
+    }
+}
+//resume program

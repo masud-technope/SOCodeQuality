@@ -1,0 +1,4 @@
+SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SS");
+
+Date dateOne = format.parse(d1);
+Date dateTwo = format.parse(d2);

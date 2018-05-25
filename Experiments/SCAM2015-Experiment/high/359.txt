@@ -1,0 +1,25 @@
+class NumericComparator implements Comparator<String> {
+
+  public int compare(String s1, String s2) {
+    final Double i1;
+    final Double i2;
+
+    i1 = parseStringAsDouble(s1, "s1");
+    i2 = parseStringAsDouble(s2, "s2");
+    return i1.compareTo(i2);
+  }
+
+  private double parseStringAsDouble(String s, String name) {
+
+    Double i;
+    if(s == null) {
+      throw new NullPointerException(name + " is null"); // String behavior
+    }
+    try {
+      i = Double.parseDouble(s1)
+    } catch (NumberFormatException e) {
+      throw new ClassCastException(name + " incorrect format"); // Comparator  behavior
+    }
+    return i;
+  }
+}

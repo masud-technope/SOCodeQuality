@@ -1,0 +1,5 @@
+double value = 5735000.0;
+if (! BigDecimal.valueOf(value).equals(new BigDecimal(value)) {
+    // Please explain how the valueOf construct a BigDecimal with scale of 1
+    // But the constructor construct a BigDecimal with scale of 0
+}

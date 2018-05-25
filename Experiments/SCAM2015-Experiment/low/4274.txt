@@ -1,0 +1,16 @@
+Thread splashThread = new Thread() {
+            public void run() {
+                synchronized (this) {
+                    try {
+                        wait(2000);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    startActivity(new Intent(getApplicationContext(),
+                            MainActivity.class));
+                    finish();
+                }
+            }
+        };
+        splashThread.start();

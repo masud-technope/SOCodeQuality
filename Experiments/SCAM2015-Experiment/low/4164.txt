@@ -1,0 +1,7 @@
+public static void main(String[] args)
+{
+   String strA = "AC-11234X-DD+++1";
+    String strB = "AC-11234X-DD+++1";
+
+    System.out.println(strA.equals(strB));
+    }

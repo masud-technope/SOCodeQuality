@@ -1,0 +1,3 @@
+if (TextUtils.isEmpty(str)) {
+    Log.d(TAG, "String is empty or null!");
+}

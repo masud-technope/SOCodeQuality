@@ -1,0 +1,3 @@
+PrintWriter writer = new PrintWriter(file);
+writer.print("");
+writer.close();

@@ -1,0 +1,11 @@
+public class main {
+    public static void main(String args[]){
+        String g = "hello world\nI am Soumitra\nHow are you doing??\n\r ";
+        System.out.print(g);
+        String g1 = g.replaceAll("\\n", " ");
+        String g2 = g1.replaceAll("\\r", "X");
+
+        System.out.print("---------After Replacement-----\n");
+        System.out.print(g2);
+    }
+}

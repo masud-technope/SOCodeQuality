@@ -1,0 +1,3 @@
+public void addText(Text t){
+     string.add(t)
+}

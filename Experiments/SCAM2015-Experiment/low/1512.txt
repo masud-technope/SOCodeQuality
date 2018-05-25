@@ -1,0 +1,5 @@
+public static void main(String[] args) {
+            View sal = new View();
+            sal.setSize(500, 400);
+            sal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            sal.setVisible(true);

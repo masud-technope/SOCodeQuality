@@ -1,0 +1,21 @@
+class RepeatingWorker implements Runnable {
+
+private ExecutorService executor;
+private Date lastRan;
+
+//constructor takes your executor
+
+@Override
+public void run() {
+
+  try {
+    if (now > lastRan + ONE_MINUTE) {
+      //do job
+      lastRan = now;
+    } else {
+      return;
+  } finally {
+    executor.submit(this);
+  }
+}
+}

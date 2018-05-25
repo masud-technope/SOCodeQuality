@@ -1,0 +1,10 @@
+ArrayList x = new ArrayList();
+x.add("abc");
+x.add("abc");
+x.add("abc");
+x.add("def");
+x.add("def");
+x.add("ghi");
+
+for (Object y : GetUniqueValues(x))
+    Log.d("something", y); //ok lets print the value

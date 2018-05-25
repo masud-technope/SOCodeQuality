@@ -1,0 +1,4 @@
+int number = 457;
+int hundredsDigit = number % 1000 - number % 100;
+int tensDigit= number % 100 - number % 10
+int onesDigit = number % 10 - number % 1;

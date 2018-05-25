@@ -1,0 +1,10 @@
+rs.last(); 
+rowcnt = myResultSet.getRow(); // get row no.
+rs.beforeFirst();
+
+int i = 0;  
+Integer[] options = new Integer[rowcnt];  
+while (rs.next()) {  
+  options[i] = Integer.parseInt(rs.getString(i));  
+  i++;  
+}

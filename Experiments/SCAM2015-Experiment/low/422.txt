@@ -1,0 +1,5 @@
+<dependency>
+  <groupId>org.geotoolkit</groupId>
+  <artifactId>geotk-coverageio</artifactId>
+  <version>3.17</version>
+</dependency>

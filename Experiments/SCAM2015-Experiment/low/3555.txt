@@ -1,0 +1,55 @@
+public class Demo
+{
+    public void function()
+    {
+        Concurrency c = new Concurrency(this);
+        Thread t1 = new Thread(c);
+        t1.setName("t1");
+        Thread t2 = new Thread(c);
+        t2.setName("t2");
+        Thread t3 = new Thread(c);
+        t3.setName("t3");
+        Thread t4 = new Thread(c);
+        t4.setName("t4");
+
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+    }
+
+    public static void main(String[] args)
+    {
+        Demo demo = new Demo(); //made instance of Demo class
+        demo.function();
+    }
+
+    static class Concurrency implements Runnable
+    {
+        private String value = new String("I");
+        static volatile Integer s = 2; //made integer 'volatile'
+
+        private Demo demo;
+
+        public Concurrency(Demo demo)
+        {
+            this.demo = demo; //gets the variable of Demo
+        }
+
+        @Override
+        public void run()
+        {
+            function();
+        }
+
+        public void function()
+        {
+            synchronized (demo) //use obtained Demo instance as sync object
+            {
+                s = s * 5;
+                System.out.println("Current thread is " + Thread.currentThread() + s);
+                // s.notify(); //I think this needs a wait() call in the same monitor first to work
+            }
+        }
+    }
+}

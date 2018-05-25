@@ -1,0 +1,3 @@
+HttpServletRequest request = (HttpServletRequest) req;
+String path = request.getRequestURI().substring(request.getContextPath().length());
+// ...

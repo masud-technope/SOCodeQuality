@@ -1,0 +1,5 @@
+rps.add(atombomb);
+rps.defineBeatsRule(atombomb, scissors);
+rps.defineBeatsRule(atombomb, rock);
+rps.defineBeatsRule(atombomb, paper);
+rps.defineEveryoneDiesRule(atombomb, atombomb);

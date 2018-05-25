@@ -1,0 +1,6 @@
+public String GetRandomPhone(){
+    return  String.format("(%03d) %03d-%04d", 
+        (int) Math.floor(999*Math.random()), 
+        (int) Math.floor(999*Math.random()),
+        (int) Math.floor(9999*Math.random()));
+}

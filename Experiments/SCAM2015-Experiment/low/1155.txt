@@ -1,0 +1,3 @@
+return yourString.replaceAll("substr1","relp1").
+                     replaceAll("substr2","relp2").
+                     replaceAll("substr3","relp3")

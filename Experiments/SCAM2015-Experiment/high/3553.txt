@@ -1,0 +1,35 @@
+public class HelloWorld{
+
+     public static void main(String []args){
+        System.out.println("Hello World");
+         Appender ap = new Appender("Ala");
+        ap.append(" ma kota", 3).append( " i psa", 2);
+        System.out.println(ap);
+        ap.append(" ojej", 3);
+        System.out.println(ap);
+     }
+     public static class Appender {
+        private StringBuffer sb;
+
+        public Appender(){
+            sb = new StringBuffer();
+        }
+
+        public Appender(String s){
+            sb = new StringBuffer(s);
+        }
+
+        public Appender append(String str, int n) {
+            while(n > 0){
+                sb.append(str);
+                n--;
+            }
+            return this;
+        }
+
+        public String toString(){
+            return sb.toString();
+        }
+
+    }
+}

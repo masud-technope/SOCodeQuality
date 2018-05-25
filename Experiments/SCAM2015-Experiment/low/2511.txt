@@ -1,0 +1,96 @@
+public Vector sort(Vector list, String kelas, String s, String asc) throws NoSuchMethodException {
+
+        try {
+            // Creates an object of type Class which contains the information of
+            // the class String
+            Object[] obj = list.toArray();
+            Object[] args = {};
+            Class cl = Class.forName(kelas);
+            Method toSort = cl.getMethod(s, null);
+            if (asc.equalsIgnoreCase("desc")) {
+                if (toSort.getReturnType().toString().equalsIgnoreCase("int") || toSort.getReturnType().toString().equalsIgnoreCase("double")) {
+                    for (int i = 0; i < obj.length; i++) {
+                        for (int j = i; j < obj.length; j++) {
+                            try {
+                                if (Double.parseDouble(toSort.invoke(obj[i], args).toString()) < Double.parseDouble(toSort.invoke(obj[j], args).toString())) {
+                                    Object temp = obj[i];
+                                    obj[i] = obj[j];
+                                    obj[j] = temp;
+                                }
+                            } catch (IllegalAccessException ex) {
+                                Logger.getLogger(DbBean.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (IllegalArgumentException ex) {
+                                Logger.getLogger(DbBean.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (InvocationTargetException ex) {
+                                Logger.getLogger(DbBean.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                } else {
+                    for (int i = 0; i < obj.length; i++) {
+                        for (int j = i; j < obj.length; j++) {
+                            try {
+                                if (toSort.invoke(obj[i], args).toString().compareToIgnoreCase(toSort.invoke(obj[j], args).toString()) < 0) {
+                                    Object temp = obj[i];
+                                    obj[i] = obj[j];
+                                    obj[j] = temp;
+                                }
+                            } catch (IllegalAccessException ex) {
+                                Logger.getLogger(DbBean.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (IllegalArgumentException ex) {
+                                Logger.getLogger(DbBean.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (InvocationTargetException ex) {
+                                Logger.getLogger(DbBean.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                }
+            } else {
+                if (toSort.getReturnType().toString().equalsIgnoreCase("int") || toSort.getReturnType().toString().equalsIgnoreCase("double")) {
+                    for (int i = 0; i < obj.length; i++) {
+                        for (int j = i; j < obj.length; j++) {
+                            try {
+                                if (Double.parseDouble(toSort.invoke(obj[i], args).toString()) > Double.parseDouble(toSort.invoke(obj[j], args).toString())) {
+                                    Object temp = obj[i];
+                                    obj[i] = obj[j];
+                                    obj[j] = temp;
+                                }
+                            } catch (IllegalAccessException ex) {
+                                Logger.getLogger(DbBean.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (IllegalArgumentException ex) {
+                                Logger.getLogger(DbBean.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (InvocationTargetException ex) {
+                                Logger.getLogger(DbBean.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                } else {
+                    for (int i = 0; i < obj.length; i++) {
+                        for (int j = i; j < obj.length; j++) {
+                            try {
+                                if (toSort.invoke(obj[i], args).toString().compareToIgnoreCase(toSort.invoke(obj[j], args).toString()) > 0) {
+                                    Object temp = obj[i];
+                                    obj[i] = obj[j];
+                                    obj[j] = temp;
+                                }
+                            } catch (IllegalAccessException ex) {
+                                Logger.getLogger(DbBean.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (IllegalArgumentException ex) {
+                                Logger.getLogger(DbBean.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (InvocationTargetException ex) {
+                                Logger.getLogger(DbBean.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                }
+            }
+
+            list = new Vector();
+            for (int i = 0; i < obj.length; i++) {
+                list.add(obj[i]);
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }

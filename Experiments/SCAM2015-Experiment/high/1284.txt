@@ -1,0 +1,4 @@
+void PrintMessage(std::string text)
+{
+  cout << text;
+}

@@ -1,0 +1,222 @@
+/*** COPY POLICIES ***/
+    class SimpleCopyPolicy
+    {
+    public:
+        template<class Resource> Resource copy(const Resource& rhs) const { Resource ret = rhs; return ret; }
+    protected:
+        ~SimpleCopyPolicy(){};
+    };
+
+    class DuplicateHandleCopyPolicy
+    {
+        public:
+            HANDLE sourceProcess, targetProcess;
+            DWORD access, options;
+            BOOL inherit;
+
+            DuplicateHandleCopyPolicy(HANDLE sourceProcess_=GetCurrentProcess(), HANDLE targetProcess_=GetCurrentProcess(), DWORD access_=0, BOOL inherit_=FALSE,DWORD options_=DUPLICATE_SAME_ACCESS)
+            : sourceProcess(sourceProcess_), targetProcess(targetProcess_), access(access_), inherit(inherit_), options(options_) {}
+
+            template<class Resource> Resource copy(const Resource & rhs) const
+            {
+                Resource ret;
+#               if defined(VERBOSE_STLEXT_DEBUG) & defined(MHDAPI)
+                if( !verify( DuplicateHandle(sourceProcess, rhs, targetProcess, &ret, access, inherit, options) ))
+                {
+                    DWORD err = GetLastError();
+                    mhd::WarningMessage("DuplicateHandleCopyPolicy::copy()", "Error %d Copying Handle %X : '%s'",
+                    err, rhs, stdextras::strprintwinerr(err).c_str() );
+                }
+                else
+                    mhd::OutputMessage("Duplicated %X to %X", rhs, ret);
+#               else
+                DuplicateHandle(sourceProcess, rhs, targetProcess, &ret, access, inherit, options);
+#               endif
+                return ret;
+            }
+
+        protected:
+            ~DuplicateHandleCopyPolicy(){};
+    };
+
+    /*** RELEASE POLICIES ***/
+    class KernelReleasePolicy
+    {
+    public:
+        template<class Handle> bool release(Handle& h)
+        {
+#           if defined(VERBOSE_STLEXT_DEBUG) & defined(MHDAPI)
+            OutputMessage("Closing %X", h);
+#           endif
+            return 0 != CloseHandle(h);
+        }
+    };
+    class CritsecReleasePolicy
+    {
+    public:
+        template<class Handle> bool release(Handle& h)
+        {
+            DeleteCriticalSection(&h);
+            return true;
+        }
+    protected:
+        ~CritsecReleasePolicy() {};
+    };
+    class GDIReleasePolicy
+    {
+    public:
+        template<class Handle> bool release(Handle h) { return 0 != DeleteObject(h); }
+    protected:
+        ~GDIReleasePolicy(){};
+    };
+    class LibraryReleasePolicy
+    {
+    public:
+        template<class Handle> bool release(Handle h) { return 0 != FreeLibrary(h); }
+    protected:
+        ~LibraryReleasePolicy(){};
+    };
+#   ifdef WINSOCK_VERSION
+    class SocketReleasePolicy
+    {
+    public:
+        template<class Handle> bool release(Handle h) { return 0 != closesocket(h); }
+    protected:
+        ~SocketReleasePolicy(){};
+    };
+#   endif
+
+    class DestroyWindowPolicy
+    {
+    public:
+        template<class Handle> bool release(Handle h) { return 0 != DestroyWindow(h); }
+    protected:
+        ~DestroyWindowPolicy() {};
+    };
+
+    /*** LOCKING POLICIES ***/
+    class WFSOPolicy    // Wait For Single Object
+    {
+    public:
+        WFSOPolicy(DWORD timeout_=INFINITE) : timeout(timeout_) {};
+
+        template<class Handle> bool wait(Handle& h) const
+        {
+#           if defined(VERBOSE_STLEXT_DEBUG) & defined(MHDAPI)
+            DWORD ret = ::WaitForSingleObject(h,timeout);
+            if( !verify( WAIT_OBJECT_0 == ret ))
+            {
+                DWORD err = GetLastError();
+#               ifdef UNICODE
+                mhd::WarningMessage("WFSOPolicy", "Error %d Waiting for object %X [Timeout %s] : '%S'",
+                    err, h, INFINITE==timeout?"INFINITE":std::formatstr("%d ms", timeout).c_str(),
+                    stdextras::strprintwinerr(err).c_str() );
+#               else
+                mhd::WarningMessage("WFSOPolicy", "Error %d Waiting for object %X [Timeout %s] : '%s'",
+                    err, h, INFINITE==timeout?"INFINITE":std::formatstr("%d ms", timeout).c_str(),
+                    stdextras::strprintwinerr(err).c_str() );
+#               endif
+                return false;
+            }
+            return true;
+#           else
+            return WAIT_OBJECT_0 == ::WaitForSingleObject(h,timeout);
+#           endif
+        }
+
+        DWORD timeout;
+    };
+
+
+    /*** LOCK/UNLOCK POLICIES ***/
+    class CritsecLockPolicy  // CRITICAL_SECTION lock/unlock policies
+    {
+    public:
+        template<class Handle> bool lock(Handle& h)
+        {
+            EnterCriticalSection(const_cast<CRITICAL_SECTION*>(&h));
+            return true;
+        }
+        template<class Handle> bool unlock(Handle& h) 
+        {
+            LeaveCriticalSection(&h);
+            return true;
+        }
+    };
+
+    template<DWORD waitTimeout = INFINITE>
+    class MutexLockPolicy : public WFSOPolicy
+    {
+    public:
+        MutexLockPolicy() : WFSOPolicy(waitTimeout) {};
+        template<class Handle> bool lock(Handle& h) const
+        {
+            return wait(h);
+        }
+        template<class Handle> bool unlock(Handle& h) const 
+        {
+            return 0 != ReleaseMutex(h);
+        }
+    };
+
+    class PlaceboLockPolicy // this lock policy doesnt actually do anything!  useful for debugging & experimentation
+    {
+    public:
+        PlaceboLockPolicy() {};
+        template<class Handle> bool lock(Handle&) const
+        {
+            return true;
+        }
+        template<class Handle> bool unlock(Handle&) const
+        {
+            return true;
+        }
+    };
+
+
+    template<class Resource, typename ReleasePolicy, typename CopyPolicy = SimpleCopyPolicy>
+    class simple_auto_resource : public ReleasePolicy, public CopyPolicy
+    {
+    public:
+        typedef simple_auto_resource<Resource,ReleasePolicy,CopyPolicy> base_type;
+
+        simple_auto_resource() : res(0) {}
+        simple_auto_resource(const Resource & r) : res(copy(r)) {}
+        ~simple_auto_resource() { if(res) release(res); }
+
+        void clear() { if(res) release(res); res = 0; }
+
+        Resource& get() { return res; }
+        const Resource& get() const { return res; }
+
+        Resource detach() { Resource ret = res; res = 0; return ret; }
+
+        operator const Resource&() const { return get(); }
+        operator Resource&() { return get(); }
+
+        base_type& operator=(const Resource& rhs) { clear(); res = copy(rhs); return * this; }
+
+        template<class Comp> bool operator==(const Comp& rhs) const { return res == (Resource)rhs; }
+        template<class Comp> bool operator!=(const Comp& rhs) const { return res != (Resource)rhs; }
+        template<class Comp> bool operator<(const Comp& rhs) const { return res < (Resource)rhs; }
+    private:
+        Resource res;
+    };
+
+    typedef simple_auto_resource<HBRUSH,GDIReleasePolicy> auto_brush;
+    typedef simple_auto_resource<HINSTANCE, LibraryReleasePolicy> auto_lib;
+    typedef simple_auto_resource<CRITICAL_SECTION, CritsecReleasePolicy> auto_critsec;
+    typedef simple_auto_resource<HWND,DestroyWindowPolicy> auto_destroy_hwnd;
+    typedef simple_auto_resource<HANDLE,KernelReleasePolicy,DuplicateHandleCopyPolicy> auto_kernelobj;  
+#   ifdef WINSOCK_VERSION
+    typedef simple_auto_resource<SOCKET,SocketReleasePolicy> auto_socket;
+#   endif
+
+    typedef auto_kernelobj auto_mutex;
+    typedef auto_kernelobj auto_event;
+    typedef auto_kernelobj auto_filehandle;
+    typedef simple_auto_resource<HANDLE,KernelReleasePolicy> auto_localkernelobj;   
+    typedef simple_auto_resource<HANDLE,KernelReleasePolicy> auto_localmutex;   
+    typedef simple_auto_resource<HANDLE,KernelReleasePolicy> auto_localevent;   
+    typedef simple_auto_resource<HANDLE,KernelReleasePolicy> auto_thread;   
+    typedef simple_auto_resource<HMODULE,KernelReleasePolicy> auto_hmodule;

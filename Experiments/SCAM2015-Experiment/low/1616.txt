@@ -1,0 +1,4 @@
+function (variable){
+   clone = JSON.parse(JSON.stringify(variable))
+   return clone;
+}

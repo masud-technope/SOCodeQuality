@@ -1,0 +1,5 @@
+System.out.println(
+    StringUtils.stripToEmpty(lastName)
+    + (( StringUtils.isNotBlank(firstName) && StringUtils.isNotBlank(lastName) ) ? ", " : "")
+    + StringUtils.stripToEmpty(firstName)
+);

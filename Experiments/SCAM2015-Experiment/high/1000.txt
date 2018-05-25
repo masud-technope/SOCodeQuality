@@ -1,0 +1,9 @@
+public class Person{
+    public static final int TOTAL_PERSONS;
+
+    private String firstname;
+    private String lastname;
+
+    public void setFirstname(String firstname){ ... }
+    ...
+}

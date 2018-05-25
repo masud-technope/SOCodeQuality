@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Main {
+
+    public static void main(String arg[]) {
+        ArrayList<Dog> firstGroup = new ArrayList<Dog>();
+
+        firstGroup.add(new Dog("Rintintin"));
+        firstGroup.add(new Dog("Courage"));
+        firstGroup.add(new Dog("Scooby-Dooby-Do"));
+
+        ArrayList<Dog> secondGroup = new ArrayList<Dog>();
+
+        secondGroup.add(new Dog("fido"));
+        secondGroup.add(new Dog("Courage"));
+        secondGroup.add(new Dog("Rintintin"));
+
+        List<Dog> filterByName = filterByName(firstGroup,secondGroup);
+
+        System.out.print(Arrays.toString(filterByName.toArray()));
+    }
+
+    private static List<Dog> filterByName(ArrayList<Dog> firstGroup, ArrayList<Dog> secondGroup) {
+        List<Dog> result=new ArrayList<>();
+        for (Dog orginal : firstGroup) 
+            for (Dog finDog : secondGroup) 
+                if(orginal.getName().equals(finDog.getName()))
+                    result.add(new Dog(orginal.getName()));
+        return result;
+    }
+
+
+}

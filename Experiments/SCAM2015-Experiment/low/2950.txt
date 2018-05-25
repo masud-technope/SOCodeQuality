@@ -1,0 +1,10 @@
+int maximum = getMaxValue ( arr[arr.length - 1 ], arr, arr.length - 1 );
+
+public static int getMaxValue ( int max, int arr[], int index )
+{
+    if ( index < 0 )
+        return max;
+    if ( max < arr[index] )
+        max = arr[index];
+    return getMaxValue ( max, arr, index - 1 ); 
+}

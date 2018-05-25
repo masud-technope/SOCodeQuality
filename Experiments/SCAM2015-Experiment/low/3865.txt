@@ -1,0 +1,11 @@
+public class MyClass {
+
+    public static void main(String[] args) {
+        int number = 1;
+        showSomething(number
+    }
+
+    public void showSomething(int number){
+        System.out.println("This is my method "+number+" created by me.");
+    }
+}

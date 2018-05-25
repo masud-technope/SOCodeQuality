@@ -1,0 +1,6 @@
+ArrayList bibo=new ArrayList();
+
+   .....
+
+  JSONArray ar=new JSONArray(bibo);
+  String json= ar.toString();

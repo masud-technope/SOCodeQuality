@@ -1,0 +1,22 @@
+public class A {
+    static{
+        boolean is4cselected=false;
+    }
+
+        public A(){
+            //
+    //
+        }
+        public void set4c(){
+            is4cselected=true;
+        }
+
+    }
+    class B{
+        public static void main(String args[]){
+            A a=new A();
+            a.set4c();
+
+        }
+
+    }

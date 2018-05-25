@@ -1,0 +1,11 @@
+CountDownLatch latch = new CountDownLatch(1);
+
+// start network thread
+networkThread.start();
+
+boolean wasFinished = latch.await(you_timeout);
+
+// Interrupt network thread as it still waiting:
+if(!wasFinished) {
+    networkThread.interrupt();
+}

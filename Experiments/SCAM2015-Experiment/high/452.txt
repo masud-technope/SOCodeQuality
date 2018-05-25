@@ -1,0 +1,9 @@
+socket = new ServerSocket(2004, 10);
+connection = socket.accept();
+in = connection.getInputStream();
+InputStreamReader isr = new InputStreamReader(in);
+BufferedReader br = new BufferedReader(isr);
+String line = null;
+do {
+    line = br.readLine();
+} while (!"done".equals(line));

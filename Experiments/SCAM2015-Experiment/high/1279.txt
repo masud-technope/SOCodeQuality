@@ -1,0 +1,4 @@
+public <T extends Number> double add (T one, T two)
+{
+    return one.doubleValue() + two.doubleValue(); 
+}

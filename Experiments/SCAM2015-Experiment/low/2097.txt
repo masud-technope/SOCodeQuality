@@ -1,0 +1,14 @@
+private final class AnActionModeOfEpicProportions implements ActionMode.Callback
+{
+  @Override
+  public boolean onCreateActionMode(ActionMode mode,Menu menu)
+  {
+    // add your menu here...
+  }
+  @Override
+  public boolean onActionItemClicked(ActionMode mode,MenuItem item)
+  {
+    // handles your action menu clicked event
+    returntrue;
+  }
+}

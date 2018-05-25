@@ -1,0 +1,9 @@
+public <T extends Set> boolean compareSets(List<T> a, List<T> b) {
+    boolean same = true;
+    for(T at : a) {
+        for (T bt: b) {
+             same &= at.equals(bt);
+        }
+    }
+    return same;
+}

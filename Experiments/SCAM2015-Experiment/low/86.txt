@@ -1,0 +1,6 @@
+Runtime rt = Runtime.getRuntime();
+    try {
+        rt.exec("ifconfig");
+    } catch (IOException e) {
+        e.printStackTrace();
+    }

@@ -1,0 +1,15 @@
+while (...) {
+  ...
+  //getLetters is the StringBuilder, and the userCharInput is a String.
+  if(getLetters.indexOf(userCharInput)==-1)  {
+     playerCounter++;
+  }
+  // Debug: comment this out once it's working
+  System.out.println ("userCharInput=" + userCharInput + ", playerCounter=" + playerCounter);
+  if(playerCounter == 3) {
+    System.out.println("All lives are gone! Game Over!");
+    playerCounter = 1; //resets the playerCounter to one.
+    System.exit(0);
+  }
+  ...
+}

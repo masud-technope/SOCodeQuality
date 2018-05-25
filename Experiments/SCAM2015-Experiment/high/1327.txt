@@ -1,0 +1,210 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.*;
+
+public class ShakeComponents1 {
+
+    private JFrame frame = new JFrame();
+    private final String items[] = {"One", "Two", "Three"};
+    private Timer timer;
+    private JPanel panel = new JPanel();
+    private JPanel buttonPanel = new JPanel();
+    private JButton button = new JButton("  Exit  ");
+    private boolean repeats = true;
+    private boolean runs = false;
+    private Color clr[] = {Color.red, Color.blue, Color.magenta};
+    private Insets initMargin;
+
+    public static void main(String[] args) {
+
+        SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                new ShakeComponents1().makeUI();
+            }
+        });
+    }
+
+    public void makeUI() {
+        buttonPanel = new JPanel();
+        buttonPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+        buttonPanel.setLayout(new BorderLayout());
+        button.setPreferredSize(new Dimension(100, 45));
+        button.setForeground(Color.darkGray);
+        button.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                Runnable doRun = new Runnable() {
+
+                    @Override
+                    public void run() {
+                        System.exit(0);
+                    }
+                };
+                SwingUtilities.invokeLater(doRun);
+            }
+        });
+        button.addMouseListener(new java.awt.event.MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                if (runs) {
+                    SwingUtilities.invokeLater(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            runs = false;
+                            timer.stop();
+                            changePnlBorder(new EmptyBorder(5, 5, 5, 5));
+                            changeBtnForegroung(Color.darkGray);
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (!runs) {
+                    timer.start();
+                    runs = true;
+                }
+            }
+        });
+        buttonPanel.add(button);
+        final Insets margin = button.getMargin();
+        panel.add(buttonPanel);
+        for (int i = 0; i < 2; i++) {
+            JComboBox combo = new JComboBox(items);
+            combo.setMinimumSize(new Dimension(50, 25));
+            combo.setMaximumSize(new Dimension(150, 25));
+            combo.setPreferredSize(new Dimension(100, 25));
+            combo.addActionListener(new ShakeAction());
+            panel.add(combo);
+        }
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(panel);
+        frame.pack();
+        frame.setLocation(50, 50);
+        frame.setVisible(true);
+        timer = new Timer(500, new ShakeAction());
+        timer.setRepeats(repeats);
+        initMargin = button.getMargin();
+    }
+
+    private class ShakeAction extends AbstractAction {
+
+        private static final long serialVersionUID = 1L;
+        private int noColor = 0;
+        private Border border;
+        private int count = 0;
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            timer.start();
+            if (count > 5) {
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(750);
+                            changeBtnForegroung(Color.darkGray);
+                            Thread.sleep(750);
+                            count = 0;
+                            Thread.sleep(750);
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }
+                    }
+                }).start();
+            } else {
+                new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        try {
+                            runs = true;
+                            if (noColor < 2) {
+                                noColor++;
+                                changeBtnForegroung(clr[noColor]);
+                            } else {
+                                noColor = 0;
+                                changeBtnForegroung(clr[noColor]);
+                            }
+                            changeBtnMargin(new Insets(initMargin.top, initMargin.left + 10, initMargin.bottom, initMargin.right - 10));
+                            border = new EmptyBorder(0, 5, 10, 5);
+                            changePnlBorder(border);
+                            Thread.sleep(100);
+                            changeBtnMargin(new Insets(initMargin.top, initMargin.left - 10, initMargin.bottom, initMargin.right + 10));
+                            border = new EmptyBorder(0, 0, 10, 10);
+                            changePnlBorder(border);
+                            Thread.sleep(100);
+                            changeBtnMargin(new Insets(initMargin.top, initMargin.left + 10, initMargin.bottom, initMargin.right - 10));
+                            border = new EmptyBorder(5, 10, 5, 0);
+                            changePnlBorder(border);
+                            Thread.sleep(100);
+                            changeBtnMargin(new Insets(initMargin.top, initMargin.left - 10, initMargin.bottom, initMargin.right + 10));
+                            border = new EmptyBorder(10, 10, 0, 0);
+                            changePnlBorder(border);
+                            Thread.sleep(100);
+                            changeBtnMargin(new Insets(initMargin.top, initMargin.left, initMargin.bottom, initMargin.right));
+                            border = new EmptyBorder(5, 5, 5, 5);
+                            changePnlBorder(border);
+                            Thread.sleep(100);
+                            count++;
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }
+                    }
+                }).start();
+            }
+        }
+    }
+
+    private void changePnlBorder(final Border b) {
+        SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                buttonPanel.setBorder(b);
+                buttonPanel.revalidate();
+                buttonPanel.repaint();
+            }
+        });
+    }
+
+    private void changeBtnForegroung(final Color c) {
+        SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                button.setForeground(c);
+            }
+        });
+    }
+
+    private void changeBtnMargin(final Insets margin) {
+        SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                button.setMargin(margin);
+            }
+        });
+    }
+}

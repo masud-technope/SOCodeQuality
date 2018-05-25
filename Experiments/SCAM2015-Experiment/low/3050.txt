@@ -1,0 +1,19 @@
+public static int byteArrayToInt(byte[] paramArrayOfByte, int paramInt1, int paramInt2)
+{
+    int i = 0;
+    int j = 0;
+    if (j >= paramInt2)
+        return i;
+    if ((j == 0) && (paramArrayOfByte[(paramInt1 + (paramInt2 - 1) - j)] < 0))
+        i |= (int)paramArrayOfByte[(paramInt1 + (paramInt2 - 1) - j)];
+    while (true)
+    {
+        if (j < paramInt2 - 1)
+            i <<= 8;
+        j++;
+        break;
+        i |= paramArrayOfByte[paramInt1 + (paramInt2 - 1) - j];
+    }
+
+    return i;
+}

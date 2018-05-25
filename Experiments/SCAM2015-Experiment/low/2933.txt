@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+
+public class Lesson9p1_ThuotteEmily {
+    public static void main(String args[]) {
+        Scanner kbReader0 = new Scanner(System.in);
+        System.out.print("\n\nPlease enter an integer. An integer is whole number, and it can be either negative or positive. Please enter your number: ");
+        long num = kbReader0.nextLong();
+
+        if (num % 2 == 0) // if and else with braces
+        {
+            System.out.println("Your integer " + num + " is even.");
+        } else {
+            System.out.println("Your integer " + num + " is odd.");
+        }
+
+        Scanner kbReader1 = new Scanner(System.in);
+        System.out.print("\n\nWould you like to know if your number is prime? Please enter yes or no: ");
+        String yn = kbReader1.nextLine();
+
+        if (yn.equalsIgnoreCase("Yes")) {
+            System.out.println("Okay. Give me a moment.");
+
+            {
+                if (num % 2 == 0) {
+                    System.out.println("Your number isn't prime.");
+                } else if (num == 2) {
+                    System.out.println("Your number is 2, which is the only even prime number in existence. Cool, right?");
+                } else
+                    for (int i = 3; i * i <= num; i += 2) {
+                        if (num % i == 0) {
+                            System.out.println("Your number isn't prime.");
+                        } else {
+                            System.out.println("Your number is prime!");
+                        }
+                    }
+            }
+        }
+        if (yn.equalsIgnoreCase("No")) {
+            System.out.println("Okay.");
+        }
+    }
+}

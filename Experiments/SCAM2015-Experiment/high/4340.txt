@@ -1,0 +1,4 @@
+Human(int age){
+    this.age = age;
+    this.name = "Unknown";
+}

@@ -1,0 +1,29 @@
+public void buttonAction()
+{
+   new Thread(new Runnable()
+   {
+       public void run()
+       {
+           // Here your long task
+
+           // When you want to call Label.setText(), do it like this:
+           SwingUtilities.invokeLater(new Runnable()
+           {
+               public void run()
+               {
+                   label.setText("Loading 1/13...");
+               }
+           });
+
+           // Here another part of your task....
+
+           SwingUtilities.invokeLater(new Runnable()
+           {
+               public void run()
+               {
+                   label.setText("Done!");
+               }
+           });
+       }
+   }).start();
+}

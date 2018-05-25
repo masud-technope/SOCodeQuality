@@ -1,0 +1,13 @@
+int num = 0;
+float total = 0f;
+Scanner sc = new Scanner(System.in);
+System.out.print("Please enter a number: ");
+num = sc.nextInt();
+
+for(int num1 = 0; num1 <= num; num1++)
+   {
+        System.out.print("Please enter a number: ");
+        total += sc.nextInt();
+   }
+
+System.out.println("Average : "+(total/num));

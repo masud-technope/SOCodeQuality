@@ -1,0 +1,6 @@
+public static int secMax(int[] num){
+    Arrays.sort(num);
+    temp = num[num.length-2];
+
+    return temp;
+}

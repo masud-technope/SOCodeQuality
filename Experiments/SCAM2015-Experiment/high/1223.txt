@@ -1,0 +1,3 @@
+SmtpAuthenticator authentication = new SmtpAuthenticator();
+javax.mail.Message msg = new MimeMessage(Session
+                    .getDefaultInstance(emailProperties, authenticator));

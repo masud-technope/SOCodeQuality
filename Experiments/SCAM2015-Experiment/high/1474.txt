@@ -1,0 +1,4 @@
+private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    Shift classShift = new Shift(this);
+    classShift.btnClear(); 
+}

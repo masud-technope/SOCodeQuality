@@ -1,0 +1,5 @@
+Static initalization.
+Instance initialization.
+Constructor.
+Instance initialization.
+Constructor.

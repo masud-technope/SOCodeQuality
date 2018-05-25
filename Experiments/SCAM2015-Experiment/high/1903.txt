@@ -1,0 +1,3 @@
+String[] words = {"ace", "boom", "crew", "dog", "eon"};   
+
+List<String> wordList = Arrays.asList(words);

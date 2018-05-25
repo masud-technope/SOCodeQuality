@@ -1,0 +1,10 @@
+import static org.fest.assertions.api.Assertions.assertThat;
+
+assertThat(intentOne).usingComparator(new IntentComparator()).isEqualTo(intentTwo);
+
+private static class IntentComparator implements Comparator<Intent> {
+    @Override
+    public int compare(Intent left, Intent right) {
+        return left.filterEquals(right) ? 0 : 1;
+    }
+}

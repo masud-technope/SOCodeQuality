@@ -1,0 +1,3 @@
+for (int p=0; p<= myArray[cntr].length && myArray[p]!=0 ; p++){
+//execute other methods..
+}

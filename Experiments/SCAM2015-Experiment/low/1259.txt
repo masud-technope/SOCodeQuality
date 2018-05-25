@@ -1,0 +1,66 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+public class Triangle
+{
+    private int[]sides;
+    public Triangle( int x, int y, int z)
+    {
+        sides = new int[]{x,y,z};
+        Arrays.sort( sides );
+    }
+
+    public Triangle( String ... args )
+    {
+        this( Integer.parseInt( args[0].trim() ), Integer.parseInt( args[1].trim() ), Integer.parseInt( args[2].trim() ));
+    }
+
+    @Override
+    public boolean equals( Object o )
+    {
+        if ( this == o ) return true;
+        if ( o == null || getClass() != o.getClass() ) return false;
+
+        Triangle triangle = ( Triangle ) o;
+
+        if ( !Arrays.equals( sides, triangle.sides ) ) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return sides != null ? Arrays.hashCode( sides ) : 0;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Triangle{" +
+                       "sides=" + Arrays.toString( sides ) +
+                       '}';
+    }
+
+    public static void main( String[] args ) throws IOException
+    {
+
+        String[] input = new String[]{ "1,2,1" , "1,1,2", "1,2,3","1,3,1","1,1,1","1,3,3","1,1,3"};
+
+        Set<Triangle> triangles = new HashSet<Triangle>(  );
+        for ( String s : input )
+        {
+            Triangle triangle = new Triangle( s.split( "," ) );
+        if ( triangles.contains( triangle ))
+        {
+            System.out.println("The triangle [" + triangle + "] already exists!");
+        }
+        triangles.add( triangle );
+        }
+        System.out.println( "triangles = " + triangles );
+    }
+}

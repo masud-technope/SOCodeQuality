@@ -1,0 +1,9 @@
+public String getFirstLetters(ArrayList<String> text)
+{
+  String firstLetters = "";
+  for(String s : text)
+  {
+    firstLetters += s.charAt(0);
+  }
+  return firstLetters;
+}

@@ -1,0 +1,5 @@
+String query = "select name from table 
+where 
+      table.date > STR_TO_DATE(gt, '%d/%m/%y')
+      AND 
+      table.date < STR_TO_DATE(gt1, '%d/%m/%y')";

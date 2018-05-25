@@ -1,0 +1,9 @@
+int[] reverseArray(int[] arr) {
+    int startIndex = 0, endIndex = arr.length - 1;
+    for (int i=startIndex; i<endIndex/2; i++) {
+        int tmp = arr[i];
+        arr[i] = arr[endIndex-i];
+        arr[endIndex-i] = tmp;
+    }
+    return arr;
+}

@@ -1,0 +1,21 @@
+class foo
+{
+  foo(int t)
+  {
+  }
+}
+
+class bar extends foo
+{
+  bar()
+  {
+  }
+}
+
+class test
+{
+  public static void main(String gg[])
+  {
+    bar b=new bar();
+  }
+}

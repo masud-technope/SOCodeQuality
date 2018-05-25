@@ -1,0 +1,16 @@
+public interface TestConstants
+{
+    String RootLevelConstant1 = "RootLevelConstant1";
+
+    interface SubGroup1
+    {
+        String SubGroupConstant1 = "SubGroup1Constant1";
+        String SubGroupConstant2 = "SubGroup1Constant2";
+    }
+
+    interface SubGroup2
+    {
+        String SubGroupConstant1 = "SubGroup2Constant1";
+        String SubGroupConstant2 = "SubGroup2Constant2";
+    }
+}

@@ -1,0 +1,47 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+public class TestLabelDelete {
+    private JFrame frame;
+    private JLabel label;
+
+    protected void initUI() {
+        frame = new JFrame(TestLabelDelete.class.getSimpleName());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        label = new JLabel("Some text to delete in 5 seconds");
+        frame.add(label);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        Timer t = new Timer(5000, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                label.setText(null);
+            }
+        });
+        t.setRepeats(false);
+        t.start();
+    }
+
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException,
+            UnsupportedLookAndFeelException {
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                TestLabelDelete testLogin = new TestLabelDelete();
+                testLogin.initUI();
+            }
+
+        });
+    }
+
+}

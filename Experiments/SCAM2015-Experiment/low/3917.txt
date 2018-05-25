@@ -1,0 +1,9 @@
+public static <T, S> boolean arrayContains(T[] array, S object){
+    System.out.println("array.class: " + array.getClass().getComponentType().getName());
+    System.out.println("object.class: " + object.getClass().getName());
+    System.out.println("array.class == object.class: " + (array.getClass().getComponentType() == object.getClass()));
+
+    // TODO: do something if the types don't match
+
+    return Arrays.asList(array).contains(object);
+}

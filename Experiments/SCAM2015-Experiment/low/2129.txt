@@ -1,0 +1,7 @@
+public T foo() {
+    try {
+        return (T) type.getClass().newInstance();
+    } catch (Exception e) {
+        return null;
+    }
+}

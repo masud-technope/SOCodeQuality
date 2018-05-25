@@ -1,0 +1,9 @@
+class SingletonClass {
+
+     private static SingletonClass object = new SingletonClass (); //Early initialization
+     private SingletonClass () {} 
+
+     public static SingletonClass getInstance(){
+        return object;
+    }
+ }

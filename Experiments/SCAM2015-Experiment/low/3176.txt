@@ -1,0 +1,4 @@
+String s1 = "1390785186301";
+String s2 = "1390785191301";
+System.out.println(Long.compare(Long.parseLong(s1), Long.parseLong(s2)));
+System.out.println(new BigInteger(s1).compareTo(new BigInteger(s2)));

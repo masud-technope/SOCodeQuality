@@ -1,0 +1,20 @@
+public static Timestamp stringToTimeStamp(String strTime){
+    Timestamp tempTimestamp = null;
+    if(strTime!=null && !strTime.equals(""))
+    {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "yyyy-MM-dd");//format of date and time you have
+
+        Date parsedTimeStamp = null;
+        try {
+            parsedTimeStamp = dateFormat.parse(strTime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        tempTimestamp = new Timestamp(parsedTimeStamp.getTime());
+
+
+    }
+    return tempTimestamp;
+}

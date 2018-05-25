@@ -1,0 +1,8 @@
+for(int i=0;i<MAX_CONTROL;i++){
+            ledPositionControl[i] = maxWidth/2+(i-MAX_CONTROL/2)*ledBmpSize;
+            System.out.println("LEDPOSITION = "+i);
+        }
+        buttonPositionY = resetPositionY = 
+                ledPositionControl[MAX_CONTROL-1]+positionControlSize;
+        buttonPositionX = ledPositionControl[2];
+        resetPositionX = buttonPositionX+positionControlSize*5;

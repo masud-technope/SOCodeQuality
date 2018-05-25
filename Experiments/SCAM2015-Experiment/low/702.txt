@@ -1,0 +1,18 @@
+class User {
+    final Print print;
+    User(Print print) {
+        this.print = print;
+    }
+}
+
+interface Print {
+    void print();
+}
+
+class CanPrint implements Print {
+    public void print() { do whatever it takes to print a user }
+}
+
+class CannotPrint implements Print {
+    public void print() { throw null; }
+}

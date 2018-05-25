@@ -1,0 +1,4 @@
+if (Password.equals("")) {
+            Password = Password_Text.getText().toString().trim();
+            System.out.println("Password", Password);
+        }

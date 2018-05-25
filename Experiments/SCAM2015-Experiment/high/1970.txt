@@ -1,0 +1,5 @@
+<input type="submit" name="login" Value="Login" />
+
+...
+
+<input type="submit" name="somethingelse" Value="Something else" />

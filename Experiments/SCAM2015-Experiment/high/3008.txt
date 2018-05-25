@@ -1,0 +1,15 @@
+public static String telegram(String sentence)
+{
+    String[] words = sentence.split(" ");
+    StringBuilder result= new StringBuilder();
+    for(int i = 0; i < words.length; i++)
+    {
+        if(!words[i].equals("STOP"))
+        {
+            result.append(words[i]);
+            result.append(" ");
+        }
+    }
+  return result.toString();
+
+}

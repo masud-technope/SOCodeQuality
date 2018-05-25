@@ -1,0 +1,8 @@
+(A ^ k) - ciphertext of A
+(B ^ k) - ciphertext of B
+
+(A ^ k) ^ (B ^ k) - the two ciphertexts XOR'ed together which simplifies to:
+
+A ^ B ^ k ^ k - which continues to simplify to
+A ^ B ^ 0
+A ^ B

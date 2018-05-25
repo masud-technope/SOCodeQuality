@@ -1,0 +1,11 @@
+@PostLoad
+public void postLoad(){
+    try {
+        if(getObject() != null && getObject().getId() == 0){
+            setObject(null);
+        }
+    }
+    catch (EntityNotFoundException e){
+        setObject(null);
+    }
+}

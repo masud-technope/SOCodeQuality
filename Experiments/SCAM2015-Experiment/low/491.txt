@@ -1,0 +1,7 @@
+try {
+  // Do something
+} catch(IOException ioE) {
+  throw new ApplicationException("Problem connecting to server");
+} catch(Exception e) {
+  // Will the ApplicationException be caught here?
+}

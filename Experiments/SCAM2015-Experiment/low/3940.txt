@@ -1,0 +1,12 @@
+int linenumber = 0;
+                String tmp = new String();
+                tmp=lnr.readLine();
+                    while(tmp != null)
+                    {
+                        linenumber++;  
+                        System.out.println(tmp);
+                        tmp=lnr.readLine();
+
+                    }
+                    System.out.println("Total number of lines : " + linenumber);
+                    lnr.close();

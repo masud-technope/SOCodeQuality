@@ -1,0 +1,8 @@
+public class GlobalData extends Application{
+    JSONObject jsonObj;
+}
+
+else{
+    ((GlobalData)getApplication).jsonObj = myJsonObj;
+    startActivity(new Intent(...));
+}

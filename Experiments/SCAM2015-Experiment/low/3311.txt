@@ -1,0 +1,11 @@
+@Test
+    private void test() {
+
+        Gson g = new Gson();
+        String jsonString = "[{ \"Id\":18, \"Name\":\"Albume One\", \"SubTitle\":null, \"Description\":null, \"Date\":\"3/7/2014 8:00 PM\", \"City\":null, \"State\":null, \"Production\":13 }]";
+        Type token = new TypeToken<List<Bean>>(){}.getType();
+        List<Bean> list = g.fromJson(jsonString, token);
+        for (Bean bean : list) {
+            System.out.println(bean.getName());
+        }
+    }

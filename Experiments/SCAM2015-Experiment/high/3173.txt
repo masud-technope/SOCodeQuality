@@ -1,0 +1,3 @@
+public class SomeClass {
+    public static int array[] = new int[3];
+}

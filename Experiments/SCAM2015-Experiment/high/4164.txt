@@ -1,0 +1,3 @@
+Car[] cars = new Car[2];
+cars[0] = new Car("vauxhall", 5, "black");
+cars[1] = new Car("peogeot", 3, "red");

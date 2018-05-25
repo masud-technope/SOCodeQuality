@@ -1,0 +1,5 @@
+final Matcher m = Pattern.compile("(\\D)(\\d+)").matcher(input);
+final StringBuffer b = new StringBuffer();
+while (m.find()) 
+  m.appendReplacement(b, replicate(m.group(1), Integer.parseInt(m.group(2))));
+m.appendTail(b);

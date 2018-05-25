@@ -1,0 +1,3 @@
+else if (n > 0) {
+    // Since n > 0 it'll never run
+    for (int i = 0;n <= 0;i++)

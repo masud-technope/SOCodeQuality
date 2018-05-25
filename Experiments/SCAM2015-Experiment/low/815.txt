@@ -1,0 +1,9 @@
+public static byte[] getBytesFromDataHandler(final DataHandler data) throws IOException {
+    final InputStream in = data.getInputStream();
+    byte out[] = new byte[0];
+    if(in != null) {
+        out = new byte[in.available()];
+        in.read(out);
+    } 
+    return out;
+}

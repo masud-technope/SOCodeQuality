@@ -1,0 +1,15 @@
+public byte[] Serialize()
+{
+
+// serialize each field in turn here.
+
+return data;
+}
+
+
+public void Deserialize(byte[] data)
+{
+
+// deserialize data in the same order it was serialized.
+
+}

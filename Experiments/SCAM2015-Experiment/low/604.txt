@@ -1,0 +1,12 @@
+Class A {
+
+    bool Equals(Document d) {...} 
+
+    bool Equals(A a) {...} // overloaded method
+}
+
+Class B extends A {
+    bool Equals(Document d) {...} // overridden method
+
+    bool Equals(B b) {...} // overloaded method
+}

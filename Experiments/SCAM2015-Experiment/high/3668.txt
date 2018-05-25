@@ -1,0 +1,20 @@
+public static void main(String[] args) {
+
+    Lookup lookup = MethodHandles.lookup();
+    NestedTestClass ntc = new Program().new NestedTestClass();
+
+    try {
+        Method pm = NestedTestClass.class.getDeclaredMethod("gimmeTheAnswer");
+        pm.setAccessible(true);
+        MethodHandle pmh = lookup.unreflect(pm);
+        System.out.println("reflection:" + pm.invoke(ntc));
+        pm.setAccessible(false);
+        System.out.println("handle:" + pmh.invoke(ntc));
+        // should fail below, which proves that handle skips access checks
+        System.out.println("reflection:" + pm.invoke(ntc));
+
+    } catch (Throwable e) {
+        e.printStackTrace();
+    }
+
+}

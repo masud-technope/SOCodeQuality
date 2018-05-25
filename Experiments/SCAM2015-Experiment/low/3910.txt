@@ -1,0 +1,126 @@
+public class myBubbleSort
+{
+    private static int[] a;
+
+    public static void main(String[] args)
+    {
+        getArray(10);
+        System.out.println("Array before sorting");
+        printArray();
+        ascendingBubble();
+        System.out.println("Array after ascending sort");
+        printArray();
+        descendingBubble();
+        System.out.println("Array after descending sort");
+        printArray();
+
+        System.out.println();
+        System.out.println("Random sort");
+        getArray(10);
+        bubbleSort(true);
+        System.out.println("Array after Random sort");
+        printArray();
+    }
+
+    // print the number in random array
+    public static void printArray()
+    {
+        for (int i : a)
+        {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    // generate a random array to be sorted in ascending and descending order
+    public static void getArray(int size)
+    {
+        a = new int[size];
+        int item = 0;
+        for (int i = 0; i < size; i++)
+        {
+            item = (int) (Math.random() * 100);
+            a[i] = item;
+        }
+    }
+
+    // sort getArray in ascending order and bubblesort it
+    public static void ascendingBubble()
+    {
+        int temp;
+        System.out.println();
+        System.out.println("Ascending sort");
+        for (int i = 0; i < a.length - 1; i++)
+        {
+            for (int j = 0; j < a.length - 1; j++)
+            {
+                if (a[j] > a[j + 1])
+                {
+                    temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
+                }
+            }
+        }
+
+        bubbleSort(true);
+    }
+
+    // sort getArray in descending order and bubblesort it
+    public static void descendingBubble()
+    {
+        int temp;
+        System.out.println();
+        System.out.println("Descending sort");
+
+        for (int i = 0; i < a.length - 1; i++)
+        {
+            for (int j = 0; j < a.length - 1; j++)
+            {
+                if (a[j] < a[j + 1])
+                {
+                    temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
+                }
+            }
+        }
+
+        bubbleSort(true);
+    }
+
+    // bubble sort algorithm
+    public static void bubbleSort(boolean printTime)
+    {
+        boolean sorted = false;
+        int pass = 1;
+        int temp;
+        long startTime;
+        long endTime;
+        long duration;
+
+        startTime = System.nanoTime();
+        while (pass < a.length - 1 && (!sorted))
+        {
+            sorted = true;
+            for (int i = 0; i < a.length - 1; i++)
+            {
+                if (a[i] > a[i + 1])
+                {
+                    temp = a[i];
+                    a[i] = a[i + 1];
+                    a[i + 1] = temp;
+                    sorted = false;
+                }
+            }
+            pass = pass + 1;
+        }
+        endTime = System.nanoTime();
+        duration = (endTime - startTime);
+        if(printTime)
+        {
+            System.out.println(duration + " "+ " nano seconds");
+        }
+    }
+
+}

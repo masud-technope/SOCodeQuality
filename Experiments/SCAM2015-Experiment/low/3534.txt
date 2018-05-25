@@ -1,0 +1,6 @@
+String countries = "a, b, c, d";
+String[] countriesArray = countries.split(","); 
+
+for(String s : countriesArray){
+    System.out.println(s);
+}

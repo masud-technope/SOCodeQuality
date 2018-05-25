@@ -1,0 +1,6 @@
+jtextfield.addKeyListener(new KeyAdapter(){
+   keyReleased(KeyEvent e) {
+      jtextfield.setText(jtextfield.getText().toUpperCase());
+   }
+
+});

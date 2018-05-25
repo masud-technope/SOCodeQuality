@@ -1,0 +1,12 @@
+public void onClick(View v) {
+
+        switch (v.getId()) {
+        case R.id.image_btn:
+            // your code goes here.
+            break;
+
+        default:
+            break;
+        }
+
+    }

@@ -1,0 +1,19 @@
+Try this code, the method should be as follow:
+
+public String printNum()
+{
+    StringBuilder numbers = new StringBuilder();
+
+    for (int i=0;i<100;i++)
+    {
+        numbers.append(i+1);
+
+        if(i<99)
+        {
+            numbers.append(",");
+        }
+
+        System.out.println("Roll " + (i+ 1) + " ");
+    }
+
+    return numbers.toString();

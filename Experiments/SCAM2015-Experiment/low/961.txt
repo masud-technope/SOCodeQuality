@@ -1,0 +1,11 @@
+enum Type { FIRST, SECOND, THIRD };
+Map<String, Type> mapping = new HashSet<String, Type>(){{
+    put("ONE", Type.FIRST);
+    put("TWO", Type.FIRST);
+    //...
+    put("NINE", Type.THIRD);
+}};
+
+public Type getTypeFromString(String s) {
+    return mapping.get(s);
+}

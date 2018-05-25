@@ -1,0 +1,19 @@
+for( int x=0; x<arr.length; x++ ){
+  for(int y=0; y<arr[x].length; y++){
+  if( arr[x][y] == 8 ){
+    try{
+      System.out.println("Upper Left is: " + arr[x-1][y-1]);
+    }catch(ArrayIndexOutOfBoundsException e){
+     //do something
+    }
+
+
+    try{
+      System.out.println("Left is: " + arr[x-1][y]);
+    }catch(ArrayIndexOutOfBoundsException e){
+     //do something
+    }
+
+    //.....and others
+   }
+  }

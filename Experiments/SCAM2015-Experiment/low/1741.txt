@@ -1,0 +1,8 @@
+File file = File file("c:/xyz.txt");
+if(!file.exists()){  // this will return boolean {true} if file exists.
+   file.createNewFile(); // create new empty file.
+}
+FileWriter writer = new FileWriter("C:/xyz.txt", true);
+BufferedWriter out = new BufferedWriter(writer);
+out.write("your text");
+out.close();

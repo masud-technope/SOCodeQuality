@@ -1,0 +1,10 @@
+this.addWindowStateListener(
+    new WindowAdapter() 
+    {
+        @Overrides
+        public void windowClosing(WindowEvent e) 
+        {
+            ExitAction.getInstance().actionPerformed(null);
+        }
+
+    });

@@ -1,0 +1,8 @@
+table.addListener(SWT.MeasureItem, new Listener() {
+      public void handleEvent(Event event) {
+        TableItem item = (TableItem)event.item;
+                String text = item.getText(event.index);
+        Point size = event.gc.textExtent(text);
+        event.height = Math.max(event.height, size.y);
+    }
+});

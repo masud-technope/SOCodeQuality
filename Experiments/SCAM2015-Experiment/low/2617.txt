@@ -1,0 +1,3 @@
+public Alpha safeDelegateBreakage(Alpha alpha) {
+  return breakage(alpha.getSybil).getAlpha();
+}

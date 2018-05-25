@@ -1,0 +1,10 @@
+public class OutOfMemory {
+
+    public static void main(String[] arg) {
+
+        List<Long> mem = new LinkedList<Long>();
+        while (true) {
+            mem.add(new Long(Long.MAX_VALUE));
+        }
+    }
+}

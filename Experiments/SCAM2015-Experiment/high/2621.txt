@@ -1,0 +1,5 @@
+B b = new B();
+b.a() //prints B.a()
+
+A a = (A)b;
+a.a() //print A.a(). Uses the declared reference's class to find the method.

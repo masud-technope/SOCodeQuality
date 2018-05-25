@@ -1,0 +1,9 @@
+public interface MyRunnable extends Runnable {
+    public void run(int data);
+}
+
+public void someMethod(int n, String s, MyRunnable r) {
+   ...
+   r.run(n);
+   ...
+}

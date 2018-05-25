@@ -1,0 +1,10 @@
+String word1 = "bar";
+String word2 = "foo";
+
+String story = "Once upon a time, there was a foo and a bar."
+
+story = story.replace("foo", "<foo />");
+story = story.replace("bar", "<bar />");
+
+story = story.replace("<foo />", word1);
+story = story.replace("<bar />", word2);

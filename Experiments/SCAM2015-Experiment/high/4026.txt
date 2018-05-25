@@ -1,0 +1,5 @@
+button.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        //whenever you click the button, code in here triggers
+    }
+});

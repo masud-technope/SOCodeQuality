@@ -1,0 +1,6 @@
+List<List<String>> strses;
+List<List<?>> cast = strses; // Suppose this actually worked.
+List<Integer> ints;
+List<?> wildInts = ints;
+cast.add(0, wildInts); // Good.
+List<String> wasInts = strses.get(0); // Oops!!

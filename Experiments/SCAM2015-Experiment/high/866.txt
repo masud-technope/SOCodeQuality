@@ -1,0 +1,14 @@
+map = new HashMap<String, StringBuffer>();
+map.put("game", new StringBuffer());
+map.put("apps", new StringBuffer());
+map.put("movie", new StringBuffer());
+...
+
+public void fetchData(String category) {
+   StringBuffer buffer = map.get(category);
+   if (buffer == null) {
+      // No such category. Throw an exception?
+   } else {
+      // Do whatever you need to
+   }
+}

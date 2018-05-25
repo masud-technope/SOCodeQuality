@@ -1,0 +1,7 @@
+Integer myInteger = ...;
+ PreparedStatement ps = ...;
+ if (myInteger == null) {
+     ps.setNull(1, Types.INTEGER);
+ } else {
+     ps.setInt(1, myInteger); // will be autounboxed
+ }

@@ -1,0 +1,14 @@
+class F {
+
+    public static void main(String[] z) {
+
+        l:
+        for (int a=1,b; a < z; a += 2) {
+
+            for (b = 2; b < a; b++)
+                if (a % b == 0) 
+                    continue l;
+            System.out.println(a);
+        }
+    }
+}

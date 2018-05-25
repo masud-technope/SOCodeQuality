@@ -1,0 +1,5 @@
+Caused by: java.lang.UnsupportedOperationException: Can't convert to integer: type=0x3
+        at android.content.res.TypedArray.getInteger(TypedArray.java:368)
+        at com.digitalaria.gama.wheel.WheelBehavior.<init>(WheelBehavior.java:117)
+        at com.digitalaria.gama.wheel.Wheel.<init>(Wheel.java:83)
+        at com.digitalaria.gama.wheel.Wheel.<init>(Wheel.java:68)

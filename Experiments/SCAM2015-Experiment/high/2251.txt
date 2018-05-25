@@ -1,0 +1,8 @@
+String[] values = map.values().toArray(new String[map.size()]);
+for (int i = 0; i < values.length; i++) {
+  for (int j = i+1; j<values.length; j++) {
+    if (values[i].equals(values[j])) {
+      // ...
+    }
+  }
+}

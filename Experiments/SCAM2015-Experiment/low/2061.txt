@@ -1,0 +1,12 @@
+//You can change the Set to Array and then iterate over a range.
+
+Set<Integer> set = new TreeSet<Integer>();
+for (int i = 0; i <= 100; i++) {
+         set.add(i);
+    }
+Object[] array = set.toArray();
+
+
+for (Integer i = 0; i < 100; i++) {
+        System.out.print(array[i] + " ,");
+    }

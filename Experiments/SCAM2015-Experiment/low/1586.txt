@@ -1,0 +1,4 @@
+while(c<5){
+    Thread.sleep(delay);                
+    protocol.onSending(3,prm.PARAMETER_DRIVE_MODE.ordinal(),dataToRead,dataToRead.length);//read drive mode
+    System.out.println(Helper.paramDriveMod+"  drive mode is ..........in wile loop");//here it shows null value  "

@@ -1,0 +1,8 @@
+private String returnType(int t, String[] s) <- return type recursion example
+{
+    String arrayed = s[t];
+    if (t == 0) // <--if 0
+        return " " + arrayed;
+    else
+        return arrayed + returnType(t - 1, s); <--if != 0 return value and then call itself again with the value -1.
+}

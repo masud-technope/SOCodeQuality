@@ -1,0 +1,15 @@
+public Interface A {
+  public void method();
+}
+
+public abstract classs B {
+  protected void method();
+}
+
+public class AB extends B implements A {
+  /*
+   * This would't be possible if the access modifier coulnd't be changed
+   * to less restrictive
+  */
+  public void method();
+}

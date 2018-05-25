@@ -1,0 +1,7 @@
+if(obj instanceof String)
+                cell.setCellValue((String)obj);
+            else if(obj instanceof Integer){
+               // set cell format to numeric
+                cell.setCellType(Cell.CELL_TYPE_NUMERIC);
+                cell.setCellValue((Integer)obj);
+            }

@@ -1,0 +1,116 @@
+public void calc() throws IOException
+{
+    String equation,store,get;
+
+    StringBuilder sb= new StringBuilder();
+    DataInputStream dis= new DataInputStream(System.in);
+    System.out.println("Enter the equation");
+    equation= dis.readLine();
+    equation="%"+equation+"%";
+    byte[] buf= equation.getBytes();
+    for(int i=0;i<equation.length();i++)
+    {
+        if(buf[i]>=97&&buf[i]<=122)
+        {
+            System.out.println("Enter the value for "+(char)buf[i]);
+            get=dis.readLine();
+            sb.append(get);
+        }
+        else
+            sb.append((char)buf[i]);
+    }
+    store= sb.toString();
+
+    char[] buf1= new char[25];
+
+    for(int i=0;i<store.length();i++)
+    {
+        buf1[i]=store.charAt(i);          
+    }
+    for(int i=0;i<buf1.length;i++)
+    {
+        no.append(buf1[i]);
+    }
+    System.out.println(no.toString());
+    int m,n=0;
+    for(int i=0;i<no.length()-1;i++)
+    {
+        if('/'==no.charAt(i))
+        {
+            leftCount=rightCount=0;
+            m=findLeftValue(i-1) / findRightValue(i+1);
+            no.replace(i-leftCount, i+rightCount+1, String.valueOf(m));
+            i=0;  
+        }          
+   }
+
+
+    for(int i=0;i<no.length()-1;i++)
+    {
+        if('*'==no.charAt(i))
+        {
+            leftCount=rightCount=0;
+            m=findLeftValue(i-1) * findRightValue(i+1);
+            no.replace(i-leftCount, i+rightCount+1, String.valueOf(m));
+            i=0;  
+        }          
+   }
+    for(int i=0;i<no.length()-1;i++)
+    {
+        if('+'==no.charAt(i))
+        {
+            leftCount=rightCount=0;
+            m=findLeftValue(i-1) + findRightValue(i+1);
+            no.replace(i-leftCount, i+rightCount+1, String.valueOf(m));
+            i=0;  
+        }          
+   } 
+     for(int i=0;i<no.length()-1;i++)
+    {
+        if('-'==no.charAt(i))
+        {
+            leftCount=rightCount=0;
+            m=findLeftValue(i-1) - findRightValue(i+1);
+            no.replace(i-leftCount, i+rightCount+1, String.valueOf(m));
+            i=0;                 
+        }          
+   }
+    for(int i=0;i<no.length();i++)
+    {
+        if('%'==no.charAt(i))
+        {
+            no.deleteCharAt(i);
+            i=0;
+        }
+    }
+    System.out.println(no.toString());
+
+
+
+}
+public int findLeftValue(int i)
+{
+    StringBuilder sb= new StringBuilder();
+    int x=0;
+    while(no.charAt(i)!='*'&&no.charAt(i)!='+'&&no.charAt(i)!='-'&&no.charAt(i)!='/' &&no.charAt(i)!='%')
+    {
+          leftCount++;
+          sb.insert(0, no.charAt(i));
+          i--;
+    }          
+     x=Integer.parseInt(sb.toString());
+    return x;
+}
+ public int findRightValue(int i)
+{
+    StringBuilder sb= new StringBuilder();
+    int x;            
+    while(no.charAt(i)!='*'&&no.charAt(i)!='+'&&no.charAt(i)!='-'&&no.charAt(i)!='/' &&no.charAt(i)!='%')
+    {        
+        rightCount++;
+        sb.append(no.charAt(i));            
+        i++;
+    }     
+    x=Integer.parseInt(sb.toString());
+    return x;
+}

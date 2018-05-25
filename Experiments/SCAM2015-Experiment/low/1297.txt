@@ -1,0 +1,18 @@
+class Base {
+    static void foo() {
+    System.out.println("Base");
+    }
+}
+
+class Der extends Base {
+    static void foo() {
+    System.out.println("Der");
+    }
+}
+
+class Check {
+    public static void main(String[] args) {
+    Base.foo();
+    Der.foo();
+    }
+}

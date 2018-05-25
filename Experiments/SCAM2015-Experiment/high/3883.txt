@@ -1,0 +1,6 @@
+for(int i = 0; i < list.size(); i++) {
+    if (someCondition) {
+        list.remove(i);
+        i--;
+    }
+}

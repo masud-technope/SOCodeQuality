@@ -1,0 +1,16 @@
+public void getWoodSoldRecently(){
+Calendar cal = Calendar.getInstance();
+cal.add(Calendar.WEEK_OF_YEAR, -2);
+Iterator itr = theTrees.iterator();
+boolen b = true;
+while (itr.hasNext() && b == true) {
+        if(t.getSimpleDateSold().getTime().after(cal.getTime()) && t.getHasBeenSold()==true){
+            treesSold.add(t);
+            System.out.println(t.getTreeId() + " " + t.getTreeType());
+        }
+        else{
+            System.out.println("Nothing sold in the last 2 weeks");
+            b = false;
+        }
+    }
+}

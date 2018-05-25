@@ -1,0 +1,5 @@
+ArrayList<ArrayList<String>> m = new ArrayList<ArrayList<String>>();
+
+m.get(0).add("A");    m.get(0).add("B");    m.get(0).add("C");
+m.get(1).add("D");    m.get(1).add("E");    m.get(1).add("F");
+m.get(2).add("G");    m.get(2).add("H");    m.get(2).add("I");

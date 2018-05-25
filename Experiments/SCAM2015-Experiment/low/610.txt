@@ -1,0 +1,7 @@
+Connection conn = null;
+try {
+  conn = ...
+  // do stuff
+} finally {
+  try { conn.close(); } catch (Exception e) { }
+}

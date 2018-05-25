@@ -1,0 +1,3 @@
+synchronized(ctx){
+ //your code here
+}

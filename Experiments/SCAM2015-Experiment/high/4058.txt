@@ -1,0 +1,16 @@
+public class Ex5_ShiftLeft {    
+   public static void main(String[] args) {
+     int[] a =  {6, 2, 5, 3};
+     swap (a);
+}
+
+public static void swap(int[] array){
+    int temp = array[0]
+    array[0] = array[array.length-1];
+    array[array.length-1]
+
+    for(int x : array){
+       System.out.println(x+" ");
+    }
+  }
+}

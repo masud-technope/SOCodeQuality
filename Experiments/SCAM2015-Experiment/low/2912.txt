@@ -1,0 +1,11 @@
+public class DogTrainer extends Trainer<Dog>{      
+     public void trainingComplete(Trainables t){
+          completed.add(t);
+     }
+ }
+
+ public class HorseTrainer extends Trainer<Horse>{     
+     public void trainingComplete(Trainables t){
+           completed.add(t);
+     }
+ }

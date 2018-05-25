@@ -1,0 +1,12 @@
+Integer getElement( List<Integer> list ) {
+   synchronized(list) {
+       int i = Random.getInt( list.size() );
+       return list.get( i );
+   }
+}
+// some method that modifies the list
+void modify(List<Integer> list ) {
+   synchronized(list) {
+       ....
+   }
+}

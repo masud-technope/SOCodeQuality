@@ -1,0 +1,3 @@
+boolean atLeastTwo(boolean a, boolean b, boolean c) {
+    return a && (b || c) || (b && c);
+}

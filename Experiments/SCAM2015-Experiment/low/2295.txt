@@ -1,0 +1,11 @@
+@Bean(name = "scheduler")
+  public SchedulerFactoryBean schedulerFactory()
+  {
+    SchedulerFactoryBean schedulerFactory = new SchedulerFactoryBean();
+    schedulerFactory.setDataSource(dataSource);
+    schedulerFactory.setAutoStartup(true);
+    schedulerFactory.setGlobalJobListeners(globalJobListeners);
+    schedulerFactory.setSchedulerContextAsMap(contextMap());
+    schedulerFactory.setQuartzProperties(schedulerProperties());
+    return schedulerFactory;
+  }

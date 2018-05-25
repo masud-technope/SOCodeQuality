@@ -1,0 +1,25 @@
+import java.io.*;
+
+public class TryArray{
+    public static void main(String args[])throws IOException{
+    BufferedReader inpt = new BufferedReader (new InputStreamReader(System.in));
+
+    int [] arrayCrit = new int [5];
+    String [] crits = new String [5];
+
+    for(int i=0; i<crits.length; i++){
+        System.out.print("Criteria: ");
+        crits[i]=inpt.readLine();
+     for (int j=0; j<arrayCrit.length; j++){
+        System.out.print("Percentage: ");
+        arrayCrit[j]=Integer.parseInt(inpt.readLine());
+     }
+    }
+    for(int i=0; i<crits.length; i++){
+        for (int j=0; j<arrayCrit.length; j++){
+
+            System.out.println(crits[i] + arrayCrit[j])
+            }
+        }
+    }
+}

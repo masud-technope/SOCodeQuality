@@ -1,0 +1,4 @@
+LinkedList<Sample> h = (LinkedList<Sample>) history;
+for(int i=0; i < h.size(); i+=step) {
+    h.get(i).memory ...
+}

@@ -1,0 +1,5 @@
+public static String sort(String s) {
+    char[] strArr = s.toCharArray();
+    java.util.Arrays.sort(strArr);
+    return new String(strArr);
+}

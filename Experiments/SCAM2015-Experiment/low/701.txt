@@ -1,0 +1,15 @@
+static ArrayList<int> listIdontWantAnymore = new ArrayList<int>();
+
+int NextRandomNumber() {
+    Random random = new Random();
+    int myRandomInt;
+
+    do {
+        myRandomInt = random.NextInt(6) + 1;
+    } while(listIdontWantAnymore.Contains(myRandomInt));
+
+    listIdontWantAnymore.Add(myRandomInt);
+
+    // now your 'myRandomInt' is what you want it to be.
+    return myRandomInt;
+}

@@ -1,0 +1,14 @@
+String[] VALUES = new String[] {"AB","BC","CD","AE"};
+   String s;
+
+   for(int i=0; i< VALUES.length ; i++)
+      {
+
+         if ( VALUES[i].equals(s) )
+          { 
+           // do your stuff
+           } 
+        else{    
+           //do your stuff
+            }
+       }

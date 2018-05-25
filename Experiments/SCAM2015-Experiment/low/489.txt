@@ -1,0 +1,14 @@
+public boolean newEquals(String str1, String str2)
+{
+    int len = str1.length();
+int len1 = str2.length();
+if(len==len1)
+{
+    for(int i=0,j=0;i<str1.length();i++,j++)
+    {
+        if(str1.charAt(i)!=str2.charAt(j))
+        return false;
+    }`enter code here`
+}
+return true;
+}

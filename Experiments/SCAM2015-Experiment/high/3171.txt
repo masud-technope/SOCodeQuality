@@ -1,0 +1,7 @@
+new Timer().scheduleAtFixedRate(new TimerTask() 
+{
+   @Override
+   public void run() {
+         method(); // call your method
+   }
+}, 0, 100000);

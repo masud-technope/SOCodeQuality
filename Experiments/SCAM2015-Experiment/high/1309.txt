@@ -1,0 +1,5 @@
+processor.addDiscounter('A', new Discounter() {
+  public double applyDiscount(double itemTotal) {
+    return 0.95 * itemTotal;
+  }
+});

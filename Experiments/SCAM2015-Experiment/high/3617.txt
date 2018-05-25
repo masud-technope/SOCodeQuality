@@ -1,0 +1,3 @@
+if (someMap == null) {
+        synchronized(this) {
+            if (someMap == null) {

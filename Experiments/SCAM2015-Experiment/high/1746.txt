@@ -1,0 +1,3 @@
+0x021dd75e: cmp    $0x0,%edx
+  0x021dd761: jne    0x021dd788         ;*ifne
+                                        ; - Test$1::run@13 (line 17)

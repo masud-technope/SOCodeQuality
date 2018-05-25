@@ -1,0 +1,20 @@
+public static String getRandomString(String s) {
+
+    int i = 0;
+    int randomNumber;
+
+    boolean isUpperCase;
+
+    StringBuilder response = new StringBuilder();
+    Random randomNumberGenerator = new Random();
+
+    while (i++ < MAX_LENGTH - s.length()) {
+        isUpperCase = randomNumberGenerator.nextBoolean();
+        randomNumber = randomNumberGenerator.nextInt(26) + 65;
+
+        response.append(isUpperCase ? (char) randomNumber : 
+                      Character.toLowerCase((char) randomNumber));
+    }
+
+    return response.insert(0, s).toString();
+}

@@ -1,0 +1,5 @@
+DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+Statement statment = dbConnection.createStatement();
+//Bind deptno to a value
+statment.setParameter("DeptNo",5);
+result = statment.execute(query);

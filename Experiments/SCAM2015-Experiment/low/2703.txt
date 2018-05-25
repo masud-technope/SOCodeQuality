@@ -1,0 +1,8 @@
+....
+
+<Context docBase="D:\your\eclipse\workspace\project\WebContent" path="/projectbaseurl"   reloadable="true"/>
+
+</Host>
+</Engine>
+</Service>
+</Server>

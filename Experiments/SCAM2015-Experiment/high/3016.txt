@@ -1,0 +1,9 @@
+String choice = null;
+        Scanner scan = new Scanner(System.in);
+        do {
+            choice = scan.nextLine();
+            switch (choice) {
+            case "a":
+        .........
+            } // end of switch
+        } while (!choice.equals("q")); // end of loop

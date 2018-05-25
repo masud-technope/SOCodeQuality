@@ -1,0 +1,7 @@
+String yourPath = "insert here your path..";
+File directory = new File(yourPath);
+String[] myFiles = directory.list(new FilenameFilter() {
+    public boolean accept(File directory, String fileName) {
+        return fileName.endsWith(".txt");
+    }
+});

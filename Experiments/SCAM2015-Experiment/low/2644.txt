@@ -1,0 +1,4 @@
+return 5/2   // returns 2 (not turned into doubles)
+return 5.0/2 // returns 2.5 (turned into doubles)
+return (int)(5.0/2)  // returns 2 (turned into doubles, then turned into int)
+return 5d/2 // returns 2.5 (turned into doubles)

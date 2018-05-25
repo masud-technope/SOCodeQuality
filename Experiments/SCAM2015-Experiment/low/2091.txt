@@ -1,0 +1,34 @@
+public static void main(String[] args){   
+    System.out.println("="+evaluate(args[2]));
+
+}
+public static String[] symbols = new String[]{"\\-","\\+","\\/","\\*"};
+
+public static Integer evaluate(String exp){
+    System.out.print(exp);
+    exp = exp.trim(); 
+    boolean isint = true;
+    for(int i = 0; i<exp.length() && isint;i++){
+        if(exp.charAt(i)>'9' || exp.charAt(i) <'0'){
+            isint = false;
+        }
+    }
+    if(isint) return Integer.parseInt(exp);
+
+    for(String symbol:symbols){
+        String[] split = exp.split(symbol);
+        if(split.length>1){
+            int ev = evaluate(split[0]);
+            for(int i = 1;i<split.length;i++){
+                System.out.print(symbol);
+                int val = evaluate(split[i]);
+                if("\\*".equals(symbol)) ev*=val;
+                if("\\/".equals(symbol)) ev/=val;
+                if("\\+".equals(symbol)) ev+=val;
+                if("\\-".equals(symbol)) ev-=val;
+            }
+            return ev;
+        }
+    }
+    return null;
+}

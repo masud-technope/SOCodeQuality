@@ -1,0 +1,7 @@
+Map<String,String> wrapped = new HashMap<String,String>();
+wrapped.add("pig","oink");
+Map<String,String> wrapper = Collections.unmodifiableMap(wrapped);
+System.out.println(wrapper.size());
+wrapper.put("cow", "moo"); // throws exception
+wrapped.put("cow", "moo");
+System.out.println(wrapper.size()); // d'oh!

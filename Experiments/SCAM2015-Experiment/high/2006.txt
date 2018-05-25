@@ -1,0 +1,5 @@
+// Make sure that the buffer is large enough
+char str[128];
+jint strlen = env->GetStringUTFLength(strObj);
+env->GetStringUTFRegion(strObj, 0, strlen, str);
+printf("\nCalling class is: %s\n", str);

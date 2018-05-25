@@ -1,0 +1,3 @@
+ClassReader cr = new ClassReader("java.lang.Runnable");
+ClassNode cn = new ClassNode();
+cr.accept(cn, 0);

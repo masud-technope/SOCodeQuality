@@ -1,0 +1,14 @@
+public boolean hasWordEnded(){
+
+    String today = "24/12/2012";
+    String endOfMayanCalendar = "21/12/2012";
+    DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/yyyy");
+
+    DateTime todayDate = fmt.parseDateTime(today);
+    DateTime endOfWorldDate = fmt.parseDateTime(endOfMayanCalendar);
+
+    if (todayDate.isAfter(endOfWorldDate)){
+        return true;
+    }
+    return false;
+}

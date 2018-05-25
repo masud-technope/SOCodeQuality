@@ -1,0 +1,42 @@
+public class Test {
+
+  private static SlowlyConstructed slowlyConstructed = null;
+
+  public static void main(String[] args) {
+    Thread constructor = new Thread() {
+      public void run() {
+        Test.slowlyConstructed = new SlowlyConstructed();
+      }
+    };
+    Thread checker = new Thread() {
+      public void run() {
+        for(int i = 0; i < 10; i++) {
+          System.out.println(Test.slowlyConstructed);
+          try { Thread.sleep(1000); }
+          catch(Exception e) {}
+        }
+      }
+    };
+
+    checker.start();
+    constructor.start();
+  }
+
+  private static class SlowlyConstructed {
+    public String s1 = "s1 is unset";
+    public String s2 = "s2 is unset";
+
+    public SlowlyConstructed() {
+      System.out.println("Slow constructor has started");
+      s1 = "s1 is set";
+      try { Thread.sleep(5000); }
+      catch (Exception e) {}
+      s2 = "s2 is set";
+      System.out.println("Slow constructor has finished");
+    }
+
+    public String toString() {
+      return s1 + ", " + s2;
+    }
+  }
+}

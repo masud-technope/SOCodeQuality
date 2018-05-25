@@ -1,0 +1,6 @@
+{
+    InputStream is = HTTPClient.get(url);
+    InputStreamReader reader = new InputStreamReader(is);
+    JSONTokener tokenizer = new JSONTokener(reader);
+    JSONObject jsonObject = new JSONObject(tokenizer);
+}

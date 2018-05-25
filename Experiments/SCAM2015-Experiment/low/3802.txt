@@ -1,0 +1,26 @@
+package chapter1;
+
+import java.util.Scanner;
+
+public class Exercise3 {
+
+    public static void main (String[] args){
+    Scanner scan = new Scanner (System.in);
+    System.out.print ("Enter a number that consist of 5 digits: ");
+    int num =scan.nextInt();
+
+    int digit1 =num / 10000;
+    int digit2 =(( num % 10000) / 1000 );  // the modulus answer of num/10000 is divided by 1000
+    int digit3 =( ( num % 1000) / 100 );
+    int digit4 = ( ( num% 100 ) / 10 );
+    int digit5 = ( num % 10);
+
+    System.out.print (digit1+"\t");
+    System.out.print(digit2+"\t");
+    System.out.print(digit3+"\t");
+    System.out.print(digit4+"\t");
+    System.out.println(digit5+"\t");
+    }
+
+
+}

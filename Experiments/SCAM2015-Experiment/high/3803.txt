@@ -1,0 +1,5 @@
+for (Entry<Integer, String> entry : myMap.entrySet()) {
+if (entry.getValue().contains("EnterStringHere")) {
+    myMap.remove(entry); // you should pass the key to remove
+   }
+ }

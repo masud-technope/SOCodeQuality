@@ -1,0 +1,33 @@
+package rounding;
+import javax.swing.*;
+
+public class Rounding {
+
+
+public static void main(String[] args) {
+
+    int num = Integer.parseInt(JOptionPane.showInputDialog("Enter Optimus Prime"));  
+    String answer = "Optimus Prime"; 
+    if (num==1)
+    {
+        System.out.println("no");
+    }
+    else{
+
+
+
+    for (int j = 2; j <= num - 1; j++)
+    {
+        if (num%j == 0)
+        {
+            answer = "Compisate volcano";
+        }
+
+
+    }
+
+
+        System.out.println(answer);
+    }     
+}
+}

@@ -1,0 +1,7 @@
+public static class Arrays {
+      public static List<T> asList<T>(params T[] a)
+        {
+            return new List<T>(a);
+
+        }
+}

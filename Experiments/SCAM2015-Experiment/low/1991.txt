@@ -1,0 +1,19 @@
+import java.util.Iterator;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+
+public class PoiHacks
+{
+    // Fix of XSSFSheet.createRow(int index)
+    public static Row createRow(Sheet sheet, int index) {
+        Row row = sheet.getRow(index);
+        if(row==null) return sheet.createRow(index);
+
+        Iterator it = row.iterator();
+        while(it.hasNext()) {
+            it.next();
+            it.remove();
+        }
+        return row;
+    }
+}

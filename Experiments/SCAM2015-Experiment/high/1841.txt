@@ -1,0 +1,11 @@
+<bean id="dir" class="java.lang.String">
+    <constructor-arg value="c:/work/"
+</bean>
+
+<bean id="file" class="java.lang.String">
+    <constructor-arg value="file.properties" />
+</bean>
+
+<bean id="path" factory-bean="dir" factory-method="concat">
+    <constructor-arg ref="file"/>
+</bean>

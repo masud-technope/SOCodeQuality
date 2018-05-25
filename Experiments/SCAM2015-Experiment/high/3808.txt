@@ -1,0 +1,12 @@
+public static void main(String[] args) throws IOException, {      
+        String file;    
+        if ( args.length > 0 ) {
+           file = args[0];
+        }
+        //Optionally you can define the file name if not supplied in java command. 
+        else {
+           file = "Input.txt"
+        }
+
+        BufferedReader br = new BufferedReader(new FileReader(file));
+    }

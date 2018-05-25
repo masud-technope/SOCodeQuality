@@ -1,0 +1,6 @@
+List<? extends List<?>> genericListOfLists = new LinkedList<List<?>>();
+List<? extends List<String>> genericListOfStringLists = new LinkedList<List<String>>();
+genericListOfLists = listOfStrings;
+genericListOfStringLists = listOfStrings;
+listOfStrings = (List<List<String>>) genericListOfLists; //(caution: unchecked cast)
+listOfStrings = (List<List<String>>) genericListOfStringLists; // works as before (caution: uncheck cast)

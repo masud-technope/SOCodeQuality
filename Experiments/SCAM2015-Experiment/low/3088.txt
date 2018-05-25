@@ -1,0 +1,14 @@
+private Properties _testProperties;
+private Properties properties() {
+  if (_testProperties == null) {
+        InputStream inputStream = new ClassPathResource("test.properties").getInputStream();
+       _testProperties = new Properties();
+        inputStream.close();
+       _testProperties.load(inputStream);
+  }
+  return _testProperties ;
+}
+
+public String getproperties(String property) {
+   return properties().getProperty(property);
+}

@@ -1,0 +1,9 @@
+input1 + input2 => tmp-a1
+input3 + input4 => tmp-a2
+input5 + input6 => tmp-a3
+input7 + input8 => tmp-a4
+
+tmp-a1 + tmp-a2 => tmp-b1
+tmp-a3 + tmp-a4 => tmp-b2
+
+tmp-b1 + tmp-b2 => result

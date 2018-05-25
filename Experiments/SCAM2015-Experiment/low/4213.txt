@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class Stutter {
+
+    static String stutterString = "";
+
+    public static String stutter ( String s ) {
+        if(s.length() > 0)
+        {
+            return stutterString.concat(s.substring(0,1)).concat(s.substring(0,1)).concat(stutter(s.substring(1)));
+        }
+        else
+        {
+            return stutterString;
+        }
+    }
+
+    public static void main ( String [] args ) {
+
+
+        Scanner inputScanner = new Scanner ( System.in );
+
+        System.out.println ( "What word would you like to stutter?" );
+        String userInput = inputScanner.next();
+
+        inputScanner.close();
+
+        System.out.println ( stutter ( userInput ) );
+
+    }
+
+}

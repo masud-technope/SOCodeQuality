@@ -1,0 +1,7 @@
+public String getFirstName(Person person) {
+  try {
+     return person.getName().getGivenName();
+  } catch (NullPointerException ignored) {
+     return null;
+  }
+}

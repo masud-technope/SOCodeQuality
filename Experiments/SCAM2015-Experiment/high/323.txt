@@ -1,0 +1,12 @@
+std::vector< double > my_doubles;
+// ... populate doubles
+some_function( my_doubles.begin(), my_doubles.end() );
+
+
+std::set< Custom > my_custom_class_set;
+// ... populate ...
+some_function( my_custom_class_set.begin(), my_custom_class_set.end() );
+
+int raw_array[50];
+// ... populate ...
+some_function( raw_array, raw_array + 50 );

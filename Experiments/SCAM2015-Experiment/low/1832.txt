@@ -1,0 +1,4 @@
+ArrayList<Person> someNameOfTheArrayList = new ArrayList<Person>();
+
+someNameOfTheArrayList.add(new Person("Jim", 32));
+someNameOfTheArrayList.add(new Person("Alex", 22));

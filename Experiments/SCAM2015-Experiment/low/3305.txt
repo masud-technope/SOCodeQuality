@@ -1,0 +1,11 @@
+public class Person
+//Breed method here
+
+public class Walker extends Person
+//Walk method here
+
+public class Talker extends Person
+//Talk method here
+
+public class Swimmer extends Person
+//Swim, talk & walk method here

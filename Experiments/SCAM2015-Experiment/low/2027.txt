@@ -1,0 +1,36 @@
+//%%%%%%%%%%%%%%%%%%%%%% HEX to ASCII %%%%%%%%%%%%%%%%%%%%%%
+public String convertHexToString(String hex){
+
+ String ascii="";
+ String str;
+
+ // Convert hex string to "even" length
+ int rmd,length;
+ length=hex.length();
+ rmd =length % 2;
+ if(rmd==1)
+ hex = "0"+hex;
+
+  // split into two characters
+  for( int i=0; i<hex.length()-1; i+=2 ){
+
+      //split the hex into pairs
+      String pair = hex.substring(i, (i + 2));
+      //convert hex to decimal
+      int dec = Integer.parseInt(pair, 16);
+      str=CheckCode(dec);
+      ascii=ascii+" "+str;
+  }
+  return ascii;
+}
+
+public String CheckCode(int dec){
+  String str;
+
+          //convert the decimal to character
+        str = Character.toString((char) dec);
+
+      if(dec<32 || dec>126 && dec<161)
+             str="n/a";  
+  return str;
+}

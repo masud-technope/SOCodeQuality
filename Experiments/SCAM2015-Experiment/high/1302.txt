@@ -1,0 +1,4 @@
+BufferedReader br = new BufferedReader(new FileReader("path_to_some_file"));     
+if (br.readLine() == null) {
+    System.out.println("No errors, and file empty");
+}

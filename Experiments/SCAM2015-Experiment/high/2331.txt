@@ -1,0 +1,9 @@
+int farthestPoint(Pattern pattern, String input) {
+    for (int i = input.length - 1; i > 0; i--) {
+        Matcher matcher = pattern.matcher(input.substring(0, i));
+        if (!matcher.matches() && matcher.hitEnd()) {
+            return i;
+        }
+    }
+    return 0;
+}

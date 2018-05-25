@@ -1,0 +1,19 @@
+public class cal {
+
+    public int total = 11;
+    public int count = 2508;
+    public double calRatio;
+
+    public void caln () {
+
+        calRatio = count / total;
+
+        System.out.print(calRatio);
+
+    }
+
+    public double getRatio () {
+        return calRatio;
+    }
+
+}

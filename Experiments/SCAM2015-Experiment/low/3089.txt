@@ -1,0 +1,58 @@
+public class POC {
+    public static void main(String args[]) {
+        new POC().run();
+    }
+
+    private void run() {
+        SomeClass sc = new SomeClass();
+        say("BEFORE: ");
+        sc.showArray();
+
+        DifferentClass dc = new DifferentClass();
+        dc.manipulateArray(sc);
+
+        say("---");
+        say("AFTER: ");
+        sc.showArray();
+    }
+
+    private class SomeClass {
+        private int array[];
+
+        public SomeClass() {
+            array = new int[3];
+
+            array[0] = 1;
+            array[1] = 1;
+            array[2] = 1;
+        }
+
+        public void showArray() {
+            for (int i = 0; i < array.length; i++) {
+                say(i + ">" + array[i]);
+            }
+        }
+    }
+
+    private class DifferentClass {
+        public void manipulateArray(SomeClass sc) {
+            try {
+                Field arrayField = sc.getClass().getDeclaredField("array");
+                arrayField.setAccessible(true);
+
+                Object array = arrayField.get(sc);
+                for (int i = 0; i < Array.getLength(array); i++) {// equivalent to for(int i=0;i<3;i++){
+                    Array.set(array, i, 0); // equivalent to array[i]=0;
+                }
+
+                arrayField.setAccessible(false);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void say(String msg) {
+        System.out.println(msg);
+    }
+}

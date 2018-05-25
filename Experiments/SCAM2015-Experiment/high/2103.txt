@@ -1,0 +1,9 @@
+URL url = MyClass.class.getResource("resources/");
+if (url == null) {
+     // error - missing folder
+} else {
+    File dir = new File(url.toURI());
+    for (File nextFile : dir.listFiles()) {
+        // Do something with nextFile
+    }
+}

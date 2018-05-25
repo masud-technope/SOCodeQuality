@@ -1,0 +1,12 @@
+class NonUIThread { 
+     private NonUIThreadDelegate delegate; //NonUIThreadDelegate can be an interface or an object that has access to your UI thread like an Activity
+
+     public void setDelegate(NonUIThreadDelegate delegate) {
+        this.delegate = delegate;
+     }
+
+     private void doSomthing() { 
+        //do something and at the end:
+        delegate.someMethodThatUpdatesThatComponent();
+     } 
+ }

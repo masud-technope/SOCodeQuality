@@ -1,0 +1,4 @@
+int n = foo.length;
+while (n-- > 0) {
+  /* Do something with foo[n] */
+}

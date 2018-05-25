@@ -1,0 +1,18 @@
+public void copyFilesAndStore(File[] files, DataObject additionalData){
+
+    YourExceptionClass encounteredException = new YourExceptionClass();
+
+    for (File f in files){
+        try {
+            copyFileToDestination(f);
+        } catch (IOException ex) {
+            log(ex);
+            encounteredException.addFile(f);
+        }
+    }
+
+    updateDatabase(additionalData);
+
+    if (encounteredException.hasFiles)
+        throw(encounteredException);
+}

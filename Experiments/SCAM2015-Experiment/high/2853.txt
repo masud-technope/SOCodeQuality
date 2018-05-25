@@ -1,0 +1,6 @@
+Math.sin(D)      Total:       42 ms,     Per Op: 0.0102539 ms
+(F)Math.sin(F)   Total:       33 ms,     Per Op: 0.0080566 ms
+FloatMath.sin(F) Total:       38 ms,     Per Op: 0.0092773 ms
+
+Math.exp(D)      Total:       56 ms,     Per Op: 0.0136719 ms
+(F)Math.exp(F)   Total:       47 ms,     Per Op: 0.0114746 ms

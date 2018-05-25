@@ -1,0 +1,4 @@
+String inLine = in.nextLine();
+String[] parts = inLine.split("--@");
+String toWrite = parts[0] + " " + parts[1];
+outLine.write(toWrite);

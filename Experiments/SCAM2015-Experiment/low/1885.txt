@@ -1,0 +1,3 @@
+String example = "["41020834846 - Yan Oda 1";
+    String pattern = "^(\[\")";
+    example = example.replaceAll(pattern,""));

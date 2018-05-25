@@ -1,0 +1,12 @@
+public void listFilesForFolder(final File folder) {
+            for (final File fileEntry : folder.listFiles()) {
+                if (fileEntry.isDirectory()) {
+                    listFilesForFolder(fileEntry);
+                } else {
+                    if(fileEntry.getName().contains("20120614"){
+//code to compare the latest date
+}
+
+                }
+        }
+}

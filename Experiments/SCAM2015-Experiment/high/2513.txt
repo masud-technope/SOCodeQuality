@@ -1,0 +1,7 @@
+class Class2{
+   //pass the instance of Class1 to Class2
+   public Class2(Class1 class1){
+      class1.getVar1(); //invoke method here
+   }
+
+}

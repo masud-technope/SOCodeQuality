@@ -1,0 +1,12 @@
+class Node{
+  // level deep of this node, can use to format the display like
+  // 4 level deep will have four leading spaces
+  private int level;
+  // the actual text
+  private String text;
+  // Parent Node for this, can be null if this is the root node, set this when creating
+  private Node parent;
+  // children of this Node
+  private List<Node> children; 
+  // Getters and setters for the above properties....
+}

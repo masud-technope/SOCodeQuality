@@ -1,0 +1,24 @@
+String inString = "";
+byte[] buffer = new byte[1024];  // buffer store for the stream
+int bytes; // bytes returned from read()
+
+while (true) {
+    try {
+        bytes = mmInStream.read(buffer);
+        String chunk = new String(buffer, 0, bytes);
+        if(chunk.contains(";"))
+        {
+            inString += chunk.substring(0,chunk.indexOf(';'));
+            Message msg = new Message();
+            msg.obj  = inString;
+            handler.sendMessage(msg);
+            inString =  chunk.substring(chunk.indexOf(';'));
+        }
+        else
+        {
+            inString += chunk;
+        }
+    } catch (IOException e) {
+        break;
+    }
+}

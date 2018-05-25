@@ -1,0 +1,8 @@
+boolean isPalin = true;
+for ( int i = 0; i < theWord.length( )/2; i++ ) { // loop goes till half since no need to check after that
+     if ( !(theWord.charAt(i) == theWord.charAt (theWord.length() - 1 - i)) ) { // will check each letter with each end letter
+         isPalin = false;
+         break;
+     }
+}
+return isPalin;

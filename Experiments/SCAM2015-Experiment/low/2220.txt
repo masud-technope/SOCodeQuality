@@ -1,0 +1,21 @@
+@Test
+    public void sftpClientTest() throws JSchException {
+
+        JSch jsch = new JSch();
+
+        Session session = jsch.getSession( "root", "hostname", 2port );
+        java.util.Properties config = new java.util.Properties();
+        config.put("StrictHostKeyChecking", "no");
+        config.put("PreferredAuthentications","password");
+        session.setConfig(config);
+
+        session.setPassword( "1234" );
+        session.connect( 60000 );
+        com.jcraft.jsch.Channel channel = session.openChannel("sftp");
+        ChannelSftp sftp = ( ChannelSftp ) channel;
+        sftp.connect( 60000 );
+        System.out.println("baglanti saglandi");
+        sftp.disconnect();
+        System.out.println("baglanti sonlandi");
+
+    }

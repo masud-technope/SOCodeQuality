@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class sortArrayList {
+
+    public static void main(string args[]) {
+        List<Integer> arrList = new ArrayList<Integer>();
+        while (scanner.hasNextIint()) {
+            arrList.add(scanner.nextInt());
+        }
+        Collections.sort(arrList);
+    }
+}

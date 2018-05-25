@@ -1,0 +1,4 @@
+interface MixedProcessor {
+    void processBinaryData(byte[] bytes, int off, int len);
+    void processText(String line);
+}

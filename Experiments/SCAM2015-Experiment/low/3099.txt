@@ -1,0 +1,7 @@
+List list=new ArrayList();
+list.add("Joe");
+list.add("Jasha");
+if(person.containsAll(list))
+{
+   //do something
+}

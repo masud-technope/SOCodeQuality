@@ -1,0 +1,36 @@
+/**
+ * Get the free disk available space in boolean to download requested file 
+ * 
+ * @return boolean value according to size availability
+ */
+
+protected static boolean isMemorySizeAvailableAndroid(long download_bytes, boolean isExternalMemory) {
+    boolean isMemoryAvailable = false;
+    long freeSpace = 0;
+
+    // if isExternalMemory get true to calculate external SD card available size
+    if(isExternalMemory){
+        try {
+            StatFs stat = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            freeSpace = (long) stat.getAvailableBlocks() * (long) stat.getBlockSize();
+            if(freeSpace > download_bytes){
+                isMemoryAvailable = true;
+            }else{
+                isMemoryAvailable = false;
+            }
+        } catch (Exception e) {e.printStackTrace(); isMemoryAvailable = false;}
+    }else{
+        // find phone available size
+        try {
+            StatFs stat = new StatFs(Environment.getDataDirectory().getPath());
+            freeSpace = (long) stat.getAvailableBlocks() * (long) stat.getBlockSize();
+            if(freeSpace > download_bytes){
+                isMemoryAvailable = true;
+            }else{
+                isMemoryAvailable = false;
+            }
+        } catch (Exception e) {e.printStackTrace(); isMemoryAvailable = false;}
+    }
+
+    return isMemoryAvailable;
+}

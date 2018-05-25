@@ -1,0 +1,7 @@
+// returns the size of this object in bytes
+int sizeOf()
+{
+     int size = 0;
+     size += name.Length * 2; // each character in name is 2 bytes, no?
+     size += 4; // for n, which is 32 bits = 4 bytes
+}

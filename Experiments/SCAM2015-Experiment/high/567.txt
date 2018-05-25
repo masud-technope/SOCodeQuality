@@ -1,0 +1,3 @@
+class ImportTests {
+    private java.util.Collection collection;
+}

@@ -1,0 +1,8 @@
+short t=0;
+//int t=0;
+//long t=0;
+for(many many times...)
+{
+  t+=1;
+  t-=1;
+}

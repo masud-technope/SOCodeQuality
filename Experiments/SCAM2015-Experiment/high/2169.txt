@@ -1,0 +1,19 @@
+public class LimitedArrayList<E> extends ArrayList<E>{
+
+private final int capacity;
+
+public LimitedArrayList(int capacity) {
+    super(capacity);
+    this.capacity = capacity;
+
+}
+@Override
+public boolean add(E e) {
+    if(size()>=capacity){
+        throw new ListFullExcption();
+    }
+    return super.add(e);
+}
+
+    // there are more add methods to override but i will let you figure that out.
+}

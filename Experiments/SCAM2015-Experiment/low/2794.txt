@@ -1,0 +1,9 @@
+public static void main(String[] args) {
+    // TODO Auto-generated method stub
+     String[] stringArrays ={"a","s","d","f",};
+     for (int i = 0; i < stringArrays.length; i++) {
+        System.out.println(stringArrays[i]);
+    }
+
+
+}

@@ -1,0 +1,7 @@
+public void testCase(@Mocked("methodToBeMocked") final ClassBoBeMocked mockedInstance) {
+           new Expectations() {{
+                   mockedInstance.methodToBeMocked(someParameter); returns(whateverYouLikeItToReturn);
+           }}
+
+   mockedInstance.callSomemethod();
+}

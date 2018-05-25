@@ -1,0 +1,11 @@
+public static void f(int x)
+    {
+        if (x > 0)
+        {
+            System.out.println(x);
+            f(x-1);    //at this point it will call itself as f(2)
+            System.out.println(x);
+            f(x-1);
+        }
+        System.out.println("bert");
+    }

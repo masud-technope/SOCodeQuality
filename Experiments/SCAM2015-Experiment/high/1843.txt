@@ -1,0 +1,9 @@
+public boolean checkAll(ArrayList<String> list) {
+    for(int i = 0; i < listOfStrings.size(); i++) {
+        String candidate = listOfStrings.get(i);
+        if(candidate == null || !candidate.equals("1")) {
+            return false;
+        }
+    }
+    return true;
+}

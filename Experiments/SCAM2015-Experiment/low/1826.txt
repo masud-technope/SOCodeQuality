@@ -1,0 +1,7 @@
+String var1="5.5";
+
+if (var1.contains(".")){
+// it should be a double
+}else{
+// int
+}

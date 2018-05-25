@@ -1,0 +1,5 @@
+HashMap map = new HashMap<String, String>();
+Boolean isManufacturing = true;
+args.put("isManufacturingKey", isManufacturing);   
+map.put("isManufactringChecked",workflow.getEmergencyChange());
+Executions.createComponents("/myZul.zul", null , map);

@@ -1,0 +1,4 @@
+int a = Integer.parseInt(a[0]);
+int b = Integer.parseInt(a[1]);
+
+int temp = a+b;

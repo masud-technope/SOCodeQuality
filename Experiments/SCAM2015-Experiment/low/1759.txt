@@ -1,0 +1,30 @@
+@Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View v = convertView;
+        final TextView textView;
+        final EditText et;
+        final Button sub;
+
+        if (v == null) {
+            v = inflater.inflate(R.layout.row, null);
+            textView = (TextView) v.findViewById(R.id.tvLabel);
+            textView.setText("Hello"+position);
+            et = (EditText) v.findViewById(R.id.etWhatToFill);
+            sub = (Button) v.findViewById(R.id.btnSubmit);
+            v.setTag(new LazyViewHolder(textView, et, sub));
+            sub.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    // TODO Auto-generated method stub
+                textView.setText(et.getText().toString());  
+                }
+            });
+        } else {
+            LazyViewHolder viewHolder = (LazyViewHolder) v.getTag();
+            sub = viewHolder.getBtnSub();
+            et=viewHolder.getEt();
+            textView = viewHolder.getText();
+        }
+        return v;
+    }

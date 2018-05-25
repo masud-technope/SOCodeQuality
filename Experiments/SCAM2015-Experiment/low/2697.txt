@@ -1,0 +1,5 @@
+protected void finalize() {
+    // free resources consumed by this class
+    // chain upward:
+    super.finalize() ;
+}

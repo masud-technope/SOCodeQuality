@@ -1,0 +1,7 @@
+String s = "prefix/dir1/dir2/dir3/dir4"
+
+String parts[] = s.split("/");
+
+System.out.println(s[0]); // "prefix"
+System.out.println(s[1]); // "dir1"
+...

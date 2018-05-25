@@ -1,0 +1,4 @@
+SharedPreferences prefs = getSharedPreferences("TOT", Context.MODE_PRIVATE);  
+    Editor ed = prefs.edit();  
+    ed.putString(key, value);  
+    ed.commit();

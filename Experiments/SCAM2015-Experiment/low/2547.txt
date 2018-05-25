@@ -1,0 +1,16 @@
+while(!destroy){
+
+    while(active){
+        try{
+            S = SS.accept();
+            IS = S.getInputStream();
+            if(IS!=null && IS.available()>0){
+                OIS = new ObjectInputStream(IS);
+                Character Char = (Character)OIS.readObject();
+                loading_state.setChar(Char);
+                pause();
+            }
+        }
+        catch(Exception e){  ..}
+    }
+}

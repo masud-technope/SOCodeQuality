@@ -1,0 +1,18 @@
+/*this is the second nested loop to print
+ 6666
+ 777
+ 88
+ 9 */
+    p=6;
+  for(i=4;i>=1;i--)
+  {
+   for(j=1;j<=i;j++)
+   {
+    System.out.print(p);
+   }
+    p=p+1;
+   System.out.println();
+  }
+
+  Hope it was helpul.
+  ALL THE BEST......enjoy!

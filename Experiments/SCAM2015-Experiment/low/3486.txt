@@ -1,0 +1,4 @@
+private String getAndroidID() {
+            String androidId = Settings.Secure.getString(getContentResolver(),Settings.Secure.ANDROID_ID);
+            return androidId;
+        }

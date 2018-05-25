@@ -1,0 +1,42 @@
+public class Main
+{
+    public static void main(final String[] argv)
+    {
+        final Main main;
+
+        main = new Main();
+        main.go();
+    }
+
+    public void go()
+    {
+        final Runnable runner;
+        final Thread   thread;
+
+        runner = new Foo(this);
+        thread = new Thread(runner);
+        thread.start();
+    }
+
+    public void callback()
+    {
+        System.out.println("hi!");
+    }
+}
+
+class Foo
+    implements Runnable
+{
+    private final Main main;
+
+    Foo(final Main m)
+    {
+        main = m;
+    }
+
+    public void run()
+    {
+        // try catch and handle the exception - the callback is how you notify main
+        main.callback();
+    }
+}

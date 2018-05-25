@@ -1,0 +1,5 @@
+for(int index = 0; index < contacts.length; index++) {
+    if(contacts[index].getName().equals(name)) {
+        // use the index here
+    }
+}

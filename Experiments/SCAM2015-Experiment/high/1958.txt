@@ -1,0 +1,4 @@
+List<?> list1 = Arrays.asList(1, 2, 3);
+List<?> list2 = Arrays.asList(1, 2, 3, "a");
+System.out.println(checkElementType(list1, Integer.class)); // true
+System.out.println(checkElementType(list2, Integer.class)); // false

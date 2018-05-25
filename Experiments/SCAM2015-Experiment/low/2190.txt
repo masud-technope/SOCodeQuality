@@ -1,0 +1,3 @@
+double  i = 2+Math.random()*100;
+int j = (int)i;
+System.out.print(j);

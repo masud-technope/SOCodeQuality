@@ -1,0 +1,3 @@
+String str = new String("1234$no");
+    str.replaceAll("[^A-Za-z0-9]", "");
+    return str;

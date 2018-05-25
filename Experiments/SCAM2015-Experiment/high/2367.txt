@@ -1,0 +1,3 @@
+interface Foo { }
+interface Bar { }
+static class FooBarImpl implements Foo, Bar { }

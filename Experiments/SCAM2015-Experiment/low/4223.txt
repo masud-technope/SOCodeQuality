@@ -1,0 +1,15 @@
+public class HelloWorld{
+
+  public static void main(String []args){
+      try{
+
+         String str = new String();
+         str.wait();
+     }catch(InterruptedException e){
+         System.out.println(e);
+     }catch(IllegalMonitorStateException e){
+         System.out.println(e);
+     }
+    System.out.println("Hello World");
+ }
+}

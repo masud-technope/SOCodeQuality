@@ -1,0 +1,3 @@
+String strFractionString = /* initialize the string, e.g., reading from input */
+Fraction myFrac = new Fraction(strFractionString); // parses string and assigns num & denom
+System.out.println("My Fraction: " + myFrac.numerator + "/" + myFrac.denominator);

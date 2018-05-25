@@ -1,0 +1,4 @@
+String yesNo(boolean b) {
+    String[] s = {"yes", "no"};
+    return b ? s[0] : s[1];
+}

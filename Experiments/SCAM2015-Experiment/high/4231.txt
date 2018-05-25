@@ -1,0 +1,33 @@
+package test;
+import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+@SessionScoped
+@ManagedBean(name = "loginBean")
+public class LoginBean implements Serializable {
+
+    LoginDTO loginDTO = new LoginDTO();
+
+    public String logIn() {
+        if (isLoginDataValid(loginDTO)) {
+            return "home.xhtml";
+        } else
+            return "index.xhtml";
+    }
+
+    private boolean isLoginDataValid(LoginDTO loginData) {
+        if (loginData.getUserName().equals("jts"))                  (this is just example logic)
+            return true;
+        else
+            return false;
+    }
+
+    public LoginDTO getLoginData() {
+        return loginDTO;
+    }
+
+    public void setLoginData(LoginDTO loginData) {
+        this.loginDTO = loginData;
+    }
+}

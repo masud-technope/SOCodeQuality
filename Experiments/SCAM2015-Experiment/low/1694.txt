@@ -1,0 +1,20 @@
+public static void main(String[] args){
+
+    String[] testStrings = { "<blockquote>1. ????1; ????2; </blockquote>",
+      "<blockquote>2. ????1; ????2; </blockquote>",
+      "<blockquote>1) ????1; ????2; </blockquote>",
+      "<blockquote>2) ????1; ????2; </blockquote>",
+      "<blockquote>1. 1) ????1; ????2; </blockquote>",
+      "<blockquote>1) 1. ????1; ????2; </blockquote>" };
+
+    for (String testString : testStrings){
+
+      String result = testString
+        .replace("<blockquote>", "")
+        .replace("</blockquote>", "")
+        .replaceAll("\\d\\.|\\d\\)", "")
+        .trim();
+
+      System.out.println(result);
+    }
+  }

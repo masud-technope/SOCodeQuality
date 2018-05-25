@@ -1,0 +1,22 @@
+public void printCoolStuff(int number_of_lines, int number_of_characters){
+
+    for(int i = 0; i < number_of_lines; i ++){
+
+        String left= "";
+        for(int j = 0; j < (2*i); j++){
+            left= left+ "\"
+        }
+
+        String middle = "";
+        for(int j = 0; j < (number_of_characters - 4*i); j++){
+            middle = middle + "!"
+        }
+
+        String right= "";
+        for(int j = 0; j < (2*i); j++){
+            right = right + "/"
+        }
+
+        System.out.println(left+middle+right);
+    }
+}

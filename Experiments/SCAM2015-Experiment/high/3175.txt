@@ -1,0 +1,5 @@
+private Properties loadProperties() throws IOException {
+    Properties props = new Properties();
+    props.load(new FileReader(new File("conf.txt")));
+    return props;
+}

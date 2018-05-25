@@ -1,0 +1,5 @@
+class demo extends HttpServlet {
+       public void init(ServletConfig config) {
+             String path = config.getServletContext().getRealPath("/");
+       }
+}

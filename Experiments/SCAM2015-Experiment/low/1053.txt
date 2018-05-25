@@ -1,0 +1,24 @@
+/**
+     * Allows you to add a path to the library path during runtime
+     * @param dllLocation The path you would like to add
+     * @return True if the operation completed successfully, false otherwise
+     */
+    public static boolean addDllLocationToPath(final String dllLocation)
+    {
+        //our return value
+        boolean retVal = false;
+        try
+        {
+            System.setProperty("java.library.path", System.getProperty("java.library.path") + ";" + dllLocation);
+            //get the sys path field
+            Field fieldSysPath = ClassLoader.class.getDeclaredField("sys_paths");
+            fieldSysPath.setAccessible(true);
+            fieldSysPath.set(null, null);
+            retVal = true;
+        }
+        catch (Exception e)
+        {
+            System.err.println("Could not modify path");
+        }
+        return retVal;
+    }

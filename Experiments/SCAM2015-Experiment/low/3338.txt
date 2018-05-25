@@ -1,0 +1,5 @@
+float f = 9.999f;
+
+DecimalFormat df = new DecimalFormat("00.00");
+
+System.out.println(df.format(f));

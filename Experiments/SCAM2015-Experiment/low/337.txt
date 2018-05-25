@@ -1,0 +1,8 @@
+String text = new String(buffer, "UTF-8");
+for (String command : text.split(";\n\n")) { 
+   try { command = command.trim(); 
+   //Log.d(TAG, "command: " + command); 
+   if (command.length() > 0) 
+      db.execSQL(command.trim()); 
+}
+catch(Exception e) {do whatever you need here}

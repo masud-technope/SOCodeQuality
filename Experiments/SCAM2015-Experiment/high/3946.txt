@@ -1,0 +1,51 @@
+public class mytest1 {
+
+    String path, keyword;
+
+    public static void main(String args[]){
+        mytest1. exec_script("normal");
+    }
+
+    public static void exec_script(String exec_path){
+        for (int i=0; i<10; i++){
+            if (i==4){
+                // exec_path = "spl";
+                tree("spl");
+            }
+
+            tree(exec_path);
+
+            // switch (exec_path){
+            // case "spl":
+            //     spl_case();
+            //     break;
+            // case "normal":
+            //     System.out.println("normal print");
+            //     break;
+            // case "call_action_path":
+            //     System.out.println("call action key word now");
+            //     break;
+            // }
+        }
+    }
+
+    public static void tree(String exec_path){
+        switch (exec_path){
+        case "spl":
+            spl_case();
+            break;
+        case "normal":
+            System.out.println("normal print");
+            break;
+        case "call_action_path":
+            System.out.println("call action key word now");
+            break;
+        }
+    }
+
+    public static void spl_case(){
+        System.out.println("inside function splcase now");
+        //exec_script("call_action_path");
+        tree("call_action_path");
+    }
+}

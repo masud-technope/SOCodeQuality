@@ -1,0 +1,7 @@
+<select> 
+<%
+for(int i=0; i<arr.size(); i++){
+<option value="<%= arr[i]%>"><%= arr[i]%></option>
+} 
+%>
+</select>

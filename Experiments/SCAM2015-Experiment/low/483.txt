@@ -1,0 +1,10 @@
+static final ArrayList<Element> myList = generateMyList();
+
+private static ArrayList<Element> generateMyList() {
+  final ArrayList<Element> result = new ArrayList<>();
+  result.add(new Element(1));
+  result.add(new Element(2));
+  result.add(new Element(3));
+  result.add(new Element(4));
+  return result;
+}

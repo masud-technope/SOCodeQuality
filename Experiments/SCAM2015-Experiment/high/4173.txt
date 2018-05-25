@@ -1,0 +1,7 @@
+boolean[][] seatArray = new boolean[4][4];
+
+    for(int x = 0; x < seatArray.length; x++){
+        for(int y = 0; y < seatArray[x].length; y++){
+            seatArray[x][y] = false;
+        }
+    }

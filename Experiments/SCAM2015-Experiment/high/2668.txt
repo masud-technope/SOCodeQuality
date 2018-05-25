@@ -1,0 +1,30 @@
+//iterate over all values
+for (int i=0; i<array.size(); i++) {
+    //get the value at the current position
+    Integer value= array.get(i);
+
+    //if the value is null...
+    if (value == null) {
+
+        //find out the closes left and right values
+        Integer leftValue= goLeft(array, i);
+        Integer rightValue= goRight(array, i);
+
+        //if both are integer values, find middle
+        if (leftValue != null && rightValue != null) {
+            array.add(i, (leftValue + rightValue)/2);
+
+        //if left one is integer, and the other one is null? end of the array
+        } else if (leftValue != null && rightValue == null) {
+            array.add(i, leftValue);
+
+        //if the right one is integer, and the left one is null? begin of the array
+        } else if (leftValue == null && rightValue != null) {
+            array.add(i, rightValue);
+
+        //well, if everything is null, just add zeros
+        } else {
+            array.add(i, 0);
+        }
+    }
+}

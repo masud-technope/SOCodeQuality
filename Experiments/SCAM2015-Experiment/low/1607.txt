@@ -1,0 +1,7 @@
+int num=1234;
+    String text=""+num;
+    String t1=text.substring(0, 2);
+    String t2=text.substring(2, 4);
+    int num1=Integer.valueOf(t1);
+    int num2=Integer.valueOf(t2);
+    System.out.println(num1+" "+num2);

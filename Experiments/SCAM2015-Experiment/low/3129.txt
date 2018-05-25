@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS Lid (
+        lid_id          INT(2)      NOT NULL,
+        naam            VARCHAR(45) NOT NULL,
+        email           VARCHAR(45) NOT NULL,
+        tel_nummer      VARCHAR(45) NOT NULL,
+        score           INT(2)      NOT NULL,
+        expertise       VARCHAR(45) NOT NULL,
+        team_id         INT(2)      NOT NULL,
+primary key (lid_id));
+
+CREATE TABLE IF NOT EXISTS Team (
+        team_id     INT(2)          NOT NULL,
+        naam        VARCHAR(45) NOT NULL,
+        score       INT(2)          NOT NULL,
+        captain     INT(2)          NOT NULL,
+        expertise   VARCHAR(45) NOT NULL,
+primary key (team_id),
+foreign key (captain) references Lid(lid_id));
+
+ALTER TABLE Lid ADD foreign key (team_id) references Team(team_id);

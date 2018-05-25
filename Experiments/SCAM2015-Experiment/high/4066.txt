@@ -1,0 +1,141 @@
+package com.example.textviewdemo;
+
+    import java.util.ArrayList;
+    import java.util.List;
+
+    import android.content.Intent;
+    import android.os.Bundle;
+    import android.support.v7.app.ActionBarActivity;
+    import android.view.View;
+    import android.view.ViewGroup.LayoutParams;
+    import android.widget.Button;
+    import android.widget.EditText;
+    import android.widget.LinearLayout;
+    import android.widget.TextView;
+
+    public class MainActivity extends ActionBarActivity {
+
+        private TextView addTv;
+        private EditText edt, edtAdd, edArray;
+        private Button add, delete, submit;
+        LinearLayout layout;
+        List<EditText> allEds;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+
+            edt = (EditText) findViewById(R.id.editText1);
+            add = (Button) findViewById(R.id.button1);
+            delete = (Button) findViewById(R.id.button2);
+            submit = (Button) findViewById(R.id.button3);
+
+            layout = (LinearLayout) findViewById(R.id.LinearLayout);
+
+            add.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    int no = Integer.parseInt(edt.getText().toString());
+                    allEds = new ArrayList<EditText>();
+
+                    for (int i = 0; i < no; i++) {
+
+                        addTv = new TextView(MainActivity.this);
+
+                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                                LayoutParams.WRAP_CONTENT,
+                                LayoutParams.WRAP_CONTENT);
+                        layout.setLayoutParams(params);
+                        addTv.setText("TextView " + i);
+                        addTv.setId(i);
+                        layout.addView(addTv);
+
+                        edtAdd = new EditText(MainActivity.this);
+
+                        layout.setLayoutParams(params);
+                        allEds.add(edtAdd);
+                        edtAdd.setText("Test" + i);
+                        edtAdd.setId(i);
+                        layout.addView(edtAdd);
+                    }
+                }
+            });
+            submit.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Intent data = new Intent(MainActivity.this, Display.class);
+                    String[] items = new String[allEds.size()];
+                    String str = String.valueOf(allEds.size());
+                    for (int j = 0; j < allEds.size(); j++) {
+                        items[j] = allEds.get(j).getText().toString();
+                        /*
+                         * Toast.makeText(getApplicationContext(), items[j],
+                         * Toast.LENGTH_SHORT).show();
+                         */
+                    }
+                    //changes made here
+                        data.putExtra("edData", items);
+                        data.putExtra("size", str);
+
+                    startActivity(data);
+                }
+            });
+            delete.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    layout.removeAllViews();
+
+                }
+            });
+        }
+    }
+
+
+
+package com.example.textviewdemo;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class Display extends ActionBarActivity {
+
+    TextView getText;
+    LinearLayout linear;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.display);
+        Intent get = getIntent();
+
+        linear = (LinearLayout) findViewById(R.id.LinearLayout_1);
+
+        int size = Integer.parseInt((get.getExtras().getString("size")));
+        for (int i = 0; i < size; i++) {
+            getText = new TextView(Display.this);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+
+
+            String[] data = get.getExtras().getString("edData");
+            String textOnRequest = ";
+            for(int i=0 ; i < data.length ; i++){
+                textOnResponse += data[i];
+            }
+            getText.setText(textOnResponse);
+            linear.setLayoutParams(params);
+            getText.setId(i);
+            linear.addView(getText);
+        }
+
+    }
+}

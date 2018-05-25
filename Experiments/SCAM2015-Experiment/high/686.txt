@@ -1,0 +1,44 @@
+NAME*ADRESS LINE1*ADDRESS LINE2*
+  Name: NAME
+  Address Line1: ADRESS LINE1
+  Address Line2: ADDRESS LINE2
+
+NAME*ADRESS LINE1**
+  Name: NAME
+  Address Line1: ADRESS LINE1
+  Address Line2: 
+
+NAME**ADDRESS LINE2*
+  Name: NAME
+  Address Line1: 
+  Address Line2: ADDRESS LINE2
+
+NAME***
+  Name: NAME
+  Address Line1: 
+  Address Line2: 
+
+*ADDRESS LINE1*ADDRESS LINE2*
+  Name: 
+  Address Line1: ADDRESS LINE1
+  Address Line2: ADDRESS LINE2
+
+*ADDRESS LINE1**
+  Name: 
+  Address Line1: ADDRESS LINE1
+  Address Line2: 
+
+**ADDRESS LINE2*
+  Name: 
+  Address Line1: 
+  Address Line2: ADDRESS LINE2
+
+***
+  Name: 
+  Address Line1: 
+  Address Line2: 
+
+-MS DEBBIE GREEN*1036 PINEWOOD CRES**
+  Name: -MS DEBBIE GREEN
+  Address Line1: 1036 PINEWOOD CRES
+  Address Line2:

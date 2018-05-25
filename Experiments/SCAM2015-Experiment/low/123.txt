@@ -1,0 +1,10 @@
+public static int pythonDiv(int a, int b) {
+    if (!((a < 0) ^ (b < 0))) {
+        return a / b;
+    }
+    return (int)(Math.floor((double)a/(double)b));
+}
+
+public static int pythonMod(int a, int b) {
+    return a - b * pythonDiv(a,b);
+}

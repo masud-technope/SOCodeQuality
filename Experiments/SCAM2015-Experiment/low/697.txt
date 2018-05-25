@@ -1,0 +1,4 @@
+String myString = "else something"; 
+
+if (someCondition)
+   myString = "something";

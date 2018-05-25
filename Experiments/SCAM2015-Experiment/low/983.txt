@@ -1,0 +1,4 @@
+SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+String dates=formatter.format(mydate);
+//mydate is your date object

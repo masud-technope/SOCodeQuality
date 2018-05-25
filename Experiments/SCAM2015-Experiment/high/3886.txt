@@ -1,0 +1,3 @@
+Map<String, Object> model = new HashMap<String, Object>();
+model.put("myImage", Base64.encode(MyImage)); //MyImage (datatype 'byte[]') is the image retrieved from DB
+return new ModelAndView("display", model); //display is the name of jsp on which you want to display image

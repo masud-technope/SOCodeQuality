@@ -1,0 +1,21 @@
+package practice;
+
+import java.io.IOException;
+
+class Practice
+{
+    public static void main(String args[])
+    {
+        Exception n=new NullPointerException();
+        if(n instanceof RuntimeException)
+        {
+            System.out.println("this is a runtime(unchecked) exception");
+        }
+        else
+        {
+            System.out.println("this is not a compiletime(checked) exception");
+        }
+
+    }
+
+}

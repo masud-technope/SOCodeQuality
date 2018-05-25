@@ -1,0 +1,4 @@
+for (AbstractDevice device : mDevicesList){
+int curIndex = mDevicesList.indexOf(device));
+
+            }

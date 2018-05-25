@@ -1,0 +1,15 @@
+boolean doLoop = true;
+
+while(doLoop){
+
+    if(userTerminates()){ //user terminates it?
+         doLoop = false;
+    }
+}
+
+private boolean userTerminates(){
+    Scanner scanner = new Scanner(System.in);
+
+    //If you want that user terminates it with 'c' char
+    return scanner.nextLine().equals("c");
+}

@@ -1,0 +1,12 @@
+String.EMPTY = ""; //Simply demonstrating. I realize this is invalid syntax
+
+myVar0 = String.EMPTY;
+myVar1 = String.EMPTY;
+myVar2 = String.EMPTY;
+myVar3 = String.EMPTY;
+myVar4 = String.EMPTY;
+myVar5 = String.EMPTY;
+myVar6 = String.EMPTY;
+myVar7 = String.EMPTY;
+myVar8 = String.EMPTY;
+myVar9 = String.EMPTY;

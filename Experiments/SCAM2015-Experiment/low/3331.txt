@@ -1,0 +1,4 @@
+f - static
+son - static
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 3
+    at kanwal.Son.main(Son.java:20)

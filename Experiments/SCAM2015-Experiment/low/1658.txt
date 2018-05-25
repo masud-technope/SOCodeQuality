@@ -1,0 +1,3 @@
+int compare;
+if (!input.contains("<body>"))
+compare = output.replaceAll("<body>","").replaceAll("</body>","").compareTo(input);

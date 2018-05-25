@@ -1,0 +1,16 @@
+import java.lang.management.*
+import javax.management.ObjectName
+import javax.management.remote.JMXConnectorFactory as JmxFactory
+import javax.management.remote.JMXServiceURL as JmxUrl
+import groovy.swing.SwingBuilder
+import javax.swing.WindowConstants as WC
+
+def serverUrl = 'service:jmx:rmi:///jndi/rmi://localhost:9003/jmxrmi'
+String beanName = "com.webwars.gameplatform.data:type=udmdataloadsystem,id=0"
+def server = JmxFactory.connect(new JmxUrl(serverUrl)).MBeanServerConnection
+def dataSystem = new GroovyMBean(server, beanName)
+
+println "Connected to:\n$dataSystem\n"
+
+println "Executing jmxForceRefresh()"
+dataSystem.jmxForceRefresh();

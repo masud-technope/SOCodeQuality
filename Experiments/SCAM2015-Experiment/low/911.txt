@@ -1,0 +1,7 @@
+//Do you think I'm sexy?
+if(list1.length == list2.length){
+    for (int i = 0; i < list1.length; ++i) {
+        doStuff(list1[i]);
+        doStuff(list2[i]);
+    }
+}

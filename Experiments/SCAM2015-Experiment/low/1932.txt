@@ -1,0 +1,4 @@
+public void placeOrder(Order o) {
+    orders.add(o);
+    o.setCustomer(this);
+}

@@ -1,0 +1,7 @@
+ArrayList<Integer> list = new ArrayList<Integer>();
+
+list.add(12);
+list.add(12345);
+list.add(999999999);
+
+System.out.println(getMaxSequence(list));

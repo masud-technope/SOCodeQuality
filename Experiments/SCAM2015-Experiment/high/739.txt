@@ -1,0 +1,4 @@
+BigDecimal a = new BigDecimal("1.31");
+System.out.println(a.scale()); //prints 2
+BigDecimal b = new BigDecimal("1.310");
+System.out.println(b.scale()); //prints 3

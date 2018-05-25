@@ -1,0 +1,4 @@
+public class Holder{
+    String someString = "foo";
+    int someInt = 10;
+}

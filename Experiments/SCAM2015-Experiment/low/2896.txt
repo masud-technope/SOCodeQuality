@@ -1,0 +1,9 @@
+public static void main(String[] args) {
+    String s="hello";
+    tryToMutateString(s);
+    System.out.println(s); //Will just print "hello" since our s still refers to that
+}
+
+public static void tryToMutateString(String given) {
+    given += "mutated"; //Creates a new String, the string that given pointed to earlier won't change
+}

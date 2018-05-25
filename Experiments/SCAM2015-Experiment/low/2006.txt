@@ -1,0 +1,33 @@
+//locations to calculate difference with 
+    Location me   = new Location(""); 
+    Location dest = new Location(""); 
+
+    //set lat and long of comparison obj 
+    me.setLatitude(_mLat); 
+    me.setLongitude(_mLong); 
+
+    //init to circumference of the Earth 
+    float smallest = 40008000.0f; //m 
+
+    //var to hold id of db element we want 
+    Integer id = 0; 
+
+    //step through results 
+    while(_myCursor.moveToNext()){ 
+
+        //set lat and long of destination obj 
+        dest.setLatitude(_myCursor.getFloat(_myCursor.getColumnIndexOrThrow(DataBaseHelper._FIELD_LATITUDE))); 
+        dest.setLongitude(_myCursor.getFloat(_myCursor.getColumnIndexOrThrow(DataBaseHelper._FIELD_LONGITUDE))); 
+
+        //grab distance between me and the destination 
+        float dist = me.distanceTo(dest); 
+
+        //if this is the smallest dist so far 
+        if(dist < smallest){ 
+            //store it 
+            smallest = dist; 
+
+            //grab it's id 
+            id = _myCursor.getInt(_myCursor.getColumnIndexOrThrow(DataBaseHelper._FIELD_ID)); 
+        } 
+    }

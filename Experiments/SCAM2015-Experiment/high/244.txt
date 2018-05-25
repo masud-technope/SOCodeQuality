@@ -1,0 +1,4 @@
+DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+Date date = dateFormat.parse("23/09/2007");
+long time = date.getTime();
+new Timestamp(time);

@@ -1,0 +1,5 @@
+<entry>
+   <key>somekey</key>
+   <value lang="en">good bye</value>
+   <value lang="es">hasta luego</value>
+</entry>

@@ -1,0 +1,3 @@
+resultSet = statement.executeQuery
+        ("SELECT name, price FROM menu WHERE category='" + cat + "');
+                                              put + symbol here^

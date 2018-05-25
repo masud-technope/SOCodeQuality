@@ -1,0 +1,8 @@
+Words command = Words.valueOf();
+///
+switch (command) {
+    case start: /* start something */ break;
+    case stop: /* stop something */ break;
+    case beep: /* beep!!! */ break;
+    default: throw new IllegalArgumentException("Unknown command " + command);
+}

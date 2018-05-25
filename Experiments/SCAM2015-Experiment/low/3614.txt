@@ -1,0 +1,26 @@
+public void run_btn_1() {
+new Thread(new Runnable() {
+
+    @Override
+    public void run() {
+
+        //loop
+        secondaryButton.setVisible(true);
+        primaryButton.setEnabled(true);
+
+    }
+}).start();
+}
+
+public void run_btn_2() {
+new Thread(new Runnable() {
+
+    @Override
+    public void run() {
+
+        // loop
+        primaryButton.setVisible(true);
+        secondaryButton.setEnabled(true);
+    }
+}).start();
+}

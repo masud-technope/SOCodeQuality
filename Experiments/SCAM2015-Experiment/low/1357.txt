@@ -1,0 +1,3 @@
+String a = "abcd,fg;ijkl, cas";
+String[] result = a.split(",[ ]*");
+String expectedResult = result[result.length - 1]);

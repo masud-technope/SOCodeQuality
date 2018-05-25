@@ -1,0 +1,5 @@
+public class MyClass
+{
+     public static final String endpoint= "http://localhost:8080/myClass":
+     /* ...*/
+}

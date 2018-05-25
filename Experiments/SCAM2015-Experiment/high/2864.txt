@@ -1,0 +1,4 @@
+String imgpath = "/mnt/sdcard/joke.png";
+
+String result = imgpath.substring(imgpath.lastIndexOf("/") + 1); 
+System.out.println("Image name " + result);

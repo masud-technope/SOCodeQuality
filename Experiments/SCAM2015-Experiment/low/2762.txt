@@ -1,0 +1,4 @@
+y obj=new y();
+
+obj.setsppAcronym(getAcronym);
+String sppAcronym=obj.getsppAcronym();

@@ -1,0 +1,10 @@
+class C 
+{
+    int i = 5;
+    byte[] s;
+
+    public C()
+    {
+        s = new byte[i];
+    }
+}

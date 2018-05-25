@@ -1,0 +1,19 @@
+scala> val millis = 5000
+millis: Int = 5000
+
+scala> val df = new java.text.SimpleDateFormat("HH:mm:ss")
+df: java.text.SimpleDateFormat = java.text.SimpleDateFormat@8140d380
+
+scala> df.format(millis)
+res0: java.lang.String = 01:00:05
+
+scala> df.getTimeZone.getID
+res1: java.lang.String = GB
+
+scala> df.getTimeZone.getOffset(millis)
+res2: Int = 3600000
+
+scala> df.setTimeZone(java.util.TimeZone.getTimeZone("GMT"))
+
+scala> df.format(millis)
+res3: java.lang.String = 00:00:05

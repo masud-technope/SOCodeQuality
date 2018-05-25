@@ -1,0 +1,4 @@
+Method in A:
+public Object some_method() {....}
+Method in B:
+public Integer some_method() {....}

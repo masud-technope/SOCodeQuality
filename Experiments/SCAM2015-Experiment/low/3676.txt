@@ -1,0 +1,11 @@
+public static void printArray(String id){
+    if(id.equals("A")){
+        // print the content of array A
+    } else if(id.equals("B")){
+        // print the content of array B
+    } else if(id.equals("C")){
+        // print the content of array C
+    } else {
+        System.out.println("I don't know that array");
+    }
+}

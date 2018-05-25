@@ -1,0 +1,6 @@
+Calendar calendar = new GregorianCalendar(TimeZone.getTimeZone("America/Los_Angeles"), Locale.US);
+calendar.setTimeInMillis(1245613885 * 1000);
+int year = calendar.get(Calendar.YEAR);
+int day = calendar.get(Calendar.DAY_OF_YEAR);
+int hour = calendar.get(Calendar.HOUR_OF_DAY);
+int minute = calendar.get(Calendar.MINUTE);

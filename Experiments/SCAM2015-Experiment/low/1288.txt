@@ -1,0 +1,5 @@
+for(tuna cars: tuna.values()){
+    if (cars.getColor().length() > 5)
+        System.out.printf("%s\t%s\t\t%s\n", cars, cars.getColor(), cars.getYear())
+    else
+        System.out.printf("%s\t\t%s\t\t%s\n", cars, cars.getColor(), cars.getYear())

@@ -1,0 +1,9 @@
+/usr/libexec/java_home
+Add 2 lines after adapting the ...jdk1.8.0... to your system as found out above
+
+-vm
+/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/bin/java
+in between the following lines:
+
+-clearPersistedState
+-vmargs

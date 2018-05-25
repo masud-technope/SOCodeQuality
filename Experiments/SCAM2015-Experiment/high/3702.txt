@@ -1,0 +1,3 @@
+@RequestMapping(method = RequestMethod.POST)
+@ResponseBody
+public ServerResponse<Integer> addSomeClass(@RequestBody @Valid myclass mymy, BindingResult result) {

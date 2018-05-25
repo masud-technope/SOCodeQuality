@@ -1,0 +1,4 @@
+public void makeNoise(List<? extends Animal> animalList) {
+        for (Animal a: animalList) {
+    //now you could call a.bark() or a.speakAsHuman() and there could not be any verification of whether this is a list of dogs or humans
+    }

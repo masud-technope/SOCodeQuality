@@ -1,0 +1,4 @@
+public static void main(String[] args) {
+  Alarm alarm = new Alarm("date", "desc", false);
+  System.out.println("alarms.size(): " + alarms.size());
+}

@@ -1,0 +1,23 @@
+public class Student
+    {
+         String name;
+          int age;
+         long roll;
+
+        public Student(String name, int age, long roll) {
+            this.name = name;
+            this.age = age;
+            this.roll = roll;
+        }
+
+
+        public void show()
+        {
+            System.out.println("name : "+name+" age : "+age+" roll : "+roll);
+        }
+
+     public static void main(String[] args) {
+        Student ob=new Student("ishtiaque",10,107060);
+        ob.show();
+    }
+  }

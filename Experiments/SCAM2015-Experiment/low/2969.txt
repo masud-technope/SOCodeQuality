@@ -1,0 +1,3 @@
+public String toString() {
+    return "The radius of the circle is: " + radius + ", and the area is: " + area;
+}

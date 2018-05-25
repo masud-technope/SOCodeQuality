@@ -1,0 +1,12 @@
+switch(...)
+{
+  case 0:
+    ...
+  case 1:
+    ...
+  case 2:
+    ...
+  default:
+    // Not reachable
+    throw new RuntimeException("Unexpected value");
+}

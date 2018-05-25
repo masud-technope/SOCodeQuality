@@ -1,0 +1,6 @@
+char[] ans=myString.toCharArray();
+for(int i =0; i < ans.length; i++)
+{
+if(ans[i]==' ')ans[i]='*';
+}
+String answer=new String(ans);

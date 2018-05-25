@@ -1,0 +1,24 @@
+int[] nums = new int[0];
+        Random rnd = new Random();
+        for (int i = 0; i < 30; i++)
+        {
+            bool dup = false;
+            int rand = rnd.Next(1, 99);
+            for (int j = 0; j < nums.Length; j++)
+            {
+                if (nums[j] == rand)
+                {
+                    i--;
+                    dup = true;
+                    break;
+                }
+            }
+            if (!dup)
+            {
+                int[] tmp = new int[nums.Length+1];
+                for (int j = 0; j < nums.Length; j++)
+                    tmp[j] = nums[j];
+                tmp[nums.Length] = rand;
+                nums = tmp;
+            }
+        }

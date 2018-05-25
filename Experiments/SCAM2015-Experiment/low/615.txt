@@ -1,0 +1,13 @@
+static void hello()
+{
+   System.out.println("Hello World");
+}
+static void hello2()
+{
+   hello();
+   System.out.println("Welcome to java");
+}
+public static void main(String[] args)
+{
+   hello2();
+}

@@ -1,0 +1,10 @@
+int len=name.length();
+   int i=0;
+   String eXt;
+   while(i<len){
+       if(name.charAt(i)=='.'){               
+           eXt=(String) name.subSequence(i, len);
+           break;
+       }
+       i++;
+   }

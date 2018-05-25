@@ -1,0 +1,4 @@
+public String toString() {
+    setArea(area); // change the value of the area
+    return "The radius of the circle is: " + radius + ", and the area is: " + area;
+}

@@ -1,0 +1,19 @@
+public static void test(BufferedReader r, PrintWriter w) throws IOException {
+
+   String[] s = new String[22];
+
+   String line;
+   int n = 0;
+   while ((line = r.readLine()) != null) {
+       s[n] = line;
+        //This will take n to 0 when n is 21 i.e. last array position
+       n = (n+1) % 22;
+   }
+   int last = n;
+
+   //Will print it in the same order in which those lines were read.
+   do{
+         w.println(s[n]);
+         n = (n+1) % 22;
+     } while(n != last);
+}

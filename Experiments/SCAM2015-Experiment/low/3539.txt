@@ -1,0 +1,23 @@
+import java.util.Scanner;
+class q2_5{
+public static void main(String args[]){
+
+Scanner input = new Scanner(System.in);
+int s=0;//seconds
+int m=0;//minutes
+int h=0;//hour
+int s_input=0;
+System.out.println("how many seconds?");
+s_input=input.nextInt();
+s=s_input%60;
+if(s >= 60){
+
+m=s_input/60;
+}if(m>=60){
+
+h=m/60;
+m=m%60;
+}
+System.out.println(s + "s = " + h + " h " + m + " m " + s + "s ");
+ }
+}

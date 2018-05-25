@@ -1,0 +1,5 @@
+HashMap<String, Integer> map = new HashMap<String,Integer>();
+    map.put("a",5);
+    map.put("b",16);
+    map.put("c",46);
+    System.out.println(map); //ouptput:{a=5, c=46, b=16}

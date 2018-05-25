@@ -1,0 +1,3 @@
+final String HAY = "_0_";
+String str = "ABC\\DEF".replace("\\", HAY);
+System.out.println(Arrays.asList(str.split(HAY)));

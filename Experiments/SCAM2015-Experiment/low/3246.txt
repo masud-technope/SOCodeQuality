@@ -1,0 +1,12 @@
+#include<cstdio>
+#include<cstdlib>
+
+int gameBoard(){  // if you return something int type. yous should catch it in main
+
+}
+
+
+int main(){
+    gameBoard();
+    return 0;  // Must have if you use int main();
+}

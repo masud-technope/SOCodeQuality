@@ -1,0 +1,5 @@
+public class MyClass {
+    private String cuffSize = ""; // init to empty String here
+    private String somethingElse = ""; // init to empty String here
+    ...
+}

@@ -1,0 +1,10 @@
+catch (FileNotFoundException e)
+{
+    System.out.println("File couldnt find");
+
+  e.printStackTrace();
+}
+catch (IOException e)
+{
+  e.printStackTrace();
+}

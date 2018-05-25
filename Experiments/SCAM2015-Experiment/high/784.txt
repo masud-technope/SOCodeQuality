@@ -1,0 +1,9 @@
+Map reversedMap<String, String> = new TreeMap<String, String>(codes.size());
+for (Map.Entry entry : codes.entrySet()) {
+    reversedMap.put(entry.getValue(), entry.getKey());
+}
+
+//then you just access the reversedMap however you like...
+for (Map.Entry entry : reversedMap.entrySet()) {
+    System.out.println(entry.getKey() + ", " + entry.getValue());
+}

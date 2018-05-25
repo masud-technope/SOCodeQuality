@@ -1,0 +1,4 @@
+String s = "1.210000";
+while (s.endsWith("0")){
+    s = (s.substring(0, s.length() - 1));
+}

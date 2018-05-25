@@ -1,0 +1,15 @@
+public class BusinessAccount : IPayable
+{
+    public void Pay(double amount)
+    {
+    	//Logic
+    }
+}
+
+public class CustomerAccount : IPayable
+{
+    public void Pay(double amount)
+    {
+    	//Logic
+    }
+}

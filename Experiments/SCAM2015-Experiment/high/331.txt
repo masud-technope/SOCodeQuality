@@ -1,0 +1,6 @@
+final Timer timer = new Timer();
+    timer.scheduleAtFixedRate( new TimerTask() {
+        public void run(){      
+            setText();
+        }
+    }, 0, 1000 );

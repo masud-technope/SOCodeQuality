@@ -1,0 +1,6 @@
+public void run() {
+    synchronize (this) {
+        if (this.state != -1)
+            this.state++;
+    }
+}

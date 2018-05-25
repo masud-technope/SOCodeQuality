@@ -1,0 +1,4 @@
+public Map<String,String> getMyMap()
+{
+   return myMap;
+}

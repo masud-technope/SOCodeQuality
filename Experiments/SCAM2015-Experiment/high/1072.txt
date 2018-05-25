@@ -1,0 +1,5 @@
+String[] parts = S.split("\\|");
+int index;
+for (index = 0; index < parts.length; ++index) {
+    System.out.println(parts[index]);
+}

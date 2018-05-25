@@ -1,0 +1,3 @@
+Let input equal "this, is, just, a, GOOFtest".
+// It's a comma that separates each token, so let's split on that.
+Let tokens equal input.split(",").

@@ -1,0 +1,8 @@
+@Component
+@Aspect
+public class SomeAspect {
+    /* following dependency should get injected */
+    @Autowired
+    SomeTask someTask;
+    /* rest of code */  
+}

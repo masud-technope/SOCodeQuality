@@ -1,0 +1,6 @@
+public static void main(String[] args) {
+    int q = 48;
+    double p = 6.95;
+
+    System.out.println(q * p);
+}

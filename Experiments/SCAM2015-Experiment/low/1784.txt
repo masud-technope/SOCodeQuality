@@ -1,0 +1,6 @@
+int j = 0;
+for (int i : a){
+      System.out.println("Enter number : ");
+      a[j++]=s.nextInt();
+
+}

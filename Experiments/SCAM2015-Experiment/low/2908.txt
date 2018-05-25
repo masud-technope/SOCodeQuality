@@ -1,0 +1,13 @@
+Long l1 = new Long(63255);
+ Long l2 = new Long(71678);
+ int returnVal =  l1.compareTo(l2);
+
+ if(returnVal > 0) {
+    System.out.println("l1 is greater than l2");
+ }
+ else if(returnVal < 0) {
+    System.out.println("l1 is less than l2");
+ }
+ else {
+    System.out.println("l1 is equal to l2");
+ }

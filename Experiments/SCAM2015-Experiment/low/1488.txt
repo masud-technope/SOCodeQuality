@@ -1,0 +1,16 @@
+// Create tree
+JTree tree = new JTree();
+
+// All rows will be given 15 pixels of height
+tree.setRowHeight(15);
+
+// Have the row height for each row computed individually
+tree.setRowHeight(0);
+
+// If the row height is 0 and the height of a row has dynamically changed, it is     necessary
+// to flush the internal cache of row heights. The following calls flush the     internal     cache.
+if (tree.getRowHeight() <= 0) {
+// Temporary change to non-zero height
+tree.setRowHeight(1);
+}
+tree.setRowHeight(0);

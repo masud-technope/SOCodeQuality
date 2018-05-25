@@ -1,0 +1,4 @@
+int stop = Math.sqrt(number);
+for(int divisor = 2; divisor <= stop ; divisor++) {
+    ...
+}

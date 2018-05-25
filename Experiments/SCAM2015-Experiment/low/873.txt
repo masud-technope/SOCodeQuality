@@ -1,0 +1,7 @@
+int res = JOptionPane.showConfirmDialog(null,"Do you want to continue ?");
+if (int == 0){
+   // code for continue
+}
+else {
+
+}

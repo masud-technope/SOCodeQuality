@@ -1,0 +1,5 @@
+FileWriter outFile = new FileWriter(Environment.getExternalStorageDirectory().getAbsolutePath() + "/appName/savedlocations/nameoftextfile.txt");
+PrintWriter out = new PrintWriter(outFile);
+out.println("PRINT LINES WITH ME");
+out.print("NOT NECCESSARILY A NEW LINE");
+out.close(); // at the very end

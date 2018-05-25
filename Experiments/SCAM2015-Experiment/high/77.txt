@@ -1,0 +1,3 @@
+MyList<?> list = new MyList<Object>();
+//generates a warning about an unchecked cast
+Class<String> clazz = (Class<String>) list.get(0);

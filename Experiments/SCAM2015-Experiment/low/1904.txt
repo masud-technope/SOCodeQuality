@@ -1,0 +1,7 @@
+for(x = 1; x <= row; x++){
+  System.out.print(x +  "    ");
+  for(y = 1 ; y <= column; y++){
+    System.out.print(y * x + "    ");
+  }
+  System.out.println();
+}

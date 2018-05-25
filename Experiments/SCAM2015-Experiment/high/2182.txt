@@ -1,0 +1,11 @@
+PreparedStatement ps = connection.prepareStatement("SELECT ores FROM testtable WHERE nicknames= ?");
+ps.setString(1, nickname);
+ResultSet rs = ps.executeQuery();
+List<Integer> values = new ArrayList<Integer>();
+while (rs.next()) {
+    String ores = rs.getString("ores");
+    String [] tokens = ores.split("\\s+");
+    for (int i = 0; i < tokens.length; ++i) {
+        values.add(Integer.valueOf(tokens[i]));
+    }
+}

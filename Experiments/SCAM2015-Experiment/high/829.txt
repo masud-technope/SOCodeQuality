@@ -1,0 +1,19 @@
+public class ThreadTest { 
+    public static Integer i = new Integer(0); 
+    public static Object lock = new Object();
+    ...
+    class Numbers extends Thread { 
+        ...
+        @Override 
+        public void run() { 
+             ...
+             synchronized (lock) {
+                 ...
+                 lock.notify();
+                 ...
+                 lock.wait();
+                 ...
+             }
+        }
+    }
+}

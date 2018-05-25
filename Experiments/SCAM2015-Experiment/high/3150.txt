@@ -1,0 +1,6 @@
+class Student {
+   public String toString() {
+       return String.format("%s, %s\n", this.studentName, this.studentAge);
+   }
+   ...
+}

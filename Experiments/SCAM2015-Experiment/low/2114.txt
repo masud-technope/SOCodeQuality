@@ -1,0 +1,5 @@
+//diagonal
+if(board[0][0].equals(board[1][1]) && board[1][1].equals(board[2][2]) || board[2][0].equals(board[1][1]) && board[1][1].equals(board[0][2]))
+       { return true;} // <<<<<you forgot the {} ^_^
+    return false;
+}

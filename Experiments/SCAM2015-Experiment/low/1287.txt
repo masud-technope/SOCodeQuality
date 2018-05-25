@@ -1,0 +1,34 @@
+aa.setOnClickListener(new LinearLayout.OnClickListener(){
+        SharedPreferences preferences = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+        Editor editor = preferences.edit();
+        int aaColor = 0;
+        public void onClick(View v){
+            switch (aaColor){
+            case 0:
+                aa.setBackgroundResource(R.drawable.green);
+                editor.putInt("BgColor", aaColor).commit();
+                aaColor++;
+                break;
+            case 1:
+                aa.setBackgroundResource(R.drawable.blue);
+                editor.putInt("BgColor", aaColor).commit();
+                aaColor++;
+                break;
+            case 2:
+                aa.setBackgroundResource(R.drawable.yellow);
+                editor.putInt("BgColor", aaColor).commit();
+                aaColor++;
+                break;
+            case 3:
+                aa.setBackgroundResource(R.drawable.grey);
+                editor.putInt("BgColor", aaColor).commit();
+                aaColor++;
+                break;
+            case 4:
+                aa.setBackgroundResource(R.drawable.black);
+                editor.putInt("BgColor", aaColor).commit();
+                aaColor = 0;
+                break;
+            }
+        }
+    });

@@ -1,0 +1,6 @@
+for (Object o: list){
+    if (o instanceof TypeA){
+    }
+    if (o instanceof TypeB){
+    }
+ }

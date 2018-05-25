@@ -1,0 +1,5 @@
+for (Class<?> candidateClass : foundClasses) {
+    if (Device.class.isAssignableFrom(candidateClass)) {
+        candidateClass.newInstance().run();
+    }
+}

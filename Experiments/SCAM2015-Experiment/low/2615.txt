@@ -1,0 +1,17 @@
+package com.hack;
+
+import com.bad.IAlpha;
+import com.worse.ISybil;
+
+public class Sybil implements ISybil {
+
+    private final Alpha delegate;
+
+    public Sybil(Alpha delegate) { this.delegate = delegate; }
+    public Alpha getAlpha() {   return delegate; }
+    public String getName() { return delegate.getName(); }
+    public int compareTo(IAlpha other) {
+        return delegate.getName().length() - other.getName().length();
+    }
+
+}

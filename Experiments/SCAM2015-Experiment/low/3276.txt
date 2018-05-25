@@ -1,0 +1,5 @@
+String[] stringWords = myString.split(" ");
+    String myString = "";
+    for (String s : stringWords){
+     myString = myString + "s" + "*";
+    }

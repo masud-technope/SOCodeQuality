@@ -1,0 +1,7 @@
+For i = 0 to n - 1
+       If i = x then
+             arrayCopy(i) = replaceChars
+       Else
+             arrayCopy(i) = arraySource(i)
+       End If
+Next

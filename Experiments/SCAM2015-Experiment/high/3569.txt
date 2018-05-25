@@ -1,0 +1,5 @@
+boolean exists = false; 
+for (int j = 0; j < I; j++) { //note in this line we stop before the insertion point
+    exists = exists || letters == newAlphabet[i]; 
+}
+if (!exists) newAlphabet[I] = letters;

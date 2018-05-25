@@ -1,0 +1,11 @@
+public byte[] serialize() throws IOException {
+    ByteArrayOutputStream b = new ByteArrayOutputStream();
+    ObjectOutputStream o = new ObjectOutputStream(b);
+    o.writeObject(this);
+    return b.toByteArray();
+}
+//AbstractMessage was actually the message type I used, but feel free to choose your own type
+public static AbstractMessage deserialize(byte[] bytes) throws IOException, ClassNotFoundException {
+    ByteArrayInputStream b = new ByteArrayInputStream(bytes);
+    ObjectInputStream o = new ObjectInputStream(b);
+    return (AbstractMessage) o.readObject();

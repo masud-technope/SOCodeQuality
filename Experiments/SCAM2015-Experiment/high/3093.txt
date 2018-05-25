@@ -1,0 +1,15 @@
+public class javatest3 {
+    static String frac;
+
+    public static void main(String[] args){
+
+        // now you can use frac here
+    }
+
+    public static void parse(String fraction) {
+        if (fraction.contains("_")){
+            ...
+            frac = mixed.nextToken();
+        }
+    }
+}

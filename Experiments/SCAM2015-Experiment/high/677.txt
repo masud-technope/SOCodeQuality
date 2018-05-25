@@ -1,0 +1,12 @@
+List collection = new ArrayList();
+
+collection.add("a");
+collection.add("b");
+collection.add("c");
+
+Iterator myIterator = collection.iterator();
+
+while ( myIterator.hasNext() ) {
+    String value = (String) myIterator.next();
+    System.out.println("value: " + value);
+}

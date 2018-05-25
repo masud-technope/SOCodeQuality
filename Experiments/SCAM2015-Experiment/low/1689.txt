@@ -1,0 +1,4 @@
+public Object getValue(Key key , String strValue)
+ {
+    return key.getType().cast(strValue) ;   
+ }

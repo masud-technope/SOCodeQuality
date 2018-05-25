@@ -1,0 +1,17 @@
+pureooabstraction/
+ |
+ |_com/
+   |
+   |_example/
+     |
+     |__SomeInterface.java
+     |__SomeOtherInterface.java
+
+src/
+ |
+ |_com/
+   |
+   |_example/
+     |
+     |__SomeClass.java
+     |__...

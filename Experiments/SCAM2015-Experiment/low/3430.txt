@@ -1,0 +1,6 @@
+String controlledText = eid.getText().trim();//read contents of text area into 'TextField'
+      if(!controlledText.equals("")){
+
+      //doSometing();
+
+      }

@@ -1,0 +1,3 @@
+<configuration>
+    <maxmemory>1024M</maxmemory>
+</configuration>

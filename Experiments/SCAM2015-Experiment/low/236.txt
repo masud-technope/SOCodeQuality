@@ -1,0 +1,4 @@
+aspect MakeImplementFooAspect {
+  // makes many classes implement FooInterface
+  declare parents : edu.teaching.foo.* implements FooInterface;
+}

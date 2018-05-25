@@ -1,0 +1,3 @@
+public interface IntSet{
+    bool isElem(int val);
+}

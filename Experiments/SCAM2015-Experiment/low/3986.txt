@@ -1,0 +1,8 @@
+[tT]
+String: This;Result:true
+String: is;Result:false
+String: the;Result:true
+String: difficult;Result:true
+String: one;Result:false
+String: Thats;Result:true
+String: it;Result:true

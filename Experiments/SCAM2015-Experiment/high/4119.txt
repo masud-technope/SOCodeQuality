@@ -1,0 +1,3 @@
+private int totalTax(ArrayList<House> list1, ArrayList<Shop> list2){
+    return totalTax(list1) + totalTax(list2)
+}

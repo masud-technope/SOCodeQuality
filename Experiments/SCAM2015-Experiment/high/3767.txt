@@ -1,0 +1,11 @@
+if(conditionA) {
+    //do A stuff
+}
+else if(conditionB) {
+    if(conditionB1)
+        //do B1
+    if(conditionB2)
+        //do B2
+    if(conditionB3)
+        //do B3
+}

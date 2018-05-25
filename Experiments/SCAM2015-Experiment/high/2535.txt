@@ -1,0 +1,6 @@
+Aa -> Aa
+ABab -> AaBb
+ABCDabcd -> AaBbCcDd
+ABCDEFGHabcdefgh -> AaBbCcDdEeFfGgHh
+ABCDEFGHIJKLMNOPabcdefghijklmnop -> AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPp
+ABCDEFGHIJKLMNOPQRSTUVWXYZ0<({[/abcdefghijklmnopqrstuvwxyz1>)}]\ -> AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz01<>(){}[]/\

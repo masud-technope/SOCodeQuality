@@ -1,0 +1,7 @@
+Cat cat;
+
+for (cat : myCats) {
+  feedDryFood(cat);
+}
+
+alsoFeedTuna(cat);

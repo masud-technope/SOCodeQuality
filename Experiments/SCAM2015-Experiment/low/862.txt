@@ -1,0 +1,5 @@
+for (int i = 1; i < length; i+=2)
+{
+    panel[i].setBackground(red);
+    panel[i+1].setBackground(white);
+}

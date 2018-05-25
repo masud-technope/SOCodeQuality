@@ -1,0 +1,16 @@
+from BeautifulSoup import BeautifulSoup
+import urllib2, timeit
+
+def parseIt():
+    content = ''.join(urllib2.urlopen('http://news.google.com.ar/nwshp?hl=es&tab=wn'))
+
+    soup = BeautifulSoup(content)
+
+    links = soup.findAll("a")
+    for link in links:
+        print link
+
+
+if __name__ == '__main__':
+    t = timeit.Timer(stmt=parseIt, setup='from BeautifulSoup import BeautifulSoup')
+    print t.timeit(number=1)

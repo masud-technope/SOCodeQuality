@@ -1,0 +1,15 @@
+public enum Example{ 
+  value1(1), 
+  value2(2), 
+  value3(66);
+
+  private final int internalValue;
+
+  Example(int value){ 
+       this.internalValue = value; 
+  }
+
+  public int getInternalValue(){ 
+       return this.internalValue; 
+  }
+}

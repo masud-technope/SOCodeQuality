@@ -1,0 +1,7 @@
+int[] ar = new int[10];
+
+if (ar.length < 0) {
+    System.out.println("Not initialized ");
+} else {
+    System.out.println("Initialized");
+}

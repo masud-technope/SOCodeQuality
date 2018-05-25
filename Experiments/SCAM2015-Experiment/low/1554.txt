@@ -1,0 +1,6 @@
+public String[] getDesiredFunction = {getName(),getLastname(),getMiddle()};
+for(int i = 0;i<3;i++){
+if(getDesiredFunction[i].equals("getName()")){
+     getName();
+  }
+}

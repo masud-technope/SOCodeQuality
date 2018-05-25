@@ -1,0 +1,5 @@
+// draw Line2D.Double
+g2.draw(new Line2D.Double(x1, y1, x2, y2));
+
+// draw Point
+g2.draw(new Line2D.Double(x1, y1, x1, y1));

@@ -1,0 +1,9 @@
+<property name=”admincmd” value=”./elevate.cmd” />
+<property name=”server.location” location=”c:/Apache/tomcat/bin” />
+
+<exec executable=”${admincmd}” failonerror=”false”>
+<arg value=”cmd” />
+<arg value=”/k” />
+<arg value=”${server.location}/service” />
+<arg value=”install” />
+</exec>

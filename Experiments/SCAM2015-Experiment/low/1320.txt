@@ -1,0 +1,61 @@
+package so.java9217010;
+import java.io.*;
+
+public class SerializeMe implements Serializable{
+
+
+    private String foo;
+    private static final long serialVersionUID = 1;
+    private static final int CURRENT_SERIAL_VERSION = 1;
+
+    public SerializeMe(String foo) {
+        this.foo = foo;
+    }
+    public SerializeMe(){
+    }
+
+    public SerializeMe readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        int version = in.readInt();
+        if (version != CURRENT_SERIAL_VERSION)
+            throw new ClassNotFoundException("Mismatched NaiveBayesTrainer versions: wanted " +
+                    CURRENT_SERIAL_VERSION + ", got " +
+                    version);
+
+        //default selections for the kind of Estimator used
+
+        return (SerializeMe) in.readObject();
+        // nb = test.returnNB();
+    }
+
+    public void writeObject(ObjectOutputStream out) throws IOException
+    {
+        out.writeInt(CURRENT_SERIAL_VERSION);
+
+        //default selections for the kind of Estimator used
+        out.writeObject(this);
+    }
+
+    public String returnNB(){
+        return foo;
+    }
+
+    public void setNB(String foo){
+        this.foo = foo;
+    }
+    public static void main(String[] args) throws Exception {
+        SerializeMe o = new SerializeMe("hello");
+        ByteArrayOutputStream bout = new ByteArrayOutputStream();
+        ObjectOutputStream oout = new ObjectOutputStream(bout);
+
+        o.writeObject(oout);
+        oout.flush();
+        byte[] buff = bout.toByteArray();
+
+        ByteArrayInputStream bin = new ByteArrayInputStream(buff);
+        ObjectInputStream oin = new ObjectInputStream(bin);
+        SerializeMe ro = o.readObject(oin);
+        System.out.format(
+                "got: %s -- the problem is most likely in the library you are using ...\n",
+                      ro.returnNB());
+    }
+}

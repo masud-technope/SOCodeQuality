@@ -1,0 +1,10 @@
+while(true)
+{
+    System.out.print(" Value: ");
+    current = input.nextInt();
+    int newtotal = current + total;
+    total = newtotal; 
+    System.out.println("The total so far is: " + total);
+    if(current == 0)
+        break;
+}

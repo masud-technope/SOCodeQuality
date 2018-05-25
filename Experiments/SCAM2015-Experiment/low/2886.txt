@@ -1,0 +1,23 @@
+class MyAsyncTask extends AsyncTask<String,String,String>{
+    Context context;
+    public AutoPassarImatges(Context cont) {
+        super();
+                    this.context = cont;
+        // TODO Auto-generated constructor stub
+    }
+
+    @Override
+    protected String doInBackground(String... params) {
+        [.......]
+
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+        ((MyActivity)context).sayHello(result);
+    }
+
+
+
+}

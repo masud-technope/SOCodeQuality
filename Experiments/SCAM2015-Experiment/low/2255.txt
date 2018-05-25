@@ -1,0 +1,5 @@
+if (System.out.printf("Hello") == null) {
+    System.out.print("Hello");
+} else {
+    System.out.println("World");
+}

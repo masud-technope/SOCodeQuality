@@ -1,0 +1,6 @@
+if(s.length() != 6) 
+    throw new IllegalArgumentException("Input is not of length 6: " + s);
+Pattern allDigits = Pattern.compile( "[0-9]+" );
+if(!allDigits.matcher(s).matches()) 
+    throw new IllegalArgumentException("Input is not numeric: " + s);
+long val = Long.parseLong(s);

@@ -1,0 +1,3 @@
+for (Integer i: arr) {
+    i = new Integer();
+}

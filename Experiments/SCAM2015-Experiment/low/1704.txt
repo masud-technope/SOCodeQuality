@@ -1,0 +1,8 @@
+public static void insertionSort(int[] array, int index) {
+    if(array.length == index + 1) return;
+
+    insertionSort(array, index + 1);
+
+    // insert array[index] into the array
+
+}

@@ -1,0 +1,81 @@
+import java.io.*;
+
+class Cast
+
+{
+
+public static void main(String args[]) throws IOException
+
+{
+
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+byte a=20;
+
+short s=31468;
+
+int i=12345678;
+
+char c=’c';
+
+float f=3.56f;
+
+//Widening or promotion [java question bank][1]
+
+System.out.println(“a=(short)  “+(short) a);
+
+System.out.println(“a=(int)  “+(int) a);
+
+System.out.println(“a=(long)  “+(long)a);
+
+System.out.println(“a=(float)  “+(float)a);
+
+System.out.println();
+
+System.out.println();
+
+System.out.println(“s=(int) “+(int)s);
+
+System.out.println(“s=(long)  “+(long)s);
+
+System.out.println(“s=(float)  “+(float)s);
+
+System.out.println();
+
+System.out.println();
+
+System.out.println(“i=(long)  “+(long)i);
+
+System.out.println(“i=(float)  “+(float)i);
+
+System.out.println(“i=(double)  “+(double)i);
+
+
+//Narrowing using [java question bank][2]
+
+System.out.println(“f=(byte)  “+(byte)f);
+
+System.out.println(“f=(short)  “+(short)f);
+
+System.out.println(“f=(char)  “+(char)f);
+
+System.out.println(“f=(long)  “+(long)f);
+
+System.out.println();
+
+System.out.println();
+
+System.out.println(“i=(byte)  “+(byte)i);
+
+System.out.println(“i=(short)  “+(short)i);
+
+System.out.println();
+
+System.out.println();
+
+System.out.println(“s=(byte)  “+(byte)s);
+
+
+}
+
+}

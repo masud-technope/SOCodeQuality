@@ -1,0 +1,30 @@
+public static void main(String args[]) throws ParseException {
+        TransformService transformService = (inputs1, inputs2) -> {
+            Collection<String> results = new ArrayList<>();
+            for (String str : inputs1) {
+                if (inputs2.contains(str)) {
+                    results.add(str);
+                }
+            }
+            return results;
+        };
+        Collection<String> inputs1 = new ArrayList<String>(3) {{
+            add("lemon");
+            add("cheese");
+            add("orange");
+        }};
+        Collection<String> inputs2 = new
+                ArrayList<String>(3) {{
+                    add("apple");
+                    add("random");
+                    add("cheese");
+                }};
+        Collection<String> results = transformService.transform(inputs1, inputs2);
+        for (String result : results) {
+            System.out.println(result);
+        }
+    }
+
+    public interface TransformService {
+        Collection<String> transform(Collection<String> inputs1, Collection<String> inputs2);
+    }

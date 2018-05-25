@@ -1,0 +1,17 @@
+import java.util.regex.*;
+
+class Test {
+    public static void main(String args[]) {
+        for (String tel : new String[]{
+            "Tel: (011) 1234-1234 blah blah blah",
+            "Tel: (011) 123-1 blah blah blah"
+        }) {
+            System.err.println(tel + " " + (test(tel) ?
+                "matches" : "doesn't match"));
+        }
+    }
+
+    public static boolean test(String tel) {
+        return Pattern.compile("^(\\D*(\\d+?)\\D*){8,}$").matcher(tel).matches();
+    }
+}

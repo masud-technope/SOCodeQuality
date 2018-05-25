@@ -1,0 +1,12 @@
+public class TreeBuilder<T>{
+    public synchronized TreeNode createRoot(T data);
+    public synchronized void addSubElement(TreeNode parentNode ,T data);
+    public synchronized void addFilter(TreeNode node, Filter<T> filter);
+    public Tree<T> synchronized build(){
+       Tree<T> tree= ... 
+       //build your tree
+       //build filter chain for specific tree node
+       tree.freeze(); //make your tree readonly
+       return tree;
+    }
+}

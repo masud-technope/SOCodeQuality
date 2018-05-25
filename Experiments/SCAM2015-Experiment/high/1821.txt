@@ -1,0 +1,5 @@
+String statement = 
+    "Case \"%n\" Application.FollowHyperlink \"http://mypage/%n/\"";
+for(int i = 1; i <= 1000; i++){
+    System.out.println(String.format(statement, i, i));
+}

@@ -1,0 +1,7 @@
+String reverseString(String string)
+{
+    String newString = "";
+    for(int x = string.length() - 1; x > -1; x ++)
+        newString += string.charAt(x);
+    return newString;
+}

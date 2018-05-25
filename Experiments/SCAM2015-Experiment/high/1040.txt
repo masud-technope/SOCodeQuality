@@ -1,0 +1,3 @@
+queryWhere.append("and descr LIKE ?");
+...
+.setString(1, "%some descr%")

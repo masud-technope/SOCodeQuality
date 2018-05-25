@@ -1,0 +1,3 @@
+if (resource == null)
+    resource = new Resource();  // unsafe publication
+return resource;

@@ -1,0 +1,3 @@
+Integer i = new Integer(5);
+...
+Object TestReturn = someIntegerMethod.invoke(i, arglist);

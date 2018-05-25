@@ -1,0 +1,5 @@
+public int compare(Food food1, Food food2) {
+   int result = 0;
+   result = food1.getType().compareTo(food2.getType()) * someMultiplier + food1.getName().compareTo(food2.getName());
+   return result;
+}

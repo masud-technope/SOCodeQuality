@@ -1,0 +1,25 @@
+public abstract class Printer{
+  public void getSystemResource(){
+     // real implementation of getting system resources
+  }
+
+  public abstract void print();
+}
+
+public class Canon extends Printer{
+  public void print(){
+    // here you will provide the implementation of print pertaining to Canon
+  }
+}
+
+public class HP extends Printer{
+  public void print(){
+    // here you will provide the implementation of print pertaining to HP
+  }
+}
+
+public class Lexmark extends Printer{
+  public void print(){
+    // here you will provide the implementation of print pertaining to Lexmark
+  }
+}

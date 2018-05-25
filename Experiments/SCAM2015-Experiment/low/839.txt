@@ -1,0 +1,11 @@
+enum choices {
+  a1, a2, b1, b2;
+
+  public boolean contains(String s)
+  {
+      if (s.equals("a1") || s.equals("a2") || s.equals("b1") || s.equals("b2")) 
+         return true;
+      return false;
+  } 
+
+};

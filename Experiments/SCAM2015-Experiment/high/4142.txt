@@ -1,0 +1,4 @@
+public abstract class Blah 
+{
+    protected JLabel label;
+}

@@ -1,0 +1,7 @@
+else if ((guessDigit1 == lotteryDigit2 
+            || guessDigit1 == lotteryDigit3)
+            && (guessDigit2 == lotteryDigit1
+            || guessDigit2 == lotteryDigit3)
+            && (guessDigit3 == lotteryDigit1
+            || guessDigit3 == lotteryDigit2))
+            System.out.println("Match all digits: you win $3,000");

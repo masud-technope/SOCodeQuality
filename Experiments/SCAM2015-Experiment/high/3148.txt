@@ -1,0 +1,5 @@
+for (Student s : myClass) {
+  if (s != null) {
+    System.out.println(s);
+  } 
+}

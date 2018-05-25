@@ -1,0 +1,4 @@
+@POST
+@Produces("text/whatever")
+public String textToRdf (
+        @FormParam("text") String text) {...

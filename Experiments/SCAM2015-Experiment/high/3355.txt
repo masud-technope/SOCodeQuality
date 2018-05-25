@@ -1,0 +1,6 @@
+int nextInt;
+while ((nextInt = input.nextInt()) != 0)
+{
+    // do your logic here
+}
+// print your output here

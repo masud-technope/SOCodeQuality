@@ -1,0 +1,4 @@
+@ModelAttribute("users")
+      public Collection<String> getUsers(){
+           return this.users;
+      }

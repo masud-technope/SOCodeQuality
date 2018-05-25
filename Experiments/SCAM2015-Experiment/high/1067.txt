@@ -1,0 +1,12 @@
+public enum Giant {Fee, Fi, Fo, Fum};
+
+public void client() {
+    Giant giant = Giant.Fee;
+    server(giant);
+}
+
+public void server(Enum e) {
+    String valueForDB = e.name();
+        //or perhaps
+    String valueForDB = e.toString();
+}

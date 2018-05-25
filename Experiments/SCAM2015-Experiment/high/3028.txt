@@ -1,0 +1,18 @@
+public ListMultimap<String,String> removeSentinels(List<String> ls,
+                                                   Set<String> sentinels) {
+  String currentSentinel = null;
+  ArrayListMultimap<String,String> map = ArrayListMultimap.create();
+  for(String s : ls) {
+    if(sentinels.contains(s)) {
+      currentSentinel = s;
+    } else {
+      /*
+      Note if the list doesn't start with a sentinel value, it will put items in the
+      null entry.  You could instead do a null check here and raise an exception, or
+      use an ImmutableListMultimap which forbids null keys or values.
+      */
+      map.put(currentSentinel, s);
+    }
+  }
+  return map;
+}

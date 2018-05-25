@@ -1,0 +1,5 @@
+int pin = 0;
+String pinStr = request.getParameter("pin");
+if(pinStr!=null && pinStr.trim().lenght()>0){
+    Integer.parseInt(pinStr);
+}

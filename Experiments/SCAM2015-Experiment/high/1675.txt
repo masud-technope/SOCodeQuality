@@ -1,0 +1,4 @@
+int count = 0;
+while (matcher.find()) {
+  count++;
+}

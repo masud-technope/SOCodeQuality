@@ -1,0 +1,19 @@
+<script type="text/javascript">
+var frm = document.forms[0];
+
+if (request.getParameter("add") != null) {
+
+    var pageName = "/DepartmentServlet?method=add"
+    frm.action = pageName;
+    frm.submit();
+
+ }
+ else if (request.getParameter("delete") != null) {
+//likewise you can call your other method from DepartmentServlet
+//Even you can pass parameter by onClick event
+// Invoke action 2.
+  }
+ else if (request.getParameter("update") != null) {
+// Invoke action 3.  }
+
+ </script>

@@ -1,0 +1,16 @@
+public class Driver {
+
+  public static void main(String[] args) {
+    ThreadWithState thread = new ThreadWithState(null);
+    ThreadWithState thread2 = new ThreadWithState(new Object());
+    ThreadWithState thread3 = new ThreadWithState(new Object());
+    ThreadWithState thread4 = new ThreadWithState(new Object());
+
+    ExecutorService service = Executors.newFixedThreadPool(4);
+    service.submit(thread);
+    service.submit(thread2);
+    service.submit(thread3);
+    service.submit(thread4);
+    service.shutdown();
+  }
+}

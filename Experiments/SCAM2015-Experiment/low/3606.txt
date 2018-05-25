@@ -1,0 +1,21 @@
+class A {
+public void staticMethod() {
+    System.out.println("Static method of A");
+}
+}
+
+class B extends A {
+    public void staticMethod() {
+        System.out.println("Static method of B");
+    }
+}
+
+class Main {
+    public static void main(String args[]) {
+        B b = new B();
+        A a = b;
+        a.staticMethod();
+    }
+}
+
+// Result: Static method of B

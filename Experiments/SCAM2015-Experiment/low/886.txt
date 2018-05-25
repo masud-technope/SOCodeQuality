@@ -1,0 +1,9 @@
+while (true) {
+    try {
+        Thread.sleep(60 * 1000);
+    }
+    catch (InterruptedException ie) {
+        ie.printStackTrace();
+    }
+    yourMethod();
+}

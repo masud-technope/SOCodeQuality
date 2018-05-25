@@ -1,0 +1,6 @@
+class Pauza(models.Model):
+    started      = models.TimeField(null=True, blank=False)
+    ended        = models.TimeField(null=True, blank=True)
+    #... more fields ...
+
+    audit_log = AuditLog()

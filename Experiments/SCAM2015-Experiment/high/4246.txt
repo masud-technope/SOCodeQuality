@@ -1,0 +1,4 @@
+// Code of Object.toString()
+public String toString() {
+    return getClass().getName() + "@" + Integer.toHexString(hashCode());
+}

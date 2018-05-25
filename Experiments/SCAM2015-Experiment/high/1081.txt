@@ -1,0 +1,5 @@
+// this is NOT atomic!
+synchronized(this) {
+    makeChangeA();
+    makeChangeB();
+}

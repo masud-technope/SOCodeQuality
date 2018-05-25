@@ -1,0 +1,9 @@
+interface Outputer extends Consumer<String>, Serializable { }
+
+Outputer out = System.out::println;
+Consumer<String> cs = out;
+Serializable s = out;
+System.out.println(s == cs); // prints true
+
+// s = cs; // Inconvertible types, doesn't compile
+s = (Serializable) cs; // compiles and runs fine.

@@ -1,0 +1,3 @@
+s1 = s1.toLowerCase(Locale.US);
+s2 = s2.toLowerCase(Locale.US);
+s1.indexOf(s2);

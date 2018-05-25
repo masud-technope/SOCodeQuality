@@ -1,0 +1,19 @@
+@Test
+    public void useTheCommentsRelation() {
+        // Create a new user and save it
+        UserT bob = new UserT("bob@gmail.com", "secret", "Bob").save();
+
+        // Create a new post
+        Post bobPost = new Post(bob, "My first post", "Hello world").save();
+
+        // Post a first comment
+        bobPost.addComment("Jeff", "Nice post");
+        bobPost.addComment("Tom", "I knew that !");
+
+        // Count things
+        assertEquals(1, UserT.count());
+        assertEquals(1, Post.count());
+        assertEquals(2, Comment.count()); // 2 when correct not 0
+        assertEquals(2, bobPost.comments.size());
+
+    }

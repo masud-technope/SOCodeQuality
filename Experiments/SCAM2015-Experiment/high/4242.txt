@@ -1,0 +1,7 @@
+if (animal instanceof Dog) {
+   //something
+} else if (animal instanceof Cat) {
+   //something
+} else if (animal instanceof Lion) {
+   //something
+}

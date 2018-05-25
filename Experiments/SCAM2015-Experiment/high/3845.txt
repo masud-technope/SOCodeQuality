@@ -1,0 +1,7 @@
+try {
+    InetAddress.getByName("your server url").isReachable(2000); //Replace with your name
+    return true;
+} catch (Exception e)
+{
+    return false;
+}

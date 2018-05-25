@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Average {
+    public static void main(String[] args) {
+        int total = 0;
+        double number_sum = 0, number_entered = 0, avg = 0;
+        Scanner reader = new Scanner(System.in);
+        System.out
+                .print("Program calculates the average of inputted grades. \nFinish with a negative integer.\n\n");
+        do {
+            System.out.print("Input a grade (4-10): ");
+            number_entered = reader.nextDouble();
+            if (number_entered <= 10 && number_entered >= 4) {
+                number_sum = number_sum + number_entered;
+                total++;
+            }
+            if (number_entered == 0 || number_entered < 4
+                    || number_entered > 10) {
+
+                System.out.print("Invalid grade!");
+                System.out.print("\nInput a grade (4-10): ");
+                number_entered = reader.nextDouble();
+            }
+            if (number_entered < 0) {
+                if (total == 0) {
+                    System.out.print("You did not input any grades.");
+                } else {
+                    avg = number_sum / total;
+                    System.out.print(total + " grades inputted.\n");
+                    System.out.print("Average of the grades: " + avg);
+                }
+            }
+        } while (number_entered > 0);
+    }
+}

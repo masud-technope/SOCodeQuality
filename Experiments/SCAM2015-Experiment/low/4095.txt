@@ -1,0 +1,20 @@
+class AClass{
+public static void test(){
+
+ } 
+}
+
+class BClass extends AClass{
+public static void test(){}
+
+}
+
+class CClass extends BClass{
+public static void main(String args[]){
+
+AClass aclass=new AClass();
+
+aclass.test(); // its wrong because static method is called 
+               // by its class name it can't accept object
+}
+}

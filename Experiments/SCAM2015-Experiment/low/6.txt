@@ -1,0 +1,18 @@
+class Outer {
+  void foo() {
+    new Thread() {
+      public void run() {
+        this.bar();
+        Outer.this.baz();
+      }
+
+      public void baz() { }
+    }.start();
+  }
+  void bar() {
+    System.out.println("BAR!");
+  }
+  void baz() {
+    System.out.println("BAZ!");
+  }
+}

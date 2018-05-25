@@ -1,0 +1,15 @@
+public static void main(String[] args) {
+    String line;
+    int sub, length;
+    Scanner kb = new Scanner(System.in);
+    System.out.print("Enter a string: ");
+    line = kb.nextLine();
+    System.out.print("Enter substring length: ");
+    sub = kb.nextInt();
+    length = line.length();
+
+    for (int i = 0 ; i < length - (sub - 1) ; i++) { // no need to loop it to end of string length
+        if (i + sub <= length)
+            System.out.println(line.substring(i, i + sub));
+    }
+}

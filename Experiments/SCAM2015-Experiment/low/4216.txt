@@ -1,0 +1,14 @@
+private List<Bird> birdList;
+
+public Cage(){
+    this.birdList = new ArrayList<>();
+    birdList.add(new Pidgeon());
+
+    //...
+    //Checking if it is a Pidgeon :
+    if(birdList.get(i) instanceof Pidgeon) {
+
+        //It is a pidgeon
+
+    }
+}

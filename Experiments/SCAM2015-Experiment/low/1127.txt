@@ -1,0 +1,4 @@
+for ( int i = 0; i < USER_LIMIT; ++i ) {
+    out.write( String.valueOf(latency[i]) ); // Or Long.toString(long)
+    out.write( '\n' ); // Or simply out.newLine() 
+}

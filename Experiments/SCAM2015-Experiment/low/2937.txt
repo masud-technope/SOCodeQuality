@@ -1,0 +1,6 @@
+string describePerson(String name, boolean gender, int age) 
+{
+    String x = gender ? "She" : "He";
+
+    return (name + "is "+gender+". " + x + " is"+age+ "years old.);
+}

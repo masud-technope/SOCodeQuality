@@ -1,0 +1,9 @@
+interface MyInterface {}
+
+class A {}
+
+public class InterfaceCasting {
+    public static void main(String[] args) {
+        A a = (A) new MyInterface() {}; // javac says: "inconvertible types!"
+    }
+}

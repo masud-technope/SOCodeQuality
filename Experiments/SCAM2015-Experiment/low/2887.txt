@@ -1,0 +1,10 @@
+int inputNum = //whatever ;
+int counter = 1;
+boolean po3 = false;
+while(counter<inputNum || po3==true){
+ if((counter*counter*counter)==inputNum){
+  po3 = true;
+ } else {
+  counter++;
+ }
+}

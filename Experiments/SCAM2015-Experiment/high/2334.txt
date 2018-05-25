@@ -1,0 +1,6 @@
+*ABC: last match at 0
+A1b*: last match at 3
+AB12uv: last match at 6
+AB12uv*: last match at 6
+ABCDabc: last match at 4
+ABC123X: last match at 6

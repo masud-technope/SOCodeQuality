@@ -1,0 +1,59 @@
+package test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class test {
+
+    public static void main(String[] args) {
+
+
+        int a[] = {-1,-2};
+        int b[] = {-2,-3,-4};
+
+        try{
+            System.out.println(getMaxCommon(a,b));
+        }catch(Exception e){
+            System.out.println("Not found common no");
+        }
+    }
+
+    public static int getMaxCommon(int[] arr1,int[] arr2) {
+
+        int arr1Temp[] = arr1.clone();
+        int arr2Temp[] = arr2.clone();
+
+        Arrays.sort(arr1Temp);
+        Arrays.sort(arr2Temp);
+
+        List<Integer> list1 = new ArrayList<Integer>();
+        List<Integer> list2 = new ArrayList<Integer>();
+
+        for(int i=0;i<arr1Temp.length;i++){
+            list1.add(arr1Temp[i]);
+        }
+
+        for(int i=0;i<arr2Temp.length;i++){
+            list2.add(arr2Temp[i]);
+        }
+
+
+        if(arr1Temp.length < arr2Temp.length){
+            for(int i=arr1Temp.length-1;i>=0;i--){
+                if(list2.contains(arr1Temp[i])){
+                    return arr1Temp[i];
+                }
+            }
+        }else{
+            for(int i=arr2Temp.length-1;i>=0;i--){
+                System.out.println();
+                if(list1.contains(arr2Temp[i])){
+                    return arr2Temp[i];
+                }
+            }
+        }
+
+        return (Integer) null;
+    }
+}

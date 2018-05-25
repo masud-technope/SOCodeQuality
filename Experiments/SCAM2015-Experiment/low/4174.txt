@@ -1,0 +1,4 @@
+for(String element:list){
+    double val = Double.parseDouble(element);
+    sequence.add(val)
+}

@@ -1,0 +1,18 @@
+import urllib
+import urllib2
+import string
+headers = {'Cookie': 'You cookies if you need'}
+values = {'form_name':'sample text', 'submit':''}
+data = urllib.urlencode(values)
+req = urllib2.Request('website where you making request to',data,headers)
+
+opener1 = urllib2.build_opener()
+
+
+page1=opener1.open(req)
+#OPTIONAL
+htmlfile=page1.read()
+
+fout = open('MYHTMLFILE.html', "wb")
+fout.write(htmlfile)
+fout.close()

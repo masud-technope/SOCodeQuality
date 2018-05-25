@@ -1,0 +1,9 @@
+public int readNumber(final String prompt, final Scanner scanner){
+    System.out.println(prompt);
+    try{
+        return scanner.nextInt();
+    }catch(Exception ex){
+        System.err.println("Enter a valid number");
+        return readNumber(prompt, scanner);
+    }
+}

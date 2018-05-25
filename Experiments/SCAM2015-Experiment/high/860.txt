@@ -1,0 +1,3 @@
+14:  iload_1
+   15:  invokevirtual   #6; //Method java/lang/StringBuilder.append:
+(I)Ljava/lang/StringBuilder;

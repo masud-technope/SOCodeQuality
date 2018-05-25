@@ -1,0 +1,5 @@
+private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {
+  if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+      // Enter was pressed. Your code goes here.
+   }
+}

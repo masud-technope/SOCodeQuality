@@ -1,0 +1,16 @@
+public String countChars(String in){
+ LinkedHashMapMap<Character, Integer> map = new LinkedHashMap<Character, Integer>();
+ for(char c: in.toCharArray()){
+   Integer count =  map.get(c);
+   if(count==null){
+    count=0;
+   }
+   count++;
+   map.put(c,count);
+ }
+ String out ="";
+ for(Entry<Character, Integer> e : map.entrySet()){
+    out += e.getKey()+e.getValue();
+ }
+ return out;
+}

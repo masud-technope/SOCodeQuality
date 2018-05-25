@@ -1,0 +1,85 @@
+public class Main {
+
+public static void main(String[] args) {
+
+    JFrame frame = new JFrame("Pong");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setLayout(new GridLayout(1,2));
+    Insets inset = frame.getInsets();
+
+
+    Test test2 = new Test(200-(inset.right + inset.left), 200 -(inset.top + inset.bottom), 200, 50);
+    frame.setContentPane(test2);
+    frame.pack();
+
+    frame.setVisible(true);
+
+}
+}
+
+public class Test extends JPanel implements ActionListener, MouseListener{
+
+int y = 0, width, height, dy=0, maxHeight;
+int BOTTOM;
+Timer timer;
+Dimension size;
+Insets inset;
+
+public Test(int width, int height, int BOTTOM, int SPEED){
+    size = new Dimension(width, height);
+    setBackground(Color.BLUE);
+    setPreferredSize(size);
+    inset = this.getInsets();
+    this.width = width-(inset.right+inset.left);
+    maxHeight = height;
+    this.BOTTOM = BOTTOM - (inset.bottom+inset.top);
+
+    addMouseListener(this);
+
+    timer = new Timer(1000/SPEED, this);
+    timer.start();
+
+   }
+public void move(){
+
+    if(y>=maxHeight){
+        dy = -1;
+    }
+    if(y<=0)
+    {
+        dy = 1;
+    }
+    y+=dy;
+    height+=dy;
+    //System.out.println(y);
+    repaint();
+
+}
+
+public void paintComponent(Graphics g){
+
+    super.paintComponent(g);
+    if(y<=maxHeight/2) {
+        g.setColor(Color.green);
+        g.fillRect(0, BOTTOM - y, width, height);
+    }
+    if(y>=maxHeight/2 && y<(maxHeight/10)*9){
+        g.setColor(Color.green);
+        g.fillRect(0, BOTTOM - (maxHeight / 2), width, maxHeight / 2);
+        g.setColor(Color.green);
+        g.fillRect(0, BOTTOM - y, width, height-(maxHeight/2));
+    }
+    if(y>=(maxHeight/10)*9){
+        g.setColor(Color.green);
+        g.fillRect(0, BOTTOM-(maxHeight/2), width, maxHeight/2);
+        g.setColor(Color.green);
+        g.fillRect(0, BOTTOM-(9*(maxHeight/10)), width, (4*maxHeight)/10);
+        g.setColor(Color.green);
+        g.fillRect(0, BOTTOM - y, width, height-(9*(maxHeight)/10));
+    }
+
+    g.setColor(Color.white);
+        for(int i = 1; i<6; i++)
+            g.fillRect(0, BOTTOM - (i*(maxHeight/5)), width, 5);
+
+    }

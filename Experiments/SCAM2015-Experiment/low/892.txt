@@ -1,0 +1,3 @@
+Integer a = Integer.valueOf(10);
+Integer b = Integer.valueOf(10);
+System.out.println("a == b: " + (a == b));

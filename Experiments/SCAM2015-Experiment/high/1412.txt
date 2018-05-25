@@ -1,0 +1,4 @@
+/**
+ * The value is used for character storage.
+ */
+char value[];

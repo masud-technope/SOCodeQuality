@@ -1,0 +1,14 @@
+public class MyClass
+{
+   public int x;
+
+   public static void Main()
+   {
+      MyClass[] y = new MyClass[1000000];
+      for( int idx=0; idx < 1000000; idx++)
+      {
+          y[idx] = new MyClass();
+          y[idx].x = idx;
+      }
+   }
+}

@@ -1,0 +1,15 @@
+if(args.length == 0) {
+     System.out.println("Expected 1 argument specifying the sub class to use.");
+     return;
+}
+
+BaseClass b;
+if(args[0].equalsIgnoreCase("SUBCLASS1")) {
+     b = new Subclass1();
+} else if(args[0].equalsIgnoreCase("SUBCLASS2")) {
+     b = new Subclass2();
+} else {
+     b = new Default();
+}
+
+//do stuff...

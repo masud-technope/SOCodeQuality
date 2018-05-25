@@ -1,0 +1,21 @@
+public class mainClass {
+
+public static void main(String[] args) {
+
+    String phrase = " The sun rose. plants started to grow.";
+    String delims = "\\."; //full stop as delimiter
+    String[] tokens = phrase.split(delims);
+
+    String capitalizedLetter;
+    String word;
+    String capitalizedWord;
+
+    for(String sentence: tokens)
+    {
+    capitalizedLetter = sentence.substring(0, 2).toUpperCase();
+    word = sentence.substring(2);
+    capitalizedWord = capitalizedLetter + word;
+    System.out.println(capitalizedWord + "."); //to include the missing full-stop
+    } 
+
+}

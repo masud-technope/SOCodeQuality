@@ -1,0 +1,13 @@
+class A
+{
+    public void myMethod()
+    { /* ... */ }
+}
+
+class B extends A
+{
+    public void myMethod()
+    {
+        super.myMethod(); // calling parent method
+    }
+}

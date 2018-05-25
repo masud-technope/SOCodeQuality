@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Hand {
+    private final List<Card> cards = new ArrayList<Card>();
+    private Rank rank;
+    private static final int MAX = 5;
+
+    public void addCard(Card aCard) {
+    if (cards.size() < MAX) {
+        cards.add(aCard);
+    } else {
+        System.out.println("Cannot add any more cards as hand is full");
+    }
+    }
+
+    public void totalValue() {
+    int totalValue = 0;
+    for (Card card : cards) {
+        totalValue += card.getRank().getValue();
+
+    }
+
+    System.out
+        .println("The total value of all the cards is: " + totalValue);
+    }
+
+    @Override
+    public String toString() {
+    StringBuilder sb = new StringBuilder();
+    for (Card card : cards) {
+        sb.append('\n').append(card.toString());
+    }
+
+    return sb.toString();

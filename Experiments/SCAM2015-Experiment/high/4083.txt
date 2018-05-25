@@ -1,0 +1,5 @@
+for(File mods : selectedFiles)
+{
+    System.out.println("This is a single file: " + mods.getName());
+    sb.append(" -file ").append(mods.getName());
+}

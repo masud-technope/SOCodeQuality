@@ -1,0 +1,6 @@
+LIST = NIL / LIST_ITEM *( ',' SP LIST_ITEM)
+LIST_ITEM = NIL / '[' STRING_ITEM *(, SP STRING ITEM) ']'
+STRING_ITEM = '"' ANYCHAR '"'
+SP = space
+ANYCHAR = you know, anything that is not double quotes
+NIL = ''

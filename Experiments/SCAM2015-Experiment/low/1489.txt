@@ -1,0 +1,4 @@
+yourMethod(int a){..} // example
+//..................
+boolean b = true;    //<-  input
+yourMethod(b?1:0);   //output -> yourmethod(1)

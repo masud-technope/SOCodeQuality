@@ -1,0 +1,8 @@
+public enum Connector implements Follower {
+    AND, OR, XOR;
+}
+
+
+enum Component implements Follower {
+    ACTIVITY
+}

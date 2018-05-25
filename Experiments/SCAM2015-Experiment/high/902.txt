@@ -1,0 +1,4 @@
+<init-param>
+  <param-name>com.sun.jersey.spi.container.ContainerRequestFilters</param-name>
+  <param-value>path.to.filtering.class</param-value>
+</init-param>

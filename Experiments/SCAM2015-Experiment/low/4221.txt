@@ -1,0 +1,8 @@
+int columnIndex = 0; // first column
+int columnLength = answers[columnIndex].length;
+
+for(int i = columnLength; i < columnLengh; i++) {
+    if (answers[columnIndex][i] == 'A') {
+        letterA++;
+    }
+}

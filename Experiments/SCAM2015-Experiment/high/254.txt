@@ -1,0 +1,4 @@
+public boolean isAbsolute(File f) 
+{
+        return (f.getPrefixLength() != 0);
+}

@@ -1,0 +1,13 @@
+boolean isFirst=true;
+
+for (AnnotationData annotations : annotation){
+    if(isFirst)
+    {
+        isFirst = false;
+        // Your Code here
+    }
+    else
+    {  
+        break;
+    }  
+}

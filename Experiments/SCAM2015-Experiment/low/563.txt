@@ -1,0 +1,13 @@
+HttpClient httpClient = HttpClients.custom()
+            .setConnectionTimeToLive(20, TimeUnit.SECONDS)
+            .setMaxConnTotal(400).setMaxConnPerRoute(400)
+            .setDefaultRequestConfig(RequestConfig.custom()
+                    .setSocketTimeout(30000).setConnectTimeout(5000).build())
+            .setRetryHandler(new DefaultHttpRequestRetryHandler(5, true))
+            .build();
+// the httpClient should be re-used because it is pooled and thread-safe.
+
+HttpGet request = new HttpGet(uri);
+HttpResponse response = httpClient.execute(request);
+reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+// handle response ...

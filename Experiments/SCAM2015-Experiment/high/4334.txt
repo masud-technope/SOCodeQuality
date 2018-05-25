@@ -1,0 +1,12 @@
+class WebService {
+    private volatile List<Entry> theList;
+
+    void updateList() {
+        List<Entry> newList = getEntriesFromRedis();
+        theList = Collections.unmodifiableList(newList);
+    }
+
+    public List<Entry> getList() {
+        return theList;
+    }
+}

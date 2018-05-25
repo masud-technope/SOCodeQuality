@@ -1,0 +1,3 @@
+List<Employee> list = new List<Employee>(arraylist);
+
+var sorted = list.OrderBy(o => o.id).ToList();

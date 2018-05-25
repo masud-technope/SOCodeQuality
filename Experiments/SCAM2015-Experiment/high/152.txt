@@ -1,0 +1,3 @@
+String fileName = url.substring( url.lastIndexOf('/')+1, url.length() );
+
+String fileNameWithoutExtn = fileName.substring(0, fileName.lastIndexOf('.'));

@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
+
+public class CollectionsSort {
+
+    /**
+     * @param args
+     */`enter code here`
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+        CollectionsSort colleciotns = new CollectionsSort();
+
+        List<combine> list = new ArrayList<combine>();
+        HashMap<String, Integer> h = new HashMap<String, Integer>();
+        h.put("nayanana", 10);
+        h.put("lohith", 5);
+
+        for (Entry<String, Integer> value : h.entrySet()) {
+            combine a = colleciotns.new combine(value.getValue(),
+                    value.getKey());
+            list.add(a);
+        }
+
+        Collections.sort(list);
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+    }
+
+    public class combine implements Comparable<combine> {
+
+        public int value;
+        public String key;
+
+        public combine(int value, String key) {
+            this.value = value;
+            this.key = key;
+        }
+
+        @Override
+        public int compareTo(combine arg0) {
+            // TODO Auto-generated method stub
+            return this.value > arg0.value ? 1 : this.value < arg0.value ? -1
+                    : 0;
+        }
+
+        public String toString() {
+            return this.value + " " + this.key;
+        }
+    }
+
+}

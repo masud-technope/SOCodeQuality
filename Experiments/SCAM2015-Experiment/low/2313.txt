@@ -1,0 +1,15 @@
+# Check current DISPLAY value
+$ echo $DISPLAY
+:0
+# If xclock fails as below the variable is incorrect
+$ xclock
+No protocol specified
+No protocol specified
+Error: Can't open display: :0
+# Find the correct value for the current user session
+$ xauth list|grep `uname -n`
+uselenium/unix:10  MIT-MAGIC-COOKIE-1  48531d0fefcd0a9bde13c4b2f5790a72
+# Export with correct value
+$ export DISPLAY=:10
+# Now xclock runs
+$ xclock

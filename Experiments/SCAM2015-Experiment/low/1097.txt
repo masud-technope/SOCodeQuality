@@ -1,0 +1,11 @@
+convert(input):
+  spiral(out[][],input,0,0,sqrt(input.len))
+  return out.toString()
+
+spiral(out[][],input,ix,iy,size)
+  if size>0
+    //calculate the frame coords with starting indices ix,iy & size of the frame
+    place first 4*(size-1) chars on a frame on the ´out´ matrix
+    //recursive call to create inner frame
+    spiral(out,input.remainingString(),ix+1,iy+1,size-2)
+  else return

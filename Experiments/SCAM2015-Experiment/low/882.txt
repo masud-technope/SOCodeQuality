@@ -1,0 +1,71 @@
+JSch jsch=new JSch();
+
+         System.out.println("Getting session");
+         Session session=jsch.getSession("root","10.0.0.0",22);
+
+          System.out.println("session is ::::"+session.getHost());
+          // username and password will be given via UserInfo interface.
+          UserInfo ui = new MyUserInfo("Lab@123", null);
+          //UserInfo ui = new MyUserInfo(password, null);
+          session.setUserInfo(ui);
+          session.setPassword("Lab@123");
+          Properties config = new java.util.Properties();
+          config.put("StrictHostKeyChecking", "no");
+          session.setConfig(config);
+          session.connect(40000);
+
+
+              Channel channel=session.openChannel("exec"); 
+              ((ChannelExec)channel).setCommand("ls");
+
+              channel.connect();
+              channel.run();
+
+              // get I/O streams for remote scp
+              OutputStream out=channel.getOutputStream();
+              InputStream in=channel.getInputStream(); 
+
+
+          String output="";
+          while (channel.isClosed()!=true) {
+
+              try {
+                output+=streamToString(in);
+
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+        }
+
+            System.out.println("Output is :::"+output);
+            channel.disconnect();
+            session.disconnect();
+    }
+
+    public static String streamToString(InputStream input)throws Exception 
+    { String output = ""; while(input.available()>0) { output += ((char)(input.read())); } return output; }
+
+
+
+    public static OutputStream stringToStream(String charset) throws IOException{
+
+        byte[] bytes = charset.getBytes();
+        /*ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+        InputStreamReader isr = new InputStreamReader(bais);*/
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            is = new ByteArrayInputStream(charset.getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        //byte[] buf = new byte[1024];
+        int numRead;
+
+          while ( (numRead = is.read(bytes) ) >= 0) {
+              os.write(bytes, 0, numRead);
+          }        
+        return os;

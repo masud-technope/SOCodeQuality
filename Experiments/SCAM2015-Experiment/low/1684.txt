@@ -1,0 +1,24 @@
+public Map<String, String> countOccurences(List<String> source){
+       Map<String, Integer> result =   new HashMap<>(source.size());
+        int temp =0;
+        for (String value : source) {
+            if(result.containsKey(value)){
+                temp = result.get(value);
+                temp++;
+                result.put(value, temp);
+                temp = 0;
+            }
+            else {
+                result.put(value, 1);
+            }
+        }
+    }
+    public List<String> sublistSingles(Map<String, Integer> results){
+        List<String> duplicatesRemoved = new ArrayList<>(results.size());
+        for(Map.Entry<String, Integer> result:results.entrySet()){
+            if(result.getValue().equals(1)){
+              duplicatesRemoved.add(result.getKey());
+            }
+        }
+        return duplicatesRemoved;
+    }

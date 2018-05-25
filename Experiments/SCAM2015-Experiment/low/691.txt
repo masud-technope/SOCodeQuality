@@ -1,0 +1,6 @@
+String queryFormat = "select * from table1 where col1 between %1$s and %2$s " +
+                     "union all " +
+                     "select * from table2 where col1 between %1$s and %2$s " +
+                     "union all " +
+                     "select * from table3 where col1 between %1$s and %2$s";
+String query = String.format(queryFormat,"5","10");

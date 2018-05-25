@@ -1,0 +1,6 @@
+\\d        - means a numerical digit
+\\d+       - means 1 or more occurrences of a digit
+\\d+?      - means reluctant (non-greedy) match of 1 OR more digits
+( and )    - to group the above regex into group # 1
+\\1        - means back reference to group # 1
+(\\d+?)\\1 - repeat the group # 1 immediately after group # 1

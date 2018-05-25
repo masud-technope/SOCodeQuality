@@ -1,0 +1,11 @@
+int result = 0;
+
+if (hasFoo()) {
+   result = getFoo();
+} else if (hasBar()) {
+   result = getBar();
+} else {
+   result = getBaz();
+}
+
+return result;

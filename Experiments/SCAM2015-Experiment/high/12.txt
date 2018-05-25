@@ -1,0 +1,3 @@
+StackTraceElement[] stack = Thread.currentThread ().getStackTrace ();
+    StackTraceElement main = stack[stack.length - 1];
+    String mainClass = main.getClassName ();

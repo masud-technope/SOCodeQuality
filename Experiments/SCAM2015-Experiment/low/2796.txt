@@ -1,0 +1,10 @@
+String toBinaryString(int num)
+{
+    StringBuilder sb = new StringBuilder();
+    if (num > 1)
+    {
+        sb.append(decimalToBinary(num/2));    // or num >> 1
+    }
+    sb.append((num & 1));
+    return sb.toString();
+}

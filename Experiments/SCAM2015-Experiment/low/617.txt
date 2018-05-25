@@ -1,0 +1,12 @@
+while (keepProcessing) {
+        try {
+            sem.acquire();
+            Socket socket = serverSocket.accept();
+            process(socket, getNextConnectionNumber());
+        } catch (Exception e) {
+            //Here the client hasn't been connected, so release the lock.
+            sem.release();
+        } finally {
+           //code here always executes, exception or not
+        }
+    }

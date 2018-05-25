@@ -1,0 +1,11 @@
+public boolean dateCompare(Date date1 , Date date2){
+
+    Calendar date = Calendar.getInstance();
+    date.setTime(date1);
+    Calendar next_due_on = Calendar.getInstance();
+    next_due_on.setTime(date2);
+    int temp = date.compareTo(next_due_on);
+    if (temp == 0 || temp == -1)
+        return false;
+    return true;
+}

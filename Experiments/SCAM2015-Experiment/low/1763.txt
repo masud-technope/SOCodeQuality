@@ -1,0 +1,3 @@
+ExtendedBaseClass extendedBaseObject= new ExtendedBaseClass();
+    String result = BaseClass.doSomethingForResult("input", extendedBaseObject);
+    System.out.println(result);

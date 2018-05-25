@@ -1,0 +1,7 @@
+NavigableMap<K, V> map = ...
+
+for(K key: map.keySet()) // iterate keys.
+
+for(V value: map.values()) // iterate values.
+
+for(Entry<K, V> entry: map.entrySet()) // iterate key/value entries.

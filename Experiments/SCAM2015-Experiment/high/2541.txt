@@ -1,0 +1,8 @@
+public User findByName(String name) {
+    for (User u : list) {
+        if (u.getName().equals(name)) {
+            return u;
+        }
+    }
+    return null;
+}

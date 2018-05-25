@@ -1,0 +1,5 @@
+List temp = ListofEIQserverobject;
+  for(Clientuser Cu: temp.OnlineusersList){
+    ..... your code then 
+      EIQserver.OnlineusersList.remove(Cu);
+    }

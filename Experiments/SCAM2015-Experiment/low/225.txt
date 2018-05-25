@@ -1,0 +1,5 @@
+for(int i = 0;i < myobj.size();i++)
+{   
+    myobj.at(i).doSomething();
+    myobj.at(i).doSomethingElse();
+}

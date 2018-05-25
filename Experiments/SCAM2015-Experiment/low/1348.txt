@@ -1,0 +1,7 @@
+class EnumValues<P extends Enum<P>>
+    {
+        public static <P extends Enum<P>> P [] getValues( Class<P> keyType)
+        {
+            return keyType.getEnumConstants();
+        }
+    }

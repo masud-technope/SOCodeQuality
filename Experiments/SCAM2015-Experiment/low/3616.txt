@@ -1,0 +1,12 @@
+in your **MainActivity**
+
+//declare a method
+public static String getString() {
+
+   String result;        
+
+   // assign value to string here
+     result = "your assingment"
+
+     return result;
+}

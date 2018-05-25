@@ -1,0 +1,54 @@
+//This enum represents the face of a coin
+public enum CoinFace {
+    HEADS,
+    TAILS
+}
+
+public class Coin {
+
+    //Default starting face for a coin
+    private static CoinFace DEFAULT_FACE = CoinFace.TAILS;
+
+    //The current face of the coin
+    private CoinFace currentFace;
+
+    public Coin() {
+         currentFace = DEFAULT_FACE;
+    }
+
+    public void setFace(CoinFace face) {
+         currentFace = face;
+    }
+
+    public CoinFace getFace() {
+         return currentFace;
+    }
+}
+
+public class Main {
+     public static void main(String[] args) {
+
+          //We create the coin instance
+          Coin coinToToss = new Coin();
+
+          //We will toss the coin 10 times
+          for(int i = 0; i < 10; i++) {
+              System.out.println("Tossing coin...");
+              coinToToss = tossCoin(coinToToss);
+              System.out.println("Got " + coinToToss.getFace() + "!");
+          }
+     }
+
+     private static Coin tossCoin(Coin coin) {
+
+          //We will use the Random class for random results
+          Random random = new Random();
+
+          //We get a random enum value (coin face)
+          int randomFace = random.nextInt(CoinFace.values().length);
+          CoinFace tossedFace = CoinFace.values()[randomFace];
+
+          coin.setFace(tossedFace);
+          return coin;
+     } 
+}

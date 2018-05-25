@@ -1,0 +1,16 @@
+public class XXX {
+    public class XXXObservableBridge : Observable {
+       public void RaiseEvent();
+       // Listeners etc
+    }
+
+    private XXXObservableBridge ObservableBridge;
+
+    XXX() {
+       ObservableBridge = new ObservableBridge;
+    }
+
+    public Observable AsObservable() { return ObservableBidge; }
+
+    public void RaiseEvent() { ObservableBridge.RaiseEvent(); }
+ }

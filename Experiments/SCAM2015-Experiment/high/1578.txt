@@ -1,0 +1,4 @@
+Not a number
+Not a number
+1234
+6.02E-23

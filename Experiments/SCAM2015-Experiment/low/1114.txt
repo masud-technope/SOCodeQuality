@@ -1,0 +1,20 @@
+public class DiscountParser {
+    List<DiscountModel> discountsList;
+
+    // Getters and Setters for discountsList
+
+    // Parser Code
+    public void parseDiscounts() {
+         // Code here
+    }
+
+    // Add new discount
+    public void addDiscount() {
+        // Code 
+    }
+
+    // Remove discount
+    public void removeDiscount () {
+       // Code
+    }
+}

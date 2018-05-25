@@ -1,0 +1,14 @@
+void fun ()
+{
+  CLASS_a a1, a2, a3, a4;
+  CLASS_b b1, b2, b3, b4;
+
+  ...
+  return 1;
+  ...
+  return 2;
+  ...
+  return 3;
+  ...
+  return 4;
+}

@@ -1,0 +1,22 @@
+import java.util.regex.*;
+
+public class RegexTest {
+
+ public static void main(String []args){
+
+    String regex = "/[tT]/";
+    System.out.println(regex);
+    String str = "This is the difficult one Thats it";
+    String[] strings = str.split(" ");
+    for(int i=0;i<strings.length;i++) {
+    regexMatch(strings[i], regex);
+   }
+ }
+
+ private static regexMatch(String str, String regex) {
+     Pattern p = Pattern.compile(regex);
+     Matcher m = p.matcher(str);
+     System.out.println("String: "+str+";Result:"+m.find());
+ }
+
+}

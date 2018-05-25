@@ -1,0 +1,7 @@
+BufferedReader streamReader = new BufferedReader(new InputStreamReader(in, "UTF-8")); 
+StringBuilder responseStrBuilder = new StringBuilder();
+
+String inputStr;
+while ((inputStr = streamReader.readLine()) != null)
+    responseStrBuilder.append(inputStr);
+new JSONObject(responseStrBuilder.toString());

@@ -1,0 +1,51 @@
+package com.bprog.collections;//my own little set of useful utilities and classes
+
+import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
+/**
+*
+* @author Jonathan
+*/
+public class UniqueList {
+
+private HashSet masterSet = new HashSet();
+private ArrayList growableUniques;
+private Object[] returnable;
+
+public UniqueList() {
+    growableUniques = new ArrayList();
+}
+
+public UniqueList(int size) {
+    growableUniques = new ArrayList(size);
+}
+
+public void add(Object thing) {
+    if (!masterSet.contains(thing)) {
+        masterSet.add(thing);
+        growableUniques.add(thing);
+    }
+}
+
+/**
+ * Casts to an ArrayList of unique values
+ * @return 
+ */
+public List getList(){
+    return growableUniques;
+}
+
+public Object get(int index) {
+    return growableUniques.get(index);
+}
+
+public Object[] toObjectArray() {
+    int size = growableUniques.size();
+    returnable = new Object[size];
+    for (int i = 0; i < size; i++) {
+        returnable[i] = growableUniques.get(i);
+    }
+    return returnable;
+    }
+}

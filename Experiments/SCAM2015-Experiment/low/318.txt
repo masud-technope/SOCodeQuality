@@ -1,0 +1,8 @@
+@Basic(optional=false)
+    @Column(nullable=false)
+    private String firstName;
+
+    public MyBean()
+    {
+      this.firstName = "defaultValue";
+    }

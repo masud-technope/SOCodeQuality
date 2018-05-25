@@ -1,0 +1,5 @@
+Arrays.sort(arCopy);
+for(i=0;i<arCopy.length;i++) 
+{
+     System.out.print(arCopy[i] + " "); 
+}

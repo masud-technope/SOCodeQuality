@@ -1,0 +1,7 @@
+StringBuffer buffer = null;
+switch (category) {
+    case "game": buffer = gameList;
+    case "apps": buffer = appsList;
+    case "movie": buffer = movieList;
+    default: return;
+}

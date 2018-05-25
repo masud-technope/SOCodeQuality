@@ -1,0 +1,7 @@
+for(int i = 0, i < q * r, i++)
+{
+    int xaxis = i / q;
+    int yaxis = i % r;
+
+    x[xaxis][yaxis] = rg.nextInt();
+}

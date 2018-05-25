@@ -1,0 +1,4 @@
+java.awt.color.ColorSpace
+
+ColorSpace cmyk = new ColorSpace(ColorSpace.TYPE_CMYK, 4);
+float[] values = cmyk.fromRGB(rgbFloatArray);

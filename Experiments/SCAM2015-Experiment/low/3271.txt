@@ -1,0 +1,9 @@
+class car{
+
+public int speed;
+
+public compareSpeed(car a){
+if(a.speed==this.speed){
+System.out.println("same speed")
+}else
+System.out.println("different speed")

@@ -1,0 +1,15 @@
+public boolean coordEquals(CoordPoint cp)
+{
+
+    boolean b = false;
+
+    if(cp !=  null && this.x == cp.x && this.y == cp.y)
+    {
+
+         b = true;
+
+    }
+
+    return b;
+
+}

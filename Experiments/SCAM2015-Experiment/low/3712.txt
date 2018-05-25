@@ -1,0 +1,16 @@
+public class WhileTester {
+
+  public static void main(String[] args) {
+    System.out.println("First 10 numbers in the sequence 1, 2, 0, 3, -1, 4, -2 ...");
+    int i = 0;
+    while (i <= 6) {
+      int a = 1;
+      int num = i;
+      if (i % 2 == 0) {
+        num = -i;
+      } else {
+        num = i;
+      }
+      a = a + num;
+      System.out.print(a+ ", ");
+      i++;

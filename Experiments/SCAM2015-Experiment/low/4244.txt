@@ -1,0 +1,13 @@
+button.addActionListener(new Actionbox());
+
+final class Actionbox implements ActionListener
+{
+
+public void actionPerformed (ActionEvent e)
+{
+if (label.getIcon() == null) {
+ label.setIcon(new ImageIcon(myimage));
+  else{
+     label.setIcon(null);
+ } 
+}

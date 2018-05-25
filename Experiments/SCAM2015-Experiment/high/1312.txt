@@ -1,0 +1,3 @@
+public void addToList(String s) {
+     strings.add(s);
+}

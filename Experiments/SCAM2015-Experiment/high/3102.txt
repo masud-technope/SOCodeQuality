@@ -1,0 +1,16 @@
+public Bitmap saveSignature(){
+
+      Bitmap  bitmap = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_8888);
+      Canvas canvas = new Canvas(bitmap);
+      this.draw(canvas); 
+
+      File file = new File(Environment.getExternalStorageDirectory() + "/sign.png");
+
+      try {
+           bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(file));
+      } catch (Exception e) {
+           e.printStackTrace();
+      }
+
+      return bitmap;
+  }

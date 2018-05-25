@@ -1,0 +1,31 @@
+ByteArrayOutputStream bos = new ByteArrayOutputStream();
+
+    try {
+        bos.write("TEST1\n".getBytes());
+        bos.write("10\n".getBytes());
+        for (int i = 0; i < 10; i++)
+            bos.write(i);
+        bos.write("TEST2\n".getBytes());
+        bos.write("1\n".getBytes());
+        bos.write(25);
+
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        BufferedReader br = new BufferedReader(new InputStreamReader(bis));
+
+        while (br.ready()) {
+            String s = br.readLine();
+            String num = br.readLine();
+            int len = Integer.valueOf(num);
+            System.out.println(s + ", reading " + len + " bytes");
+            char[] cbuf = new char[len];
+            br.read(cbuf);
+            byte[] bbuf = new byte[len];
+            for (int i = 0; i < len; i++)
+                bbuf[i] = (byte) cbuf[i];
+            for (byte b: bbuf)
+                System.out.print(b + " ");
+            System.out.println();
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }

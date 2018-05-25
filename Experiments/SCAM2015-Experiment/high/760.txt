@@ -1,0 +1,4 @@
+for (I iter = Expression.iterator(); iter.hasNext(); ) {
+    Type Identifier = iter.next();
+    Statement
+}

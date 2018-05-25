@@ -1,0 +1,3 @@
+String variable1 = "1A".
+boolean flag = variable1.equals(Test.LETTER.value); 
+system.out.println(flag);

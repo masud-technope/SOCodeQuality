@@ -1,0 +1,4 @@
+SET PATH=.;C:\bkn-batfiles;
+SET PATH=%PATH%c:\Program Files\java\jdk1.7.0_03\bin;
+SET PATH=%PATH%c:\Program Files\java\jdk1.7.0_03\lib;
+SET PATH=%PATH%C:\Program Files\Oracle\JavaFX 2.0 SDK\rt\bin;

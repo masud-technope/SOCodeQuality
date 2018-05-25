@@ -1,0 +1,29 @@
+NODE                     EXPLANATION
+----------------------------------------------------------------------------
+  \B                       the boundary between two word chars (\w)
+                           or two non-word chars (\W)
+----------------------------------------------------------------------------
+  \"                       '"'
+----------------------------------------------------------------------------
+  \w*                      word characters (a-z, A-Z, 0-9, _) (0 or
+                           more times (matching the most amount
+                           possible))
+----------------------------------------------------------------------------
+  (                        group and capture to \1 (0 or more times
+                           (matching the most amount possible)):
+----------------------------------------------------------------------------
+                             ' '
+----------------------------------------------------------------------------
+    \w*                      word characters (a-z, A-Z, 0-9, _) (0 or
+                             more times (matching the most amount
+                             possible))
+----------------------------------------------------------------------------
+  )*                       end of \1 (NOTE: because you are using a
+                           quantifier on this capture, only the LAST
+                           repetition of the captured pattern will be
+                           stored in \1)
+----------------------------------------------------------------------------
+  \"                       '"'
+----------------------------------------------------------------------------
+  \B                       the boundary between two word chars (\w)
+                           or two non-word chars (\W)

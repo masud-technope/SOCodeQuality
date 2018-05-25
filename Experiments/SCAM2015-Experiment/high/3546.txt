@@ -1,0 +1,9 @@
+Set<Integer> uniqueIDs = new HashSet<Integer>();
+
+for(MyThing thing : MyThings){
+    int groupID = thing.getGroupId();
+
+    if(!uniqueIDs.add(groupID)){
+        // DUPLICATE, REMOVE IT
+    }
+}

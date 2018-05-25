@@ -1,0 +1,5 @@
+String Roletext="";
+for(String text1:Rolelist1)
+{
+    Roletext +=text1+",";
+}

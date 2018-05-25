@@ -1,0 +1,8 @@
+@Entity
+@Table(name = "ta_trainee", uniqueConstraints = {@UniqueConstraint(columnNames = {"id"})})
+public class Trainee extends BusinessObject {
+
+    @OneToMany(mappedBy = "trainee", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Column(nullable = true)
+    @JsonManagedReference
+    private Set<BodyStat> bodyStats;

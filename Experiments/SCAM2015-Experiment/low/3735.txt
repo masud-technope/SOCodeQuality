@@ -1,0 +1,16 @@
+public class Assignment {
+   private static int top;
+
+   public static void main(String[] args) {
+       top = 5;
+
+       recurse("", 1);
+   }
+
+   public static void recurse(String dots, int value) {
+       System.out.println(dots + value);
+       if (value == top) return;
+       recurse(dots + '.', value + 1);
+       System.out.println(dots + value);
+   }
+}

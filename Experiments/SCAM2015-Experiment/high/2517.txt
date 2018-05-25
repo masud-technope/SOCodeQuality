@@ -1,0 +1,3 @@
+public void addMember(Integer x) {
+    myList.add(x);
+};

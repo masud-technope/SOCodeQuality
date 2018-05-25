@@ -1,0 +1,23 @@
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+class secondlargefunc
+{
+public static void main(String []args)
+{
+int a[]={10,9,8,7,500,-400};
+int j=0;
+int l=0;
+for(int i=0;i<6;i++)
+{
+j=Math.max(a[i],j);
+}
+System.out.println("Largest number is: " +j);
+for(int k=0;k<6;k++)
+{
+if(a[k]!=j)
+{
+l=Math.max(a[k],l);
+}}
+System.out.println("Second Largest number is: " +l);
+}}

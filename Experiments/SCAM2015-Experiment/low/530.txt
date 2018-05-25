@@ -1,0 +1,13 @@
+ObjectInputStream oos= new
+                        ObjectInputStream (fis);
+            RowSet rs=(RowSet)oos.readObject();
+                System.out.println("DeSerilaized");
+                while(rs.next()){
+                    System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getLong(4));
+                }
+            }catch (Exception e){
+            e.printStackTrace();
+
+            }
+    }
+}

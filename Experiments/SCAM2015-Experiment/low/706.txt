@@ -1,0 +1,4 @@
+<bean class="org.springframework.ws.server.endpoint.adapter.MarshallingMethodEndpointAdapter">
+    <constructor-arg ref="marshaller"/>
+    <property name="exceptionHandler" ref="exceptionHandler" />
+</bean>

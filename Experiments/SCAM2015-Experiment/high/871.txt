@@ -1,0 +1,3 @@
+public class MyList extends List<String> {
+    private List<String> myField;
+}

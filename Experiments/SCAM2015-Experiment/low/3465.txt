@@ -1,0 +1,15 @@
+public class MyAppModule extends AbstractModule {
+
+    @Singleton
+    @Provides
+    public SessionFactory provideSessionFactory(MyAppConfiguration configuration) {
+        HibernateBundle<MyAppConfiguration> hibernate = new HibernateBundle<ExampleConfiguration>(MyModel.class) {
+            @Override
+            public DataSourceFactory getDataSourceFactory(MyAppConfiguration configuration) {
+                return configuration.getDataSourceFactory();
+            }
+        }
+
+        return hibernate.getSessionFactory();
+    }
+}

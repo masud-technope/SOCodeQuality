@@ -1,0 +1,4 @@
+String str = "undefined-undefined-2015-02-17";
+System.out.println(str.replace("undefined-", ""));
+Output:
+2015-02-17

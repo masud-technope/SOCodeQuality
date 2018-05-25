@@ -1,0 +1,8 @@
+// yeah, I know this is just Math.PI.
+double myDouble = 3.141592653589793;
+DecimalFormat myFormat = new DecimalFormat("0.000");
+String myDoubleString = myFormat.format(myDouble);
+System.out.println("My number is: " + myDoubleString);
+
+// or you can use printf which works like String.format:
+System.out.printf("My number is: %.3f%n", myDouble);

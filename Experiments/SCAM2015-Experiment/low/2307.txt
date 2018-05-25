@@ -1,0 +1,17 @@
+public class HHMMSS {
+
+        final int UUR = 3600;
+        final int MINUUT = 60;
+
+    public void converteerTijd() {
+
+        int uren, minuten, seconden, ingave;
+        System.out.print("Geef een aantal seconden: ");
+        ingave = Input.readInt();
+        uren = ingave / UUR;
+        minuten = (ingave - uren * UUR) / MINUUT;
+        seconden = ingave - uren * UUR - minuten * MINUUT;
+        String nU1 = (uren < 10) ? "0" : "";
+        String nM1 = (minuten < 10) ? "0" : "";
+        String nS1 = (seconden < 10) ? "0" : "";
+        System.out.println(nU1 + uren + "-" + nM1 + minuten + "-" + nS1 + seconden);

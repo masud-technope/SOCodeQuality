@@ -1,0 +1,8 @@
+if(res.equals("true")
+ {
+     Log.i("Yes","1");
+ }
+ else
+ {
+     Log.i("No","0");
+ }

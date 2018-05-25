@@ -1,0 +1,5 @@
+Calendar c = Calendar.getInstance();
+c.set(1980, 0, 11);
+Date date = c.getTime();
+SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy");
+System.out.println(sdf.format(date));

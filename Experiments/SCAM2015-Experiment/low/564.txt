@@ -1,0 +1,10 @@
+Set s=map.entrySet();
+         Iterator iter = s.iterator();
+         while (iter.hasNext()) 
+         {
+         Map.Entry entry =(Map.Entry)iter.next();
+         if("sample".equals(entry.getKey()))
+         {
+         iter.remove();
+         }
+         }

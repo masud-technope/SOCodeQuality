@@ -1,0 +1,15 @@
+$ echo "I want to delete unnecessary words on this simple sentence."|tr " " "\n" > 1
+$ echo "I want to delete words on this sentence."|tr " " "\n" > 2
+$ diff -uN 1 2
+--- 1   2012-10-01 19:40:51.998853057 -0400
++++ 2   2012-10-01 19:40:51.998853057 -0400
+@@ -2,9 +2,7 @@
+ want
+ to
+ delete
+-unnecessary
+ words
+ on
+ this
+-simple
+ sentence.

@@ -1,0 +1,9 @@
+while (1 > 0) {
+    int temp;
+    synchronized (this) {
+        temp = x;
+    }
+    if (temp != 0) {
+        // Do something
+    }
+}

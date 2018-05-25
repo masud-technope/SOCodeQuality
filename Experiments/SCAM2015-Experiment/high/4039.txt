@@ -1,0 +1,12 @@
+boolean executed = false;
+
+for ( /* code here */ ) {
+    executed = true;
+    /* code here */
+}
+
+if (!executed) {
+    for ( /* code here */ ) {
+        /* code here */
+    }    
+}

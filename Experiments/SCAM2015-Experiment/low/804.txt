@@ -1,0 +1,15 @@
+$firstFile = file('file1.txt');
+$secodFile = file('file2.txt');
+
+$findKey='/article/';
+$output='';
+
+if (count($firstFile)==count($secodFile)) 
+                    or die('record counts dont match');
+
+for($i=0;$i<count($firstFile);$i++)
+{
+    $output.=str_replace($findKey,$findKey.trim($secodFile[$i]),$firstFile[$i]);
+}
+
+file_put_contents('output.txt',$output);

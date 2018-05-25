@@ -1,0 +1,4 @@
+//once all data written to buffer
+shortBuf.flip();
+short[] dataOut = new short[shortBuf.remaining()];
+shortBuf.get(dataOut);

@@ -1,0 +1,13 @@
+@Component
+public class ImTheClient{
+
+    @Autowired
+    private ImTheFactory factory;
+
+    public void doSomething(
+            Parameters parameters) throws Exception{        
+        IWantThis theInstance = factory.getInstance(parameters);        
+
+    }
+
+}

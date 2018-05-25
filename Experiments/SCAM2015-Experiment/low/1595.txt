@@ -1,0 +1,13 @@
+server = new Server();
+    SocketConnector connector = new SocketConnector();
+    connector.setPort(8080);
+    server.setConnectors(new Connector[] { connector });
+    WebAppContext context = new WebAppContext();
+    context.setServer(server);
+    context.setContextPath("/your-context");
+    context.setWar("path to war");
+    server.addHandler(context);
+    Thread monitor = new MonitorThread();
+    monitor.start();
+    server.start();
+    server.join();

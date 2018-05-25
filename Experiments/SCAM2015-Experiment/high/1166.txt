@@ -1,0 +1,5 @@
+Object[] arr = new Object[] { ... };
+
+if (i < 0 || i >= arr.length)
+    i = 0;
+selectedObj = arr[i];

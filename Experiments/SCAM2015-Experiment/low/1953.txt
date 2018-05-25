@@ -1,0 +1,7 @@
+public class SpecificClass extends GenericClass<String>{
+
+    @Override
+    public Class<String> getMyType(){
+        return String.class;
+    }
+}

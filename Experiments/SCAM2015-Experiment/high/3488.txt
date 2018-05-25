@@ -1,0 +1,7 @@
+String[] str={"Hello","World!!!!","Java"};
+StringBuilder sb = new StringBuilder();
+for(String s : str)
+{
+    sb.append(s);
+}
+System.out.println(sb.toString());

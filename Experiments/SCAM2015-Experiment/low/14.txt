@@ -1,0 +1,7 @@
+List<Blah> list = fillMyList();
+List<Blah> temp = new ArrayList<Blah>();
+for (Blah blah : list) {
+     //list.remove(blah);  would throw the exception
+     temp.add(blah);
+}
+list.removeAll(temp);

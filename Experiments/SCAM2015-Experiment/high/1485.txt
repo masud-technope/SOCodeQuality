@@ -1,0 +1,17 @@
+public class Test {
+
+    public static void main(String[] args) {
+    }
+
+    public void method1() {
+        class class1 {
+
+        }
+    }
+
+    public void method2() {
+        class class1 {
+
+        }
+    }
+}

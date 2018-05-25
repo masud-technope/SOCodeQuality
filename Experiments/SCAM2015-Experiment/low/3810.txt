@@ -1,0 +1,18 @@
+String v = "[{\"id\":\"ID1\",\"time\":123},{\"id\":\"ID2\",\"time\":124}]";
+        String c = "id";
+        JSONArray obj = null;
+        try {
+            obj = new JSONArray(v);
+
+            ArrayList<String> list = new ArrayList<String>();
+
+            for (int i = 0; i < obj.length(); i++) {
+                JSONObject j = (JSONObject) obj.get(i);
+                System.out.println(j.getString(c));
+                list.add(j.getString(c));
+            }
+
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }

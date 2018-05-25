@@ -1,0 +1,18 @@
+<sessionState 
+        mode="InProc" 
+        stateConnectionString="tcpip=127.0.0.1:42424" 
+        stateNetworkTimeout="10" 
+        sqlConnectionString="data source=127.0.0.1;Integrated Security=SSPI" 
+        sqlCommandTimeout="30" 
+        customProvider="" 
+        cookieless="UseCookies" 
+        cookieName="ASP.NET_SessionId" 
+        timeout="10" 
+        allowCustomSqlDatabase="false" 
+        regenerateExpiredSessionId="true" 
+        partitionResolverType="" 
+        useHostingIdentity="true">
+        <providers>
+         <clear />
+        </providers>
+   </sessionState>

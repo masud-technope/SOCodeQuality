@@ -1,0 +1,15 @@
+//default icon, custom title
+int n = JOptionPane.showConfirmDialog(null,"Would you like green eggs and ham?","An Inane Question",JOptionPane.YES_NO_OPTION);
+
+String result = "?";
+switch (n) {
+case JOptionPane.YES_OPTION:
+  result = "YES";
+  break;
+case JOptionPane.NO_OPTION:
+  result = "NO";
+  break;
+default:
+  ;
+}
+System.out.println("Replace? " + result);

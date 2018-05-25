@@ -1,0 +1,3 @@
+for (int x = 0; x < book.length; ++x){
+    System.out.println(book[x].getBookTitle() + "\t" + book[x].getBookAuthor() + "\t" + book[x].getBookPageCount());
+}

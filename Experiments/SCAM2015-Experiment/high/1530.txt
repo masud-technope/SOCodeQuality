@@ -1,0 +1,13 @@
+enum Operator { 
+...
+}
+
+public Operator getOperator(String s) { 
+
+    if(s.contains(">=")) { 
+       return Operator.GREATER_THAN_OR_EQUAL_TO;
+    } else if (s.contains(">") {
+       return Operator.GREATER_THAN;
+    }
+
+}

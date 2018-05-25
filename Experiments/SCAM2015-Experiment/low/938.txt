@@ -1,0 +1,3 @@
+for(int index = 0; index < columnNum; index++){
+   shipsAndOwnHitsTable.getColumnModel().getColumn(index).setPreferredWidth(800);// two lines of code less
+}

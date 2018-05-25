@@ -1,0 +1,60 @@
+public class SyncTest {
+    public static SyncTest instance;
+    public static String valueA;
+    public String valueB;
+
+    public static void main(String[] args) {
+        instance = new SyncTest();
+
+        (new Thread(new Task1())).start();
+        (new Thread(new Task2())).start();
+        try {
+            Thread.sleep(10000);
+            synchronized(SyncTest.class) {
+                System.out.println("Value A: " + valueA);
+            }
+            synchronized(instance) {
+                System.out.println("Value B: " + instance.valueB);
+            }
+        } catch (InterruptedException interrupt) { }
+    }
+}
+
+class Task1 implements Runnable {
+    public void run() {
+        try {
+            synchronized(SyncTest.class) {
+                System.out.println("Task 1 Sleeping ");
+                Thread.sleep(500);
+                SyncTest.valueA = "One";
+                System.out.println("T1 A: " + SyncTest.valueA);
+            }
+
+            synchronized(SyncTest.instance) {
+                Thread.sleep(1000);
+                SyncTest.instance.valueB = "Two";
+                System.out.println("T1 B: " + SyncTest.instance.valueB);
+            }
+        } catch (InterruptedException interrupt) { }
+        System.out.println("Task 1 Finished ");
+    }
+}
+
+class Task2 implements Runnable {
+    public void run() {
+        System.out.println("Task 2 Started");
+        try {
+            Thread.sleep(1000);
+            synchronized(SyncTest.class) {
+                SyncTest.instance.valueB = "Four";
+                System.out.println("T2 B: " + SyncTest.instance.valueB);
+
+                Thread.sleep(5000);
+
+                SyncTest.valueA = "Three";
+                System.out.println("T2 A: " + SyncTest.valueA);
+            }
+        } catch (InterruptedException interrupt) { }
+        System.out.println("Task 2 Finished");
+    }
+}

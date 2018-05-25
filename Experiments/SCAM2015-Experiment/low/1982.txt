@@ -1,0 +1,10 @@
+class Ngram{
+
+    public Ngram(String str, int count){
+        ngram = str;
+        freq = count;
+    }
+
+    String ngram;
+    int freq;
+}

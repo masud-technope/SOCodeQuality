@@ -1,0 +1,25 @@
+class Car {
+    private String name, color;
+    private int doors;
+
+    Car(String name, int doors, String color) {
+        this.name = name;
+        this.doors = doors;
+        this.color = color;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+}
+
+public class CarMainClass {
+    public static void main(String[] args) {
+        Car[] aCars = new Car[2];
+
+        aCars[0] = new Car("vauxhall", 5, "black");
+        aCars[1] = new Car("peogeot", 3, "red");
+
+        System.out.println("First car name is: " + aCars[0].getName());
+    }
+}

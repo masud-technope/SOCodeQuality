@@ -1,0 +1,4 @@
+String a = new String("Hey!");
+String b = a;
+if (a == b) System.out.println("true");
+else System.out.println("false");

@@ -1,0 +1,23 @@
+$ javaws
+
+Usage:   javaws [-run-options] <jnlp file>
+         javaws [-control-options]
+
+control-options:
+  -about                Shows a sample application.
+  -viewer               Shows the trusted certificate viewer.
+
+run-options:
+  -arg arg              Adds an application argument before launching.
+  -param name=value     Adds an applet parameter before launching.
+  -property name=value  Sets a system property before launching.
+  -update seconds       Update check if seconds since last checked.
+  -license              Display the GPL license and exit.
+  -verbose              Enable verbose output.
+  -nosecurity           Disables the secure runtime environment.
+  -noupdate             Disables checking for updates.
+  -headless             Disables download window, other UIs.
+  -strict               Enables strict checking of JNLP file format.
+  -Xnofork              Do not create another JVM.
+  -Xclearcache          Clean the JNLP application cache.
+  -help                 Print this message and exit.

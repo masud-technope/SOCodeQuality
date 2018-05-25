@@ -1,0 +1,5 @@
+try {
+    Object[] ignored = new Object[(int) Runtime.getRuntime().maxMemory()];
+} catch (Throwable e) {
+    // Ignore OME
+}

@@ -1,0 +1,3 @@
+public static int numDivisible(int low, int high, int test) {
+    return (high-low)/test;
+}

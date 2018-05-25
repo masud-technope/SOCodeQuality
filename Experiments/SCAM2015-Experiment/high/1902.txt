@@ -1,0 +1,9 @@
+<property>
+    <name>dfs.name.dir</name>
+    <value>c:/cygwin/usr/mydir/dfs/logs</value>
+ </property>
+ <property>
+    <name>dfs.data.dir</name>
+    <value>c:/cygwin/usr/mydir/dfs/data</value>
+ </property>
+</configuration>

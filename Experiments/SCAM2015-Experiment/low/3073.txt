@@ -1,0 +1,4 @@
+private Random generator = new Random(System.currentTimeMillis());
+double randomGenerator() {
+    return generator.nextDouble()*0.5;
+}

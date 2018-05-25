@@ -1,0 +1,3 @@
+List<T> list = stream.collect(Collections.toList());
+int size = list.size();
+T last = list.get(size - 1);

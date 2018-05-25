@@ -1,0 +1,8 @@
+package log;
+  import org.apache.log4j.Logger;
+
+  @Loggable
+  public class MyBean {
+
+     private Logger logger;
+  }

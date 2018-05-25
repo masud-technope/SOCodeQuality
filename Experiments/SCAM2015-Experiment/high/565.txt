@@ -1,0 +1,5 @@
+JComponent container;
+if (menu == null)
+  container = popupMenu;
+else
+  container = menu;

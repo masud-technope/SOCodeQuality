@@ -1,0 +1,6 @@
+public void ChangeText(){
+//ChangeText is metode for onClick the button
+TextView Hello=(TextView) findViewById(R.id.textView);
+//textView is an id for TextView on your window
+Hello.setText("Hello world!");
+}

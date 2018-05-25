@@ -1,0 +1,5 @@
+public class ICalculator2 extends ICalculator {
+    public int negate() { 
+        return (currentValue = -currentValue);
+    }
+}

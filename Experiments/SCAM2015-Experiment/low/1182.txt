@@ -1,0 +1,5 @@
+user=> (defn parser [text]
+  "{ :items { \"itemid\" 55 }}");Mock
+user=> (let [parse-tree (read-string (parser "Abracadabra"))]
+((parse-tree :items) "itemid"))
+55

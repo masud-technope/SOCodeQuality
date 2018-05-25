@@ -1,0 +1,30 @@
+public class Part3
+    {
+    private int factor;
+
+    public static void main (String args []) 
+    {
+        Scanner sc = new Scanner(System.in);
+        int number;
+        Part3 part3 = new Part3(); // create an object
+        System.out.println("Enter a number to find the factorial of it: ");
+        number= sc.nextInt();
+        part3.factorial(number)
+        System.out.println("The factorial of  "+number+" is = " +part3.factor);
+    }
+    public void factorial (int number)
+    {
+        factor = 1; // already exists in the object
+        if (number < 1 || number > 10) {
+            System.out.println("Invalid!! the number has to be between 1 and 10");
+            factor = -1;
+        }
+        else 
+        {
+            for(int x=1; x<=number; x++ ) // x can be declared in the loop
+            {
+                factor = factor*x;
+            }
+        }
+    }
+}

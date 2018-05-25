@@ -1,0 +1,41 @@
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class test {
+
+    public static void main(String[] args) {
+
+        String s = "y z a a a b c c z";
+
+        Pattern p = Pattern.compile("(a )+(b )+(c ?)+");
+        Set<String> set = recurse(s, p, 0);
+    }
+
+    public static Set<String> recurse(String s, Pattern p, int depth) {
+        int temp = depth;
+        while(temp>0) {
+            System.out.print("  ");
+            temp--;
+        }
+        System.out.println("-> " +s);
+
+        Matcher matcher = p.matcher(s);
+        Set<String> set = new TreeSet<String>();
+
+        if(matcher.find()) {
+            String found = matcher.group().trim();
+            set.add(found);
+            set.addAll(recurse(found.substring(1), p, depth+1));
+            set.addAll(recurse(found.substring(0, found.length()-1), p, depth+1));
+        }
+
+        while(depth>0) {
+            System.out.print("  ");
+            depth--;
+        }
+        System.out.println("<- " +s);
+        return set;
+    }
+}

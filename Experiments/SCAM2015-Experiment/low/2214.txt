@@ -1,0 +1,32 @@
+.
+|-- pom.xml
+|-- README.md
+|-- my-ear
+|   |-- devpid
+|   |-- pom.xml
+|   `-- src
+|       `-- main
+|           `-- application
+|               `-- META-INF
+`-- my-war
+    |-- build
+    |   `-- classes
+    |       |-- main
+    |       |   |-- java
+    |       |   `-- webapp
+    |       `-- test
+    |           `-- java
+    |-- pom.xml
+    `-- src
+        |-- main
+        |   |-- java
+        |   |   `-- com
+        |   `-- webapp
+        |       |-- css
+        |       |-- favicon.ico
+        |       |-- index.html
+        |       |-- js
+        |       |-- test.html
+        |       `-- WEB-INF
+        `-- test
+            `-- java

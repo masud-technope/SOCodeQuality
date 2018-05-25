@@ -1,0 +1,19 @@
+String string = "your string";
+String[] parts = string.split(" C");
+
+ for(int i=0; i<parts.length; i++) {
+   String[] word = parts[i].split(" ");
+
+    if( i > 0 ) {
+          // ignore the rest words because don't starting with C
+      System.out.println("C" + word[0]); 
+    }
+else {    // Check 1st excplicitly
+          for(int j=0; j<word.length; j++) {
+
+        if ( word[j].startsWith("c") || word[j].startsWith("C"))
+              System.out.println(word[j]); 
+            }   
+        }
+
+     }

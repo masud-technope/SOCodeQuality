@@ -1,0 +1,3 @@
+do {
+    //block of code to execute
+} while([some boolean condition]);

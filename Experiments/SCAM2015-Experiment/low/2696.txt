@@ -1,0 +1,3 @@
+protected void finalize() throws IOException {
+    if( fd != null ) closeIt() ;
+}

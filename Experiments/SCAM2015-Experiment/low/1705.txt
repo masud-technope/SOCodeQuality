@@ -1,0 +1,9 @@
+sctpChannel.receive(byteBuffer, null, null);
+byteBuffer.flip();
+
+ if (byteBuffer.limit() > 0) 
+  {
+         .....................//Do your work here
+    //             read the data in a byte array
+    byteBuffer.clear();  
+  }

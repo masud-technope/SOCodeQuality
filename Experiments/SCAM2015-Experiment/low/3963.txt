@@ -1,0 +1,15 @@
+final Path srcFile = Paths.get("Book_data.txt").toAbsolutePath();
+final Path dstFile = srcFile.resolveSibling("Book_data_copy.txt");
+
+try (
+    final BufferedReader reader = Files.newBufferedReader(srcFile, StandardCharsets.UTF_8);
+    final BufferedWriter writer = Files.newBufferedWriter(dstFile, StandardCharsets.UTF_8,
+        StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+    final PrintWriter pw = new PrintWriter(writer);
+) {
+    // work with reader and pw
+}
+
+if (flag1 == 1)
+    Files.move(dstFile, srcFile, StandardCopyOption.REPLACE_EXISTING,
+        StandardCopyOption.ATOMIC_MOVE);

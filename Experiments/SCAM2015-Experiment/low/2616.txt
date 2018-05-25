@@ -1,0 +1,19 @@
+package com.hack;
+import com.bad.IAlpha;
+
+public class Alpha implements IAlpha {
+    private String name;
+    private final Sybil sybil;
+    public Alpha(String name) { 
+        this.name = name;
+        this.sybil = new Sybil(this);
+    }
+
+    // Sort Alphabetically
+    public int compareTo(IAlpha other) {
+        return name.compareTo(other.getName());
+    }
+
+    public String getName() { return name; }
+    public Sybil getSybil() { return sybil; }
+}

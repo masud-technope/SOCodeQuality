@@ -1,0 +1,19 @@
+public void reverse(){
+    if(isEmpty()){
+    return;
+     }
+     Node<T> revHead = new Node<T>();
+     this.reverse(head.next, revHead);
+     this.head = revHead;
+}
+
+private Node<T> reverse(Node<T> node, Node<T> revHead){
+    if(node.next == null){
+       revHead.next = node;
+       return node;
+     }
+     Node<T> reverse = this.reverse(node.next, revHead);
+     reverse.next = node;
+     node.next = null;
+     return node;
+}

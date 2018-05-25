@@ -1,0 +1,13 @@
+^                # anchor the regex to the beginning of the string
+(?:              # subpattern that matches all numbers, but the last one and all commas
+    (\d+)        # capturing group \1, a full number
+    (?!          # negative lookahead, that asserts that this number does not occur again
+        .*       # consume as much as you want, to look through the whole string
+        ,        # match a comma
+        \1       # match the number we have already found
+        (?!\d)   # make sure that the number has ended (so we don't get false negatives)
+    )            # end of lookahead
+    ,            # match the comma
+)*               # end of subpattern, repeat 0 or more times
+\d+              # match the last number
+$                # anchor the regex to the beginning of the string

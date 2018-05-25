@@ -1,0 +1,23 @@
+var objectData =
+         {
+             Username: document.getElementById('userid').value,
+             Password: document.getElementById('password').value                
+         };
+
+var objectDataString = JSON.stringify(objectData);
+
+$.ajax({
+            type: "POST",
+            url: "your url with method that accpects the data",
+            dataType: "json",
+            data: {
+                o: objectDataString
+            },
+            success: function (data) {
+               alert('Success');
+
+            },
+            error: function () {
+             alert('Error');
+            }
+        });

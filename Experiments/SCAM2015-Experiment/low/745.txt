@@ -1,0 +1,18 @@
+BufferedReader reader = null;  
+try {  
+    reader = new BufferedReader( new FileReader( "/homes/output_train_2000.txt") );  
+    String line = null;  
+    do {  
+        line = reader.readLine();  
+        if( line != null ) {  
+            // Do something     
+        }  
+    } while( line != null );  
+} catch (Exception e) {  
+    e.printStackTrace();  
+} finally {  
+    if( reader != null )  
+    try {  
+        reader.close();  
+    } catch (IOException e) {  
+}

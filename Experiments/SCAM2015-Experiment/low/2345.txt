@@ -1,0 +1,9 @@
+//clear all the columns from the table
+
+while (Table.getColumns().size()!=0)
+{
+    Table.getColumns().remove(0);
+}
+//clear  all rows
+
+Table.setItems(FXCollections.observableArrayList());

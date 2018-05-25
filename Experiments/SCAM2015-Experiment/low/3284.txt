@@ -1,0 +1,20 @@
+Scanner keyboard = new Scanner(System.in);
+    ArrayList runs = new ArrayList();
+
+
+    System.out.println("Enter non empty string of 1s and 0s");
+    String input = keyboard.nextLine();
+    char[] array = input.toCharArray();
+
+    for(int i = 0; i < input.length()-1; i++)
+    {
+        if(array[i] == array[i+1])
+        {
+            runs.add(i);
+        }
+
+    }
+    for(int i = 0; i<= array.length; i++)
+    {
+        System.out.println(runs);
+    }

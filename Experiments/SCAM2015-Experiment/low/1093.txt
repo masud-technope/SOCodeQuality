@@ -1,0 +1,8 @@
+StringBuilder myStrBuilder = null;
+
+for(String aName:yourNameList)
+{
+  myStrBUilder.append(aName+"/");
+}
+
+myStrBuilder.deleteCharAt(myStrBUilder.length()-1)

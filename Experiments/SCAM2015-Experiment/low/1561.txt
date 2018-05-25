@@ -1,0 +1,4 @@
+SELECT * FROM CommissionSummary this_ 
+WHERE this_.advisorCode=1 
+AND (((((this_.month=11 AND this_.year=2011) OR (this_.month=12 AND this_.year=2011)) OR (this_.month=1 AND this_.year=2012)) 
+OR (this_.month=2 AND this_.year=2012)) OR (this_.month=3 AND this_.year=2012))

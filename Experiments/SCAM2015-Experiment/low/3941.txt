@@ -1,0 +1,15 @@
+boolean done = false;
+
+// ...
+
+Signal.handle(new Signal("USR1"), new SignalHandler() {
+    @Override
+    public void handle(Signal signal) {
+        // signal triggered ...
+        done = true;
+    }
+});
+
+// ...
+
+while(!done) { ... }

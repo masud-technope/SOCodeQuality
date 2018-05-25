@@ -1,0 +1,4 @@
+Set<? extends Class<? extends Object>> singletonSet = 
+                                       new HashSet<Class<Object>>();
+
+Set<? extends Class<?>> singletonSet = new HashSet<Class<Object>>();

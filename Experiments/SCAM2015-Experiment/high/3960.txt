@@ -1,0 +1,14 @@
+public JSONObject toJsonObject(){
+    JSONObject json = new JSONObject();
+
+    try {
+        json.put("questionId", questionId);
+        json.put("checklistId", checklistId);
+        json.put("answer", answer);
+        json.put("remark", remark);
+    } catch (JSONException e) {
+        e.printStackTrace();
+    }
+
+    return json;
+}

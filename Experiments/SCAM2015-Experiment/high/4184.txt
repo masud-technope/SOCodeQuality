@@ -1,0 +1,61 @@
+class ParaTest {
+    volatile boolean aCanTalk;
+
+    public static void main(String[] args) {
+        Test t = new Test();
+        t.t();
+    }
+}
+
+class Test {
+    volatile Boolean aCanTalk;
+    Thread a;
+    Thread b;
+    void t() {
+        aCanTalk = true;
+        a = new Thread(new A(this));
+        b = new Thread(new B(this));
+        a.start();
+        b.start();
+        try {
+            a.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class A implements Runnable {
+    Test t;
+    A(Test t) {
+        this.t = t;
+    }
+
+    public void run() {
+        System.out.println("I am A");
+        synchronized(t.aCanTalk) {
+            System.out.println("in synchronized (A)");
+            t.aCanTalk = false;
+        }
+        System.out.println("finished (A)");
+    }
+
+}
+
+class B implements Runnable {
+    Test t;
+    B(Test t) {
+        this.t = t;
+    }
+
+    public void run() {
+        System.out.println("I am B");
+        synchronized(t.aCanTalk) {
+            System.out.println("in synchronized (B)");
+            t.aCanTalk = true;
+        }
+        System.out.println("finished (B)");
+
+    }
+
+}

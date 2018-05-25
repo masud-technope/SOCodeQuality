@@ -1,0 +1,195 @@
+package sqlite;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test
+{
+
+    private static final String DEFAULT_DRIVER = "org.sqlite.JDBC";
+    private static final String DEFAULT_URL = "jdbc:sqlite:data/test.db";
+
+    public static void main(String[] args)
+    {
+        Connection conn = null;
+        try
+        {
+            conn = createConnection(DEFAULT_DRIVER, DEFAULT_URL);
+            createTable(conn);
+
+            List<Person> people = new ArrayList<Person>();
+            people.add(new Person("Gandhi", "politics"));
+            people.add(new Person("Wittgenstein", "philosophy"));
+            people.add(new Person("Turing", "computers"));
+            saveAll(conn, people);
+
+            List<Person> rows = findAll(conn);
+            System.out.println(rows);
+        }
+        catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            close(conn);
+        }
+    }
+
+    private static List<Person> findAll(Connection conn) throws SQLException
+    {
+        List<Person> rows = new ArrayList<Person>();
+        ResultSet rs = null;
+        Statement stat = null;
+
+        try
+        {
+            stat = conn.createStatement();
+            rs = stat.executeQuery("select * from people;");
+            while (rs.next())
+            {
+                rows.add(new Person(rs.getString("name"), rs.getString("occupation")));
+            }
+        }
+        finally
+        {
+            close(stat);
+            close(rs);
+        }
+
+        return rows;
+    }
+
+    private static void saveAll(Connection conn, List<Person> people) throws SQLException
+    {
+        PreparedStatement prep = null;
+        try
+        {
+            prep = conn.prepareStatement("insert into people values (?, ?);");
+
+            for (Person person : people)
+            {
+                prep.setString(1, person.getName());
+                prep.setString(2, person.getOccupation());
+                prep.addBatch();
+            }
+
+            conn.setAutoCommit(false);
+            prep.executeBatch();
+            conn.setAutoCommit(true);
+        }
+        finally
+        {
+            close(prep);
+        }
+    }
+
+    private static void createTable(Connection conn) throws SQLException
+    {
+        Statement stat = null;
+        try
+        {
+            stat = conn.createStatement();
+            stat.executeUpdate("drop table if exists people;");
+            stat.executeUpdate("create table people (name, occupation);");
+        }
+        finally
+        {
+            close(stat);
+        }
+    }
+
+    private static Connection createConnection(String driver, String url) throws ClassNotFoundException, SQLException
+    {
+        Class.forName(DEFAULT_DRIVER);
+        Connection conn = DriverManager.getConnection(DEFAULT_URL);
+
+        return conn;
+    }
+
+    private static void close(Connection conn)
+    {
+        try
+        {
+            if (conn != null)
+            {
+                conn.close();
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    private static void close(Statement stat)
+    {
+        try
+        {
+            if (stat != null)
+            {
+                stat.close();
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    private static void close(ResultSet rs)
+    {
+        try
+        {
+            if (rs != null)
+            {
+                rs.close();
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+}
+
+class Person
+{
+    private String name;
+    private String occupation;
+
+    Person(String name, String occupation)
+    {
+        this.name = name;
+        this.occupation = occupation;
+    }
+
+    public String getName()
+    {
+        return this.name;
+    }
+
+    public String getOccupation()
+    {
+        return this.occupation;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("{ name: ").append(this.name).append(", occupation: ").append(this.occupation).append(" }");
+
+        return sb.toString();
+    }
+}

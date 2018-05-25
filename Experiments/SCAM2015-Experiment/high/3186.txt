@@ -1,0 +1,3 @@
+Map<String, ?> value = new HashMap<String, String>();
+Map<String, Object> val = value; //This line would fail in real life, but assuming it passes...
+val.put("Hello", 0); //We could do this!

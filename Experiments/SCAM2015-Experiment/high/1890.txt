@@ -1,0 +1,5 @@
+int a = 1234, int x = 2, int y = 2; 
+int lengthoffirstblock = x; 
+int lengthofsecondblock = y;
+int lengthofnumber = (a ==0) ? 1 : (int)Math.log10(a) + 1; 
+//getting the digit-count from a without string-conversion

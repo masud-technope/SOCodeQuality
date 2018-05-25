@@ -1,0 +1,21 @@
+public enum Fields {
+    a("A"), b("B"), c("C"), d(true), e(false);
+
+    Fields(String str) {
+
+        strval = str;
+        value = false;
+
+    }
+
+    Fields(boolean val) {
+
+        strval = null;
+        value = val;
+
+    }
+
+    private final String strval;
+    private final boolean value;
+
+}

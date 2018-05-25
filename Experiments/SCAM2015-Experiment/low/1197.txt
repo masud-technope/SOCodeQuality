@@ -1,0 +1,7 @@
+public boolean test() {
+    if (variable == value) {     
+        return true;
+    // more code appears here
+    }
+    return false;
+}

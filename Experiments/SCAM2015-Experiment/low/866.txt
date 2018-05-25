@@ -1,0 +1,32 @@
+public static Date getDateGWT(final String strDate, final int style) {
+        Date date = null;
+        int useStyle = style;
+        if (!validStyle(style)) {
+            useStyle = DEFAULT_DATE_STYLE;
+        }
+
+        if ((strDate != null) && (strDate.trim().length() > 0)) {
+            DateTimeFormat df = getDateFormatGWT(useStyle);
+            try {
+                date = df.parse(strDate);
+            } catch (Exception e) {
+                date = df.parse(date.toString());
+            }
+        }
+        return date;
+    }
+
+     private static DateTimeFormat getDateTimeFormatGWT(final int style) {
+        switch(style) {
+        case SHORT:
+            return DateTimeFormat.getShortDateTimeFormat();
+        case MEDIUM:
+            return DateTimeFormat.getMediumDateTimeFormat();
+        case LONG:
+            return DateTimeFormat.getLongDateTimeFormat();
+        case FULL:
+            return DateTimeFormat.getFullDateTimeFormat();
+        default :
+            return DateTimeFormat.getMediumDateTimeFormat();
+        }        
+   }

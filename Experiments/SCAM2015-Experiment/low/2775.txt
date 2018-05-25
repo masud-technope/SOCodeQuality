@@ -1,0 +1,7 @@
+<script>
+    word = "{\'\i}";
+    a = word.replace("{"," "");
+    a = a.replace("}", "");
+    a = a.replace("'", "");
+
+</script>

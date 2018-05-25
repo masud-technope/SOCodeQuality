@@ -1,0 +1,4 @@
+<dependency>
+      <groupId>com.valchkou.datastax</groupId>
+      <artifactId>cassandra-driver-mapping</artifactId>          
+    </dependency>

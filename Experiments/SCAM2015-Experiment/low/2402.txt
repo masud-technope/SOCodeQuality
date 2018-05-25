@@ -1,0 +1,29 @@
+String result = "";
+Pattern pattern = Pattern.compile("[\\s0-9]+");
+Matcher matcher = pattern.matcher(t);
+int index = 0;
+while (matcher.find()) {
+    int newIndex = matcher.start();
+    result += t.substring(index, newIndex);
+    result += convert(matcher.group());
+
+    index = matcher.end() + 1;
+}
+
+result += t.substring(index, t.length() - 1);
+
+
+private String convert(String uglyNumber) {
+
+    // get rid of whitespaces
+    String number = uglyNumber.replace("\\s", "");
+
+    // simply count digits
+    if( 6 < number.length() && number.length() <= 9 ) {
+    return "million";
+    } else if( 9 < number.length() && number.length() <= 12 ) {
+        return "million";
+    } else ...
+
+    return ulgyNumber;
+}

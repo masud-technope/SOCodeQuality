@@ -1,0 +1,8 @@
+private void depthFirst(WeightedDirectedGraph graph, String node, Set<String> visited) {
+   visited.add(node); // mark current node as visited
+   ...
+   //visited.push(child); <-- No longer needed
+   ...
+   if (!visited.contains(child)){ // don't visit nodes we have worked on already
+      depthFirst(graph, child);
+   }

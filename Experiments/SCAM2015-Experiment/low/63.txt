@@ -1,0 +1,143 @@
+import java.lang.ref.*;
+
+public class MemoryLeak1 {
+
+    MyListItem leakedItem = null;
+    WeakReference[] refs = null;
+
+    public static void main(String[] args) {
+    	WeakReference ref = null;
+    	MyListItem item = null;
+    	MemoryLeak1 leak = new MemoryLeak1();
+    	int i;
+
+    	leak.doit(); // create a memory leak
+    	System.gc(); // force the gc to run;
+
+    	// At this point the list has been explicitly cleared,
+    	// has gone out of scope, and the GC has run.
+    	// However, leak.leakedItem is still holding a
+    	// reference to an item in the list, so anything
+    	// reachable from that item is still alive.
+
+    	// show what's still around...
+    	for (i = 0; i < 10; i++) {
+    		ref = leak.refs[i];
+    		item = (MyListItem)ref.get();
+    		if (item == null) { System.out.println("" + i + " = null"); }
+    		else { System.out.println("" + i + " = " + (String)item.thing); }
+    	}
+    	System.out.println("---------------------");
+
+    	// now let's free some additional items...
+    	for (i = 1; i <= 3; i++) {
+    		item = leak.leakedItem;
+    		leak.leakedItem = item.next;
+    		leak.leakedItem.prev = null;
+    		item.prev = null;
+    		item.next = null;
+    	}
+    	item = null;
+
+    	System.gc(); // force the gc to run again
+
+    	// this time we should get fewer items
+    	for (i = 0; i < 10; i++) {
+    		ref = leak.refs[i];
+    		item = (MyListItem)ref.get();
+    		if (item == null) { System.out.println("" + i + " = null"); }
+    		else { System.out.println("" + i + " = " + (String)item.thing); }
+    	}
+    	System.out.println("---------------------");
+
+    	// now clear the last reference
+    	leak.leakedItem = null;
+
+    	System.gc(); // force the gc to run again
+
+    	// this time we should none
+    	for (i = 0; i < 10; i++) {
+    		ref = leak.refs[i];
+    		item = (MyListItem)ref.get();
+    		if (item == null) { System.out.println("" + i + " = null"); }
+    		else { System.out.println("" + i + " = " + (String)item.thing); }
+    	}
+    	System.out.println("---------------------");
+    }
+
+    public void doit() {
+    	this.refs = new WeakReference[10];
+    	MyList list = new MyList();
+    	MyListItem item = null;
+
+    	// add strings to the list.
+    	// set each into the array of soft refs 
+    	// set a ptr to the 6th item in an instance variable
+    	for (int i = 0; i < 10; i++) {
+    		item = new MyListItem();
+    		item.thing = new String("string" + i);
+    		list.insert(item);
+    		if (i == 5) this.leakedItem = item;
+    		this.refs[i] = new WeakReference(item);
+    	}
+
+    	// clear the list, but don't clear the
+    	// additional ptr to the 6th item
+    	list.clear();
+    }
+}
+
+class MyList {
+    MyListItem head = null;
+    MyListItem tail = null;
+
+    void clear() {
+    	head = null;
+    	tail = null;
+    }
+
+    void insert(MyListItem item) {
+    	if (head == null) {
+    		// empty list
+    		item.next = null;
+    		item.prev = null;
+    		tail = item;
+    		head = item;
+    	}
+    	else if (head == tail) {
+    		// one item in list
+    		item.next = head;
+    		item.prev = null;
+    		tail = head;
+    		head = item;
+    	}
+    	else {
+    		// multiple items in list
+    		item.next = head;
+    		item.prev = null;
+    		head = item;
+    	}
+    }
+
+    MyListItem remove() {
+    	MyListItem item = tail;
+    	if (item != null) {
+    		tail = item.prev;
+    		if (tail == null) {
+    			head = null;
+    		}
+    		else {
+    			tail.next = null;
+    		}
+    		item.next = null;
+    		item.prev = null;
+    	}
+    	return item;
+    }
+}
+
+class MyListItem {
+    MyListItem next = null;
+    MyListItem prev = null;
+    Object thing = null;
+}

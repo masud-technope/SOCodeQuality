@@ -1,0 +1,10 @@
+public static void main(Sring[] args){
+
+car c1=new car();
+c1.speed=10;
+car c2=new car();
+c2.speed=20;
+
+c1.compare(c2);
+
+}

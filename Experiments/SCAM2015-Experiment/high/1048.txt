@@ -1,0 +1,6 @@
+Thread1.start();
+Thread1.join();
+Thread2.start();
+Thread2.join();
+Thread3.start();
+Thread3.join();

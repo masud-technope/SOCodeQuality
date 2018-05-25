@@ -1,0 +1,9 @@
+import java.util.Arrays;
+
+String [] stringArray = {"ab", "aB", "c", "0", "2", "1Ad", "a10"};
+
+//order Ascending
+Arrays.sort(stringArray);
+
+//Descending
+Arrays.sort(stringArray, Collections.reverseOrder());

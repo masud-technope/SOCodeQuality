@@ -1,0 +1,4 @@
+p = Pattern.compile("^@(\\p{Alnum}+):(\\d+):(\\d+)$");
+m = p.matcher("@40KIR:5:15");
+while (m.find())
+    System.out.println("Matched: " + m.group(1) + ',' + m.group(2)+ ',' + m.group(3));

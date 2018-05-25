@@ -1,0 +1,21 @@
+Predicate<XXX> predicate1 = new Predicate<XXX>(){  
+    @Override  
+    public boolean apply(XXX input) {  
+        if(...) //satisfy your filter
+            return true;  
+        else  
+            return false;  
+}};  
+
+Predicate<XXX> predicate2 = new Predicate<XXX>(){  
+    @Override  
+    public boolean apply(XXX input) {  
+        if(...) //satisfy your filter
+            return true;  
+        else  
+            return false;  
+}};
+Predicate allPredicates = Predicates.and(predicate1, predicate2);
+//or Predicates.or(predicate1, predicate2);
+
+Collection<XXX> list2 = Collections2.filter(list, allPredicates);

@@ -1,0 +1,30 @@
+public static boolean checkString(String original) {
+    int space1 = original.indexOf(" ");
+    String section1 = original.substring(0, space1);
+    String sections2Onwards = original.substring(space1+1, original.length());
+    int space2 = sections2Onwards.indexOf(" ");
+    String section2 = sections2Onwards.substring(0,space2);
+    String end = original.substring(space2+1, original.length());
+    //Now on to the good, fun part, making sure that it is in fact the right pattern
+    //This checks that every character in section1 is not a number
+    char[] section1Split = section1.toCharArray();
+    for (char c : section1Split) {
+        try {
+            new Integer(new String(new char[] {c}));
+            return false;
+        } catch(NumberFormatException n) {}
+    }
+    //Now check that section2 is a number
+    try {
+        new Integer(section2);
+    } catch(NumberFormatException n) {
+        return false;
+    }
+    //Making sure that there are no spaces in "anything"
+    //Ignore this if "anything" can include spaces
+    if(end.indexOf(" ") > -1) {
+        return false;
+    }
+    //Since all conditions are true, return true! This string is legit!
+    return true;
+}

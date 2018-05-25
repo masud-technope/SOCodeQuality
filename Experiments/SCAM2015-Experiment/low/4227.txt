@@ -1,0 +1,11 @@
+Hashtable<String, Integer> ht = new Hashtable<String, Integer>() ; 
+for(Integer i : list){
+    if(ht.contain(i+""){
+          Integer v = ht.get(i+"") + 1 ; 
+    }else{
+         ht.put(i+"" , 1) ; 
+    }
+}
+
+// now we need order it 
+TreeMap<String, Integer> tm= new TreeMap<Integer, String>(ht);

@@ -1,0 +1,5 @@
+max_numbers = new int[n]
+until not end of file:
+    read number
+    if number > min(max_numbers):
+        'copy number to minimum value of max_numbers'

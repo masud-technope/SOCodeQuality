@@ -1,0 +1,19 @@
+public boolean haveDuplicates(double[] dices1, double[] dices2)
+{
+    boolean has_duplicates = false;
+    for (int i=0; i<dices1.length; i++)
+    {
+       double dice1 = dices1[i];
+       for (int j=0; j<dices2.length; j++)
+       { 
+            double dice2 = dices2[j];
+            if ( dice1 == dice2 )
+            {
+                 has_duplicates = true;
+                 break; // stop checking any more
+            }
+       }
+       if (has_duplicates) break; // stop checking any more
+    }
+    return has_duplicates;
+}

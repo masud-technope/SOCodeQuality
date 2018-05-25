@@ -1,0 +1,6 @@
+public static String removeLetters(String source, String lettersToRemove) {
+    for (int i = 0; i < lettersToRemove.length(); i++) {
+        source = source.replace(lettersToRemove.substring(i, i + 1), "");
+    }
+    return source;
+}

@@ -1,0 +1,5 @@
+// String key to map to Property<Number>:
+TypedKey<Number, String> key1 = new TypedKey<>(Number.class, "key1");
+
+// String key to map to Property<String>:
+TypedKey<String, String> key2 = new TypedKey<>(String.class, "key2");

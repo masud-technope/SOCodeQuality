@@ -1,0 +1,5 @@
+new Thread(r) {
+  public void run() {
+    System.out.print("Dog");
+  }
+};

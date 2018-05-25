@@ -1,0 +1,18 @@
+public class Dog
+{
+
+public static void main(String[] args)
+{
+    Animal a=new Animal();
+    System.out.println(a); //SOP
+}
+}
+
+public Animal
+{
+String name="Doggy";
+public String toString()
+{
+    return "Dog's name is"+name;
+}
+}

@@ -1,0 +1,4 @@
+NumberTransform<String, ? extends Number> intTransform = new IntegerTransform<String, Integer>(); // work with Integer numbers only
+NumberTransform<String, ? extends Number> longTransform = new LongTransform<String, Long>();      // work with Long numbers only
+
+longTransform.toA((Integer) 1); // you are trying to make this and got compilation error.

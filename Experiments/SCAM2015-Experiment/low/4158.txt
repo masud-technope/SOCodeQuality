@@ -1,0 +1,60 @@
+public class ThreadScenarioTest {
+
+    public static void main(String[] args) {
+        EvenOddService evenOddService = new EvenOddService();
+        Runnable oddRunnable = () -> {
+            while (true) {
+                evenOddService.setOddThread(true);
+                evenOddService.printOddNumber();
+            }
+        };
+        Runnable evenRunnable = () -> {
+            while (true) {
+                evenOddService.setOddThread(false);
+                evenOddService.printEvenNumber();
+            }
+        };
+        Thread oddThread = new Thread(oddRunnable);
+        Thread evenThread = new Thread(evenRunnable);
+        oddThread.start();
+        evenThread.start();
+    }
+}
+
+public class EvenOddService {
+
+    private int counter = 0;
+    private boolean isOddThread;
+
+    public boolean isOddThread() {
+        return isOddThread;
+    }
+
+    public void setOddThread(boolean isOddThread) {
+        this.isOddThread = isOddThread;
+    }
+
+    public synchronized void printOddNumber() {
+        if (isOddThread) {
+            try {
+                System.out.println("odd  :: " + ++counter);
+                notifyAll();
+                Thread.sleep(1000);
+                wait();
+            } catch (InterruptedException exception) {
+            }
+        }
+    }
+
+    public synchronized void printEvenNumber() {
+        if (!isOddThread) {
+            try {
+                System.out.println("even :: " + ++counter);
+                notifyAll();
+                Thread.sleep(1000);
+                wait();
+            } catch (InterruptedException exception) {
+            }
+        }
+    }
+}

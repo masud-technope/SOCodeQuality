@@ -1,0 +1,18 @@
+public class DataA implements IData {
+
+    @Override
+    public void doSomething() {
+        // TODO Do something for A
+
+    }
+
+}
+
+public class DataB implements IData {
+
+    @Override
+    public void doSomething() {
+        // TODO Do something for B
+    }
+
+}

@@ -1,0 +1,7 @@
+package app.controllers;
+    import mvc.*;
+    class mycontroller implements Controller {
+        public View Controller() {
+            return new View("myview");
+        }
+    }

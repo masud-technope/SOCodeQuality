@@ -1,0 +1,5 @@
+HttpResponse response; // some response object
+BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
+String json = reader.readLine();
+JSONTokener tokener = new JSONTokener(json);
+JSONArray finalResult = new JSONArray(tokener);

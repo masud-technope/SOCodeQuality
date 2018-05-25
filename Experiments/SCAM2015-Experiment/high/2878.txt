@@ -1,0 +1,7 @@
+<Resource id="mydatabaseDS" type="DataSource">
+    JdbcDriver org.postgresql.Driver
+    JdbcUrl jdbc:postgresql://localhost:5432/mydatabase
+    UserName myuser
+    Password mypassword
+    JtaManaged true
+</Resource>

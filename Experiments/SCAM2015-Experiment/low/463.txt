@@ -1,0 +1,6 @@
+GrabzItClient grabzIt = new GrabzItClient("APPLICATION KEY", "APPLICATION SECRET");
+grabzIt.SetImageOptions("http://www.google.com"); 
+grabzIt.Save("http://www.example.com/handler");
+
+//Or to save straight to disk 
+grabzit.SaveTo("test.jpg");

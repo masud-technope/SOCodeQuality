@@ -1,0 +1,4 @@
+public static final double WGS_A = 6378137.0;
+
+
+public static final double WGS_E = 0.0818191908426;

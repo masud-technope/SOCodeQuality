@@ -1,0 +1,6 @@
+0 iload_1
+1 iload_2
+2 imul
+3 iconst_1
+4 iadd
+5 ireturn

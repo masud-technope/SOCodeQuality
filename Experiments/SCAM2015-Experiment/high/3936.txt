@@ -1,0 +1,64 @@
+class JavaObj  {
+    public void setAlpha() {}
+    public void setBeta() {}
+    public void setOmega() {};
+}
+class DB  {
+    public void persist(JavaObj obj) {}
+}
+abstract class Handler {
+    protected Handler successor;
+    public void setSuccessor(Handler successor){
+        this.successor = successor;
+    }
+    abstract public boolean processRequest(Integer [] params, JavaObj request);
+}
+class AlphaHandler extends Handler {
+    public AlphaHandler (Handler successor) { setSuccessor(successor); }
+    public boolean processRequest(Integer [] params, JavaObj request) {
+        if (params[0]>params[1]) {
+            request.setAlpha();
+            return (successor==null) ? true : successor.processRequest(params, request);
+        } else {
+            return false;
+        }
+    }
+}
+class BetaHandler extends Handler {
+    public BetaHandler (Handler successor) { setSuccessor(successor); }
+    public boolean processRequest(Integer [] params, JavaObj request) {
+        if (params[2]>params[3]) {
+            request.setBeta();
+            return (successor==null) ? true : successor.processRequest(params, request);
+        } else {
+            return false;
+        }
+    }
+}
+class OmegaHandler extends Handler {
+    public OmegaHandler (Handler successor) { setSuccessor(successor); }
+    public boolean processRequest(Integer [] params, JavaObj request) {
+        if (params[4]>params[5]) {
+            request.setOmega();
+            return (successor==null) ? true : successor.processRequest(params, request);
+        } else {
+            return false;
+        }
+    }
+}
+public class ChainOfResponsibilityAsExample {
+    // setup the chain of responsibilities 
+    private static Handler omegaHandler = new OmegaHandler(null);
+    private static Handler betaHandler = new BetaHandler(omegaHandler);
+    private static Handler processor = new AlphaHandler(betaHandler);
+
+    public static void main(String[] args) {
+         DB database = new DB();
+         JavaObj em = new JavaObj();
+         Integer[] intArray = new Integer[] { 0, 1, 2, 3, 4, 5 };
+
+         if (processor.processRequest(intArray, em)) {
+             database.persist(em);
+         }
+     }
+}

@@ -1,0 +1,8 @@
+Store<String, Item> store = new Store<String, Item>();
+
+Item item1 = new Item();
+item1.setProductName("Paper Towel Roll");
+item1.setBarCode("111222333444");
+item1.setQuantity(1);
+
+store.put("111222333444", item1);//note that since it's quoted the key is a String

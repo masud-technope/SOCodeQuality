@@ -1,0 +1,4 @@
+BigDecimal bigDecimal = new BigDecimal("100.111");
+    long l = (long) (bigDecimal.doubleValue() * 1000);<--Multiply by 1000 as it
+                                                         is miliseconds
+    System.out.println(l);

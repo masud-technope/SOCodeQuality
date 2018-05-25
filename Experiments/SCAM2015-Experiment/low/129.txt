@@ -1,0 +1,7 @@
+public class SomeClass { 
+    static {
+        System.out.println("Being called with the class is loaded");
+        initialize();
+    }
+    static void initialize(){}
+}

@@ -1,0 +1,8 @@
+public class Alpha extends Alpha.IAlpha {
+
+    public void doNothing();
+
+    public static interface IAlpha {
+        public void doNothing();
+    }
+}

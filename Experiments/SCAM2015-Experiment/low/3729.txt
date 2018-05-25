@@ -1,0 +1,4 @@
+double time; //a declaration of "time"
+time = (distance/ 1100); //a definition of "time"
+//becomes:
+double time = (distance/ 1100); //a declaration AND definition of "time"

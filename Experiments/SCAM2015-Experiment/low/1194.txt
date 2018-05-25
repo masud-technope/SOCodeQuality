@@ -1,0 +1,16 @@
+String[] twentyOne = new String[21];
+
+String[] first = new String[3];
+first[0] = twentyOne[0];
+first[1] = twentyOne[3];
+first[2] = twentyOne[6];
+//  And so on
+
+String[] second = new String[3];
+second[0] = twentyOne[1];
+second[1] = twentyOne[4];
+second[2] = twentyOne[7];
+
+String[] third = new String[15];
+third[0] = twentyOne[2];
+// You get the picture

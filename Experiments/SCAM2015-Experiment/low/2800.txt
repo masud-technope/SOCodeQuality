@@ -1,0 +1,7 @@
+List<String[]>  string = new List<String[]>();
+for (int i = 0;....)
+{
+String[] _str = new String[numbers];
+_str[0] = ...
+string.append(_str);
+}

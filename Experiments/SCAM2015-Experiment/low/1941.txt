@@ -1,0 +1,8 @@
+public boolean zLibaryContains( String title ) {
+       books[bookCount] = title;
+       int xBook = 0;
+       while( true )
+           if( books[xBook].getTitle().equals( title ) )
+               return xBook != bookCount;
+           else xBook++;              
+   }

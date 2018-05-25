@@ -1,0 +1,10 @@
+long endWaitTime = System.currentTimeMillis() + secondsToWait*1000;
+        boolean isConditionMet = false;
+        while (System.currentTimeMillis() < endWaitTime && !isConditionMet) {
+            isConditionMet = condition();
+            if (isConditionMet) {
+                break;
+            } else {
+                Thread.sleep(1000);
+            }
+        }

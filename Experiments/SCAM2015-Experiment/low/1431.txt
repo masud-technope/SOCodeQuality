@@ -1,0 +1,14 @@
+public class increment {
+
+private int innerValue = 0;
+
+int increment() {
+    innerValue+=1
+    return innerValue; // aka this++
+}
+
+public static void main(String[] args) {
+    increment a = new increment()
+    System.out.println(a.increment());
+}
+}

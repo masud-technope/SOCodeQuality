@@ -1,0 +1,35 @@
+BufferedReader br1 = null;
+     BufferedReader br2 = null;
+     try
+     {
+        br1 = new BufferedReader(new InputStreamReader(new FileInputStream(new File("a.txt")), "UTF-8"));
+        br2 = new BufferedReader(new InputStreamReader(new FileInputStream(new File("b.txt")), "UTF-8"));           
+        //add logic here
+     }
+     catch (Exception e)
+     {
+        e.printStackTrace();
+     }
+     finally
+     {
+        if (br1 != null)
+        {
+           try
+           {
+              br1.close();
+           }
+           catch (Exception e)
+           {
+           }
+        }
+        if (br2 != null)
+        {
+           try
+           {
+              br2.close();
+           }
+           catch (Exception e)
+           {
+           }
+        }
+     }

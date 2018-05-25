@@ -1,0 +1,4 @@
+Vector<Integer> ints = new Vector<Integer>(); // empty
+Vector<String> strings = (Vector<String>) ints; // unchecked warning, but still possibly ok
+ints.add(1); // here comes trouble
+String s = strings.get(1); // oh oh, ClassCastException

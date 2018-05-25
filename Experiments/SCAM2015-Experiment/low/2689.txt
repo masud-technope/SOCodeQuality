@@ -1,0 +1,6 @@
+<applet
+    code="file.class"
+    archive="file.jar"
+    height=550 
+    width=1100>         
+</applet>

@@ -1,0 +1,5 @@
+18:  invokevirtual   #7; //Method java/lang/StringBuilder.toString:
+()Ljava/lang/String;
+   21:  astore_2
+   22:  return
+}

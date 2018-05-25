@@ -1,0 +1,13 @@
+public class Test<T> {
+
+    private Map<Class<T>, T> defaultValues;
+
+    public void setDefaultValue(Class<T> clazz, T value) {
+        defaultValues.put(clazz, value);
+    }
+
+    public T getDefaultValue(Class<T> clazz) {
+        return defaultValues.get(clazz);
+    }
+
+}

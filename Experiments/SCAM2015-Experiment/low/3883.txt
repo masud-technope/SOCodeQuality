@@ -1,0 +1,12 @@
+public static void main(String[] args) throws IOException {
+    ...
+    fileThread.start();
+    ...
+    while(!fileThread.isFinished()){
+        try{
+            Thread.sleep(1000);//1 second or whatever you want
+        }catch(Exception e){}
+    }
+    //Do something
+    ....
+}

@@ -1,0 +1,34 @@
+import java.util.Arrays;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[] array1 = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
+        int[] array2 = new int[]{-1, -2, 9, 5};
+        System.out.println(getCommonMax(array1, array2));
+    }
+
+    static int getCommonMax(int[] array1, int[] array2) {
+        int commonMax = 0;
+        Arrays.sort(array1);
+        for(int i = array1.length -1; i > -1; i--) {
+            if(contains(array2, array1[i])) {
+                commonMax = array1[i];
+                break;
+            }
+        }
+        return commonMax;
+    }
+
+    static boolean contains(int[] array, int i) {
+        boolean contains = false;
+        for(int i2 : array) {
+            if(i2 == i) {
+                contains = true;
+                break;
+            }
+        }
+        return contains;
+    }
+
+}

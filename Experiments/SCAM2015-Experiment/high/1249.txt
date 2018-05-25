@@ -1,0 +1,15 @@
+Thread t = new Thread(new Runnable(){
+    @Override
+    public void run(){
+        while(!Thread.currentThread().isInterrupted()){
+            //do stuff
+
+            try{
+                Thread.sleep(120000);
+            }catch(InterruptedException e){
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
+});
+t.start();

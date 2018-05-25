@@ -1,0 +1,3 @@
+public class AnotherCreator implements Creator<String> {
+    public String create() { return ""; }
+}

@@ -1,0 +1,4 @@
+float round(float f,float prec)
+{
+    return (float) (Math.floor(f*(1.0f/prec) + 0.5)/(1.0f/prec));
+}

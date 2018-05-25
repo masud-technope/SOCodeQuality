@@ -1,0 +1,3 @@
+public static BigDecimal noDecimal(BigDecimal b) {
+    return new BigDecimal(b.toPlainString().replace(".", ""));
+}

@@ -1,0 +1,5 @@
+System.out.println(3);
+f(2);
+System.out.println(3);
+f(2);
+System.out.println("bert");

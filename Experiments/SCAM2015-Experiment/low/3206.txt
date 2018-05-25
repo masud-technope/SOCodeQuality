@@ -1,0 +1,4 @@
+public String reverseWord(String s) {
+    StringBuilder y = new StringBuilder(s);
+    return y.reverse();
+}

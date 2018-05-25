@@ -1,0 +1,9 @@
+public enum Dir {
+   NORTH { @Override public Dir opposite() { return SOUTH; }},
+   EAST  { @Override public Dir opposite() { return WEST;  }},
+   SOUTH { @Override public Dir opposite() { return NORTH; }},
+   WEST  { @Override public Dir opposite() { return EAST;  }},
+   ;
+
+   abstract public Dir opposite();
+}

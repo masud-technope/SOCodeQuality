@@ -1,0 +1,6 @@
+public class Counter {
+    private final AtomicInteger i = new AtomicInteger();
+    public int getI() { return i.get(); }
+    public void setI(int i) { this.i.set(i); }
+    public int incrementAndGetI() { return i.incrementAndGet(); }
+}

@@ -1,0 +1,32 @@
+HashMap antwoorden1 = new HashMap();
+    HashMap antwoorden2 = new HashMap();
+
+       // Awnsers question 1
+    antwoorden1.put("Hypertext Preprocessor", true);
+    antwoorden1.put("Hypertext PHPprocessor", false);        
+    antwoorden1.put("Hypertext processor", false);
+    antwoorden1.put("Preprocessor PHP", false);
+    // Awnsers question 2
+    antwoorden2.put("Model view config", false);
+    antwoorden2.put("Model view connect", false);        
+    antwoorden2.put("Model view controllers", false);
+    antwoorden2.put("Model view controller", true);  
+
+    ArrayList<HashMap> alleAntwoorden =  new ArrayList<HashMap>();
+
+    // Add the Hashmaps to the arrayList
+    alleAntwoorden.add(antwoorden1);
+    alleAntwoorden.add(antwoorden2);
+
+    for(int i = 0; i < alleAntwoorden.size(); i++)
+    {
+
+         Iterator it = (Iterator)alleAntwoorden.get(i).entrySet().iterator();
+
+         while (it.hasNext()) {
+            Map.Entry pairs = (Map.Entry)it.next();
+            System.out.println(pairs.getKey() + " = " + pairs.getValue());
+            it.remove(); // avoids a ConcurrentModificationException
+        }
+
+    }

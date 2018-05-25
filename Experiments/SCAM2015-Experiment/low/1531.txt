@@ -1,0 +1,9 @@
+@Id
+@Column(name = "customer_id")
+private String id;
+
+//getter and setter
+
+public void setId(UUID id) {
+    this.id = id.toString();
+}

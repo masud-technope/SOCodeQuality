@@ -1,0 +1,3 @@
+System.out.println( "timestampInput = " + timestampInput.toString() );
+System.out.println( "instant = " + instant );
+System.out.println( "dateTimeMontréal = " + dateTimeMontréal );

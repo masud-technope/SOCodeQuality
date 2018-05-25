@@ -1,0 +1,3 @@
+JFormattedTextField textField = new JFormattedTextField();
+MaskFormatter dateMask = new MaskFormatter("####.####");
+dateMask.install(textField);

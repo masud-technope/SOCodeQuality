@@ -1,0 +1,17 @@
+mn@test:~# export CLASSPATH=.:/usr/local/jars/*
+mn@test:~# echo $CLASSPATH
+.:/usr/local/jars/*
+mn@test:~# ls /usr/local/jars/*.jar
+/usr/local/jars/activation.jar ...
+
+mn@test:/home# cat show_cp.java
+public class show_cp
+{
+    public static void main(String[] args)
+        {
+        System.out.println(System.getProperty("java.class.path", "."));
+        }
+}
+
+mn@test:/home# java show_cp
+.:/usr/local/jars/postgresql-8.4-701.jdbc4.jar:/usr/local/jars/RmiJdbc.jar:/usr/local/...

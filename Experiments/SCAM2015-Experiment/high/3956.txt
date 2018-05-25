@@ -1,0 +1,3 @@
+int x = 123;
+int lastDigit = x%10;
+System.out.println(lastDigit);

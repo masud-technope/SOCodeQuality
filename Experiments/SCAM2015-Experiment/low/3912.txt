@@ -1,0 +1,9 @@
+for(int i=0;i<5;i++){           
+    if(i==0) tab[i][i] = Color.white;
+    if(i==1) tab[i][i] = Color.blue;
+    if(i==2) tab[i][i] = Color.black;
+    if(i==3) tab[i][i] = Color.red;
+    if(i==4) tab[i][i] = Color.cyan;
+    System.out.println(i+" add "+tab[i][i]);
+}
+list.add(tab);  //add just once

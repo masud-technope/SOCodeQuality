@@ -1,0 +1,3 @@
+LoginWindow lw = new LoginWindow();
+// exactly as below, including leading /
+URL url = lw.getClass().getResource("/resources/img/pause.png");

@@ -1,0 +1,10 @@
+public static int min(int[] n) {
+    if(n.length == 1)//base case
+        return(n[0]);
+    int a = n.length%2 == 0 ? 0:1;      //Awesome sauce syntax http://www.cafeaulait.org/course/week2/43.html
+    int[] r =new int[n.length/2 + a];   // reduce by a factor of 2 each iteration
+    for(int k = 0 ; k < n.length/2 + a ; k++){    //While copying to a smaller array you might as well make comparisons.
+        r[k] = n[k]<=n[n.length-k-1] ? n[k] : n[n.length-k-1];//compare the beginning and end of your array, take the smaller of the two.
+    }   //In the case that you have an odd number of elements the middle is always copied trough to the next iteration
+    return(min(r));//This is where the recursion happens.
+}   // There is always a better way but this should satisfy your teacher.

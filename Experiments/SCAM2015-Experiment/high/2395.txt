@@ -1,0 +1,6 @@
+for (Prime:PrimeList); 
+    PrimeList[0]=2;
+    if(Begin % PrimeList[Prime] != 0){
+        break;
+    }
+}

@@ -1,0 +1,3 @@
+Project_Root
+    src
+    word.txt

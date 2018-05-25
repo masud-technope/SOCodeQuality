@@ -1,0 +1,18 @@
+int number;
+int i = 0, hexadecimal, rev = 0, bit;
+    while (i++ < NUM_BITS_INT)
+
+    {
+
+        bit = hexadecimal & 1;
+
+        hexadecimal = hexadecimal >> 1;
+
+        rev = rev ^ bit;
+
+        if (i < NUM_BITS_INT)
+
+            rev = rev << 1;
+
+    }
+System.out.println(rev);

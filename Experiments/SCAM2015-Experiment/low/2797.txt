@@ -1,0 +1,8 @@
+public static void strDiff(String hear, String dear){
+    String[] hr = dear.split("\n");
+    for (String h : hr) {
+        if (!hear.contains(h)) {
+            System.err.println(h);
+        }
+    }
+}

@@ -1,0 +1,9 @@
+<war warfile="yourApp.war" webxml="WEB-INF/web.xml">
+            <fileset dir="yourWarDir">
+                <include name="**/*.jsp"/>  
+                <include name="**/include/**"/>
+            </fileset>
+            <include name="WEB-INF/lib/*"/>
+            <include name="WEB-INF/classes/**"/>
+
+</war>

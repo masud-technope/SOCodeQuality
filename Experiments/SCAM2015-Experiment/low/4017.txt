@@ -1,0 +1,10 @@
+import java.util.HashMap;
+
+abstract class GeometricObject
+{   
+     HashMap<String, Object> shapes;
+     {shapes = new HashMap<String,Object>(){{
+         put("Circle", new Circle());
+         put("Square", new Square());
+     }};}
+}

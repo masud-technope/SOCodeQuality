@@ -1,0 +1,4 @@
+final ImageInfo imageInfo = Sanselan.getImageInfo(file_);
+
+final int physicalWidthDpi = imageInfo.getPhysicalWidthDpi();
+final int physicalHeightDpi = imageInfo.getPhysicalHeightDpi();

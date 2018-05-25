@@ -1,0 +1,14 @@
+try{
+    Class.forName("org.postgresql.Driver");
+    } catch (ClassNotFoundException cnfe){
+      System.out.println("Could not find the JDBC driver!");
+      System.exit(1);
+    }
+Connection conn = null;
+try {
+    conn = DriverManager.getConnection
+                   (String url, String user, String password);
+     } catch (SQLException sqle) {
+       System.out.println("Could not connect");
+       System.exit(1);
+     }

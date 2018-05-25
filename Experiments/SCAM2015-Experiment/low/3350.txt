@@ -1,0 +1,7 @@
+String[] str = {"Hello","World!!!!","Java"};
+String concat ="";
+for(String s : str)
+{
+    concat+=s;
+}
+System.out.println(concat);

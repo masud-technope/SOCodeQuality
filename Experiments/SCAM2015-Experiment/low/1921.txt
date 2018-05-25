@@ -1,0 +1,10 @@
+public static int countChars(String input,char find){      
+            if(input.indexOf(find) != -1){          
+            return  countChars(input.substring(0, input.indexOf(find)), find)+ 
+                countChars(input.substring(input.indexOf(find)+1),find) + 1;
+            }
+            else {
+                return 0;
+            }
+
+        }

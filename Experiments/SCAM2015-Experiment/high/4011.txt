@@ -1,0 +1,8 @@
+int min = uInpunt.get(0);
+for (int i = 1; i < uInput.size(); i++) {
+    int curr = uInput.get(i);
+    if (curr < min) {
+        min = curr;
+    }
+}
+System.out.println ("The smallest number is: " + min);

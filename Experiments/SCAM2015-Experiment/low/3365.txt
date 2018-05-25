@@ -1,0 +1,4 @@
+if(a>b && b>c && c> d)
+{
+    // do some thing
+}

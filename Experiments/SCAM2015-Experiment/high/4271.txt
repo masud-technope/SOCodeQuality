@@ -1,0 +1,3 @@
+if((x !=null && y !=null) && x.contains(y)) {
+   System.out.println(x.replaceAll(y, ""));
+}

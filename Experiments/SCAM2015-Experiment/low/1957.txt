@@ -1,0 +1,27 @@
+try {
+
+
+                   InputStream in = new FileInputStream("C:\\a.mp3");//firstmp3
+                    byte[] buffer = new byte[1 << 20];  // loads 1 MB of the file
+                    OutputStream os = new FileOutputStream(new File("C:\\output.mp3", true);//output mp3
+                    int count;
+                    while ((count = in.read(buffer)) != -1) {
+                        os.write(buffer, 0, count);
+                        os.flush();
+                    }
+                    in.close();
+                    in = new FileInputStream("C:\\b.mp3");//second mp3
+                    while ((count = in.read(buffer)) != -1) {
+                        os.write(buffer, 0, count);
+                        os.flush();
+                    }
+                    in.close();
+                    os.close();
+
+
+
+
+               } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }

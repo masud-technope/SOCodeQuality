@@ -1,0 +1,3 @@
+String str = "this is fun";
+String str1 = str.replaceAll("is ", "").trim();
+System.out.println(str1);

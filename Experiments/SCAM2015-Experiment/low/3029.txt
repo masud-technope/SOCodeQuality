@@ -1,0 +1,7 @@
+br=new BufferedReader(new FileReader(path)); 
+    br.readLine();           
+    while ((line = br.readLine()) != null) {
+         if (line.startsWith("child's Last Name")) {
+                 list.add(line);
+         }               
+    }

@@ -1,0 +1,54 @@
+import java.util.Arrays;
+   import java.util.Scanner;
+
+   public class LibraryBookSort
+   {
+
+  LibraryBook[] book = new LibraryBook[5];
+  public static void main(String[] args)
+  {
+     LibraryBookSort run = new LibraryBookSort();
+  }
+
+  public LibraryBookSort()
+  {
+     readData();
+     displayArr();
+        System.out.println("-------------Sorted------------------");
+     sortArr();
+     displayArr();
+  }
+
+  private void readData()
+  {
+     book[0] = new LibraryBook("Java Programming", "Joyce Farrell", 881);
+     book[1] = new LibraryBook("Team Of Rivals", "Dorris Kearns Goodwin", 994);
+     book[2] = new LibraryBook("1776", "Daivd McCullough", 400);
+     book[3] = new LibraryBook("No Ordinary Time", "Dorris Kearns Goodwin", 768);
+     book[4] = new LibraryBook("Steve Jobs", "Walter Isaacson", 656);
+  }
+
+  private void sortArr()
+  {
+  //Sort
+     for(int outer=0; outer < book.length-1; outer++)
+     {
+        for(int inner=outer; inner < book.length; inner++)
+        {
+           if(book[outer].getBookTitle().compareTo(book[inner].getBookTitle())>0)  {  
+              LibraryBook temp = book[outer];
+              book[outer] = book[inner];
+              book[inner] = temp;
+           }
+
+        }
+     }
+  }
+
+  private void displayArr()
+  {
+     for (int x = 0; x < book.length; ++x){
+        System.out.println(book[x].getBookTitle() + "\t" + book[x].getBookAuthor() + "\t" + book[x].getBookPageCount());
+     }
+  }
+}

@@ -1,0 +1,5 @@
+public class DTOBuilder() {
+    public static PersonDTO buildPersonDTO(PersonEntity person) {
+        return new PersonDTO(person.getId(). person.getAddress());
+    }
+}

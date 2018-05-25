@@ -1,0 +1,4 @@
+@NamedNativeQuery(
+ name="jedisQry", 
+ query = "SELECT name,age FROM jedis_table", 
+ resultClass = Jedi.class)

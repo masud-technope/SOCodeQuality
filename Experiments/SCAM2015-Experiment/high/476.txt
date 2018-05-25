@@ -1,0 +1,7 @@
+public static class MyUtility
+{
+    public static void Calculate(int x,int y)
+    {
+        return x+y;
+    }
+}

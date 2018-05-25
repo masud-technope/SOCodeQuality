@@ -1,0 +1,13 @@
+public void printSquare(int min, int max) {
+        for (int i = min; i <= max; i++) {
+            int j = i;
+            for (j = i; j <= max; j++) {
+                System.out.print(j);
+            }
+            for (int k = j - i, l = min; k < max; k++, l++) {
+                System.out.print(l);
+            }
+
+            System.out.println();
+        }
+}

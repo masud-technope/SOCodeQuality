@@ -1,0 +1,4 @@
+ByteArrayOutputStream bos = new ByteArrayOutputStream();
+StreamResult result = new StreamResult(bos);
+transformer.transform(new DOMSource(doc), result);
+String output = bos.toString("UTF-8");

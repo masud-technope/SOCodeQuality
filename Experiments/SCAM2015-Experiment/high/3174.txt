@@ -1,0 +1,5 @@
+public void manipulateArray(){
+     for(int i=0;i<3;i++){
+          SomeClass.array[i]=0;
+     }
+}

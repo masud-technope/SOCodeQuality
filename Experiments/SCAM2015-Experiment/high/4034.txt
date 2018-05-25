@@ -1,0 +1,4 @@
+@Override
+protected final Object clone() throws CloneNotSupportedException {
+    throw new CloneNotSupportedException();
+}

@@ -1,0 +1,3 @@
+public static void method(int x, int y) {
+    System.out.println(Integer.compare(x, y));
+}

@@ -1,0 +1,14 @@
+try{
+        File folder=new File("C:/xxxx/xxxx/xxxx/inputs");
+        File[] listOfFiles=folder.listFiles();
+        for(File file:listOfFiles){
+            if(file.delete())
+                System.out.println("File deleted");
+            else
+                System.out.println("File not deleted");
+        }
+}
+catch(Exception e)
+{
+    System.out.println(e.printStackTrace());
+}

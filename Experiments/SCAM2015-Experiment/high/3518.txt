@@ -1,0 +1,20 @@
+public String findFile(){
+    String fileContent = "";
+
+    try {
+        File myDir = new File("files");
+        File myFile = new File(myDir, "ISBN 123-654.txt");
+        BufferedReader br = new BufferedReader(new FileReader(myFile));
+
+        String line;
+        while ((line = br.readLine()) != null){ 
+            System.out.println(line + "1");
+            fileContent += line;
+        } 
+       }  
+        catch (IOException e){
+        e.printStackTrace();
+    }
+    System.out.println(fileContent+"2");
+    return fileContent;
+}

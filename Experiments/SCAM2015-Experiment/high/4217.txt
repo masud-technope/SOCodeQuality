@@ -1,0 +1,9 @@
+if (grade >= 90) {
+        System.out.println("Well done you got a A"); 
+    } else if (grade >= 85) { 
+        System.out.println("Well done you got a B");
+    } else if (grade >= 75) {
+        System.out.println("You got a C");
+    } else {
+        System.out.println("You got a D");
+    }

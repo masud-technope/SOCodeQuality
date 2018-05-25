@@ -1,0 +1,9 @@
+while (t1.isAlive()) {
+  try {
+    Thread.currentThread().sleep();
+  }
+  catch (InterruptedException e) {
+    //check again
+  }
+}
+initCache();

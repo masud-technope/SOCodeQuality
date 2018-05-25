@@ -1,0 +1,15 @@
+public class AycanClass extends AsyncTask<String, Void, String> implements IAppointments {
+
+    Activity activity;
+    MainActivity mainactivityobjectname;
+
+    public AycanClass(Activity activity){
+        this.activity = activity;
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+           super.onPostExecute(result); 
+           mainactivityobjectname.setFilters(value);      
+    }     
+}

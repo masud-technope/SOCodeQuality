@@ -1,0 +1,5 @@
+// first midnight in this month
+DateMidnight first = new DateMidnight().withDayOfMonth(1);
+
+// last midnight in this month
+DateMidnight last = first.plusMonths(1).minusDays(1);

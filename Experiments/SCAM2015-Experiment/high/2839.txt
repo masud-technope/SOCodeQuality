@@ -1,0 +1,4 @@
+if ((nextArea - smallestArea) < 0) {
+    smallest = next; 
+    smallestArea = nextArea; // <<== Here
+}

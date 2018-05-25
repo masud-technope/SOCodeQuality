@@ -1,0 +1,6 @@
+Image rotatedImage = new BufferedImage(imageToRotate.getHeight(null), imageToRotate.getWidth(null), BufferedImage.TYPE_INT_ARGB);
+
+    Graphics2D g2d = (Graphics2D) rotatedImage.getGraphics();
+    g2d.rotate(Math.toRadians(90.0));
+    g2d.drawImage(imageToRotate, 0, -rotatedImage.getWidth(null), null);
+    g2d.dispose();

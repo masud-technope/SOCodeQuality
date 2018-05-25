@@ -1,0 +1,7 @@
+boolean aSet = false;
+ try{
+   int a = Integer.parseInt(aStr);
+   aSet = true;
+int b = Integer.parseInt(bStr);
+ } catch (NumberFormatException ex) {
+   if (aset) {....

@@ -1,0 +1,4 @@
+String decimal1 = "54.60"; 
+        BigDecimal bigDecimal = new BigDecimal(decimal1);
+        BigDecimal negative = bigDecimal.negate(); // negate keeps scale
+        System.out.println(negative);

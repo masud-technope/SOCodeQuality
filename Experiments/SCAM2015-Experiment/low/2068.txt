@@ -1,0 +1,5 @@
+int pos = 0;
+for ( int i = 0; i < N; ++i ) // N = nth position
+{
+  pos = STRING.find( delim, pos + size_of_delim );
+}

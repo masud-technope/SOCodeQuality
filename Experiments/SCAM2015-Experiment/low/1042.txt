@@ -1,0 +1,21 @@
+public static void main(String[] args) {
+
+      //cmd = the command youw ill be using            
+    String cmd = "ipconfig";      
+    Runtime r = Runtime.getRuntime();      
+    Process p;   
+    try {       
+        p = r.exec(cmd);
+
+    BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));    
+    String inputLine;       
+    while ((inputLine = in.readLine()) != null) {     
+        System.out.println(inputLine);
+          }       
+    }     
+
+
+catch (IOException ex) {      
+Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);  
+             }
+       }

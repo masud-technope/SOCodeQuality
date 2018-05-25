@@ -1,0 +1,7 @@
+Caused by: java.lang.NullPointerException
+at com.actionbarsherlock.internal.ActionBarSherlockCompat.updateProgressBars(ActionBarSherlockCompat.java:710)
+at com.actionbarsherlock.internal.ActionBarSherlockCompat.onIntChanged(ActionBarSherlockCompat.java:686)
+at com.actionbarsherlock.internal.ActionBarSherlockCompat.updateInt(ActionBarSherlockCompat.java:681)
+at com.actionbarsherlock.internal.ActionBarSherlockCompat.setFeatureInt(ActionBarSherlockCompat.java:665)
+at com.actionbarsherlock.internal.ActionBarSherlockCompat.setProgressBarIndeterminateVisibility(ActionBarSherlockCompat.java:637)
+at com.actionbarsherlock.app.SherlockFragmentActivity.setSupportProgressBarIndeterminateVisibility(SherlockFragmentActivity.java:282)

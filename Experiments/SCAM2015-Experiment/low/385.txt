@@ -1,0 +1,7 @@
+Double foo = 0.0;
+    for (int i = 1; i <= 150; i++) {
+        foo += 0.00010;
+    }
+    System.out.println(foo);
+    System.out.println(Math.round(foo * 100.0) / 100.0);
+    System.out.println(round(foo*100.0) / 100.0);

@@ -1,0 +1,27 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Testing 
+{
+    WebDriver driver1, driver2;
+    @BeforeClass
+    public void BeforeClass()
+    {
+        driver1 = new FirefoxDriver();
+        driver2 = new FirefoxDriver();
+    }
+    @Test
+    public void Test1() throws InterruptedException
+    {
+        driver1.get("http://www.google.com");
+        driver2.get("http://gmail.com");
+
+    }
+    @org.testng.annotations.AfterClass
+    public void AfterClass()
+    {
+        driver1.quit();
+    }
+}

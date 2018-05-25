@@ -1,0 +1,6 @@
+(left, right) -> { 
+    if (right.size() == 1) {
+        left.addAll(right); 
+    }
+    return left; 
+}

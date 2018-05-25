@@ -1,0 +1,10 @@
+//in Audi class
+String methodToGetAudiName();
+
+//in BMW class
+String methodToGetBMWName();
+
+if (carInstance instanceof Audi)
+stringToStoreName = ((Audi)carInstance).methodToGetAudiName();
+else if (carInstance instanceof BMW)
+stringToStoreName = ((BMW)carInstance).methodToGetBMWName();

@@ -1,0 +1,6 @@
+public void doSomething(Command<?> cmd) {
+    cmd.execute(args);
+    if(cmd.hasResult()) {
+        // ... do something with cmd.getResult() ...
+    }
+}

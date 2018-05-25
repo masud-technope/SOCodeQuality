@@ -1,0 +1,3 @@
+system("java -jar test.jar text1 text2")
+...
+getenv("ret")

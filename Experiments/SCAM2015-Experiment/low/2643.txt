@@ -1,0 +1,5 @@
+int[] value= {5,16,3,32,6};
+Arrays.sort(value);
+int min = value[0];
+int max = value[value.length-1];
+int dif = max-min;

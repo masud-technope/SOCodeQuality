@@ -1,0 +1,5 @@
+@XmlRootElement
+public class Container {
+    @XmlElement
+    public List yourlist;
+}

@@ -1,0 +1,3 @@
+cuisine_name.setText(cuisine + ", ");
+price_category.setText(priceCategory + ", ");
+anotherTextview.setText(somethingHere);

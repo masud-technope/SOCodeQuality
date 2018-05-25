@@ -1,0 +1,5 @@
+C:\tmp\foo
+C:\tmp\foo\bar
+C:\tmp\foo\baz
+C:\tmp\foo\baz\foo
+C:\tmp\foo\baz\foo\bar

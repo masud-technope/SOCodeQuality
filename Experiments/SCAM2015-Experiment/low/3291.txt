@@ -1,0 +1,5 @@
+// number = some_number.some_more_numbers;
+String value = number + ""; // convert to string
+String[] parts = value.split(".");
+String[] numbers = parts[0].split("");
+int length = numbers.length; // Gives number of individual numbers before decimal point

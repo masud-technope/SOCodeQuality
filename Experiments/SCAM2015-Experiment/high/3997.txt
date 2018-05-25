@@ -1,0 +1,6 @@
+int intNumber = 50;
+if (intNumber > 60 && intNumber < 100) {
+    // Do your work
+} else {
+    throw new CustomException("Integer number out of expected range of 60 to 100");
+}

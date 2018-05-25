@@ -1,0 +1,10 @@
+public static int numberOfOccurence(String yourString, char needle) {
+      int nb = 0;
+      for (int i=0; i < yourString.length(); i++)
+    {
+        if (yourString.charAt(i) == needle)
+                   nb++;
+
+    }
+    return nb;
+}

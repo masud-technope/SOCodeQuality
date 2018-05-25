@@ -1,0 +1,41 @@
+public static void main(String ar[])
+{
+
+    List<String> title = new ArrayList<String>();
+        title.add("title 1");
+        title.add("title 2");
+        title.add("title 3");
+    List<String> desc = new ArrayList<String>();
+        desc.add("desc 1");
+        desc.add("desc 2");
+        desc.add("desc 3");
+    List<String> price = new ArrayList<String>();
+        price.add("price 1");
+        price.add("price 2");
+        price.add("price 3");
+    List<String> usageArray = new ArrayList<String>();
+        usageArray.add("usage 1");
+        usageArray.add("NONE");
+        usageArray.add("usage 1");
+
+
+    int index = -1;
+    for (String string : usageArray) {
+
+        if(string.equalsIgnoreCase("NONE"))
+        {
+            index = usageArray.indexOf(string);
+                    usageArray.remove(string);
+                    price.remove(index);
+                    desc.remove(index);
+                    title.remove(index);
+
+        }
+
+    }
+
+
+
+
+
+}

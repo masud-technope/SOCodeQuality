@@ -1,0 +1,18 @@
+public class App
+{
+
+public static void main( String[] args )
+{
+    String myString = "test";
+
+    if(myString.equals(null))
+    {
+        System.out.println("Its NUll");
+    }else
+    {
+        System.out.println("Not Equal");
+    }
+
+}
+
+}

@@ -1,0 +1,42 @@
+public static String genXmlTag(String tagName, String innerXml, String properties )
+{
+    return String.format("<%s %s>%s</%s>", tagName, properties, innerXml, tagName);
+}
+
+public static String genXmlTag(String tagName, String innerXml )
+{
+    return genXmlTag(tagName, innerXml, "");
+}
+
+public static <T> String serializeXML(List<T> list)
+{
+    String result = "";
+    if (list.size() > 0)
+    {
+        T tmp = list.get(0);
+        String clsName = tmp.getClass().getName();
+        String[] splitCls = clsName.split("\\.");
+        clsName = splitCls[splitCls.length - 1];
+        Field[] fields = tmp.getClass().getFields();
+
+        for (T t : list)
+        {
+            String row = "";
+            try {
+                for (Field f : fields)
+                {
+                    Object value = f.get(t);
+                    row += genXmlTag(f.getName(), value == null ? "" : value.toString());
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            row = genXmlTag(clsName, row);
+
+            result += row;
+        }
+    }
+
+    result = genXmlTag("root", result);
+    return result;
+}

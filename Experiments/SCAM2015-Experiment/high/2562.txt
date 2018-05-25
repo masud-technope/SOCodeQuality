@@ -1,0 +1,23 @@
+private static List<String> getAllIconSetFolders(String path, String iconset) 
+{
+  List<String> pathes = new ArrayList<String>();
+
+  File folder = new File(path);
+
+  for (File file : folder.listFiles()) 
+  {
+    if (file.isDirectory()) 
+    {
+      if (file.getName().equals(iconset))
+      {
+        pathes.add(file.getAbsolutePath());
+      }
+      else
+      {
+        pathes.addAll(getAllIconSetFolders(file.getAbsolutePath(), iconset));
+      }
+    }
+  }
+
+  return pathes;
+}

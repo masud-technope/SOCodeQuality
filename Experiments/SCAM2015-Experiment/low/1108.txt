@@ -1,0 +1,9 @@
+synchronized (mList) {
+    if (mList.size() != 0) {
+        int s = mList.size() - 1;
+        for (int i = s; i > 0; i -= OFFSET) {
+            mList.get(i).doDraw(canv);
+        }
+        getHead().drawHead(canv);
+    }
+}

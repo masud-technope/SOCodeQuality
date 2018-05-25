@@ -1,0 +1,6 @@
+//...
+pstmnt = conn.prepareStatement("UPDATE users SET banned = 1 WHERE username = ? and banned = 0");
+pstmnt.setString(1, username);
+int affectedRows = pstmnt.executeUpdate();
+boolean wasUserBanned = affectedRows > 0;
+//...

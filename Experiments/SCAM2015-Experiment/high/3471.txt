@@ -1,0 +1,6 @@
+public static void main(String[] args) {
+    int first = 1;
+    int second = 2;
+    int third = 0;
+    int sum = first + second + third;
+}

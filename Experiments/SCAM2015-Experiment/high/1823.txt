@@ -1,0 +1,4 @@
+Pattern.compile("(?:\\+|\\-)?\\d+\\.\\d+");` // Matches a double.
+Pattern.compile("(?:\\+|\\-)?\\d{numberOfDigitsBeforeYouWantToCallItALong,}"); // Matches longs.
+Pattern.compile("(?:\\+|\\-)?\\d{,numberOfDigitsBeforeYouWantToCallItALongMinusOne}"); // Matches ints.
+Pattern.compile("true|false|t|f|yes|no|y|n"); // Matches booleans.

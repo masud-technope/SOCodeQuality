@@ -1,0 +1,18 @@
+public boolean isPrebuiltTestButtonVisible() {
+    try {
+
+        if (preBuiltTestButton.isEnabled()) {
+
+            return true;
+
+        } else {
+
+            return false;
+        }
+
+    } catch (Exception e) {
+
+        e.printStackTrace();
+        return false;
+    }
+}

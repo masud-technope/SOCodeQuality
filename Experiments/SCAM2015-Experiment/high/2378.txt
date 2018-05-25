@@ -1,0 +1,10 @@
+public static boolean hasEvenNumber(int[] vals) {
+    int i = 0;
+    while(i < vals.length) {
+        if(vals[i] % 2 == 0) {
+            return true;
+        }
+        i++;
+    }
+    return false;
+}

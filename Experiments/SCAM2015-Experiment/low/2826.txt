@@ -1,0 +1,9 @@
+String inputValue = "00669253";
+    String multipleValue="87654321";
+
+    int result = 0;
+    for (int i = 0; i < inputValue.length(); i++)
+            {
+                result += Integer.parseInt(Character.toString(inputValue.charAt(i))) * 
+                Integer.parseInt(Character.toString(multipleValue.charAt(i)));
+            }

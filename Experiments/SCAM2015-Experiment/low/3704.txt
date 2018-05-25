@@ -1,0 +1,61 @@
+protected void onCreate(Bundle savedInstanceState) {
+
+          super.onCreate(savedInstanceState);
+
+          setContentView(R.layout.activity_main);
+
+          Thread th = new Thread(new Runnable() {            /*create a new thread */
+
+                              @Override
+
+                              public void run() { /*
+
+                                                                  * The purpose of this thread is to
+
+                                                                  * navigate from one class to another
+
+                                                                  * after some time
+
+                                                                  */
+
+                                     try {
+
+                                            Thread.sleep(5000);
+
+                                     } catch (InterruptedException e) {
+
+                                            /*
+
+                                             * We are creating this new thread because we don’t
+
+                                             * want our main thread to stop working for that
+
+                                             * time as our android stop working and some time
+
+                                             * application will crashes
+
+                                             */
+
+                                            e.printStackTrace();
+
+                                     }
+
+                                     finally {
+
+                                            Intent i = new Intent(MainActivity.this,
+
+                                                          Splash_Class.class);
+
+                                            startActivity(i);
+
+                                            finish();
+
+                                     }
+
+                              }
+
+                       });
+
+          th.start(); // start the thread
+
+   }

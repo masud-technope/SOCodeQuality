@@ -1,0 +1,4 @@
+output = (condition1) ? 
+          "First Case" : ((condition2) ?
+          "Second Case" : ( (condition3) ? 
+          "Third Case") : (...));

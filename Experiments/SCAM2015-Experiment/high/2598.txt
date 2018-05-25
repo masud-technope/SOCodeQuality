@@ -1,0 +1,5 @@
+@Override
+public int hashCode()
+{
+    return Arrays.hashCode(new Object[]{new Character(row), new Character(col)});
+}

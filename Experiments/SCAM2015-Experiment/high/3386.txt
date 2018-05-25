@@ -1,0 +1,3 @@
+int[][] array = new int[2][3];
+    System.out.println(array[0].length);
+    System.out.println(array[1].length);

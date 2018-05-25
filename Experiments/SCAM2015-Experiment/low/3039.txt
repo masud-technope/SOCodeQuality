@@ -1,0 +1,7 @@
+public static int[] getIntegersFromString(String numbers){
+    int[] result = new int[numbers.length()/3];
+    from(int i=0; i<(numbers.length()/3)-1; i++){
+        result[i] = numbers.substring(i*3, i*3+2);
+    }
+    return result;
+}

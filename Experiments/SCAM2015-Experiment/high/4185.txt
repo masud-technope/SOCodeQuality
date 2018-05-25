@@ -1,0 +1,8 @@
+for (int i = 0; i < letters.length(); i++) {
+   char letter1 = letters.charAt(0);   
+   if (Character.isUpperCase(letter1)) {
+       System.out.println(Character.toLowerCase(letter1));
+   } else {
+       System.out.println(Character.toUpperCase(letter1));
+   }
+}

@@ -1,0 +1,5 @@
+@Override
+public void onBackPressed() {
+   super.onBackPressed();
+   //rest of code here
+}

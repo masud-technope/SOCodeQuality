@@ -1,0 +1,6 @@
+for(int i = 0; i<maxCounter; i++)
+    {
+
+        // Goede Antwoorden toevoegen aan de center
+       center.add(new JLabel("Antwoord Vraag"+ (i +1) +": "+antwoord.get(i),SwingConstants.LEFT));                      
+    }

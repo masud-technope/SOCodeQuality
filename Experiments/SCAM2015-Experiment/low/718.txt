@@ -1,0 +1,7 @@
+String[] parts = myColor.split("\.");
+String className = parts[0];
+String fieldName = parts[1];
+Class c = Class.forName(className);
+Field f = c.getField(fieldName);
+Object o = f.get(null);
+Color col = (Color) o;

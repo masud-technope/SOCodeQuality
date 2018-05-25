@@ -1,0 +1,28 @@
+public static void duplicateRemove(int[] arr) {
+    int temp = 0;
+
+    for (int i = 0; i < arr.length; i++) {
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[i] < arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+
+    int count;
+    for (int j = 0; j < arr.length;) {
+        count = 1;
+        for (int i = j + 1; i < arr.length; i++) {
+            if (arr[i] == arr[j]) {
+                count++;
+            } else
+                break;
+
+        }
+        System.out.println(arr[j] + " is :  " + count);
+        j += count;
+    }
+
+}

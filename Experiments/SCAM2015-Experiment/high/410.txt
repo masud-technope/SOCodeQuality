@@ -1,0 +1,5 @@
+private AtomicInteger state = new AtomicInteger();
+
+public void run() {
+    state.getAndIncrement()
+}

@@ -1,0 +1,5 @@
+for (int i = 0; i < Alist.size(); i++) {
+    if (Blist.contains(Alist.get(i))) {
+        System.out.println("Equals..: " + Alist.get(i));
+    }
+}

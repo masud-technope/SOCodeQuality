@@ -1,0 +1,5 @@
+class Outer {
+  public static final void main(final String[] args) throws Exception{
+    Class.forName("Inner");
+  }
+}

@@ -1,0 +1,5 @@
+if (address != null && firstName != null && lastName != null) {
+    // Whatever you want to do with that...
+} else {
+    // Whatever you want to do with bad input
+}

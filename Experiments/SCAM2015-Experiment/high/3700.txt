@@ -1,0 +1,16 @@
+class IncrementTest{
+    public static void main(String[] args){
+
+        System.out.println("***Post increment test***");
+        int n = 10;
+        System.out.println(n);      // output  10
+        System.out.println(n++);    // output  10
+        System.out.println(n);      // output  11
+
+        System.out.println("***Pre increment test***");
+        int m = 10;
+        System.out.println(m);      // output  10
+        System.out.println(++m);    // output  11
+        System.out.println(m);      // output  11
+    }
+}

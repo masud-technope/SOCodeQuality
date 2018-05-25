@@ -1,0 +1,3 @@
+String s ="23+43*435/675-90";
+    s = s.replaceAll("(.*[-+*/]).*", "$1");
+    System.out.println(s);

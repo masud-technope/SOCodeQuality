@@ -1,0 +1,42 @@
+Collect: 81
+ForEachOrdered: 434
+Reduce: 455
+
+
+public static void main(String[] args) {
+    //let streams get hot
+    Stream.of("1", "2", "3").collect(Collectors.toList());
+    final Object[] holder = new Object[1];
+    Stream.of("1", "2", "3").forEachOrdered(e -> holder[0] = e);
+    Stream.of("1", "2", "3").reduce((a, b) -> b);
+    //start testing
+    t1();
+    t2();
+    t3();
+}
+
+private static void t1() {
+    long start = System.nanoTime();
+    List<String> list = Stream.of("1", "2", "3").collect(Collectors.toList());
+    int lastIndex = list.size() - 1;
+    String last = list.get(lastIndex);
+    long end = System.nanoTime();
+    System.out.println("Collect: " + TimeUnit.NANOSECONDS.toMicros(end - start));
+}
+
+private static void t2() {
+    long start = System.nanoTime();
+    final Object[] holder = new Object[1];
+    Stream.of("1", "2", "3").forEachOrdered(e -> holder[0] = e);
+    String last = (String) holder[0];
+    long end = System.nanoTime();
+    System.out.println("ForEachOrdered: " + TimeUnit.NANOSECONDS.toMicros(end - start));
+}
+
+private static void t3() {
+    long start = System.nanoTime();
+    Optional<String> lastOpt = Stream.of("1", "2", "3").reduce((a, b) -> b);
+    String last = lastOpt.get();
+    long end = System.nanoTime();
+    System.out.println("Reduce: " + TimeUnit.NANOSECONDS.toMicros(end - start));
+}

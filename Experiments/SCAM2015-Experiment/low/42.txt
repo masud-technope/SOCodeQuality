@@ -1,0 +1,16 @@
+public static boolean hasAtLeastTwoOdds(int[] args) {
+    int[] target = args; // make defensive copy
+    int oddsFound;
+    int numberOddsSought = 2;
+
+    for (int i = 0; i < target.length; i++) {
+        if (target[i] % 2 != 0) {
+            if (oddsFound== numberOddsSought) {
+                return true;
+            }
+            oddsFound++;
+        }
+    }
+
+    return false;
+}

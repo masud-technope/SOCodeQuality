@@ -1,0 +1,9 @@
+try {
+    Socket socket = null;
+    socket.send(data);
+} catch(IOException ex) {
+    ex.printStackTrace();
+} catch(NullPointerException ex) {
+    ex.printStackTrace();
+}
+// or in java 7 you can write catch(IOException | NullPointerException ex)

@@ -1,0 +1,4 @@
+String str = "abcd1234";
+String[] part = str.split("(?<=\\D)(?=\\d)");
+System.out.println(part[0]);
+System.out.println(part[1]);

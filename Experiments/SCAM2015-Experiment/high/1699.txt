@@ -1,0 +1,26 @@
+@Test
+public void test1() throws ExceptionB {
+    try {
+        throw new ExceptionA();
+    } catch (ExceptionA e) {
+        assertEquals("message", e.getMessage());
+    }
+}
+
+@Test(expected=ExceptionB.class)
+public void test2() throws ExceptionA {
+    try {
+        throw new ExceptionA();
+    } catch (ExceptionA e) {
+        assertEquals("message", e.getMessage());
+        throw e;
+    }
+}
+
+public class ExceptionA extends Exception{
+    @Override
+    public String getMessage() {
+        return "message";
+    }
+}
+public class ExceptionB extends ExceptionA{}

@@ -1,0 +1,4 @@
+synchronized(x)
+{
+  x.setIt(x.getIt() * 2);
+}

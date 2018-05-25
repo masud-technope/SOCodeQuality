@@ -1,0 +1,34 @@
+public class IfElse {
+
+    public int ifElseTesting(String a){
+        //return null;
+        return (a== null)? 0: a.length();
+    }
+
+}
+
+public class ShortCutifElseTesting {
+
+    public static void main(String[] args) {
+
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("enter the string please:");
+        String a=scanner.nextLine();
+        /*
+        if (a.equals(null)){
+            System.out.println("you are not correct");
+        }
+        else if(a.equals("bangladesh")){
+            System.out.println("you are right");
+        }
+        else
+            System.out.println("succesful tested");
+
+        */
+        IfElse ie=new IfElse();
+        int result=ie.ifElseTesting(a);
+        System.out.println(result);
+
+    }
+
+}

@@ -1,0 +1,5 @@
+int loopnum = 0;
+int i = 0;
+long num = 0L;
+long sum = 0L;
+long avg = 0L;

@@ -1,0 +1,25 @@
+Tile[] map = new Tile[12]();//declare a tile array that can hold 12 Tile Reference
+
+
+
+//Assign those 12 references to the Objects  
+
+
+for(int i=0;i<4;i++)
+{
+map[i]=bt;
+}
+
+for(int i=4;i<8;i++)
+{
+map[i]=gt;
+}
+
+for(int i=8;i<10;i++)
+{
+map[i]=bt;
+}
+for(int i=10;i<12;i++)
+{
+map[i]=ft;
+}

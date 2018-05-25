@@ -1,0 +1,9 @@
+public class A{
+
+final AtomicInteger ai = new AtomicInteger();
+
+public int getI(){ return ai.get(); }
+
+public void setI(int i){ ai.set(i); }
+
+}

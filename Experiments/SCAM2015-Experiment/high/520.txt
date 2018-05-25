@@ -1,0 +1,5 @@
+return criteria.createCriteria(A.class)
+               .createCriteria("b", "join_between_a_b")
+               .createCriteria("c", "join_between_b_c")
+               .createCriteria("d", "join_between_c_d")
+               .add(Restrictions.eq("some_field_of_D", someValue));

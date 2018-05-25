@@ -1,0 +1,14 @@
+public static String convertUTF8Units(String input) {
+    String part = "", output = input;
+    for(int i=0;i<=input.length()-4;i++) {
+        part = input.substring(i, i+4);
+        if(part.startsWith("\\x")) {
+            byte[] rawByte = new byte[1];
+            rawByte[0] = (byte) (Integer.parseInt(part.substring(2), 16) & 0x000000FF);
+            String raw = new String(rawByte);
+            output = output.replace(part, raw);
+        }
+    }
+
+    return output;
+}

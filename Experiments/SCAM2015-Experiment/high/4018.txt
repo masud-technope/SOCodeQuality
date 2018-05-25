@@ -1,0 +1,3 @@
+String test="NAI-PO-0009-1";
+test=test.substring(0, test.length()-2);
+System.out.println(test);

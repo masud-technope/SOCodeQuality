@@ -1,0 +1,5 @@
+Object tmp = session.get(Object.class,ob.getId())
+if(tmp!=null){
+    session.evit(tmp); // or merge
+}
+session.saveOrUpdate(ob);

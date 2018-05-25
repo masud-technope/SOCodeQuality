@@ -1,0 +1,33 @@
+float minX = Float.MAX_VALUE;
+            float maxX = Float.MIN_VALUE;
+            float minY = Float.MAX_VALUE;
+            float maxY = Float.MIN_VALUE;
+
+            for (int i = 0; i < item.slaves.size(); i++) {
+                OverlayItemExtended slaveItem = item.slaves.get(i);
+                GeoPoint slavePoint = slaveItem.getPoint();
+                Point slavePtScreenCoord = new Point();
+
+                mapView.getProjection()
+                    .toPixels(slavePoint, slavePtScreenCoord);
+
+                float x = slavePtScreenCoord.x;
+                float y = slavePtScreenCoord.y;
+
+                maxX = Math.max(x, maxX);
+                minX = Math.min(x, minX);
+                maxY = Math.max(y, maxY);
+                minY = Math.min(y, minY);
+
+            }
+            float centerX = (maxX + minX) / 2;
+            float centerY = (maxY + minY) / 2;
+            double distance = findDistance(minX, minY, maxX, maxY);         
+            Paint linePaint = new Paint();
+            linePaint.setColor(android.graphics.Color.RED);
+            linePaint.setStyle(Paint.Style.FILL);
+            linePaint.setAlpha(35);
+
+            canvas.drawCircle(centerX, centerY, (float) (distance / 2) + 10,
+                    linePaint);
+}

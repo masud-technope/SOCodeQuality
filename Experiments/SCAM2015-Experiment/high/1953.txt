@@ -1,0 +1,15 @@
+String[] array1 = {"1", "2", "3"};
+String[] array2 = {"4", "7"};
+
+String[] array3 = {"1", "2", "3"};
+String[] array4 = {"4", "7"};
+
+List<List<String>> lst1 = new ArrayList<>();
+lst1.add(Arrays.asList(array1));
+lst1.add(Arrays.asList(array2));
+
+List<List<String>> lst2 = new ArrayList<>();
+lst2.add(Arrays.asList(array3));
+lst2.add(Arrays.asList(array4));
+
+System.out.println(lst1.equals(lst2)); //prints true

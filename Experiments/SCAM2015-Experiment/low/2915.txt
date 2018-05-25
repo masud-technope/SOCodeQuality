@@ -1,0 +1,6 @@
+public void doSomething(){
+    synchronized(myObject){
+        doAnotherThing();
+        myObject.doStuff();
+    }
+}

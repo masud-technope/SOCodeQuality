@@ -1,0 +1,3 @@
+Card c1 = Card.init(...);
+Card c2 = Card.init(...);
+...

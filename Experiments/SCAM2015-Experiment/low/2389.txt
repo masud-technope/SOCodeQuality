@@ -1,0 +1,34 @@
+public class Foo
+{
+  public String getFoo() { return ""; }  // must have a body
+}
+public interface Bar // no ()
+{
+  public void setBar(String bar);
+}
+public class FooBar<T>
+{
+  public static <T extends Foo & Bar> T getFooBar()
+  {
+    return null;
+  }
+}
+public class FB
+{
+  private FooBar<Object> fb = new FooBar<Object>();
+
+  public static void main(String args[])
+  {
+    new FB();
+  }
+
+  public FB()
+  {
+    System.out.println(fb.getFooBar());
+  }
+}
+
+FB.java:12: type parameters of <T>T cannot be determined; no unique maximal instance exists for type variable T with upper bounds java.lang.Object,Foo,Bar
+    System.out.println(fb.getFooBar());
+                                   ^
+1 error

@@ -1,0 +1,10 @@
+public static void main(String k[])
+{  
+    System.out.println ("NUMBER OF VALUES ="+k.length);
+    int arrymy[]=new int[k.length];
+    for (int i = 0; i < k.length; i++)
+    {
+        int newGues = Integer.parseInt(k[i]);
+        arrymy[i] = newGues;
+    }
+}

@@ -1,0 +1,4 @@
+public static void printArray(String id)
+{
+    System.out.println("Array " + id + ": " + Arrays.toString(mapArray.get(id)));
+}

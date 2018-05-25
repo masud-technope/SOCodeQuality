@@ -1,0 +1,14 @@
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    System.out.print("Do you love java? > ");
+    String output = sc.nextLine();
+
+    while(!(output.equalsIgnoreCase("yes") || output.equalsIgnoreCase("no"))) {
+        System.out.println("Try again!");
+        System.out.print("Do you love java? > ");
+        output = sc.nextLine();
+    }
+
+    System.out.println("Thank you!");
+}

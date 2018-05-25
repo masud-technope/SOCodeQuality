@@ -1,0 +1,16 @@
+package Example;
+
+public class A
+{
+    String myVar;
+
+    public String getMyVar()
+    {
+        return myVar;
+    }
+
+    public void setMyVar(String myVar)
+    {
+        this.myVar = myVar;
+    }
+}

@@ -1,0 +1,68 @@
+package com.example.payroll.domain;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Department {
+
+    private String mName;
+    private Map<Person, Contract> mEmployees;
+    private Person mBeingHired;
+    private Person mBeingFired;
+
+    public Department(String name) {
+        mName = name;
+        mEmployees = new HashMap<Person, Contract>();
+        mBeingHired = null;
+        mBeingFired = null;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
+    public Collection<Person> getEmployees() {
+        return mEmployees.keySet();
+    }
+
+    public Contract getContract(Person employee) {
+        return mEmployees.get(employee);
+    }
+
+    // ========== Business logic ==========
+
+    public boolean isBeingHired(Person person) {
+        return mBeingHired == person;
+    }
+
+    public boolean isBeingFired(Person person) {
+        return mBeingFired == person;
+    }
+
+    public void hire(Person person, Contract contract) {
+        assert(!mEmployees.containsKey(person));
+        assert(!mEmployees.containsValue(contract));
+
+        mBeingHired = person;
+        mBeingHired.youAreHired(this);
+        mEmployees.put(mBeingHired, contract);
+        mBeingHired = null;
+    }
+
+    public void fire(Person person) {
+        assert(mEmployees.containsKey(person));
+
+        mBeingFired = person;
+        mBeingFired.youAreFired();
+        mEmployees.remove(mBeingFired);
+        mBeingFired = null;
+    }
+
+    public void iResign(Person employee) {
+        assert(mEmployees.containsKey(employee));
+        assert(employee.isResigning());
+
+        mEmployees.remove(employee);
+    }
+}

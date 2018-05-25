@@ -1,0 +1,26 @@
+@RequestMapping(URI_LIBRARY)
+public interface LibraryNamespace {
+  public static String URI_LIBRARY = "/library/{libraryId}";
+}
+
+@RequestMapping(URI_BOOK)
+public interface BookNamespace {
+  public static String URI_BOOK = LibraryNamespace.URI_LIBRARY + "/book/{bookId}";
+}
+
+@Controller
+public class LibraryController implements LibraryNamespace {
+  @RequestMapping("")
+  public Library get(@PathVariable long libraryId) {
+    return service.getLibraryById(libraryId);
+  }
+}
+
+@Controller
+public class BookController implements BookNamespace {
+  @RequestMapping("")
+  public Book get(@PathVariable long libraryId, @PathVariable long bookId) {
+    Library library service.getLibraryById(libraryId);
+    return library.getBookById(bookId);
+  }
+}

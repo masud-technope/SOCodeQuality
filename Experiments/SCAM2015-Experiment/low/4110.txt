@@ -1,0 +1,3 @@
+public boolean verifyUniqueIntegers(Integer array []){
+    return new HashSet<>(Arrays.asList(array)).size() == array.length;
+}

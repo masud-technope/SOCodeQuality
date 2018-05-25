@@ -1,0 +1,29 @@
+public class Main {
+    private static final float TEN = (float) 10.0;
+    public static void main(String[] args){
+        convert("123510123");
+    }
+    public static void convert(String str){
+        char[] arrayChar = str.toCharArray();
+        List<Float> list = new ArrayList<Float>();
+        float j = 0;
+        float temp = 0;
+        for(int i = arrayChar.length-1; i >=0;i--){
+            try{
+                j = Character.getNumericValue(arrayChar[i]);
+                if(j==0){
+                    j = (Character.getNumericValue(arrayChar[i-1])/TEN);
+                    list.add(j);
+                    i--;
+                }else{
+                    list.add(j);
+                }
+            }catch(NumberFormatException e){
+                e.printStackTrace();
+            }
+        }
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+    }
+}

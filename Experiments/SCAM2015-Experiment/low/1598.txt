@@ -1,0 +1,9 @@
+public int test(int floor, int ceil, int n) {
+    int a = (floor / n) + 1;
+    int counter = 0;
+    while (a * n <= ceil) {
+        counter++;
+        a++;
+    }
+    return counter;
+}

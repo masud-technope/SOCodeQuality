@@ -1,0 +1,6 @@
+char img24[PIXELCOUNT*3];
+short img48[PIXELCOUNT*3];
+unsigned int i;
+
+for (i = 0; i < PIXELCOUNT; i++)
+    img48[i] = img24[i];

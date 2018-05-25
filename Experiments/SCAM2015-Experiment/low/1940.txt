@@ -1,0 +1,13 @@
+public boolean youAreHired(Department department) {
+        assert(department != null);
+        assert(mDepartment != department);
+        assert(department.isBeingHired(this));
+
+        if (mDepartment != null)
+            if (!resign())
+                    return false;
+
+        mDepartment = department;
+
+        return true;
+    }

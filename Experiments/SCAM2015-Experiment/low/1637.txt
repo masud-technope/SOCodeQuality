@@ -1,0 +1,3 @@
+if (but1 == true && but2 == true) {
+    // do something
+}

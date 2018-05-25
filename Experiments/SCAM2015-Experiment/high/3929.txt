@@ -1,0 +1,6 @@
+public static void main(String[] args) {
+    int i;  // ignored
+    int j = 5;
+    String s = "abc";
+    String sNull; // ignored
+}

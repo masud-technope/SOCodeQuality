@@ -1,0 +1,16 @@
+public static List<String> robotPaths(int n){
+    List<String> pathList = new ArrayList<String>();
+    getPaths(n, 1,1, "", pathList);
+    return pathList;
+}
+public static void getPaths(int n, int i, int j, String path, List<String> pathList){
+    path += String.format(" (%d,%d)", i , j);
+    if( i ==n && j == n){ //reach the (n,n) point
+        pathList.add(path);
+    }else if( i > n || j > n){//wrong way
+        return;
+    }else {
+        getPaths(n, i +1, j , path, pathList);
+        getPaths(n, i , j +1, path, pathList);
+    }
+}

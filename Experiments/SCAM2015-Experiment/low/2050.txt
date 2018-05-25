@@ -1,0 +1,9 @@
+class kkkk {
+  public static void main(String args[]){
+    A[] arr = new A[4];
+    for( int i=0; i<4; i++ ){
+      arr[i] = new A();
+      System.out.prin(i);
+    }
+  }
+}

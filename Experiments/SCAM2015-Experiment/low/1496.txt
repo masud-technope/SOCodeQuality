@@ -1,0 +1,3 @@
+String yourString = "abcdef"
+String newString = yourString.replaceAll("c" , "x");
+System.out.println("This is the replaced String: " + newString);

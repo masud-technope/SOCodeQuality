@@ -1,0 +1,5 @@
+String sql = "UPDATE test SET name = ? WHERE id = ?";
+PreparedStatement ps = conn.prepareStatement(sql);
+ps.setString(1, <nameValue>); // binding value for name column
+ps.setInt(2, <idValue>); // binding value for where clause
+ps.executeUpdate(); // executes statement

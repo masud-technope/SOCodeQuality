@@ -1,0 +1,4 @@
+//constructor of Class - note Classnames should start with uppercase
+public paintClass(){
+    //no need to call paintComponent or repaint here
+}

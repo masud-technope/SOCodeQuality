@@ -1,0 +1,3 @@
+List<Map<String,Integer>> maps = new ArrayList<Map<String,Integer>>();
+...
+maps.add(new HashMap<String,Integer>());

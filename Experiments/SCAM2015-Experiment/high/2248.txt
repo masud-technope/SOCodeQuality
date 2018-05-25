@@ -1,0 +1,3 @@
+try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("META-INF/userLibrary.xml")) {
+  service = context.getBean(UserLibrary.class);
+}

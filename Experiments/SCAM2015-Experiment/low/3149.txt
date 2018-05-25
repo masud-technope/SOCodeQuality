@@ -1,0 +1,26 @@
+class Main
+{
+  ------
+} 
+
+class derived
+{
+  Main m = new Main();double[] A=new double[1];
+    Scanner s = new Scanner(System.in);
+    int i=0,wc=1;
+    int arrayGrowth=1;
+    while(s.hasNext())
+    {
+      if (A.length == wc) {
+                // expand list
+                A = Arrays.copyOf(A, A.length + arrayGrowth);
+                wc+=arrayGrowth;
+               }
+    A[i]=s.nextDouble();
+    i++;
+    }
+    int len=A.length-1;
+  m.findMin(A,len);
+  m.computePositiveSum(A,len);
+  m.countNegative(A,len);
+}

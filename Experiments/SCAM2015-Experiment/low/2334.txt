@@ -1,0 +1,71 @@
+public class ThreadDemo
+{
+    public static void main (String [] args)
+    {
+        PrintDemo pd=new PrintDemo();     
+        MyThread1 mt1 = new MyThread1 ("T1",pd);
+        MyThread2 mt2 = new MyThread2 ("T2",pd);     
+        mt1.start ();
+        mt2.start();
+    }
+}
+class PrintDemo {
+    private boolean oddFlag=true;
+    public synchronized void printOdd(int i,String tName){
+        if(oddFlag==false){
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }   
+        }else{
+            System.out.println("\nThread "+tName+" count:"+i);
+            oddFlag=false;
+            notify();
+        }
+    }
+    public synchronized void printEven(int i,String tName){
+        if(oddFlag==true){
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }   
+        }else{
+            System.out.println("\nThread "+tName+" count:"+i);
+            oddFlag=true;
+            notify();
+        }
+    }   
+}
+class MyThread1 extends Thread
+{
+    private PrintDemo pd;
+    private String name;
+
+    MyThread1(String threadName,PrintDemo pd){
+        this.name=threadName;
+        this.pd=pd;
+    }  
+    public void run ()  
+    {
+       for(int i=1;i<=50;i+=2){
+            pd.printOdd(i,name);
+       }
+    }
+}
+class MyThread2 extends Thread
+{
+    private PrintDemo pd;
+    private String name;    
+    MyThread2(String threadName,PrintDemo pd){
+        this.name=threadName;
+        this.pd=pd;
+    }   
+    public void run ()
+    {
+        for(int i=2;i<=50;i+=2){
+            pd.printEven(i,name);                   
+        }
+    }
+}

@@ -1,0 +1,10 @@
+String[] parts = new String[4];
+String a = ("number 1. number 2. number 3. number 4. ");
+
+
+
+parts = a.split("\\.");
+String part1 = parts[0];
+String part2 = parts[1]; 
+String parts3 = parts[2];
+String parts4 = parts[3];

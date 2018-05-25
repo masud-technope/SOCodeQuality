@@ -1,0 +1,5 @@
+public static <A, B> A fold(F<A, F<B, A>> f, A z, Iterable<B> xs)
+{ A p = z;
+  for (B x : xs)
+    p = f.f(p).f(x);
+  return p; }

@@ -1,0 +1,22 @@
+public MyActivity extends Activity implements MyFragment.Listener {
+
+    // ... your code ...
+
+    // creating the Fragment
+    MyFragment f = new MyFragment();
+
+    // register activity as listener
+    f.setListener(this);
+
+    // ... more of your code
+
+    // implementation of MyFragment.Listener interface
+    @Override
+    public void somethingHappenedInFragment(Object... anyDataYouWantToPassToActivity) {
+        // here you have the data passed from the fragment.
+        for (Object o : anyDataYouWantToPassToActivity {
+            System.out.println(o.toString();
+        }
+    }
+
+}

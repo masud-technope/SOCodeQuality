@@ -1,0 +1,12 @@
+static int[]     SCORES =
+    { 90, 80, 70, 60, 0 };  
+
+static String[]  GRADES =
+    { "A", "B", "C", "D", "F" };  
+
+String letterGrade(int pct)
+{
+    for (int i = 0;  i < SCORES.length;  i++)
+        if (pct >= SCORES[i])
+            return GRADES[i];
+}

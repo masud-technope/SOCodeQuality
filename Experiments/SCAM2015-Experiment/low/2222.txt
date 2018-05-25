@@ -1,0 +1,26 @@
+void run_test_cases_convert_roman_to_int()
+    {
+    string roman = "VIII";
+    int r = convert_roman_2_int(roman);
+    cout << roman << " in int is " << r << endl << flush;
+
+    roman = "XX";
+    r = convert_roman_2_int(roman);
+    cout << roman << " in int is " << r << endl << flush;
+
+    roman = "CDX"; //410
+    r = convert_roman_2_int(roman);
+    cout << roman << " in int is " << r << endl << flush;
+
+    roman = "MCMXC"; //1990
+    r = convert_roman_2_int(roman);
+    cout << roman << " in int is " << r << endl << flush;
+
+    roman = "MMVIII"; //2008
+    r = convert_roman_2_int(roman);
+    cout << roman << " in int is " << r << endl << flush;
+
+    roman = "MDCLXVI"; //1666
+    r = convert_roman_2_int(roman);
+    cout << roman << " in int is " << r << endl << flush;
+    }

@@ -1,0 +1,3 @@
+String string = "sometext http://www.something.com";
+    String url = string.substring(string.indexOf("http"), string.length());
+    System.out.println(url);

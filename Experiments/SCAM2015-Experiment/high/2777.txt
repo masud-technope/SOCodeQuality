@@ -1,0 +1,14 @@
+byte[] dst = new byte[256];
+String foo = "foo";
+byte[] src = foo.getBytes("utf-8");
+System.arraycopy(src, 0, dst, 0, src.length);
+int length = findLength(dst);
+
+private int findLength(byte[] strBytes) {
+    for(int i=0; i< dst.length; ++i) {
+        if (dst[i] == 0) {
+            return i;
+        }
+    }
+    return 0;
+}

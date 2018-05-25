@@ -1,0 +1,11 @@
+ArrayList<Double> token = new ArrayList<Double>();
+
+        File filename = new File("/Users/timothylee/gravity1.txt");
+
+        Scanner inFile = new Scanner(filename);
+
+        while(inFile.hasNext()){
+            token.add(inFile.nextDouble());
+        }
+        inFile.close();
+        System.out.println(Arrays.toString(token));

@@ -1,0 +1,21 @@
+public class APIUtility {
+
+    private static ThreadLocal<Engine> ENGINE_LOCAL = new ThreadLocal<Engine>();
+
+    public static void setEngine(Engine engine) {
+        ENGINE_LOCAL.set(engine);
+    }
+
+    public static Engine getEngine() {
+        ENGINE_LOCAL.get();
+    }
+
+}
+
+class NameValidator {
+
+    public void foo() {
+        Object obj = APIUtility.getEngine().getSomething();
+    } 
+
+}

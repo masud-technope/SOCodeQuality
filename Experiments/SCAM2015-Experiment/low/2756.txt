@@ -1,0 +1,3 @@
+while((continueSurvey != 0) || (i < 3)) {
+    ...
+}

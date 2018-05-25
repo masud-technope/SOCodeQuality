@@ -1,0 +1,5 @@
+public delegate void DoSomethingDelegate(Object param1, Object param2);
+...
+//now assign some method to the function type variable (delegate)
+DoSomethingDelegate f = DoSomething;
+f(new Object(), new Object());

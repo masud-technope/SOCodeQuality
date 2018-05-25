@@ -1,0 +1,10 @@
+protected <T> T getProperty(String key, T fallback) {
+    String value = properties.getProperty(key);
+
+    if (value == null) {
+        return fallback;
+    } else {
+        Class FallbackType = fallback.getClass();
+        return (T)FallbackType.cast(value);
+    }
+}

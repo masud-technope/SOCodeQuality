@@ -1,0 +1,4 @@
+public class MyClass : MyBaseClass
+{
+    public sealed override void MyFinalMethod() {...}
+}

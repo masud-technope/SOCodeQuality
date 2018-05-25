@@ -1,0 +1,3 @@
+<xsl:value-of disable-output-escaping="yes" select="
+  concat('&lt;abc:href var="',$href,'"&gt;',$link,'&lt;/abc:href&gt;')
+ "/>

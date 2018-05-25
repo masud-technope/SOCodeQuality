@@ -1,0 +1,10 @@
+public xxxx extends activity
+{
+
+Context c = getApplicationContext();
+blah b = new blah(this) ;
+
+ /// inside an onclicklistener attached to a button object, i put this
+    b.sss(c) ; 
+
+}

@@ -1,0 +1,5 @@
+MyClass obj = new MyClassBuilder().
+  withField1("hello").
+  withField2("world").
+  withField3(new MyOtherClass()).
+  build();

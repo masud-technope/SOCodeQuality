@@ -1,0 +1,12 @@
+public class WutServer extends UnicastRemoteObject implements WutServer.Wut {
+    interface Wut extends Remote {
+        String wut() throws RemoteException;
+    }
+    // Because of the exception...
+    public WutServer() throws RemoteException {}
+    public String wut() { return "wut"; }
+    public static void main(String[] args) throws RemoteException {
+        LocateRegistry.createRegistry(1099).rebind("WutManager",new WutServer());
+        System.out.println("Ready...");
+    }
+}

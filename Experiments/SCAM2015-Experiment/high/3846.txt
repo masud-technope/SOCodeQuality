@@ -1,0 +1,7 @@
+try (InputStream s1 = new FileInputStream("file");
+     InputStream s2 = new BufferedInputStream(s1);
+     ZipInputStream zin = new ZipInputStream(s2)) {
+    // ...
+} catch (IOException e) {
+    // ...
+}

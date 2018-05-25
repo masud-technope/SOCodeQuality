@@ -1,0 +1,10 @@
+protected void notifyList(Object changedItem) {
+    int index = list.indexOf(changedItem);
+    if (index >= 0) {
+        // hack around RT-28397
+        //https://javafx-jira.kenai.com/browse/RT-28397
+        list.set(index, null);
+        // good enough since jdk7u40 and jdk8
+        list.set(index, changedItem);
+    }
+}

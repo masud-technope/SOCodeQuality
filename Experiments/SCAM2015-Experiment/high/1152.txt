@@ -1,0 +1,16 @@
+FirefoxDriver driver = new FirefoxDriver();
+
+driver.get("http://localhost:8080/page");
+
+File file = null;
+
+try {
+    file = new File(YourClass.class.getClassLoader().getResource("file.txt").toURI());
+} catch (URISyntaxException e) {
+    e.printStackTrace();
+}
+
+Assert.assertTrue(file.exists()); 
+
+WebElement browseButton = driver.findElement(By.id("myfile"));
+browseButton.sendKeys(file.getAbsolutePath());

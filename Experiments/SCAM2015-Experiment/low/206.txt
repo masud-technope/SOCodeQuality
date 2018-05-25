@@ -1,0 +1,3 @@
+jTable.getColumn("ABC").setWidth(0);
+jTable.getColumn("ABC").setMinWidth(0);
+jTable.getColumn("ABC").setMaxWidth(0);

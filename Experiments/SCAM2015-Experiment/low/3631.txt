@@ -1,0 +1,11 @@
+public abstract class WindowFlag {
+    private static boolean flag;
+
+    public static synchronized boolean getFlag() {
+        return flag;
+    }
+
+    public static synchronized void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+}

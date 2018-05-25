@@ -1,0 +1,16 @@
+public void printTriangle (int current, int max)
+{ 
+    if (current <= max) 
+    { 
+         // Draw the line of stars...
+         for (int x=0; x<current; x++)
+         {
+             System.out.print("*")
+         }
+         // add a newline
+         System.out.print("\n"); 
+
+         // Do it again for the next line, but make it 1-bigger
+         printTriangle(current + 1, max);
+    } 
+}

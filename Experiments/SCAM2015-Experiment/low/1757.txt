@@ -1,0 +1,4 @@
+For i = 2 to n
+
+   check whether A[i-1] && A[i] are with diff sign..
+   in C++; return  ((A[i-1] ^  A[i]) < 0).

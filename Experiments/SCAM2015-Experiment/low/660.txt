@@ -1,0 +1,4 @@
+int myNumber = (((int)byteOne) << 0) |
+    (((int)byteTwo) << 8) |
+    (((int)byteThree) << 16) |
+    (((int)byteFour) << 24);

@@ -1,0 +1,6 @@
+Object o = new One();
+   if(o instanceof Two) {
+     System.out.println("Yes");
+   } else {
+     System.out.println("No");
+   }

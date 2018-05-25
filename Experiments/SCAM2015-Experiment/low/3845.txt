@@ -1,0 +1,8 @@
+public static void main(String[] args) {
+    String date = "2014/11/01";
+    Pattern pattern = Pattern.compile("\\d{4}/\\d{2}/\\d{2}");
+    Matcher matcher = pattern.matcher(date);
+    if (matcher.matches()) {
+        System.out.printf("the date string match format:%s", "yyyy/mm/dd");
+    }
+}

@@ -1,0 +1,11 @@
+public class MyMain2 {
+    public static void main(String[] args) {
+        double myDub;
+        myDub=1234.5678;
+        long myLong;
+        myLong=(int)myDub;
+        myDub=(myDub%1)*10000;
+        int myInt=(int)myDub;
+        System.out.println(myLong + "\n" + myInt);
+    }
+}

@@ -1,0 +1,3 @@
+GroupA groupAobj = new GroupA();
+    AbstractGroup abstractObj = (AbstractGroup) groupAobj;
+    GroupB groupBobj = (GroupB) abstractObj;

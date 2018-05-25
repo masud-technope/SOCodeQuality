@@ -1,0 +1,22 @@
+public class Person implements Cloneable {
+    protected String name;
+    // Note that overridden clone is public
+    public Object clone() {
+        Person clone = (Person)super.clone();
+        // No need to copy name as the reference will be
+        // copied by Object's clone and String is immutable
+        return clone;
+    }
+}
+
+public class Employee extends Person {
+    protected int id;
+    protected java.awt.Point location;
+    public Object clone() {
+        Employee  clone = (Employee )super.clone();
+        // No need to copy id as Object's clone has already copied it
+        // Need to clone location as Point is mutable and could change
+        clone.location = location.clone();
+        return clone;
+    }
+}

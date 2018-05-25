@@ -1,0 +1,4 @@
+int start = 105;
+for(int i = start; i < 200; i++) {
+  System.out.print(i+ ((i-(start-1))%10==0 ? "\n" : " "));
+}

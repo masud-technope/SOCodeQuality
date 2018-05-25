@@ -1,0 +1,6 @@
+public static <E> List<E> union(List<? extends E> a,List<? extends E> b){
+        List<E> es= new ArrayList<E>();
+        es.addAll(a);
+        es.addAll(b);
+        return es;
+    }

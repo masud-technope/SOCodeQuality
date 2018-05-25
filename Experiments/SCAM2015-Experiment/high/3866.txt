@@ -1,0 +1,6 @@
+long cursor = -1;
+PagableResponseList<User> users;
+while ((cursor = followers.getNextCursor()) != 0); 
+ {
+     users = twitter.getFriendsList(userId, cursor);
+ }

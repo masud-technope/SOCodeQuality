@@ -1,0 +1,14 @@
+private static String removeNull(String input)
+    {
+        String[] splittedValue = input.split(" ");
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String value : splittedValue)
+        {
+            if (!value.equalsIgnoreCase("null"))
+            {
+                stringBuilder.append(value);
+                stringBuilder.append(" ");
+            }
+        }
+        return stringBuilder.toString();
+    }

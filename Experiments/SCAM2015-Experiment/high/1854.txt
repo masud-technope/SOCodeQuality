@@ -1,0 +1,21 @@
+public class Test{
+
+        private String x;
+
+            public void go(String s){
+
+                this.x = s;
+
+           }
+
+         public static void main(String[] args){
+
+                  Test t = new Test();
+
+                  String a = new String("Bye");
+
+                  t.go(a);
+
+
+             }
+      }

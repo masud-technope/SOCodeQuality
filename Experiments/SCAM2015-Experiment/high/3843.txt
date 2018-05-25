@@ -1,0 +1,22 @@
+static public boolean isServerReachable(Context context) {
+    ConnectivityManager connMan = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo netInfo = connMan.getActiveNetworkInfo();
+    if (netInfo != null && netInfo.isConnected()) {
+        try {
+            URL urlServer = new URL("your server url");
+            HttpURLConnection urlConn = (HttpURLConnection) urlServer.openConnection();
+            urlConn.setConnectTimeout(3000); //<- 3Seconds Timeout 
+            urlConn.connect();
+            if (urlConn.getResponseCode() == 200) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (MalformedURLException e1) {
+            return false;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+    return false;
+}

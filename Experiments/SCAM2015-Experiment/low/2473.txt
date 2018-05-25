@@ -1,0 +1,5 @@
+Object[] move = { "Up", "Down" };
+
+.... some code
+
+    move = { "Up", "Down", "Left" };

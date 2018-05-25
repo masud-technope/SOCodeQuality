@@ -1,0 +1,69 @@
+/**
+    * Write Console String to a file
+    * When you type quit or save it will write to the file in one go.
+    * 
+    * @author Seabook Chen
+    *
+*/
+public class SimpleConsoleWriter {
+    private static final String NEW_LINE =  System.getProperty("line.separator");
+
+    public static void main(String[] args) {
+
+        if (args == null || args.length == 0) {
+            throw new RuntimeException("Please specify the file name!!!");
+        }
+
+        String filepath = args[0];
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please input your comments ....");
+        System.out.println("Type quit to finish the input! Please type exact quit to quit!!!");
+        System.out.println("Type save to write to the file you specified. ");
+
+        StringBuilder sb = new StringBuilder();
+        while(true) {
+            String input = in.nextLine();
+
+            if ("quit".equalsIgnoreCase(input) || "save".equalsIgnoreCase(input)) {
+                System.out.println("Thanks for using the program!!!");
+                System.out.println("Your input is stored in " + filepath);
+                break;
+            }
+
+            sb.append(input);
+            sb.append(NEW_LINE);
+
+        }
+
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+
+        try {
+            fw = new FileWriter(filepath, true);
+            bw = new BufferedWriter(fw);
+            bw.write(sb.toString(), 0, sb.toString().length());
+            bw.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fw != null) {
+                try {
+                    fw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (bw != null) {
+                try {
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+    }
+}

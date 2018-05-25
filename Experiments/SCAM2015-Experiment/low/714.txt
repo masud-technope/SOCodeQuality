@@ -1,0 +1,34 @@
+import java . math . * ;
+
+class Numbers
+{
+    public static < T extends Number > T zeroIfNull ( T number , Class<T> clazz ) throws IllegalArgumentException
+    {
+    if ( clazz == Integer . class )
+        {
+        return zeroIfNull ( number , clazz , 0 ) ;
+        }
+    else if ( clazz == Double . class )
+        {
+        return zeroIfNull ( number , clazz , 0 ) ;
+        }
+    else if ( clazz == BigInteger . class )
+        {
+        return zeroIfNull ( number , clazz , BigInteger . ZERO ) ;
+        }
+    // add a whole bunch more if statements
+    throw new IllegalArgumentException ( "Unexpected Number Class " + clazz . getName ( ) + " with possibly undefined zero value." ) ;
+    }
+
+    private static < T extends Number > T zeroIfNull ( T number , Class<T> clazz , Object zero )
+    {
+    if ( number == null )
+        {
+        return ( clazz . cast ( zero ) ) ;
+        }
+    else
+        {
+        return ( number ) ;
+        }
+    }
+}

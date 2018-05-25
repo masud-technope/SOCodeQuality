@@ -1,0 +1,9 @@
+Button bdone = (Button)findViewById(id of button);
+  bdone.setOnClickListener(new OnlickListener)
+  {
+      @Override
+      public void onClick(View view)
+      {
+          //Code here
+      }
+  }

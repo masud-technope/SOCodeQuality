@@ -1,0 +1,130 @@
+import java.util.Scanner;
+
+public class Temp {
+static Scanner keyboard = new Scanner(System.in);
+static int choice;
+static double average, finalAverage;
+
+static double monTemp, tuesTemp, wedTemp, thursTemp, friTemp, satTemp, sunTemp;
+
+public static void temp() {
+
+    System.out.println("You have chosen option 1");
+    System.out.println("Please enter the temperature for Monday in degrees celsius");
+    monTemp = keyboard.nextDouble();
+
+    System.out.println("Please enter the temperature for Tuesday in degrees celsius");
+    tuesTemp = keyboard.nextDouble();
+
+    System.out.println("Please enter the temperature for Wednesday in degrees celsius");
+    wedTemp = keyboard.nextDouble();
+
+    System.out.println("Please enter the temperature for Thursday in degrees celsius");
+    thursTemp = keyboard.nextDouble();
+
+    System.out.println("Please enter the temperature for Friday in degrees celsius");
+    friTemp = keyboard.nextDouble();
+
+    System.out.println("Please enter the temperature for Saturday in degrees celsius");
+    satTemp = keyboard.nextDouble();
+
+    System.out.println("Please enter the temperature for Sunday in degrees celsius");
+    sunTemp = keyboard.nextDouble();
+
+}// Temp
+
+public static void day() {
+
+    System.out.println("You have chosen to see the temperature for a specified day");
+    System.out.println("Please choose a day below");
+    System.out.println(" 1. Monday");
+    System.out.println(" 2. Tuesday");
+    System.out.println(" 3. Wednesday");
+    System.out.println(" 4. Thursday");
+    System.out.println(" 5. Friday");
+    System.out.println(" 6. Saturday");
+    System.out.println(" 7. Sunday ");
+    choice = keyboard.nextInt();
+
+    switch (choice) {
+    case 1:
+        System.out.println(" You have chosen to see the temperature for Monday");
+        System.out.println(" The temperature for Monday is " + monTemp + "°C");
+        break;
+    case 2:
+        System.out.println(" You have chosen to see the temperature for Tuesday");
+        System.out.println(" The temperature for Tuesday " + tuesTemp + "°C");
+        break;
+    case 3:
+        System.out.println(" You have chosen to see the temperature for Wednesday");
+        System.out.println(" The temperature for Wednesday is " + wedTemp + "°C");
+        break;
+    case 4:
+        System.out.println(" You have chosen to see the temperature for Thursday");
+        System.out.println(" The temperature for Thursday is " + thursTemp + "°C");
+        break;
+    case 5:
+        System.out.println(" You have chosen to see the temperature for Friday");
+        System.out.println(" The temperature for Friday is " + friTemp + "°C");
+        break;
+    case 6:
+        System.out.println(" You have chosen to see the temperature for Saturday");
+        System.out.println(" The temperature for Saturday is " + satTemp + "°C");
+        break;
+    case 7:
+        System.out.println(" You have chosen to see the temperature for Sunday");
+        System.out.println(" The temperature for Sunday is " + sunTemp + "°C");
+        break;
+    default:
+        System.out.println("Oops something went wrong, please try again");
+        break;
+
+    }
+
+}// day
+
+public static void average() {
+    average = monTemp + tuesTemp + wedTemp + thursTemp + friTemp + satTemp + sunTemp;
+    finalAverage = (average / 7);
+
+    System.out.println(" You have chosen to see the average temperature for the week");
+    System.out.println(" The temperature for the week is " + finalAverage + "°C");
+
+}// Average
+
+public static void menu() {
+
+    System.out.println("Welcome the temperature program. Please select an option for the menu below b entering the number");
+    System.out.println("1)Enter temperatures for each day of the week");
+    System.out.println("2)Display average temperature for specified choice");
+    System.out.println("3)Display average temperature for the week");
+    System.out.println("4)Exit");
+    choice = keyboard.nextInt();
+
+    switch (choice) {
+    case 1:
+        temp();
+        menu();
+        break;
+
+    case 2:
+        day();
+        menu();
+        break;
+
+    case 3:
+        average();
+        menu();
+        break;
+    case 4:
+        System.exit(0);
+    default:
+        System.out.println("Oops, something went wrong, please try again!");
+        menu();
+    }// switch
+}// menu
+
+public static void main(String[] args) {
+    menu();
+}// main
+}// class

@@ -1,0 +1,27 @@
+class EmployeeBean
+{
+private String name;
+private String age;
+
+public void setName(String n)
+{
+name=n;
+}
+
+public String getName()
+{
+return name;
+}
+
+
+public void setAge(int n)
+{
+age=n;
+}
+
+public int getAge()
+{
+return age;
+}
+
+}

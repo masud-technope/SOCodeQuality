@@ -1,0 +1,16 @@
+public class TestSuper {
+    public static class A {
+        @Override
+        public String toString() { return "I am A"; }
+    }
+    public static class B {
+        @Override
+        public String toString() { return "I am B"; }
+    }
+    public static void main(String[] args) {
+        B b = new B();
+        System.out.println( b ); // --> I am B
+        A a = (A)b;
+        System.out.println( a ); 
+    }
+}

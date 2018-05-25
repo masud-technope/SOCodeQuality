@@ -1,0 +1,7 @@
+Hashtable<String, Item> store = new Hashtable<String,Item>();
+Item item = new Item();
+item.blah = "Hello world!";
+store.put("MyKey",item);
+store.put("SecondKey","Three tears for all the souls!");//Will not compile because a String isn't an Item
+...
+store.get("MyKey").printThisString();//We can therefore be sure what is returned is an Item

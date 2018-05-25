@@ -1,0 +1,6 @@
+int Score = 0;
+
+if(coinCollected == 1){
+    // change the value
+    Score = 1;
+}

@@ -1,0 +1,7 @@
+@Test
+public void testGetFriends() {
+    JSONObject data = getRESTData("/friends/367.json");
+    String expected = "{friends:[{id:123,name:\"Corby Page\"}"
+        + ",{id:456,name:\"Solomon Duskis\"}]}";
+    JSONAssert.assertEquals(expected, data, false);
+}

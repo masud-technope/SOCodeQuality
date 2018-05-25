@@ -1,0 +1,12 @@
+public void remove (String name) 
+{
+    List <Person> blacklist = new ArrayList <Person> ();
+    for (Person p : people) 
+    {
+        if (p.getName ().equals (name))
+        {
+            blacklist.add (p);
+        }
+    }
+    people.removeAll (blacklist);
+}

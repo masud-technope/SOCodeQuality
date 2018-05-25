@@ -1,0 +1,10 @@
+if X[i] > sum + X[i] then begin
+        sum := X[i];
+        start := i;
+      end
+      else
+        sum := sum + X[i];
+      if max < sum then begin
+        max := sum;
+        finish := i;
+      end;

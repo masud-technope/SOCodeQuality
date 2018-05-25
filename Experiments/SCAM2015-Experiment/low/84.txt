@@ -1,0 +1,7 @@
+Collections.sort(l,  new Comparator<Integer>(){
+  public int compare(Integer o1, Integer o2) {
+    return (o1-numbertoLookFor)*(o1-numbertoLookFor) - 
+           (o2-numbertoLookFor)*(o2-numbertoLookFor);
+  }});
+
+System.out.println("nearest number is" + l.get(0));

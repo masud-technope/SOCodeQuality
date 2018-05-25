@@ -1,0 +1,7 @@
+class _<T>{
+    public T _;
+    public _(T t ) {
+        _ = t;
+    }
+    public String toString(){ return _.toString(); }
+}

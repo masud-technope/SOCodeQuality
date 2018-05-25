@@ -1,0 +1,5 @@
+double speed = 50;
+car mycar= new car();
+ mycar.getYear(); //getYear return an int (model)=2000 so store it if you want
+mycar.getMake(); //getMake return a string 
+mycar.getSpeed();  //getSpeed return a double =50

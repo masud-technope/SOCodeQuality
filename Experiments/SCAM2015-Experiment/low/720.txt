@@ -1,0 +1,6 @@
+Static block initialized.
+a = 3
+b = 12
+x = 42
+a = 3
+b = 12

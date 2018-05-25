@@ -1,0 +1,17 @@
+ProcessBuilder pb = new ProcessBuilder("test.py");
+            pb.redirectError();
+            Process p = pb.start();
+
+            InputStream is = null;
+            try {
+                is = p.getInputStream();
+                int in = -1;
+                while ((in = is.read()) != -1) {
+                    System.out.print((char)in);
+                }
+            } finally {
+                try {
+                    is.close();
+                } catch (Exception e) {
+                }
+            }

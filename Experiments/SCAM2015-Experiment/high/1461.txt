@@ -1,0 +1,3 @@
+column.setMinWidth(0);
+column.setMaxWidth(0);
+column.setPreferredWidth(0);

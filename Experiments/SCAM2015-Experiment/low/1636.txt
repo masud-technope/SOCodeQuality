@@ -1,0 +1,11 @@
+UnmodifyableCollection<T> {
+
+  public boolean add(T t){
+    throw new  UnsupportedException();
+ }
+
+  public T remove(T t){
+    throw new  UnsupportedException();
+ }
+
+}

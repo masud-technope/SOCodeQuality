@@ -1,0 +1,17 @@
+String s1 = "ssdf Positiveasd asd sdfewrewr asd";
+String s2 = "ssdf Positive asd asd sdfewrewr asd";
+String s3 = "ssdf poSiTive asd sdfewrewr asd";
+String s4 = "ssdf FooPositive asd sdfewrewr asd";
+
+String[] s = { s1, s2, s3, s4 };
+String regex = "(?i)\\bpositive\\b";
+
+for(String a : s) {
+    Pattern pattern = Pattern.compile(regex);
+    Matcher matcher = pattern.matcher(a);
+
+    if (matcher.find())
+        System.out.println(a + " ==> Success");
+    else
+        System.out.println(a + " ==> Failure");
+}

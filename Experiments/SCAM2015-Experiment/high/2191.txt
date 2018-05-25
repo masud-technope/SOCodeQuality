@@ -1,0 +1,26 @@
+public static String retrieveLineSeparator(File file) throws IOException {
+    char current;
+    String lineSeparator = "";
+    FileInputStream fis = new FileInputStream(file);
+    try {
+        while (fis.available() > 0) {
+            current = (char) fis.read();
+            if ((current == '\n') || (current == '\r')) {
+                lineSeparator += current;
+                if (fis.available() > 0) {
+                    char next = (char) fis.read();
+                    if ((next != current)
+                            && ((next == '\r') || (next == '\n'))) {
+                        lineSeparator += next;
+                    }
+                }
+                return lineSeparator;
+            }
+        }
+    } finally {
+        if (fis!=null) {
+            fis.close();
+        }
+    }
+    return null;
+}

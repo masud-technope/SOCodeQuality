@@ -1,0 +1,4 @@
+public void setLabel(String label){
+    String dispLabel=label.substring(0, numOfCharacter);
+    labelComponent.setText(dispLabel);
+}

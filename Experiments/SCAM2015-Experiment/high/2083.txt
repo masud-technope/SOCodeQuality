@@ -1,0 +1,7 @@
+public abstract class BaseClass {
+    public BaseClass(String input)
+    {
+        ...
+    }
+    public abstract String doSomething();
+}

@@ -1,0 +1,58 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package evenfibonaccisum;
+
+import java.math.BigInteger;
+
+/**
+ *
+ * @author blades of Aragon
+ */
+public class EvenFibonacciSum {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+
+        long a=0;
+      long b=1;
+       long fib=1;
+        int i=10;
+        long sum=0;
+        while(fib<=4000000){
+        fib=a+b;
+        a=b;
+        b=fib;
+           if(fib>=4000000){
+           break ;
+           }
+           else{
+
+               if(fib%2==0){
+
+               sum=sum+fib;
+
+               }
+
+
+           }
+
+        }
+         System.out.println("sum of even Fibonacci "+sum);  
+
+
+
+
+
+
+        }
+
+
+
+    }

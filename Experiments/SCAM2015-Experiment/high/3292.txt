@@ -1,0 +1,5 @@
+public static void selectTheDropDownList(WebElement dropDown,String text)
+{
+    Select select = new Select(dropDown);
+    select.selectByVisibleText(text);       
+}

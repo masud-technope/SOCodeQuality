@@ -1,0 +1,10 @@
+<discount-codes>
+    <discount-code>
+       <code>A</code>
+       <val>0.15</val>
+    </discount-code>
+    <discount-code>
+        <code>B</code>        
+        <val>0.95</val>
+    </discount-code>
+</discount-codes>

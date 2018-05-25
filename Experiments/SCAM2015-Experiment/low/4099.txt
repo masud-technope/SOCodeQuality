@@ -1,0 +1,5 @@
+Enter positive integers. Enter -1 to stop. 10
+23
+-1
+You entered: -1, 
+Sum is: 33

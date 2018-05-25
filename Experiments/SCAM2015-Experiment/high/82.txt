@@ -1,0 +1,3 @@
+Boolean a = true;
+Boolean b = false;
+Boolean c = null;

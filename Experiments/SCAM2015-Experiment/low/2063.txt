@@ -1,0 +1,9 @@
+int x;
+
+//Some Code...
+
+if (x<=0 || x>0){
+    //what you want the code to do if x has a value
+} else {
+    //what you want the code to do if x has no value 
+}

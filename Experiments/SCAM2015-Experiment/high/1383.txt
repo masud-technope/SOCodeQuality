@@ -1,0 +1,10 @@
+String str = "+49 (0)711 / 61947-12";
+
+int lpar = str.indexOf('(');
+String countryCode = str.substring(0, lpar).trim();
+String subscriber  = str.substring(lpar).trim();
+
+subscriber = subscriber.replaceAll("[^0-9]", "");
+
+System.out.println(countryCode);  // prints +49
+System.out.println(subscriber);   // prints 07116194712

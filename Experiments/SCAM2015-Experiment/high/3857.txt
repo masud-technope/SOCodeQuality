@@ -1,0 +1,5 @@
+if (age > 79) {
+ // do this stuff.
+} else if (age > 50) {
+ // do this other stuff.
+} // ...

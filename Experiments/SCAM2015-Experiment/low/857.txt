@@ -1,0 +1,27 @@
+public class Foo {
+  protected String member;
+  public Foo(String member) {
+    this.member = member;
+  }
+  public class Bar {
+    protected String member;
+    public Bar(String member) {
+      this.member = member;
+    }
+    public void show() {
+      System.out.println("this.member: " + this.member + "; Foo.this.member: " + Foo.this.member);
+    }
+  }
+  public static void main(String[] args) throws javax.mail.MessagingException, java.io.IOException {
+    Foo foo_a = new Foo("a");
+    Foo foo_b = new Foo("b");
+    Bar bar_a1 = foo_a.new Bar("1");
+    Bar bar_a2 = foo_a.new Bar("2");
+    Bar bar_b1 = foo_b.new Bar("1");
+    Bar bar_b2 = foo_b.new Bar("2");
+    bar_a1.show();
+    bar_a2.show();
+    bar_b1.show();
+    bar_b2.show();
+  }
+}

@@ -1,0 +1,7 @@
+switch(Integer.parseInt(attribute.getValue()))
+{
+  case 1:
+    ----
+.
+.
+.

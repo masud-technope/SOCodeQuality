@@ -1,0 +1,4 @@
+int millis = 5000;
+int seconds = millis / 1000; // Maybe no need to divide if the input is in seconds
+LocalTime timeOfDay = LocalTime.ofSecondOfDay(seconds);
+String time = timeOfDay.toString();

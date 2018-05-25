@@ -1,0 +1,5 @@
+String URL = "http://www.youtube.com/watch?v=_RCIP6OrQrE";
+String v = URL.replace("http://www.youtube.com/watch?v=", "");
+System.out.println(v);
+
+Output: _RCIP6OrQrE

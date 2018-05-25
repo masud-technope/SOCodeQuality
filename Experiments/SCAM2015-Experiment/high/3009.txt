@@ -1,0 +1,8 @@
+for (Iterator<Clientuser> it = EIQserver.OnlineusersList.iterator(); it.hasNext();)
+{
+    Clientuser cu = it.next();
+    if (!cu.ID.equals(thsisUser.ID))
+        continue;
+    // other code
+    it.remove();
+}

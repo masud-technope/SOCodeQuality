@@ -1,0 +1,3 @@
+TextView t = (TextView) findViewById(R.id.name);
+Typeface font = Typeface.createFromAsset(getAssets(),"font/somefont.ttf");
+t.setTypeface(font);

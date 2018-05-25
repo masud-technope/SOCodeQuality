@@ -1,0 +1,18 @@
+public static void main(String[] args) {
+
+    try {
+
+        int n = 10000;
+        FileWriter fstream = new FileWriter("input" + n + ".txt");
+        BufferedWriter out = new BufferedWriter(fstream);
+
+        for (int i = 0; i < n; i++) {
+            int temp = (int) Math.ceil((Math.random() * n));
+            out.write(temp+" ");
+            out.flush();
+        }
+        out.close();
+    } catch (Exception e) {
+        System.err.println("Error: " + e.getMessage());
+    }
+}

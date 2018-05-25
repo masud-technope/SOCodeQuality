@@ -1,0 +1,11 @@
+static void usage() {
+    System.err.println("Usage: blah blah blah blah");
+    System.exit(-1);
+}
+
+// ...
+
+if (args == null || args.length < 2)
+    usage();
+if (args[0].equals(args[1]))
+    usage()

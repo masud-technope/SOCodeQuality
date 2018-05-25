@@ -1,0 +1,7 @@
+<%
+String username = (String)session.getAttribute("USER");
+if(username==null) 
+// if session is expired, forward it to login page
+%>
+<jsp:forward page="Login.jsp" />
+<% { } %>

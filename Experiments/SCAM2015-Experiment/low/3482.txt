@@ -1,0 +1,29 @@
+public class RandomPriorityQueue {
+
+    private TreeMap<Integer, List<WeightedElement>> tree = new TreeMap();
+    private Random random = new Random();
+
+    public void add(WeightedElement e) {
+        int priority = random.nextInt(e.getWeight());
+        if (tree.containsKey(priority)) {
+            List<WeightedElement> list = new LinkedList();
+            list.add(e);
+            tree.put(priority, list);
+        } else {
+            List<WeightedElement> list = tree.get(priority);
+            list.add(random.nextInt(list.size()), e);
+        }
+    }
+
+    public WeightedElement poll() {
+        Map.Entry<Integer, List<WeightedElement>> entry = tree.lastEntry();
+        if (entry == null){
+            return null;
+        }
+        List<WeightedElement> list = entry.getValue();
+        if (list.size() == 1){
+            tree.remove(entry.getKey());
+        }
+        return list.remove(0);
+    }
+}

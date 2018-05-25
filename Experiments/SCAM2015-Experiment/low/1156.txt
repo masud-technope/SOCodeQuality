@@ -1,0 +1,3 @@
+String s = new String(arrayWithWhitespace);
+s = s.trim();
+byte[] arrayWithoutWhitespace = s.getBytes();

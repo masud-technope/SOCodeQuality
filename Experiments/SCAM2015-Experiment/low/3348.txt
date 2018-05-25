@@ -1,0 +1,12 @@
+try{    
+  buyWidgets();
+}
+catch(AuthenticationException ex)
+{
+  promptForLogin();
+}
+catch(InsufficientFundsException ex)
+{
+  promptToRefillAccount();
+}
+//let other types of exceptions to propagate up the call stack

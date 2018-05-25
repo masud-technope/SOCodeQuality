@@ -1,0 +1,20 @@
+public class JavaApplication51 extends JApplet {
+    public  void something() {
+       JButton button = new JButton("Click for more");             
+        add(button);
+        setLayout(null);
+        button.setLayout(null);
+        button.setLocation(100,100);
+        button.setSize(101,20);
+        setVisible(true); 
+    }
+
+    public void paint(Graphics g) {
+        super.paint(g);
+        g.drawString("Hello", 200, 50);
+    }
+
+    public void init() {
+        something();
+    }
+}

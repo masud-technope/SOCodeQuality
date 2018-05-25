@@ -1,0 +1,7 @@
+boolean MyFunction( a,b,Date c)
+{
+  if (good) 
+     c.SetDate(....);
+  return good;
+
+}

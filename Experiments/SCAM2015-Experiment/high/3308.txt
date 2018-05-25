@@ -1,0 +1,69 @@
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import javax.swing.*;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException; 
+import javax.swing.text.DocumentFilter;
+import javax.swing.text.DocumentFilter.FilterBypass;
+
+public class InputInteger
+{
+private JTextField tField;
+private JLabel label=new JLabel();
+private MyDocumentFilter documentFilter;
+
+private void displayGUI()
+{
+    JFrame frame = new JFrame("Input Integer Example");
+    frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+    JPanel contentPane = new JPanel();
+    contentPane.setBorder(
+        BorderFactory.createEmptyBorder(5, 5, 5, 5));
+    tField = new JTextField(10);
+    ((AbstractDocument)tField.getDocument()).setDocumentFilter(
+            new MyDocumentFilter());
+
+    contentPane.add(tField); 
+    contentPane.add(label);
+
+
+    frame.setContentPane(contentPane);
+    frame.pack();
+    frame.setLocationByPlatform(true);
+    frame.setVisible(true);
+}
+public static void main(String[] args)
+{
+    Runnable runnable = new Runnable()
+    {
+        @Override
+        public void run()
+        {
+            new InputInteger().displayGUI();
+        }
+    };
+    EventQueue.invokeLater(runnable);
+}
+}
+
+class MyDocumentFilter extends DocumentFilter{
+    private static final long serialVersionUID = 1L;
+    @Override
+public void insertString(FilterBypass fb, int off
+                    , String str, AttributeSet attr) 
+                            throws BadLocationException 
+{
+    // remove non-digits
+    fb.insertString(off, str.replaceAll("\\D++", ""), attr);
+} 
+@Override
+public void replace(FilterBypass fb, int off
+        , int len, String str, AttributeSet attr) 
+                        throws BadLocationException 
+{
+    // remove non-digits
+    fb.replace(off, len, str.replaceAll("\\D++", ""), attr);
+}
+}

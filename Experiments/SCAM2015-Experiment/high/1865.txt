@@ -1,0 +1,11 @@
+Map<String, Trade> map = new HashMap<String, Trade>();
+for (Trade trade : tradeList) {
+    String key = trade.tradeName + "#" + trade.quote + "#" + trade.source; // signature, what you merge by 
+    if (map.containsKey(key)) {
+        map.put(key, trade); // the first trade with such a signature 
+    } else {
+        // not the first, so merge it with the existing one
+        map.get(key).add(trade); // you'll have to implement the Trade.add() method
+    }
+}
+List<Trade> merged = new LinkedList<Trade>(map.values());

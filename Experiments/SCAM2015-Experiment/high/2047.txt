@@ -1,0 +1,3 @@
+for(int i=0,k=0; k<1768; i++,k+=x[i]) {
+        System.out.println(x[i]+" - "+k);
+       }

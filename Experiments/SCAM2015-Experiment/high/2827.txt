@@ -1,0 +1,17 @@
+private static final Pattern REGEX_PATTERN =
+        Pattern.compile("\\B\"\\w*( \\w*)*\"\\B");
+
+private static String replaceNotPairs(String input) {
+    StringBuffer sb = new StringBuffer();
+    Matcher matcher = REGEX_PATTERN.matcher(input);
+    int start = 0;
+    int last = 0;
+    while (matcher.find()) {
+        start = matcher.start();
+        sb.append(input.substring(last, start).replace("\"", "\\\""));
+        last = matcher.end();
+        sb.append(matcher.group());
+    }
+    sb.append(input.substring(last).replace("\"", "\\\""));
+    return sb.toString();
+}

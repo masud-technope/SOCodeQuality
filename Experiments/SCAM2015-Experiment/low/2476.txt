@@ -1,0 +1,8 @@
+Date d = new Date(11111111L);
+Time t = new Time(22222222L);
+
+DateTime jd = new DateTime(d.getTime());
+DateTime jt = new DateTime(t.getTime());
+
+System.out.println(jd); // 1970-01-01T04:05:11.111+01:00
+System.out.println(jt); // 1970-01-01T07:10:22.222+01:00

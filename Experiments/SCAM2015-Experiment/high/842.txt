@@ -1,0 +1,4 @@
+int i = 2;
+System.out.println(i * (i=3)); // prints '6'
+int j = 2;
+System.out.println((j=3) * j); // prints '9'

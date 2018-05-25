@@ -1,0 +1,7 @@
+final NetworkInterface netInf = NetworkInterface.getNetworkInterfaces().nextElement();
+final byte[] mac = netInf.getHardwareAddress();
+final StringBuilder sb = new StringBuilder();
+for (int i = 0; i < mac.length; i++) {
+        sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));        
+}
+log.info("Mac addr: {}", sb.toString());

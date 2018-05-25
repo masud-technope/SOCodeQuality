@@ -1,0 +1,6 @@
+ServerSocket socket = new ServerSocket(4444);
+while (true) {
+  Socket clientSocket = socket.accept();
+  // get input stream, etc.
+  // if(STOP keywoard read) break
+}

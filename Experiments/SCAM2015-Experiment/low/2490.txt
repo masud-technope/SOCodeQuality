@@ -1,0 +1,9 @@
+Pattern p = Pattern.compile("Logged in as: (.)+ (Administrator)", Pattern.CASE_INSENSITIVE);
+Matcher m = p.matcher(myString);
+if (m.find()) {
+   return m.group(1);
+}
+
+else {
+   System.out.println("Not found !");
+}

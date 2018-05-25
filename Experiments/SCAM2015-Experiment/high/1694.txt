@@ -1,0 +1,37 @@
+public Job(Long id,Customer customer) throws Exception{
+    if(customer==null)
+        throw new Exception("Customer cannot be null");
+    this.customer = customer; 
+   unit= new JobUnit(this);       
+    this.customer.add(unit);
+}
+
+public void replace(Customer c) throws Exception{      
+    this.customer.remove(unit);
+    c.add(unit);
+    this.customer=c;
+}
+
+public Customer getCustomer(){
+    return customer;
+}
+
+/**
+ * @return the id
+ */
+public Long getId() {
+    return id;
+}
+
+public final class JobUnit{
+    private final Job j;
+
+
+    private JobUnit(Job j){
+        this.j = j;
+
+    }
+    public Job get(){
+        return j;
+    }
+}

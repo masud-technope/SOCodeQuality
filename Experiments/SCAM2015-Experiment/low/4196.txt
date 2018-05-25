@@ -1,0 +1,12 @@
+//iterating the entire list
+for(final Attribute attribute : attributes) 
+{
+  if(attribute.getDate() == currentDate)
+  {
+      currentElement.add(attribute);
+  }
+  if(attribute.getDate() < currentDate)
+  {
+      historicalElement.put(attribute.getValue(), attribute)  // HERE   
+  }
+}

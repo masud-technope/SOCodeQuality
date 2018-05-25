@@ -1,0 +1,5 @@
+public class CoordPoint{
+    private int X; //Capital letter X is weird here
+    private int Y; //Here as well
+    ...
+}

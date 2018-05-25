@@ -1,0 +1,9 @@
+public void listOfExternalPoints(List<Point> list) { 
+    for (Point pointListEntry : pointList) { 
+        for (Point listEntry : list) { 
+            if (pointListEntry == listEntry) { 
+                pointList.remove(pointListEntry); 
+            } 
+        } 
+    } 
+}

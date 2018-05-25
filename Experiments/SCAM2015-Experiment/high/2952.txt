@@ -1,0 +1,7 @@
+@Entity
+public class User{
+    @OneToMany(cascade = CascadeType.ALL)
+    private List Favorites favorites;
+    private boolean isTemporary;
+    ....
+}

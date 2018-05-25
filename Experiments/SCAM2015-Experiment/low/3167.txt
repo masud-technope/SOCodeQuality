@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class StringReplace {    
+
+private static Scanner input;
+
+public static void main(String[] args) {
+
+    String line; //Your problem was here
+    input = new Scanner( System.in );       
+    System.out.print("Please Enter a String: ");
+    line = input.nextLine(); //and here
+
+    line = line.replace("Wake", "Wake Business"); //and here
+    System.out.println(line);
+}
+}

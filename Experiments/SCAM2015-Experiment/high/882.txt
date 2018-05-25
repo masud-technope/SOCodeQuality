@@ -1,0 +1,4 @@
+// Will produce a random colour with more red in it (usually "pink-ish")
+float r = rand.nextFloat();
+float g = rand.nextFloat(0.5);
+float b = rand.nextFloat(0.5);

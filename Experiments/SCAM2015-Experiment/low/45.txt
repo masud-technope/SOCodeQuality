@@ -1,0 +1,4 @@
+if (myArray[i] == EMPTY)
+{
+   //element i is empty
+}

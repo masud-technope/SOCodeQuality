@@ -1,0 +1,7 @@
+static final TreeMap<Double,Integer> limits = new TreeMap<Double,Integer>();
+static {
+    limits.put(1.0, 0);
+    limits.put(3.5, 1);
+    limits.put(8.0, 2);
+    limits.put(10.3, 3);
+}

@@ -1,0 +1,5 @@
+public static String[] multipleReturnMethod(){    
+   String a = "a";
+   String b = "b";
+   return new String[] { a, b };
+}

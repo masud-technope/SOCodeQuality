@@ -1,0 +1,5 @@
+if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "You are now logon!");
+            } else {
+                JOptionPane.showMessageDialog(null, "damn!", "alert", JOptionPane.ERROR_MESSAGE); 
+            }

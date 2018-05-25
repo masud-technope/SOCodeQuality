@@ -1,0 +1,15 @@
+import java.sql.*;
+Connection conn;
+private void connect()
+{
+    try
+    {
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        conn = DriverManager.getConnection("jdbc:mysql://serverURL","user","pass);
+        System.out.println("Connection Established");
+    }
+    catch (Exception ex) 
+    {
+        System.err.println("Unable to load the MySQL driver.");
+        ex.printStackTrace();
+    }

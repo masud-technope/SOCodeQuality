@@ -1,0 +1,6 @@
+String[] tokens = yourString.split(" ");
+StringBuffer buff = new StringBuffer();
+for (String token : tokens)
+{
+  buff.append(token.trim());
+}

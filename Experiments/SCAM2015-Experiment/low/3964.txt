@@ -1,0 +1,4 @@
+driver.manage().window().maximize(); 
+WebElement scroll = driver.findElement(By.id("ContentPlaceHolder1_EmployeeProfile_btnAccept"));   
+scroll.sendKeys(Keys.PAGE_DOWN);   
+driver.findElement(By.id("ContentPlaceHolder1_EmployeeProfile_btnAccept")).click??();

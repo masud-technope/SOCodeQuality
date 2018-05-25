@@ -1,0 +1,3 @@
+<p:inputMask maxlength="5">
+        <pe:keyFilter regEx="/[\d]/" />
+</p:inputMask>

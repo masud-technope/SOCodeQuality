@@ -1,0 +1,40 @@
+CountDownTimer countDownTimer;
+TextView tvTimer;
+  long startTime = 1 * 1000;
+  long interval = 1 * 100;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    tvTimer=(TextView)findViewById(R.id.tvTimer);
+    countDownTimer = new MyCountDownTimer(startTime, interval);
+    findViewById(R.id.button1).setOnClickListener(new OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            // TODO Auto-generated method stub
+            countDownTimer.start();
+        }
+    });
+}
+public class MyCountDownTimer extends CountDownTimer 
+{
+    int  count=10;
+    public MyCountDownTimer(long startTime, long interval) 
+    {
+        super(startTime, interval);
+    }
+
+    @Override
+    public void onFinish() {
+        tvTimer.setText("Time's Up...!");
+
+    }
+
+    @Override
+    public void onTick(long millisUntilFinished) {
+        int interval=(int)millisUntilFinished/100;
+             tvTimer.setText("0"+interval);
+    }
+}

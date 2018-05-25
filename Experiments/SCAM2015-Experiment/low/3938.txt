@@ -1,0 +1,4 @@
+ClassA a = new ClassA();
+ClassB b = new ClassB();
+System.out.println(b.getClass.getSimpleName());
+System.out.println(b.getClass.getSimpleName());

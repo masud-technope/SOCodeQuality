@@ -1,0 +1,7 @@
+public void serializeHashMap(HashMap<String, Integer> m) {
+    FileOutputStream fos = new FileOutputStream("hashmap.dat");
+    ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+    oos.writeObject(m);
+    oos.close();
+}

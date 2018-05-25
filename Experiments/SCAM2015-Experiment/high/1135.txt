@@ -1,0 +1,29 @@
+public static void main(String args[]) throws Exception {
+    // start the server
+    start("ServerStart", "arg1", "arg2");
+}
+
+private static void start(final String classToStart, final String... args) {
+
+    // start a new thread
+    new Thread(new Runnable() {
+        public void run() {
+            try {
+                // create the custom class loader
+                ClassLoader cl = new CustomClassLoader();
+
+                // load the class
+                Class<?> clazz = cl.loadClass(classToStart);
+
+                // get the main method
+                Method main = clazz.getMethod("main", args.getClass());
+
+                // and invoke it
+                main.invoke(null, (Object) args);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }).start();
+}

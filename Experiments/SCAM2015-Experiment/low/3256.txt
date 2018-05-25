@@ -1,0 +1,18 @@
+public class Invoice {
+
+
+    private InvoiceItem[] invoiceItems;
+    private double totalInvoice;
+    private ProcessInvoice processInvoice;
+
+    ......
+
+    void getInvoices() {
+        processInvoice = new ProcessInvoice();
+        processInvoice.runProcess();
+        processInvoice.getInvoices();
+
+    }
+
+
+}

@@ -1,0 +1,14 @@
+int largestNumber = Integer.MIN_VALUE;
+    int smallestNumber = Integer.MAX_VALUE; 
+
+    for(int i = 0; i < yourArray.Length; i++)
+    {
+        if(yourArray[i] > largestNumber)
+            largestNumber = yourArray[i];
+
+        if(yourArray[i] < smallestNumber)
+            smallestNumber = yourArray[i];
+
+    }
+
+    int biggestDifference = largestNumber - smallestNumber ;

@@ -1,0 +1,3 @@
+public void compute(int[] someValues) {
+    someValues[2] = 78;
+}

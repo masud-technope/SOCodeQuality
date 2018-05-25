@@ -1,0 +1,21 @@
+public void maxProfit(int i) {
+
+    if (i == n - 1) {
+        if (low != -1 && a[i - 1] <= a[i])
+            profit += a[i] - low;
+        System.out.println("i");
+        return;
+    }
+    if (a[i - 1] < a[i] && low == -1) {
+        low = a[i - 1];
+        System.out.println("i");
+    }
+    if (a[i - 1] > a[i] && low != -1) {
+        profit += a[i - 1] - low;
+        low = -1;
+        System.out.println("i");
+    }
+    //System.out.print(i+",");
+
+    maxProfit(i + 1);
+ }

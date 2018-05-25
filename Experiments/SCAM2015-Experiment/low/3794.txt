@@ -1,0 +1,7 @@
+int numberOfUsers = getUserCount();
+int numberOfItems = getItemCount();
+Rating[] ratings = new Rating[numberOfUsers * numberOfItems];
+
+public Rating getRating(userNum, itemNum) {
+   return ratings[userNum + itemNum * numberOfUsers];
+}

@@ -1,0 +1,4 @@
+java7() {
+    /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java "$@"
+}
+export -f java7

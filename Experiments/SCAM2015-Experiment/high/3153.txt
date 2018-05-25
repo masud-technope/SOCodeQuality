@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+
+using namespace std;
+
+string cities;
+
+void recurRoute( int prevIndex, int currIndex, vector<pair<int,int> > &traversed ) {
+
+    // For each i > currIndex, if edge (currindex to i) not in traversed, 
+    // then add the edge and recur on new index i.
+    for ( int i = currIndex+1; i < cities.size(); i++ ) {
+
+        pair<int,int> newEdge( currIndex, i );
+        if ( find( traversed.begin(), traversed.end(), newEdge ) == traversed.end() ) {
+            traversed.push_back( newEdge );
+            recurRoute( currIndex, i, traversed );
+        }
+    }
+
+    // if there is a previous index, 
+    // then add the back edge (currIndex to prevIndex) and return.
+    if ( prevIndex >= 0) {
+        pair<int,int> prevEdge( currIndex, prevIndex );
+        traversed.push_back( prevEdge );
+    }
+    return;
+}
+
+int main()
+{
+    cin >> cities;
+
+    vector<pair<int,int> > edges;
+
+    recurRoute( -1, 0, edges );
+
+    for ( int i = 0; i < edges.size(); i++ ) {
+        cout << cities[ edges[i].first ] << cities[ edges[i].second ] << endl;
+    }
+
+    return 0;
+}

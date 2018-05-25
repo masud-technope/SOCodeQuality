@@ -1,0 +1,26 @@
+public class MySet<T> implements Set<T>{
+
+    private HashMap<T,T> items = new HashMap<T,T>();
+
+
+    public boolean contains(Object item) 
+    {
+        return items.containsKey(item);
+    }
+
+    public boolean add(T item) 
+    {
+        if (items.containsKey(item))
+            return false;
+        else
+        {
+            items.put(item, item);
+            return true;
+        }
+    }
+
+    public T get(T item) 
+    {
+        return items.get(item);
+    }
+}

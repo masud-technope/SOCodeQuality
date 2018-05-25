@@ -1,0 +1,3 @@
+Main MainObject = new Main;
+
+MainObject.main(args);

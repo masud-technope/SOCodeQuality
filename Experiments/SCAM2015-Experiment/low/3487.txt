@@ -1,0 +1,9 @@
+private TelephonyManager getTelephonyManager() {
+        TelephonyManager telephonyManager = ( TelephonyManager )getSystemService( Context.TELEPHONY_SERVICE );
+        return telephonyManager;
+    }
+
+private String getIMEIStringOfDevice() {
+       String imeiString = getTelephonyManager().getDeviceId(); 
+        return imeiString;
+    }

@@ -1,0 +1,17 @@
+class Job extends Thread {  
+    private Integer number = 0;  
+    public void run() {
+
+       synchronized(this) {
+       for (int i = 1; i < 1000000; i++) {  
+            number++;  
+        }  
+        notify();     //releases lock here and your main thread continues
+        do sumthing...
+        do sumthing...
+        }  
+    }
+    public Integer getNumber() {  
+        return number;  
+    }  
+}

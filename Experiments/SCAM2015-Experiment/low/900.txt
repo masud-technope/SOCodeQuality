@@ -1,0 +1,6 @@
+public class Main {
+
+public static void main(String[] args) {
+    Random r = new Random(System.currentTimeMillis());
+    System.out.println(r.nextInt(100000) * 0.000001);
+}

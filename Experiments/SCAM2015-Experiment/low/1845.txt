@@ -1,0 +1,3 @@
+Bar[] foo = new Bar[4];
+foo[2] = new Bar();
+System.out.print(foo[2]);

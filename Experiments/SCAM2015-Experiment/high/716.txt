@@ -1,0 +1,10 @@
+class GeneriWrapperDemo {
+    public static void main(String [] args ) {
+        _<String> one = new _<String>("One");
+        two( one );
+        System.out.println( one );
+    }
+    public static void two( _<String> s ) {
+        s._ = "two";
+    }
+}

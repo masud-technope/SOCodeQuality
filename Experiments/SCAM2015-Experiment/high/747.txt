@@ -1,0 +1,8 @@
+0 aload_0
+ 1 getfield #2 <app/WithStaticMethods.value>
+ 4 iconst_2
+ 5 aload_0
+ 6 getfield #2 <app/WithStaticMethods.value>
+ 9 imul
+10 invokestatic #3 <app/WithStaticMethods.helper>
+13 ireturn

@@ -1,0 +1,4 @@
+public Post addComment(String author, String content) {
+    Comment newComment = new Comment(this, author, content).save(); //adds the comment
+    return this.refresh(); //tell Hibernate to get the latest state from the DB
+}

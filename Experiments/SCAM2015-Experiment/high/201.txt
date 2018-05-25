@@ -1,0 +1,16 @@
+$ java RMITest -nogc -hold
+received: foo
+$ java RMITest -nogc -release
+received: foo
+$ java RMITest -gc -hold
+received: foo
+$ java RMITest -gc -release
+Exception in thread "main" java.rmi.NoSuchObjectException: no such object in table
+    at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:255)
+    at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:233)
+    at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:142)
+    at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:178)
+    at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:132)
+    at $Proxy0.remoteOperation(Unknown Source)
+    at RMITest.client(RMITest.java:69)
+    at RMITest.main(RMITest.java:46)

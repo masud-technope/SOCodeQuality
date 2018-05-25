@@ -1,0 +1,9 @@
+{
+    int score = 0;
+
+} // scope of Score has ended.
+
+if(coinCollected == 1) {
+    int score = 1;
+
+}

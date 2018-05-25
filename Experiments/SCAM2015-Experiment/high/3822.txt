@@ -1,0 +1,4 @@
+} catch (SQLException e) {
+            e.printStackTrace(); //it doesn't matter what you do here. the next line is what's important.
+            throw e; //throw the exception after printing stack trace, logging, etc.
+        } ...

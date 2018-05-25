@@ -1,0 +1,7 @@
+StringBuilder b=new StringBuilder();
+    for(String text1:Rolelist1)
+    {
+          b.append(text1).append(",");
+    }
+
+String Roletext=b.toString().replaceAll(",$", "");//get rid of last comma

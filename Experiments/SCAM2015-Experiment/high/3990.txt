@@ -1,0 +1,12 @@
+public static void main(String[] args) {
+    ArrayList<String> list = new ArrayList<>();
+    list.add("football");
+    list.add("ballkeeping");
+    list.add("basket");
+    System.out.println(
+      list.
+        stream().
+        filter((s) -> s.contains("p")).
+        collect(Collectors.toList())
+    );
+}

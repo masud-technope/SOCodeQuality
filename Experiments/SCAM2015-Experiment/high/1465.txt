@@ -1,0 +1,11 @@
+// returns true, Integer.MAX_VALUE * 1 is still an int    
+isIntMultiplication(Integer.MAX_VALUE, 1);
+
+// returns false, Integer.MAX_VALUE * 2 is a long    
+isIntMultiplication(Integer.MAX_VALUE, 2);
+
+// returns true, Integer.MAX_VALUE/2 * 2 is still an int
+isIntMultiplication(Integer.MAX_VALUE/2, 2);
+
+// returns false, Integer.MAX_VALUE * Integer.MAX_VALUE is a long
+isIntMultiplication(Integer.MAX_VALUE, Integer.MAX_VALUE);

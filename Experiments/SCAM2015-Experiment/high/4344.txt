@@ -1,0 +1,3 @@
+public static void myPrint(int a) {
+    System.out.println(a);
+}

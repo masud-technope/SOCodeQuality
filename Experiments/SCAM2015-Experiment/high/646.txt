@@ -1,0 +1,3 @@
+ValueType value = ValueType.CONVERT.fromText(text);
+
+ String text = ValueType.CONVERT.toText(value);

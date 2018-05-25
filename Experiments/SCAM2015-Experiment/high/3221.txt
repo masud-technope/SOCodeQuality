@@ -1,0 +1,15 @@
+boolean success = false;  // <--
+
+try {
+    lineReader = new Scanner( scanFile );
+    success = true;  // <--
+    PrintWriter pw = new PrintWriter("ord.txt");
+
+    ...
+
+} catch (FileNotFoundException e) {
+    /*
+     * If 'success' is false, then Scanner threw the
+     * exception, otherwise it was PrintWriter.
+     */
+}

@@ -1,0 +1,21 @@
+public class A {
+  public int id;
+  public B b;
+  public int hashCode() {return id;} // simple and efficient enough for small Sets 
+  public boolean equals(Object another) { 
+    if (object == null || ! (object instanceOf A) ) {
+      return false;
+    }
+    return this.id == ((A)another).id; 
+   }
+}
+public class Logic {
+  /**
+   * Replace the element in data with the same id as element, or add element
+   * to data when the id of element is not yet used by any A in data. 
+   */
+  public void update(Set<A> data, A element) {
+    data.remove(element); // Safe even if the element is not in the Set
+    data.add(element); 
+  }
+}

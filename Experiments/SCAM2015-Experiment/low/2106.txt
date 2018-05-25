@@ -1,0 +1,6 @@
+String tempDir = System.getProperty("java.io.tmpdir");
+File file = new File(tempDir.getAbsolutePath(), "filename.txt");
+if (!file.exists()) {
+     InputStream is = (getClass().getResourceAsStream("/filename.txt"));
+     Files.copy(is, file.getAbsoluteFile().toPath());
+}

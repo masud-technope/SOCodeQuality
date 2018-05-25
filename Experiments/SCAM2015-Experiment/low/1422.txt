@@ -1,0 +1,17 @@
+<profiles>
+    <profile>
+        <id>DEFAULT</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+            <spring.profile>prod</spring.profile>
+        </properties>
+    <profile>
+    <profile>
+        <id>DEMO</id>
+        <properties>
+            <spring.profile>demo</spring.profile>
+        </properties>
+    <profile>
+</profiles>

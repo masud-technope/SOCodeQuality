@@ -1,0 +1,14 @@
+public class Test {
+    static List<String> availableFormsList = new ArrayList<String>();
+
+    /**
+     * @param args
+     * @throws IOException 
+     */     
+    public static void main(String[] args) throws IOException { 
+        availableFormsList .add("a");
+        System.out.println("Size: "+availableFormsList.size());
+        availableFormsList.remove("a");
+        System.out.println("Size: "+availableFormsList.size());
+    }
+}

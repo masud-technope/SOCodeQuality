@@ -1,0 +1,30 @@
+boolean loop=true;
+//everything else that goes into your code
+//...
+//println where you requesto to enter the class name
+do{
+String playerClass = classInput.nextLine();
+if (playerClass.equals("Swordsman")){
+    out.println("You chose to be a Swordsman!");
+    loop=false;}
+
+else if (playerClass.equals("Sorcerer")){
+    out.println("You chose to be a Sorcerer!");
+    loop=false;}
+
+else if (playerClass.equals("Elementalist")){
+    out.println("You chose to be an Elementalist!");
+    loop=false;}
+
+else if (playerClass.equals("Assassin")){
+    out.println("You chose to be an Assassin!");
+    loop=false;}
+
+else if (playerClass.equals("Sharpshooter")){
+    out.println("You chose to be a Sharpshooter!");
+    loop=false;}
+
+else {
+    out.println("Make sure your spelling is correct.");
+    }
+    }while(loop);

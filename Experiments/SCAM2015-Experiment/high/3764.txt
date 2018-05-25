@@ -1,0 +1,3 @@
+Cache<Key, Graph> graphs = CacheBuilder.newBuilder()
+   .expireAfterWrite(1, TimeUnit.DAYS)
+   .build();

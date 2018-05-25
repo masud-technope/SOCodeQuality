@@ -1,0 +1,9 @@
+Executor executor = Executors.newFixedThreadPool(1);
+    for(int i=0;i<100;i++){
+        final int idx=i;
+        executor.execute(new Runnable(){
+            public void run(){
+               System.out.println("I'm thread #"+idx); 
+            }
+        });
+    }

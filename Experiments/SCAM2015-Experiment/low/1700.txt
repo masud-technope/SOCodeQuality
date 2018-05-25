@@ -1,0 +1,6 @@
+if (Arrays.asList('a', 'b', 'c').contains('c')) {
+   System.out.print("input might be a,b,d but not c");
+}
+else {
+   System.out.print("input is c");
+}

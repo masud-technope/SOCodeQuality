@@ -1,0 +1,5 @@
+try {
+  method.invoke(obj, arg1, arg2,...);
+} catch (IllegalArgumentException e) {
+} catch (IllegalAccessException e) {
+} catch (InvocationTargetException e) {

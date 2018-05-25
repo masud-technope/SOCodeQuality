@@ -1,0 +1,8 @@
+public static void main(String[] args)
+{
+    List<String> l = new ArrayList<String>();
+    for (long i = 0 ; i < 100000000l ; i++)
+    {
+        l.add(new String("AAAAAAA"));
+    }
+}

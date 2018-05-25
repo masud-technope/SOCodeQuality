@@ -1,0 +1,7 @@
+while (true) {
+    System.out.print("Choose a player: ");
+    myChar = in.nextInt();
+    if (myChar > 0 && myChar < 4) {
+        break; // out of the loop
+    }
+}

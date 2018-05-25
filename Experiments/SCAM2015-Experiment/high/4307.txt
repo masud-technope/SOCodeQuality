@@ -1,0 +1,4 @@
+public static String format(File file, String encoding) throws IOException {
+    String text = new String(Files.readAllBytes(file.toPath()), encoding);
+    return format(text);
+}

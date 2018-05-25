@@ -1,0 +1,11 @@
+public abstract interface MyBaseInterface {
+    public String getName();
+}
+
+public interface MyBoat extends MyBaseInterface {
+    public String getMastSize();
+}
+
+public interface MyDog extends MyBaseInterface {
+    public long tinsOfFoodPerDay();
+}

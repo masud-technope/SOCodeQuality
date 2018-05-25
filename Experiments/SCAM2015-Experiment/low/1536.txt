@@ -1,0 +1,15 @@
+include "iostream"
+include "time.h"
+define START clock_t t1,final;t1=clock();
+define END final=clock()-t1;cout << (double)final / ((double)CLOCKS_PER_SEC);
+using namespace std;
+int main()
+{
+    START   
+
+    END
+    return 0;
+}
+
+//in C++ write the programme between the START and END
+//it will print the run time at the end of execution...

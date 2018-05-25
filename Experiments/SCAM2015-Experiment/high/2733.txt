@@ -1,0 +1,3 @@
+public Charachter(String name){ //pass the name while creating an object
+    this.name=name;
+}

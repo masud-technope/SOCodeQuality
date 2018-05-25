@@ -1,0 +1,9 @@
+public class Album implements Comparable<Album>{
+     /*
+      your existing code here
+     */
+     public int compareTo(Album compareAlbum) {
+       int compareSales = ((Album) compareAlbum).getSales(); 
+       return this.sales - compareSales
+     }
+}

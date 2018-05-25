@@ -1,0 +1,16 @@
+public class HibernateExtendedJpaDialect extends HibernateJpaDialect {
+
+    @Override
+    public Object beginTransaction(EntityManager entityManager,
+            TransactionDefinition definition) throws PersistenceException,
+            SQLException, TransactionException {
+
+        Session session = (Session) entityManager.getDelegate();
+        DataSourceUtils.prepareConnectionForTransaction(session.connection(), definition);
+
+        entityManager.getTransaction().begin();
+
+        return prepareTransaction(entityManager, definition.isReadOnly(), definition.getName());
+    }
+
+}

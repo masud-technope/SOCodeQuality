@@ -1,0 +1,3 @@
+<application-desc main-class=".....">
+   <argument>user.home</argument>
+   ..............

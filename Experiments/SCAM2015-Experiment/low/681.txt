@@ -1,0 +1,3 @@
+interface Filter<T>{
+    boolean eligible(T t);
+}

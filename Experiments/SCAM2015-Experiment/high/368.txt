@@ -1,0 +1,4 @@
+public class Graph<V extends Vertex> {
+List<V> vertices;
+...
+}

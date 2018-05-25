@@ -1,0 +1,3 @@
+my @files = glob("*.html")
+# Or, if you prefer:
+my @files = <*.html>

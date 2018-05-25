@@ -1,0 +1,8 @@
+public static void main(String... s) throws Exception {
+        Pattern VALID_PATTERN = Pattern.compile("([A-Za-z])+|[0-9]*");
+    List<String> chunks = new ArrayList<String>();
+    Matcher matcher = VALID_PATTERN.matcher("ab1458");
+    while (matcher.find()) {
+        chunks.add( matcher.group() );
+    }
+}

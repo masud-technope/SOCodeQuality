@@ -1,0 +1,6 @@
+04-Mar-2015 11:10:11.287 INFO [localhost-startStop-1] com.sun.jersey.api.core.ScanningResourceConfig.init No provider classes found.
+04-Mar-2015 11:10:11.429 INFO [localhost-startStop-1] com.sun.jersey.server.impl.application.WebApplicationImpl._initiate Initiating Jersey application, version 'Jersey: 1.19 02/11/2015 05:39 AM'
+04-Mar-2015 11:10:12.102 SEVERE [localhost-startStop-1] com.sun.jersey.spi.inject.Errors.processErrorMessages The following errors and warnings have been detected with resource and/or provider classes:
+  SEVERE: Missing dependency for constructor public com.enigma.restful.TodoService(javax.ws.rs.core.UriInfo,javax.ws.rs.core.Request,java.lang.String) at parameter index 0
+  SEVERE: Missing dependency for constructor public com.enigma.restful.TodoService(javax.ws.rs.core.UriInfo,javax.ws.rs.core.Request,java.lang.String) at parameter index 1
+  SEVERE: Missing dependency for constructor public com.enigma.restful.TodoService(javax.ws.rs.core.UriInfo,javax.ws.rs.core.Request,java.lang.String) at parameter index 2

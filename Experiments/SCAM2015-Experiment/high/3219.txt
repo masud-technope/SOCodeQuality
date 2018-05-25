@@ -1,0 +1,4 @@
+use="handlers.ZulHandler">
+<zk if="${isManufacturingKey}">
+    <checkbox id="checkbox_id" label="check" />
+</zk>

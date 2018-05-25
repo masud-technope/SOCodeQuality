@@ -1,0 +1,21 @@
+public int count8(int n) {
+    return g(n, 0); 
+}
+
+public int g(int n, int prev) {
+    int rest = n/10;
+    int digit = n % 10;
+    if (rest == 0) {
+       return h(digit, prev);
+    }
+
+    int toAdd = h(digit, prev);
+    return toAdd + g(rest, digit);
+}
+
+
+    public int h(int digit, int prev) {
+        return prev == 8 && digit == 8 ? 
+                                       2 : digit == 8 ? 
+                                                      1 : 0;    
+}

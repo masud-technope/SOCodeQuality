@@ -1,0 +1,9 @@
+List<Integer> nums = new ArrayList<>();
+for (int i = /* start */; i < /* end */; i++) {
+    nums.add(i);
+}
+
+//Elsewhere
+Random rand = new Random();
+int get = nums.remove(rand.nextInt(/* end */);
+/* end */--;

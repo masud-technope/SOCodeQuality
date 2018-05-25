@@ -1,0 +1,5 @@
+if (varName % 2 == 0) {
+    //divisible by two
+} else {
+    //not
+}

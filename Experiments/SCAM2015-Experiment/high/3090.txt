@@ -1,0 +1,5 @@
+ConcurrentMap<String, Object> shared = (...)servletContext.getAttribute("sharedData");
+if (shared == null) {
+    shared = new ConcurrentHashMap<>();
+    servletContext.setAttribute("sharedData", shared);
+}

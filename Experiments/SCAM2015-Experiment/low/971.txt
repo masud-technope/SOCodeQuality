@@ -1,0 +1,4 @@
+thread1: Read Element X
+thread2: Removes X + 1
+thread1: Read Element X + 1 and fails since the element is no long valid.
+thread1: Is unable to finish going through the list since it has been removed.

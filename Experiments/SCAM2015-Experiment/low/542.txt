@@ -1,0 +1,40 @@
+class Example
+{
+    FileOutputStream fileOutputStream;
+
+    public Example()
+    {
+        //System.out.println("Example.Example()");
+
+        debug("Example.Example()",false); // toggle
+
+         try
+         {
+              fileOuputStream = new FileOutputStream("debug.txt");
+         }
+         catch (Exception exception)
+         {
+             debug(exception + Calendar.getInstance().getTime());
+          }
+    }
+
+    private boolean was911AnInsideJob()
+    {
+         System.out.println("Example.was911AnInsideJob()");
+
+         return true;
+    }
+
+
+    public boolean shouldGWBushBeImpeached()
+    {
+         System.out.println("Example.shouldGWBushBeImpeached()");
+
+         return true;
+    }
+
+    public void setPunishment(int yearsInJail)
+    {
+        debug("Server.setPunishment(int yearsInJail=" + yearsInJail + ")",true);
+    }
+}

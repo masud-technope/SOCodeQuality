@@ -1,0 +1,16 @@
+public class StackTrace {
+    public static void main(String args[]) {
+        StackTrace st = new StackTrace();
+        st.func();
+    }
+    public void func() {
+        OtherClass os =new OtherClass();
+        os.getStackTrace(this);
+    }
+}
+
+class OtherClass {
+    void getStackTrace(Object obj)  {
+        System.out.println(obj.getClass());
+    }
+}

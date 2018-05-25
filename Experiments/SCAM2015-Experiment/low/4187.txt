@@ -1,0 +1,4 @@
+if(str.split== null |  str.split == 0)
+{
+paste your code here;
+}

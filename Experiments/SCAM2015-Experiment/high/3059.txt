@@ -1,0 +1,38 @@
+List<String> abc = new ArrayList<String>();
+    List<Date> xyz = new ArrayList<Date>();
+
+    abc.add("JAN-2010");
+    abc.add("JAN-2011");
+    abc.add("APR-2013");
+    abc.add("NOV-2009");
+
+    try {
+
+        for (String abc1 : abc) {
+
+            Date date;
+
+            date = new SimpleDateFormat("MMM-yyyy", Locale.ENGLISH)
+                    .parse(abc1);
+            xyz.add(date);
+
+        }
+
+        Collections.sort(xyz, new Comparator<Date>() {
+
+            public int compare(Date arg0, Date arg1) {
+                // return arg0.getDate().compareTo(o2.getDate());
+                return arg0.compareTo(arg1);
+            }
+        });
+
+        for (Date date1 : xyz) {
+            System.out.println("Sorted : " + date1);
+        }
+
+    } catch (ParseException e) {
+
+        e.printStackTrace();
+
+    }
+}

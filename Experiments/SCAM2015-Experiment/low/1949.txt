@@ -1,0 +1,9 @@
+$.ajax(
+{
+    type: "GET",
+    url: '/your-web-service/wants-json-array',
+    data: JSON.stringify(THEARRAYYOUARESENDINGTOTHESERVER),
+    contentType: "application/json",
+    dataType: "json",
+    processData: false
+});

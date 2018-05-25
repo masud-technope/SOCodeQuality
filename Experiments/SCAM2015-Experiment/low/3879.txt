@@ -1,0 +1,11 @@
+class X {
+    private static X x;
+    private final int n = 1;
+
+    public static X getX() {
+        if (x == null) {
+            x = new X();
+        }
+        return x;
+    }
+}

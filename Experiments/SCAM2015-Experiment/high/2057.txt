@@ -1,0 +1,3 @@
+Point coordinates = driver.findElement(By.id("ctl00_portalmaster_txtUserName")).getLocation();
+  Robot robot = new Robot();
+  robot.mouseMove(coordinates.getX(),coordinates.getY()+120);

@@ -1,0 +1,5 @@
+ArrayList<String> yearsOnlylist = new ArrayList<String> ();
+for(String s : elements) {
+    String yearExtracted = s.substring(0,4);
+    yearsOnlylist.add(yearExtracted);
+}

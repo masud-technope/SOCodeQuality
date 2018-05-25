@@ -1,0 +1,10 @@
+//More Efficiently
+public class Multiples {
+    public static void main(String[]args) {
+
+        int j = 5;
+
+        System.out.println(j % 4 == 0);
+
+    }
+}

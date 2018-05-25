@@ -1,0 +1,3 @@
+public class MainFragment extends ListFragment implements
+    //LoaderManager.LoaderCallbacks<Cursor>
+    LoaderManager.LoaderCallbacks

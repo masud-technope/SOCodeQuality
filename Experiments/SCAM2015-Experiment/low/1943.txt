@@ -1,0 +1,3 @@
+String command = "cmd /c dir /s";
+String homeDir = "C:\\WINDOWS";
+Process process = Runtime.getRuntime().exec(command + " " + homeDir);

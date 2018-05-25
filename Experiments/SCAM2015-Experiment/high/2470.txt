@@ -1,0 +1,9 @@
+public int[] Convertir(int Number) { //I guess number should be an Int too, unless it's possible to pass 567.28 days...
+    //Number = nombre; Useless since this is a parameter
+    int[] anneeSemaineJour = new int[3];
+    anneeSemaineJour[0] = (int)(Number/365);
+    anneeSemaineJour[1] = (int)((Number - anneeSemaineJour[0] * 365)/7);
+    anneeSemaineJour[2] = Number - anneeSemaineJour[0] * 365 - anneeSemaineJour[1] * 7;
+
+    return anneeSemaineJour;
+}

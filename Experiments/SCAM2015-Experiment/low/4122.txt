@@ -1,0 +1,6 @@
+String my_number="1 2 3 4 5";
+
+for(int i=0; i < my_number.length; i++){
+    if(my_number.toCharArray()[i]!=' ')
+       System.out.print(my_number.toCharArray()[i]+",");
+}

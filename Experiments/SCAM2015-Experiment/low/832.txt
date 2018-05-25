@@ -1,0 +1,4 @@
+import static us.monoid.web.Resty.*;
+import us.monoid.web.Resty;  
+...    
+new Resty().text(TEST_URL, content("HELLO WORLD")).toString();

@@ -1,0 +1,8 @@
+Object bar;
+if ((bar = getFoo()) != null) {
+  return bar;
+} else if ((bar = getBoo()) != null) {
+  return bar;
+} else {
+  return getBaz()
+}

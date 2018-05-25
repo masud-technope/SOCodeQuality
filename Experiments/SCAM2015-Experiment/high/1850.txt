@@ -1,0 +1,14 @@
+void updateTextBox() {
+    if (selectionModel.getLeadSelectionIndex() >= table.getRowCount() ||
+        selectionModel.getLeadSelectionIndex() < 0) return;
+    .... // update text panel here
+}
+
+public void valueChanged(...) {
+    if (e.getValueIsAdjusting()) return;
+    SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+           updateTextBox();
+        }
+    }));
+}

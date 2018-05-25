@@ -1,0 +1,5 @@
+<resources>
+    <!-- Any 1.6 JRE -->
+    <j2se version='1.6*'>
+    ...
+</resources>

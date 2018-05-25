@@ -1,0 +1,12 @@
+public class Main {
+
+    static void add(int[] x) {
+        x[0] += 1;
+    }
+
+    public static void main()
+        int[] a = { 5 };
+        add(a);
+        // a[0] == 6
+    }
+}

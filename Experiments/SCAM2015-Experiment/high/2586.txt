@@ -1,0 +1,11 @@
+JButton button = new JButton("+");
+Dimension size = button.getPreferredSize();
+size.x += 6;
+size.y += 6;
+button.setPreferredSize(size);
+Rectangle rectangle = new Rectangle(3, 3, size.x - 3, size.y - 3);
+ScreenImage buttonImage = ScreenImage(button, rectangle);
+ImageIcon icon = new ImageIcon(buttonImage);
+
+JButton plus = new JButton(icon);
+plus.setBorder( ... );

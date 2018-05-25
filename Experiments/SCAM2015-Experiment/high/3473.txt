@@ -1,0 +1,5 @@
+for(Entry<String, Integer> e : map.entrySet()) {
+        if (e.getValue() == 0) {
+            e.setValue(0);
+        }
+    }

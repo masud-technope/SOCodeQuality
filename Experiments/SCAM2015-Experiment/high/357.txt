@@ -1,0 +1,4 @@
+class Splitter {
+    public Splitter(Charset charset) { /* ... */ }
+    public void readFully(InputStream is, MixedProcessor processor) throws IOException  { /* ... */ }
+}

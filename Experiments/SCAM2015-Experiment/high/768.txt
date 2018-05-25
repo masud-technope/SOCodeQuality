@@ -1,0 +1,5 @@
+if (string.contains("-")) {
+    // Split it.
+} else {
+    throw new IllegalArgumentException("String " + string + " does not contain -");
+}

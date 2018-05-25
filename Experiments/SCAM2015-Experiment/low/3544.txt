@@ -1,0 +1,4 @@
+// Print all possible combinations
+   for (ICombinatoricsVector<String> combination : gen) {
+      System.out.println(Arrays.toString(combination.toArray()));
+   }

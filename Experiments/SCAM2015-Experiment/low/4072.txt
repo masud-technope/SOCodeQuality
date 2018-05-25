@@ -1,0 +1,44 @@
+questionIndex++ ; // increment the index
+
+
+                    questionValue ++;
+
+
+
+                    questionView.setText(Questions[questionIndex]); // set the text to the next question
+
+    /*
+     * set the text to the next answer options
+     */
+                    textview1.setText(answerButtA[questionIndex]);
+                    textview2.setText(answerButtB[questionIndex]);
+                    textview3.setText(answerButtC[questionIndex]);
+                    questionNumber.setText("Question " + questionValueS + ".");
+
+            }
+
+            else{
+
+                questionView.setText("Complete");
+                questionNumber.setText("");
+                questionView2.setText("");
+
+                textview1.setText("");
+                textview2.setText("");
+                textview3.setText("");
+                Results.setText("Click here for results");
+            }
+
+
+
+
+
+
+            break;
+                case R.id.button2:
+                    //DO something
+                    break;
+                case R.id.button3:
+                    //DO something
+                    break;
+            }

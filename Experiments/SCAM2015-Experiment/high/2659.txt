@@ -1,0 +1,5 @@
+IOtfHandler h1 = new EnterLeaveHandler();
+IOtfHandler h2 = new DefFunctionHandler();
+h1.handle(0, 0, 0, 0);
+h2.handle(0, 0, 0, 0); // Crashes with ClassCastException!! :(
+                       // And would also crash two lines later with ArrayIndexOutOfBoundsException

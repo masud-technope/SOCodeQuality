@@ -1,0 +1,25 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+
+    final static int RAND_CAP = 9;
+
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        ArrayList<Integer> usedNumbers = new ArrayList<Integer>();
+        Random rand = new Random(System.currentTimeMillis());
+        while (usedNumbers.size() < RAND_CAP) {
+            int randNum = Math.abs(rand.nextInt() % RAND_CAP) + 1;
+            if (!usedNumbers.contains(randNum)) {
+                usedNumbers.add(randNum);
+                System.out.println(randNum);
+            }
+        }
+    }
+}

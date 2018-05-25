@@ -1,0 +1,15 @@
+public static int consecutiveEqualElements(int [] elements) {
+    int currentNum = elements[0];
+    int currentConsecutive = 1;
+    int maxConsecutive = 1;
+    for (int i = 1; i < elements.length; i++) {
+        if (elements[i] == currentNum) {
+            currentConsecutive++;
+            maxConsecutive = Math.max(maxConsecutive, currentConsecutive);
+        } else {
+            currentNum = elements[i];
+            currentConsecutive = 1;
+        }
+    }
+    return maxConsecutive;
+}

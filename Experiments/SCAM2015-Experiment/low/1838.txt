@@ -1,0 +1,17 @@
+class Read
+{
+    public static void main(String args[])
+    {
+        // Good
+        try {
+          Scanner scan = new Scanner(new java.io.File(TEXT_FILE));
+          while(scan.hasNext()){
+            String line = scan.nextLine();
+            String[] elements = line.split(",");
+          }
+        } 
+          catch (FileNotFoundException e){
+            System.out.println ("Error parsing " + TEXT_FILE + ": " + e.getMessage());
+        }        
+    }
+}

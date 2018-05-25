@@ -1,0 +1,9 @@
+public static void main(String[] args) {
+    int input = 5;
+
+    for (int i = 1; i <= 2 * input - 1; i++) {
+        for (int j = 0; j < input - Math.abs((input - i)); j++)
+            System.out.print(i);
+        System.out.println();
+    }
+}

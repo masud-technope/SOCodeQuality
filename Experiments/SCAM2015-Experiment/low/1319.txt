@@ -1,0 +1,3 @@
+if(inputStr.indexOf("Positive") > 0){
+   //Word is found
+}

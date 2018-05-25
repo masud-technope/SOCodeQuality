@@ -1,0 +1,6 @@
+FileInputStream inputStream = new FileInputStream(sourcePath);
+
+        int numberBytes = inputStream .available();
+        byte bytearray[] = new byte[numberBytes];
+
+        inputStream .read(bytearray);

@@ -1,0 +1,18 @@
+if (v <= 10)
+                return size;
+            else {
+                size = 1;
+
+                if (v > 145)
+                    return size;
+                else if (v > 117)
+                    return ++size;
+                else if (v > 68)
+                    return (size+2);
+                else if (v > 51)
+                    return (size+3);
+                else if (v > 22)
+                    return (size+4);
+                else if (v > 10)
+                    return (size+5);
+            }

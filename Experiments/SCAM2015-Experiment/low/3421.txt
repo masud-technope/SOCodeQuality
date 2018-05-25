@@ -1,0 +1,10 @@
+void example()
+{
+    /*
+     * 
+     * What does the compiler do when I place
+     * 
+     *         a */ right here 
+     *   
+     */
+}

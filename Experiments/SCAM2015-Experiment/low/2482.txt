@@ -1,0 +1,18 @@
+public static double pow2(double x,int y){
+    double total=1;
+    if(y>0){
+    for(int i=1;i<=y;i++){
+        total*=x;
+    }
+    return total;
+    }
+    else if (y<0){
+        double temp=1/x;//this makes 2 as 1/2
+        y=y*-1;         //to have a meaningful iteration if for loop
+        for(int i=1;i<=y;i++){
+            total*=temp;
+        }   
+        return total;
+    }else
+        return 1;
+}

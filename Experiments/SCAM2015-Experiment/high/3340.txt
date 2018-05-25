@@ -1,0 +1,15 @@
+public static void main (String [] args) {
+    Scanner console = new Scanner(System.in);
+    String userInput;
+    boolean done=false;
+
+    while(done==false) {
+        System.out.println("say something");
+        userInput=console.nextLine();
+        if (userInput.equals("stop")) {
+        done=true;
+    }
+
+    }
+     System.out.println("it worked!");
+}

@@ -1,0 +1,32 @@
+protected void onCreate() {
+  ...
+  orientation = getResources().getConfiguration().orientation;
+}
+
+protected void onResume() {
+  ...
+  long time = SystemClock.elapsedRealtime() - pauseTime;
+  int o = getResources().getConfiguration().orientation;
+  Log.d(TAG, "pauseTime: " + pauseTime + " System: " + SystemClock.elapsedRealtime() + " elapsed pause time: " + time + " orientation now: " + o + " orientation then: " + orientation);
+  if (time < 3000 && o != orientation) {
+    // device was turned
+  }
+  orientation = o;
+}
+
+protected void onPause() {
+  ...
+  pauseTime = SystemClock.elapsedRealtime();
+}
+
+protected void onSaveInstanceState(final Bundle outState) {
+  ...
+  outState.putLong(PAUSE_TIME, pauseTime);
+  outState.putInt(ORIENTATION, orientation);
+}
+
+protected void onRestoreInstanceState(final Bundle savedInstanceState) {
+  ...
+  pauseTime = savedInstanceState.getLong(PAUSE_TIME, -1);
+  orientation = savedInstanceState.getInt(ORIENTATION, -1);
+}

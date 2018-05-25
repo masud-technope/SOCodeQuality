@@ -1,0 +1,13 @@
+String xml = "<Record><op>Add</op><sensdata>400188711111</sensdata><id>4</id>"
+            + "<a1>1111201090467034</a1></Record>";
+    DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = null;
+    try {
+        builder = builderFactory.newDocumentBuilder();
+    } catch (ParserConfigurationException e) {
+        e.printStackTrace();  
+    }
+    Document document = builder.parse(new ByteArrayInputStream(xml.getBytes()));
+    XPath xPath =  XPathFactory.newInstance().newXPath();
+    String data = xPath.compile("/Record/sensdata").evaluate(document);
+    System.out.println(data);

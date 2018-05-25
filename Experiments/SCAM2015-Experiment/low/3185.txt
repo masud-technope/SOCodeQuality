@@ -1,0 +1,16 @@
+public class MyThread extends Thread{
+
+private MyCustomObj obj;
+
+public MyThread( MyCustomObj obj) {
+
+this.obj = obj;
+
+}
+
+public void run() {
+
+System.out.println("Name:" + obj.name );
+
+}
+}

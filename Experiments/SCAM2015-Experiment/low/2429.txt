@@ -1,0 +1,12 @@
+public class Test {
+    public static void main (String args[]) {
+        int[] i = new int[3];
+        short[] s = new short[4];
+    ArrayList<String> a = new ArrayList<String>();
+
+        System.out.println(i.getClass().getName());
+        System.out.println(s.getClass().getName());
+        System.out.println(args.getClass().getName());
+        System.out.println(a.getClass().getName());
+    }
+}

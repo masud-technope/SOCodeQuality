@@ -1,0 +1,12 @@
+final URI u = new URI("http://www.anigota.com/start");
+// URI u = new URI("/works/with/me/too");
+// URI u = new URI("/can/../do/./more/../sophis?ticated=stuff+too");
+
+if(u.isAbsolute())
+{
+  System.out.println("Yes, i am absolute!");
+}
+else
+{
+  System.out.println("Ohh noes, it's a relative URI!");
+}

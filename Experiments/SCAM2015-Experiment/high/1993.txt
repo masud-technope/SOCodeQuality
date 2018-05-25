@@ -1,0 +1,10 @@
+String str = "<blockquote>1. ???? </blockquote><blockquote>2. 1) ?????; ??????? </blockquote>";
+
+Pattern pattern1 = Pattern.compile("(????)|(?????;)|(???????)");
+
+Matcher matcher = pattern1.matcher(str);
+while (matcher.find()) {
+    System.out.print("Start index: " + matcher.start());
+    System.out.print(" End index: " + matcher.end() + " ");
+    System.out.println(matcher.group());
+}

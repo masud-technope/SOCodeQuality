@@ -1,0 +1,27 @@
+int a= 100;
+            try {
+                        for (int i = 0; i < 10; i++) {
+                            String insert = "insert into usermaster"
+                                    + "("
+                                    + "userid"
+                                    + ")"
+                                    + "values("
+                                    + "'" + a + "'"
+                                    + ");";
+                            statement.addBatch(insert);
+                            System.out.println(insert);
+                            a++;
+                        }
+                      dbConnection.commit();
+                    } catch (SQLException e) {
+                        System.out.println(" Insert Failed");
+                        System.out.println(e.getMessage());
+                    } finally {
+
+                        if (statement != null) {
+                            statement.close();
+                        }
+                        if (dbConnection != null) {
+                            dbConnection.close();
+                        }
+                    }

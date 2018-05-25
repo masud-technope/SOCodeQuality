@@ -1,0 +1,3 @@
+<@security.authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
+<p style="padding-right: 20px;">Logged in as ${username!"Anonymous" }</p>
+</@security.authorize>

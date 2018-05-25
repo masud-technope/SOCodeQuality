@@ -1,0 +1,8 @@
+<class name="Document">
+  <id name="id">
+    <generator class="native"/>
+  </id>
+  <property length="50" name="name" not-null="true"/>
+  <property lazy="false" length="200" name="summary" not-null="true"/>
+  <property lazy="false" length="2000" name="text" not-null="true"/>
+</class>

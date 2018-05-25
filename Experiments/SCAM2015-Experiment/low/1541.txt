@@ -1,0 +1,6 @@
+/**
+ * If input string is a regex, matches will always return a false.
+ */ 
+public boolean isRegex(final String str) {   
+    return str != null ? !str.matches(str) : false;
+}

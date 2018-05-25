@@ -1,0 +1,19 @@
+private String openedYn;
+
+@Transient
+public Boolean getOpenedYn() {
+  return toBoolean(openedYn);
+}
+
+public void setOpenedYn(Boolean openedYn) {
+  setOpenedYnString(toYesNo(openedYn));
+}
+
+@Column(name = "OPENED_YN", length = 1)
+private String getOpenedYnString() {
+  return openedYn;
+}
+
+private void setOpenedYnString(String openedYn) {
+  this.openedYn = openedYn;
+}

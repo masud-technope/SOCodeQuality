@@ -1,0 +1,3 @@
+import org.apache.commons.lang.StringUtils
+...
+someNum = sumNum + StringUtils.repeat("0", 3);

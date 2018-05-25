@@ -1,0 +1,11 @@
+public static void print(Context context) {
+
+    String examplePath = "file:///sdcard/dcim/Camera/20111210_181524.jpg";
+
+    Intent sendIntent = new Intent(Intent.ACTION_SEND);
+    sendIntent.setType("image/jpeg");
+    sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Photo");
+    sendIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(examplePath));
+    sendIntent.putExtra(Intent.EXTRA_TEXT, "Enjoy the photo");
+    context.startActivity(Intent.createChooser(sendIntent, "Email:"));
+}

@@ -1,0 +1,39 @@
+int numofDivisible(int R1, int R2, int n) {
+
+int small = R1, large= R2;
+
+if ((R1 > R2) || (n==0)) return 0;
+
+if (R1 == R2) {
+    if (R1 % n == 0) 
+        return 1;
+    else 
+        return 0;
+}
+
+while(small <= R2){
+
+     if(small % n == 0)
+         break;
+
+      ++small;
+}
+
+if (small > R2)
+    return 0;
+
+
+while (large > small) {
+
+    if (large % n == 0)
+       break;
+
+    --large;
+}
+
+if (large == small)
+   return 1;
+
+return ((large-small)/n + 1);
+
+}

@@ -1,0 +1,19 @@
+public class PrintPrime {
+
+    public static void main(String args[]) {
+        for (int i = 2; i < 1000; i++) {
+            primes(i, Math.ceil(Math.sqrt(i)));
+
+        }
+    }
+
+    public static int primes(int x, double i) {
+        if (i == 1)
+            System.out.println(x);
+        if (x % i == 0)
+            return 0;
+        else
+            return primes(x, i - 1);
+    }
+
+}

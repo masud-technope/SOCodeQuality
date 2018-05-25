@@ -1,0 +1,9 @@
+<%@ page language="java"
+    import="java.util.*,java.io.*"
+    pageEncoding="ISO-8859-1"%>
+
+<jsp:directive.page import="Jclasspackage.Jclass.java" />   
+<% Jclass jc = new Jclass();
+String username = (String)request.getAttribute("un")
+jc.setUname(username);
+%>

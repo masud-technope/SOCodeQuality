@@ -1,0 +1,3 @@
+file.canExecute(); – return true, file is executable; false is not.
+file.canWrite(); – return true, file is writable; false is not.
+file.canRead(); – return true, file is readable; false is not.

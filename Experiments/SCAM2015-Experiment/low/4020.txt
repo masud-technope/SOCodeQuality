@@ -1,0 +1,14 @@
+declare @col1 varchar(50) 
+declare @col2 varchar(50) 
+declare @col13 varchar(50) 
+if(@col1='')
+set @col1=null
+if(@col2='')
+set @col2=null
+if(@col13='')
+set @col13=null
+select * from myTable
+ where 
+((col1=@col1) or (@col1 is null) )
+and ((col2=@col2) or (@col2 is null) ) 
+and ((@col13=@col3) or (@col13 is null)

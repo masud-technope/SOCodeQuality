@@ -1,0 +1,12 @@
+List<Integer> list = new ArrayList<Integer>();
+    int x = 1;
+    while(x < 7){
+
+                list.add(x);
+                x++;
+    }
+    Collections.shuffle(list);
+
+    for (Integer number : list) {
+        System.out.println(number);
+    }

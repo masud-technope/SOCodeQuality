@@ -1,0 +1,9 @@
+String newline = System.getProperty("line.separator");
+
+private static final String mText = "SHOP MA" + newline +
+        + "----------------------------" + newline +
+        + "Pannampitiya" + newline +
+        + "09-10-2012 harsha  no: 001" + newline +
+        + "No  Item  Qty  Price  Amount" + newline +
+        + "1 Bread 1 50.00  50.00" + newline +
+        + "____________________________" + newline;

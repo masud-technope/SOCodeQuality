@@ -1,0 +1,13 @@
+//Use Collecions.synzhonizedList method
+ List list = Collections.synchronizedList(new ArrayList());
+ ...
+
+ //If you wanna use iterator on the synchronized list, use it
+ //like this. It should be in synchronized block.
+ synchronized (list) {
+   Iterator iterator = list.iterator();
+   while (iterator.hasNext())
+   ...
+  iterator.next();
+  ...
+}

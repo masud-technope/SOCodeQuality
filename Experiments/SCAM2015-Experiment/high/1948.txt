@@ -1,0 +1,6 @@
+<resources ...>
+...
+<item name="radius" format="float" type="dimen">200.34</item>
+....
+
+</resources>

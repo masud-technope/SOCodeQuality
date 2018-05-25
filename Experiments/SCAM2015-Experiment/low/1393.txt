@@ -1,0 +1,17 @@
+class PauzaAction(models.Model):
+
+    started      = models.TimeField(null=True, blank=True)
+    ended        = models.TimeField(null=True, blank=True)
+    #... more fields ...
+
+    # fields added by Audit Trail:
+    action_id    = models.PositiveIntegerField(primary_key=True, default=1, blank=True)
+    action_user  = models.ForeignKey(User, null=True, blank=True)
+    action_date  = models.DateTimeField(null=True, blank=True)
+    action_type  = models.CharField(max_length=31, choices=(('I', 'create'), ('U', 'update'), ('D', 'delete'),), null=True, blank=True)
+    pauza        = models.ForeignKey(Pauza, db_column='id', on_delete=models.DO_NOTHING, default=0, null=True, blank=True)
+
+    class Meta:
+        db_table = 'testapp_pauzaauditlogentry'
+        managed = False
+        app_label = 'testapp'

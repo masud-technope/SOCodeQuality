@@ -1,0 +1,6 @@
+List<List<? extends Number>> l = new ArrayList<List<Number>>();
+//   ----------------------                    ------------
+// 
+// "List<? extends Number>" not matched by "List<Number>". These are
+//   different types and covariance is not specified with a wildcard.
+//   Failure.

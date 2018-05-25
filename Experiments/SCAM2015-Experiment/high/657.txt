@@ -1,0 +1,3 @@
+private static final String SQL = "select instance_id, %s from eam_measurement"
+    + " where resource_id in (select RESOURCE_ID from eam_res_grp_res_map where"
+    + " resource_group_id = ?) and DSN like ? order by 2");

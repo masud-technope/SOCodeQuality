@@ -1,0 +1,8 @@
+DBCollection tableDetails = db.getCollection("collection name");
+BasicDBObject queryDetails = new BasicDBObject();
+queryDetails.put("_id", value);
+DBCursor cursorDetails =tableDetails.find(queryDetails);
+DBObject oneDetails;
+oneDetails=cursorDetails.next();        
+String data=oneDetails.get("_id").toString();
+System.out.println(data);

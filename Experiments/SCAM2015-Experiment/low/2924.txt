@@ -1,0 +1,8 @@
+File f = new File(filepath)
+BufferedReader b = new Bufferedreader(f.getInputStream);
+String line = "";
+String[] myArray = new String[100];
+while((line = b.readLine())!=null)    // read file
+{
+     myArray[count++] = line;   // store in an array
+}

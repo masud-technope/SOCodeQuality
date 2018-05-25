@@ -1,0 +1,14 @@
+private static class OnViewGlobalLayoutListener implements ViewTreeObserver.OnGlobalLayoutListener {
+    private final static int maxHeight = 130;
+    private View view;
+
+    public OnViewGlobalLayoutListener(View view) {
+        this.view = view;
+    }
+
+    @Override
+    public void onGlobalLayout() {
+        if (view.getHeight() > maxHeight)
+            view.getLayoutParams().height = maxHeight;
+    }
+}

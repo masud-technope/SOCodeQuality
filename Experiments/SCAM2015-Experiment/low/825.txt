@@ -1,0 +1,8 @@
+public String toString(boolean debug) {
+    if (debug) return debugStringVersion;
+    else return humanVersion;
+}
+
+public String toString() {
+    return toString(Util.DEBUG);
+}

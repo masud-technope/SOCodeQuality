@@ -1,0 +1,5 @@
+public static void main(String[] args) {
+    String pdfName = "something.pdf";
+    String fileTracciato = pdfName.substring(0, pdfName.length()-4) + ".txt";
+    System.out.println(fileTracciato);
+}

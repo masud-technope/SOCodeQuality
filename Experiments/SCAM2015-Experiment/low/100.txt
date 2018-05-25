@@ -1,0 +1,10 @@
+void callStuff(String methodName, Object ... args) 
+{
+   for(Client client: clients)
+   {
+     //...filter client by name, method, etc.
+     //...figure out parameter types - you can guess from args or pass another parameter
+     Method method = client.getClass().getMethod(methodNamename, parameterTypes);
+     method.invoke(client,args);
+   } 
+}

@@ -1,0 +1,3 @@
+int[] test = {1, 4, 2, 10, 5};
+Arrays.sort(test);
+System.out.println("Smallest:" + test[0] + "  Largest:" + test[4]);

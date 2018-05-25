@@ -1,0 +1,4 @@
+statement.setString(1, "column_name");
+statement.setString(2, "table_name");
+statement.setString(3, "column_name");
+statement.setBigDecimal(4, 123);

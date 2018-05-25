@@ -1,0 +1,5 @@
+Pattern p = Pattern.compile("hello");
+Matcher m = p.matcher("[a-z]");
+System.out.println(m.hitEnd()); // prints false
+System.out.println(m.find());  // prints false
+System.out.println(m.hitEnd()); // prints true

@@ -1,0 +1,7 @@
+public boolean trueOrDie(int val) {
+    if(val > 0) {
+        return true;
+    } else {
+        throw new IllegalStateException("Non-natural number!?");
+    }
+}

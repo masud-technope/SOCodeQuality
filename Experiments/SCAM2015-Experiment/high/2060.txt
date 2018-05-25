@@ -1,0 +1,19 @@
+false => [[#text: ns1:Spare3]]
+
+false => [[#text: ns1:Spare4]]
+
+false => [[#text: ns1:Spare5]]
+
+ true => [[#text: ns1:Street]]
+
+ true => [[#text: ns1:Anything]]
+
+false => [[#text: ns1:TearLineDateUpdated]]
+
+ true => [[#text: ns1:SourceReportTearline]]
+
+ true => [[#text: ns1:AnyFilter]]
+
+ true => [[#text: ns1:UpdatedByTelecom]]
+
+ true => [[#text: ns1:UpdatedByName]]

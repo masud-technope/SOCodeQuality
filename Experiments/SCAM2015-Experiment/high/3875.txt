@@ -1,0 +1,13 @@
+public void saveDog() {
+        System.out.println("BBBBB Start ReportService.saveDog();");
+        Doggy doggy = new Doggy();
+        doggy.setDogName("Wuffi");
+        try {
+            System.out.println("BBBBB Persist Success ReportService.saveDog();");
+            em.persist(doggy);
+        } catch (Exception ex) {
+            System.out.println("BBBBB Persist Fail ReportService.saveDog();");
+            System.err.println("Error with em.persist(doggy): " + ex.getMessage());
+        }
+        System.out.println("BBBBB Stop ReportService.saveDog();");
+    }

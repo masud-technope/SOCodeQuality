@@ -1,0 +1,5 @@
+Pattern regex = Pattern.compile("[$&+,:;=?@#|]");
+Matcher matcher = regex.matcher("123=456");
+if (matcher.find()){
+    // Do something
+}

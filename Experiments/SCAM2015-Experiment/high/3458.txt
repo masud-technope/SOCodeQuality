@@ -1,0 +1,11 @@
+public Alarm(String date, String desc, boolean save){
+    alarms.add(this);
+}
+
+public Alarm(){
+    for(int i = 0; i < saved.size(); i++){
+        // alarms.add !!
+        //     v
+        alarms.add(new Alarm(date, desc, false));
+    }
+}

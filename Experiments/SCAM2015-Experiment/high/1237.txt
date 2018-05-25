@@ -1,0 +1,12 @@
+public class FilesAdapter {
+
+    private final File file;
+
+    public FilesAdapter( File file ) {
+        this.file = file;
+    }
+
+    public List<String> readLines( Charset charset ) {
+        return Files.readLines( file, charset );
+    }
+}

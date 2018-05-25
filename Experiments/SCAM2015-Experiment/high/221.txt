@@ -1,0 +1,5 @@
+LinkedList<E> ll = someList;
+List<Object> l = new LinkedList<Object>();
+for (E e : ll) {
+    l.add((Object) e); // need to cast each object specifically
+}

@@ -1,0 +1,9 @@
+public static byte[] base64ToByte(String data) throws IOException {
+    BASE64Decoder decoder = new BASE64Decoder();
+    return decoder.decodeBuffer(data);
+}
+
+public static String byteToBase64(byte[] data){
+       BASE64Encoder endecoder = new BASE64Encoder();
+       return endecoder.encode(data);
+}

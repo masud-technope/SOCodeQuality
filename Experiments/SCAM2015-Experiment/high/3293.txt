@@ -1,0 +1,4 @@
+Utils.selectTheDropDownList(dropDown,text1);
+Utils.selectTheDropDownList(dropDown,text2);
+. . . 
+Utils.selectTheDropDownList(dropDown,textn);

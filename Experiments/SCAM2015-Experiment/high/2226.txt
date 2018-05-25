@@ -1,0 +1,6 @@
+read number of arrays
+for each array
+  read n,m array sizes
+  allocate the array
+  for each element of array
+    read array element

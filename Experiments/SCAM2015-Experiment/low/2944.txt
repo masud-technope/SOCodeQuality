@@ -1,0 +1,8 @@
+private static boolean isBlank(String value) {
+      boolean flag = value.equalsIgnoreCase(""); 
+      if(flag){
+        throw new Exception(e);
+     }
+retrun flag;
+
+}

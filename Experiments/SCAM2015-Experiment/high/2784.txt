@@ -1,0 +1,11 @@
+public Object theProblemMethod() {
+
+      Foo a = new Foo();
+          a.foo = "Test";
+
+      Bar b = new Bar();
+          b.bar = a.foo;   //The logic where class Foo meet class Bar.
+
+    return ???
+
+ }

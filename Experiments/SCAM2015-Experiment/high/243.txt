@@ -1,0 +1,25 @@
+@Override
+protected Dialog onCreateDialog(final int id) {
+  switch (id) {
+  case DIALOG_DATE_ID:
+    final Calendar c = Calendar.getInstance();
+    return new DatePickerDialog(this, this, c.get(Calendar.YEAR),
+                                c.get(Calendar.MONTH), 
+                                c.get(Calendar.DAY_OF_MONTH));
+  default:
+    return super.onCreateDialog(id);
+  }
+}
+
+@Override
+protected void onPrepareDialog(final int id, final Dialog dialog) {
+  switch (id) {
+  case DIALOG_DATE_ID:
+    //update to current time
+    final Calendar c = Calendar.getInstance();
+    ((DatePickerDialog) dialog).updateDate(c.get(Calendar.YEAR), 
+                                           c.get(Calendar.MONTH), 
+                                           c.get(Calendar.DAY_OF_MONTH));
+    break;
+  }
+}

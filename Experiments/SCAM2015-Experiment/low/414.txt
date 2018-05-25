@@ -1,0 +1,5 @@
+private String converUtilDateToSqlDate(java.util.Date utilDate) {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String sqlDate = sdf.format(utilDate);
+    return sqlDate;
+}

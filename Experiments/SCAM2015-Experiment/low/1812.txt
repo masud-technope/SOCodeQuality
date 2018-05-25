@@ -1,0 +1,67 @@
+private StoppableThread t;
+
+public void initComponents() {
+...
+...
+t = new StoppableThread() {
+        @Override
+        public void run() {
+            setIsRunning(true);
+            long timestamp = new Date().getTime();
+            int minutes = Integer.parseInt(jHibernateTextField.getText());
+            long secounds = minutes * 60;
+            long millisecounds = secounds * 1000;
+            long elapsedTime = new Date().getTime();
+
+            do {
+                try {
+                    Thread.sleep(1000);
+                    millisecounds -= new Date().getTime() - elapsedTime;
+                    secounds = millisecounds / 1000;
+                    if(secounds < 60) {
+                        jHibernateTextField.setText("" + secounds);
+                        jRemainingLabel.setText(" secounds remaining");
+                    }
+                    else {
+                        jHibernateTextField.setText("" + secounds / 60);
+                        jRemainingLabel.setText(" minutes remaining");
+                    }
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                elapsedTime = new Date().getTime();
+            }while(!isStopped() && timestamp + minutes * 60 * 1000 > new Date().getTime());
+
+            jHibernateTextField.setText("" + minutes);
+
+            if(isStopped()) return;
+            else {
+                console.out("Computer wird schlafen gelegt =)");
+                //Hibernate (siehe LAPTOP)
+            }
+
+        }
+    };
+
+    jHibernateCheckBox.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+
+            Thread thread = new Thread(AutoBarbarPanel.this.t);
+
+
+            if(jHibernateCheckBox.isSelected()) {
+                jHibernateTextField.setEnabled(false);
+                thread.start();
+            }
+            else {
+                jHibernateTextField.setEnabled(true);
+                t.setIsStopped(true);
+            }
+        }
+
+    });
+}

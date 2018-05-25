@@ -1,0 +1,6 @@
+/**
+ * See the 
+ * <a href="{@docRoot}/com/mycorp/package-summary.html#package_description">
+ *    package overview
+ * </a> for more information.
+ */

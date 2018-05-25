@@ -1,0 +1,4 @@
+public static double random(int n)
+{
+    return Math.random() * n;
+}

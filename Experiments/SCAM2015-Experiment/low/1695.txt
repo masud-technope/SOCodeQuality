@@ -1,0 +1,6 @@
+try{
+    for (int dx = 0; ; dx++) {
+        ...
+        ...
+    }
+}catch(ArrayIndexOutOfBoundException e){}

@@ -1,0 +1,7 @@
+String refinedData = new String(data);
+Pattern p = Pattern.compile("\\{[^\\}]*\\}");
+Matcher m = p.matcher(data);
+while(m.find()){
+    String d = data.substring(m.start(), m.end());
+    refinedData = refinedData.replace(d, "");
+}

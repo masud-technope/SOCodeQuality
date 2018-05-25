@@ -1,0 +1,5 @@
+if ((number & 1) == 0) {
+    // Even.
+} else {
+    // Odd.
+}

@@ -1,0 +1,20 @@
+ArrayList<Integer> list = new ArrayList<Integer>();
+
+for (int i = 0; i < 36; i++) {
+  list.add(new Integer(i));
+}
+
+lottoNummer[0] = (int) ((35 * Math.random()) + 1);  
+list.remove(lottoNummer[0]);
+lottoNummer[1] = (int) ((35 * Math.random()) + 1); 
+list.remove(lottoNummer[1]);
+lottoNummer[2] = (int) ((35 * Math.random()) + 1); 
+list.remove(lottoNummer[2]);
+lottoNummer[3] = (int) ((35 * Math.random()) + 1); 
+list.remove(lottoNummer[0]);
+lottoNummer[4] = (int) ((35 * Math.random()) + 1);  
+list.remove(lottoNummer[4]);
+lottoNummer[5] = (int) ((35 * Math.random()) + 1);
+list.remove(lottoNummer[5]);
+lottoNummer[6] = (int) ((35 * Math.random()) + 1);
+list.remove(lottoNummer[6]);

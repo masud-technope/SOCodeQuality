@@ -1,0 +1,7 @@
+} finally {
+    try {
+        fileReader.close();
+    } finally {
+        fileWriter.close();
+    }
+}

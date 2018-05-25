@@ -1,0 +1,3 @@
+Human human1 = new Human(25, "Joe");
+// human1.name = "Joe";
+// human1.age = 25;

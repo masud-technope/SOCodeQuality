@@ -1,0 +1,4 @@
+things.filter(Thing::isResolvable)
+      .findFirst()
+      .flatMap(this::resolve)
+      .get();

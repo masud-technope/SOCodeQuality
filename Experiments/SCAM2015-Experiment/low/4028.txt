@@ -1,0 +1,10 @@
+Item on position: 9 (Hello 9) was removed
+Item on position: 1 (Hello 1) was removed
+Item on position: 1 (Hello 2) was removed
+Item on position: 2 (Hello 4) was removed
+Item on position: 5 (Hello 8) was removed
+Item on position: 0 (Hello 0) was removed
+Item on position: 3 (Hello 7) was removed
+Item on position: 1 (Hello 5) was removed
+Item on position: 1 (Hello 6) was removed
+Item on position: 0 (Hello 3) was removed

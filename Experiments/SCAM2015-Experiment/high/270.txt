@@ -1,0 +1,5 @@
+private List<T> src = new ArrayList<T>();
+
+public <T> void setSRC(T var) {
+    src.add(var);
+}

@@ -1,0 +1,3 @@
+public class Matrix<T extends Number> {
+
+    private T[] matrix = null;

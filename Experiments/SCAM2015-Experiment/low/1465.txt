@@ -1,0 +1,6 @@
+Pattern pp = Pattern.compile("\\d+");
+Matcher m = pp.matcher("sdfsdf123sdfs3464ew111");
+While(m.find())
+{
+    System.out.println(m.group());
+}

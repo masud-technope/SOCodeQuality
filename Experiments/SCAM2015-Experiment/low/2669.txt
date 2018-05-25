@@ -1,0 +1,4 @@
+for(int i = 0; i<inputNeurons.size() - 1; i++) {
+    inputNeurons.get(i).ResetInput();
+    inputNeurons.get(i).ReceiveInput(inputs.get(i));
+}

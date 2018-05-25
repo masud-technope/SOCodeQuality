@@ -1,0 +1,23 @@
+public static boolean isSumOfSquares(int num) {
+         int sum = 0;
+         int lowerBound = 1;
+
+         //largest square root that is less than num
+         int upperBound = (int)Math.floor(Math.sqrt(num)); 
+
+         while(lowerBound != upperBound) {
+             sum = 0
+             for(int x=lowerBound; x<upperBound; x++) {
+                 sum += x * x;
+             }
+
+             if(sum != num) {
+                 lowerBound++;
+             }
+             else {
+                 return true;
+             }
+         }
+
+         return false;
+     }

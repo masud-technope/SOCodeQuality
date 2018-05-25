@@ -1,0 +1,7 @@
+public static void main(String[] args) throws Exception {
+    Class c = Class.forName("ServerStart");
+    Class[] argTypes = { args.getClass() };
+    Method m = c.getMethod("main", argTypes);
+    Object passedArgv[] = { args };
+    m.invoke(null, passedArgv);
+}

@@ -1,0 +1,11 @@
+public <returnType> executeQuery(String queryStr, Map<String,Object> params) {
+     //Code to create connecitno and statment from queryStr.
+     //Bind deptno to a value
+     for(int i=0;i<params.size(),i++) {
+       //Get entry set from map  
+       statment.setParameter(entryset.getKey(),entryset.getValue());
+     }
+
+     result = statment.execute(query);
+     //return or work on the result      
+}

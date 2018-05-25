@@ -1,0 +1,5 @@
+String int2string(int i)
+
+User findUser4Id(long id)
+
+void startHibern8();

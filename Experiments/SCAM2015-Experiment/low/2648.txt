@@ -1,0 +1,5 @@
+int int1    = 3;
+ int int2    = 4;
+ boolean res = ( (int1 * int2) >= 0) ? true : false;
+
+ System.out.println(res);

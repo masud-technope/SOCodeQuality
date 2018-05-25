@@ -1,0 +1,9 @@
+@Test(expected = TestException.class)
+public void test_function_negative() {
+    try {
+        function(-5);
+    } catch (TestException ex) {
+        assertEquals("Integer may not be negative..", ex.getMessage());
+        throw ex;
+    }
+}

@@ -1,0 +1,10 @@
+<c:set var="nullUser" 
+    scope="session" 
+    value="${sessionScope[Constants.ATTR_CURRENT_USER] eq null}" />
+
+<c:if test="${nullUser}">
+     <h2>First Test</h2>
+</c:if>
+<c:if test="${nullUser}">
+     <h2>Another Test</h2>
+</c:if>

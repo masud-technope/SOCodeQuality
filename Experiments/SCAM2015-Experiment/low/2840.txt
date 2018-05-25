@@ -1,0 +1,7 @@
+String fileName = null;
+Pattern pattern = Pattern.compile("(^|.*/)([^/]*)$");
+Matcher m = pattern.getMatcher(filenameWithPath);
+if(matcher.matches()) {
+
+        fileName = matcher.group(2);
+}

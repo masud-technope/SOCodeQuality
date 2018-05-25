@@ -1,0 +1,3 @@
+for (int i=0; i<arr.size(); ++i) {
+    arr[i] = arr2[i];
+}

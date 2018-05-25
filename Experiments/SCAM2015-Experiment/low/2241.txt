@@ -1,0 +1,64 @@
+public class Test {
+
+public static void main (String a[]){
+    System.out.println(priceFormatter("10023"));    
+}
+/**
+ * This method is to convert the price into Indian price
+ * separator format
+ * @param inputPrice
+ * @return
+ */
+public static String priceFormatter(String inputPrice){
+    try {
+        if(!isNumeric(inputPrice)){
+            return inputPrice;
+        }
+        // to check if the number is a decimal number
+        String newPrice = "",afterDecimal = "";
+        if(inputPrice.indexOf('.') != -1){
+            newPrice = inputPrice.substring(0,inputPrice.lastIndexOf('.'));
+            afterDecimal = inputPrice.substring(inputPrice.lastIndexOf('.'));
+        }else{
+            newPrice = inputPrice;
+        }
+        int length = newPrice.length();
+        if (length < 4) {
+            return inputPrice;
+        }
+        // to check whether the length of the number is even or odd
+        boolean isEven = false;
+        if (length % 2 == 0) {
+            isEven = true;
+        }
+        // to calculate the comma index
+        char ch[] = new char[length + (length / 2 - 1)];
+        if (isEven) {
+            for (int i = 0, j = 0; i < length; i++) {
+                ch[j++] = inputPrice.charAt(i);
+                if (i % 2 == 0 && i < (length - 3)) {
+                    ch[j++] = ',';
+                }
+            }
+        } else {
+            for (int i = 0, j = 0; i < length; i++) {
+                ch[j++] = inputPrice.charAt(i);
+                if (i % 2 == 1 && i < (length - 3)) {
+                    ch[j++] = ',';
+                }
+            }
+        }
+        // conditional return based on decimal number check
+        return afterDecimal.length() > 0 ? String.valueOf(ch) + afterDecimal : String.valueOf(ch);
+
+    } catch(NumberFormatException ex){
+        ex.printStackTrace();
+        return inputPrice;
+    }
+      catch (Exception e) {
+        e.printStackTrace();
+        return inputPrice;
+    }
+}
+
+}

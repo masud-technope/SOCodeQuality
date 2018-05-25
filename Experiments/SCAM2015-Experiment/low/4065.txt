@@ -1,0 +1,8 @@
+public double getGas()
+{
+double mpg;
+double distance;
+distance = drive;
+mpg = gas * milesPerGallon / distance;
+return gas;
+}

@@ -1,0 +1,12 @@
+int getlength(int x){
+    while(x/10 != 0) length++;
+    return length;
+}
+String convert(int x){
+    char x_char = new char[getlength(x)];
+    for(int i = x_char.length-1; i>=0; i--){
+        x_char[i] = (char)(x % 10 + 48)//ASCII VALUE;
+        x = x / 10;
+    }
+    return new String(x_char);
+}

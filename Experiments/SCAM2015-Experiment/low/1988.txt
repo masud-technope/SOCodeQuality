@@ -1,0 +1,9 @@
+List<Integer>  listInt = new ArrayList<Integer>();
+
+    StringBuffer strBuffer = new StringBuffer();
+
+    for(Object o:listInt){
+        strBuffer.append(o);
+    }
+
+    int [] arrayInt = new int[]{Integer.parseInt(strBuffer.toString())};

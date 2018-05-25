@@ -1,0 +1,21 @@
+@Override
+public synchronized void flush() throws IOException {
+    if (hasLastByte) {
+        // - do not allow the gzip header to be flushed on its own
+        // - do not do anything if there is no data to send
+
+        // trick the deflater to flush
+        /**
+         * Now this is tricky: We force the Deflater to flush its data by
+         * switching compression level. As yet, a perplexingly simple workaround
+         * for
+         * http://developer.java.sun.com/developer/bugParade/bugs/4255743.html
+         */
+        if (!def.finished()) {
+            def.setLevel(Deflater.NO_COMPRESSION);
+            flushLastByte();
+            flagReenableCompression = true;
+        }
+    }
+    out.flush();
+}

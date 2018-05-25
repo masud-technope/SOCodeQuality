@@ -1,0 +1,7 @@
+final AtomicReference<String> host = new AtomicReference<String>();
+SwingUtilities.invokeAndWait(new Runnable() {
+    public void run() {
+        host.set(JOptionPane.showInputDialog("Enter host name: "));
+    }
+});
+openConnection(host.get());

@@ -1,0 +1,15 @@
+for(int value=0;value<=10;value++)
+{
+ DBCollection tableDetails = db.getCollection("Collection Name");
+ BasicDBObject queryDetails = new BasicDBObject();
+ queryDetails.put("_id", value);
+ DBCursor cursorDetails =tableDetails.find(queryDetails);
+ DBObject oneDetails;
+ boolean Name=cursorDetails.hasNext();
+ while(Name)
+  { 
+    oneDetails=cursorDetails.next();        
+    String data=oneDetails.get("HomeTown").toString();
+    System.out.println(data);
+  }
+}

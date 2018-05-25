@@ -1,0 +1,4 @@
+String longString = "09asdasdas";
+String s = longString.substring(0, 2); 
+int jahr = Integer.parseInt(s);
+System.out.printf("Year 20%02d.", jahr);  // prints "2009"

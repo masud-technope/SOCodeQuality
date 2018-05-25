@@ -1,0 +1,3 @@
+Map<Integer,B> map = new HashMap<Integer,B>();
+// The insert-or-update is just this:
+map.put( id, b );

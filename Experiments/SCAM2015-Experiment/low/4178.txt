@@ -1,0 +1,5 @@
+public paintClass() 
+{
+    page = new Graphics();
+    paintComponent(page);
+}

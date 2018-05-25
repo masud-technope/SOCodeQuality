@@ -1,0 +1,29 @@
+tf.addMouseListener(new MouseListener() {
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                tf.setToolTipText(tf.getText());
+            }
+        });
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+    }
+});

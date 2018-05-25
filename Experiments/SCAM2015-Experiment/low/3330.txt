@@ -1,0 +1,17 @@
+class Father {
+    static{
+        System.out.println("f - static");
+
+    }
+}
+
+public class Son extends Father {
+    static {
+        System.out.println("son - static");
+    }
+
+public static void main(String[] args) throws ArrayIndexOutOfBoundsException{
+        int a[] = new int[2];
+        System.out.println(a[3]);
+    }
+}

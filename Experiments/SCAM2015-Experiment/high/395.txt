@@ -1,0 +1,6 @@
+Collection<String> resourceIds = Lists.newArrayList(
+  Iterables.filter(
+     Iterables.transform(matchingComputers, ... your Function ...),
+     Predicates.notNull();
+  )
+);

@@ -1,0 +1,7 @@
+<dependency>  
+    <groupId>com.sun</groupId> 
+    <artifactId>tools</artifactId>
+    <version>1.4.2</version>
+    <scope>system</scope>
+    <systemPath>C:/Program Files/Java/jdk1.6.0_30/lib/tools.jar</systemPath>
+</dependency>

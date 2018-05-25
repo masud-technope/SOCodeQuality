@@ -1,0 +1,4 @@
+public static boolean isValid(User user){
+return !(user.getPersonId().isEmpty()
+    || user.getEmployeeNumber.isEmpty()
+    || user.getFullName().isEmpty());

@@ -1,0 +1,13 @@
+public int indexOf(E e) {
+   for (ListIterator<E> it = listIterator(); it.hasNext(); ) {
+      boolean test;
+      if (e == null)
+         test = ( it.next() == null );
+      else 
+         test = ( e.equals(it.next()) );
+      if (test)
+         return it.previousIndex();
+   }
+   // Element not found
+   return -1;
+}

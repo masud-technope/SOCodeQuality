@@ -1,0 +1,22 @@
+public class StudentGroupComparator implements Comparator<String> {
+  private Map<String, Student> sourceMap;
+
+  public StudentGroupComparator(Map<String, Student> sourceMap) {
+    this.sourceMap = sourceMap;
+  }
+
+  @Override
+  public int compare(String key1, String key2) {
+    // TODO: null checks
+    Student student1 = sourceMap.get(key1);
+    Student student2 = sourceMap.get(key2);
+
+    Date o1CreationDate = student1.groups.get().creationDate;
+    Date o2CreationDate = student2.groups.get().creationDate;
+    return o1CreationDate.compareTo(o2.creationDate);
+  }
+}
+
+
+SortedMap<String, Student> sortedMap = new TreeMap<String, Student>(new StudentGroupComparator(sourceMap));
+sortedMap.putAll(sourceMap);

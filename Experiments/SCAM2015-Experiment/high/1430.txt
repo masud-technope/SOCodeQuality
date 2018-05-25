@@ -1,0 +1,7 @@
+String subjectString = "Your number is (123,456,789)";
+Pattern regex = Pattern.compile("\\(([\\d,]*)\\)");
+Matcher regexMatcher = regex.matcher(subjectString);
+if (regexMatcher.find()) {
+    String resultString = regexMatcher.group(1);
+    System.out.println(resultString);
+}

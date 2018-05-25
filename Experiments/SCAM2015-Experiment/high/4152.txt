@@ -1,0 +1,3 @@
+Onclick(...){
+     finish(); // We are just finishing Activity 2 not starting Activity 1 again 
+}

@@ -1,0 +1,11 @@
+public static TreeMap<String, String> sortMap(HashMap<String, String> passedMap, String byParam) {
+    if(byParam.trim().toLowerCase().equalsIgnoreCase("byValue")) {
+        // Altering the (key, value) -> (value, key)
+        HashMap<String, String> newMap =  new HashMap<String, String>();
+        for (Map.Entry<String, String> entry : passedMap.entrySet()) {
+            newMap.put(entry.getValue(), entry.getKey());
+        }
+        return new TreeMap<String, String>(newMap);
+    }
+    return new TreeMap<String, String>(passedMap);
+}

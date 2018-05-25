@@ -1,0 +1,23 @@
+ArrayList<Integer> intList = new ArrayList<Integer>();
+
+    int Maximum=10;
+    int Minimum=1;
+    int r;
+    int[] intArray = new int[6];
+
+
+    for(int i=0; i<intArray.length; i++){
+
+        r = (int)( Minimum+ (Math.random()* (Maximum-Minimum+1)) );
+
+        if(!intList.contains(r)){
+            intList.add(r);
+            intArray[i]=r;
+            System.out.println(r);
+        }
+        else{
+            System.out.println(r+ "is a duplicate generated earlier, not putting in array again");
+            i--;
+        }
+
+    }

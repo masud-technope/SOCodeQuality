@@ -1,0 +1,5 @@
+if(driver.getPageSource().contains("Text to check")){
+System.out.println("Text is present");
+}else{
+System.out.println("Text is absent");
+}

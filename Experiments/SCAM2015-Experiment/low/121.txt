@@ -1,0 +1,3 @@
+double eps = 0.0000001;
+if (Math.abs (Java_PI - Another_Pi) <= eps)
+  System.out.println ("equals");

@@ -1,0 +1,5 @@
+FileSystemView fsv = new DirectoryRestrictedFileSystemView( new File[] {
+    new File("X:\\"),
+    new File("Y:\\")
+});
+JFileChooser fileChooser = new JFileChooser(fsv);

@@ -1,0 +1,63 @@
+public class ListNode {
+    private ListNode next = null;
+    private final int i;
+    ListNode(int i) {
+        this.i = i;
+    }
+
+    ListNode(int i, ListNode parent) {
+        this(i);
+        parent.next = this;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[" + this.i + "]");
+        if (this.next != null) {
+            sb.append("->");
+            sb.append(this.next.toString());
+        }
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        ListNode top = null;
+        ListNode curr = null;
+        for(String arg : args) {
+            int i = Integer.parseInt(arg);
+            if(curr == null) 
+                curr = new ListNode(i);
+            else
+                curr = new ListNode(i, curr);
+            if( top == null) 
+                top = curr;
+        }
+        System.out.println(top.toString());
+        top = top.switchPairs();
+        System.out.println(top.toString());
+    }
+
+    public ListNode switchPairs(){
+        if (this==null || this.next==null)
+            return this;
+        ListNode top = this.next;
+
+        ListNode first = this;
+        ListNode second = first.next;
+
+        do {
+            ListNode third = second.next;
+            second.next = first;
+            first.next = third;
+            first = third;
+            System.out.println("@@@ " + this.toString());
+            if (first != null) {
+                second.next.next = first.next;
+                second = first.next;
+            }
+
+        } while(first != null && second != null);
+
+        return top;
+    }
+}

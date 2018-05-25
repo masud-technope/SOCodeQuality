@@ -1,0 +1,10 @@
+public static String reverse(String s){
+    return reverse(s.toCharArray(),0,s.length()-1);
+}
+private static String reverse(char [] chars, int low, int high){
+    if(low>=high) return new String(chars);
+    char temp = chars[low];
+    chars[low]=chars[high];
+    chars[high]=temp;
+    return reverse(chars,low+1,high-1);
+}

@@ -1,0 +1,14 @@
+static public void removeButtons(Component c){
+    if (c instanceof AbstractButton){
+        String accn = c.getAccessibleContext().getAccessibleName();
+        Container p=c.getParent();
+        //log.debug("remove button %s from %s",accn,p.getClass().getName());
+        c.getParent().remove(c);
+    }
+    else if (c instanceof Container){
+        //log.debug("processing components of %s",c.getClass().getName());
+        Component[] comps = ((Container)c).getComponents();
+        for(int i = 0; i<comps.length; ++i)
+            removeButtons(comps[i]);
+    }
+}

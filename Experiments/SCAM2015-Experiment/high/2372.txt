@@ -1,0 +1,5 @@
+private void performUpdatePosition() {
+    mCalled = false;
+    updatePosition();
+    if (!mCalled) throw new SuperNotCalledException();
+}

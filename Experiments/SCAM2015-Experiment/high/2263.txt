@@ -1,0 +1,3 @@
+//This will not return the button until it is enabled.
+button = driver.find_element(:xpath,  "//button[@id='myButtonId' and not(@disabled)]")
+button.click

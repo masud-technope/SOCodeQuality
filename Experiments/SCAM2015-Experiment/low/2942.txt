@@ -1,0 +1,8 @@
+public String buildURL(){
+    StringBuilder builder = new StringBuilder();
+    builder.append(BASE_URL);
+    //for each property, append it
+
+    return builder.toString();
+
+}

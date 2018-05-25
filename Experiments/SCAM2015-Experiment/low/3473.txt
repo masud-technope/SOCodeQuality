@@ -1,0 +1,18 @@
+public class barbershop {
+    Queue WaitSeat ;
+    Queue WaitRoom ;
+    static barber [] bb ;
+    static customer [] cc;
+    barbershop(){
+        WaitSeat = new PriorityQueue(4);
+        WaitRoom = new PriorityQueue(13);
+        bb = new barber[3];
+
+        for(i=0;i<100;i++)
+        {
+          cc[i] = new customer (i); 
+        }
+
+    }
+
+}

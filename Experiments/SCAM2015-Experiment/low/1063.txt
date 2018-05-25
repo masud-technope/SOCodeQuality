@@ -1,0 +1,23 @@
+public ImageProperties[] functie(String url) throws Exception    {
+    URL oracle = new URL(url);
+    BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
+    String inputLine=null;
+    StringBuffer theText = new StringBuffer();
+    while ((inputLine = in.readLine()) != null)
+            theText.append(inputLine+"\n");
+    String html = theText.toString();
+    in.close();
+    // TODO: This parsing needs work to make it more change-resistant
+    String[] tds = StringUtils.substringsBetween(html, "<tr>", "</tr>");
+    String[] tds2 = StringUtils.substringsBetween(tds[1], "href=\"/module/gallery", "\"><img");
+    String[] tds3 = StringUtils.substringsBetween(tds[1], "src='/redx_tools/mb_image.php", "' border='1'");
+    if (tds2.length != tds3.length) {
+       throw new ToldYouThisNeededChange();
+    } else {
+       ImageProperties[] ret = new ImageProperties[tds2.length];
+       for (int ii=0; ii < tds2.length; ii++) {
+          ImageProperties props = new ImageProperties(tds2[ii], tds3[ii]);
+       }
+       return ret;
+     }
+ }

@@ -1,0 +1,29 @@
+public class DemoThread extends Thread {
+
+    Scanner sin = new Scanner(System.in);
+
+    @Override
+    public void run() {
+        while (sin.hasNextLine()) {
+            if(this.isInterrupted()) {
+                System.out.println("Thread is interrupted.. breaking from loop");
+                break;
+            }
+
+            String message = sin.nextLine();
+            System.out.println("Message us " + message);
+
+            // do processing...
+        }
+    }
+
+    public static void main(String args[]) throws InterruptedException {
+
+        DemoThread thread = new DemoThread();
+        thread.start();
+        Thread.sleep(5000);
+        thread.interrupt();
+
+    }
+
+}

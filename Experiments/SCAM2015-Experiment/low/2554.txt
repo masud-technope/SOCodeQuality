@@ -1,0 +1,8 @@
+class main{
+    public static void main (String[] args){
+    // numel returns the number of array elements, as does .length in Java.
+    int[] testArr = {1,2,3,4,5,6,7,8};
+    System.out.println(testArr.length);
+    }
+}
+// Result: 8

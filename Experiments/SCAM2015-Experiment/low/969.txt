@@ -1,0 +1,4 @@
+@Action(value="/jsp/edit-file.action",
+   results={@Result(name="success",location="/jsp/edit-success.jsp"),
+            @Result(name="failure",location="/jsp/edit-failure.jsp")})
+public String execute() { ... }

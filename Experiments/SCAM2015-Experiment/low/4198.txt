@@ -1,0 +1,8 @@
+JFileChooser cho = new JFileChooser();
+File file = cho.getSelectedFile();
+String string = readFile(file);
+String [] words = string.split(" ");
+
+for(String word: words){
+    System.out.println(word)
+}

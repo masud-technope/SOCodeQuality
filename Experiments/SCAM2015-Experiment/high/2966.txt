@@ -1,0 +1,21 @@
+/**
+     * Example 1.
+     * Some callbacks will be always executed even if they fail or 
+     * not, all the request will finish.
+     * */
+    RestRequest request = RestRequest.get("http://myserver.com/photos/31", 
+        Photo.class, new RestCallback(){
+
+            //I know that this error could be triggered, so I override the method.
+            @Override
+            public void onUnauthorized() {
+                //Handle this error, maybe pop up a login windows (?)
+            }
+
+            //I always must override this method.
+            @Override
+            public void onFinish () {
+                //Do some UI updates...
+            }
+
+        }).send();

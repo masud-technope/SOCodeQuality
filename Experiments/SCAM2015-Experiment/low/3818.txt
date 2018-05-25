@@ -1,0 +1,21 @@
+public static void main(String[] args) { 
+
+	String firstNameArr[] = { "diamond", "Iron", "Leather" };
+
+    String lastNameArr[] = { "Leggings", "Boots", "Helmet"};
+
+    List<String> fullNameList = new ArrayList<String>();
+
+  
+
+    for (String firstname : firstNameArr) {
+
+    	for(String lastName : lastNameArr){
+
+    		fullNameList.add((firstname+" "+lastName));
+
+    	} 
+
+    } 
+
+}

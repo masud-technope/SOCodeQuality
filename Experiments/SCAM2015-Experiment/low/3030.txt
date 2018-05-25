@@ -1,0 +1,23 @@
+public class TimesTable {
+
+  public static void main(String[] args) {
+
+    int lowerValue = 1;
+    int upperValue = 10;
+
+    for (int headingIndex = lowerValue; headingIndex <= upperValue; headingIndex++) {
+      System.out.print("\t" + headingIndex);
+    }
+    System.out.print('\n');
+
+    for (int inner = lowerValue; inner <= upperValue; inner++) {
+      System.out.print(inner);
+      // Set outer to 10.
+      for (int outer = 10; outer <= upperValue; outer++) {
+        System.out.print("\t"+(inner*outer));
+      }
+      System.out.print('\n');
+    }
+  }
+
+}

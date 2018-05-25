@@ -1,0 +1,3 @@
+SQLiteCursor cursor = (SQLiteCursor) searchView.getSuggestionsAdapter().getItem(position);
+int indexColumnSuggestion = cursor.getColumnIndex( SuggestionsDatabase.FIELD_SUGGESTION);
+searchView.setQuery(cursor.getString(indexColumnSuggestion), false);

@@ -1,0 +1,9 @@
+Class c = Class.forName("targetName");
+Object o = c.newInstance();
+
+OR
+
+c = myExistingObj.getClass();
+
+Method m = c.getDeclaredMethod("getSomething");
+m.invoke(o, <params>);

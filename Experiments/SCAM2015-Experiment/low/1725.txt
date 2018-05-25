@@ -1,0 +1,4 @@
+Class<E> klazz;
+
+E[] firstItemInArray2 = (E[])
+        java.lang.reflect.Arrays.newInstance(klazz, numArraysInUse);

@@ -1,0 +1,4 @@
+public static int intentInt, staticInt;
+
+staticInt = ActivityA.testIntegerA;
+intentInt = getIntent().getExtras().getInt("INTENT_EXTRA");

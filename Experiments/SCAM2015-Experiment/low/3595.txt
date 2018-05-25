@@ -1,0 +1,15 @@
+class MyProgressListener extends ProgressListener {
+    private Downloader myDownloader;
+
+    public MyProgressListener(Downloader downloader) {
+        myDownloader = downloader;
+    }
+
+    public void onProgress(int n) {
+        // starts and waits for a thread that accesses myDownloader
+    }
+}
+
+Downloader downloader = new Downloader(...);
+downloader.addListener(new MyListener(downloader));
+downloader.run();

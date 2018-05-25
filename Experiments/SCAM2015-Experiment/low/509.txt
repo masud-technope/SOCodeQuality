@@ -1,0 +1,11 @@
+if(fs == null){
+     System.err.println("Unable to load the properties file");
+  }
+else{
+   try{
+       p.load(fs);
+     } 
+catch (IOException e) {
+        e.printStackTrace();
+      }
+   }

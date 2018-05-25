@@ -1,0 +1,7 @@
+Pattern pattern = Pattern.compile("i");
+   Matcher  matcher = pattern.matcher("saigigd");
+
+   int count = 0;
+   while (matcher.find())
+   count++;
+   System.out.println(count);

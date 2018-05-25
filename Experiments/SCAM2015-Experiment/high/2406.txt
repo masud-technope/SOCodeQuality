@@ -1,0 +1,6 @@
+Field defPUField = Database.class.getDeclaredField("defPU");
+defPUField.setAccessible(true);
+Field modsField = Field.class. .getDeclaredField("modifiers");
+modsField.setAccessible(true);
+modsField.setInt(defPUField, 10);
+defPUField.set(null, testVal);

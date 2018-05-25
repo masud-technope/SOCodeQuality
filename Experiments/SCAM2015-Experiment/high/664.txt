@@ -1,0 +1,5 @@
+PrintWriter out = new PrintWriter(System.out, true);
+PrintWriter err = new PrintWriter(System.err, true);
+
+out.println("Hello world");
+//this will flush after writing the end of line

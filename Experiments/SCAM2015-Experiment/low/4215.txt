@@ -1,0 +1,6 @@
+public static int parsIntSafe(String intStr){
+    if(intStr!=null && intStr.trim().lenght()>0){
+        return Integer.parseInt(intStr);
+    }
+    return 0;
+}

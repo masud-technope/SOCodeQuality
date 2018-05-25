@@ -1,0 +1,7 @@
+try{
+        FileOutputStream file=new FileOutputStream(file);
+        file.write(content);
+        file.close();
+    }catch(Throwable e){
+        D.error(e);
+    }//try

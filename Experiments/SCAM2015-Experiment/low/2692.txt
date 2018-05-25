@@ -1,0 +1,6 @@
+for(int j=0; j<a.size(); j++){
+   int number = Integer.parseInt(a.get(j).toString());
+   if(number>=10 && number<=20){
+     System.out.println(number);
+   }
+}

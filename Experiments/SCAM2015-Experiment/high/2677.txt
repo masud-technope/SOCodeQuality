@@ -1,0 +1,4 @@
+class Bar
+    This doA()
+
+foo.doA().doB(); // works, doA() returns the type of foo, which is Foo

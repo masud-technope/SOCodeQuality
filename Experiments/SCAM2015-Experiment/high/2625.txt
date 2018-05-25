@@ -1,0 +1,7 @@
+ABCDE
+ABDC
+__CDE
+
+String 1
+Strone 2
+___i_g_1

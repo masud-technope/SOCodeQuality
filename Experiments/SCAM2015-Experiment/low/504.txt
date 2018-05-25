@@ -1,0 +1,25 @@
+public class JpaUtil {
+
+    private static final String NO = "N";
+    private static final String YES = "Y";
+
+    public static String toYesNo(Boolean value) {
+        if (value == null)
+            return null;
+        else if (value)
+            return YES;
+        else
+            return NO;
+    }
+
+    public static Boolean toBoolean(String yesNo) {
+        if (yesNo == null)
+            return null;
+        else if (YES.equals(yesNo))
+            return true;
+        else if (NO.equals(yesNo))
+            return false;
+        else
+            throw new RuntimeException("unexpected yes/no value:" + yesNo);
+    }
+}

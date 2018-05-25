@@ -1,0 +1,27 @@
+Import javax.swing.*;
+    public class whileloop
+    {
+        public static void main (String [] args )
+
+
+
+       {
+           int i =0, tot = 0;
+           int count = 0;
+           double avg = 0.0;
+           while(true) 
+           {
+           i = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter a number");
+           if(i != -1)
+           {
+              tot += i; 
+              count++;
+
+           }else{
+            avg = tot/count;
+              System.out.println("Sum: " + tot+ "\t\t" + "Average: " + avg);
+break;
+         }
+       }
+       System.out.println();
+    } }

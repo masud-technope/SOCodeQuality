@@ -1,0 +1,4 @@
+Scanner in = new Scanner(p.getInputStream());
+    while (in.hasNextLine()) {
+        System.out.println(in.nextLine());
+    }

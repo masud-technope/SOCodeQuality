@@ -1,0 +1,5 @@
+Robot robot = new Robot();
+
+BufferedImage screenShot = robot.createScreenCapture( guiObject.getBounds() );
+
+ImageIO.write(screenShot, "JPG", new File("myScreenShot.jpg"));

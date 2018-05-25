@@ -1,0 +1,11 @@
+String str = getMyString(); // only one call
+
+   try {
+    switch (str) {
+      default:   break;
+    }
+
+    } catch(NullpointerException e){
+
+      str="";//Null means Str is null
+    }

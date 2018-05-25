@@ -1,0 +1,5 @@
+Query query = session.createQuery("UPDATE CartItem SET removedDate = :currentDateTime "
+                    + " WHERE id IN (Select ci.id From Cart c inner join c.items ci"
+                    + " WHERE c.id = :cartId"
+                    + " AND ci.pro.id = :pro"
+                    + " AND ci.removedDate is null)");

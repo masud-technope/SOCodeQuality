@@ -1,0 +1,12 @@
+@Test
+public void test(){
+  Mock obj = mock(Mock.class);
+
+  doCallRealMethod().when(obj).setValue(any(String.class));
+  when(obj.getValue()).thenCallRealMethod();
+  obj.setValue("value");
+
+  testClass.method(obj);
+
+  verify(anotherObj, times(1)).call("changedValue");
+}

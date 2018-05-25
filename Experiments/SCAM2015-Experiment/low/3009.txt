@@ -1,0 +1,4 @@
+public static boolean isAnInstance(Object obj)
+{
+    return BaseClass.class.isInstance(obj);
+}

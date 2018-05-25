@@ -1,0 +1,3 @@
+if (resource1.hasProperty(model.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#", "type"), model.createResource("http://typeUri")) && resource2.hasProperty(model.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#", "type"), model.createResource("http://typeUri"))) {
+    // both resources are the same type
+}

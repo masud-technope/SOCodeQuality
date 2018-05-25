@@ -1,0 +1,35 @@
+public static void main(String[] args) {
+    for (int i = 0; i < 5; i++) {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {...}
+        }
+        ThreadRegistry.registerThread(thread, i);
+    }
+    ThreadRegistry.beginOperation();
+}
+
+private static class ThreadRegistry {
+    private static final Thread[] threads = new Thread[5]; // Or however many threads you want
+    public static void registerThread(Thread thread, int position) {
+        threads[position] = thread;
+    }
+
+public static void beginOperation() {
+    for (final int[] i = new int[] {threads.length - 2}; i[0] >= 0; i[0]--) {
+    // -2 so that the last thread does not try calling a next thread which does not exist
+    // int[] rather than int in case nested anonymous inner class requires final variable
+        final Thread duplicate = new Thread() {
+            @Override 
+            public void run() {threads[i[0]].run();}
+        }
+
+        threads[i[0]] = new Thread() {
+            @Override
+            public void run() {duplicate.run(); threads[i[0] + 1].run();}
+            // This makes it so that thread x will run thread x + 1
+        }
+    }
+
+    threads[0].start();
+}

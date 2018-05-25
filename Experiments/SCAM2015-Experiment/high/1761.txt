@@ -1,0 +1,16 @@
+public class JsonTag extends SimpleTagSupport {
+
+/** the instance to serialize as JSON JSON */
+private Object value;
+
+@Override
+public void doTag() throws JspException, IOException {
+    String json = new ObjectMapper().writeValueAsString(value);
+    getJspContext().getOut().print(json);
+}
+
+public void setValue(Object value) {
+    this.value = value;
+}
+
+}

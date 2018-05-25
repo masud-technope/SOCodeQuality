@@ -1,0 +1,74 @@
+@Test(timeout = 2000)
+public void testStream() throws IOException, ClassNotFoundException, InterruptedException {
+    PingerThread pinger = new PingerThread(9092);
+    pinger.start();
+
+    String serverAddress = "localhost";
+    Socket s;
+    PrintWriter output;
+    BufferedReader input;
+    try {
+        // Client
+        s = new Socket(serverAddress, 9092);
+    }
+    catch (IOException e)
+    {
+        // when error, try again
+        Thread.sleep(500);
+        s = new Socket(serverAddress, 9092);
+    }
+
+    // send the object over the network
+    Hello h = new Hello();
+
+    ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
+    out.writeObject(h);
+    out.flush();
+
+    ObjectInputStream in = new ObjectInputStream(s.getInputStream());
+    System.out.println("2");
+    Hello h2;
+    h2 = (Hello) in.readObject();
+
+    assertTrue(10 == h2.getX());
+    assertTrue(20 == h2.getY());
+}
+
+private class PingerThread extends Thread {
+    public int portNumber;
+
+    public PingerThread(int portNumber) {
+        super();
+        this.portNumber = portNumber;
+    }
+
+    @Override
+    public void run() {
+        try {
+            ServerSocket listener = new ServerSocket(this.portNumber);
+            Socket socket = listener.accept();
+
+            ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+
+            Hello h;
+
+            while((h = (Hello) in.readObject()) != null) {
+                System.out.println("1");
+                //h = (Hello) in.readObject();
+                System.out.println(h.getX());
+                System.out.println(h.getY());
+
+                out.writeObject(h);
+                out.flush();
+            }
+
+            System.out.println("OUT");
+            socket.close();
+            listener.close();
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}

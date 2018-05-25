@@ -1,0 +1,31 @@
+public void frankTest() {
+    int pageId= -1;
+
+    List<Book> users= null;
+    try {
+        //Does Not Compile:  Object page=DatabaseConnection.getSpringConnection().queryForObject("SELECT * FROM bookmark_page", (rw, n) -> new Portal(rw.getInt("id"), "", users.parallelStream().filter(uu -> uu.getVbid() == rw.getString("user_id")).findFirst().get(), rw.getString("name")));
+
+        //Compiles:
+        Object page= DatabaseConnection.getSpringConnection().queryForObject("SELECT * FROM bookmark_page", (rw, n) -> { 
+            try {
+                final Book bk= users.stream().filter(bp -> { 
+                    String name= null;
+                    try {
+                        name = rw.getString("name");
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    return bp.getTitle().equals(name); 
+                }).limit(1).collect(Collectors.toList()).get(0);
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            return new Portal(rw.getInt("id"), "", users.get(0), rw.getString("name")); 
+        } );
+    } catch (Exception e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+}

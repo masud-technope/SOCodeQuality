@@ -1,0 +1,4 @@
+public int compareTo(Object obj1) { // For Comparable Interface
+    Student s = (Student) obj1;
+    return rollno - s.getRollno();
+}

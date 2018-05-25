@@ -1,0 +1,35 @@
+public class Main {
+    private final static Predicate<String> notEmpty = s -> s != null;
+    private final static Predicate<String> notBlank = s -> !s.equals("");
+
+    // ...
+
+    private static void printName(final String firstName, final String lastName) {
+        final boolean firstNameOk = notEmpty.and(notBlank).test(firstName);
+        final boolean lastNameOk = notEmpty.and(notBlank).test(lastName);
+        final StringBuilder result = new StringBuilder();
+
+        // Old version:
+        //result
+        //    .append(lastNameOk ? lastName : "")
+        //    .append(lastNameOk && firstNameOk ? ", " : "")
+        //    .append(firstNameOk ? firstName : "");
+        // End of old Version:
+
+        // New version:
+        if (lastNameOk) {
+            result.append(lastName);
+        }
+
+        if (firstNameOk) {
+            if (lastNameOk) {
+                result.append(", ");
+            }
+
+            result.append(firstName);
+        }
+        // End of new version:
+
+        System.out.println(result);
+    }
+}

@@ -1,0 +1,26 @@
+// These versions use autoboxing (which is potentially evil),
+// but they are simple and readable
+
+// ints are boxed to Integers, then wrapped in an Object[]
+List<Integer> good1 = Arrays.asList(1,2,3);
+// here we create an Integer[] array, and fill it with boxed ints
+List<Integer> good2 = Arrays.asList(new Integer[]{1,2,3});
+
+// These versions don't use autoboxing,
+// but they are very verbose and not at all readable:
+
+// this is awful, don't use Integer constructors
+List<Integer> ugly1 = Arrays.asList(
+    new Integer(1),new Integer(2),new Integer(3)
+);
+// this is slightly better (it uses the cached pool of Integers),
+// but it's still much too verbose
+List<Integer> ugly2 = Arrays.asList(
+    Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3)
+);
+
+// And these versions produce compile errors:
+// compile error, type is List<int[]>
+List<Integer> bad1 = Arrays.asList(new int[]{1,2,3});
+// compile error, type is List<Object>
+List<Integer> bad2 = Arrays.asList(new Object[]{1,2,3});

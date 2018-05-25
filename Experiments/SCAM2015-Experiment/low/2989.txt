@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Q5 {
+    static Scanner scan = new Scanner(System.in);
+
+    public static void main(String args[]) {
+
+        double[] list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        System.out.println("enter number of students who dropped:");
+        int num = scan.nextInt();
+        double[] list2 = new double[list.length-num]; // should be num-1
+
+        System.out.println("Enter index Of  the student who dropped ");
+        for (int j = 0; j < num; j++) {
+            System.out.println("student" + j + ":");
+            int index = scan.nextInt();
+            list[index] = 0;
+        }
+
+        int j = 0;
+        for (int i = 0; i < list.length; i++) {
+            System.err.println(""+list[i]);
+            if (list[i] > 0) {
+
+                list2[j] = list[i];
+                j++;
+            }
+        }
+        System.out.print("The original list : ");
+        for (int i = 0; i < list.length; i++) {
+            System.out.print(list[i] + " ");
+        }
+
+        System.out.print("remaining students ");
+        for (int i = 0; i < list2.length; i++) {
+            System.out.print(list2[i] + " ");
+        }
+    }
+}

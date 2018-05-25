@@ -1,0 +1,14 @@
+int max = v1[0];
+
+for(int index = 1; index < v1.length; index++){
+    if(v1[index] > max)
+        max = v1[index];
+}
+System.out.println("v1 = "+max);
+
+max = v2[0];
+for(int index = 1; index < v2.length; index++){
+    if(v2[index] > max)
+        max = v2[index];
+}
+System.out.println("v2 = "+max);

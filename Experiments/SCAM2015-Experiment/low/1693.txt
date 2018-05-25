@@ -1,0 +1,7 @@
+stbuffer.append("insert into ");
+stbuffer.append("<tablename> ");
+stbuffer.append("<fields >");
+stbuffer.append(" values");
+stbuffer.append("(+");
+stbuffer.append(String);
+stbuffer.append(")");  ....etc

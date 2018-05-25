@@ -1,0 +1,11 @@
+public static List<Number> union(List<? extends Number> a, List<? extends Number> b) {
+
+    List<Number> es = new ArrayList<Number>();
+    for (Number e : a) {
+        es.add(e);
+    }
+    for (Number e : b) {
+        es.add(e);
+    }
+    return es;
+}

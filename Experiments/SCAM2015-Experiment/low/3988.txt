@@ -1,0 +1,10 @@
+public static boolean nullSafe(InvoicePos a, InvoicePos b) {
+        try {
+            invoicePosOne.getInvoice().getInvoiceNo();
+            invoicePosOne.getInvoice().getInvoiceNo();
+        } catch (NullPointerException np) {
+            return false;
+        }
+        return true;
+    }
+}

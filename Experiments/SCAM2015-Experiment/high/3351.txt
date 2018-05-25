@@ -1,0 +1,4 @@
+Override the void onResume method of Activity class
+start
+  request Location Updates every 5 seconds
+end

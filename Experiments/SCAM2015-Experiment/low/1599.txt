@@ -1,0 +1,15 @@
+public static int solution(int low,int high, int n) {
+    boolean h0=high%n==0;
+    boolean l0=low%n==0;
+
+    int k1=l0?low/n:(low+n-low%n)/n;
+    int k2=h0?high/n:(high+n-high%n)/n;
+
+    //                 |-----------|
+    // ---------------k1----------k2---------------
+
+    if(k2*n>high) k2--;
+
+    return k2-k1+1;
+
+}

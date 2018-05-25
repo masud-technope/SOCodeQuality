@@ -1,0 +1,18 @@
+import java.util.regex.Pattern;
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+        String[] OPERATORS = { "<", "<="};
+        String line = "a <= b < c ";
+
+        for(String operator : OPERATORS)
+        {
+            if(Pattern.compile("[\\s\\w]" + operator + "[\\s\\w]").matcher(line).find())
+            {
+                System.out.println(operator + " found in " + line);
+            }
+        }
+    }
+}

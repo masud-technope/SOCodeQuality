@@ -1,0 +1,3 @@
+ResultSet rs = stmt.executeQuery("SELECT a, b, c FROM TABLE2");
+ ResultSetMetaData rsmd = rs.getMetaData();
+ int numberOfColumns = rsmd.getColumnCount();

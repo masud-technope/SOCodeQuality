@@ -1,0 +1,8 @@
+public class get_gps  {
+
+            Criteria criteria = new Criteria();
+
+
+
+   criteria.setHorizontalAccuracy(5000);
+}

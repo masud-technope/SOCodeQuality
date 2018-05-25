@@ -1,0 +1,5 @@
+String foo = null;
+...
+if ("some String".equals(foo)) {
+    // Do something here.
+}

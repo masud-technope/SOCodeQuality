@@ -1,0 +1,14 @@
+interface MyInterface {}
+
+class A {}
+
+class B extends A implements MyInterface {}
+
+public class InterfaceCasting {
+    public static void main(String[] args) {
+        MyInterface myObject = new MyInterface() {};
+        if (java.lang.Math.random() > 0.5)
+            myObject = new B();
+        A a = (A) myObject;
+    }
+}

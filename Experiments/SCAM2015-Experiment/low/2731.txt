@@ -1,0 +1,10 @@
+public static boolean isPrime(int number) {
+    for(int i = 2; i * i <= number; i++) {
+        if (i % number == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    return true;
+}

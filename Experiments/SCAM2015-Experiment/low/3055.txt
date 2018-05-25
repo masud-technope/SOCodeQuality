@@ -1,0 +1,3 @@
+String input = "11.45";
+String stripped = input.replace(".", ""); // becomes "1145"
+int value = Integer.parseInt(stripped);

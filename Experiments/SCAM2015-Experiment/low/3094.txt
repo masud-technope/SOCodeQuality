@@ -1,0 +1,11 @@
+text = (TextView)findViewById(R.id.tv1);
+edit = (EditText)findViewById(R.id.edit);
+button = (Button)findViewById(R.id.bt1);
+button.setOnClickListener(new OnClickListener() {
+    public void onClick(View arg0) {
+        String s = edit.getText().toString();
+        Intent ii = new Intent(MainActivity.this, newclass.class);
+        ii.putExtra("name", s);
+        startActivity(ii);
+    }
+});

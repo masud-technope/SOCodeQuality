@@ -1,0 +1,3 @@
+public void myBusinessMethod(@ValidNumber String numberInput) {
+// ...    
+}

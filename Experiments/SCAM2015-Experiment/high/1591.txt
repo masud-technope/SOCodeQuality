@@ -1,0 +1,9 @@
+@RunWith(MockitoJUnitRunner.class)
+public CustomServiceImplTest{
+    @InjectMocks private CustomServiceImpl customService;
+    @Mock private DataService dataService;
+
+    @Before void inject_url() { customerServiceImpl.url = "http://..."; }
+
+    @Test public void customerService_should_delegate_to_dataService() { ... }
+}

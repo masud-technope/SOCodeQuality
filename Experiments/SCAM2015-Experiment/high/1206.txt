@@ -1,0 +1,4 @@
+public void someMethod() {
+    String var = "Abhi";
+    var = "Abhishek";
+}

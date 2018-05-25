@@ -1,0 +1,7 @@
+UriBuilder builder = new UriBuilder()
+    .setScheme("http")
+    .setAuthority("apache.org")
+    .setPath("/shindig")
+    .addQueryParameter("hello world", "foo&bar")
+    .setFragment("foo");
+builder.toString();

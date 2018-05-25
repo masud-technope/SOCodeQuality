@@ -1,0 +1,8 @@
+public static Arguments create(String[] args){
+
+   if(args.length == 1) return new OneArgument();
+   else if(args.length == 2) return new TwoArguments();
+   else if(args.length == 3) return new ThreeArguments();
+   else throw new Exception();
+
+}

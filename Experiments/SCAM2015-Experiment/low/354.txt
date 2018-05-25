@@ -1,0 +1,8 @@
+String RemoveTag(String html){
+   html = html.replaceAll("\\<.*?>","")
+   html = html.replaceAll("&nbsp;","");
+   html = html.replaceAll("&amp;"."");
+   ----------
+   ----------
+   return html;
+}

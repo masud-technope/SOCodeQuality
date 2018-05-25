@@ -1,0 +1,3 @@
+JTable table = new JTable(…);
+JTableHeader header = table.getTableHeader();
+header.setDefaultRenderer(new HeaderRenderer(table));

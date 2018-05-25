@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class One {
+    public static void main(String[] args) 
+    {
+        String[] inputArray = new String[]{ "november", "a","b","c","d","december", "i","j","k","april", "g","h"};
+        List<String> monthNames = new ArrayList<String>();
+        List<String> monthNamesOutput = new ArrayList<String>();
+        List<String> alphabetsOutput = new ArrayList<String>();
+        monthNames.add("january");
+        monthNames.add("february");
+        monthNames.add("march");
+        monthNames.add("april");
+        monthNames.add("may");
+        monthNames.add("june");
+        monthNames.add("july");
+        monthNames.add("august");
+        monthNames.add("september");
+        monthNames.add("october");
+        monthNames.add("november");
+        monthNames.add("december");
+        for(String temp:inputArray)
+        {
+            if(monthNames.contains(temp))
+            {
+                monthNamesOutput.add(temp);
+            }
+            else
+            {
+                alphabetsOutput.add(temp);
+            }
+        }
+        System.out.println(monthNamesOutput);
+        System.out.println(alphabetsOutput);
+    }
+}

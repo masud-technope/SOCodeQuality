@@ -1,0 +1,9 @@
+String str = "Word: Word1 Description: Desc1 Type: 1";
+StringTokenizer st = new StringTokenizer(str," ");
+
+st.nextToken();
+String word = st.nextToken();
+St.nextToken();
+String description = st.nextToken();
+st.nextToken();
+String type = st.nextToken();

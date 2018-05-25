@@ -1,0 +1,6 @@
+if(version>=Build.VERSION_CODES.GINGERBREAD_MR1){
+    do_something();
+}
+else{
+    do_something_else();
+}

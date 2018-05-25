@@ -1,0 +1,6 @@
+public static int countZero(int n) {
+    for (int i=1,t=0 ;; i<<=1) {
+        if (n==0) return t;
+        if (n==(n&=~i)) t++;
+    }
+}

@@ -1,0 +1,46 @@
+/**
+ * Read a file and output in the console 
+ * 
+ * @author Seabook Chen
+ *
+ */
+public class SimpleConsoleReader {
+    public static void main(String[] args) {
+        if (args == null || args.length == 0) {
+            throw new RuntimeException("Please specify the file name!!!");
+        }
+        File file = new File(args[0]);
+        FileReader fr = null;
+        BufferedReader br = null;
+        String nextLine = null;
+        try {
+            fr = new FileReader(file);
+            br = new BufferedReader(fr);
+
+            while((nextLine = br.readLine()) != null ) {
+                System.out.println(nextLine);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fr != null) {
+                try {
+                    fr.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}

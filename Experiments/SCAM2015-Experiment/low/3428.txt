@@ -1,0 +1,5 @@
+String s2= "10 = On Battery ";  
+    String s[]=s2.split("=");
+    int i=Integer.parseInt(s[0].trim());<-----------
+use trim() otherwise you will have "10 " with whitespace
+                                      ^

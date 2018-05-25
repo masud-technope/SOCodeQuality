@@ -1,0 +1,5 @@
+List<Double> doubles = new ArrayList<Double>();
+doubles.add(...);
+doubles.add(...);
+...
+Double[] temp = doubles.toArray(new Double[0]);

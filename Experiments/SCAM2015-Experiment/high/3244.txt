@@ -1,0 +1,5 @@
+int n = 8;//your chosen number (however you decide to get it)
+for (int x = n; x <= 100;x+=n) 
+{
+  System.out.println (x);
+}

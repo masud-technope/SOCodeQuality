@@ -1,0 +1,12 @@
+public a, b, c = null;
+
+//And then your main class would look something like this
+if (condition){
+  myclass.a=whatever;
+}
+else if (condition){
+  myclass.b=whatever;
+}
+else if (condition){
+  myclass.c=whatever
+ }

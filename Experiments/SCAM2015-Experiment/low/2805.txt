@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Change {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+//        System.out.println("Enter Purchase Price: ");
+
+        double price = 5.65d;//scan.nextDouble();
+
+        int newPrice = (int) (price * 100);
+        System.out.println("newPrice: " + newPrice);
+
+        int paid = (int) (newPrice + 1);
+        System.out.println("paid: " + paid);
+
+        int change = (int) (paid - newPrice);
+        System.out.println("change: " + change);
+
+        int quarters = (int) (change / 25);
+        int dimes = (int) ((change % 25) / 10);
+        int nickels = (int) ((change % 25 % 10) / 5);
+        int pennies = (int) (change % 25 % 10 % 5);
+
+        System.out.println("Dispensing: " + quarters + " Quarters,"
+                + dimes + "Dimes," + nickels + "Nickels,"
+                + pennies + "Pennies.");
+
+        System.out.println("Program written by Ashley ");
+    }
+}

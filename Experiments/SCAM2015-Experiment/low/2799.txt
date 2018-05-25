@@ -1,0 +1,9 @@
+public class Test  {       
+       public Test() {  
+         Test ob = new Test();       
+       }  
+
+      public static void main(String[] args) {  
+        Test alpha = new Test();  
+      }  
+      }

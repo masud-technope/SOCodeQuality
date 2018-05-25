@@ -1,0 +1,15 @@
+File dir = new File("BASE DIRECTORY PATH");
+FileFilter ff = new FileFilter() {
+
+	@Override
+	public boolean accept(File f) {
+		//only want zip files
+		return (f.isFile() && f.getName().toLowerCase().endsWith(".zip"));
+	}
+};
+
+File[] list = null;
+while ((list = dir.listFiles(ff)).length > 0) {
+	File file1 = list[0];
+	//TODO unzip the file to the base directory
+}

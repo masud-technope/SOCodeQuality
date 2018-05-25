@@ -1,0 +1,6 @@
+when:
+    def expectedResults = [ ... ]
+    def realResults = getRealResultsMethod()
+
+then:
+    realResults == expectedResults

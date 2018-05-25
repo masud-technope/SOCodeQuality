@@ -1,0 +1,6 @@
+public class Stack {
+  private final Object[] stack = new Object[10];
+  private int top = 0;
+  public void push(Object obj) {stack[top++] = obj;}
+  public Object pop() {return stack[top--]; }
+}

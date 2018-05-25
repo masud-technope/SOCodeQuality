@@ -1,0 +1,5 @@
+System.getProperty()
+
+"os.name" // OS name
+"os.arch" // OS architecture
+"os.version" // OS version

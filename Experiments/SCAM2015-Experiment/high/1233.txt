@@ -1,0 +1,15 @@
+PeriodFormatter pf = new PeriodFormatterBuilder()
+.printZeroAlways() // print zero minutes
+.appendMinutes()
+.appendSeparator(".")
+.appendSecondsWithMillis()
+.toFormatter();
+
+Period p1 = pf.parsePeriod("1.20.2");
+Period p2 = pf.parsePeriod("1.23.0");
+
+Period diff = p2.minus(p1);
+System.out.println(diff.toString(pf));
+
+// output:
+// 0.2.800

@@ -1,0 +1,4 @@
+foreach (<LINE>){  
+    doSomething(x,y);  
+    print;   #If you don't specify what to print, it prints "$_"
+}

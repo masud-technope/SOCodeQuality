@@ -1,0 +1,5 @@
+HashSet<Integer> hashSet = new HashSet<>(); // Contains the union
+for(int i = 0; i < array1.length; i++)
+    hashSet.add(array1[i]);
+for(int i = 0; i < array2.length; i++)
+    hashSet.add(array2[i]);

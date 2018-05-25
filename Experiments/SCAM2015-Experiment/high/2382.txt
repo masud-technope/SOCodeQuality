@@ -1,0 +1,4 @@
+Resource read = resource;
+if (resource==null)
+    read = resource = new Resource();
+return read;

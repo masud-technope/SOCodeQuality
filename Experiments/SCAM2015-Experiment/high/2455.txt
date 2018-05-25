@@ -1,0 +1,14 @@
+public static void main(String[] args) {
+  int[] a = {3,5,5,8,9,9,9};
+
+  Set<Integer> encounteredNumbers = new HashSet<Integer>();
+  Set<Integer> duplicateNumbers = new LinkedHashSet<Integer>(); // LinkedHashSet to keep in same order as encountered.
+  for (int i : a) {
+    if (encounteredNumbers.contains(i)) {
+      duplicateNumbers.add(i);
+    }
+    encounteredNumbers.add(i);
+  }
+
+  System.out.println(duplicateNumbers);
+}

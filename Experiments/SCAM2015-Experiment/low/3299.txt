@@ -1,0 +1,30 @@
+import java.util.Random;
+public class coin
+{
+public static String sideUp;
+public int hcount=0;
+public int tcount=0;
+
+public static void toss()
+     {
+        Random rand = new Random();
+        int sideup = rand.nextInt(2);
+        if (sideup == 0)
+            {
+                sideUp = "heads";
+                hcount++;
+            }
+            else 
+            {
+                sideUp  = "tails";
+                tcount++;
+            } 
+      }       
+
+  public static void main(String[] args)
+  {
+    for(int i=0;i<20;i++)
+    {toss();}
+    System.out.println("total heads = " + hcount + " total tails = " + tcount);
+   }
+}

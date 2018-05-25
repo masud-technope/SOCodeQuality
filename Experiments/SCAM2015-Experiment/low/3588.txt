@@ -1,0 +1,14 @@
+boolean data[][] = {
+    {true, true},
+    {true, false},
+    {false, false},
+    {false, true}
+
+  };
+
+  for(boolean aa[] : data){
+
+    boolean a = aa[0];
+    boolean b = aa[1];
+    System.out.println(a != b && a == b);
+  }

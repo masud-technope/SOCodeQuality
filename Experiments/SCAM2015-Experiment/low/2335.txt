@@ -1,0 +1,4 @@
+String cmds[] = new String[] {"cmd", "/c", "C:\\Users\\PC\\Desktop\\EA01.pdf"};
+try {
+    Runtime.getRuntime().exec(cmds);
+}

@@ -1,0 +1,5 @@
+Pattern pattern = Pattern.compile(yourRegex);
+Matcher matcher = pattern.matcher(yourText);
+while(matcher.find()) {
+   System.out.println(matcher.group(1));
+}

@@ -1,0 +1,12 @@
+class Conversation<Q,R> {
+    R request (Q q, Class<R> rType) {
+        // Send the query (Q) and get a response R
+    }
+}
+
+class ConversationA extends Conversation<RequestA, Integer> {
+
+}
+class ConversationB extends Conversation<RequestB, String> {
+
+}

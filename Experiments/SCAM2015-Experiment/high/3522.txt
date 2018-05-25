@@ -1,0 +1,4 @@
+Object x = null;
+if (!x instanceof Object) {
+    System.out.println ("we get here since X is null");
+}

@@ -1,0 +1,7 @@
+public void readLongString(String superlongString, int size, BufferedReader in){
+  char[] buffer = new char[size];
+  for(int i=0;i<superlongString.length;i+=size;){
+       in.read(buffer, i, size)
+       //do stuff 
+     }
+}

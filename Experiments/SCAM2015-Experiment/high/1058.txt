@@ -1,0 +1,4 @@
+for (Pair<K,V> p : wrap(list1, list2)) {
+    doStuff(p.getKey());
+    doStuff(p.getValue());
+}

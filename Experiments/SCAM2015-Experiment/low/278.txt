@@ -1,0 +1,12 @@
+while ( (line = br.readLine()) != null )//BufferedReader contains readline method
+  {
+
+      Pattern p=Pattern.compile(searchString);/*here u an specify the line u want to delete */
+      Matcher m=p.matcher(line);
+      line=m.replaceAll(replaceString);/*here replace String u can " " so that it will be emptied */
+      System.out.println(line);
+    } 
+      //System.out.println(line);
+           } 
+
+      }

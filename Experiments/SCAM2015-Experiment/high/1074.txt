@@ -1,0 +1,3 @@
+for(int i=0; i<old.length; i++)
+  for(int j=0; j<old[i].length; j++)
+    old[i][j]=current[i][j];

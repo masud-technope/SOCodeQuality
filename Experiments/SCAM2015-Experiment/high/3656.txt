@@ -1,0 +1,5 @@
+int [] deviceID = new int[305];
+for(int i = 292; i <= 305; i++)
+{
+    deviceID[i] = i;
+}

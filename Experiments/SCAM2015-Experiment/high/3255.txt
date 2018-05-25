@@ -1,0 +1,13 @@
+public static void main(String[] args) {
+    String[] holder = new String[1];
+
+    // variable optimized away as holder[0]
+    holder[0] = "'previous String reference'";
+
+    passByReference(holder);
+    System.out.println(holder[0]);
+}
+
+public static void passByReference(String[] someString) {
+    someString[0] = "'new String reference'";
+}

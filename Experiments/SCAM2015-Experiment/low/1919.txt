@@ -1,0 +1,14 @@
+//  This assumes that you already have two Date objects: startDate, endDate
+//  Also, that you want to ignore any time portions
+
+Calendar startCale=new GregorianCalendar();
+Calendar endCal=new GregorianCalendar();
+
+startCal.setTime(startDate);
+endCal.setTime(endDate);
+
+endCal.add(Calendar.YEAR,-startCal.get(Calendar.YEAR));
+endCal.add(Calendar.MONTH,-startCal.get(Calendar.Month));
+endCal.add(Calendar.DATE,-startCal.get(Calendar.DATE));
+
+int daysDifference=endCal.get(Calendar.DAY_OF_YEAR);

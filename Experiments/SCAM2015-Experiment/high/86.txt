@@ -1,0 +1,17 @@
+private void doEverythingInOneSillyMethod(String key)
+  throws MyAppException
+{
+  try (Connection db = ds.getConnection()) {
+    db.setReadOnly(true);
+    ...
+    try (PreparedStatement ps = db.prepareStatement(...)) {
+      ps.setString(1, key);
+      ...
+      try (ResultSet rs = ps.executeQuery()) {
+        ...
+      }
+    }
+  } catch (SQLException ex) {
+    throw new MyAppException("Query failed.", ex);
+  }
+}

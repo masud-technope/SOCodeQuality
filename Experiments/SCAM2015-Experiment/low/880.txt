@@ -1,0 +1,11 @@
+private boolean isExit= false;
+
+public void beforeExit() {
+    isExit= true;
+}
+
+public void run() {
+    while (!isExit) {
+
+    }
+}

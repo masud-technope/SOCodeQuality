@@ -1,0 +1,5 @@
+product_id = productList.get(0).toString(); 
+                product_name = productList.get(1).toString(); 
+                product_description = productList.get(2).toString(); 
+                product_price = (Double) productList.get(3);
+}

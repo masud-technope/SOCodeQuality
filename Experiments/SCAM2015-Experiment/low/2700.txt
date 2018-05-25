@@ -1,0 +1,14 @@
+public static double[] fatCoordinates(double lat,double lon){
+    double phi = Math.toRadians(lat);
+    double lambda = Math.toRadians(lon);
+    double e2 = Math.pow(WGS_E,2);
+    double Rn = WGS_A / Math.sqrt(1 - e2 * Math.pow(Math.sin(phi), 2));
+    double[] XYZ = new double[3];
+    XYZ[0] = Rn * Math.cos(phi) * Math.cos(lambda);
+    XYZ[1] = Rn * Math.cos(phi) * Math.sin(lambda);
+    XYZ[2] = Rn * (1 - e2) * Math.sin(phi);
+
+    return XYZ;
+
+
+}

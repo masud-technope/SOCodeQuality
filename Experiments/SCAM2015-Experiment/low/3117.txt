@@ -1,0 +1,10 @@
+public <T> List<T> sortMyList(List<T> list){
+           Collections.sort(list, new Comparator<T>() {
+           public int compare(T o1, T o2) {
+                if(o1 instanceof Employee && o2 instanceof Employee)
+                    return o2.getId().compareTo(o1.getId());
+                else if(o1 instanceof Buildings && o2 instanceof Buildings)
+                      return o2.getNumOfEmployees().compareTo(o1.getNumOfEmployees());
+           }
+  });
+}

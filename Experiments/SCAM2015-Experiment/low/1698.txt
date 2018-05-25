@@ -1,0 +1,31 @@
+public class Test extends Thread {
+
+    private static Test thread1, thread2, thread3; //static added since tested from main()
+
+    public static void main(String... arguments){
+    try{    
+        thread1 = new Test();
+        thread2 = new Test();
+        thread3 = new Test();
+        // Add Names
+        thread1.setName("A");
+        // Add Sleep
+        thread2.sleep(2000); //in milisecs - here it is 2sec
+        // Add priority
+        thread3.setPriority(Thread.MAX_PRIORITY);
+
+        // Infinite loop
+        while(true){    
+            thread1.start();
+            thread2.start();
+            thread3.start();    
+        }
+    }catch(Throwable t){
+        System.err.println(t.getMessage());
+    }
+}
+
+    public void run() {
+        System.out.println(Thread.currentThread().getName());
+    }
+}

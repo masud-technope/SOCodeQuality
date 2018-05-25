@@ -1,0 +1,5 @@
+for(int=0; i<list.size(); i++){
+      for(int j=0; j<list.get(i).length; j++){
+          System.out.println(j);
+       }
+    }

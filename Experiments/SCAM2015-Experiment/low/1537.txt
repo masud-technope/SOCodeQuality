@@ -1,0 +1,4 @@
+java.util.Properties
+
+String string = properties.getProperty("launcher.1.name");
+properties.setProperty("launcher.1.name", "abc");

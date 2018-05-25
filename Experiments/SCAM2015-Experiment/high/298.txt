@@ -1,0 +1,21 @@
+class Message { ... }
+class State { ... }
+
+class Machine {
+  static State handle(State current, Message msg) {
+    ...
+  }
+}
+
+class CustomMessage extends Message { ... }
+class CustomState extends State { ... }
+
+class CustomMachine {
+  static CustomState handle(CustomState current, CustomMessage msg) {
+    // custom cases
+    ...
+
+    // default: generic case
+    return Machine.handle(current, msg);
+  }
+}

@@ -1,0 +1,3 @@
+for (Object o : new HashSet<Object>(someSet)) {
+    // doing some processing on o
+}

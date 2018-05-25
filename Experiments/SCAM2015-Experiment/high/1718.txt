@@ -1,0 +1,4 @@
+for (int i : inrArray) {
+    System.out.print(intArray[i]);
+}
+System.out.println();

@@ -1,0 +1,17 @@
+public class Node<T extends Number> {
+
+    private final T value;
+
+    public Node(T val) {
+        this.value = val;
+    }
+
+    public T evaluate() {
+         return value;
+    };
+
+    public Class<? extends Number> type() { 
+      return value.getClass();
+    }       
+
+}

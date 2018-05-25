@@ -1,0 +1,4 @@
+System.setProperty("https.proxyHost", proxy_host);
+System.setProperty("http.proxyHost", proxy_host);
+System.setProperty("https.proxyPort", proxy_port);
+System.setProperty("http.proxyPort", proxy_port);

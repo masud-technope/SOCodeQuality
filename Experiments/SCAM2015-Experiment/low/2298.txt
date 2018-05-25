@@ -1,0 +1,45 @@
+package org.moonwave.jpa.model.pojo;
+
+@Entity
+public class Employee {
+
+@Id
+protected Long empNo;
+
+protected String firstName;
+protected String lastName;
+protected String title;
+
+public Long getEmpNo() {
+    return empNo;
+}
+public void setEmpNo(Long empNo) {
+    this.empNo = empNo;
+}
+public String getFirstName() {
+    return firstName;
+}
+public void setFirstName(String firstName) {
+    this.firstName = firstName;
+}
+public String getLastName() {
+    return lastName;
+}
+public void setLastName(String lastName) {
+    this.lastName = lastName;
+}   
+public String getTitle() {
+    return title;
+}
+public void setTitle(String title) {
+    this.title = title;
+}
+public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("empNo: ").append(empNo);
+    sb.append(", firstName: ").append(firstName);
+    sb.append(", lastName: ").append(lastName);
+    sb.append(", title: ").append(title);
+    return sb.toString();
+}
+}

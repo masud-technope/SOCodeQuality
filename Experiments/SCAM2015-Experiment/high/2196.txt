@@ -1,0 +1,3 @@
+public static void main(String[] args) {
+    System.out.println(readFileAsString("C:\\The_Path_To_Your_File\\SomeFile.txt"));
+}

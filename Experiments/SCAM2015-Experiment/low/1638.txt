@@ -1,0 +1,17 @@
+@Test
+public void testStreamBytes()
+    throws PersistenceException, IOException, ClassNotFoundException {
+  final String uniqueId = "TestString";
+  final byte[] written = uniqueId.getBytes();
+  final byte[] read = new byte[written.length];
+  try (final OutputStream outStream = fileService.getOutputStream(uniqueId)) {
+    outStream.write(written);
+  }
+  try (final InputStream inStream = fileService.getInputStream(uniqueId)) {
+    int rd = 0;
+    final int n = read.length;
+    while (rd <= (rd += inStream.read(read, rd, n - rd)))
+      ;
+  }
+  assertEquals(written, read);
+}

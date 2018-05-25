@@ -1,0 +1,26 @@
+public class Deneme
+{
+
+    private  static Scanner input;
+    private static ArrayList<String> arr;
+
+    public static void main(String... args)
+    {
+        input = new Scanner(System.in);
+        arr = new ArrayList<>();
+
+        while (true)
+        {
+            System.out.print("Please enter a value: ");
+            String val = input.nextLine();
+            if (arr.contains(val))
+                System.out
+                        .println("Please enter some other value you've already entered : "
+                                + val);
+            else
+                arr.add(val);
+        }
+
+    }
+
+}

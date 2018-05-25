@@ -1,0 +1,18 @@
+new Thread(new Runnable() {
+
+        @Override
+        public void run() {
+
+            handler.post(new Runnable() {
+
+                @Override
+                public void run() {
+
+                    mAdapter.add(msgFromUser);
+                    mAdapter.notifyDataSetChanged();
+                    listView_Message.invalidateViews();
+                }
+            });
+
+        }
+    }).start();

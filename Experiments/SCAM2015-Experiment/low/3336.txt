@@ -1,0 +1,49 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Demonstration
+{
+  public Demonstration()
+  {
+    ArrayList<List<Integer>> lists = getListOfList();
+
+    printList(lists);
+  }
+
+  // Here's the function implementation you want.
+  private ArrayList<List<Integer>> getListOfList()
+  {
+    ArrayList<List<Integer>> list = new ArrayList<>();
+
+    final int maxSize = 6;
+
+    // The 4 nested loops still take constant time as the value of `maxSize` is constant.
+    // I would have created a permutation based solution only if maxSize varied.
+    for (int i = 0; i < maxSize; ++i)
+    {
+      for (int j = 0; j < maxSize; ++j)
+      {
+        for (int k = 0; k < maxSize; ++k)
+        {
+          for (int w = 0; w < maxSize; ++w)
+          {
+            list.add(Arrays.asList(i, j, k, w));
+          }
+        }
+      }
+    }
+
+    return list;
+  }
+
+  private void printList(ArrayList<List<Integer>> lists)
+  {
+    lists.forEach(System.out::println); // JDK 8 standard
+  }
+
+  public static void main(String[] args)
+  {
+    new Demonstration();
+  }
+}

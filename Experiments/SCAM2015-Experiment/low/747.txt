@@ -1,0 +1,7 @@
+final String[] host = new String[1];
+SwingUtilities.invokeAndWait(new Runnable() {
+    public void run() {
+        host[0] = JOptionPane.showInputDialog("Enter host name: ");
+    }
+});
+openConnection(host[0]); //maybe not guaranteed to be visible by the memory model?

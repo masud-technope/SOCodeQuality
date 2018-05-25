@@ -1,0 +1,18 @@
+bool hasAdjacentRepeats(String input)
+        {
+            var firstLetter = input[0];
+            int flag = 1;
+            foreach (var letter in input)
+            {
+                if (firstLetter == letter && flag != 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    firstLetter = letter;
+                }
+                flag = 0;
+            }
+            return false;
+        }

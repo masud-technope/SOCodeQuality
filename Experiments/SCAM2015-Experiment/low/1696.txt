@@ -1,0 +1,21 @@
+public static int[]  swapping(int[] lane) 
+  {   
+int[] result = new int[lane.length];  
+
+ for(int i = 0; i < result .length; i++) {  
+      if ( result[i]==0) 
+      {
+        if( i==0)
+           {
+           }
+         else
+            {
+       temp = result[i] ; 
+       result[i]  = result [i-1] ; 
+       result [i-1] = temp ; 
+             }
+     else
+      {
+       }
+ return result ;
+}

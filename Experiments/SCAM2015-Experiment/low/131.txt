@@ -1,0 +1,8 @@
+private static final Cache<Input, Output> fooCache = Caches.newInstance(
+    new Factory<Input, Output>() { public Output create(Input input) {
+        return ... some code ...;
+    }}
+);
+public static Output getFoo(Input input) {
+    return fooCache.get(input);
+}

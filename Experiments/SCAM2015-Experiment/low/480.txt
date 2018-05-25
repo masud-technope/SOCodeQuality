@@ -1,0 +1,25 @@
+...
+public class PhonePK {
+    private String type;
+    private long owner;
+
+    public PhonePK() {}
+
+    public PhonePK(String type, long owner) {
+        this.type = type;
+        this.owner = owner;
+    }
+
+    public boolean equals(Object object) {
+        if (object instanceof PhonePK) {
+            PhonePK pk = (PhonePK)object;
+            return type.equals(pk.type) && owner == pk.owner;
+        } else {
+            return false;
+        }
+    }
+
+    public int hashCode() {
+        return type.hashCode() + owner;
+    }
+}

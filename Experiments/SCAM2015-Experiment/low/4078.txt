@@ -1,0 +1,3 @@
+Map<K, V> myMap = ...
+Collection<V> valueSet = myMap.values();
+int size = valueSet.size();

@@ -1,0 +1,5 @@
+Optional<Other> result =
+    things.stream()
+          .map(this::resolve)
+          .flatMap(o -> o.isPresent() ? Stream.of(o.get()) : Stream.empty())
+          .findFirst();

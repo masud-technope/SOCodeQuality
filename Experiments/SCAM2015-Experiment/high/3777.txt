@@ -1,0 +1,8 @@
+number / 10 000 to retrieve the first digit.
+number = reminder
+number / 1000 to retrieve the second digit.
+number = reminder
+number / 100 to retrieve the third digit.
+number = reminder
+number / 10 to retrieve the fourth digit.
+and reminder is the 5th one.

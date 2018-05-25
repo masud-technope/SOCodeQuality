@@ -1,0 +1,8 @@
+...
+this.grammar = dbf.getSchema();
+if (grammar != null) {
+    XMLParserConfiguration config = domParser.getXMLParserConfiguration();
+    XMLComponent validatorComponent = null;
+    /** For Xerces grammars, use built-in schema validator. **/
+    ...
+}

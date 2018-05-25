@@ -1,0 +1,9 @@
+try {
+    ..
+} catch(FileNotFoundException fe) {
+    //manage here this kind of exception
+} catch(NullPointerException ne) {
+    //you missed a check on nulls! But the file has been found...
+} catch(Exception e) {
+    //file has been found and no nulls are left...
+}

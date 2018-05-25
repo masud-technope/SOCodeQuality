@@ -1,0 +1,5 @@
+for (int i = 1 ; i <= num; i++ )               
+{                      
+    System.out.print("Enter element "+ i +":  ");
+    array[i - 1] = input.next();
+}

@@ -1,0 +1,18 @@
+public class Employee implements Comparable<Employee> {
+
+private int id;
+private String name;
+private String salary ;
+
+public int compareTo(Employee val) {
+      if(id>val.id){
+      return 1;  
+    }else if(id<val.id){
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+//getter and setters here
+}

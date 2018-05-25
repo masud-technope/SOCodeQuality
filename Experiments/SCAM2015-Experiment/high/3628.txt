@@ -1,0 +1,3 @@
+at puzzle.Puzzle.isSafe(Puzzle.java:97)
+    at puzzle.Puzzle.main(Puzzle.java:49)
+Java Result: 1

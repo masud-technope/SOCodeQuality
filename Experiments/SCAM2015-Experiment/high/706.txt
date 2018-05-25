@@ -1,0 +1,3 @@
+static void vararg(Object... os) {
+    System.out.println(os.length);
+}

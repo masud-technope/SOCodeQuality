@@ -1,0 +1,5 @@
+private long countModel(Class<? extends Model> clazz) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException
+{
+  Method countMethod =  clazz.getDeclaredMethod("count", null);
+  return (Long) countMethod.invoke(null, null);
+}

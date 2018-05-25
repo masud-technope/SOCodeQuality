@@ -1,0 +1,13 @@
+public ListMultimap<String,String> tableToMap(Document doc) {
+  Elements trElems = doc.select(":not(thead) tr");
+  ArrayListMultimap<String,String> map = ArrayListMultimap.create();
+  for(Element tr : trElems) {
+    // I assume you meant td, a <tr> shouldn't contain <tr>'s
+    Elements tdElems = tr.select("td");
+    String month = tdElems.get(1).text(); // You skip index 0, presumably intentionally
+    for(int i = 2; i < tdElems.size(); i++) {
+      map.put(month, tdElems.get(i).text());
+    }
+  }
+  return map;
+}

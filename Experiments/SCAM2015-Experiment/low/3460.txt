@@ -1,0 +1,8 @@
+int size = 0;
+try{
+    while(true){
+        list.get(size);
+        size++;
+    }
+} catch(IndexOutOfBoundException e){
+}

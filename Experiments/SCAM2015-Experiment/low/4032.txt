@@ -1,0 +1,29 @@
+public boolean method1() {
+
+ if (something) {
+
+      return true;
+
+}
+
+ else {
+
+   try
+
+     {
+
+    return false; //first return false
+
+       }
+
+   finally
+
+     {
+
+    method2();//then call this
+
+       }
+
+}
+
+}

@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class comboGenerator {
+
+    public static void main(String[] args) {
+
+
+    ArrayList<Integer> $combo = new ArrayList<Integer>();               // init. array list combo for randomization
+
+
+        while ($combo.size() < 6) {  
+            int rand = (int) (Math.random()*49+1);                  // make new random number 1-49
+            if (!$combo.contains(rand)){                            // check if we have that number in array list,{
+            $combo.add(rand);                                       // if there is no such number then add it to array list
+            Collections.sort($combo);                               // sort the array list small >> large
+            }
+        }
+
+    System.out.println("Random combination " + $combo);
+
+}   
+}

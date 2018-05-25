@@ -1,0 +1,5 @@
+int totalRows = 0;
+if(rowSet.last()) {
+   totalRows = rowSet.getRow();
+}
+rowSet.beforeFirst();

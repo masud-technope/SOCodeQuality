@@ -1,0 +1,25 @@
+private void executeCommand(String cmd) {
+        try {
+            Runtime rt = Runtime.getRuntime();
+
+            Process proc = rt.exec(cmd);
+
+            // any error message?
+            StreamHandler errorGobbler = new StreamHandler(proc.getErrorStream(), "ERR");
+
+            // any output?
+            StreamHandler outputGobbler = new StreamHandler(proc.getInputStream(), "OUT");
+
+            // kick them off
+            errorGobbler.start();
+            outputGobbler.start();
+
+            // any error???
+            int exitVal = proc.waitFor();
+            System.out.println("ExitValue: " + exitVal);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }

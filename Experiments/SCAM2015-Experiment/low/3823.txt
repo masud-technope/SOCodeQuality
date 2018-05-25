@@ -1,0 +1,50 @@
+public class ColorFrame {
+
+public JPanel panel;
+public static void main(String[] args){
+
+    JFrame frame = new JFrame();
+    final JPanel panel = new JPanel();
+    frame.setSize(300, 200);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    final JButton redButton = new JButton ("Red");
+    final JButton greenButton = new JButton ("Green");
+    final JButton blueButton = new JButton ("Blue");
+
+    class Listener extends JPanel implements ActionListener{
+
+        public void actionPerformed(ActionEvent event) {
+            Color color;
+            if (event.getSource() == redButton){
+
+                redButton.setBackground(Color.RED);
+                panel.setBackground(Color.RED);
+
+            } else if (event.getSource() == greenButton){
+
+                greenButton.setBackground(Color.GREEN);
+                panel.setBackground(Color.GREEN);
+
+            } else {
+
+                blueButton.setBackground(Color.BLUE);
+                panel.setBackground(Color.BLUE);  
+            }
+
+            setBackground(Color.WHITE);
+            System.out.println(Color.WHITE);
+            repaint();
+        }           
+    }
+
+    redButton.addActionListener(new Listener());
+    greenButton.addActionListener(new Listener());
+    blueButton.addActionListener(new Listener());
+
+    panel.add(redButton); 
+    panel.add(greenButton);
+    panel.add(blueButton);
+    frame.add(panel);       
+    frame.setVisible(true);
+}

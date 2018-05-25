@@ -1,0 +1,37 @@
+import org.openqa.selenium.Point;
+        import org.openqa.selenium.interactions.HasInputDevices;
+        import org.openqa.selenium.interactions.Mouse;
+        import org.openqa.selenium.interactions.internal.Coordinates;
+
+        .....
+
+        final Point image = page.findImage("C:\\Pictures\\marker.png") ;
+
+        Mouse mouse = ((HasInputDevices) driver).getMouse();
+
+        Coordinates imageCoordinates =  new Coordinates() {
+
+              public Point onScreen() {
+                throw new UnsupportedOperationException("Not supported yet.");
+              }
+
+              public Point inViewPort() {
+                Response response = execute(DriverCommand.GET_ELEMENT_LOCATION_ONCE_SCROLLED_INTO_VIEW,
+        ImmutableMap.of("id", getId()));
+
+    @SuppressWarnings("unchecked")
+    Map<String, Number> mapped = (Map<String, Number>) response.getValue();
+
+    return new Point(mapped.get("x").intValue(), mapped.get("y").intValue());
+              }
+
+              public Point onPage() {
+                return image;
+              }
+
+              public Object getAuxiliary() {
+                // extract the selenium imageElement id (imageElement.toString() and parse out the "{sdafbsdkjfh}" format id) and return it
+              }
+            };
+
+        mouse.mouseMove(imageCoordinates);

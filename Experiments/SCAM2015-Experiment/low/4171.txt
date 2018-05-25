@@ -1,0 +1,12 @@
+String string = "blue, small, 15, orange, large, 10, green, small, 5";
+int index = -1;
+int beginIndex = 0;
+index = string.indexOf(",");
+while (index != -1) {
+    System.out.println(string.substring(beginIndex, index));
+    beginIndex = index + 2;
+    index = string.indexOf(",", index + 1);
+    if (index == -1) {
+        System.out.println(string.substring(beginIndex, string.length()));
+    }
+}

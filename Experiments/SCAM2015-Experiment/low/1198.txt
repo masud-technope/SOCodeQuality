@@ -1,0 +1,15 @@
+public abstract class Enemy {
+    protected int x = getX();
+    protected int y = getY();
+
+    protected abstract int getX();
+    protected abstract int getY();
+}
+
+public class Skeleton extends Enemy {
+    @Override
+    protected int getX() { return 10; }
+
+    @Override
+    protected int getY() { return 10; }
+}

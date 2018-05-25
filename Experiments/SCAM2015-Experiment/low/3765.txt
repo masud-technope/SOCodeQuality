@@ -1,0 +1,9 @@
+int initialDelay = 30000; // start after 30 seconds
+int period = 5000;        // repeat every 5 seconds
+Timer timer = new Timer();
+TimerTask task = new TimerTask() {
+ public void run() {
+// job code here
+  }
+};
+ timer.scheduleAtFixedRate(task, initialDelay, period);

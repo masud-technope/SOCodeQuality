@@ -1,0 +1,3 @@
+for(String char : parts){
+    System.out.println( char );
+}

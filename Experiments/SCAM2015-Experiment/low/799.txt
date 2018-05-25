@@ -1,0 +1,3 @@
+s1.contains(s2) returns true;
+s1.indexOf(s2) returns 0. 
+s1.indexOf("foo") returns -1

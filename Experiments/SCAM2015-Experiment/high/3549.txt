@@ -1,0 +1,9 @@
+class Shape implements Comparable<Shape> {
+    int compareTo(Shape other) {
+       return Math.signum(getVolume()-other.getVolume);
+    }
+    ...
+}
+
+ArrayList<Shape> myShapes = ...
+Shape minShape = Collections.min(myShapes);

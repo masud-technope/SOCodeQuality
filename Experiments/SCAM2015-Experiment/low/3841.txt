@@ -1,0 +1,6 @@
+do {
+        if (changeLog.isActive()) {
+        } else {
+            break;
+        }
+    } while (hold < 1);

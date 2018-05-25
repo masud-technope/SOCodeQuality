@@ -1,0 +1,17 @@
+import java.io.*;
+public class Test
+{
+public static void main(String[] args)
+{
+try
+  {
+  BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+  String userInput = in.readLine();
+  System.out.println("\n\nUser entered -> " + userInput);
+  }
+  catch(IOException e)
+  {
+  System.out.println("IOException has been caught");
+  }
+ }
+}

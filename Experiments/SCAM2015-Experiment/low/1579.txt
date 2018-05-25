@@ -1,0 +1,22 @@
+public class pattern {
+
+public void patternMaker(int x){
+    if(x > 0){
+        for(int i = 0; i < x; i++){
+            for(int j=0;j<=i;j++){
+                System.out.print("*");
+            }
+            System.out.print("\n");
+        }
+        for(int i = x-1; i > 0; i--){
+            for(int j=i;j>0;j--){
+                System.out.print("*");
+            }
+            System.out.print("\n");
+        }
+    }
+}
+public static void main(String[] ar){
+    new pattern().patternMaker(3);
+}
+}

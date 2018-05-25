@@ -1,0 +1,3 @@
+Foo myMock = Mockito.mock(Foo.class);
+Mockito.when(myMock.doSomething(Matchers.any(String.class))).thenThrow(IllegalArgumentException.class);
+Mockito.when(myMock.doSomething(Matchers.eq("1"))).thenReturn("1");

@@ -1,0 +1,7 @@
+public static BigInteger factorial(BigInteger n) {
+    {
+        if (n.compareTo(BigInteger.ZERO) > 0)
+            return BigInteger.ONE;
+        return n.multiply(factorial(n.subtract(BigInteger.ONE)));
+    }
+}

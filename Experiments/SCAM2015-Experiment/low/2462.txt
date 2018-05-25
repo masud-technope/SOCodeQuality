@@ -1,0 +1,4 @@
+try(stmt = HibernateSession.instance().connection().prepareStatement("")) {
+
+
+}

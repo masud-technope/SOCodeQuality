@@ -1,0 +1,9 @@
+<html>
+<script>
+
+a =  "This&aIs&aA&aTest"
+
+alert(a.replace(new RegExp ("&a", "g") , " "));
+
+</script>
+</html>

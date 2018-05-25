@@ -1,0 +1,4 @@
+if(rule[0] != null){
+// Now you can call methods on your `0th` index element
+
+}

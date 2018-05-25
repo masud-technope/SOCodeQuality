@@ -1,0 +1,4 @@
+List<String> lines = new LinkedList<String>();
+for(String tmp; (tmp = br.readLine()) != null;) 
+    if (lines.add(tmp) && lines.size() > 5) 
+        lines.remove(0);

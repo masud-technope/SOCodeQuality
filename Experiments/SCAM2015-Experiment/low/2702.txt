@@ -1,0 +1,10 @@
+ArrayList<Something> local = new ArrayList<Something>(256);
+
+for (int spin=0; spin<10; ++spin)
+{
+  try {
+    local.addAll(data_list);
+    break;
+  }
+  catch (java.util.ConcurrentModificationException ce) {}
+}

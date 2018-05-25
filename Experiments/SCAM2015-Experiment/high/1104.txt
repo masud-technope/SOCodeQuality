@@ -1,0 +1,6 @@
+@Cleanup
+Connection c = ...
+@Cleanup
+statement = c.prepareStatement(...);
+@Cleanup
+rs = statement.execute(...);

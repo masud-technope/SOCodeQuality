@@ -1,0 +1,20 @@
+public abstract class AbstractDataObject
+{
+   private String tableName;
+   public AbstractDataObject(String tableName)
+   {
+      this.tableName = tableName;
+   }
+
+   public void delete()
+   {
+      SQLQuery("..." + tableName + "..." );
+   }
+}
+
+public class SellerDataObject extends AbstractDataObject
+{
+   public DataObject(): super("Seller")
+   {
+   }
+}

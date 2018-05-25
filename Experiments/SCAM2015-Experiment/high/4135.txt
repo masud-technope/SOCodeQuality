@@ -1,0 +1,14 @@
+private void printInputLanguages() {
+       InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+       List<InputMethodInfo> ims = imm.getEnabledInputMethodList();
+
+       for (InputMethodInfo method : ims){
+           List<InputMethodSubtype> submethods = imm.getEnabledInputMethodSubtypeList(method, true);
+           for (InputMethodSubtype submethod : submethods){
+              if (submethod.getMode().equals("keyboard")){
+                 String currentLocale = submethod.getLocale();
+                 Log.i(TAG, "Available input method locale: " + currentLocale);
+              }
+           }
+    }
+}

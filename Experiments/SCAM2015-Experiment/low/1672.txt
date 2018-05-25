@@ -1,0 +1,6 @@
+<li class="button-row">
+  <input type="submit" value="ADD" id="add"class="btn-submit img-  swap" name="add" />
+    <input type="submit" value="Delete"  class="btn-delete img-swap" name="delete" />
+   <input type="submit" value="Update" class="btn-update img-swap" name="update" />
+ <input type="submit" value="Search" class="btn-search img-swap" name="search" />
+ </li>

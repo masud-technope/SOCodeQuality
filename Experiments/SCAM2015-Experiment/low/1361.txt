@@ -1,0 +1,7 @@
+NewObject n = new NewObject();
+
+public class NewObject {
+    public NewObject() {
+        // do stuff when object created
+    }
+}

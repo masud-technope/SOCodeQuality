@@ -1,0 +1,4 @@
+public boolean isIns(Object o, Class t)
+{
+    return t.isAssignableFrom(o.getClass());
+}

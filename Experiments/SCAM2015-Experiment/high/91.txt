@@ -1,0 +1,5 @@
+Pill p = Pill.valueOf(str);
+switch(p) {
+  case RED:  pop();  break;
+  case BLUE: push(); break;
+}

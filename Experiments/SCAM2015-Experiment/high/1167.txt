@@ -1,0 +1,4 @@
+long timestamp = bornDate.getTime();
+Calendar cal = Calendar.getInstance();
+cal.setTimeInMillis(timestamp);
+return cal.get(Calendar.YEAR);

@@ -1,0 +1,11 @@
+if (get.equals("A")){ 
+    txtV.setText("...");
+}
+
+if (get.equals("B")){
+    txtV.setText("...");
+}
+
+if (get.equals("C")) {
+    txtV.setText("...");
+}

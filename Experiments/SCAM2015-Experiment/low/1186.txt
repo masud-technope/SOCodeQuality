@@ -1,0 +1,11 @@
+public static void processCar(ArrayList<Car> cars){
+   int totalAmount=0;
+   for (int i=0; i<cars.size(); i++){
+      cars.get(i).computeCars ();
+     totalAmount=+ cars.get(i).price;
+  // in need to add the computed values of totalprice from the Car class?
+
+   }
+  System.out.println (totalAmount);
+
+}

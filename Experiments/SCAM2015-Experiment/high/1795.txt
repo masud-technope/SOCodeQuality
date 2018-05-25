@@ -1,0 +1,5 @@
+ps.executeUpdate("INSERT INTO tb_name values(?,?) WHERE id=?");
+ps.setString(1,firstName);
+ps.setString(2,middleName);
+ps.setInt(3,id);
+ps.execute();

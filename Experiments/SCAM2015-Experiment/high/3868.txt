@@ -1,0 +1,4 @@
+monthString = MONTHS.get(month);
+if (monthString == null) {
+    throw new MonthException();
+}

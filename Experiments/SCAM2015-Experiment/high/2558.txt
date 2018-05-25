@@ -1,0 +1,7 @@
+int size = aa.size();
+for(int i = 0; i < size; ++i)
+{
+    StringBuilder builder = new StringBuilder(aa.get(i));
+    builder.reverse();    //reverse the StringBuilder
+    aa.set(i, builder.toString());
+}

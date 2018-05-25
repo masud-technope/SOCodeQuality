@@ -1,0 +1,8 @@
+switch (age) {
+    case 18:
+        return "young";
+    case 30:
+        return "old";
+    default:
+        return "??";
+    }

@@ -1,0 +1,244 @@
+public class MyQueue<E> implements Queue<E>,DeQueue<E>{
+
+    protected int front = 0;
+    protected int rear =-1;
+    protected E[] elements =null;
+    private static final int DEFAULT_INTIAL_CAPACITY =100; 
+    private int size =0;
+
+    public MyQueue(){
+        this(DEFAULT_INTIAL_CAPACITY);
+    }
+    @SuppressWarnings("unchecked")
+    public MyQueue(int intialCapacity){
+        if(intialCapacity < 0){
+            throw new IllegalArgumentException("intial capacity can't be null");
+        }
+        elements =(E[]) new Object[intialCapacity];
+    }
+    @Override
+    public boolean addR(E e) {
+        if(! isFull()) {
+            elements[++rear] = e;
+            size++;
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public E removeL() {
+        E element =null;
+        if(!isEmpty()){
+            element=elements[front];
+            // Nullify the reference
+            elements[front] =null;
+            ++front;
+            --size;
+        }
+        return element;
+    }
+
+    @Override
+    public E element() {
+        E element =null;
+        if(!isEmpty()){
+            element=elements[front];
+        }
+        return element;
+    }
+
+    @Override
+    public E elementR() {
+        E element =null;
+        if(!isEmpty()){
+            element=elements[rear];
+        }
+        return element;
+    }
+
+    public boolean isFull() {
+        return rear == elements.length;
+    }
+
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+    Override
+    public String toString() {
+        return "MyQueue [front=" + front + ", rear=" + rear + ", elements="
+                + Arrays.toString(elements) + ", size=" + size + "]";
+    }
+    @Override
+    public void trim() {
+        @SuppressWarnings("unchecked")
+        E[] dest =(E[]) new Object[size];
+        System.arraycopy(elements, front, dest, 0, size);
+        elements = dest;
+        front =0;
+        rear=size-1;
+    }
+    @Override
+    public boolean addL(E element) {
+        if(front != 0) {
+            elements[--front] = element;
+            size++;
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public E removeR() {
+        E element =null;
+        if(size > 0) {
+            element=elements[rear];
+            // Nullify the reference
+            elements[rear] =null;
+            --rear;
+            --size;
+        }
+        return element;
+    }
+
+}
+
+package com.java.util.collection.advance.datastructure.queue;
+
+
+public class MinAndMaxFinderQueue extends MyQueue<Integer> implements FindMinMaxQueue<Integer> {
+
+    private Queue<Integer> maxValuesQueue =null;
+
+    private Queue<Integer> minValuesQueue =null;
+
+
+    public MinAndMaxFinderQueue (int intialCapacity){
+        super(intialCapacity);
+        maxValuesQueue =new MyQueue<Integer>(intialCapacity);
+        minValuesQueue =new MyQueue<Integer>(intialCapacity);
+
+    }
+    @Override
+    public boolean addR(Integer e) {
+        if(super.addR(e)){
+            if(max() == null || max() <= e){
+                maxValuesQueue.addR(e);
+            }
+
+            if(min() == null || min() >= e){
+                minValuesQueue.addR(e);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public Integer removeL() {
+        Integer element =super.removeL();
+        if(element !=null){
+            if(maxValuesQueue.element() == element){
+                maxValuesQueue.removeL();
+            }
+
+            if(minValuesQueue.element() == element){
+                minValuesQueue.removeL();
+            }
+        }
+        //Need to re-generate MIN and MAX queue when the main queue is not empty and min/max queue is empty
+        regenerateMin();
+        regenerateMax();
+
+        return element;
+    }
+
+    private void regenerateMin(){
+        Integer current =null;
+        if(!super.isEmpty() && min() ==null){
+            for(int front = super.front; front<= super.rear;front++){
+                current = (Integer)elements[front];
+                if(min() == null || min() >= current){
+                    minValuesQueue.addR(current);
+                }
+
+            }
+        }
+    }
+
+    private void regenerateMax(){
+        Integer current =null;
+        if(!super.isEmpty() && max() ==null){
+            for(int front = super.front; front<= super.rear;front++){
+                current = (Integer)elements[front];
+                if(max() == null || max() <= current){
+                    maxValuesQueue.addR(current);
+                }
+            }
+        }
+    }
+    public Integer min() {
+        return minValuesQueue.elementR();
+    }
+
+    public Integer max() {
+        return maxValuesQueue.elementR();
+    }
+    @Override
+    public String toString() {
+        return super.toString()+"\nMinAndMaxFinderQueue [maxValuesQueue=" + maxValuesQueue
+                + ", minValuesQueue=" + minValuesQueue + "]";
+    }
+
+
+
+}
+//Test class 
+package com.java.util.collection.advance.datastructure.queue;
+
+import java.util.Random;
+
+
+public class MinMaxQueueFinderApp {
+
+    public static void main(String[] args) {
+        FindMinMaxQueue<Integer> queue =new MinAndMaxFinderQueue(10);
+        Random random =new Random();
+        for(int i =0; i< 10; i++){
+            queue.addR(random.nextInt(100));
+            System.out.println(queue);
+            System.out.println("MAX :"+queue.max());
+            System.out.println("MIN :"+queue.min());
+        }
+        System.out.println(queue);
+        System.out.println("MAX :"+queue.max());
+        System.out.println("MIN :"+queue.min());
+
+        queue.removeL();
+        System.out.println(queue);
+        System.out.println("MAX :"+queue.max());
+        System.out.println("MIN :"+queue.min());
+        queue.removeL();
+        System.out.println(queue);
+        System.out.println("MAX :"+queue.max());
+        System.out.println("MIN :"+queue.min());
+        queue.removeL();
+        System.out.println(queue);
+        System.out.println("MAX :"+queue.max());
+        System.out.println("MIN :"+queue.min());
+        queue.removeL();
+        System.out.println(queue);
+        System.out.println("MAX :"+queue.max());
+        System.out.println("MIN :"+queue.min());
+        queue.removeL();
+        System.out.println(queue);
+        System.out.println("MAX :"+queue.max());
+        System.out.println("MIN :"+queue.min());
+
+
+        System.out.println(queue);
+        System.out.println("MAX :"+queue.max());
+        System.out.println("MIN :"+queue.min());
+    }
+}

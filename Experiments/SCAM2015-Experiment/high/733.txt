@@ -1,0 +1,4 @@
+binlog:         11.5s
+log2nlz:        16.5s
+log2fp:        118.1s
+log(x)/log(2): 165.0s

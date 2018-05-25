@@ -1,0 +1,15 @@
+BufferedImage bufferGambar;
+try {
+
+    bufferGambar = ImageIO.read(new File("ImagePNG.png"));
+    // pkai type INT karna bertipe integer RGB bufferimage
+    BufferedImage newBufferGambar = new BufferedImage(bufferGambar.getWidth(), bufferGambar.getHeight(), BufferedImage.TYPE_INT_RGB);
+
+    newBufferGambar.createGraphics().drawImage(bufferGambar, 0, 0, Color.white, null);
+    ImageIO.write(newBufferGambar, "jpg", new File("Create file JPEG.jpg"));
+
+    JOptionPane.showMessageDialog(null, "Convert to JPG succes YES");
+
+} catch(Exception e) {
+    JOptionPane.showMessageDialog(null, e);
+}

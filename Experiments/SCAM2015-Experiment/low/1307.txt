@@ -1,0 +1,7 @@
+@Override
+public void onKeyPress(KeyPressEvent event) {
+   char charCode= event.getCharCode();
+   if(charCode == (char) KeyEvent.VK_BACK_SPACE){
+       //do someThing 
+   }
+}

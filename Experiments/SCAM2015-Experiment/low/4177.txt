@@ -1,0 +1,24 @@
+public class demo
+{
+    private demo()
+    {
+
+    }
+    public static demo getObject()
+    {
+        return new demo();
+    }
+
+    public void add()
+    {
+
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        demo d1 = demo.getObject();
+        d1.add();
+    }
+}

@@ -1,0 +1,10 @@
+public boolean equals(Object other){        
+     if (other == this){
+         return true;
+     } else if (other instanceof FractionInterface) {
+         FractionInterface fOther = (FractionInterface) other;
+         // compare numerator and denominator...
+     } else {
+         return false;
+     }
+}

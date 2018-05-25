@@ -1,0 +1,11 @@
+while(true){
+
+  if(ServerString.contentEquals("") || boolean == true{
+     //coding
+
+     }
+     try{
+        Tread.sleep(60)}
+    catch(Exception e){e.printStackTrace }
+
+   }

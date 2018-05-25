@@ -1,0 +1,7 @@
+/examples
+ jna.jar
+ /com
+   /sun
+      /jna
+         /examples
+           HelloWorld.java

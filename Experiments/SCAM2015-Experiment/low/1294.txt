@@ -1,0 +1,40 @@
+System.out.println(x);
+
+You will see what is being compared. 
+
+A test shows what you have could work;
+
+
+import org.junit.Test;
+import static org.junit.Assert.assertTrue;
+
+public class BooleanLogicTest {
+
+@Test
+public void testLogical() {
+  String x = " ";
+  boolean result = x == " ";
+  assertTrue("Could be true", result);
+}
+
+@Test
+public void testCompare() {
+  String x = " ";
+  boolean result = " ".equals(x);
+  assertTrue("Could be true", result);
+}
+
+@Test
+public void testLogicalX() {
+  String x = "*";
+  boolean result = x == "*";
+  assertTrue("Could be true", result);
+} 
+
+@Test
+public void testCompareX() {
+  String x = "*";
+  boolean result = "*".equals(x);
+  assertTrue("Could be true", result);
+  System.out.println(x);
+}

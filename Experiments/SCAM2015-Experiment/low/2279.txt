@@ -1,0 +1,36 @@
+public class Main{
+    public static void main(String[] args){
+          HashMap<Integer,Integer> mymap = new myMap<Integer,Integer>();
+          mymap.put(3,4);
+          mymap.put(5,6);
+          System.out.println(mymap.get(3));//this will print 4;
+          System.out.println(mymap.getCountGets());//this will print 1 
+          System.out.println(mymap.getCountPuts());//this will print 2
+    }
+}
+class myMap<K,V> extends HashMap<K,V> {
+
+public myMap(){
+    countPuts = 0;
+    countGets = 0;
+}
+private int countPuts, countGets ;
+
+@Override
+public V put(K k, V v){
+    countPuts++;
+    return super.put(k, v);
+}
+@Override
+public V get(Object k){
+    countGets++;
+    return super.get(k);
+}
+
+public int getCountGets(){
+    return countGets;
+}
+
+public int getCountPuts(){
+    return countPuts;
+}

@@ -1,0 +1,8 @@
+int getSize(int v) {
+    int[] thresholds = {145, 117, 68, 51, 22, 10};
+
+    for (int i = 0; i < thresholds.length; i++) {
+        if (v > thresholds[i]) return i+1;
+    }
+    return 1;
+}

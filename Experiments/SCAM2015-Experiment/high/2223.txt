@@ -1,0 +1,4 @@
+(?<!\S)     // Checks to make sure that the @ is preceded by a whitespace
+            // character, or is the beginning of the string. This exists to make sure we're not in an email.
+@           // Literal @
+(?=\S+)     // Makes sure that something besides whitespace follows.

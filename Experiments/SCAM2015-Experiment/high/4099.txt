@@ -1,0 +1,4 @@
+public void storeMember(Member member)
+{
+    listofmembers.add(member);
+}

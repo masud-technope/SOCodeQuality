@@ -1,0 +1,4 @@
+String url= URLEncoder.encode("your URL without http or your query string part here");
+URL searchUrl = new URL("http://" + url);
+URLConnection conn = null;
+conn = searchUrl.openConnection();

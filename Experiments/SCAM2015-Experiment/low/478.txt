@@ -1,0 +1,20 @@
+private static boolean testPath(String path) {
+    int prefixLen = FilenameUtils.getPrefixLength(path);
+    if (testPathWin(path, prefixLen) || testPathLinux(prefixLen))
+        return true;
+    else
+        return false;
+}
+
+private static boolean testPathWin(String path, int prefixLen) {
+    if (prefixLen == 3)
+        return true;
+    File f = new File(path);
+    if ((prefixLen == 2) && (f.getPath().charAt(0) == '/'))
+        return true;
+    return false;
+}
+
+private static boolean testPathLinux(int prefixLen) {
+    return (prefixLen != 0);
+}

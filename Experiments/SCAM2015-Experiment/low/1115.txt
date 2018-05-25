@@ -1,0 +1,18 @@
+/**
+ *  Call this class when calculations need to be done.
+ */
+public class OrderProcessor {
+    // Declare instance of DocumentParser
+    DocumentParser dc1;
+
+    // Getter and setter for dc1
+
+    public Double calculateTotalPriceWithDiscountCode(Order order, char discountCode) {
+        // Find the corresponding discountcode and 
+        // value from the list of values in the 
+        // Class DocumentParser          
+
+        // Use the corresponding values to calculate 
+        // the discount and return the value
+    }
+}

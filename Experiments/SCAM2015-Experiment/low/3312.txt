@@ -1,0 +1,6 @@
+JSONArray array = parser.parse(jsonString);
+for (JSONObject object : array) {
+    int id = object.getInt("Id");
+    String name = object.getString("Name");
+    ....
+}

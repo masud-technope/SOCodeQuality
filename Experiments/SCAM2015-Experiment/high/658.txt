@@ -1,0 +1,4 @@
+String sql = String.format(SQL, "SUBSTR(DSN,27,16)"); // This replaces the %s.
+preparedStatement = connection.prepareStatement(sql);
+preparedStatement.setInt(1, defaultWasGroup);
+preparedStatement.setString(2, "%Module=jvmRuntimeModule:freeMemory%");

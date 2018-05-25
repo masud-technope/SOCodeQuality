@@ -1,0 +1,10 @@
+public class test
+ {
+     public static void main(String args[])
+     {
+        Time t = new Time();
+
+       //now use any method of time class
+        //i.e. t.methodname(pram)
+     }
+ }

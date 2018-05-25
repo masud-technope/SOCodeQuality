@@ -1,0 +1,39 @@
+public class TextAreaSample
+{
+  public static void main(String [] args) throws IOException {
+    compare(readFileAsList("deneme1.txt"),
+            readFileAsList("deneme2.txt"));
+  }
+
+  private static void compare(List<String> strings1, List<String> strings2)
+  throws IOException
+  {
+    final Collator c = Collator.getInstance();
+    c.setStrength(Collator.PRIMARY);
+    final SortedSet<String>
+      union = new TreeSet<String>(c),
+      intersection = new TreeSet<String>(c);
+    union.addAll(strings1);
+    union.addAll(strings2);
+    intersection.addAll(strings1);
+    intersection.retainAll(strings2);
+    union.removeAll(intersection);
+    write(union, "deneme3.txt");
+  }
+
+  private static void write(Collection<String> out, String fname) throws IOException {
+    FileWriter writer = new FileWriter(new File(fname));
+    try { for (String s : out) writer.write(s + "\n"); }
+    finally { writer.close(); }
+  }
+
+  private static List<String> readFileAsList(String name) throws IOException {
+    final List<String> ret = new ArrayList<String>();
+    final BufferedReader br = new BufferedReader(new FileReader(name));
+    try {
+      String strLine;
+      while ((strLine = br.readLine()) != null) ret.add(strLine);
+      return ret;
+    } finally { br.close(); }
+  }
+}

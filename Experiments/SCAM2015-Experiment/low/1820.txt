@@ -1,0 +1,8 @@
+POST /path/to/resource HTTP/1.1
+Host: example.com
+Content-Type: multipart/form-data, boundary=A9zfsdf0x;9ad
+
+--A9zfsdf0x;9ad
+content-disposition: form-data; name="id"
+
+foobar

@@ -1,0 +1,6 @@
+public class HelloWorld {
+@RequestMapping(method=RequestMethod.GET)
+public String printHello(ModelMap model){
+    model.addAttribute();
+    return new ModelAndView("hello","message", "Hello World");
+}

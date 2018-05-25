@@ -1,0 +1,3 @@
+for (Map.Entry<Integer, Point3d> entry : coOrdinates.entrySet()) {
+    Point3d point = entry.getValue());
+}

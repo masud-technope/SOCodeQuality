@@ -1,0 +1,40 @@
+static void test()
+{
+    File f = new File("e:\\folder");
+    List<File> res = new ArrayList<File>();
+    search(f, res, "normal");
+    System.out.println(res);
+    search(f, res, "focus");
+    System.out.println(res);
+}
+
+static void search(File f, List<File> res, final String search)
+{
+    if(f.isDirectory())
+    {
+        File[] result = f.listFiles(new FilenameFilter()
+        {
+            public boolean accept(File file, String name)
+            {
+                return file.isDirectory() && name.equals(search);
+            }
+        });
+        if(result != null)
+        {
+            for(File file : result)
+            {
+                res.add(file);
+            }
+        }
+
+        //search further recursively
+        File[] allFiles = f.listFiles();
+        if(allFiles != null)
+        {
+            for(File file: allFiles)
+            {
+                search(file, res, search);
+            }
+        }
+    }
+}

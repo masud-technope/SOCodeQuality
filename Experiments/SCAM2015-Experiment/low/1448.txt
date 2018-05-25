@@ -1,0 +1,5 @@
+MultivaluedMap<String,String> formData = new MultivaluedMapImpl();
+formData.add("text", text);
+
+WebResource resource = Client.create().resource(getBaseURI()).path("text2rdf");
+return resource.type("application/x-www-form-urlencoded").post(String.class, formData);

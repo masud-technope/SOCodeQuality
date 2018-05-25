@@ -1,0 +1,4 @@
+final int[] counts = new int[1<<16];
+
+for (char c : <your_string>)
+  counts[c]++;

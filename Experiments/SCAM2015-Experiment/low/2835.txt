@@ -1,0 +1,3 @@
+String str1 = "hello";
+String str2 = "hello";
+str2 = str2 + " world";

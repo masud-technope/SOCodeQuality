@@ -1,0 +1,15 @@
+public int[] getRandomNonrepeat(int iMin, int iMax){
+    int iSize = iMax - iMin + 1;
+    int[] random = new int[iSize];
+    int iLoopRepetion=0;
+    Random rand = new Random();
+    for(int i=0;i<iSize;i++){
+        random[i]=rand.nextInt(iSize)+1;
+        for(iLoopRepetion=0;iLoopRepetion<i;iLoopRepetion++)
+            if(random[i]==random[iLoopRepetion])
+                break;
+        if(iLoopRepetion!=(i)&&iLoopRepetion!=iSize-1)
+            i--;
+    }
+    return random;
+}

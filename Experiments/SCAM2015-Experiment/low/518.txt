@@ -1,0 +1,7 @@
+Iterator<Map.Entry<String,String>> iterator = map.entrySet().iterator();
+while (iterator.hasNext()) {
+    Map.Entry<String,String> entry = iterator.next();
+    if (entry.getValue().equals(value_you_look_for)) {
+        String key_you_look_for = entry.getKey();
+}
+}

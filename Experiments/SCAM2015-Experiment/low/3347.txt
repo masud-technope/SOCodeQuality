@@ -1,0 +1,7 @@
+for(int i = 100; i < 200; i++) {
+        if (i>100 && i % 10 == 0) {
+              System.out.println();
+        }
+        System.out.print(i);
+        System.out.print(" ");
+    }

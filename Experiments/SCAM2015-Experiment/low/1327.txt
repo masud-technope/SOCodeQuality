@@ -1,0 +1,4 @@
+public void run(Object obj) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+    Method m = obj.getClass().getMethod("generate");
+    m.invoke(obj);
+}

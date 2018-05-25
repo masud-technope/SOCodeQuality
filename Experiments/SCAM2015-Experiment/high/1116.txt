@@ -1,0 +1,3 @@
+public HashMap<?, ?> mergeSort(HashMap<?, ?> map) {
+    return new LinkedHashMap(new TreeMap(map));
+}

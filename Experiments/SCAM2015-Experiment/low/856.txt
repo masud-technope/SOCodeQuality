@@ -1,0 +1,3 @@
+type Edge
+    boolean directed = false;
+    number  weight = 1;

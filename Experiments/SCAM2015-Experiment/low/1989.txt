@@ -1,0 +1,23 @@
+/**
+ * author CLRZ
+ */
+public static void main(String[] args) {
+    int a; // variable
+    Scanner in = new Scanner(System.in); // scans your input
+    System.out.println("Enter your number's choice:"); 
+    int sem1 = in.nextInt(); // reads next integer
+    if (sem1 == 1) // conditioned if your choice number is equal to 1
+    System.out.println("Hello World1"); // output wil be Hello World
+    int b;
+
+    System.out.println("Enter your number's choice:");
+    int sem2 = in.nextInt(); 
+    if (sem2 == 2)
+    System.out.println("Hello World2");
+    int c;
+
+    System.out.println("Enter your number's choice:");
+    int sem3 = in.nextInt(); 
+    if (sem3 == 3)
+    System.out.println("Hello World3");
+}

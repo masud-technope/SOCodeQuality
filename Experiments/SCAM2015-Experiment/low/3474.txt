@@ -1,0 +1,4 @@
+while (map.isEmpty()) {
+   Thread.sleep(100);
+}
+map.get(0);

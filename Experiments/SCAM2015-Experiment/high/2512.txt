@@ -1,0 +1,5 @@
+#4
+  int res = Math.max(from, to);
+  res = (res << 16) | (res >>> 16);  // exchange top and bottom 16 bits.
+  res = res ^ Math.min(from, to);
+  return res;

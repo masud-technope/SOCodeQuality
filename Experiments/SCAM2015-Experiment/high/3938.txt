@@ -1,0 +1,3 @@
+User user1 = new User();
+// ... do stuff to populate ratings
+Rating itemRatingByUser = user1.getRatingFor(item);

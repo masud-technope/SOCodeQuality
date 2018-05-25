@@ -1,0 +1,6 @@
+public string GetValidUsername(string userName){
+    if (username.length() < 8 ) {
+        return username  + "random" ; // add some random string
+    }
+    return username;
+}

@@ -1,0 +1,4 @@
+if (!future.isDone()){
+    future.cancel(true);
+}
+future = myScheduledExecutor.schedule(myTask, delay, TimeUnit.MILLISECONDS);

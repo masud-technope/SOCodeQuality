@@ -1,0 +1,5 @@
+<S extends Number, U extends Integer> void someMethod() {
+
+    List<U> l1;
+    List<S> l2 = l1; //incompatible types
+}

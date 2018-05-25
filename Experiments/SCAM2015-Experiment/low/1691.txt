@@ -1,0 +1,15 @@
+public class Test {
+    private final Object lock = new Object();
+    public Test() {
+        synchronized (lock) {
+            // your improper object reference publication
+            // long initialization
+        }
+    }
+
+    public void doSomething() {
+        synchronized (lock) {
+            // do something
+        }
+    }
+}

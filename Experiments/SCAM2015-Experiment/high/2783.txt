@@ -1,0 +1,7 @@
+class Foo {
+    String f;
+ } 
+
+ class Bar {
+   String b;
+ }

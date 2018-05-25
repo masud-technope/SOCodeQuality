@@ -1,0 +1,3 @@
+interface Visitor<ArgType, ResultType, ExceptionType extends Exception> {
+    ResultType visitProgram(String prog, ArgType arg) throws ExceptionType;
+}

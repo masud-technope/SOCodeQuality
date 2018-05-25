@@ -1,0 +1,6 @@
+button.addActionListener(new ActionListener(){
+   public void actionPerformed(ActionEvent ae){
+      String textFieldValue = testField.getText();
+      // .... do some operation on value ...
+   }
+})

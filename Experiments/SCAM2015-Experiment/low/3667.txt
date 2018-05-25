@@ -1,0 +1,21 @@
+class prime {
+
+    public static void main ( String args [ ] ) {
+
+        int x, i, c = 0;
+
+        x = Integer.parseInt(args[0]);
+
+        for (i = 1; i <= x; i++) {
+            if (x % i == 0) {
+                c++;
+            }
+        }
+
+        if (c == 2) {
+            System.out.println("prime number");
+        } else {
+            System.out.println("not a prime number")
+        }
+    }
+}

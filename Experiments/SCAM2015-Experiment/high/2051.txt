@@ -1,0 +1,20 @@
+Thread t = new Thread(new Runnable()
+    {
+      public void run()
+      {
+        driver.get(Thread.currentThread().getName());
+      }
+    }, url);
+    t.start();
+    try
+    {
+      t.join(YOUR_TIMEOUT_HERE_IN_MS);
+    }
+    catch (InterruptedException e)
+    { // ignore
+    }
+    if (t.isAlive())
+    { // Thread still alive, we need to abort
+      logger.warning("Timeout on loading page " + url);
+      t.interrupt();
+    }

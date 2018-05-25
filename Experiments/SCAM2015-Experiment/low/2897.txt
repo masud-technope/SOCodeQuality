@@ -1,0 +1,8 @@
+File file = new File("test.txt");
+if (!file.exists()) {
+    System.err.println(file.getName() + " not found. Full path: " + file.getAbsolutePath());
+    /* Handling code, or */
+    return;
+}
+BufferedReader reader = new BufferedReader(new FileReader(file));
+/* other code... */

@@ -1,0 +1,7 @@
+Action clickAction = new AbstractAction("Click") {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        area.setBackground(new Color(0, 0, 123, 138));
+        area.repaint();
+    }
+};

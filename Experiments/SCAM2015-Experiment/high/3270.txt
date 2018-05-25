@@ -1,0 +1,3 @@
+public interface MyTaskActionListener{
+    public void didFinish(String result);
+}

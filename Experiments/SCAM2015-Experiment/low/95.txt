@@ -1,0 +1,3 @@
+if (MyInterface.isAssignableFrom(myObject.getClass())) {
+  //  do work here
+}

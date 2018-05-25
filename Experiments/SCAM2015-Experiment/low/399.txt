@@ -1,0 +1,6 @@
+ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+byte[] buffer = new byte[1024]; //you can configure the buffer size
+while (in.read(buffer) != -1) out.write(buffer); //copy streams
+
+byte[] result = out.toByteArray();

@@ -1,0 +1,5 @@
+Calendar calendar=Calendar.getInstance();
+calendar.setTime(date3);
+calendar.set(Calendar.HOUR, 0);
+calendar.set(Calendar.MINUTE, 0);
+calendar.set(Calendar.SECOND, 0);

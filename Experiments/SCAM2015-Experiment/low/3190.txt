@@ -1,0 +1,9 @@
+org.springframework.asm-3.1.4.RELEASE.jar
+org.springframework.aspects-3.1.4.RELEASE.jar
+org.springframework.beans-3.1.4.RELEASE.jar
+org.springframework.context-3.1.4.RELEASE.jar
+org.springframework.context.support-3.1.4.RELEASE.jar
+org.springframework.core-3.1.4.RELEASE.jar
+org.springframework.web.struts-3.1.4.RELEASE.jar
+org.springframework.web.servlet-3.1.4.RELEASE.jar
+org.springframework.web-3.1.4.RELEASE.jar

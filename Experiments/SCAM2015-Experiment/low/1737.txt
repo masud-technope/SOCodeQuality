@@ -1,0 +1,5 @@
+Calendar cal = Calendar.getInstance();
+     System.out.println("Today : " + cal.getTime());
+    // Subtract 300 days from the calendar
+    cal.add(Calendar.DATE, -300);
+    System.out.println("300 days ago: " + cal.getTime());

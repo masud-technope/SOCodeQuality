@@ -1,0 +1,8 @@
+...
+//The client is shutting down / disconnecting
+serverInstance.sem.release(); //not good OOP
+
+OR 
+
+serverInstance.clientFinished(); //callback, where clientFinished in your server class will release the lock
+...

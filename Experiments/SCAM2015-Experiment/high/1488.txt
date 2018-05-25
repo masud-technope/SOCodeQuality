@@ -1,0 +1,6 @@
+public int compareTo(SomeClass o) {
+    return ComparisonChain.start()
+         .compare(field1, o.field1)
+         .compare(field2, o.field2)
+         .result();
+}

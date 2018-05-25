@@ -1,0 +1,8 @@
+String text = "Anita lava la tina";
+text = text.toLowerCase().replaceAll(" ", "");
+
+StringBuilder strb = new StringBuilder(text);
+
+String text2 = strb.reverse().toString();
+
+System.out.println("Palindrome: " + text.equals(text2));

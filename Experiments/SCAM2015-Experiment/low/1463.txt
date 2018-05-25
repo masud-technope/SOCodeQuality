@@ -1,0 +1,24 @@
+<script>
+  // app data, rendered on server
+  var photosJSON = [
+    { id: 2, name: "My dog", filename: "IMG_0392.jpg" },
+    { id: 3, name: "Our house", filename: "IMG_0393.jpg" },
+    { id: 4, name: "My favorite food", filename: "IMG_0394.jpg" },
+    { id: 5, name: "His bag", filename: "IMG_0394.jpg" },
+  ];
+ </script>      
+ ...
+
+ <script>
+  var Photo = Backbone.Model.extend({
+  // photo attributes (from above)
+  });
+
+  var PhotoCollection = Backbone.Collection.extend({
+     model:Photo
+  });
+
+  // build collection model without AJAX call using
+  // server rendered JSON above
+  var photosCollection = new Photos(photosJSON);
+</script>

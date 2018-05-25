@@ -1,0 +1,15 @@
+// Encrypt cipher
+Cipher encryptCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+encryptCipher.init(Cipher.ENCRYPT_MODE, aesKey);
+
+// Encrypt
+ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+CipherOutputStream cipherOutputStream = new CipherOutputStream(outputStream, encryptCipher);
+cipherOutputStream.write(s.getBytes());
+cipherOutputStream.flush();
+cipherOutputStream.close();
+byte[] encryptedBytes = outputStream.toByteArray();
+
+// Decrypt cipher
+Cipher decryptCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+decryptCipher.init(Cipher.DECRYPT_MODE, aesKey);

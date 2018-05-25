@@ -1,0 +1,7 @@
+// Start activity B and pass the value you want to save in there
+Intent A = new Intent(this, ActivityB.class);
+A.putExtra("value", number);
+
+// Start activity A from B and pass the value you saved in there
+Intent B = new Intent(this, ActivityA.class);
+B.putExtra("value", getIntent().getExtra("value");

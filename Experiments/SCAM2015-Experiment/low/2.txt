@@ -1,0 +1,4 @@
+public interface IPayable
+{
+    public Pay(double amount);
+}

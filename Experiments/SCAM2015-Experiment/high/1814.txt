@@ -1,0 +1,8 @@
+File physicalFile = new File(path); // This is one of your file objects inside your for loop, since you already have them just delete them.
+try {
+    physicalFile.delete(); //Returns true if the file was deleted or false otherwise. 
+                           //You might want to know this just in case you need to do some additional operations based on the outcome of the deletion.
+} catch(SecurityException securityException) {
+    //TODO Handle. 
+    //If you haven't got enough rights to access the file, this exception is thrown.
+}

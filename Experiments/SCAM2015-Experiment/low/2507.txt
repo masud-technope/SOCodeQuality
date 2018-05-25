@@ -1,0 +1,7 @@
+if(someCard instanceof JokerCard) {
+  /* Some logic here*/
+}
+else if(someCard instanceOf ScoreCard) {
+  int score = ((ScoreCard) someCard).getScore();
+  /* some more logic here */
+}

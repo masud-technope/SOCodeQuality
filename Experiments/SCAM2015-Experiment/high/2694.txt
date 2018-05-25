@@ -1,0 +1,6 @@
+public void add(int position, LinkedList<T> list) {
+    int index = position;
+    for(T elem : list) {
+        add(index ++, elem) // call to your implementation + increment index
+    }
+}

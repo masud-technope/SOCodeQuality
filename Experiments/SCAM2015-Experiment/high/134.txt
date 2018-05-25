@@ -1,0 +1,5 @@
+class Foo implements IXMLizable<Foo> {
+  public static Foo newInstanceFromXML(Element e) { ... }
+}
+
+Foo obj = Foo.newInstanceFromXML(e);

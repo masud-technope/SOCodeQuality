@@ -1,0 +1,4 @@
+void method()
+{
+     int i = 0;  // this int is local to 'method'
+}

@@ -1,0 +1,3 @@
+DVD dvd = new DVD();
+dvd.changeTitle(title);
+// repeat for all other params.

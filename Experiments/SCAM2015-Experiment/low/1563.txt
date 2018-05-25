@@ -1,0 +1,3 @@
+if ("A".equals(get)) {
+        txtV.setText("...");
+}

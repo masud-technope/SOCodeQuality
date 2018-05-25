@@ -1,0 +1,10 @@
+void doILikeYourVariables(int a, int b) {
+  if (a > 5) {
+    Print("Very well, a > 5");
+    if (b > 7) {
+      Print("Even better, b > 7");
+      return;
+    }
+  }
+  Print("I don't like your variables");
+}

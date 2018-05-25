@@ -1,0 +1,10 @@
+Result tryOpenFile(File f) {
+  while (true) {
+    try {
+      // try to open the file
+      return result; // or break
+    } catch (FileNotFoundException e) {
+      // try to recover, wait, whatever
+    }
+  }
+}

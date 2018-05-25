@@ -1,0 +1,11 @@
+static int knapsack(int[] values, int[] weights, int W, int[] tab, int i) {
+    if(i>=values.length) return 0;
+    if(tab[W] != 0) 
+        return tab[W];      
+
+    int value1 = knapsack(values, weights, W, tab, i+1);        
+    int value2 = 0;
+    if(W >= weights[i]) value2 = knapsack(values, weights, W-weights[i], tab, i+1) + values[i];
+
+    return tab[W] = (value1>value2) ? value1 : value2;
+}

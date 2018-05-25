@@ -1,0 +1,19 @@
+public class Questionnaire
+{
+    public List<Question> myQuestions {get; private set;}
+
+    public Questionnaire(string[] questions)
+    {
+
+       myQuestions = new List<Questions>();
+
+       foreach(string q in questions)
+       {
+          myQuestions.Add(new Question {questionText = g});
+       }
+    }
+}
+public class Question
+{
+    public string questionText {get; set;}
+}

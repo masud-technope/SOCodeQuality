@@ -1,0 +1,4 @@
+List<Integer> list = new ArrayList<Integer>() ;
+list.add(1) ;
+Integer hello = list.get(0); // generics add an implicit cast here
+System.out.println(hello);

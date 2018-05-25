@@ -1,0 +1,15 @@
+public static void main(String[] args)
+    {
+        try{
+            a(null);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+            e.printStackTrace();
+        }
+    }
+    public static void a(String[] args)  
+    {
+        throw null; 
+    }

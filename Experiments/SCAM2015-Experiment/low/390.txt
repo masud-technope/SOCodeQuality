@@ -1,0 +1,25 @@
+package javagame;
+
+import java.awt.BorderLayout;
+import javax.swing.JFrame;
+
+/**
+ *
+ * @author stuart
+ */
+public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        JFrame frame= new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setBounds(100, 100, 500, 400);
+
+        frame.add(new GamePanel(), BorderLayout.CENTER);
+        frame.setVisible(true);
+    }
+
+}

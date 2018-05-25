@@ -1,0 +1,7 @@
+public static void main(String[] args) {
+    int myfirstinteger = 1;
+    int mysecondinteger = 2;
+    int mythirdinteger = 0;
+    int result = myfirstinteger/mythirdinteger; 
+       // will still fail, you cannot divide by 0
+}

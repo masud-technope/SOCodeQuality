@@ -1,0 +1,5 @@
+public String fillSpaces(int len) {
+    /* the spaces string should contain spaces exceeding the max needed */  
+    String spaces = "                                                   ";
+    return spaces.substring(0,len);
+}

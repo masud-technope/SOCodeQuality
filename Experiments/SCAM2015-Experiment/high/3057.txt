@@ -1,0 +1,7 @@
+public class Item{
+   private double cost;
+...
+   public double getCost(){
+      return this.cost;
+   }
+}

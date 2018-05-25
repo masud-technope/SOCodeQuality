@@ -1,0 +1,6 @@
+if outer is even
+    if inner is even
+        print
+else // outer is odd
+    if inner is odd
+        print

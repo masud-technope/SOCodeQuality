@@ -1,0 +1,5 @@
+if (positionE!=-1) {
+    if ((position==-1) || (positionE<position)) {
+         position = positionE;
+    }        
+}

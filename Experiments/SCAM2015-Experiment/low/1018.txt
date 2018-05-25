@@ -1,0 +1,6 @@
+try{
+    rl.lock();
+    //use the variable
+}finally{
+    rl.unlock();
+}

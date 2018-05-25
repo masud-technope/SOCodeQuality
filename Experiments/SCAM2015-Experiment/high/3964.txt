@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Wheel">
+        <attr name="wheel_rotation_duration" format="integer"/> <!-- default:400 -->
+        <attr name="wheel_diameter" format="integer"/> <!-- default:250 -->
+        <attr name="items" format="integer"/>
+        <attr name="item_selected_index" format="integer"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,4 @@
+MyObject someObj = ...;
+Stack<MyObject> myStack = new Stack<MyObject>();
+myStack.push(someObj);
+someObj = myStack.pop(); // Now this works!

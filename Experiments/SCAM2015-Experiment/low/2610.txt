@@ -1,0 +1,4 @@
+for(File file : fileList.getFiles())
+    try{
+      (getting file + process it)
+       }

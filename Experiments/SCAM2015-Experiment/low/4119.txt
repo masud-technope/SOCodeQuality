@@ -1,0 +1,9 @@
+public String toString()
+{
+     String ret = "";
+     for (Camino camino : listCaminos)
+     {
+         ret += camino.toString() + "\n";
+     }
+     return ret;
+}

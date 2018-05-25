@@ -1,0 +1,8 @@
+FileInputStream input = new FileInputStream(filePath);
+
+byte[] fileData = new byte[input.available()];
+
+input.read(fileData);
+input.close();
+
+return new String(fileData, "UTF-8");

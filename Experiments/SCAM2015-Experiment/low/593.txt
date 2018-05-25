@@ -1,0 +1,8 @@
+} finally {
+    try {
+        fileReader.close();
+        fileWriter.close();
+    } finally {
+        //dunno maybe log that something went wrong.
+    }
+}

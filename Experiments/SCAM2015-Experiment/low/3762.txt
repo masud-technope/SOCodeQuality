@@ -1,0 +1,4 @@
+double d=123.23;
+d=d/10;
+double out=  (double) Math.round(d*100) / 100;
+System.out.println(out);

@@ -1,0 +1,11 @@
+JButton button = new JButton("Test");
+
+    try {
+        button.setEnabled(false);
+        Thread.sleep(10000);
+        button.setEnabled(true);
+    } catch (InterruptedException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+}

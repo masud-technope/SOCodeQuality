@@ -1,0 +1,5 @@
+input: dog
+output: dogdog
+--------------
+input: racecar
+output: racecaracecar

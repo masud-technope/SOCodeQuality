@@ -1,0 +1,20 @@
+public class Employee implements Comparable<Employee> {
+
+   private String id;
+   private String name;
+   private int salary ;
+
+   public int compareTo(Employee val) {
+   return id.compareTo(val.id);
+  }
+
+getter and setters here
+   }
+
+
+
+   List<Employee> emp= new ArrayList<Employee>();
+
+
+
+    Collections.sort(emp);

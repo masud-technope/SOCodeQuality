@@ -1,0 +1,4 @@
+WS.url("http://localhost:9001")
+    .setQueryParameter("param1", "foo")
+    .setQueryParameter("param2", "bar")
+    .post("content");

@@ -1,0 +1,15 @@
+interface I {
+}
+class A {
+}
+class B {
+}
+class Test {
+    public static void main(String args[]) {
+        A a = null;
+        B b = (B)(Object)a;
+
+        I i = null;
+        B b1 = (B)i;
+    }
+}

@@ -1,0 +1,3 @@
+is_integer = lambda x: isinstance(x, int)
+print is_integer(2)
+print is_integer('foo')

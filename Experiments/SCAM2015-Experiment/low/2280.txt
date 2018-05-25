@@ -1,0 +1,3 @@
+while ((object = inputStream.readObject()) != null) {
+  // ...
+}

@@ -1,0 +1,14 @@
+import java.util.Arrays;
+public class ExampleContains {
+    public static boolean EligibleState(String state){
+        String[] cities = new String[]{"Washington", "London", "Paris", "NewYork"};
+        boolean test = Arrays.asList(cities).contains(state)?true:false;
+        return test;
+     }
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        System.out.println(EligibleState("London"));
+    }
+
+}

@@ -1,0 +1,22 @@
+private A a;
+private C c;
+
+public static void main(String []a)
+{
+    B b=new B();
+    b.methodB1();
+    b.methodB2();
+}
+
+public void methodB1()
+{
+    c= new C();
+    a = c.methodC1();
+    System.out.println("Inside Method B1");
+}
+
+public void methodB2()
+{
+    a.methodA1();
+    System.out.println("Inside Method B2");
+}

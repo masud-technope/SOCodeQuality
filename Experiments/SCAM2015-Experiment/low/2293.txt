@@ -1,0 +1,16 @@
+public int toNegative(int arg1) { // Change to negative
+    if (arg1 >= 0) {
+        // Its positive so we invert
+        return arg1-arg1*2;
+    } else {
+        return arg1;
+    }
+}
+public int toPositive(int arg1) { // Change to negative
+    if (arg1 <= 0) {
+        // Its negative so we invert
+        return arg1-arg1*2;
+    } else {
+        return arg1;
+    }
+}

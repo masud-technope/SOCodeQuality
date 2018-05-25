@@ -1,0 +1,19 @@
+SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+             dialog = new JDialog();
+             dialog.setUndecorated(true);
+             JPanel panel = new JPanel();
+             panel.add(new JLabel("Please wait"));
+             dialog.add(panel);                
+             GuiHelper.centerDialog(dialog); 
+             dialog.setVisible(true);
+
+            Thread performer = new Thread(new Runnable() {
+                public void run() {
+                    dialog.setVisible(false); 
+                    //Here the code that prepare the chart                              
+                }
+        });
+        performer.start();
+    }
+});

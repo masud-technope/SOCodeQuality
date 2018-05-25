@@ -1,0 +1,8 @@
+public class ThreadsManager {
+    private final static ThreadsManager instance = new ThreadsManager();
+    private static String userName;
+
+public static synchronized ThreadsManager getInstance( String user ) {
+    if ( username == null ) { userName = user; }
+    return instance;
+}

@@ -1,0 +1,5 @@
+public class SomeClass implements Something {
+    public void doSomething() {
+        // do what?
+    }
+}

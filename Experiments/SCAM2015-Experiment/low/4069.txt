@@ -1,0 +1,25 @@
+import java.util.NoSuchElementException;
+import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+public class dropdown {
+     private static WebDriver driver = new FirefoxDriver() ;
+     String Path ="C:\\Users\\VGupta\\Desktop\\testcases\\auto.xlsx";
+     @Test
+     public void test() throws Exception
+    {
+            driver.get("http://www.test.com/");
+          //Dimension size   = ('900','500');
+          driver.manage().window().setSize(new Dimension(1000,1000));
+         try{
+         driver.findElement(By.id("foo")).click();
+
+          } catch(NoSuchElementException e)
+          {
+              System.out.println(e.getStackTrace());
+          }
+}

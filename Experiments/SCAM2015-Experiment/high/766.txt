@@ -1,0 +1,3 @@
+<h:outputText id="checkedOutBy" value="#{item.checkedOutBy}"/>
+...
+<p:poll id="poll" interval="5" update="checkedOutBy" />

@@ -1,0 +1,6 @@
+for (int i=0; i < wordsInLine.length(); i++)
+{
+   char c = word.charAt(i);
+   int j = (int) c;
+   total += c;
+ }

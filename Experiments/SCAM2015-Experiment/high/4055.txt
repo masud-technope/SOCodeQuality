@@ -1,0 +1,4 @@
+center.add(new JLabelBuilder()
+                   .setText("Antwoord Vraag" + (i + 1) + ": " + antwoord.get(i))
+                   .setForegroundColor(Color.red)
+                   .build());

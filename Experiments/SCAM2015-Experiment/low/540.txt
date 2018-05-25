@@ -1,0 +1,24 @@
+package com.my.company.jmx
+        import groovy.util.GroovyMBean;
+        import javax.management.remote.JMXServiceURL
+        import javax.management.remote.JMXConnectorFactory
+        import java.lang.management.*
+
+            class Monitor {
+                static main(args) {
+                    def serverUrl = 'service:jmx:rmi:///jndi/rmi://localhost:5019/jmxrmi'
+                    String beanName = "Catalina:type=DataSource,class=javax.sql.DataSource,name=\"jdbc/CommonDB\""
+                    println  "numIdle,numActive"
+
+                    while(1){
+                        def server = JMXConnectorFactory.connect(new JMXServiceURL(serverUrl))
+                       //make sure to reconnect in case the jvm was restrated 
+                        server.connect()
+                        GroovyMBean mbean = new GroovyMBean(server.MBeanServerConnection, beanName)
+                        println  "${mbean.numIdle},${mbean.numActive}"
+                        server.close()
+                        sleep(10000)
+                    }
+
+                }
+            }

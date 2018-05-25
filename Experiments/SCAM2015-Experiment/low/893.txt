@@ -1,0 +1,4 @@
+public void paint(Graphics g){
+    g.setColor(new Color(255,0,0));
+    g.fillRect(10,10,200,50);
+}

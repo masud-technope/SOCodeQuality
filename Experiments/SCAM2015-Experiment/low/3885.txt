@@ -1,0 +1,7 @@
+private boolean isLargest(int a, ArrayList<Integer> list)
+{
+   ArrayList<Integer> sortedList = Collections.sort(list);
+   if(a > sortedList.get(0))
+      return true;
+   return false;
+}

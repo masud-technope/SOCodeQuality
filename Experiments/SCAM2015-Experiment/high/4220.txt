@@ -1,0 +1,5 @@
+List<String> lines = //...  
+
+Path file = Paths.get("your path...");      
+Files.write(file, lines, StandardCharsets.UTF_8,
+    StandardOpenOption.APPEND, StandardOpenOption.CREATE);

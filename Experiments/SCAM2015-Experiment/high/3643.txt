@@ -1,0 +1,7 @@
+void getNewValues(MutableInt m1, MutableInt m2, MutableInt m3, . . .) {
+//do something which change the value of m
+//for example
+    m1.setValue(m1.intValue() + 5); 
+    m2.setValue(m2.intValue() * 100); 
+...
+}

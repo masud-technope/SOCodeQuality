@@ -1,0 +1,12 @@
+public static void main(String[] args) {
+       int i; 
+       int mynum[] = new int[5];
+       int max = Integer.MIN_VALUE;
+
+       for( i=0; i< mynum.length; i++)
+       {
+          int num = Integer.parseInt(JOptionPane.showInputDialog(null, "Value"));
+          if(num > max) max = num;
+       }
+       JOptionPane.showMessageDialog(null,"Maximum number is: "+max);
+   }

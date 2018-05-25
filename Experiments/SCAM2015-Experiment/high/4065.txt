@@ -1,0 +1,5 @@
+int size = Integer.parseInt(getIntent().getStringExtra("size"));
+for (int j = 0; j < size; j++) {
+    Intent intent = getIntent();
+    String str = intent.getStringExtra("edData"+j);
+}

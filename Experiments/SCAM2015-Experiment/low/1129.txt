@@ -1,0 +1,16 @@
+public class cube{
+    static int length=20;
+    static int breath=30;
+    static int height=10;
+
+    public static int volume( final int i, final int j, final int k){
+        System.out.println("i=" + i + "j= " + j + "k= " + k);
+        return length*breath*height;
+    }
+
+    public static void main(final String args[]){
+        int a;
+        a=volume(10, 20, 30);
+          System.out.println(" area of cube " + a);
+    }
+}

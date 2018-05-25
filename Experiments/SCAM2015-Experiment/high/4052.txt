@@ -1,0 +1,16 @@
+// Setup config
+Configuration cfg = new Configuration(Configuration.VERSION_2_3_21);
+cfg.setDirectoryForTemplateLoading(new File("/where/you/store/templates"));
+cfg.setDefaultEncoding("UTF-8");
+
+// Create the data model - e.g. a bean or a map
+final Map<String, String> root = new HashMap<>();
+root.put("PERSON_NAME", "Joe");
+root.put("CEO_NAME", "Anne");
+
+// Get the template
+Template temp = cfg.getTemplate("myTemplate.ftl");
+
+// Merge the template with the data model
+Writer out = new OutputStreamWriter(System.out);
+temp.process(root, out);

@@ -1,0 +1,8 @@
+void change_var(int &x)
+{
+    x = 2;
+}
+
+int x = 10;
+change_var(x);
+std::cout << x << std::endl;

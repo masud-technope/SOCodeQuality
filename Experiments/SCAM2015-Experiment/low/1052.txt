@@ -1,0 +1,18 @@
+File file = new File("myfile.txt");
+
+// convert File to byte[]
+ByteArrayOutputStream bos = new ByteArrayOutputStream();
+ObjectOutputStream oos = new ObjectOutputStream(bos);
+oos.writeObject(file);
+bos.close();
+oos.close();
+byte[] bytes = bos.toByteArray();
+
+// convert byte[] to File
+ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+ObjectInputStream ois = new ObjectInputStream(bis);
+File fileFromBytes = (File) ois.readObject();
+bis.close();
+ois.close();
+
+System.out.println(fileFromBytes);

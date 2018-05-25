@@ -1,0 +1,5 @@
+double sum = 0;
+for (int i = 0; i < english.length; i++) {
+    sum += english[i];
+} 
+double average = sum / english.length;

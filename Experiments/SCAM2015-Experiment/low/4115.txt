@@ -1,0 +1,24 @@
+public static int[] removeElement(int element,int[] original){
+        int[] n = new int[original.length - 1];
+        System.arraycopy(original, 0, n, 0, element );
+        System.arraycopy(original, element+1, n, element, original.length - element-1);
+        return n;// http://stackoverflow.com/questions/4870188/delete-item-from-array-and-shrink-array
+    }
+    public static int [] shift(int[] original){
+        int[] a = new int[original.length];
+        for(int k = 1 ; k < original.length;k++){
+            a[k-1] = original[k];
+        }
+        a[original.length-1] = original[0];
+        return(a);
+    }
+    public static int minimum(int[] arr){ //Process of elimination
+        if(arr.length==1){ //Base Case
+           return(arr[0]); 
+        }
+        if(arr[0]>=arr[1]){// reduction step
+           return(minimum(removeElement(0,arr)));
+        }else{ // tread water
+            return(minimum(shift(arr)));
+        }
+    }// There is always a better way but this sould satisfy your teacher.

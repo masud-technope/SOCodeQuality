@@ -1,0 +1,98 @@
+public class Node {
+
+private int data; //holds an arbitrary integer
+private Node next; //reference to the next node
+
+public Node(int d,Node n)
+{
+    data=d;
+    next=n;
+}
+
+// these methods let us use our variables
+public void setNext(Node n)
+{
+    next=n;
+}
+
+public void setData(int d)
+{
+    data=d;
+}
+public Node getNext()
+{
+    return next;
+}
+
+public int getData()
+{
+    return data;
+}
+private static Node firstNode; //a reference to the first Node
+private static Node lastNode=null; //a reference to the last Node
+
+public static void display() //displays all the data in nodes
+{
+    Node n=firstNode;
+    while(n!=null) // loops forward displaying 
+    {
+        System.out.print(n.getData()+",  ");
+        n=n.getNext(); //move to the next node in the list
+    }
+}
+
+public static void create(int d) //inserts the node into the list
+{
+    Node n =new Node(d, null); // create node
+    if(lastNode!=null) // if it is not the first node
+    {
+        lastNode.setNext(n);
+        lastNode=n;
+    }
+    else //if n is the first node
+    {
+        firstNode=n;
+        lastNode=n;
+    }
+}
+
+
+ public static void removeLast(){
+        if (firstNode == null || firstNode.next == null){
+            firstNode = null;
+            return;
+        }
+        Node current = firstNode;
+        Node tmphead = current;
+        while(current.next.next != null){
+            current = current.next;
+        }
+        current.next = null;
+        firstNode = tmphead ;
+    }
+
+
+ public static void removeFirst(){
+     if(firstNode!=null)
+     {
+        firstNode= firstNode.next;
+     }
+    }
+
+public static void main(String[] args) {
+
+    create(10);
+    create(20);
+    create(30);
+    create(40);
+    create(50);
+    create(60);
+    display();
+    System.out.println();
+    removeLast();
+    display();
+    System.out.println();
+    removeFirst();
+    display();
+}
+}

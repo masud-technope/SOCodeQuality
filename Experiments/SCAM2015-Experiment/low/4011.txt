@@ -1,0 +1,42 @@
+<?php
+
+if (isset($_GET['options'])) {
+$options = explode(",",$_GET['options']); // assuming you feed the columns separated with columns
+}
+
+if (isset($_GET['col1Value'])) {
+$col1Value = $_GET['col1Value']; 
+}
+
+if (isset($_GET['col2Value'])) {
+$col2Value = $_GET['col2Value']; 
+}
+
+if (isset($_GET['col3Value'])) {
+$col3Value = $_GET['col3Value']; 
+}
+
+if (in_array("col1",$options)) { // check to see if 'col1' exists in array
+$clause = ' and coalesce(col1,'') = $col1Value';
+}
+
+if (in_array("col2",$options)) { // check to see if 'col2' exists in array
+$clause = $clause.' and coalesce(col2,'') = $col2Value';
+}
+
+if (in_array("col3",$options)) { // check to see if 'col3' exists in array
+$clause = $clause.' and coalesce(col3,'') = $col3Value';
+}
+
+
+$sql = "
+
+select *
+from table
+where 1=1
+     $clause
+";
+
+pg_execute($databaseConnection,$sql);
+
+?>

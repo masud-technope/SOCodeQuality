@@ -1,0 +1,12 @@
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class Controller {
+
+    @RequestMapping("/")
+    public String printHelloWorld(Model model) {
+        model.addAttribute("message", "Hello World!");
+
+        return "helloWorld";
+    }
+}

@@ -1,0 +1,4 @@
+public void setToNull(DumObj two)
+{
+        two = null;
+}

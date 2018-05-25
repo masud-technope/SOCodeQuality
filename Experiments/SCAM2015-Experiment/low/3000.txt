@@ -1,0 +1,5 @@
+private String[] names = new String[MAXSIZE];             // softdrink names
+private String[] ids = new String[MAXSIZE];               // softdrink identifications
+private int[] startingInventory = new int[MAXSIZE];    // starting inventory of the softdrinks
+private int[] finalInventory = new int[MAXSIZE];       // final inventory of the softdrinks
+private int[] transactionCounts = new int[MAXSIZE];    // number of transactions per softdrink

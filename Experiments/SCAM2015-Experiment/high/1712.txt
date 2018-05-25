@@ -1,0 +1,19 @@
+public class TestConnection {
+    private ConnectionFactory connectionFactory;
+    public setConnectionFactory(ConnectionFactory connectionFactory) {
+        this.connectionFactory = connectionFactory;
+    }
+
+    public static void main(String[] args) {
+
+        //
+        // Perform dependency injection here
+        //
+
+        // after dependency injection
+
+        Connection connection = connectionFactory.createConnection(); //createConnection return concrete implementation not an abstraction
+
+        System.out.println("You're connection with " + connection.description());
+    }
+}

@@ -1,0 +1,7 @@
+private Display display = Display.getDisplay(this);
+ private Displayable previousDisplayable;
+
+ public void toBack() {
+ previousDisplayable = display.getCurrent();
+ display.setCurrent(null);
+ }

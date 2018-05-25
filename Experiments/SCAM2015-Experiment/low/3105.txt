@@ -1,0 +1,20 @@
+var json1={"username":document.getElementById('userid').value,
+               "password":document.getElementById('password').value, 
+};
+
+$.ajax({
+    url: '/path/to/file.php',
+    type: 'POST',
+    dataType: 'text',//no need for setting this to JSON if you don't receive a json response.
+    data: {param1: json1},
+})
+.done(function(response) {
+    console.log("success");
+    alert(response);
+})
+.fail(function() {
+    console.log("error");
+})
+.always(function() {
+    console.log("complete");
+});

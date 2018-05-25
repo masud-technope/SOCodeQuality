@@ -1,0 +1,18 @@
+while(true) {
+    if(queue.size()==0){
+        Thread.sleep(36000);
+    }
+    lock.lock();
+    Vpacket p = null;
+    try {
+         p = null;
+         if(queue.size()!=0) {
+              p = queue.pop();
+         }
+    } finally {
+         lock.unlock();
+         if(p!=null) {
+              return p;
+         }
+    }
+}

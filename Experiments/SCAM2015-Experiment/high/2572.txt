@@ -1,0 +1,5 @@
+for outer in range (10):
+    print "%d ->"%(outer),
+    for inner in range (3):
+        print "%2d"%(outer * 3 + inner + 1),
+    print

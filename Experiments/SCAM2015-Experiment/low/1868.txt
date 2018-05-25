@@ -1,0 +1,14 @@
+private static class StringList extends LinkedList<String> {}
+
+public static void main(String[] args)
+{
+    StringList[] strings = new StringList[2];
+    strings[0] = new StringList();
+    strings[1] = new StringList();
+    strings[0].add("Test 1");
+    strings[0].add("Test 2");
+    strings[1].add("Test 3");
+    strings[1].add("Test 4");
+    System.out.println(strings[0]);
+    System.out.println(strings[1]);
+}

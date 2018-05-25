@@ -1,0 +1,38 @@
+import java.util.NavigableMap;
+import java.util.TreeMap;
+
+public class HalfTheMap {
+
+    static void addValues(TreeMap<String, Integer> map)
+    {
+        map.put("11", 11);
+        map.put("33", 33);
+        map.put("77", 77);
+        map.put("44", 44);
+        map.put("55", 55);
+        map.put("22", 22);
+        //map.put("66", 66);
+    }
+
+    public static void main(String[] args) {
+        TreeMap<String, Integer> map = new TreeMap<String, Integer>();
+        addValues(map);
+        System.out.printf("Original Map Initial Values : %s\n",map);
+
+        int size = map.size();
+        int midIndex = (size/2) - 1;
+        System.out.printf("size : %d \nmid : %d\n", size, midIndex);
+
+        // retrieve key of middle element
+        String midKey = (String)map.keySet().toArray()[midIndex];
+
+        // Top half view of the original map
+        NavigableMap<String, Integer> topMap = map.headMap(midKey, true);
+        System.out.printf("Top half map : %s\n",  topMap);
+
+        // remove the bottom half from original map.
+        map.tailMap(midKey, false).clear();
+        System.out.printf("Original map after bottom half removed : %s\n", map);
+    }
+
+}

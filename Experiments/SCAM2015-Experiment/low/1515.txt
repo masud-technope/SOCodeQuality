@@ -1,0 +1,68 @@
+public abstract class Projectile {
+    private static final Collection<Projectile> activeProjectiles = new ArrayList<Projectile>();
+
+    static {
+         //update the position of any in-flight projectile approximately once per second
+         Runnable updater = new Runnable() {
+             public void run() {
+                 while (true) {
+                     synchronized(activeProjectiles) {
+                         for (Projectile projectile : new ArrayList<Projectile>(activeProjectiles)) {
+                             projectile.travel();
+                         }
+                     }
+                     try {
+                         Thread.sleep(1000);
+                     }
+                     catch (Throwable ignored) {}
+                 }
+             }
+         };
+         new Thread(updater).start();
+    }
+
+    protected int x;
+    protected int transitTime;
+
+    public abstract int getMuzzleVelocity();
+
+    public Projectile() {
+        this.x = 0;
+        synchronized(activeProjectiles) {
+            activeProjectiles.add(this);
+        }
+    }
+
+    public int getFriction() {
+        return 0;
+    }
+
+    private void travel() {
+        this.x += this.getMuzzleVelocity() + (this.getFriction() * this.transitTime);
+        this.transitTime++;
+        if (this.transitTime * this.getFriction() >= this.getMuzzleVelocity()) {
+            //this projectile is done
+            synchronized(activeProjectiles) {
+                activeProjectiles.remove(this);
+            }
+        }
+
+    }
+
+}
+
+public class Bullet extends Projectile {
+    public Bullet() { 
+        super();
+    } 
+
+    @Override
+    public int getMuzzleVelocity() {
+         return 600;
+    }
+
+    @Override
+    public int getFriction() {
+        return 25;
+    }
+}

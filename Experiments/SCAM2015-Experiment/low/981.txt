@@ -1,0 +1,9 @@
+// Report the result using invokeLater().
+    SwingUtilities.invokeLater(new Runnable() {
+      public void run() {
+        resultLabel.setText("Ready");
+        setEnabled(true);
+      }
+    });
+  }
+};

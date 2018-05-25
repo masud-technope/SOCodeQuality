@@ -1,0 +1,9 @@
+Thread thread = new Thread(  
+  new Runnable(){  
+    public void run(){  
+      while (true)
+        wait_for_action();
+    }  
+  }  
+);  
+thread.start();

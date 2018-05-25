@@ -1,0 +1,45 @@
+import static org.imgscalr.Scalr.*;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+public class ScaleDirExample {
+    public static void main(String[] args) throws IOException {
+        File[] images = new File("imgs").listFiles();
+
+        for (File f : images) {
+            System.out.println("Processing: " + f.getName() + "...");
+
+            if (f.isDirectory()) {
+                System.out.println("\tSkipping, file is a directory...");
+                continue;
+            } else
+                process(f);
+        }
+    }
+
+    private static void process(File file) throws IOException {
+        // Load image.
+        BufferedImage image = ImageIO.read(file);
+
+        // Resize image.
+        image = resize(image, 500);
+
+        // Save the resized image as the thumbnail.
+        saveThumbnail(file, image);
+    }
+
+    private static void saveThumbnail(File originalFile, BufferedImage thumbnail)
+            throws IOException {
+        String filename = originalFile.getName();
+
+        // Determine file extension.
+        String fileExt = filename.substring(filename.lastIndexOf('.') + 1);
+
+        // Save the thumbnail to the resized dir.
+        ImageIO.write(thumbnail, fileExt, new File("resized/" + filename));
+    }
+}

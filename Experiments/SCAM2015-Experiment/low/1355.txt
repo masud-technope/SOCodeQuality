@@ -1,0 +1,7 @@
+public boolean equals(Object other){        
+     if (other instanceof Fraction){
+         return ((Fraction)other).getNum == this.num && ((Fraction)other).getDen == this.den;
+     } else {
+         return false;
+     }
+}

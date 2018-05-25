@@ -1,0 +1,17 @@
+string word = "";
+
+while ( EOF ){
+
+    char = getNextChar()
+
+    if ( char not space or full-stop ){
+        append the char to the word
+    }
+    else {
+        if ( the word is empty ){ continue /* ignore multi space */ }
+        else {
+            add the word to an array of words
+            reset the word to ""
+        }
+    }
+}

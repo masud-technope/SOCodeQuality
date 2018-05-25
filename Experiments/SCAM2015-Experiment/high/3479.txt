@@ -1,0 +1,7 @@
+public static String doSomeMagic(String s) {
+    String doubled = new String();
+    if (s.length() == 0) return s;
+    for(int i=0;i<s.length();i++)
+        doubled += s.substring(i,i+1) + s.substring(i,i+1)
+    return doubled + "\n" + doSomeMagic(s.substring(0, s.length()-1));
+}

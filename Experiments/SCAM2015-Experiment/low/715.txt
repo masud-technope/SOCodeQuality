@@ -1,0 +1,28 @@
+import java . math . * ;
+import java . util . * ;
+
+class Numbers
+{
+    private static final Map<Class<? extends Number>,Object> zeroes = new HashMap<Class<? extends Number>,Object> ( ) ;
+
+    static
+    {
+         zeroes . put ( Integer . class , new Integer ( 0 ) ) ;
+         zeroes . put ( Double . class , new Double ( 0.0 ) ) ;
+         zeroes . put ( BigInteger . class , BigInteger . ZERO ) ;
+         // fill it up with all supported classes
+    }
+
+    public static < T extends Number > T zeroIfNull ( T number , Class<T> clazz ) throws IllegalArgumentException
+    {
+    if ( number == null ) // return zero (if we know what zero is)
+        {
+        if ( zeroes . containsKey ( clazz ) )
+            {
+            return ( clazz . cast ( zeroes . get ( clazz ) ) ) ;
+            }
+        throw new IllegalArgumentException ( "Unexpected Number Class " + clazz . getName ( ) + " with undefined zero value." ) ;
+        }
+    return number ;
+    }
+}

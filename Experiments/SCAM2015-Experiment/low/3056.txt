@@ -1,0 +1,15 @@
+double x = 11.45; // number inputted
+
+String s = String.valueOf(x); // String value of the number inputted
+int index = s.indexOf("."); // find where the decimal is located
+
+int amount = (int)x; // intialize it to be the number inputted, in case its an int
+
+if (amount != x) // if the number inputted isn't an int (contains decimal)
+    // multiply it by 10 ^ (the number of digits after the decimal place)
+    amount = (int)(x * Math.pow(10,(s.length() - 1 - index)));
+
+System.out.print(amount); // output is 1145
+
+// if x was 11.4500, the output is 1145 as well
+// if x was 114500, the output is 114500

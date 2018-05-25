@@ -1,0 +1,4 @@
+@SqlResultSetMapping(name="JediResult", classes = {
+    @ConstructorResult(targetClass = Jedi.class, 
+    columns = {@ColumnResult(name="name"), @ColumnResult(name="age")})
+})

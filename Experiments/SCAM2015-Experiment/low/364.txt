@@ -1,0 +1,7 @@
+public static <T extends Enum<T>> Map<T, String>  Initialize_Map(Class<T> enumClass) {
+  Map<T, String> map = new HashMap<T, String>();
+  for (T val : enumClass.getEnumConstants()) {
+    map.put(val, val.toString() + (val.toString().equals("ENUM_ELMT") ? " (appended)" : ""));
+  }
+  return map;       
+}

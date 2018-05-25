@@ -1,0 +1,21 @@
+static void Main(string[] args)
+    {
+        var aa = new List<String>();
+
+        aa.Add("hello");
+        aa.Add("goodbye");
+
+        var x = from s in aa select Reverse(s);
+
+        foreach (var c in x)
+            Console.WriteLine(c.ToString( ));
+
+        Console.ReadLine();
+    }
+
+    public static string Reverse(string s)
+    {
+        char[] charArray = s.ToCharArray();
+        Array.Reverse(charArray);
+        return new string(charArray);
+    }

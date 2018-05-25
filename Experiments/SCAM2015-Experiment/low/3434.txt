@@ -1,0 +1,16 @@
+class Nine 
+{
+  public static void Nine(String[] args) 
+  {
+    int x,y,z;
+    y=3;
+    x=7;
+    z=addEm(x, y);
+    System.out.println("answer= " +x);
+  }
+  public static addEm (double a, double b)
+  {
+    int c;
+    c=a+b;
+  }
+}

@@ -1,0 +1,15 @@
+public static void main(String[] args)throws InterruptedException {
+
+    MyRunnable r = new MyRunnable();
+    Thread t1 = new Thread(r,"A");
+    Thread t2 = new Thread(r,"B");
+    Thread t3 = new Thread(r,"C");
+    t1.start();
+    Thread.sleep(1000);
+    t2.start();
+    Thread.sleep(1000);
+    t3.start();
+
+
+
+}

@@ -1,0 +1,7 @@
+final StringBuffer mText = new StringBuffer("SHOP MA\n"
+        + "----------------------------\n"
+        + "Pannampitiya\n"
+        + "09-10-2012 harsha  no: 001\n"
+        + "No  Item  Qty  Price  Amount\n"
+        + "1 Bread 1 50.00  50.00\n"
+        + "____________________________\n");

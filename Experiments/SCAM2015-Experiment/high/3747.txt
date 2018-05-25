@@ -1,0 +1,5 @@
+Downloader d = new Downloader(...);
+MyProgressListener l = new MyProgressListener();
+l.downloader = d;
+d.addListener(l);
+d.run();

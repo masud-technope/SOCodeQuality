@@ -1,0 +1,16 @@
+public enum SectionActivity {
+
+  S1S1(MyS1Activity.class),
+  S1S2(S2Activity.class);
+
+  private Class<? extends Activity> activityClass;
+
+  private SectionActivity(Class<? extends Activity> clazz) {
+
+   this.activityClass = clazz;
+  }
+
+  public Class<? extends Activity> getActivity {
+     return activityClass;
+  }    
+}

@@ -1,0 +1,16 @@
+dRow = 0  // Amount to move in the X direction
+dCol = 1  // Amount to move in the Y direction
+
+row = 0   // Current position
+col = 0
+
+for each character ch in the string:
+    Write character ch to position (row, col).
+    If (row + dRow, col + dCol) is not contained in the rectangle [0, 0] x [n-1, n-1]
+             -or-
+       The character at [row + dRow, col + dCol] is not zero:
+        Rotate 90 degrees
+
+   // Move forward a step
+   row += dRow
+   col += dCol

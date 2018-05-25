@@ -1,0 +1,5 @@
+Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm.ss.");
+    format.setTimeZone(TimeZone.getDefault()); // Set the TimeZone to whatever you are expecting.
+
+    System.out.println(format.format(timestamp) + String.format("%09d", timestamp.getNanos());

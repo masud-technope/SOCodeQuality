@@ -1,0 +1,11 @@
+import java.sql.*;
+class Sssm
+{
+public static void main(String aaa[])throws SqlException
+{
+Drivermanager d=new oracle.jdbc.driver.OracleDriver();
+DriverManager.getconnection(d);
+Connection c=Drivermanager.getconnection("jdbc:oracle:thin:@localhost:1521:xe","scott","tiger");
+c.close();
+}
+}

@@ -1,0 +1,13 @@
+String input = "file=android.txt&data=it contains android data"; 
+    String[] items = input.split("&"); 
+    String[] results = new String[items.length]; 
+    for (int i = 0; i < items.length; i++)
+    {
+        int pos = item.indexOf("=");
+        if (pos == -1)
+            results[i] = null; 
+        else
+            results[i] = items[i].substring(pos + 1); 
+    }
+
+    // results now holds your strings.

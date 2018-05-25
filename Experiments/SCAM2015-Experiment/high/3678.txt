@@ -1,0 +1,21 @@
+class A 
+{
+ArrayList<SomeTypeB> typeBList;
+ArrayList<SomeTypeC> typeCList;
+
+A(ArrayList<SomeTypeB> typeBList)
+{
+   this.typeBList -= typeBList;
+}
+
+A(ArrayList<SomeTypeC> typeCList)
+{
+   this.typeCList = typeCList;
+}
+
+// more member variables
+
+//Getters for typeBList;
+
+//Gettersfor typeCList;
+}

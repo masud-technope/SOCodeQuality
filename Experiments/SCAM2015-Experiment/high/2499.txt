@@ -1,0 +1,9 @@
+long startTime = System.currentTimeMillis();
+try {
+    //code...
+} catch (Exception e) {
+    //code...
+} finally {
+    long endTime = System.currentTimeMillis();
+    System.out.println("Operation took " + (endTime-startTime) + " ms");
+}

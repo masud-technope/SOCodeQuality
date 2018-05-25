@@ -1,0 +1,17 @@
+System.out.println("Write something awesome.");
+String input1 = "I like to eat bananas";//Keyboard.readString();
+System.out.println("Pick a letter from that awesome sentence.");
+char letter1 = 'e';
+System.out.println("Pick another letter from that awesome sentence.");
+char letter2 = 'a';
+
+// dummy placeholders
+char letter3 = '#';
+char letter4 = '$';
+
+String newUserImput = input1.replace (letter1, letter3);
+newUserImput = newUserImput.replace (letter2, letter4);
+newUserImput = newUserImput.replace (letter3, letter2);
+newUserImput = newUserImput.replace (letter4, letter1);
+
+System.out.println(newUserImput);

@@ -1,0 +1,11 @@
+try{
+    FileWriter out = new FileWriter(“test.txt”);
+    out.write(“example”);
+    out.close();
+} catch(FileNotFoundException e) {
+        //if IOException, do this..
+} catch(IOException e) {
+        //if FileNotFound, do this..
+} catch(Exception e) {
+        //completely general exception, do this..
+}

@@ -1,0 +1,15 @@
+AtomicBoolean condition = new AtomicBoolean(false);
+    (new Thread(new MyRunnable(condition))).start();
+    ...
+    public MyRunnable(AtomicBoolean condition2) {
+        this.condition = condition2;
+    }
+    ...
+    public void run() {
+    while (true) {
+        if (condition.get() == true) {
+            System.out.println("second");
+            break;
+        }
+    }
+}

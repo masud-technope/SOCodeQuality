@@ -1,0 +1,22 @@
+Scanner sca = new Scanner(new File ("a.txt"));
+Scanner scb = new Scanner(new File ("b.txt"));
+StringBuilder sba = new StringBuilder();
+StringBuilder sbb = new StringBuilder();
+while(sca.hasnext()){
+  sba.append(sca.next());
+}
+while(scb.hasnext()){
+  sbb.append(scb.next());
+}
+String a = sba.toString();
+String b = sbb.toString();
+int maxlen = Math.max(a.length,b.length);
+int matches;
+for(int i =0; i<maxlen; i++){
+    if(a.length <=i || b.length <=i){
+        break;
+    }
+    if(a.chatAt(i)==b.charAt(i)){
+        matches++;
+}
+return (((double)matches/(double)maxlen)*100.0)

@@ -1,0 +1,12 @@
+if(enable)
+{
+    switch()
+    {
+         case enableCar:
+         // do some code
+         break;
+         case enableComputer:
+         //do some code
+         break; 
+    }
+}

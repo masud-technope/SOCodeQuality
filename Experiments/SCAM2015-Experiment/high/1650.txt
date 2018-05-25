@@ -1,0 +1,7 @@
+if (article.getTxtText() != null) {
+  // do part 1
+}
+
+if (article.getObjLongTextData() != null) {
+  // do part 2
+}

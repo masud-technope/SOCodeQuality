@@ -1,0 +1,23 @@
+public class LoggerWrapper {
+    *private* FileHandler myFileHandler;
+    *private* static final Logger myLogger = Logger.getLogger("Test");
+    private static LoggerWrapper instance = null;  
+
+    /*
+      here check if the file you're using has been changed! If so, re-do the file setting
+    */
+    public void log(Level level, String message){
+        //argh you are on your own here. I don't know how to *check* the file being used by the file handler...
+        //you know what? you can just do this (but it isn't too clean)
+        myLogger.removeFileHandler(myFileHandler);
+        myFileHandler = new FileHandler("/path/to/myLogFile.log", true); 
+        myLogger.addHandler(myFileHandler);
+        myLogger.log(level,message);     
+    }  
+
+    private static void prepareLogger() {
+        try {
+            //don't shadow the myFileHandler by accident!
+            myFileHandler = new FileHandler("/path/to/myLogFile.log", true); 
+
+...

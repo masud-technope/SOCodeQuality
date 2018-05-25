@@ -1,0 +1,4 @@
+Map<String, String> params = Splitter
+    .on(",")
+    .withKeyValueSeparator("=")
+    .split("k1=v1,k2=v2");

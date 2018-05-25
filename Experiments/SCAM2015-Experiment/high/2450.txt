@@ -1,0 +1,5 @@
+int i = 255;
+byte b = (byte) i;
+System.out.println("b = " + b); // b = -1
+int i2 = b & 0xFF;
+System.out.println("i2 = " + i2); // i2 = 255

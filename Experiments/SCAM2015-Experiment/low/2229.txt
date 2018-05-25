@@ -1,0 +1,14 @@
+public enum DaysOfWeek{ Mon, Tue, Wed, Thu, Fri, Sat, Sun }
+
+DaysOfWeek dow = DaysOfWeek.Tue;
+String value = dow.toString();
+String enumClassName = dow.getClass().getName();
+
+// Persist value and enumClassName
+// ...
+
+// Reconstitute the data 
+Class clz = Class.forName(enumClassName);
+Object o = Enum.valueOf(clz, value);
+DaysOfWeek dow2 = (DaysOfWeek)o;
+System.out.println(dow2);

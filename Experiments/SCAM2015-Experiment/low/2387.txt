@@ -1,0 +1,6 @@
+Enumeration jsonEnumerator = someJSONObject.keys();
+
+while(jsonEnumerator.hasMoreElements()) {
+    String key = (String) jsonEnumerator.nextElement();
+    someOtherJson.put(someJSONObject.getJSONObject(key), key);
+}

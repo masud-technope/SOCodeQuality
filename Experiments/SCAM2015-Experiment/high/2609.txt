@@ -1,0 +1,5 @@
+String s = "ABC";
+s.replaceAll("B","D");
+System.out.println(s); //still prints "ABC"
+s = s.replaceAll("B","D");
+System.out.println(s); //prints "ADC"

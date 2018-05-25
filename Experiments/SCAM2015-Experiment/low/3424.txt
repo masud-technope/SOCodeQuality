@@ -1,0 +1,13 @@
+public class Command {
+    class InnerCommand implements InnerInterface {
+        // implement execute command
+    }
+
+    class AnotherInnerCOmmand implements InnerInterface {
+        // implement execute command
+    }
+
+    interface InnerInterface {
+        void executeCommand();
+    }
+}

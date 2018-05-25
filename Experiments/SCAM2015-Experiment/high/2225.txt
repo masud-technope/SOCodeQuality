@@ -1,0 +1,5 @@
+write number of arrays
+for each array
+  write n,m array sizes
+  for each element of array
+    write array element

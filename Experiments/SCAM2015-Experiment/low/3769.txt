@@ -1,0 +1,37 @@
+public class MainActivity extends Activity {
+
+ TextView tv;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    // TODO Auto-generated method stub
+    super.onCreate(savedInstanceState);
+     setContentView(R.layout.main);
+    tv = (TextView) findViewById(R.id.result);
+     PrayerTime pr = new PrayerTime();
+        pr.execute();
+}
+
+public class PrayerTime extends AsyncTask<String, String, String>{
+
+    @Override
+    protected String doInBackground(String... params) {
+        // TODO Auto-generated method stub
+
+        //Do your work and return the result here
+        return result; //result is your returned
+    }
+
+
+    @Override
+    protected void onPostExecute(String result) {
+        // TODO Auto-generated method stub
+        super.onPostExecute(result);
+
+        tv.setText(result);
+
+    }
+
+
+  }
+}

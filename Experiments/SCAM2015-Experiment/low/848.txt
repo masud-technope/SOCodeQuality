@@ -1,0 +1,31 @@
+public interface Filterable {
+     List<?> returnResults(FilterChain chain);
+} 
+
+public class Tree<T extends Filterable>{
+   private final T data;
+   private Tree<T> parent;
+   private List<Tree<T>> children;
+   private List<FilterChain<T>> filterChain;
+   private boolean readonly = false;  
+   /*package*/ Tree(T data) {...} 
+   /*package*/ Tree(Tree<T> parent, T data) {...}
+
+   //freeze mtd makes object read-only
+   /*package*/ void freeze(){         
+          readonly = true;
+      for(Tree<T> child: children){
+          child.freeze();
+      }
+   }
+   public void addChild(Tree<T> child){
+       if(readonly){
+           throws new NonModifiableException(...);
+       }
+       children.add(child);
+   }
+   public List<?> getResults(){
+       return data.returnResults(filterChain);
+   }
+
+}

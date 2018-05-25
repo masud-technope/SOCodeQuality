@@ -1,0 +1,5 @@
+window.onbeforeunload = function(event) {
+
+   //send  request to server .
+
+}

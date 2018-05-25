@@ -1,0 +1,5 @@
+final Random rnd = new Random();
+final List<Integer> values = new ArrayList<>();
+for (int i = 0; i < 100; i++) values.add(rnd.nextInt());
+Collections.sort(values);
+System.out.println("Sorted Elements: " + values);

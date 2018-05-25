@@ -1,0 +1,7 @@
+public class Bar {
+
+    private Foo<Object> foo;
+    private Object t;
+
+  ... 
+}

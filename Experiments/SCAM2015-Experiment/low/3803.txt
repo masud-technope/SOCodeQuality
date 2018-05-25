@@ -1,0 +1,8 @@
+import java.util.Scanner;
+
+Scanner keyboard = new Scanner(System.in);
+System.out.println("Enter command: ");
+String cmd = keyboard.nextLine();
+if (cmd == "help"){
+help();
+}

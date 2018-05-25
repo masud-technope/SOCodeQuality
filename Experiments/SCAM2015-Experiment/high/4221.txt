@@ -1,0 +1,3 @@
+while (!isValid(the params)) {
+   //ask all the credentials
+}

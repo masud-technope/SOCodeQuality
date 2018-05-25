@@ -1,0 +1,4 @@
+ttpResponse response; // some response object
+BufferedReader reader = new BufferedReader(new    
+JSONTokener tokener = new JSONTokener(reader);
+JSONArray finalResult = new JSONArray(tokener);

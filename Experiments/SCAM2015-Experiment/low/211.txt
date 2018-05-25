@@ -1,0 +1,9 @@
+try
+{
+    doRiskyThing();
+}
+catch(Throwable t)
+{
+    log.warn("too bad, exception thrown: " + t.getMessage());
+    throw new RuntimeException("Throwable exception was thrown, message: " + t.getMessage());
+}

@@ -1,0 +1,13 @@
+public static void main(String[] args) {
+
+    System.out.println(pow2(2,3));
+
+}
+
+public static double pow2(double x,int y){
+    double total=1;
+    for(int i=1;i<=y;i++){
+        total*=x;
+    }
+    return total ;
+}

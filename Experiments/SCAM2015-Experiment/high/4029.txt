@@ -1,0 +1,5 @@
+frame.setLayout(new GridBagLayout());
+ GridBagConstraints gbc = new GridBagConstraints();
+
+ JButton button = new JButton("yoyoyo");
+ frame.add(button, gbc);

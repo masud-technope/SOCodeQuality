@@ -1,0 +1,6 @@
+int[] somenumbers = getAnArrayOfSomenumbers();
+int numbertoLookFor = getTheNumberToLookFor();
+
+boolean arrayContainsNumber = 
+   new HashSet(Arrays.asList(somenumbers))
+      .contains(numbertoLookfor);

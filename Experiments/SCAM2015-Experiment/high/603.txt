@@ -1,0 +1,4 @@
+Foo f = new Foo();
+Foo g = f;
+free(f); // Or whatever
+System.out.println(g.toString()); // What should this do?

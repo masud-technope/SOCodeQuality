@@ -1,0 +1,3 @@
+StringBuilder b = new StringBuilder(yourString);
+b.replace(yourString.lastIndexOf(","), yourString.lastIndexOf(",") + 1, ")" );
+yourString = b.toString();

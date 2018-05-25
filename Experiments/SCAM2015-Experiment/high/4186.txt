@@ -1,0 +1,15 @@
+public static int recurseCountDigits(final int number, final int digit){
+    if(number < 10) {
+        // if the number is less than 10, return if the digit is present, and don't recurse any deeper
+        return number == digit ? 1 : 0;
+    } else {
+        // if the right-most digit is correct
+        if(number%10 == digit) {
+            // return 1 + the value from the remaining digits (recursion)
+            return 1 + recurseCountDigits(number/10, digit);
+        } else {
+            // else just return the value from the remaining digits (recursion)
+            return recurseCountDigits(number/10, digit);
+        }
+    }
+}

@@ -1,0 +1,3 @@
+protected void radioButtonActionPerformed(ActionEvent evt) {            
+       System.out.println(evt.getActionCommand());
+    }

@@ -1,0 +1,5 @@
+String input1 = "Vg78KY";
+String output1 = String.valueOf(input1.hashCode());
+
+String input2 = "Vg78KZ";
+String output2 = String.valueOf(input2.hashCode());

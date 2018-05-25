@@ -1,0 +1,14 @@
+...
+@Entity
+@IdClass(PhonePK.class)
+public class Phone {
+
+    @Id
+    private String type;
+
+    @ManyToOne
+    @Id
+    @JoinColumn(name="OWNER_ID", referencedColumnName="EMP_ID")
+    private Employee owner;
+    ...
+}

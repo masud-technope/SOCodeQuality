@@ -1,0 +1,3 @@
+ArrayList<Double> doubles = new ArrayList<Double>();
+ArrayList<Integer> integers1 = new ArrayList<Integer>(doubles);  // error
+ArrayList<Integer> integers2 = new ArrayList(doubles);           // no error

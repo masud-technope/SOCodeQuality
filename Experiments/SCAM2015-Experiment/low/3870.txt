@@ -1,0 +1,8 @@
+def isGrayCode(num1, num2):
+    differences = 0
+    while (num1 > 0 or num2 > 0):
+        if ((num1 & 1) != (num2 & 1)):
+            differences++
+        num1 >>= 1
+        num2 >>= 1
+    return differences == 1

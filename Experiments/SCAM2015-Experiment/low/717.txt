@@ -1,0 +1,5 @@
+HashMap<String, Integer> map = new LinkedHashMap<String,Integer>();
+            map.put("a",5);
+            map.put("b",16);
+            map.put("c",46);
+            System.out.println(map); //output:{a=5, b=16, c=46}

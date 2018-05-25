@@ -1,0 +1,7 @@
+// These code snippets use an open-source library. http://unirest.io/java
+HttpResponse<JsonNode> response = Unirest.post("[ENDPOINT URL]")
+.header("X-Mashape-Key", "[API KEY]")
+.header("Content-Type", "application/x-www-form-urlencoded")
+.header("Accept", "application/json")
+.field("text", "walked plants")
+.asJson();

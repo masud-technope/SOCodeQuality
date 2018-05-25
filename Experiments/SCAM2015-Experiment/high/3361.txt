@@ -1,0 +1,3 @@
+// This could be done in one step if you wanted
+Integer headValue = (Integer) l.head.item;
+if (headValue != 9)

@@ -1,0 +1,38 @@
+public class Complex {
+
+    private String first;
+    private String second;
+    private String third;
+
+    public String getFirst(){
+       return first; 
+    }
+
+    public void setFirst(String first){
+       this.first=first; 
+    }
+
+    ... 
+
+    public Complex withFirst(String first){
+       this.first=first;
+       return this; 
+    }
+
+    public Complex withSecond(String second){
+       this.second=second;
+       return this; 
+    }
+
+    public Complex withThird(String third){
+       this.third=third;
+       return this; 
+    }
+
+}
+
+
+Complex complex = new Complex()
+     .withFirst("first value")
+     .withSecond("second value")
+     .withThird("third value");

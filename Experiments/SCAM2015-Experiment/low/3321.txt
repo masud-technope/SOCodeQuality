@@ -1,0 +1,29 @@
+public static byte[][] splitByteArray(byte[] bytes, byte[] regex, Charset charset) {
+    String str = new String(bytes, charset);
+    String[] split = str.split(new String(regex, charset));
+    byte[][] byteSplit = new byte[split.length][];
+    for (int i = 0; i < split.length; i++) {
+        byteSplit[i] = split[i].getBytes(charset);
+    }
+    return byteSplit;
+}
+
+public static void main(String[] args) {
+    Charset charset = Charset.forName("UTF-8");
+    byte[] bytes = {
+        '1', '1', ' ', '1', '1',
+        'F', 'F', ' ', 'F', 'F',
+        '2', '2', ' ', '2', '2', ' ', '2', '2',
+        'F', 'F', ' ', 'F', 'F',
+        '3', '3', ' ', '3', '3', ' ', '3', '3', ' ', '3', '3'
+    };
+    byte[] regex = {'F', 'F', ' ', 'F', 'F'};
+    byte[][] splitted = splitByteArray(bytes, regex, charset);
+    for (byte[] arr : splitted) {
+        System.out.print("[");
+        for (byte b : arr) {
+            System.out.print((char) b);
+        }
+        System.out.println("]");
+    }
+}

@@ -1,0 +1,7 @@
+JSONObject obj = JSONObject.fromObject(strRepresentation);
+Iterator i = obj.entrySet().iterator();
+while (i.hasNext()) {
+   Map.Entry e = (Map.Entry)i.next();
+   System.out.println("Key: " + e.getKey());
+   System.out.println("Value: " + e.getValue());
+}

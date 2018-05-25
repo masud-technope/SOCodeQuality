@@ -1,0 +1,16 @@
+void removeduplicate(char *str)
+{
+    int checker = 0;
+    int cnt = 0;
+    for(int i = 0; i < strlen(str); i++)
+    {
+        int val = *(str + i) - (int)'a';
+        if ((checker & (1 << val)) > 0) continue;
+        else {
+            *(str + cnt) = *(str + i);
+            cnt++;
+        }
+        checker |= (1 << val);
+    }
+    *(str+cnt) = '\0';
+}

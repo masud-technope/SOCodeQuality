@@ -1,0 +1,7 @@
+@echo off
+
+set runJava="%JAVA_HOME%\bin\java" -cp log4j.jar;commons-logging-1.0.4.jar "C:\Documents and settings\Administrator\Desktop\Temp\Test.class"
+
+echo %runJava%
+
+%runJava%

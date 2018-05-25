@@ -1,0 +1,8 @@
+String x = "test";
+String s = "tastaegasghet";
+int index = 0;
+for(int i = 0; i < s.length() && index < x.length(); i++){
+    if(s.charAt(i) == x.charAt(index)) index++;
+}
+boolean exists = index == x.length();
+System.out.println(exists);

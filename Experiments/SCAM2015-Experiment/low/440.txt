@@ -1,0 +1,20 @@
+/*
+Using Throwable we can trap any know error in JAVA..
+*/
+public class TestRecur {
+    private int i = 0;
+
+
+    public static void main(String[] args) {
+        try {
+            new TestRecur().show();
+        } catch (Throwable err) {
+            System.err.println("Error...");
+        }
+    }
+
+    private void show() {
+        System.out.println("I = " + i++);
+        show();
+    }
+}

@@ -1,0 +1,3 @@
+MCTag myTag; 
+TheMethods method = new TheMethods(myTag); 
+method.selectPlayer();

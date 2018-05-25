@@ -1,0 +1,3 @@
+GregorianCalendar c = new GregorianCalendar();
+c.setTime(yourDate);
+XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);

@@ -1,0 +1,17 @@
+public class RequestINT extends Request {
+public RequestINT(){
+    super(Type.INT);
+}
+@Override
+public Response execute() {
+    return new ResponseINT();
+}
+}
+
+
+public class ResponseINT extends Response {
+@Override
+public Type getResponse() {
+    return Type.INT;
+}
+}

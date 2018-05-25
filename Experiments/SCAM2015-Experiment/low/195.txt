@@ -1,0 +1,46 @@
+public static List<File> findFiles(String dir, String... names)
+	{
+		LinkedList<String> command = new LinkedList<String>();
+		command.add("/usr/bin/find");
+		command.add(dir);
+		List<File> result = new LinkedList<File>();
+		if (names.length > 1)
+			{
+				List<String> newNames = new LinkedList<String>(Arrays.asList(names));
+				String first = newNames.remove(0);
+				command.add("-name");
+				command.add(first);
+				for (String newName : newNames)
+					{
+						command.add("-or");
+						command.add("-name");
+						command.add(newName);
+					}
+			}
+		else if (names.length > 0)
+			{
+				command.add("-name");
+				command.add(names[0]);
+			}
+		try
+			{
+				ProcessBuilder pb = new ProcessBuilder(command);
+				Process p = pb.start();
+				p.waitFor();
+				InputStream is = p.getInputStream();
+				InputStreamReader isr = new InputStreamReader(is);
+				BufferedReader br = new BufferedReader(isr);
+				String line;
+				while ((line = br.readLine()) != null)
+					{
+						// System.err.println(line);
+						result.add(new File(line));
+					}
+				p.destroy();
+			}
+		catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		return result;
+	}

@@ -1,0 +1,6 @@
+boolean isNull = false;
+try {
+    stringname.equalsIgnoreCase(null);
+} catch (NullPointerException npe) {
+    isNull = true;
+}

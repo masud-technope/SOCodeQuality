@@ -1,0 +1,10 @@
+if ((bImages=book.getBookImages()) == null
+            || (domains=bImages.getDomains()) == null
+            || (defaults=domains.getDefaults()) == null
+            || (domain=defaults.getDomain()) == null
+            || domain.size() < 1
+            || (firstDomain=domain.get(0)) == null) {
+        throw new IncompleteBookException("The book was incompletely attributed.");
+    } else {
+        //here you can use the firstDomain variable, that is set with the correct value
+    }

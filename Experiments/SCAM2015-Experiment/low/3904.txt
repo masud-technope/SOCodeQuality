@@ -1,0 +1,3 @@
+String s = "DSD SDFS PNL  02   E";
+s = s.replaceAll("PNL\\s*02\\s*E", "PNL02E");
+System.out.println(s);

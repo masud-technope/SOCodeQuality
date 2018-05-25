@@ -1,0 +1,13 @@
+public class PaintPanel extends JPanel {
+
+    public PaintPanel() {
+        setBackground(Color.MAGENTA);
+    }
+
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g); // This paints the background
+
+        g.setColor(Color.BLACK);
+        g.fillRect(80, 350, 400, 250);
+    }
+}

@@ -1,0 +1,22 @@
+boolean b = false;
+    for (int i = 0; i < array2.length; i++) 
+    {
+
+        for (int a = 0; a < array1.length; a++)
+        {
+
+            if (array2[i].equals(array1[a]))
+            {
+                b = true;
+                break;
+            }
+            else
+            {
+                b = false;
+
+            }
+        }
+        if(b)
+            return b;
+    }
+}

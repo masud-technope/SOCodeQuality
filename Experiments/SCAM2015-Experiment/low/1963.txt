@@ -1,0 +1,5 @@
+DBCollection table1 = db.getCollection("Collection name");
+BasicDBObject document = new BasicDBObject();
+document.put("_id",value);      
+document.put("Name", name);
+table1.insert(document);

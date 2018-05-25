@@ -1,0 +1,6 @@
+int one, two;
+    Random r = new Random();
+    one = r.nextInt(3) + 1;
+        two = r.nextInt(3) + 1;
+    while (one == two){
+            two = r.nextInt(3) + 1;

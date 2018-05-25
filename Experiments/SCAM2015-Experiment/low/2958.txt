@@ -1,0 +1,11 @@
+public static int sumOfOddDigits(long number){
+    int sum = 0;
+    String newString = new StringBuilder(String.valueOf(number)).reverse().toString();
+    number = Long.parseLong(newString);
+
+    while (number != 0){
+        sum = (int) (sum + number % 10);
+        number = number / 100;
+    }
+    return sum;
+}

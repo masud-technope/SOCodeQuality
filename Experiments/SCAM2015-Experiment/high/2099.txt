@@ -1,0 +1,4 @@
+public class abstract Animal implements AnimalCard {
+    public void hide() { ... }
+    public void show() { ... }
+    public boolean equals(Object obj) { ... }

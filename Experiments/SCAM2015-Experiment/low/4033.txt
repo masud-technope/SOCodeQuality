@@ -1,0 +1,5 @@
+public void setFileNames(Set<String> fileNames) {
+   if (!(fileNames instanceof LinkedHashSet)) {
+      throw new IllegalArgumentException("I need a LinkedHashSet!");
+   }
+}

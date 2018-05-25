@@ -1,0 +1,12 @@
+private static void toBinary(int number) {
+        int remainder;
+
+        if (number <= 1) {
+            System.out.print(number);
+            return;
+        }
+
+        remainder = number % 2; 
+        toBinary(number >> 1);
+        System.out.println(remainder);
+    }

@@ -1,0 +1,5 @@
+DateTimeFormatter dtf = new DateTimeFormatterBuilder().appendPattern("hh:mm a").toFormatter();
+LocalTime start = LocalTime.of(9, 0);
+LocalTime end = start.plusMinutes(45);
+
+System.out.println(dtf.format(start) + " to " + dtf.format(end));

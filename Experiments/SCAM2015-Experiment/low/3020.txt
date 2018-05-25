@@ -1,0 +1,7 @@
+int width = 5;
+for (int i = 1; i <= width; i+=2){
+    System.out.println(String.format("%"+i+"s", "").replaceAll(" ", "*"));
+}
+for (int i = width-2; i > 0; i-=2){
+    System.out.println(String.format("%"+i+"s", "").replaceAll(" ", "*"));
+}

@@ -1,0 +1,18 @@
+public static void main(String[] args) {
+    String str1 = "{\"state\":1,\"cmd\":1}";
+    String str2 = "{\"cmd\":1,\"state\":1}";
+
+    // I am just reversing the order and putting it in str3
+    String arr[] = (str2.substring(1, str2.length()-1)).split(",");
+    String str3 = "{" + arr[1] + "," + arr[0] + "}";
+
+    System.out.println(str1);
+    System.out.println(str2);
+    System.out.println(str3);
+
+    if(str1.equals(str2) || str1.equals(str3)) {
+        System.out.println("Both objects are equal.");
+    } else {
+        System.out.println("Object are not equal.");
+    }
+}

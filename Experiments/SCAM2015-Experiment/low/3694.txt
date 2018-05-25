@@ -1,0 +1,52 @@
+Closing zin.close() is enough
+Let me explain the sequence - when you call - zin.close() it's call close of the super class InflaterInputStream. The close method eventually call close on the stream provided as constructor which is BufferedInputStream.
+
+Close method of ZipInputStream - 
+ /**
+     * Closes this input stream and releases any system resources associated
+     * with the stream.
+     * @exception IOException if an I/O error has occurred
+     */
+    public void close() throws IOException {
+        if (!closed) {
+        **super.close();**
+            closed = true;
+        }
+    }
+
+Close method of InflaterInputStream -
+
+public void close() throws IOException {
+        if (!closed) {
+            if (usesDefaultInflater)
+                inf.end();
+        **in.close();**
+            closed = true;
+        }
+    }
+
+--
+Close method of BufferedInputStream set the input stream as null ( in == null)-
+
+ /**
+     * Closes this input stream and releases any system resources 
+     * associated with the stream. 
+     * Once the stream has been closed, further read(), available(), reset(),
+     * or skip() invocations will throw an IOException.
+     * Closing a previously closed stream has no effect.
+     *
+     * @exception  IOException  if an I/O error occurs.
+     */
+    public void close() throws IOException {
+        byte[] buffer;
+        while ( (buffer = buf) != null) {
+            if (bufUpdater.compareAndSet(this, buffer, null)) {
+                InputStream input = in;
+                **in = null;**
+                if (input != null)
+                    input.close();
+                return;
+            }
+            // Else retry in case a new buf was CASed in fill()
+        }
+    }

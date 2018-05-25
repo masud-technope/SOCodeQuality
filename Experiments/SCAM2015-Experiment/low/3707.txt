@@ -1,0 +1,16 @@
+public static void main(String[] args)
+{
+    List<String> homogeneousStringList = new ArrayList<String>();
+
+    homogeneousStringList.add("Foo");
+    homogeneousStringList.add("Bar");
+
+    List heterogeneousObjectList = new ArrayList();
+
+    heterogeneousObjectList.add("Foo");
+    heterogeneousObjectList.add(Integer.valueOf(1));
+    heterogeneousObjectList.add(new Date());
+
+    System.out.println(homogeneousStringList.toString());
+    System.out.println(heterogeneousObjectList.toString());
+}

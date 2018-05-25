@@ -1,0 +1,7 @@
+public int myfunc(int low, int high, int test) {   
+    int count = 0;
+    if(low % test == 0)
+       count++;
+    count +=(high-low)/test;
+    return count;
+ }

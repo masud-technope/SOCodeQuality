@@ -1,0 +1,11 @@
+public static int getNumberOfDecimalPlace(double value) {
+    //For whole numbers like 0
+    if (Math.round(value) == value) return 0;
+    final String s = Double.toString(value);
+    System.out.println(s);
+    final int index = s.indexOf('.');
+    if (index < 0) {
+       return 0;
+    }
+    return s.length() - 1 - index;
+}

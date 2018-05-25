@@ -1,0 +1,16 @@
+public class Sub {
+
+    public String replaceChar(String str, int x, int y){
+        String temp = "XXX";
+        String str1 = "";
+        str1 = str.substring(x, y+1);
+        str = str.replace(str1, temp);
+        return str;
+    }
+
+    public static void main(String args[]){
+        Sub s = new Sub();
+        System.out.println(s.replaceChar("ABC123", 3, 5));
+    }
+
+}

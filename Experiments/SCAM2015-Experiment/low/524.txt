@@ -1,0 +1,44 @@
+import java.rmi.*;
+import java.rmi.registry.*;
+import java.rmi.server.*;
+import java.io.*;
+
+interface myimpl extends Remote{
+    public void file(String filename)throws RemoteException;
+}
+
+class ipcbingo extends UnicastRemoteObject implements myimpl{
+    ipcbingo() throws RemoteException{}
+    public void file(String filename){
+   try{
+        FileReader fr=new FileReader(filename);
+         System.out.println(filename);
+        BufferedReader br=new BufferedReader(fr);
+      String total="";
+      String temp="";
+       while((temp=br.readLine())!=null)
+        {
+        total+=temp;
+        }
+       System.out.println(total);
+   }catch(Exception e){}
+    }
+}
+
+class ipcser{
+    public static void main(String args[])throws Exception
+    {
+        ipcbingo i1=new ipcbingo();
+        Registry r1=LocateRegistry.createRegistry(1099);
+        r1.bind("abcd", i1);
+
+    }
+}
+
+class ipccli{
+    public static void main(String args[])throws Exception
+    {
+        myimpl i1=(myimpl)Naming.lookup("abcd");
+        i1.file("C:\\Users\\scc\\Documents\\NetBeansProjects\\rmi\\src\\lucky.txt");
+    }
+}

@@ -1,0 +1,7 @@
+public String getLabel(){
+    return super.getLabel();
+}
+
+public void setLabel(String label){
+    super.setLabel(label);
+}

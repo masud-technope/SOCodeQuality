@@ -1,0 +1,16 @@
+public int ps (int[] a)
+    {
+        var length = a.Length;
+        var temp = new HashSet<int>();
+        var result = 0;
+
+        for (int i=0; i<length; i++)
+        {
+            if (!temp.Contains(a[i]))
+            {
+                temp.Add(a[i]);
+                result = i;
+            }
+        }
+        return result;
+    }

@@ -1,0 +1,3 @@
+public boolean validSize(int size) {
+    // You fill this in.
+}

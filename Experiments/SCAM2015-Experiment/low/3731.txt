@@ -1,0 +1,4 @@
+Enter the key number to search for in the array: 
+7
+found 7 at row 1 column 2
+Process finished with exit code 0

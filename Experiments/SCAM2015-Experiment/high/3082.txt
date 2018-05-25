@@ -1,0 +1,10 @@
+<html>
+<body>
+<select id = "designation">
+<option value = "MD">MD</option>
+<option value = "prog"> Programmer </option>
+<option value = "CEO"> CEO </option>
+</option>
+</select>
+<body>
+</html>

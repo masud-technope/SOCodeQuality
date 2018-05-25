@@ -1,0 +1,21 @@
+int choice = 0;
+
+    do {
+        while(true)
+        {
+            System.out.println("1. Deposit money");
+            System.out.println("2. Withdraw money");
+            System.out.println("3. Check balance");
+            System.out.println("4. Create new account");
+            System.out.print("Your choice, 0 to quit: ");
+            try{
+
+            choice = Integer.parseInt(input.next());
+            break;
+            }
+            catch(Exception e){
+                System.err.println("Error: Invalid entry! Please Try Again!");
+                input=new Scanner(System.in);
+                continue;
+            }
+    }

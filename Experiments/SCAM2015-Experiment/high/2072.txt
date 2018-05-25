@@ -1,0 +1,4 @@
+if ((modelYear>=1995 && modelYear<=1998) || (modelYear>=2004 && modelYear<=2006))
+{
+    System.out.println("Recall");
+}

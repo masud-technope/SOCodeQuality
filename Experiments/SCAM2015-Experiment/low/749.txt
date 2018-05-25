@@ -1,0 +1,10 @@
+if (d.length() <= 2 && d.length() >=1) {
+try {
+ Integer i = Integer.valueOf(d);
+   return i <= 99 && i >= 0
+ }
+catch (NumberFormatException e)
+{
+ return false;
+}
+}

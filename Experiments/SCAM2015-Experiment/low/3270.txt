@@ -1,0 +1,6 @@
+if(doesWordMatch)
+  for(Character[] charArr : charSets)
+  {
+    //dosomething
+  }
+}

@@ -1,0 +1,5 @@
+public class ClothesItem {
+    int record;
+    String color;
+    String clothes;
+}

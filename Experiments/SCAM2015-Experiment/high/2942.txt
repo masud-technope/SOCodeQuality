@@ -1,0 +1,19 @@
+class MyFragment extends Fragment {
+
+    interface Listener {
+        public void somethingHappenedInFragment(Object... anyDataYouWantToPassToActivity);
+    }
+
+    private Listener mListener;
+
+    public void setListener(Listener listener) {
+        mListener = listener;
+    }
+
+    // ... your code ...
+
+    // Now here you pass the data to the activity
+    mListener.somethingHappenedInFragment(some, data);
+
+    // ... more of your code
+ }

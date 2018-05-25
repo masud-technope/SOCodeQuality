@@ -1,0 +1,32 @@
+public class InterleaveTwoListsTest {
+
+    private static final Logger log = 
+        LoggerFactory.getLogger(InterleaveTwoListsTest.class);
+
+    List<String> first = new ArrayList<String>() {
+    { 
+        add("one"); add("three"); add("five"); 
+        add("seven"); add("eight"); add("nine");
+    }};
+
+    List<String> second = new ArrayList<String>() {
+    { 
+        add("two"); add("four"); add("six"); 
+    }};
+
+
+    private InterleaveTwoLists<String> interleaveTwoLists;
+
+    @Before
+    public void setUp() throws Exception {
+        interleaveTwoLists = new InterleaveTwoLists<>();
+    }
+
+    @Test
+    public void test() {
+        List<String> combinedList = interleaveTwoLists.interleaveLists(first, second);
+        for( int i = 0; i < first.size() + second.size(); i++) { 
+            log.debug("{}: {}", i, combinedList.get(i));
+        }
+    }
+}

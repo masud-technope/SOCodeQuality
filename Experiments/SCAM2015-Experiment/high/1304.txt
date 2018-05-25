@@ -1,0 +1,4 @@
+public interface Storing {
+    void freezeDry(Stream s) = 0;
+    void reconstitute(Stream s) = 0;
+}

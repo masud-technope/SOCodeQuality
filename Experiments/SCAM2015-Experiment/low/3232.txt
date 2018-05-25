@@ -1,0 +1,12 @@
+public static <E> boolean compareArrays(E[] array1, E[] array2) {
+      boolean b = true;
+      for (int i = 0; i < array2.length; i++) {
+        if (array2[i].equals(array1[i]) ) {// For String Compare
+           System.out.println("true");
+        } else {
+           b = false;
+           System.out.println("False");
+        }
+      } 
+      return b;
+    }

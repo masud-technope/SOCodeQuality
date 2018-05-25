@@ -1,0 +1,14 @@
+for (int i = 1; i <= a; i++) {
+    isprimenumber = true;
+    for (int j = 2; j < i; j++) {
+        // check each number less than this one for factors
+        if (i % j == 0) {
+            // found an even divisor, so the number is composite
+            isprimenumber = false;
+            break;
+        }
+    }
+    if (isprimenumber) {
+        System.out.println(i);
+    }
+}

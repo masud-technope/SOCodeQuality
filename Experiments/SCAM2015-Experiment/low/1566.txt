@@ -1,0 +1,3 @@
+open.setPreferredSize(new Dimension(70,20));
+
+    process.setPreferredSize(new Dimension(100,20));

@@ -1,0 +1,4 @@
+// inside HashValue
+int hashCode() {
+    return x;
+}

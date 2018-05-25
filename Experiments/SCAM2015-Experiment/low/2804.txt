@@ -1,0 +1,14 @@
+public class ArrayPrinting<E> {
+
+    public  void printArray(E[] a){
+        for(E x : a){
+            System.out.print(x+", ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+          String[] a = {"A","B","C","D","E"};
+          new ArrayPrinting().printArray(a);
+    }
+}

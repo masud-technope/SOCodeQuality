@@ -1,0 +1,3 @@
+int previousWeekNum = 0;
+calender.add(Calendar.WEEK_OF_YEAR, -1);
+previousWeekNum = calender.get(Calendar.WEEK_OF_YEAR);

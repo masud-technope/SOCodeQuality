@@ -1,0 +1,4 @@
+MyThread t = new MyThread();  
+ t.setTypeOfSparrow("African");  
+ t.setFavoriteColor("Yellow");  
+ t.start();

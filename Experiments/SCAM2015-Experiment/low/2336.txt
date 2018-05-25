@@ -1,0 +1,15 @@
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    int i,j,k, n = Integer.parseInt(jTextField1.getText());
+    for(i=1;i<=n;i++) // normal loop
+    { 
+        for(j=1; j<=(n-i);j++)
+        {
+            System.out.print(" "); // loop for spaces
+        }
+        for(k=1;k<=i;k++) // loop for printing numbers
+        {
+            System.out.print(k+" ");
+        }
+        System.out.println();
+    }    // TODO add your handling code here:
+}

@@ -1,0 +1,23 @@
+/* DEFINE TABLES */
+
+CREATE TABLE IF NOT EXISTS Lid (
+        lid_id          INT(2)      NOT NULL,
+        naam            VARCHAR(45) NOT NULL,
+        email           VARCHAR(45) NOT NULL,
+        tel_nummer      VARCHAR(45) NOT NULL,
+        score           INT(2)      NOT NULL,
+        expertise       VARCHAR(45) NOT NULL,
+        team_id         INT(2)      NOT NULL,
+primary key (lid_id));
+
+CREATE TABLE IF NOT EXISTS Team (
+        team_id     INT(2)          NOT NULL,
+        naam        VARCHAR(45) NOT NULL,
+        score       INT(2)          NOT NULL,
+        captain     INT(2)          NOT NULL,
+        expertise   VARCHAR(45) NOT NULL,
+primary key (team_id));
+
+/* CREATE FOREIGN KEYS */
+ALTER TABLE Lid  ADD FOREIGN KEY (team_id)  REFERENCES Team(team_id);
+ALTER TABLE Team ADD FOREIGN KEY (captain)  REFERENCES Lid(lid_id);

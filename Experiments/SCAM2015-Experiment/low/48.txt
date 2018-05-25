@@ -1,0 +1,6 @@
+private interface FooBar extends Foo, Bar {}
+public void problemFunction (Object o) {
+  if ( o instanceof Foo && o instanceof Bar) {
+      doSomething((FooBar) o);
+  }
+}

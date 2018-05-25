@@ -1,0 +1,5 @@
+ShaderProgram.pedantic = false;
+
+  ShaderProgram defaultShader=SpriteBatch.createDefaultShader();
+
+  ShaderProgram shaderWhiteTexture=new ShaderProgram(Gdx.files.internal("vertexShader.vs").readString(),Gdx.files.internal("fragShader.fs").readString());

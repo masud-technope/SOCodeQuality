@@ -1,0 +1,5 @@
+Scanner scanner = new Scanner("hello,world,goodnight,moon");
+   scanner.useDelimiter(",");
+   while (scanner.hasNext()) {
+     System.out.println(scanner.next("\\w*"));
+   }

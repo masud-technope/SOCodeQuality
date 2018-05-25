@@ -1,0 +1,4 @@
+String[] str1 = list1.toArray(str1);
+   double[] dou1 = new double[str1.length]
+   for(int counter = 0; counter < str1.length;counter++)
+      dou1[counter] = Double.parseDouble(str1[counter].replaceAll("RSP_\\d+",""));

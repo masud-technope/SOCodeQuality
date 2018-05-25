@@ -1,0 +1,10 @@
+int index = 0;
+        int columnNum = 2;
+        while (index < columnNum){
+         TableColumn a=jTable1.getColumnModel().getColumn(index); 
+         Dimension d = jTable1.getPreferredSize();
+         d.width = d.width + 500;
+          jTable1.setPreferredSize(d);
+          jScrollPane1.setPreferredSize(d);
+            index+=1;
+        }

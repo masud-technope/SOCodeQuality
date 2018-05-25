@@ -1,0 +1,22 @@
+public class JdbcActorDao implements ActorDao {
+private SimpleJdbcTemplate simpleJdbcTemplate;
+private SimpleJdbcInsert insertActor;
+
+public void setDataSource(DataSource dataSource) {
+    this.simpleJdbcTemplate = new SimpleJdbcTemplate(dataSource);
+    this.insertActor =
+            new SimpleJdbcInsert(dataSource)
+                    .withTableName("t_actor")
+                    .usingGeneratedKeyColumns("id");
+}
+
+public void add(Actor actor) {
+    Map<String, Object> parameters = new HashMap<String, Object>(2);
+    parameters.put("first_name", actor.getFirstName());
+    parameters.put("last_name", actor.getLastName());
+    Number newId = insertActor.executeAndReturnKey(parameters);
+    actor.setId(newId.longValue());
+}
+
+//  ... additional methods
+}

@@ -1,0 +1,8 @@
+List foo = new ArrayList();
+	List bar = new ArrayList();
+	String str = "foobar";
+
+	foo.add(str);
+	bar.add(str);
+
+	foo.containsAll(bar);

@@ -1,0 +1,21 @@
+class Main {
+    static Unsafe getUnsafe() throws Throwable {
+        Field f = Unsafe.class.getDeclaredField("theUnsafe");
+        f.setAccessible(true);
+        return (Unsafe) f.get(null);
+    }
+
+    public static void main(String[] args) throws Throwable {
+        String a = "abcdef";
+        Unsafe u = getUnsafe();
+        int stringOffset = 40; //this might be platform dependant I used guessing in a loop and keept what whorked.
+
+        System.out.println(a);  // abcdef
+
+        u.putChar(a,stringOffset + 0 * u.ARRAY_CHAR_INDEX_SCALE, 'g');
+        u.putChar(a,stringOffset + 1 * u.ARRAY_CHAR_INDEX_SCALE, 'h');
+        u.putChar(a,stringOffset + 2 * u.ARRAY_CHAR_INDEX_SCALE, 'i');
+
+        System.out.println(a);  // ghidef
+    }
+}

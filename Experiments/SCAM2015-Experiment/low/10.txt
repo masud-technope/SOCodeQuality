@@ -1,0 +1,16 @@
+public static String join(String[] strings, char del)
+{
+    StringBuffer sb = new StringBuffer();
+    int len = strings.length;
+    boolean appended = false;
+    for (int i = 0; i < len; i++)
+    {
+        if (appended)
+        {
+            sb.append(del);
+        }
+        sb.append(""+strings[i]);
+        appended = true;
+    }
+    return sb.toString();
+}

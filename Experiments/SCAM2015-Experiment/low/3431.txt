@@ -1,0 +1,3 @@
+String sPorcentage = "80%";
+        int porcentage = Integer.parseInt(sPorcentage.replaceAll("%", ""));
+        System.out.println(porcentage);

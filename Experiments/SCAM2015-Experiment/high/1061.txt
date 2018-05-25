@@ -1,0 +1,51 @@
+statement:
+    labeled-statement
+    expression-statement
+    compound-statement
+    selection-statement
+    iteration-statement
+    jump-statement
+    declaration-statement
+    try-block
+
+labeled-statement:
+    identifier : statement
+    case constant-expression : statement
+    default : statement
+
+expression-statement:
+    expressionopt ; 
+
+compound-statement:
+    { statement-seqopt } 
+
+statement-seq:
+    statement
+    statement-seq statement
+
+selection-statement:
+    if ( condition ) statement
+    if ( condition ) statement else statement
+    switch ( condition ) statement
+
+condition:
+    expression
+    type-specifier-seq declarator = assignment-expression
+
+iteration-statement:
+    while ( condition ) statement
+    do statement while ( expression ) ; 
+    for ( for-init-statement conditionopt ; expressionopt ) statement
+
+for-init-statement:
+    expression-statement
+    simple-declaration
+
+jump-statement:
+    break ;
+    continue ;
+    return expressionopt ; 
+    goto identifier ; 
+
+declaration-statement:
+    block-declaration

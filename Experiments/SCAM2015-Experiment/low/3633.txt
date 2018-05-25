@@ -1,0 +1,9 @@
+class Example
+{
+    public static void main(String[] args)
+    {
+        int var = 1;    
+        System.out.println(var++);
+        System.out.println("\n" + ++var);    
+    }
+}

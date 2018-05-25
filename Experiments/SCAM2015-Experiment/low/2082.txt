@@ -1,0 +1,5 @@
+uglyPrintedMap.toString(); // ugly
+System.out.println( uglyPrintedMap ); // prints in an ugly manner
+
+new HashMap<Object, Object>(jobDataMap).toString(); // pretty
+System.out.println( new HashMap<Object, Object>(uglyPrintedMap) ); // prints in a pretty manner

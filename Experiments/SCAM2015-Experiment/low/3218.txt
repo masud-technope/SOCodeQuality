@@ -1,0 +1,21 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.TreeSet;
+
+public class MyArrayDuplicates { 
+    public static void main(String a[]){
+        String[] strArr = {"one","two","three","four","four","five"};
+        //convert string array to list
+        List<String> tmpList = Arrays.asList(strArr);
+        //create a treeset with the list, which eliminates duplicates
+        TreeSet<String> unique = new TreeSet<String>(tmpList);
+        System.out.println(unique);
+        System.out.println();
+        Iterator<Integer> iterator = unique.iterator();
+
+       // Displaying the Tree set data
+       while (iterator.hasNext()) {
+           System.out.print(iterator.next() + " ");
+       }
+    }
+}

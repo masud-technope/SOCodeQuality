@@ -1,0 +1,15 @@
+// do some stuff
+
+  if (!CheckCondition1) goto failure;
+  // do some stuff
+
+  if (!CheckCondition2) goto failure;
+  // do some stuff
+
+  return success_code;
+failure:
+
+  //do something to clean up after a failure.
+  //(I added that part, so it would be clear why you couldn't just return early)
+
+  return failure_code;

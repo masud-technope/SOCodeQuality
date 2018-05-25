@@ -1,0 +1,3 @@
+public void changeSomething(A& a){
+ a.setA(13);
+}

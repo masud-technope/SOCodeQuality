@@ -1,0 +1,5 @@
+JTextArea textArea = new JTextArea();
+textArea.setText(getText());
+textArea.setSize(limit, Short.MAX_VALUE); // limit = width in pixels, e.g. 500
+textArea.setWrapStyleWord(true);
+textArea.setLineWrap(true);

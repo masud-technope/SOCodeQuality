@@ -1,0 +1,41 @@
+import java.text.*;
+import java.util.Date;
+
+public class DatePercentage {
+
+    private final SimpleDateFormat dateFmt = new SimpleDateFormat(
+                                "yyyy-MM-dd HH:mm:ss");
+    private final DecimalFormat decFmt = new DecimalFormat();
+
+    public Date parse(String text) throws ParseException {
+        ParsePosition pos = new ParsePosition(0);
+        Date d = dateFmt.parse(text, pos);
+
+        if (d == null) {
+            throw new ParseException("Could not parse " + text + ": " + pos,
+                                     pos.getErrorIndex());
+        } else if (pos.getIndex() < text.length()) {
+            Number dec = decFmt.parse(text, pos); // % milliseceonds
+            double pct = dec == null ? 0 : dec.doubleValue();
+
+            if (0 < pct && pct < 1) {
+                long moreMillis = Math.round(pct * 1000);
+                d = new Date(d.getTime() + moreMillis);
+            }
+        }
+        return d;
+    }
+
+    public static void main(String[] args) throws ParseException {
+        String date = "2011-12-31 07:11:01";
+        String [] millis = {"", ".5", ".50", ".500", ".5001", 
+                            ".051", ".5009", "garbage"};
+
+        DatePercentage dp = new DatePercentage();
+
+        for (int i = 0; i < millis.length; i++) {
+            String str = date + millis[i];
+            System.out.format("%2s: %26s -> %tQ%n", i+1, str, dp.parse(str));
+        }
+    }
+}

@@ -1,0 +1,20 @@
+public class Singleton {
+
+    private static Singleton instance = null;
+
+    static {
+          instance = new Singleton();
+          // do some of your instantiation stuff here
+    }
+
+    private Singleton() {
+          if(instance!=null) {
+                  throw new ErrorYouWant("Singleton double-instantiation, should never happen!");
+          }
+    }
+
+    public static getSingleton() {
+          return instance;
+    }
+
+}

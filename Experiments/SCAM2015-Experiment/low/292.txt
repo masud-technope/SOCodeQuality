@@ -1,0 +1,12 @@
+public Object getProperty(String property, Object obj) {
+  if (obj != null && property != null) {
+       Field field = obj.getClass().getDeclaredField(property);
+       field.setAccessible(true);
+       try {
+          return field.get(obj);
+       } catch (Exception ex) {
+          return null;
+       }
+  }
+  return null;
+}

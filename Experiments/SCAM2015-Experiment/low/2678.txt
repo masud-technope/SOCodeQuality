@@ -1,0 +1,9 @@
+public class Conversion {
+public static void main(String[] args) {
+    Integer i = 234;
+
+    Float b = i.floatValue();
+
+    System.out.println(b);
+
+}}

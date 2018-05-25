@@ -1,0 +1,29 @@
+public static String loadJMXAgent(int port) throws IOException,
+        AttachNotSupportedException, AgentLoadException,
+        AgentInitializationException {
+    String name = ManagementFactory.getRuntimeMXBean().getName();
+    VirtualMachine vm = VirtualMachine.attach(name.substring(0,
+            name.indexOf('@')));
+
+    String lca = vm.getAgentProperties().getProperty(
+            "com.sun.management.jmxremote.localConnectorAddress");
+    if (lca == null) {
+        Path p = Paths.get(System.getProperty("java.home")).normalize();
+        if (!"jre".equals(p.getName(p.getNameCount() - 1).toString()
+                .toLowerCase())) {
+            p = p.resolve("jre");
+        }
+        File f = p.resolve("lib").resolve("management-agent.jar").toFile();
+        if (!f.exists()) {
+            throw new IOException("Management agent not found");
+        }
+        String options = String.format("com.sun.management.jmxremote.port=%d, " +
+                "com.sun.management.jmxremote.authenticate=false, " +
+                "com.sun.management.jmxremote.ssl=false", port);
+        vm.loadAgent(f.getCanonicalPath(), options);
+        lca = vm.getAgentProperties().getProperty(
+                "com.sun.management.jmxremote.localConnectorAddress");
+    }
+    vm.detach();
+    return lca;
+}

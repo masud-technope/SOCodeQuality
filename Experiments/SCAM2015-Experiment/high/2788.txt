@@ -1,0 +1,7 @@
+int var = 0;
+for(...) {
+   if(found)
+       var++;
+}
+if(var > 0)
+    sysout(var);

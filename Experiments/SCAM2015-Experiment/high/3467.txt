@@ -1,0 +1,8 @@
+EditText etdate;
+EditText ettime;
+@Override
+public void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+etdate = (EditText) findViewById(R.id.etdate);
+ettime = (EditText) findViewById(R.id.ettime);

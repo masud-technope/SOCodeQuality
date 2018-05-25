@@ -1,0 +1,18 @@
+public boolean member(Integer val){
+            if(node.next!=null){
+            if(node.val.equals(val) || node.next.val.equals(val)){
+                System.out.println("true");
+                node = node.next; // incrementing the node value 
+                return true;
+            }
+            return false;
+        }
+    }
+    else {
+    if( node.val.equals(val)){
+    return true;
+    }
+else{
+return false;
+}
+    }

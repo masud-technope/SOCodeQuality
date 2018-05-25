@@ -1,0 +1,17 @@
+public class weightloss extends Activity
+implements OnClickListener
+{
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.weightloss);
+      btn = (Button) findViewById(R.id.homeButton);
+      btn.setOnClickListener(this);
+   }
+
+   public void onClick (View v)
+   {
+      // Button tap detected! Do stuffs!
+   }
+
+}

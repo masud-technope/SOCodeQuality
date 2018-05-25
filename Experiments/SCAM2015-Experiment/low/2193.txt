@@ -1,0 +1,12 @@
+class MouseHandler extends MouseAdapter{
+    public void mousePressed(MouseEvent e) {            
+        if(th.isAlive()){
+            th.interrupt();
+            th = new Thread();
+        }
+        else{
+            th.start();
+        }
+    }
+
+}

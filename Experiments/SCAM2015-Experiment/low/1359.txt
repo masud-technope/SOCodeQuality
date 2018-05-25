@@ -1,0 +1,10 @@
+myVar0 = "";
+myVar1 = "";
+myVar2 = "";
+myVar3 = "";
+myVar4 = "";
+myVar5 = "";
+myVar6 = "";
+myVar7 = "";
+myVar8 = "";
+myVar9 = "";

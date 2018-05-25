@@ -1,0 +1,10 @@
+Nov 30, 2012 10:05:20 AM test.t100.t001.ArrayListSpeed main
+INFO: Creating entries.
+Nov 30, 2012 10:05:21 AM test.t100.t001.ArrayListSpeed main
+INFO: Searching..
+Nov 30, 2012 10:05:21 AM test.t100.t001.ArrayListSpeed main
+INFO: Searching 'dark' 333716
+Nov 30, 2012 10:05:21 AM test.t100.t001.ArrayListSpeed main
+INFO: Searching 'light' 333333
+Nov 30, 2012 10:05:22 AM test.t100.t001.ArrayListSpeed main
+INFO: Searching 'plain' 332951

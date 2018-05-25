@@ -1,0 +1,13 @@
+System.out.println("1");
+
+//Code1 block
+
+System.out.println("2");
+
+//code 2 block
+
+System.out.println("3");
+
+//code 3 block
+
+System.out.println("4");

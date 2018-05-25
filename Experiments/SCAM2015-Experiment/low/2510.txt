@@ -1,0 +1,95 @@
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+
+public class JXML {
+private DocumentBuilder builder;
+private Document doc = null;
+private DocumentBuilderFactory factory ;
+private XPathExpression expr = null;
+private XPathFactory xFactory;
+private XPath xpath;
+private String xmlFile;
+public static ArrayList<String> XMLVALUE ;  
+
+
+public JXML(String xmlFile){
+    this.xmlFile = xmlFile;
+}
+
+
+private void xmlFileSettings(){     
+    try {
+        factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        xFactory = XPathFactory.newInstance();
+        xpath = xFactory.newXPath();
+        builder = factory.newDocumentBuilder();
+        doc = builder.parse(xmlFile);
+    }
+    catch (Exception e){
+        System.out.println(e);
+    }       
+}
+
+
+
+public String[] selectQuery(String query){
+    xmlFileSettings();
+    ArrayList<String> records = new ArrayList<String>();
+    try {
+        expr = xpath.compile(query);
+        Object result = expr.evaluate(doc, XPathConstants.NODESET);
+        NodeList nodes = (NodeList) result;
+        for (int i=0; i<nodes.getLength();i++){             
+            records.add(nodes.item(i).getNodeValue());
+        }
+        return records.toArray(new String[records.size()]);
+    } 
+    catch (Exception e) {
+        System.out.println("There is error in query string");
+        return records.toArray(new String[records.size()]);
+    }       
+}
+
+public boolean updateQuery(String query,String value){
+    xmlFileSettings();
+    try{
+        NodeList nodes = (NodeList) xpath.evaluate(query, doc, XPathConstants.NODESET);
+        for (int idx = 0; idx < nodes.getLength(); idx++) {
+          nodes.item(idx).setTextContent(value);
+        }
+        Transformer xformer = TransformerFactory.newInstance().newTransformer();
+        xformer.transform(new DOMSource(doc), new StreamResult(new File(this.xmlFile)));
+        return true;
+    }catch(Exception e){
+        System.out.println(e);
+        return false;
+    }
+}
+
+
+
+
+public static void main(String args[]){
+    JXML jxml = new JXML("c://user.xml");
+    jxml.updateQuery("//Order/CustomerId/text()","222");
+    String result[]=jxml.selectQuery("//Order/Item/*/text()");
+    for(int i=0;i<result.length;i++){
+        System.out.println(result[i]);
+    }
+}

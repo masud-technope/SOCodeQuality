@@ -1,0 +1,11 @@
+string expressions = "10+20*4/2";
+
+/* this will separate the string into an array of numbers and the operators;
+   the numbers will be together rather than split into individual characters
+   as "" or "." would do;
+   this should make processing the expression easier
+   gives you: {"10", "+", "20", "*", "4", "/", "2"} */
+foreach (string exp in expressions.split(@"(\u002A)|(\u002B)|(\u002D)|(\u002F)"))
+{
+  //process each number or operator from the array in this loop
+}

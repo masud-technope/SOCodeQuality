@@ -1,0 +1,6 @@
+ArrayList<String> input = new ArrayList<String>() {{ 
+    add("10.0"); add("10.00"); add("10.10"); add("10.2270"); 
+}};
+
+Collection<String> output = stripZeros(input);
+System.out.println(output);

@@ -1,0 +1,20 @@
+Enter a string: anthropomorphization
+Enter substring length: 3
+ant
+nth
+thr
+hro
+rop
+opo
+pom
+omo
+mor
+orp
+rph
+phi
+hiz
+iza
+zat
+ati
+tio
+ion

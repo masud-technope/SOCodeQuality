@@ -1,0 +1,24 @@
+public static String format(String text){
+
+    StringBuilder sb = new StringBuilder();
+    boolean insideQuote = false;
+    char previous = '\0';//to track `\r\n`
+
+    for (char ch : text.toCharArray()) {
+
+        if (insideQuote && 
+                 (ch == '\r' || 
+                  ch == '\n' && previous != '\r') ) {
+            sb.append(" ");//replace `\r` or `\n` with space
+        }else {
+            if (ch == '"') {
+                insideQuote = !insideQuote;
+            }
+            sb.append(ch); //write other characters without change
+        }
+        previous = ch;
+    }
+
+    return sb.toString();
+
+}

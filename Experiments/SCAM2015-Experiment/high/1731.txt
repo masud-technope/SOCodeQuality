@@ -1,0 +1,4 @@
+public interface Response {
+   public void onSuccess();
+   public void onFailure(Exception exception);  
+}

@@ -1,0 +1,13 @@
+... 
+    //boolean volumeTwo = true; // <======= Manoj - COMMENT THIS LINE  
+    double volumeTwo = 1.0; // <=========== Manoj - any non-zero for that matter
+    ... 
+
+    ... 
+    while(volumeTwo != 0.0){
+    ... 
+              //math
+      volume = .33333 * pie * radius * radius * hieght;
+      System.out.printf ("Volume =       " + volume);
+      volumeTwo = volume; // <=============== Manoj - update volumeTwo with calculated volume 
+                          // <===============       - when volumeTwo becomes 0.0 loop quits

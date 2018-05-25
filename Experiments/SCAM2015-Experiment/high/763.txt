@@ -1,0 +1,4 @@
+public class MethodCall {
+    private String method;
+    private Map<String, String> args;
+}

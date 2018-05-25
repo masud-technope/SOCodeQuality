@@ -1,0 +1,46 @@
+@Test
+public void writeToExcel() {
+    //Blank workbook
+    XSSFWorkbook workbook = new XSSFWorkbook(); 
+
+    //Create a blank sheet
+    XSSFSheet sheet = workbook.createSheet("Employee Data");
+
+    //This data needs to be written (Object[])
+    Map<String, Object[]> data = new TreeMap<String, Object[]>();
+    data.put("1", new Object[] {"ID", "NAME", "PHONE"});
+    data.put("2", new Object[] {1, "Amit", "9865321425"});
+    data.put("3", new Object[] {2, "Lokesh","9562264578"});
+    data.put("4", new Object[] {3, "John", "9458262145"});
+
+
+    //Iterate over data and write to sheet
+    Set<String> keyset = data.keySet();
+    int rownum = 0;
+    for (String key : keyset)
+    {
+        Row row = sheet.createRow(rownum++);
+        Object [] objArr = data.get(key);
+        int cellnum = 0;
+        for (Object obj : objArr)
+        {
+           Cell cell = row.createCell(cellnum++);
+           if(obj instanceof String)
+                cell.setCellValue((String)obj);
+            else if(obj instanceof Integer)
+                cell.setCellValue((Integer)obj);
+        }
+    }
+    try
+    {
+        //Write the workbook in file system
+        FileOutputStream out = new FileOutputStream(new File("D:/writeTest.xlsx"));
+        workbook.write(out);
+        out.close();
+        System.out.println("writeTest.xlsx written successfully on disk.");
+    } 
+    catch (Exception e) 
+    {
+        e.printStackTrace();
+    }
+}

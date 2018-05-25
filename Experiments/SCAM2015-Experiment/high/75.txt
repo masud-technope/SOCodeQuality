@@ -1,0 +1,45 @@
+public class DerivedOverload {
+
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+    	A classA = new A(); 
+
+    	B classB = new B();
+
+    	System.out.println("DerivedOverload.main() classA.displayAlteredValue(2) : " + classA.displayAlteredValue(2));
+
+    	System.out.println("DerivedOverload.main() classA.displayAlteredValue(2) : " + classB.displayAlteredValue(2,2));
+    }
+
+
+
+}
+
+
+class A
+{
+   int val = 2;
+
+   A(){
+
+   }
+
+   public int displayAlteredValue(int inp)
+   {
+     return (val*inp);
+   }
+}
+
+class B extends A
+{
+   B(){
+
+   }
+
+   public int displayAlteredValue(int inp1, int inp2)
+   {
+     return (val*inp1*inp2);
+   }
+}

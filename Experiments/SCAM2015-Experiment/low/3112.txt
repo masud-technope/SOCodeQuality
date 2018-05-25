@@ -1,0 +1,5 @@
+try {
+    //Code here that cause OutOfMemoryError
+} catch (Error ee) {
+    ee.printStacktrace();
+}

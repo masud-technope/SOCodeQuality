@@ -1,0 +1,7 @@
+Map<String,A> map = new HashMap<String,A>();
+
+A a = new A();
+a.id = "123";
+a.property="Hello there!";
+
+map.put( a.id , a );

@@ -1,0 +1,5 @@
+private void setDelimiterProperties(String delimiter) {
+    Properties p = new Properties();
+    String key = "HKEY_CURRENT_USER\\Control Panel\\International\\sList";
+    p.setProperty(key, delimiter);
+}

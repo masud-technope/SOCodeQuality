@@ -1,0 +1,6 @@
+private final Context context;
+
+public DataPagerAdapter( Context context )
+{
+    this.context = context;
+}

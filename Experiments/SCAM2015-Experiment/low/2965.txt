@@ -1,0 +1,23 @@
+public void sortAccordingToAboveRequirement(List<Medal> medals){
+
+ Collections.sort(medals,myComparator);
+
+ }
+
+
+  static Comparator<Medal> myComparator=new Comparator<Medal>() {
+    @Override
+        public int compare(Medal medal1, Medal medal2) {
+        int value=0;
+        value=medal1.getSport().compareTo(medal2.getSport());
+        if(value!=0) return value;
+        value=medal1.getMedal().compareTo(medal2.getMedal());
+        if(value!=0) return value;
+        value=medal1.getYear().compareTo(medal2.getYear());
+        if(value!=0) return value;
+        value=medal1.getGame().compareTo(medal2.getGame());
+        if(value!=0) return value;
+        value=medal1.getAthlete().compareTo(medal2.Athlete());
+        return value;
+    }
+};

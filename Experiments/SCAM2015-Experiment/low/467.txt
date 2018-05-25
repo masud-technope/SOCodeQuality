@@ -1,0 +1,13 @@
+@RequestMapping(value = "/monitoring", method = RequestMethod.GET)
+public ModelAndView getMonitoringPage(Model model, final HttpServletRequest request) {
+    showRequestLog("monitoring");
+
+
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    String userName = authentication.getName();
+    //create a new session
+    HttpSession session = request.getSession(true);
+    session.setAttribute("username", userName);
+
+    return new ModelAndView(catalogPath + "monitoring");
+}

@@ -1,0 +1,15 @@
+/**
+ * This method takes String as parameter
+ * and checks if it is null or empty.
+ * 
+ * @param value - The value that will get checked. 
+ * Returns the value of "".equals(value). 
+ * This is also trimmed, so that "     " returns true
+ * @return - true if object is null or empty
+ */
+public static boolean empty(String value) {
+    if(value == null)
+        return true;
+
+    return "".equals(value.trim());
+}

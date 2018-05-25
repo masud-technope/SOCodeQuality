@@ -1,0 +1,6 @@
+if(thing){
+printBlock("email","firstname",1,10,10);
+}
+else{
+printBlock("email","othername",2,20,40);
+}

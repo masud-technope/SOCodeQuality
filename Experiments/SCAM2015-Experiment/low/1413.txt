@@ -1,0 +1,11 @@
+uint8_t *randomBytes(int length)
+{
+    uint8_t buffer = malloc(length);
+
+    for (int i = 0; i < length; i++)
+    {
+        buffer[i] = arc4random_uniform(256); // or similar random function
+    }
+
+    return buffer; // don't forget to free buffer when done!
+}

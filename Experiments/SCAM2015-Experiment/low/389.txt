@@ -1,0 +1,8 @@
+public int longToInt(Long longVariable)
+{
+    try { 
+            return Integer.valueOf(longVariable.toString()); 
+        } catch(IllegalArgumentException e) { 
+               Log.e(e.printstackstrace()); 
+        }
+}

@@ -1,0 +1,5 @@
+private JTextArea textArea;
+
+public MyMouseListener(JTextArea toChangeOnAction){
+    textArea = toChangeOnAction;
+}

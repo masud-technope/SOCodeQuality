@@ -1,0 +1,5 @@
+if (GraphicsEnvironment.isHeadless()) {
+     // non gui mode
+} else {
+     // gui mode
+}

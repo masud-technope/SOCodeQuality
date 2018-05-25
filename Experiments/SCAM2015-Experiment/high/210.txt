@@ -1,0 +1,7 @@
+BigInteger[][] bigIntegerMatrix = zeroMatrix(BigInteger.class, 3, 3);
+    Integer[][] integerMatrix = zeroMatrix(Integer.class, 3, 3);
+    Float[][] floatMatrix = zeroMatrix(Float.class, 3, 3);
+    String[][] error = zeroMatrix(String.class, 3, 3); // <--- compile time error
+    System.out.println(Arrays.deepToString(bigIntegerMatrix));
+    System.out.println(Arrays.deepToString(integerMatrix));
+    System.out.println(Arrays.deepToString(floatMatrix));

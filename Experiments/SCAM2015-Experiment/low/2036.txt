@@ -1,0 +1,4 @@
+public final class Tools {
+  public static int a;
+  public static int b;
+}

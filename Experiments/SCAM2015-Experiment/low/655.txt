@@ -1,0 +1,3 @@
+my @files = glob "/jars/*.jar";
+my $cp = join(":", @files);
+print($cp)

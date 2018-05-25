@@ -1,0 +1,7 @@
+String str1="String1";  
+ String str2 = "String2";  
+ System.out.println("str1 " + str1.hashCode());  
+ System.out.println("str2 = " + str2.hashCode());  
+
+ str1=str1 + str2;  
+ System.out.println("The hashcode str1 changed : " + str1.hashCode());

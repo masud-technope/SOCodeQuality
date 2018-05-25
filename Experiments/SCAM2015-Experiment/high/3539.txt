@@ -1,0 +1,15 @@
+for(int current = 0; current < cityDetailsArray.size(); current++) {
+            row = new TableRow(this);
+            final int currentCopy = current;
+
+            OnClickListener rowClickListener = new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    showDetailsView(cityDetailsArray.get(currentCopy)); 
+                }
+            };
+
+            row.setOnClickListener(rowClickListener);
+                    //rest of the loop
+}

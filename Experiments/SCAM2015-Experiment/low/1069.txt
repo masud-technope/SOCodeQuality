@@ -1,0 +1,38 @@
+class BFactory
+{
+    public static B createB(A a)
+    {
+     B b = new B();
+     copy(a,b);
+
+     return b;
+    }
+
+    private static <X,Y> void copy(X src,Y dest) throws Exception
+    {
+        List<Field> aFields = getAllFields(src.getClass());
+        List<Field> bFields = getAllFields(dest.getClass());
+
+        for (Field aField : aFields) {
+            aField.setAccessible(true);
+            for (Field bField : bFields) {
+                bField.setAccessible(true);
+                if (aField.getName().equals(bField.getName()))
+                {
+                    bField.set(dest, aField.get(src));
+                }
+            }
+        }
+    }
+
+    private static List<Field> getAllFields(Class type)
+    {
+        ArrayList<Field> allFields = new ArrayList<Field>();
+        while (type != Object.class)
+        {
+            Collections.addAll(allFields, type.getDeclaredFields());
+            type = type.getSuperclass();
+        }
+        return allFields;
+    }
+}

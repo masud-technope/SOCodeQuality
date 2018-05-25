@@ -1,0 +1,27 @@
+## General comment line 1
+ ## General comment line 2
+ ##!General comment line 3, is ignored and not loaded
+ ## General comment line 4
+
+
+ # Property A comment line 1
+ A=1
+
+ # Property B comment line 1
+ # Property B comment line 2
+ B=2
+
+ ! Property C comment line 1
+ ! Property C comment line 2
+
+ C=3
+ D=4
+
+ # Property E comment line 1
+ ! Property E comment line 2  
+ E=5
+
+ # Property F comment line 1
+ #!Property F comment line 2, is ignored and not loaded
+ ! Property F comment line 3  
+ F=5

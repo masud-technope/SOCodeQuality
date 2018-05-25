@@ -1,0 +1,13 @@
+public void doStuff(Object o) {
+  if(o instanceof Class1) {
+     Class1 c1 = (Class1)o;
+     c1.doSomething();
+  } 
+  else if(o instanceof Class2) {
+     Class2 c2 = (Class2)o;
+     c2.doSomething();
+  }
+  else {
+     ....
+  }
+}

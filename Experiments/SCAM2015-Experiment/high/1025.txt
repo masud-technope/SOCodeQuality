@@ -1,0 +1,12 @@
+IList<int> yourList = Arrays.AsList(existingIntArray);
+IList<int> anotherList = Arrays.AsList(1, 2, 3, 4, 5);
+
+// ...
+
+public static class Arrays
+{
+    public static IList<T> AsList<T>(params T[] source)
+    {
+        return source;
+    }
+}

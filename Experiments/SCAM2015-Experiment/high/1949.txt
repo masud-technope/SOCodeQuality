@@ -1,0 +1,8 @@
+public static int findDuplicate(String s) {
+    char[] chars = s.toCharArray();
+    Set<Character> uniqueChars = new HashSet<Character> (chars.length, 1);
+    for (int i = 0; i < chars.length; i++) {
+        if (!uniqueChars.add(chars[i])) return i;
+    }
+    return -1;
+}

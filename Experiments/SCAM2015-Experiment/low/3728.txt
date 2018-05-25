@@ -1,0 +1,57 @@
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
+
+/*
+Medium Speed
+Air 1100 feet per second
+Water 4900 feet per second
+Steel 16,400 feet per second
+
+Write a program that asks the user to enter "air", "water", or "steel", and the distance that a sound wave will
+travel in the medium. The program should then display the amount of time it will take.
+You can calculate the amount of time it takes sound to travel in air with the following formula:
+
+Time = Distance / 1100
+You can calculate the amount of time it takes sound to travel in water with the following formula:
+
+Time = Distance / 4900
+You can calculate the amount of time it takes sound to travel in steel with the following formula:
+
+Time = Distance / 16400
+*/
+
+public class SpeedOfSound {
+        public static void main(String[] args) {
+
+        char timeTraveled; //what is this even doing here?
+
+        Scanner scanner = new Scanner(System.in);
+
+        double time = (distance/ 1100);
+        double time2 = (distance/ 4900);
+        double time3 = (distance/ 16400);
+        DecimalFormat formatter = new DecimalFormat("#0.00");
+
+                System.out.println("Enter air, water, or steel: ");
+                String material = scanner.nextLine();
+                System.out.print("Enter distance: ");
+                double distance = scanner.nextDouble();
+
+                switch (material) {
+                    case "air":
+                        System.out.printf("The total time traveled is " + formatter.format(time) + ".");
+                        break;
+
+                    case "water":
+                        System.out.printf("The total time traveled is " + formatter.format(time2) + ".");
+                        break;
+
+                    case "steel":
+                        System.out.printf("The total time traveled is " + formatter.format(time3) + "seconds.");
+                        timeTraveled = material.charAt(0); //what is this even doing here?
+                    break;
+                }
+                scanner.close();
+    } // main()
+}  // class SpeedOfSound

@@ -1,0 +1,4 @@
+List list = new ArrayList() ;
+list.add(1) ;
+Integer hello = (Integer) list.get(0) ;
+System.out.println(hello);

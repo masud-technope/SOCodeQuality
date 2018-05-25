@@ -1,0 +1,4 @@
+DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+Connection conn = DriverManager.getConnection(
+    "jdbc:mysql://192.168.1.12:3308/mydb?characterEncoding=greek",
+    "Myuser", "mypass");

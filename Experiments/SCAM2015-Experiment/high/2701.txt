@@ -1,0 +1,13 @@
+public class A {
+    public static String method() { return "'A.method()'"; }
+}
+
+public class B extends A {
+    public static String method() { return "'B.method()'"; }
+
+    public static void main(String[] args) {
+        System.out.println(A.method());  // prints 'A.method()'
+        System.out.println(B.method());  // prints 'B.method()'
+        System.out.println(method());    // prints 'B.method()'
+    }
+}

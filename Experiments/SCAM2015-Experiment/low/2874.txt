@@ -1,0 +1,6 @@
+public static Test newInstance(){
+    if(instance==null){
+        instance = new Test();
+    }
+    return instance;
+}

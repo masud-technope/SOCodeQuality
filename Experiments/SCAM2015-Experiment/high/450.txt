@@ -1,0 +1,9 @@
+JFrame component = new JFrame("My Frame");
+
+component.addComponentListener(new ComponentAdapter() 
+{  
+        public void componentResized(ComponentEvent evt) {
+            Component c = (Component)evt.getSource();
+            //........
+        }
+});

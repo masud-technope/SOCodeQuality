@@ -1,0 +1,9 @@
+public class myClass {
+  private int myVariable;
+  public setMyVariable(int myVariable) {
+    this.myVariable = myVariable; // if you do not add this, the compiler won't know you are refering to the instance variable
+  }
+  public int getMyVariable() {
+    return this.myVariable;  // here there is no possibility for confussion, you can delete this if you want
+  }
+}

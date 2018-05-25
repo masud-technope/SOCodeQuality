@@ -1,0 +1,5 @@
+String origStr = "bat";
+String newStr = str.replace('a', 'i');
+// Now:
+// origStr = "bat"
+// newStr = "bit"

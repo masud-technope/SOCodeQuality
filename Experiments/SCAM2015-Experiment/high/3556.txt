@@ -1,0 +1,13 @@
+public static void main(String[] args) {
+    String[] s = {"a","b","c","-","g","t","-","q","-","a","s","d","-","a","b","y"};
+    StringBuilder builder = new StringBuilder();
+    ArrayList<String> k = new ArrayList<String>();
+    for (String str : s) {
+        if (str.equals("-")) {
+            k.add(builder.toString());
+            builder.setLength(0);
+        } else builder.append(str);
+    }
+    k.add(builder.toString());
+    System.out.println(Arrays.toString(k.toArray(new String[k.size()])));
+}

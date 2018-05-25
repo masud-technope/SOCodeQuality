@@ -1,0 +1,12 @@
+public boolean checkIfDifferByOneBit(int a, int b){
+    int diff = 0;
+    while(a > 0 && b > 0){
+        if(a & 1 != b & 1)
+            diff++;
+        a = a >> 1;
+        b = b >> 1;
+    }
+    if (a > 0 || b > 0) // a correction in the solution provided by David Jones
+        return diff == 0 // In the case when a or b become zero before the other
+    return diff == 1;
+}

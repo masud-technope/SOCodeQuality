@@ -1,0 +1,45 @@
+class GoobyPls {
+
+    public int getCHealth() {
+        return CHealth;
+    }
+    public void setCHealth(int cHealth) {
+        CHealth = cHealth;
+    }
+    public int getMHealth() {
+        return MHealth;
+    }
+    public void setMHealth(int mHealth) {
+        MHealth = mHealth;
+    }
+    public int getCAgility() {
+        return CAgility;
+    }
+    public void setCAgility(int cAgility) {
+        CAgility = cAgility;
+    }
+    public int getMAgility() {
+        return MAgility;
+    }
+    public void setMAgility(int mAgility) {
+        MAgility = mAgility;
+    }
+    public int getCDefence() {
+        return CDefence;
+    }
+    public void setCDefence(int cDefence) {
+        CDefence = cDefence;
+    }
+    public int getMDefence() {
+        return MDefence;
+    }
+    public void setMDefence(int mDefence) {
+        MDefence = mDefence;
+    }
+    private int CHealth = 20;
+    private int MHealth = 20;
+    private int CAgility = 10;
+    private int MAgility = 10;
+    private int CDefence = 5;
+    private int MDefence = 5;
+}

@@ -1,0 +1,14 @@
+// Replace “ and ” with " to make parsing easier; do this only if you truly are
+// using pretty quotes (as you are in your post).
+inputString = inputString.replaceAll("[“”]", "\"");
+
+StreamTokenizer tokenizer = new StreamTokenizer(new StringReader(inputString));
+tokenizer.resetSyntax();
+tokenizer.whitespaceChars(0, 32);
+tokenizer.wordChars(33, 255);
+tokenizer.quoteChar('\"');
+
+while (tokenizer.nextToken() != StreamTokenizer.TT_EOF) {
+    // tokenizer.sval will contain the token
+    System.out.println(tokenizer.sval);
+}

@@ -1,0 +1,4 @@
+List<string> names = dialog.GetNames();
+foreach(string name in names)
+{
+}

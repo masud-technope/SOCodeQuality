@@ -1,0 +1,12 @@
+for (int k = 0; k < arrNums2.length; k++) {
+    for (int i = k+1; i <arrNums2.length; i++) {
+        if(arrNums2[k]!= 0 && arrNums[k] == arrNums2[i]){             
+            points = points -5;            
+            for (int j = i+1; j < arrNums2.length; j++) {
+                    if(arrNums2[i]==arrNums2[j]){
+                        arrNums2[j]=0;
+                }
+            }
+        }
+    }
+}

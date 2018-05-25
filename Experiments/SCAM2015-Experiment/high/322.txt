@@ -1,0 +1,5 @@
+template< class Iterator >
+void some_function( Iterator first, Iterator last )
+{
+    // ...
+}

@@ -1,0 +1,7 @@
+byte[] buf;
+int size;
+
+while ((size = in.read(buf)) != -1)
+  process(buf, size);
+
+// end of stream has reached

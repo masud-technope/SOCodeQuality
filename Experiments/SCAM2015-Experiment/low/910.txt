@@ -1,0 +1,8 @@
+/**
+ * @comment:  I moved  all over and could not find a simple/simplicity java json
+ *            finally got this one working with simple working model.
+ * @download: http://json-simple.googlecode.com/files/json_simple-1.1.jar
+ */
+
+JSONObject obj = (JSONObject) JSONValue.parse(line); //line = {"natip":"127.0.0.1","natport":"4446"}
+System.out.println( obj.get("natport") + " " + obj.get("natip") );     // show me the ip and port please

@@ -1,0 +1,5 @@
+org.hibernate.Cache.evictCollectionRegions()
+org.hibernate.Cache.evictDefaultQueryRegion()
+org.hibernate.Cache.evictEntityRegions()
+org.hibernate.Cache.evictQueryRegions()
+org.hibernate.Cache.evictNaturalIdRegions()

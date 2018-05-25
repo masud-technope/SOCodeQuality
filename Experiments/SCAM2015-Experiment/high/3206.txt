@@ -1,0 +1,8 @@
+void Foo(bool someCondition)
+{
+    do 
+    {
+        // code here is executed whatever the value of someCondition
+    }
+    while (someCondition) // but the loop is only executed *again* if someCondition is TRUE
+}

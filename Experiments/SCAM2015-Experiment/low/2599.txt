@@ -1,0 +1,5 @@
+try {
+    // Whatever you want to do with that...
+} catch (NullPointerException npe) {
+    // Whatever you want to do with bad input
+}

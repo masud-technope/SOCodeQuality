@@ -1,0 +1,3 @@
+String s="+9851452;;FERRARI;;";
+    String split[]=s.split(";", -1);
+    System.out.println(Arrays.toString(split));

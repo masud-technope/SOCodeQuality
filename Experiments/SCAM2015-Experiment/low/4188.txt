@@ -1,0 +1,7 @@
+char c=evt.getKeyChar();
+if(!(Character.isDigit(c)||
+    (c==KeyEvent.VK_BACK_SPACE)||c==KeyEvent.VK_DELETE||evt.getKeyChar() == '.')){
+//  evt.getKeyChar() == '.' does accept point when jtextfield accepts decimal number
+  evt.consume();
+  getToolkit().beep();
+}

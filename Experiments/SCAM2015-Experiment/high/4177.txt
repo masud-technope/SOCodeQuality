@@ -1,0 +1,3 @@
+public class ClassWithGeneric<T extends IFoo> {
+    Map<Class<T>, Map<String, T>> valueCache = new HashMap<Class<T>, Map<String, T>>();
+}

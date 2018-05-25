@@ -1,0 +1,3 @@
+Column<Double> ?tp? = table.getColumn("tp", double.class);
+
+double tp = row.getDouble(?tp?);

@@ -1,0 +1,3 @@
+<%@page import="java.io.*"%>
+java.net.URL url =config.getServletContext().getResource("file.txt");
+BufferedReader buffreader =new BufferedReader(new InputStreamReader(url.openStream()));

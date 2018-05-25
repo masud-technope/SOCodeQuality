@@ -1,0 +1,8 @@
+public myDestructor() {
+
+variableA = 0; //INT
+variableB = 0.0; //DOUBLE & FLOAT
+variableC = "NO NAME ENTERED"; //TEXT & STRING
+variableD = false; //BOOL
+
+}

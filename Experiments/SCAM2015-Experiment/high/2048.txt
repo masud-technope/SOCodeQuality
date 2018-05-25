@@ -1,0 +1,5 @@
+int i=0,k=0;
+   while(k<1768; ) {
+        System.out.println(x[i]+" - "+k);
+        i++,k+=x[i];
+       }

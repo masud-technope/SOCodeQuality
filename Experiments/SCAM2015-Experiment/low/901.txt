@@ -1,0 +1,12 @@
+Node parent = node.getParent();
+Node nextSibling = node.getNextSibling();
+
+parent.removeChild(node);
+
+Element something = document.createElement("something");
+NamedNodeMap atts = something.getAttributes();
+Attr att = document.createAttribute("style");
+att.setNodeValue("background-color:red;");
+atts.setNamedItem(att);
+something.addChild(node);
+parent.insertBefore(something, nextSibling);

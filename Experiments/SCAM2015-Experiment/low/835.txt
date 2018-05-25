@@ -1,0 +1,6 @@
+for (int i = 0; i < a[2].Length; i++)
+{
+    string ss = (8S8Q4D1SKCQC2C4S6H4C6DJS2S1C6C).Substring(i, 2);
+    Console.Write(ss);
+    i++; 
+}

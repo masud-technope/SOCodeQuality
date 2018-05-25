@@ -1,0 +1,7 @@
+class Vector3f(…) {
+  …
+  def *:(f: Float) = …
+}
+
+var v = new Vector3f(1,2,3);
+var u = 1.2f *: v; //this works without any implicit magic or boxing overhead

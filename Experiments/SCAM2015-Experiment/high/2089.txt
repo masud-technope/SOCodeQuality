@@ -1,0 +1,13 @@
+Enter keystore password:
+    Keystore type: JKS
+    Keystore provider: SUN
+    Your keystore contains 1 entry
+    Alias name: somealias
+    Creation date: Jul 26, 2012
+    Entry type: PrivateKeyEntry
+    Certificate chain length: 1
+    Certificate[1]:
+    Owner: CN=Unknown, OU=RCSCS, O="Some Company, Inc.", L=Duluth, ST=GA, C=US
+    Issuer: CN=Unknown, OU=RCSCS, O=Some Company, Inc.", L=Duluth, ST=GA, C=US
+    Serial number: 5011a47b
+    Valid from: Thu Jul 26 16:11:39 EDT 2012 until: Wed Oct 24 16:11:39 EDT 2012

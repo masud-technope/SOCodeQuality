@@ -1,0 +1,3 @@
+for (Operation o : Operation.values()){
+  neighborStates[i] = new State();
+  // ...

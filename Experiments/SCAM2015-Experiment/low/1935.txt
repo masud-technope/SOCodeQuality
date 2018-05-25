@@ -1,0 +1,61 @@
+package com.example.payroll.domain;
+
+public class Person {
+
+    private String mFirstName;
+    private String mLastName;
+    private Department mDepartment;
+    private boolean mResigning;
+
+    public Person(String firstName, String lastName) {
+        mFirstName = firstName;
+        mLastName = lastName;
+        mDepartment = null;
+        mResigning = false;
+    }
+
+    public String getFirstName() {
+        return mFirstName;
+    }
+
+    public String getLastName() {
+        return mLastName;
+    }
+
+    public Department getDepartment() {
+        return mDepartment;
+    }
+
+    public boolean isResigning() {
+        return mResigning;
+    }
+
+    // ========== Business logic ==========
+
+    public void youAreHired(Department department) {
+        assert(department != null);
+        assert(mDepartment != department);
+        assert(department.isBeingHired(this));
+
+        if (mDepartment != null)
+            resign();
+
+        mDepartment = department;
+    }
+
+    public void youAreFired() {
+        assert(mDepartment != null);
+        assert(mDepartment.isBeingFired(this));
+
+        mDepartment = null;
+    }
+
+    public void resign() {
+        assert(mDepartment != null);
+
+        mResigning = true;
+        mDepartment.iResign(this);
+        mDepartment = null;
+        mResigning = false;
+    }
+}

@@ -1,0 +1,3 @@
+born_date.getDay();
+born_date.getMonth();
+born_date.getYear();

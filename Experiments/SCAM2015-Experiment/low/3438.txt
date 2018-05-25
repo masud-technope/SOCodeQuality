@@ -1,0 +1,27 @@
+public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    int j=2;
+    boolean isNotPrime=false;
+
+    System.out.println("Enter the n:");
+    Scanner reader= new Scanner(System.in);
+    int n= reader.nextInt();
+
+    while (j<=n/2){
+        if(n % j ==0){
+            isNotPrime=true;
+            break;
+        }
+        j++;
+    }
+
+
+    if (isNotPrime){
+        System.out.println("Number"+n+"is not prime");
+    }
+    else
+    {
+        System.out.println("Number"+n+"is prime");
+    }
+
+}

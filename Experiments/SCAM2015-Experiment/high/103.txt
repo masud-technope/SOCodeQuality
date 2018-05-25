@@ -1,0 +1,9 @@
+public int compareTo(Person other) {
+    int i = firstName.compareTo(other.firstName);
+    if (i != 0) return i;
+
+    i = lastName.compareTo(other.lastName);
+    if (i != 0) return i;
+
+    return Integer.valueOf(age).compareTo(Integer.valueOf(other.age));
+}

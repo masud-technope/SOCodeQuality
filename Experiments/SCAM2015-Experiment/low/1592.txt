@@ -1,0 +1,14 @@
+Trade gsTrades = new Trade();
+    Trade barclaysTrades = new Trade();
+
+    for(Trade trade: tradeList){
+        if(trade.getSource().equals("GS")){
+            gsTrades.setQuantity(gsTrades.getQuantity()+trade.getQuantity());
+            gsTrades.setPrice(gsTrades.getPrice()+trade.getPrice());
+        }else{
+            barclaysTrades.setQuantity(barclaysTrades.getQuantity()+trade.getQuantity());
+            barclaysTrades.setPrice(barclaysTrades.getPrice()+trade.getQuantity());
+        }
+    }
+    System.out.println("GS trade details = " + gsTrades.toString());
+    System.out.println("Barclays trade details = " + barclaysTrades.toString());

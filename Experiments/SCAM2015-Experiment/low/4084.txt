@@ -1,0 +1,7 @@
+int countA = 0;
+for(Object o : list) {
+    if(o instanceof A) {
+        countA++;
+    }
+}
+return countA == list.size(); // homogenous list

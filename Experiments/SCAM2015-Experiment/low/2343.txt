@@ -1,0 +1,17 @@
+@Override
+public FaqQuestions getFaqQuestionById(Long questionId) {
+    session = sessionFactory.openSession();
+    tx = session.beginTransaction();
+    FaqQuestions faqQuestions = null;
+    try {
+        faqQuestions = (FaqQuestions) session.get(FaqQuestions.class,
+                questionId);
+        Hibernate.initialize(faqQuestions.getFaqAnswers());
+
+        tx.commit();
+        faqQuestions.getFaqAnswers().size();
+    } finally {
+        session.close();
+    }
+    return faqQuestions;
+}

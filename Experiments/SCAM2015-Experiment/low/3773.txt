@@ -1,0 +1,5 @@
+@SharedPref
+public interface SectionsPagerPref {
+    @DefaultInt(0)
+    int getCount();
+}

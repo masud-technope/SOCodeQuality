@@ -1,0 +1,6 @@
+String jvm_location;
+if (System.getProperty("os.name").startsWith("Win")) {
+    jvm_location = System.getProperties().getProperty("java.home") + File.separator + "bin" + File.separator + "java.exe";
+} else {
+    jvm_location = System.getProperties().getProperty("java.home") + File.separator + "bin" + File.separator + "java";
+}

@@ -1,0 +1,13 @@
+class person{
+ //breed function
+ }
+ class walker extends person{
+ //walk function
+ }
+ class talker extends person{
+ //talk function
+ }
+class swimmer extends talker{     
+//swim function
+//walk function
+}

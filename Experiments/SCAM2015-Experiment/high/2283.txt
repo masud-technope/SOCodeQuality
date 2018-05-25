@@ -1,0 +1,4 @@
+tempClob.length()<4000){
+    byte[] bytes = tempClob.getBytes();
+    pstmnt.setCharacterStream(2, new StringReader(new String( bytes  )), bytes.length);
+}

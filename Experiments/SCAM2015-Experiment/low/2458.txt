@@ -1,0 +1,20 @@
+class Container<T> {
+
+    TypeToken<T> tokenOfContainedType = new TypeToken<T>(getClass()) {};
+
+    public Type getContainedType() {
+        return tokenOfContainedType.getType();
+    }
+}
+
+class TestCase {
+
+    // note that containerTest is not a simple instance of Container,
+    // an anonymous subclass is created
+    private Container<String> containerTest = new Container<String>() {};
+
+    @Test
+    public void test() {
+        Assert.assertEquals(String.class, containerTest.getContainedType());
+    }
+}

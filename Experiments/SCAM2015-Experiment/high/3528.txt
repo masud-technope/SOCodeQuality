@@ -1,0 +1,4 @@
+public void aMethod(SomeInterface obj) {
+    obj.commonMethod();
+    // ...
+}

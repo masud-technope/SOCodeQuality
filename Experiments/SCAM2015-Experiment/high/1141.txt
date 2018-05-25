@@ -1,0 +1,5 @@
+Type a = new Type(1);
+Type b = new Type(2);
+a = b;                 // dispatched to Type.operator=( Type )??
+a.foo();
+a = new Type(3);       // do you want to copy Type(3) into a, or work with a new object?

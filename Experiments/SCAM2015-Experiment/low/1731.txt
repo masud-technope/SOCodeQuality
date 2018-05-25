@@ -1,0 +1,15 @@
+import java.util.Random;
+
+class Main {
+
+    int genRandom(int minValue, int maxValue) {
+        return (int) (minValue + ((new Random()).nextDouble() * (maxValue - minValue)));
+    }
+
+    public static void main(String [] args){
+        Main m = new Main();
+        for(int i = 0; i<5; i++){
+            System.out.println("Random Number is: " + m.genRandom(1, 100));
+        }
+    }
+}

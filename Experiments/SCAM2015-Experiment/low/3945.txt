@@ -1,0 +1,6 @@
+string fieldA, fieldB;
+public Destination(Source src)
+{
+   fieldA = src.fieldA;
+   fieldB = src.fieldB;
+}

@@ -1,0 +1,3 @@
+public String deDup(String s) {
+    return Arrays.stream(s.split("-")).distinct().collect(Collectors.joining("-"));
+}

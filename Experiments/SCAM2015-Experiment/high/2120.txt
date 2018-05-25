@@ -1,0 +1,5 @@
+Took 20 ns to Math.sqrt on average
+Took 22 ns to Math.sqrt on average
+Took 9 ns to Math.sqrt on average
+Took 9 ns to Math.sqrt on average
+Took 9 ns to Math.sqrt on average

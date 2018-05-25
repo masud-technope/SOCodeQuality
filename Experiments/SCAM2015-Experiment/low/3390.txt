@@ -1,0 +1,8 @@
+try {
+    String firstDomain = book.getBookImages().getDomains().getDefaults().getDomain().get(0);
+    // operate on firstDomain
+} catch (NullPointerException e) {
+    throw new IncompleteBookException("The book was incompletely attributed.");
+} catch (IndexOutOfBoundsException e) {
+    throw new IncompleteBookException("The book was incompletely attributed.");
+}

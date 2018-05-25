@@ -1,0 +1,6 @@
+public class Tmp {
+    public static void main(String[] args) {
+        List<Integer> numbers = new ArrayList<Integer>();
+        numbers.add(1);
+    }
+}

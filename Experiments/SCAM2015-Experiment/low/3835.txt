@@ -1,0 +1,3 @@
+String parameters = StringUtils.join(arraylistParameter.iterator(),",");  
+PreparedStatement pstmt =conn.prepareStatement("select * from employee 
+                         where id in ("+ parameters+)");

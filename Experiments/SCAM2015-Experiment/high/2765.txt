@@ -1,0 +1,4 @@
+Map<Integer, String> urls = new HashMap();
+
+urls.put(R.id.button1, "file:///android_asset/chapter/chapter100.html");
+// ... 1 to 100 ...

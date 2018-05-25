@@ -1,0 +1,5 @@
+String a = "abc";
+String b = "abc";
+
+a == b -> false
+a.equals(b) -> true

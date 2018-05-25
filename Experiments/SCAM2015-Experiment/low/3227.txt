@@ -1,0 +1,7 @@
+public class Result   
+{
+    private List<Today> today;
+    private List<Month> month;
+    private List<Week> week;    
+    //getter and setter method
+}

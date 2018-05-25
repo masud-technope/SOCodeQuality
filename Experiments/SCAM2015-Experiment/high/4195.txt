@@ -1,0 +1,7 @@
+WebDriverWait wait = new WebDriverWait(driver,30);
+
+boolean isNotVisible = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("foo")));
+
+if(isNotVisible) {
+   // do stuff
+}

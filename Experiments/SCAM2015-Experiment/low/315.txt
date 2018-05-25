@@ -1,0 +1,12 @@
+import java.util.UUID;
+...
+    private String uuid=null;
+...
+    protected String getUuid() {
+        synchronized (this) {
+          if (null ==uuid) {
+            uuid = UUID.randomUUID().toString();
+          }
+          return uuid;
+        }
+      }

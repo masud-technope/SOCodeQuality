@@ -1,0 +1,9 @@
+static List<Integer> add2 (List<Integer> lst) throws Exception {
+    Class<?> cl = lst.getClass();
+    Constructor<?> con = cl.getConstructor(int.class);
+    @SuppressWarnings("unchecked")
+    List<Integer> copy = (List<Integer>) con.newInstance(lst.size());
+    for (Integer i : lst)
+        copy.add(i.intValue()+2);
+    return copy;
+}

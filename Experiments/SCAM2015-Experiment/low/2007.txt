@@ -1,0 +1,7 @@
+//now we have traversed all the data, fetch the id of the closest event to us 
+    _myCursor = _myDBHelper.fetchID(id); 
+    _myCursor.moveToFirst(); 
+
+    //get lat and long of nearest location to user, used to push out to map view 
+    _mLatNearest  = _myCursor.getFloat(_myCursor.getColumnIndexOrThrow(DataBaseHelper._FIELD_LATITUDE)); 
+    _mLongNearest = _myCursor.getFloat(_myCursor.getColumnIndexOrThrow(DataBaseHelper._FIELD_LONGITUDE));

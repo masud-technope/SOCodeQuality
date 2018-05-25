@@ -1,0 +1,7 @@
+public static void fps(){
+  ...
+}
+public static void tick(){}
+
+//elsewhere
+fps.fps()

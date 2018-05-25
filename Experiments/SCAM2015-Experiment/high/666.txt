@@ -1,0 +1,3 @@
+Parent p = // execute query to load desired parent
+// due to lazy loading, at this point p.children is a proxy object
+int count = p.getChildren().size(); // the collection is not loaded, only its size

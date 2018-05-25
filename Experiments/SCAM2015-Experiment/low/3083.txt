@@ -1,0 +1,4 @@
+bindkey = entry1.getKey().toString();
+    String bindkeyreplace =":".concat(bindkey).trim();
+    String bindkeyreplacestring = "?";
+    query = query.replace(bindkeyreplace, bindkeyreplacestring);

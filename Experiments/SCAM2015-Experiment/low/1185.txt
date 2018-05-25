@@ -1,0 +1,10 @@
+class Car {
+ //i'm adding only 2 properties you can add all the properties
+ public int price;
+ public int tax;
+ public Car (String name, int price, int tax, int year)
+ {
+   //here you should add these 2 lines
+   this.price=price;
+   this.tax=tax;
+ }

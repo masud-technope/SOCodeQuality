@@ -1,0 +1,5 @@
+Object selectedObj = null;
+for (Object obj : map.values()) {
+    selectedObj = obj;
+    break;
+}

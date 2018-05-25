@@ -1,0 +1,7 @@
+HashMap<String, String> x = new HashMap<String, String>();
+
+String line = "LOCALHOST = https://192.168.56.1";
+
+String[] items = line.split("=");
+
+x.add(items[0], items[1]);

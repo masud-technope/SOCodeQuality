@@ -1,0 +1,32 @@
+static boolean isBalanced(Node root) {
+    //check in the depth of left and right subtree
+    int diff = depth(root.getLeft()) - depth(root.getRight());
+    if (diff < 0) {
+        diff = diff * -1;
+    }
+    if (diff > 1) {
+        return false;
+    }
+    //go to child nodes
+    else {
+        if (root.getLeft() == null && root.getRight() == null) {
+            return true;
+        } else if (root.getLeft() == null) {
+            if (depth(root.getRight()) > 1) {
+                return false;
+            } else {
+                return true;
+            }
+        } else if (root.getRight() == null) {
+            if (depth(root.getLeft()) > 1) {
+                return false;
+            } else {
+                return true;
+            }
+        } else if (root.getLeft() != null && root.getRight() != null && isBalanced(root.getLeft()) && isBalanced(root.getRight())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}

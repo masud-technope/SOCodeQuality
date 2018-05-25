@@ -1,0 +1,7 @@
+public static int findArray(Integer[] array, Integer[] subArray)
+{
+    if (Collections.indexOfSubList(Arrays.asList(array), Arrays.asList(subArray)) != null)
+    {
+        importsPreparedStatement = true;
+    {
+}

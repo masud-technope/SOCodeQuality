@@ -1,0 +1,5 @@
+int method(double value) { 
+    if (value == (int) value) 
+        return Integer.toString((int)value).length(); 
+    else return Double.toString(value).length(); 
+}

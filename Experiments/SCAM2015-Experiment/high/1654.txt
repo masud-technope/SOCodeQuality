@@ -1,0 +1,5 @@
+char[] chars = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+byte[] bytes = toBytes(chars);
+// Do something with chars/bytes
+Arrays.fill(chars, '\u0000'); // clear sensitive data
+Arrays.fill(bytes, (byte) 0); // clear sensitive data

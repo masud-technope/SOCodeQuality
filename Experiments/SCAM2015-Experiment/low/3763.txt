@@ -1,0 +1,21 @@
+<script>
+  function checkEmail()
+      {
+     var feedback="";
+   var email=document.getElementById("email").value;
+  var count=email.length;
+  var atpos=email.indexOf('@');
+   var atdot=email.lastIndexOf('.');
+  var tld=email.substring(atdot);
+     if(atpos<1 || atdot<1)
+   {
+   alert("Email is  Not Valid");
+    }
+      else if(atpos>atdot)
+     {
+   alert("Email is  Not Valid");
+    }
+   else{
+   alert("Email is Valid");
+       }
+      }

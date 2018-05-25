@@ -1,0 +1,10 @@
+# GIST: "pw_from_console.rb" under "https://gist.github.com/drhuffman12"
+
+jconsole = Java::java.lang.System.console()
+password = jconsole.readPassword()
+ruby_string = ''
+password.to_a.each {|c| ruby_string << c.chr}
+
+# .. do something with 'password' variable ..    
+puts "password_chars: #{password_chars.inspect}"
+puts "password_string: #{password_string}"

@@ -1,0 +1,12 @@
+private boolean isUniqueDigitsTrinity(List<String> trinities, String candidateTrinity) {
+    for(String existingTrinity : trinities) {
+        String checker = existingTrinity;
+        for(char candidateChar : candidateTrinity.toCharArray()) {
+            checker.replace(candidateChar, '');
+        }
+        if(checker.length() <= 0) {
+            return false;
+        }
+    }
+    return true;
+}

@@ -1,0 +1,3 @@
+StringTokenizer st = new StringTokenizer("32x23","xX");
+//                                          ^^    ^^
+//                                       string delimiter

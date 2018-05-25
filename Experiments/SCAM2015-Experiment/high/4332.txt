@@ -1,0 +1,97 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+@SuppressWarnings("serial") // have GUI extend JPanel
+public class ButtonSwapImageGui extends JPanel {
+   private static final String IMAGE_PATH = "https://duke.kenai.com/iconSized/duke.gif";
+
+   private Icon imageIcon;  // hold our image
+   private Icon nullImageIcon;  //  hold a blank image as a placeholder
+   private JLabel label = new JLabel("", SwingConstants.CENTER);
+
+   // throw an exception if image can't be read
+   public ButtonSwapImageGui() throws IOException {
+      // read in an image from the internet
+      URL imageUrl = new URL(IMAGE_PATH);
+      BufferedImage image = ImageIO.read(imageUrl);
+
+      // create a blank placeholder image the same size as 
+      // the image read in from internet
+      int width = image.getWidth();
+      int height = image.getHeight();
+      BufferedImage nullImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+
+      // create ImageIcon objects with images read in above
+      imageIcon = new ImageIcon(image);
+      nullImageIcon = new ImageIcon(nullImage);
+
+      // set JLabel with the placeholder nullImageIcon
+      label.setIcon(nullImageIcon);
+
+      // create our button
+      JButton button = new JButton("Swap Image");
+      // add an anonymous inner class ActionListener to button
+      button.addActionListener(new ActionListener() {
+
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            // get the JLabel's Icon
+            Icon currentIcon = label.getIcon();
+
+            // if the Icon matches the null icon
+            if (currentIcon == nullImageIcon) {
+               // set label with image
+               label.setIcon(imageIcon);
+            } else {
+               // otherwise the label is displaying the image
+               // so now set label with the null (blank) icon
+               label.setIcon(nullImageIcon);
+            }
+         }
+      });
+      // JPanel to hold our button
+      JPanel buttonPanel = new JPanel();
+      buttonPanel.add(button);
+
+      // set our GUI's layout to BorderLayout
+      setLayout(new BorderLayout());
+
+      // add the JLabel to the BorderLayout.CENTER position
+      add(label, BorderLayout.CENTER);
+      // add button JPanel to the bottom
+      add(buttonPanel, BorderLayout.PAGE_END);
+   }
+
+   private static void createAndShowGui() {
+      // declare our GUI JPanel
+      ButtonSwapImageGui mainPanel = null;
+      try {
+         mainPanel = new ButtonSwapImageGui();
+      } catch (IOException e) {
+         // if we're here, the image could not be read in
+         e.printStackTrace();
+         System.exit(-1); // can't get image -- exit program
+      }
+
+      JFrame frame = new JFrame("GUI");
+      frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+      frame.getContentPane().add(mainPanel); // add GUI to JFrame
+      frame.pack(); // tell layout managers to layout components
+      frame.setLocationRelativeTo(null); // center GUI
+      frame.setVisible(true);  // display GUI
+   }
+
+   public static void main(String[] args) {
+      SwingUtilities.invokeLater(new Runnable() {
+         public void run() {
+            createAndShowGui();
+         }
+      });
+   }
+}

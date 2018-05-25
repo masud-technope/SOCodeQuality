@@ -1,0 +1,14 @@
+initialize();
+setButtonListeners();
+new Thread() {
+    public void run() {
+        try {
+            sleep(3000);
+        } catch (Exception e) {
+        } finally {
+                Intent menuIntent = new Intent(SplashLoadScreen.this,
+                        MainMenu.class);
+                startActivity(menuIntent);
+        }
+    }
+}.start();

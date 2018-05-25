@@ -1,0 +1,17 @@
+public static void main(String[] args) throws Exception
+{
+    JarResource jr = new JarResource("/home/mjiang/Downloads/solr-4.8.0/dist/solr-cell-4.8.0-test.jar");
+    byte[] resource = jr.getResource("/META-INF/NOTICE.txt");
+
+    InputStream input = new ByteInputStream(resource, resource.length);
+
+    BufferedReader dis = new BufferedReader(new InputStreamReader(input));
+
+    String line = "";
+    while((line = dis.readLine()) != null)
+    {
+        System.out.println(line);
+    }
+
+    dis.close();
+}

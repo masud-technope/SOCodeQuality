@@ -1,0 +1,7 @@
+Query q = sess.createQuery("from Cat cat");
+   List<?> results =(List<?>) q.list();
+   List<Cat> cats = new ArrayList<Cat>();
+   for(Object result:results) {
+       Cat cat = (Cat) result;
+       cats.add(cat);
+    }

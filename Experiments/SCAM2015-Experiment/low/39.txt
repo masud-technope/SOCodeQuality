@@ -1,0 +1,22 @@
+public class RecursiveTry{
+
+    private int[] n = {1,2,4,3,3,32,100};
+
+    public static void main(String[] args){
+        RecursiveTry maxObject = new RecursiveTry();
+        System.out.println(maxObject.Max(maxObject.n, 0));
+    }
+
+    public int Max(int[] n, int start) {
+        if(start == n.length - 1) {
+        	return n[start];
+        } else { 
+    	    int maxRest = Max(n, start + 1);
+    	    if(n[start] > maxRest) {
+    	        return n[start];
+    	    }
+    	    return maxRest;
+        }
+    }
+
+}

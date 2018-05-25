@@ -1,0 +1,24 @@
+class OverridenStaticMeth {   
+
+static void printValue() {   
+System.out.println("Overriden Meth");   
+}   
+
+}   
+
+public class OverrideStaticMeth extends OverridenStaticMeth {   
+
+static void printValue() {   
+System.out.println("Overriding Meth");   
+}   
+
+public static void main(String[] args) {   
+OverridenStaticMeth osm = new OverrideStaticMeth();   
+osm.printValue();   
+
+System.out.println("now, from main");
+printValue();
+
+}   
+
+}

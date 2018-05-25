@@ -1,0 +1,84 @@
+private TextView txtCount, textViewTimer;
+
+  private Button btnCount, btnRestart;
+
+   int count = 0;
+
+   boolean[] timerProcessing = { false };
+
+  boolean[] timerStarts = { false };
+
+   private MyCount timer;
+
+
+      @Override
+
+
+
+
+     protected void onCreate(Bundle savedInstanceState) {
+
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+
+txtCount = (TextView) findViewById(R.id.textView1);
+txtCount.setText(String.valueOf(count));
+btnCount = (Button) findViewById(R.id.button1);
+btnRestart = (Button) findViewById(R.id.button2);
+
+textViewTimer = (TextView) findViewById(R.id.textView2);
+
+timer = new MyCount(10000, 1);
+
+btnCount.setOnClickListener(new View.OnClickListener() {
+    public void onClick(View arg0) {
+        // start timer once when button first click
+        if (!timerStarts[0]) {
+            timer.start();
+            timerStarts[0] = true;
+            timerProcessing[0] = true;
+        }
+
+        if (timerProcessing[0]) {
+            count++;
+            txtCount.setText(String.valueOf(count));
+        }
+    }
+});
+btnRestart.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        timerProcessing[0] = true;
+        count = 0;
+        txtCount.setText(String.valueOf(count));
+        timer.cancel();
+        timer.start();
+    }
+});
+
+
+   }
+
+
+
+
+         public class MyCount extends CountDownTimer {
+
+public MyCount(long millisInFuture, long countDownInterval) {
+
+    super(millisInFuture, countDownInterval);
+
+}
+
+@Override
+public void onFinish() {
+    textViewTimer.setText("0:000");
+    timerProcessing[0] = false;
+}
+
+@Override
+public void onTick(long millisUntilFinished) {
+    textViewTimer.setText("" + millisUntilFinished / 1000 + ":"
+            + millisUntilFinished % 1000);
+
+}

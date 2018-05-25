@@ -1,0 +1,19 @@
+Long gmtTime =1317951113613L; // 2.32pm NZDT
+Long timezoneAlteredTime = 0L;
+
+if (offset != 0L) {
+    int multiplier = (offset*60)*(60*1000);
+    timezoneAlteredTime = gmtTime + multiplier;
+} else {
+    timezoneAlteredTime = gmtTime;
+}
+
+Calendar calendar = new GregorianCalendar();
+calendar.setTimeInMillis(timezoneAlteredTime);
+
+DateFormat formatter = new SimpleDateFormat("dd MMM yyyy HH:mm:ss z");
+
+formatter.setCalendar(calendar);
+formatter.setTimeZone(TimeZone.getTimeZone(timeZone));
+
+String newZealandTime = formatter.format(calendar.getTime());

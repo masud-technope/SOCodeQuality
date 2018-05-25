@@ -1,0 +1,29 @@
+class WidgetCollection<W extends Widget> {
+    Set<W> widgets = new HashSet<W>();
+
+    Set<W> getAll() {
+        return widgets;
+    }
+
+    abstract class Widget {
+
+       Widget() {
+           widgets.add(this);
+       }
+
+       abstract String getName();
+    }
+
+    public static void main(String[] args) {
+         WidgetCollection<AWidget> aWidgets = new WidgetCollection<AWidget>();
+         a.new AWidget();
+
+         Set<AWidget> widgets = aWidgets.getAll();
+    }
+}
+
+class AWidget extends Widget {
+    String getName() {
+        return "AWidget";
+    }
+}

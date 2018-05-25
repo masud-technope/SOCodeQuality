@@ -1,0 +1,5 @@
+int fun() {
+    ...
+    error();
+    throw new AssertionError("not reached");
+}

@@ -1,0 +1,19 @@
+public class Puzzle3 {
+public static void main(String ar[])
+{
+    Long i=new Long("1");
+    Long p=new Long("600851475143");
+    Long f=new Long("1");
+    while(p>=i)
+    {
+        if(p%i==0)
+        {
+            f=i;
+            p=p/i;
+            int x=1;
+            i=(long)x;
+        }
+        i=i+2;
+    }
+    System.out.println(f);
+}

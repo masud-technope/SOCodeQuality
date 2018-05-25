@@ -1,0 +1,20 @@
+private static boolean isTransientField(String name, Class beanClass) 
+{
+    try 
+    {
+        Field field = beanClass.getDeclaredField(name);
+        if((field.getModifiers() & Modifier.TRANSIENT) == Modifier.TRANSIENT)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    } 
+    catch (Exception e) 
+    {
+        e.printStackTrace();
+    }
+}

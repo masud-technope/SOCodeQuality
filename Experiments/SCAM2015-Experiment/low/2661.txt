@@ -1,0 +1,8 @@
+String ele = b.get(0);
+ele = ele.replace("{", "");
+ele = ele.replace("}", "");
+StringTokenizer tokens = new StringTokenizer(ele, ",");
+while(tokens.hasMoreTokens()) {
+
+    int val = Integer.parseInt(tokens.nextToken());
+}

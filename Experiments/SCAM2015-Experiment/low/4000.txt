@@ -1,0 +1,24 @@
+public class SortaPP {
+
+public static void main(String[] args) {
+    // change to arraysOfInts
+    int[] arraysOfInts = {42,97,3,689,14,1076,3000,8,632,327,976,4215};
+
+    for(int i=arraysOfInts.length;--i>=1;){   
+
+        for(int j = 0;j<i;j++){
+            if(arraysOfInts[j] > arraysOfInts[j+1]){
+                int temp = arraysOfInts[j];
+                arraysOfInts[j] = arraysOfInts[j+1];
+                arraysOfInts[j-1] = temp;
+               // You will get ArrayIndexOutOfBoundsException: -1
+
+                for (int k = 0; k < arraysOfInts.length; k++){
+                    System.out.print(arraysOfInts[k]+"");
+                    System.out.println();
+                }   
+            }
+        }
+    }
+}                
+}

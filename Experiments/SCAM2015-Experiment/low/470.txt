@@ -1,0 +1,7 @@
+ActionListener a=new ActionListener(){
+   public void actionPerformed(ActionEvent ae)
+   {
+    // your code
+   }
+};
+getRootPane().registerKeyboardAction(a,KeyStroke.getKeyStroke("ctrl D"),JComponent.WHEN_IN_FOCUSED_WINDOW);

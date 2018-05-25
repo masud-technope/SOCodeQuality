@@ -1,0 +1,10 @@
+Reader r = new FileReader("f.txt");
+
+int count = 0;
+int nextchar = 0;
+while (nextchar != -1){
+        nextchar = r.read();
+		if (nextchar == Character.getNumericValue('\n') ){
+			count++;
+		}
+	}

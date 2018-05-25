@@ -1,0 +1,7 @@
+Sun->true
+Mon->true
+Tue->true
+Wed->false
+Thu->false
+Fri->true
+Sat->true

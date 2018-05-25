@@ -1,0 +1,4 @@
+Pizza pizza = new Pizza(12);
+pizza.setCheese(true);
+pizza.setPepperoni(true);
+pizza.setBacon(true);

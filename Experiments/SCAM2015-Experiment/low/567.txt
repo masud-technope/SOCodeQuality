@@ -1,0 +1,8 @@
+{
+  "lemma": {
+    "plant": 1,
+    "walk": 1
+  },
+  "result_code": "200",
+  "result_msg": "Success"
+}

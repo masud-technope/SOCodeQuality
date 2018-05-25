@@ -1,0 +1,4 @@
+String str = "(age-is-25::OR::last_name-is-qa6)::AND::(age-is-20::OR::first_name-contains-test)";
+
+for (String s : str.split("(?<=\\))::|::(?=\\()"))
+    System.out.println(s);

@@ -1,0 +1,3 @@
+int guess = 20;
+int min = guess - 5 = 15;
+int max = guess + 5 = 25;

@@ -1,0 +1,9 @@
+@Entity
+@Table(name = "your_table")
+@org.hibernate.annotations.Entity(
+  dynamicInsert = true
+)
+public class YourClass{
+
+
+}

@@ -1,0 +1,17 @@
+boolean foundQuote = false;
+
+if(charAtIndex(currentStringIndex) == '"')
+{
+   foundQuote = true;
+}
+
+if(foundQuote == true)
+{
+   //do nothing
+}
+
+else 
+
+{
+  string[] split = currentString.split(',');  
+}

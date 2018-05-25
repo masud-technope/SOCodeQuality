@@ -1,0 +1,12 @@
+public boolean isInCurrentWeek(long time) {
+    Calendar cal1 = GregorianCalendar.getInstance();
+    Calendar cal2;
+    cal1.set(Calendar.DAY_OF_WEEK, 0);
+    cal1.set(Calendar.HOUR_OF_DAY, 0);
+    cal1.set(Calendar.MINUTE, 0);
+    cal1.set(Calendar.SECOND, 0);
+    cal1.set(Calendar.MILLISECOND, 0);
+    cal2 = (GregorianCalendar) cal1.clone();
+    cal2.add(Calendar.DATE, 7);
+    return (time >= cal1.getTimeInMillis() && time < cal2.getTimeInMillis());
+}

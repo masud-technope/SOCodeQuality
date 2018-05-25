@@ -1,0 +1,10 @@
+<target name="build">
+    <mkdir dir="${obj}" />
+    <javac srcdir="${src}" destdir="${obj}"
+        includes="**/*.java"
+        excludes="**/package-info.java **/deprecated/*.java"
+        includeAntRuntime="no" includeJavaRuntime="true"
+        debug="true" debuglevel="source,lines">
+        <compilerarg value="-Xlint"/>
+    </javac>
+</target>

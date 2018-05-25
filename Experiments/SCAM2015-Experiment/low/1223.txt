@@ -1,0 +1,5 @@
+class MyObject{
+
+   private Map<String,UUIDInfo> map;
+
+}

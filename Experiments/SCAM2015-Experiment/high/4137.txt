@@ -1,0 +1,8 @@
+switch (x) {
+    case 4:
+        // sysout
+        break;
+    case 3:
+        // sysout
+        break;
+}

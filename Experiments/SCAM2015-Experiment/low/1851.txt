@@ -1,0 +1,26 @@
+public static String model;
+public static int letternum;
+public static String plate;
+public static String letter;
+public static int total;              
+public static String alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+
+    //System.out.println("Car Model:");
+    //model = input.nextLine();
+    System.out.println("License Plate: ");
+    plate = input.nextLine();
+
+    char one = plate.charAt(0);
+    char two = plate.charAt(1);
+    char three = plate.charAt(2);
+    total = Integer.parseInt(one) + Integer.parseInt(two) + Integer.parseInt(three);
+    letternum = total % 24;
+
+    char letter = alphabet.charAt(letternum);
+
+    System.out.println("" + letter + total);
+
+}

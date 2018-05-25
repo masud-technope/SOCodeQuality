@@ -1,0 +1,3 @@
+for(int i = 0; i < input.length(); i++){
+    output = output + input.substring((input.length()-i)-1, input.length()-i);
+}

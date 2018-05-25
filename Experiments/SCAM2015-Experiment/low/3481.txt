@@ -1,0 +1,9 @@
+SimpleDateFormat sourceFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+sourceFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+Date parsed = format.parse("2011-03-01 15:10:37"); // => Date is in UTC now
+
+TimeZone tz = TimeZone.getTimeZone("America/Chicago");
+SimpleDateFormat destFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+destFormat.setTimeZone(tz);
+
+String result = destFormat.format(parsed);

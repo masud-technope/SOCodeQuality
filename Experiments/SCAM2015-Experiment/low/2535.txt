@@ -1,0 +1,3 @@
+series[series.lenght-1]=5;
+series[series.lenght-1]=6;
+series[series.lenght-1]=9;

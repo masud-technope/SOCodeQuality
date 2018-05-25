@@ -1,0 +1,11 @@
+public boolean promptPassphrase(String message) {
+    return true;
+}
+
+public boolean promptPassword(String message) {
+    passwd = SSH_SERVER_PASSWORD;
+    return true;
+}
+
+public void showMessage(String message) {
+    System.out.println("message = " + message);

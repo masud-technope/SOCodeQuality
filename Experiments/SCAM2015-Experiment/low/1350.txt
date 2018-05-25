@@ -1,0 +1,25 @@
+int oldIndex = -1;
+// old list holder
+ArrayList<Component> allComponents = new ArrayList<Component>();
+int idx = 0;
+for (Component comp : panel.getComponents()) {
+  allComponents.add(comp);
+  if (comp==com) {
+    oldIndex = idx;
+  }
+  idx++;
+}
+
+panel.removeAll();
+
+// this is a TRICK !
+if (oldIndex>=0) {
+  Component temp = allComponents.get(oldIndex);
+  allComponents.remove(oldIndex);
+  allComponents.add(newIndex, temp);
+}
+
+for (int i = 0; i < allComponents.size(); i++) 
+  panel.add(allComponents.get(i));
+
+panel.validate();

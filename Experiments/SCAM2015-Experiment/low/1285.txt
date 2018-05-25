@@ -1,0 +1,10 @@
+int index;
+while () {
+    try {
+        // do with outputStream...
+    } finally {
+        out.close();
+    }
+    if (index++ % 100 = 0)
+        System.gc();
+}

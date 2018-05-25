@@ -1,0 +1,5 @@
+public static void myFun(Iterable<? extends SomeClass> somethings) {
+    for (SomeClass something : somethings) {
+        // something is processed here
+    }
+}

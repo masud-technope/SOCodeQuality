@@ -1,0 +1,15 @@
+int upperBoundBinarySearch(int data[],int start, int end, int key) {
+  while(start < end) {
+    int middle = start + (end-start)/2;
+    if (data[middle] == key && (middle == end || data[middle+1] != key))
+      return middle;
+    if (data[middle] > key)
+      end = middle;
+    else {
+      if (start == middle)
+        return start;
+      start = middle;
+    }
+  }
+  return start;
+}

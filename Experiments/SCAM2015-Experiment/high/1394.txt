@@ -1,0 +1,7 @@
+public static void main(String[] args) throws Exception {
+    File archive = new File("/home/phil/downloads", "acra-4.2.3.exe");
+    Map<Resource, Long> resources = parseZipFile(archive);
+    for (Entry<Resource, Long> resource : resources.entrySet()) {
+        System.out.println(resource.getKey() + ": " + resource.getValue());
+    }
+}

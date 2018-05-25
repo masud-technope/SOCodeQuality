@@ -1,0 +1,3 @@
+sort(T[] a, Comparator<? super T> c) 
+
+Arrays.sort(a, Collections.reverseOrder());

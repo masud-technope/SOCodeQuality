@@ -1,0 +1,8 @@
+Scanner input = new Scanner(System.in);
+String choice = input.nextLine();
+
+if (choice.equals("nameOfMethod1")) {
+    nameOfMethod1();
+} else if (choice.equals("nameOfMethod2")) {
+    nameOfMethod2();
+} ...

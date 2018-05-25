@@ -1,0 +1,6 @@
+try { // don't do this
+    stmt.close();
+}
+catch(SQLException exc) {
+
+}

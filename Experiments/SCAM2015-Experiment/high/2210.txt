@@ -1,0 +1,9 @@
+double someNumber = ... // Obtain a random double
+Map<Double,Integer> entry = higerEntry(someNumber);
+switch (entry.getValue()) {
+    case 0: ... break;
+    case 1: ... break;
+    case 2: ... break;
+    case 3: ... break;
+    default: ... break;
+}

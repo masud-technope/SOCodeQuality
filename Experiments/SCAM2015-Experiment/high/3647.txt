@@ -1,0 +1,9 @@
+public static void main(String[] args) {
+    final int min = 0;
+    final int max = 10;
+    final List<Integer> nums = IntStream.rangeClosed(min, max).
+            boxed().
+            collect(toList());
+    Collections.shuffle(nums);
+    nums.forEach(System.out::println);
+}

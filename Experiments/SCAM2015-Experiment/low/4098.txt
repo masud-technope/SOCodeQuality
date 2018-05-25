@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+    public class Input
+    {
+        public static void main(String args[])
+        {
+            //prompt user to enter numbers
+            Scanner userInput = new Scanner(System.in);
+            System.out.print("Enter positive integers. Enter -1 to stop. ");
+            int integers = 0;
+
+            //sum is initially set to 0
+            int sum = 0;
+
+            //execute commands as long as the input does not equal -1
+            while(integers != -1)
+            {
+                //keep gathering user input
+                integers = userInput.nextInt();
+                if(integers != -1)
+                    sum += integers;
+            }
+
+            //print the results to the user
+            System.out.println("You entered: " + integers + ", ");
+            System.out.println("Sum is: " + sum);
+        }
+    }

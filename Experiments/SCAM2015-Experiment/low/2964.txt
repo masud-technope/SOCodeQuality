@@ -1,0 +1,13 @@
+S...
+int x;
+int y;
+...
+String stringToEval = args[0];
+boolean b = Boolean.valueOf(stringToEval);
+
+boolean b1 = Boolean.parseBoolean(stringToEval); // this also works 
+...
+if(b){
+    printSomething();
+} else printNothing();
+...

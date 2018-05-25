@@ -1,0 +1,8 @@
+while(k >= 1){                                        // Make it >= instead of >
+
+    i = 0;                                            // reset i
+    while(i <=10){                                    // Make it i<= (less than)
+        System.out.println("K = " + k + " I = " + i); //print before incrementing
+        i = i+2;
+
+    }

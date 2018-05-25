@@ -1,0 +1,3 @@
+String replaceUml = str
+    .replaceAll("(?<=\\p{Lu})ß", "SS")
+    .replaceAll("ß", "ss");

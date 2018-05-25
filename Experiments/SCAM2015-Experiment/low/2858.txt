@@ -1,0 +1,20 @@
+public static int getMaxSequence(ArrayList<Integer> list) {
+
+    int indx = 0;
+    int currmax = 0;
+    currmax = list.get(indx).toString().length();
+    while (indx < list.size()) {
+
+        if (currmax <= list.get(indx).toString().length()) {
+            currmax = list.get(indx).toString().length();
+        } else
+            return currmax;
+
+        // list.remove(indx);
+        indx++;
+
+    }
+
+    return currmax;
+
+}

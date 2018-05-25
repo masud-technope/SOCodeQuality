@@ -1,0 +1,21 @@
+Connection conn = getMySqlConnection();
+    System.out.println("Got Connection.");
+    Statement st = conn.createStatement();
+
+    String tableName = ur table name ;
+    String query = ur query;
+    Statement stmt = null;
+    ResultSet rs = null;
+    try {
+      stmt = conn.createStatement();
+      rs = stmt.executeQuery(query);
+      System.out.println("Exist");;
+    }
+    catch (Exception e ) {
+      // table does not exist or some other problem
+      //e.printStackTrace();
+      System.out.println("Not Exist");
+    }
+
+    st.close();
+    conn.close();

@@ -1,0 +1,3 @@
+public static int genRandom(){
+  return new Random().nextInt(100);// or may be cache random instance
+}

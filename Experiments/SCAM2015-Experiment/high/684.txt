@@ -1,0 +1,10 @@
+List<Entity> entities = entityDAO.list();
+int rows = entities.size();
+
+if (entities.isEmpty()) {
+    // It is empty!
+} else if (entities.size() == 1) {
+    // It has only one row!
+} else {
+    // It has more than one row!
+}

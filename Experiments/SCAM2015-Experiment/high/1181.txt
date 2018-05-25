@@ -1,0 +1,5 @@
+long start = System.currentTimeMillis();
+counter.countPrimes(1000000);
+long end = System.currentTimeMillis();
+
+System.out.println("Took : " + ((end - start) / 1000));

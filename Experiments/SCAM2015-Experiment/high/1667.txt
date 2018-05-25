@@ -1,0 +1,12 @@
+void method(int i) throws InvalidFormatException, IOException {
+    ...
+
+    // Write the output to a file
+    FileOutputStream fileOut = new FileOutputStream("workbook.xlsx");
+    workbook.write(fileOut);
+    fileOut.close();
+
+    // Reload the workbook, workaround for bug 49940
+    // https://issues.apache.org/bugzilla/show_bug.cgi?id=49940
+    workbook = new XSSFWorkbook(new FileInputStream("workbook.xlsx"));
+}

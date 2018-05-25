@@ -1,0 +1,10 @@
+double dLat = Math.toRadians(dstLat - locLat);
+double dLon = Math.toRadians(dstLon - locLon);
+
+double a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
+           + Math.cos(Math.toRadians(locLat)) * Math.cos(Math.toRadians(dstLat))
+           * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+double d = 6371 * c;
+
+return d; //Distance in KM

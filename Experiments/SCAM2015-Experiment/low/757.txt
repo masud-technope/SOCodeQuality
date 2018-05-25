@@ -1,0 +1,11 @@
+List<String> hosts = getPossibleHosts(); //these are all hosts you want to transform into inet addresses
+final List<InetAddress> inetAddresses = new LinkedList<InetAddress>();
+final List<String> badHosts = new LinkedList<String>();
+
+for(String host : hosts) {
+    try {
+        inetAddresses.add(InetAddress.getByName(host));
+    } catch (UnknownHostException e) {
+        badHosts.add(host);
+    }
+}

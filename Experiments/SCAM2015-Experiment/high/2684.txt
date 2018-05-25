@@ -1,0 +1,5 @@
+int getIntValue(){
+
+return new Integer(0));//note that i am returning a reference here and hence even I can possibly pass a null. 
+
+}

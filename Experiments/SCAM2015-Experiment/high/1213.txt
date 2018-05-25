@@ -1,0 +1,9 @@
+interface ValGetters {
+   public int getI();
+}
+
+class Val implements ValGetters {
+   private int i;
+   public int getI() { return i; }
+   public void setI(int ii) { i = ii; }
+}

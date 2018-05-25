@@ -1,0 +1,12 @@
+int Amount = 0;
+
+try
+{
+    Amount = Integer.parseInt(txtbox1.getText().toString());
+}
+catch(NumberFormatException e)
+{
+    // Sep 14, 2013 11:26:26 PM
+    Log.e("Exception","DownloadFileTask.onPostExecute.NumberFormatException"+String.valueOf(e.getMessage()));
+    e.printStackTrace();
+}

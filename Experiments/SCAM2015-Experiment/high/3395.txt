@@ -1,0 +1,5 @@
+Type x = getSomehow();
+  while(someCondition(x)) {
+      doSomethingWith(x);
+      x = getSomehow();
+  }

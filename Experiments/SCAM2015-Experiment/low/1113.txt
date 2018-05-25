@@ -1,0 +1,6 @@
+public class DiscountModel {
+    char code;
+    Double val;
+
+    // Implement getters and setters
+}

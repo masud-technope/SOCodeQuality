@@ -1,0 +1,6 @@
+ResponseStateManager rsm = FacesContext.getCurrentInstance().getRenderKit().getResponseStateManager();  
+
+if (!rsm.isPostback(FacesContext.getCurrentInstance())) {  
+
+    //do some stuff  
+}

@@ -1,0 +1,7 @@
+@echo off
+rem Star Trek Online
+START "" "C:\Program Files (x86)\Steam\SteamApps\common\Star Trek Online\Star Trek Online.exe" 
+rem CombatLogReader
+CD "C:\Program Files (x86)\Java\jre7\bin"
+javaw.exe -jar "C:\Program Files (x86)\Steam\SteamApps\common\Star Trek Online\CombatLogReader\CombatLogReader.jar"
+exit

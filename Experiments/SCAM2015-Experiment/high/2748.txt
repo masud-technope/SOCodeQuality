@@ -1,0 +1,11 @@
+Array.sort(x)
+    int ele=x[0]
+    for(int i=0;i<x.length();i++)
+     {
+           if(ele==x[i])
+               continue;
+           else{
+                  ele=x[i]
+                  count++
+                }
+     }

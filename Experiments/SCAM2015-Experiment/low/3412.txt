@@ -1,0 +1,4 @@
+boolean isPresent(String word, String sentence)
+{
+return sentence.contains(word);   
+}

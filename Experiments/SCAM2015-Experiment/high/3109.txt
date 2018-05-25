@@ -1,0 +1,11 @@
+public boolean member(Integer val){
+  Node current = node;
+  while (current != null) {
+    if (current.val.equals(val)) {
+      return true;
+    } else {
+      current = current.next;
+    }
+  }
+  return false;
+}

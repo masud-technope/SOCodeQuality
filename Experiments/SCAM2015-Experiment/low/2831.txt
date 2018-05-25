@@ -1,0 +1,12 @@
+public enum Mapper {
+  INSTANCE;
+  private final ObjectMapper mapper = new ObjectMapper();
+
+  private Mapper(){
+    // Perform any configuration on the ObjectMapper here.
+  }
+
+  public ObjectMapper getObjectMapper() {
+    return mapper;
+  }
+}

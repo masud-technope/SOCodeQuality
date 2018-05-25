@@ -1,0 +1,19 @@
+@Configuration
+@PropertySource("classpath:database.properties")
+public class HibernateConfigurer {
+
+    @Resource
+    public Environment env;
+
+    @Bean
+    public DataSource dataSource() {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName(env.getProperty("database.driverClassName"));
+        dataSource.setUrl(env.getProperty("database.url"));
+        dataSource.setUsername(env.getProperty("database.username"));
+        dataSource.setPassword(env.getProperty("database.password"));
+        dataSource.setValidationQuery(env.getProperty("database.validationQuery"));
+
+        return dataSource;
+    }
+}

@@ -1,0 +1,3 @@
+A a = new A();
+A aSpy = Mockito.spy(a);
+Mockito.when(aSpy.method1()).thenReturn(5l);

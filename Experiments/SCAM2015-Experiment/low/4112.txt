@@ -1,0 +1,22 @@
+<h:form>
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td>
+                <h:inputText value="#{loginModel.userName}"/>
+            </td>
+        </tr>
+        <tr> 
+            <td>Password:</td>
+            <td>
+                <h:inputText value="#{loginModel.password}"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <h:commandButton value="Login" action="#{loginController.logIn}"/>          
+            </td>
+        </tr>
+    </table>
+</h:form>

@@ -1,0 +1,18 @@
+import java.util.*;
+class Test2<T>
+{
+    private Collection<T> src = new Vector<T>();
+
+    public void setSRC(T var)
+    {
+    	src.add( var );
+    }
+
+    public static void main( String[] args )
+    {
+    	Test2 t = new Test2<Integer>();
+    	t.setSRC( 5 );
+    	Test2 t2 = new Test2<Double>();
+    	t.setSRC( 5.5 );
+    }
+}

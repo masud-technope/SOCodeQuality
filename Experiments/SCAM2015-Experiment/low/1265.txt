@@ -1,0 +1,11 @@
+public static void main(String[] args) {
+    // create components
+    JFrame f = new JFrame();
+    ...
+
+    // do layout and other bits of setup
+
+
+    // show gui to user
+    f.setVisible(true);
+}

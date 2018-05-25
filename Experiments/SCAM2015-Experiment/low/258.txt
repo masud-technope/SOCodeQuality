@@ -1,0 +1,5 @@
+if(obj instanceof A) {
+    // do something
+} else {
+    // do something else
+}

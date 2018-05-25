@@ -1,0 +1,4 @@
+BigInteger a = new BigInteger("188237574385834583453453635");
+BigInteger b = BigInteger.valueOf(Long.MAX_VALUE);
+
+System.out.println("a > Long.MAX_VALUE is : " + (a.compareTo(b) > 0 ? "true" : "false"));

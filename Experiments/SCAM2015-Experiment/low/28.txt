@@ -1,0 +1,17 @@
+addColorButton("Green" , Color.GREEN );
+   addColorButton("Red"   , Color.RED   );
+   addColorButton("Yellow", Color.YELLOW);
+   addColorButton("Blue"  , Color.BLUE  );
+   ...
+
+private void addColorButton(String label, Color color) {
+    JRadioButton button = new JRadioButton(label);
+    button.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent event) {
+            target.setForeground(color);
+            target.repaint();
+        } 
+    });
+    colorGroup.add(button);
+    panel.add(button);
+}

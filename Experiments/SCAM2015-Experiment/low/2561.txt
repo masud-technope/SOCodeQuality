@@ -1,0 +1,19 @@
+import java.util.*;
+public class Questionaire{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Do you love java? > ");
+        String output=sc.nextLine();
+        while(true){ // Keep doing this forever
+            if(output.equalsIgnoreCase("yes") || output.equalsIgnoreCase("no")){ // If the user enters yes or enters no
+                System.out.println("Thank you!"); //Print thank you
+                break; // Exit
+            } else {
+                System.out.println("Try again"); //Print try again
+                output = sc.nextLine(); // Get new user input.
+            }
+        }
+        sc.close();
+
+    }
+}

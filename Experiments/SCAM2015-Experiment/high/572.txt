@@ -1,0 +1,8 @@
+String can="<tr>"+
+                      "<td class=\"summaryinfo\">"+
+
+                            "<div class=\"dinner\">1,000</div>" +
+                            "<div style=\"margin-top:5px " +
+                             "font-weight:bold\">times</div>"+
+                        "</td>"+
+                    "</tr>";

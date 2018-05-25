@@ -1,0 +1,3 @@
+int ipAddress = ....
+byte[] bytes = BigInteger.valueOf(ipAddress).toByteArray();
+InetAddress address = InetAddress.getByAddress(bytes);

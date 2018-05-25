@@ -1,0 +1,7 @@
+double previous = sequence[0];
+for(int i =1; i < sequence.length; i++){
+    if(sequence[i] != previous) 
+         return false;
+    previous = sequence[i];
+}
+return true;

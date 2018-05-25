@@ -1,0 +1,5 @@
+indexOf(Object o) 
+   if( o == null ) then iterate until null is found and return that index
+   if( o != null ) iterate until o.equals( array[i] ) is found and return taht index
+   else return -1 
+end

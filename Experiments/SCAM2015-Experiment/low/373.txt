@@ -1,0 +1,18 @@
+package com.bprog.collections;
+import com.bprog.out.Out;
+/**
+*
+* @author Jonathan
+*/
+public class TestCollections {
+    public static void main(String[] args){
+        UniqueList ul = new UniqueList();
+        ul.add("Test");
+        ul.add("Test");
+        ul.add("Not a copy");
+        ul.add("Test"); 
+        //should only contain two things
+        Object[] content = ul.toObjectArray();
+        Out.pl("Array Content",content);
+    }
+}

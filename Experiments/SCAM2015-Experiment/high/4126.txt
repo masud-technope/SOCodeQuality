@@ -1,0 +1,32 @@
+final String SAMPLE_DB_NAME = "MyDBName.db";//database name
+save.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+
+                    File sd = Environment.getExternalStorageDirectory();
+                    File data = Environment.getDataDirectory();
+                    FileChannel source=null;
+                    FileChannel destination=null;
+                    String currentDBPath = "/data/"+ "your package name" +"/databases/"+SAMPLE_DB_NAME;
+                    String backupDBPath = SAMPLE_DB_NAME;
+                    File currentDB = new File(data, currentDBPath);
+                    File backupDB = new File(sd, backupDBPath);
+                    try {
+                        source = new FileInputStream(currentDB).getChannel();
+                        destination = new FileOutputStream(backupDB).getChannel();
+                        destination.transferFrom(source, 0, source.size());
+                        source.close();
+                        destination.close();
+                        Toast.makeText(getApplicationContext(),"Your database has been exported",
+                                Toast.LENGTH_LONG).show();
+                    } catch(IOException e) {
+                        e.printStackTrace();
+                    }
+
+
+            }
+
+
+        });

@@ -1,0 +1,5 @@
+ILOAD 1    // load j, which is 0
+ILOAD 1    // load j, which is 0
+IINC 1 1   // j++ 
+IADD       // add top two stack elements
+ISTORE 1   // store result back in j

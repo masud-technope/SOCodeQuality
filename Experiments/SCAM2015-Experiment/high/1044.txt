@@ -1,0 +1,12 @@
+Random rand = new Random(System.currentTimeMillis());
+byte[] b;
+int a, v;
+for (int i=0; i<10000000; i++) {
+    a = rand.nextInt();
+    b = intToByteArray(a);
+    v = byteArrayToInt(b);
+    if (a != v) {
+        System.out.println("ERR! " + a + " != " + Arrays.toString(b) + " != " + v);
+    }
+}
+System.out.println("Done!");

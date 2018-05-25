@@ -1,0 +1,4 @@
+String s = "37,78584";
+Number number = NumberFormat.getNumberInstance(Locale.FRENCH).parse(s);
+double d= number.doubleValue();
+System.out.println(d);

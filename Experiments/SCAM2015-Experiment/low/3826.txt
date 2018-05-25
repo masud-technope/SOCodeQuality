@@ -1,0 +1,7 @@
+public static synchronized Singleton getInstance()
+    {
+        if (mySingleton == null)
+            mySingleton = new Singleton();
+
+        return mySingleton;
+    }

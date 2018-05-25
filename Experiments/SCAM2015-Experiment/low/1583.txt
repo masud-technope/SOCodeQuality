@@ -1,0 +1,7 @@
+public enum Singleton {
+INSTANCE;
+
+public void doStuff() {
+    System.out.println("Whoopee");
+}
+}

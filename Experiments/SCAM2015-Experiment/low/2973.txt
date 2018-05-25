@@ -1,0 +1,6 @@
+Class[] interfaces = p1.getInterfaces();
+        if(interfaces != null){
+            for(Class i : interfaces){
+                System.out.println(i);
+            }
+        }

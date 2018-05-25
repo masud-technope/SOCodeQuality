@@ -1,0 +1,9 @@
+public static int add(int a, int b){
+    if(a > 0){
+        int c = a+b;
+        return c;
+    } else if( a<= 0){
+        int c = a-(-b);
+        return c;
+    }
+}

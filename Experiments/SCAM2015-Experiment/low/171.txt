@@ -1,0 +1,3 @@
+public void setSchema(Schema grammar) {
+    this.grammar = grammar;
+}

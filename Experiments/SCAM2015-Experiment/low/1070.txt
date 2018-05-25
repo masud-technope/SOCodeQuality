@@ -1,0 +1,51 @@
+public static void main(String[] args) {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter an 8 char key: ");
+        String input;
+        try {
+            // get key, key.length()>=8 chars
+            input = br.readLine();
+            if (input.length() < 8) {
+                System.out.println("Key < 8B. Exiting. . .");
+                System.exit(1);
+            }
+            // java char has 16 bits instead of 8 bits as in C,
+            // so convert it to 8 bit char by getting lower order byte &
+            // discarding higher order byte
+            char[] inputKey = input.toCharArray();
+            byte[] key64 = new byte[8];
+            byte[] key56 = new byte[7];
+
+            // consider only first 8 chars even if input > 8
+            for (int counter = 0; counter < 8; counter++)
+                key64[counter] = (byte) inputKey[counter];
+
+            System.out.print("\n$$ " + new String(key64) + "  $$\n");
+
+            // converting 64bit key to 56 bit key
+            for (int counter = 0; counter < KEY_LENGTH - 1; counter++) {
+                key64[counter] = (byte) (key64[counter] >>> 1);
+                key64[counter] = (byte) (key64[counter] << 1);
+            }
+
+            for (int counter = 0; counter < KEY_LENGTH - 1; counter++) {
+                key56[counter] = (byte) (key64[counter] << counter);
+                key56[counter] = (byte) (key56[counter] | (key64[counter + 1] >>> (KEY_LENGTH - 1 - counter)));
+            }
+
+            /*Conversion from 64 to 56 bit testing code
+             System.out.println(new String(key56));
+
+            System.out.println();
+            for (int counter1 = 0; counter1 < 7; counter1++) {
+                for (int counter2 = 7; counter2 >= 0; counter2--) {
+                    System.out.println(key56[counter1] & (1 << counter2));
+                }
+                System.out.println();
+            }*/
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }

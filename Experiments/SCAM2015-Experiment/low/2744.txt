@@ -1,0 +1,6 @@
+final YourType[] yourArray = ...;
+return new Iterable<YourType>() {
+  public Iterator<YourType> iterator() {
+     return Iterators.forArray(yourArray);   // Iterators is a Google guava utility
+  }
+}

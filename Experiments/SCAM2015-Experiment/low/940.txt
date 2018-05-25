@@ -1,0 +1,16 @@
+try{
+  Connection c = ...
+    try{
+      statement = c.prepareStatement(...);
+      try{
+        rs = statement.execute(...);
+      }finally{
+        rs.close();
+      }
+    }finally{
+      statement.close()
+    }
+  }finally{
+    c.close();
+  }
+}catch(SQLException e){}

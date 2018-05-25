@@ -1,0 +1,9 @@
+iter = arrayList.iterator();
+while(iter.hasNext()) {
+  MyClass mc = iter.next();
+
+  if(shouldItBeRemoved(mc)) {
+    iter.remove(); // Will not throw ConcurrentModificationException
+    // arrayList.remove(mc); // Will throw CME
+  }
+}

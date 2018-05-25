@@ -1,0 +1,7 @@
+Boolean var= new anonymousClass(){
+    private String myVar; //String for example
+    @Overriden public Boolean method(int i){
+          //use myVar and i
+    }
+    public String setVar(String var){myVar=var; return this;} //Returns self instane
+}.setVar("Hello").method(3);

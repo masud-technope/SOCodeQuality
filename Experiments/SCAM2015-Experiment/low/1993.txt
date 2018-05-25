@@ -1,0 +1,5 @@
+Properties prop = new Properties();
+
+prop.setProperty( "myKey", "value" );
+
+prop.store( new FileOutputStream( new File( d:\\myProp.properties)), "First line.\n#e.g second line" );

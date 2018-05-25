@@ -1,0 +1,17 @@
+package p;
+
+import java.sql.Connection;
+
+public final class ProtectedTest {
+    String currentUser;
+    Connection con = null;
+
+    protected Object ProtectedMethod(){
+        return new Object();
+    }
+    public ProtectedTest(){
+    }
+    public ProtectedTest(String currentUser){
+        this.currentUser = currentUser;
+    }
+}

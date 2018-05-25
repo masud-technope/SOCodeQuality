@@ -1,0 +1,11 @@
+Scanner sc = new Scanner(System.in);
+try
+{
+    int a = sc.nextInt();
+    int b = sc.nextInt();
+    System.out.println("valid numbers");
+}
+catch(InputMismatchException ex)
+{
+    System.out.println("Invalid numbers");
+}

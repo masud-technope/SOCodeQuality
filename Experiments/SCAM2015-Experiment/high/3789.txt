@@ -1,0 +1,10 @@
+public class WalkServiceTest {
+  @Test
+  public void testGoForAWalkWhenSpeedIsToPowerfulShouldThrowTerribleWindException throws TerribleWindException {
+    WalkService ws = new WalkService(100);
+    when(() -> ws.goForAWalk())
+      .thenA(TerribleWindException.class)
+      .that(hasProperty("windSpeed", equalTo("expected speed")))
+      .isThrown();
+  }
+}

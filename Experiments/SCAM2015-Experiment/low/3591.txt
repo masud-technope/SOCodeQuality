@@ -1,0 +1,5 @@
+for (Object obj : (List) o) {
+    if (obj instanceof cls) {
+        doSomething();
+    }
+}

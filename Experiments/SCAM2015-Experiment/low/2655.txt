@@ -1,0 +1,8 @@
+EditText textView;
+
+String[] splitFloatStrings = textView.getText().toString();.split(",");
+float[] parsedFloats = new float[splitFloatStrings.length];
+
+for (int i=0; i < parsedFloats.length; i++) {
+    parsedFloats[i] = Float.valueOf(splitFloatStrings[i];
+}

@@ -1,0 +1,4 @@
+Matrix<Integer> m1 = ...;
+Matrix<Long> m2 = ...;
+
+m1.equals( m2 );

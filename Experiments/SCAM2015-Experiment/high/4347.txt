@@ -1,0 +1,24 @@
+var original = Rx.Observable.interval(1000)
+  .map(function (x) { return {value: x, from: 'original'}; })
+  .take(4)
+  .publish().refCount();
+
+var replayed = original
+  .map(function (x) { return {value: x.value, from: 'replayed'}; })
+  .replay(null, 1).refCount();
+
+var merged = Rx.Observable.merge(original, replayed)
+  .replay(null, 1).refCount()
+  .distinctUntilChanged(function (obj) { return obj.value; });
+
+console.log('subscribe 1st');
+merged.subscribe(function (x) { 
+  console.log('subscriber1: value ' + x.value + ', from: ' + x.from);
+});
+
+setTimeout(function () {
+  console.log('    subscribe 2nd');
+  merged.subscribe(function (x) {
+    console.log('    subscriber2: value ' + x.value + ', from: ' + x.from);
+  });
+}, 2500);

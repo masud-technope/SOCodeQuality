@@ -1,0 +1,7 @@
+llPhone = (LinearLayout) findViewById (R.id.llPhone)
+if (llPhone == null) {
+ tablet = true;
+}
+else {
+ tablet = false;
+}

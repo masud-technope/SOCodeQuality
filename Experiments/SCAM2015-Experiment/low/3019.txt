@@ -1,0 +1,38 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class IdeoneBase{
+
+    public String getName(){
+        return "P";
+    }   
+}
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone extends IdeoneBase
+{
+    @Override
+    public  String getName(){
+        return "K"; 
+    }
+
+    String getSpecificName(int x){
+        if(x == 1){
+            return super.getName();
+        }
+        return getName();
+    }
+
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        IdeoneBase piece  = new Ideone();
+        if(piece instanceof Ideone){
+            Ideone p = (Ideone) piece; // without this downward cast, you cannot call getSpecificName(). You can only call that is common between the two.
+            System.out.println(p.getSpecificName(1));
+            System.out.println(p.getSpecificName(999));
+        }
+    }
+}

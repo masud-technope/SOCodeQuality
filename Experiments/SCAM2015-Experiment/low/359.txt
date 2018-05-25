@@ -1,0 +1,7 @@
+StringBuilder allArgs = new StringBuilder();
+for (int i=0; i < args.length; i++)
+{
+    //System.out.println("arg"+i+": "+args[i]);
+    allArgs.append(args[i]+" ");
+}
+//Parse out the args the way you wish using allArgs

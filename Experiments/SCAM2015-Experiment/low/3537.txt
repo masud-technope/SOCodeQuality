@@ -1,0 +1,7 @@
+void flipCoin()
+{
+ if((int)(Math.random() *2) ==1)
+      isHeads = true;
+ else
+      isHeads = false;
+}

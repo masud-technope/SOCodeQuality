@@ -1,0 +1,19 @@
+// make a switch variable so as not to change the original value
+int switchVariable = variable;
+
+//combine range 1-99 to single case in switch
+if(1 <= variable && variable <=100)
+    switchVariable = 1;
+switch (switchVariable) 
+{ 
+    case 0:
+        break; 
+    case 1:
+        // range 1-100
+        doSomething(); 
+        break;
+    case 101: 
+        doSomethingElse(); 
+        break;
+    etc.
+}

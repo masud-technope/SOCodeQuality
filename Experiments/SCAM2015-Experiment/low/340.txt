@@ -1,0 +1,67 @@
+def onDrop(files: List[java.io.File]): Unit = { ... }
+
+    val lblDrop = new Label {
+      peer.setTransferHandler(new FileDropHandler(onDrop))
+      border = EtchedBorder
+    }
+
+
+
+class FileDropHandler(val onDrop: List[java.io.File] => Unit) extends javax.swing.TransferHandler {
+      import javax.swing.JComponent
+      import java.awt.datatransfer.{Transferable, DataFlavor}
+        import java.net.URI
+    import java.io.File
+
+    val stdFileListFlavor = DataFlavor.javaFileListFlavor
+    val nixFileListFlavor = new DataFlavor("text/uri-list;class=java.lang.String")
+
+    override def canImport(comp: JComponent, flavors: Array[DataFlavor]): Boolean =
+        flavors.exists(flavor =>
+            (flavor == stdFileListFlavor) ||
+            (flavor == nixFileListFlavor)
+        )
+
+    override def importData(comp: JComponent, t: Transferable): Boolean = {
+
+        val flavors = t.getTransferDataFlavors()
+
+        val files = if (flavors.exists(_ == stdFileListFlavor)) {
+            val data = t.getTransferData(stdFileListFlavor)
+            importStdFileList( data )
+        } else if (flavors.exists(_ == nixFileListFlavor)) {
+            val data = t.getTransferData(nixFileListFlavor)
+            importNixFileList( data )
+        } else List()
+
+        onDrop( files )
+
+        !files.isEmpty
+    }
+
+    private def importStdFileList(data: Any): List[File] = {
+      data.asInstanceOf[List[File]] //XXX NOT TESTED
+    }
+
+    private def importNixFileList(data: Any): List[File] = {
+
+        def clean(rawLine: String): Option[String] = {
+            val line = rawLine.trim
+            if   (line.length == 0 || line == "#") None
+            else                                   Some(line)
+        }
+
+        def asURI(line: String): Option[URI] = {
+            try   { Some(new URI(line)) }
+            catch { case e:Exception => println(e); None }
+        }
+
+        def asFile(uri: URI): Option[File] = {
+            try   { Some(new File(uri)) }
+            catch { case e:Exception => println(e); None }
+        }
+
+        data.asInstanceOf[java.lang.String].split("\n")
+     .toList flatMap clean flatMap asURI flatMap asFile
+    }
+}

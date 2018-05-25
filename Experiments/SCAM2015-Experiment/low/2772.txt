@@ -1,0 +1,4 @@
+class NumberContainer
+{
+ Set<? extends Number> numbers;
+}

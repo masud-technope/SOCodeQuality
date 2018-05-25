@@ -1,0 +1,4 @@
+for (int i = 0; i < animal_list.size(); i++){
+    s += animal_list.get(i).getName() + " who weighs " + 
+         animal_list.get(i).getWeight() + " kg.";
+}

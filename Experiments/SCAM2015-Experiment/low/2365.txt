@@ -1,0 +1,32 @@
+public class RandomNumbers {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        int n = 5;
+        int A[] = uniqueRandomArray(n);
+        for(int i = 0; i<n; i++){
+            System.out.println(A[i]);
+        }
+    }
+    public static int[] uniqueRandomArray(int n){
+        int [] A = new int[n];
+        for(int i = 0; i< A.length; ){
+            if(i == A.length){
+                break;
+            }
+            int b = (int)(Math.random() *n) + 1;
+            if(f(A,b) == false){
+                A[i++] = b;
+            } 
+        }
+        return A;
+    }
+    public static boolean f(int[] A, int n){
+        for(int i=0; i<A.length; i++){
+            if(A[i] == n){
+                return true;
+            }
+        }
+        return false;
+    }
+}

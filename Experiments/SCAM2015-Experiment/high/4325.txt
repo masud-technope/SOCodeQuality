@@ -1,0 +1,3 @@
+myMethod(0) = *
+
+myMethod(1) = myMethod(0) + myMethod(0) = * + * = **

@@ -1,0 +1,31 @@
+public class Main {
+public static void main(String[] args){
+
+    CKL ckl = new CKL();
+    String equation = "2*2+12-6/5";
+    String ans = equation;
+    StringTokenizer sto = new StringTokenizer(equation,"0123456789");
+    StringBuffer buf = new StringBuffer();
+    while(sto.hasMoreTokens()){
+        buf.append(sto.nextToken());
+    }
+    String opCheck = buf.toString();
+    if(opCheck.contains("/")){
+        ckl.resultDiv(equation);
+        ans = ckl.resultFinal;
+    }
+    if(ans.contains("*")){
+        ckl.resultMul(ans);
+        ans = ckl.resultFinal;
+    }
+    if(ans.contains("-")){
+        ckl.resultMin(ans);
+        ans = ckl.resultFinal;
+    }
+    if(ans.contains("+")){
+        ckl.resultPlu(ans);
+        ans = ckl.resultFinal;
+    }
+    else ans=equation;
+    System.out.println(ans);
+}

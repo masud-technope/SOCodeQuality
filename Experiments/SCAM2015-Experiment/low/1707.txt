@@ -1,0 +1,17 @@
+ArrayList alDeposits = new ArrayList(); 
+      ArrayList alWithDrawals = new ArrayList(); 
+      ArrayList alChecks = new ArrayList();  
+      while (!alDeposits.isEmpty() || !alWithDrawals.isEmpty() || !alChecks.isEmpty()) {
+      //get record 5 times until list is empty
+        for (int i=0 ; i<5; i++) {
+          if (!alDeposits.isEmpty()) {
+            alDeposits.remove(0);//get record
+          }
+          if (!alWithDrawals.isEmpty()) {
+            alWithDrawals.remove(0);//get record
+          }
+          if (!alChecks.isEmpty()) {
+            alChecks.remove(0);//get record
+          }
+        }
+      }

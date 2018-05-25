@@ -1,0 +1,11 @@
+String str = "WOMAN";
+
+List<String> tempArr = new ArrayList<String>();
+
+for (int i = 1; i < str.length(); i++) {
+    for (int j = i; j <= str.length(); j++) {
+        tempArr.add(str.substring(i - 1, j));
+    }
+}
+
+String[] res = tempArr.toArray(new String[tempArr.size()]);

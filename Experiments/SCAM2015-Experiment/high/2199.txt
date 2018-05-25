@@ -1,0 +1,4 @@
+Collections.sort(list2, Collections.reverseOrder());
+    for (Integer i : list2) {
+        list1.remove((int) i);
+    }

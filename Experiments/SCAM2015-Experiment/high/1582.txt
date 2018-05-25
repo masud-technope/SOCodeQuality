@@ -1,0 +1,4 @@
+MyObject someObj = ...;
+Stack myStack = new Stack();
+myStack.push(someObj);
+someObj = myStack.pop(); // Error!

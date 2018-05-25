@@ -1,0 +1,25 @@
+public HashSet<Integer> distinctPrimeFactors(int n) //insane fast prime factor generator
+{
+    HashSet<Integer> factors = new HashSet<Integer>();
+    int lastres = n;
+    if (n==1)
+    {
+        factors.add(1);
+        return factors;
+    }
+    while (true)
+    {
+        if (lastres==1)
+            break;
+        int c = 2;
+        while (true)
+        {
+            if (lastres%c==0)
+                break;
+            c++;
+        }
+        factors.add(c);
+        lastres/=c;
+    }
+    return factors;
+}

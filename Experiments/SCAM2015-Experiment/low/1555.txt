@@ -1,0 +1,6 @@
+private  int maxHeight(BinaryNode<AnyType> n) {
+  if (n ! = null) return 0;
+  int leftheight = maxHeight(n.left);
+   int rightheight = maxHeight(n.right);
+  return (leftheight > rightheight) ? leftheight + 1 : rightheight + 1;
+}

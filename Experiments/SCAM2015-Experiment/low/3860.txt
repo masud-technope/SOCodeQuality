@@ -1,0 +1,7 @@
+if(z <= 0){
+            System.out.println("...............................................");
+            System.out.println(" You can only type positive numbers            ");
+            System.out.println("..............................................."); 
+            System.out.println("\n");
+            break;
+        }

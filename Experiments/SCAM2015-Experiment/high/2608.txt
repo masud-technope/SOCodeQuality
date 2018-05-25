@@ -1,0 +1,5 @@
+for (MyObj elem : obj) {
+    if (elem.getCuffSize() == null) {
+        elem.setCuffSize("");
+    }
+}

@@ -1,0 +1,8 @@
+public MyAbstractClass(List<? extends Animal> animalList) {
+
+   myAnimalList= new ArrayList<Animal>();   
+
+   for(Animal c: animalList){
+        this.myAnimalList.add(c);
+   }
+}

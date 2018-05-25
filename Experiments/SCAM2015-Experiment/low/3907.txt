@@ -1,0 +1,3 @@
+if(root.set.contains(t)){
+    root.set.remove(t); 
+}

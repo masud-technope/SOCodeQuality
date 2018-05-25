@@ -1,0 +1,17 @@
+BigDecimal decimal = new BigDecimal("100.25");
+
+BigDecimal decimal2 = new BigDecimal("1000.70");
+
+BigDecimal decimal3 = new BigDecimal("10000.00");
+
+DecimalFormat format = new DecimalFormat("###,###,###,###,###.##");
+
+format.setDecimalSeparatorAlwaysShown(true);
+
+format.setMinimumFractionDigits(2);
+
+System.out.println(format.format(decimal));
+
+System.out.println(format.format(decimal2));
+
+System.out.println(format.format(decimal3));

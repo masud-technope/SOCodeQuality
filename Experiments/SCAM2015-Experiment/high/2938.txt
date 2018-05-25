@@ -1,0 +1,7 @@
+SharedPreferences prefs = getPreferences(MODE_PRIVATE); 
+String restoredText = prefs.getString("text", null);
+if (restoredText != null) 
+{
+  int selectionStart = prefs.getInt("selection-start", -1);
+  int selectionEnd = prefs.getInt("selection-end", -1);     
+}

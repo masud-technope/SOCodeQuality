@@ -1,0 +1,3 @@
+,(?![^()]*\\))
+  ------------
+      |->split with , only if it is not within ()

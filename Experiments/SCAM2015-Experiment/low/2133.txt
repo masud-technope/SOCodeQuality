@@ -1,0 +1,28 @@
+/**
+   *
+   * @param values { x0, y0, r0, x1, y1, r1 }
+   * @return true if circles is intersected
+   */
+  public static boolean isCircleIntersect(double... values)
+  {
+    /* check using mathematical relation: ABS(R0-R1) <= SQRT((x0-x1)^2+(y0-y1)^2) <= (R0+R1) */
+    if (values.length == 6)
+    {
+      /* get values from first circle */
+      double x0 = values[0];
+      double y0 = values[1];
+      double r0 = values[2];
+      /* get values from second circle */
+      double x1 = values[3];
+      double y1 = values[4];
+      double r1 = values[5];
+      /* returun result */
+      return (Math.abs(r0 - r1) <= Math.sqrt(Math.pow((x0 - x1), 2) + Math.pow((y0 - y1), 2)))
+              && (Math.sqrt(Math.pow((x0 - x1), 2) + Math.pow((y0 - y1), 2)) <= (r0 + r1));
+    }
+    else
+    {
+      /* return default result */
+      return false;
+    }
+  }

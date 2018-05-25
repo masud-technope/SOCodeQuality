@@ -1,0 +1,44 @@
+public class MakeItConcurrent {
+
+    private static final ExecutorService threadPool = Executors.newFixedThreadPool(4);
+    private static final AtomicInteger outputCount = new AtomicInteger();
+    private static final ThreadLocal<SecureRandom> threadToStringBuilder = new ThreadLocal<SecureRandom>();
+
+    public static String task() {
+        SecureRandom rand = threadToStringBuilder.get();
+        if (rand == null) {
+            threadToStringBuilder.set(new SecureRandom());
+            rand = threadToStringBuilder.get();
+        }
+        return rand.nextDouble() > 0.5 ? "output" : null;
+    }
+
+    public static void doManyTasks() {
+        int currOutputCount;
+        while ( ( currOutputCount = outputCount.get() ) < 100) {
+            String output = task();
+            if (output != null) {
+                // outputCount.compareAndSet(currOutputCount, currOutputCount + 1); use this if you want exactly 100 outputs
+                outputCount.set(currOutputCount + 1);
+                System.out.println(output);
+            }
+        }
+        threadPool.shutdownNow();
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Runnable runnable = new Runnable() {            
+            @Override public void run() {
+                doManyTasks();
+            }
+        };
+        threadPool.submit(runnable);
+        threadPool.submit(runnable);
+        threadPool.submit(runnable);
+        threadPool.submit(runnable);
+        while ( ! threadPool.isShutdown() ) {
+            Thread.sleep(100);
+        }
+        System.out.println(outputCount);
+    }
+}

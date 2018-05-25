@@ -1,0 +1,4 @@
+for(String item:firstList){
+third.add(item+ " : " + secondList.get(position);
+position ++;
+}

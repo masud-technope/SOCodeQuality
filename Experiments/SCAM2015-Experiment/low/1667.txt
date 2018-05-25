@@ -1,0 +1,19 @@
+String className = "com.android.internal.telephony.gsm.GSMPhone";
+Class classToInvestigate = Class.forName(className);
+Object gsmObj = classToInvestigate.newInstance();
+
+Object arglist[] = new Object[3];
+arglist[0] = new String("Phone Number");
+arglist[1] = new String ("16035552412"); // Not a real phone number
+arglist[2] = null;
+
+Class[] paramTypes = new Class[3];
+paramTypes[0] = String.class;
+paramTypes[1] = String.class;
+paramTypes[2] = Message.class;
+
+Method setLine1Number = classToInvestigate.getMethod("setLine1Number", paramTypes);
+boolean accessible = setLine1Number.isAccessible();
+setLine1Number.setAccessible(true);
+
+Object TestReturn = setLine1Number.invoke(gsmObj, arglist);

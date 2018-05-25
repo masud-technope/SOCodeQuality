@@ -1,0 +1,17 @@
+public static boolean recursiveMethod(int x) {
+if (x >= 5) {
+    return true;
+}
+boolean isPrintedOnce = false;
+if (isPrintedOnce = false) {
+    if(x==0){
+    System.out.println("Printed once!"); // Print this statement only once
+    }
+    isPrintedOnce = true;
+}
+return recursiveMethod(x + 1);
+}
+
+public static void main(String[] args) {
+System.out.println(recursiveMethod(0));
+}

@@ -1,0 +1,7 @@
+public void action()  {
+
+           //theProblemMethod(); //This we can not do
+
+          Foo a = createFoo();
+          Bar b = createBar(a);
+  }

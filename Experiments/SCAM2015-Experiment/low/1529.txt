@@ -1,0 +1,8 @@
+public class MyClassTwo
+{
+    public void DoSomething()
+    {
+        var text = "hello world";
+        Console.Write(MyClass.InvertText(text));
+    }
+}

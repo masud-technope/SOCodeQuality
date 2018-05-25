@@ -1,0 +1,7 @@
+buttonname = (Button)findViewById(R.id.buttonname);
+
+    buttonname.setOnClickListener(new View.OnClickListener() {
+                 public void onClick(View v) {
+                     // Perform action on click
+                 }
+});

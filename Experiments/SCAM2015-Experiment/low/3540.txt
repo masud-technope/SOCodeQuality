@@ -1,0 +1,7 @@
+void routine(const int x, const int y)
+{
+    class { public: int x; int y; } my_instance;
+    my_instance.x = x;
+    my_instance.y = y;
+    // ... etc
+}

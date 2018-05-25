@@ -1,0 +1,17 @@
+//this bit is in a method which is continiouly called nonstop
+    if (forward && (goalieposx>200)){
+        forward=false;
+    }
+
+    System.out.println(forward);
+
+    if(forward=true){
+        goalieposx++;
+        System.out.println("forward");
+    }
+    else if (forward=false){
+        goalieposx--;
+        System.out.println("backwards");
+    }
+
+}

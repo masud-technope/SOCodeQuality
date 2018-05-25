@@ -1,0 +1,6 @@
+class X {
+ static {
+  System.out.println("class X has been loaded");
+ }
+ ...
+}

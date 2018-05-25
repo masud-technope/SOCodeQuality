@@ -1,0 +1,88 @@
+import java.util.Random;
+
+
+public class Deck {
+
+    public static void main(String args []){
+        // mah lovely arrays ^.^
+
+
+        CardDeck();
+
+        Random random = new Random();
+        for(int q = 0;q<52;q++){
+        int rand = random.nextInt(52);
+
+        }
+    }
+
+    public static void CardDeck(){
+
+           final String[] deckSuit = new String[52];
+            String[] deckKind = new String[52];
+               int[] deckValue = new int[52];
+
+            String spade = "Spades";
+            String diamond = "Diamonds";
+            String heart = "Hearts";
+            String club = "Clubs";
+
+
+
+            // set the respective suits
+            for(int q = 0;q<13;q++){
+                deckSuit[q] = spade;
+            }
+            for(int q = 13;q<26;q++){
+                deckSuit[q] = diamond;
+            }
+            for(int q = 26;q<39;q++){
+                deckSuit[q] = heart;
+            }
+            for(int q = 39;q<52;q++){   
+                deckSuit[q] = club;
+            }
+            // set the kind of card
+            for(int q = 0;q<52;q+=13){
+                deckKind[q] = "Two";
+                deckKind[q+1] = "Three";
+                deckKind[q+2] = "Four";
+                deckKind[q+3] = "Five";
+                deckKind[q+4] = "Six";
+                deckKind[q+5] = "Seven";
+                deckKind[q+6] = "Eight";
+                deckKind[q+7] = "Nine";
+                deckKind[q+8] = "Ten";
+                deckKind[q+9] = "Jack";
+                deckKind[q+10] = "Queen";
+                deckKind[q+11] = "King";
+                deckKind[q+12] = "Ace";
+            }
+
+            for(int q = 0;q<52;q+=13){
+                deckValue[q] = 2;
+                deckValue[q+1] = 3;
+                deckValue[q+2] = 4;
+                deckValue[q+3] = 5;
+                deckValue[q+4] = 6;
+                deckValue[q+5] = 7;
+                deckValue[q+6] = 8;
+                deckValue[q+7] = 9;
+                deckValue[q+8] = 10;
+                deckValue[q+9] = 10;
+                deckValue[q+10] = 10;
+                deckValue[q+11] = 10;
+                deckValue[q+12] = 11;
+            }
+
+
+            //display all the cards
+            for(int q = 0;q<52;q++){
+
+                System.out.println("["+deckSuit[q]+", "+deckKind[q]+", "+deckValue[q]+"]");
+                }   
+
+        //declare ye methods here
+        }
+
+}

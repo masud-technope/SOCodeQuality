@@ -1,0 +1,4 @@
+public static boolean isSumOfSquares(int num) {
+    int sum = 1;
+    int lowerBound = 1;
+    int upperBound = 1;

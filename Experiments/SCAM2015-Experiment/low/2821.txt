@@ -1,0 +1,6 @@
+String a="one"
+String b="two"
+
+a = a + b;
+b = a.replace(b, "");
+a = a.replace(b,"");

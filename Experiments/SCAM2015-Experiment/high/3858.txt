@@ -1,0 +1,8 @@
+public static int method(double value){
+        String temp;
+         if(value == (long) value)
+                temp = String.format("%d",(long)value);
+            else
+                temp = String.format("%s",value);
+        return temp.length();
+    }

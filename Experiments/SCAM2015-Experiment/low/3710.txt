@@ -1,0 +1,23 @@
+if (android.os.Build.VERSION.SDK_INT > 9) {
+                            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                                    .permitAll().build();
+
+                            StrictMode.setThreadPolicy(policy);
+                        }
+                        try {
+                            URL diachi = new URL("http://example.com");
+                            HttpURLConnection huc = (HttpURLConnection) diachi.openConnection();
+                            huc.setRequestMethod("HEAD");
+                            int responseCode = huc.getResponseCode();
+
+                            if (responseCode != 404) {
+                                //URL Exist
+
+                            } else {
+                                //URL not Exist
+                            }
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }

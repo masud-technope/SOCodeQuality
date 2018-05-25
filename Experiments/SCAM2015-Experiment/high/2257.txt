@@ -1,0 +1,5 @@
+if( driver.findElement(By.cssSelector("a > font")).isDisplayed()){
+System.out.println("Element is Visible");
+}else{
+System.out.println("Element is InVisible");
+}

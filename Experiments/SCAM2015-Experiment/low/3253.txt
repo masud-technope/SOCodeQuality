@@ -1,0 +1,8 @@
+Enumeration<Integer> enumeration = vector.elements();
+    while (enumeration.hasMoreElements()) {
+        Integer integer = (Integer) enumeration.nextElement();
+        System.out.print(integer);//why it is printing 123 instead of 12(reason ????)
+    }
+    vector.add(3);
+    enumeration = vector.elements();
+    while (enumeration.hasMoreElements()) {

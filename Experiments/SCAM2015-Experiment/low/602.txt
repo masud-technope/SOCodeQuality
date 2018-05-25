@@ -1,0 +1,19 @@
+public class TEST
+{
+  public static void main(String arg[]){
+    boolean b = true;
+    try
+    {
+      System.out.println("execute try");
+      if (something()) b = false;
+    }
+    catch (Exception e){
+      System.out.println(e);
+    }
+    finally{
+      if (b){
+        System.out.println("execute finally");
+      }
+    }
+  }
+}

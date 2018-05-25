@@ -1,0 +1,3 @@
+boolean isStopped = false;
+while(!isStopped){
+    Socket clientSocket = serverSocket.accept();

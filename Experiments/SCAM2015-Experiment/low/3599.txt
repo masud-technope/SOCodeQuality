@@ -1,0 +1,6 @@
+for (Iterator<Contact> iter = mySet.iterator();iter.hasNext();) {
+    final Contact next = iter.next();
+    if(next.getName() == "NAME") {
+         iter.remove();
+         break;
+    }

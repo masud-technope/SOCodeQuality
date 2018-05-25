@@ -1,0 +1,9 @@
+public class cal {
+    public int total = 11;
+    public int count = 2508;
+    public double calRatio;
+    public void caln() {
+        calRatio = (double)count / (double)total;
+        System.out.print(calRatio);
+    }
+}

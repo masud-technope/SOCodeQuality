@@ -1,0 +1,3 @@
+SharedPreferences prefs = getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
+    String yourText = prefs.getString("your_key", "
+    EditText yourEditText = (EditText) findViewById(R.yourEditText.setText(yourText);

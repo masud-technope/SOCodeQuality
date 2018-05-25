@@ -1,0 +1,11 @@
+import NewClass;
+
+public ClassName
+{
+   public static void main(String args[])
+   {
+      //Your code
+      NewClass.setDepth(DoubleValue)
+     //Continue code
+   }
+}

@@ -1,0 +1,11 @@
+Object duck = new Object();
+String userInput = System.in.read();
+if (userInput = "duck.quack();"){
+//do something
+duck.quack();
+}
+else if (userInput = "duck.fly();"){
+//do something else
+duck.fly();
+}
+//etc.

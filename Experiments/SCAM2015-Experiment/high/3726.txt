@@ -1,0 +1,11 @@
+@Configuration
+public class ValidationConfiguration
+{
+    @Bean
+    public LocalValidatorFactoryBean localValidatorFactoryBean()
+    {
+        Locale.setDefault(Locale.ENGLISH);
+
+        return new LocalValidatorFactoryBean();
+    }
+}

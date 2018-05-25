@@ -1,0 +1,20 @@
+@Transactional(readOnly = true)
+@SuppressWarnings("unchecked")
+@Column(name = "status")
+
+public List<Student> findStudentByStatus(String status) {
+    System.out
+            .println("call findStudentMethd******************with this pattern"
+                    + status
+                    + "*********************************************");
+
+    return em.createQuery(
+            "select attendence from Attendence attendence where attendence.status like '"
+                    + p
+                    + A 
+                    + L 
+                    + "'")
+
+    .getResultList();
+
+}

@@ -1,0 +1,5 @@
+if(title =="Mr."){ blah.. }
+
+   do this instead ..
+
+   if(title.equals("Mr."){blah..}

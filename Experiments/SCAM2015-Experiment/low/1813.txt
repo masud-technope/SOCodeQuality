@@ -1,0 +1,4 @@
+System.out.println(Arrays.toString(
+    "Many words//separated.by-different\tcharacters"
+        .split("\\W+")));
+//[Many, words, separated, by, different, characters]

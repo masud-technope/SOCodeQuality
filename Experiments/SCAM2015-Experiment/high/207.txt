@@ -1,0 +1,23 @@
+<locations>
+    <location>
+        <name>Albus Square</name>
+        <summary>Short description for returning adventurer</summary>
+        <description>Long text here ... with formatting, etc.</description>
+        <items>
+            <item>Flowers</item>
+            <item>Traffic Cone</item>
+        <items>
+        <directions>
+            <north>Franklandclaw Lecture Theatre</north>
+            <west>Library of Enchanted Books</west>
+            <south>Furnesspuff College</south>
+        </directions>
+    </location>
+    <location>
+        <name>Library of Enchanted Books</name>
+        <directions>
+            <east>Albus Square</east>
+            <up>Reading Room</up>
+        </directions>
+    </location>
+</locations>

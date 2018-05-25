@@ -1,0 +1,21 @@
+public static int consecutiveEqualElements(int[] elements) {
+    int max = 0;
+    int consecutive = 1;
+
+    for (int i = 1; i < elements.length; i++) {
+        if (elements[i] == elements[i-1]) {
+            consecutive++;
+        } else {
+            if (consecutive > max) {
+                max = consecutive;
+            }
+            consecutive = 1;
+        }
+    }
+
+    if (consecutive > max) {
+        return consecutive;
+    } else {
+        return max;
+    }
+}

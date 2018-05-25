@@ -1,0 +1,7 @@
+public class Conversion {
+
+     public Float intToFloat(Integer i) {
+          return (Float) i.floatValue();
+     }
+
+}

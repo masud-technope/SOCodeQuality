@@ -1,0 +1,21 @@
+@Test
+public void testIndexOfIgnoreCase() {
+    assertThat(StringUtils.indexOfIgnoreCase("A", "A"), is(0));
+    assertThat(StringUtils.indexOfIgnoreCase("a", "A"), is(0));
+    assertThat(StringUtils.indexOfIgnoreCase("A", "a"), is(0));
+    assertThat(StringUtils.indexOfIgnoreCase("a", "a"), is(0));
+
+    assertThat(StringUtils.indexOfIgnoreCase("a", "ba"), is(-1));
+    assertThat(StringUtils.indexOfIgnoreCase("ba", "a"), is(1));
+
+    assertThat(StringUtils.indexOfIgnoreCase("Royal Blue", " Royal Blue"), is(-1));
+    assertThat(StringUtils.indexOfIgnoreCase(" Royal Blue", "Royal Blue"), is(1));
+    assertThat(StringUtils.indexOfIgnoreCase("Royal Blue", "royal"), is(0));
+    assertThat(StringUtils.indexOfIgnoreCase("Royal Blue", "oyal"), is(1));
+    assertThat(StringUtils.indexOfIgnoreCase("Royal Blue", "al"), is(3));
+    assertThat(StringUtils.indexOfIgnoreCase("", "royal"), is(-1));
+    assertThat(StringUtils.indexOfIgnoreCase("Royal Blue", ""), is(0));
+    assertThat(StringUtils.indexOfIgnoreCase("Royal Blue", "BLUE"), is(6));
+    assertThat(StringUtils.indexOfIgnoreCase("Royal Blue", "BIGLONGSTRING"), is(-1));
+    assertThat(StringUtils.indexOfIgnoreCase("Royal Blue", "Royal Blue LONGSTRING"), is(-1));  
+}

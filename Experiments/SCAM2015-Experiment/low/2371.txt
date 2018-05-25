@@ -1,0 +1,11 @@
+@RequestMapping(method=RequestMethod.GET, value="foo/bar")
+public ResponseEntity<Bar> fooBar() {
+    Bar bar = barService.getBar();
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    headers.add("Some-Custom-Header-Key", "12345");
+    return headers;
+
+    return new ResponseEntity<Bar>(bar, headers, HttpStatus.OK);
+}

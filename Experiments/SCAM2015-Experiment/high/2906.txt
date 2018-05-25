@@ -1,0 +1,3 @@
+String a= "bla bla bla";
+    String b = a.replaceAll(" ", "   ");
+    System.out.println(b);

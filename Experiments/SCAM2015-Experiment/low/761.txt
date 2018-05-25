@@ -1,0 +1,4 @@
+public static void main(String... args) {
+    JFrame f = new JFrame("Test");
+    f.setVisible( true );
+}

@@ -1,0 +1,3 @@
+for (int i=0; i < (FYEProcessing ? 2 : 1); ++i){
+   CreatePaymentRecords(TermDates, FYEProcessing);      
+}

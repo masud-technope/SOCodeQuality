@@ -1,0 +1,5 @@
+public static void main(String[] args) throws FileNotFoundException {
+        String asd = "’";
+        System.out.println(StringEscapeUtils.escapeXml(asd)); //output - &#8217;
+    System.out.println(StringEscapeUtils.escapeHtml(asd)); //output - &rsquo;
+}

@@ -1,0 +1,5 @@
+Calendar calendar = Calendar.getInstance();
+calendar.set(Calendar.YEAR, 2014);
+calendar.set(Calendar.MONTH, Calendar.NOVEMBER);
+calendar.set(Calendar.DAY_OF_MONTH, 25);
+Date date = calendar.getTime();

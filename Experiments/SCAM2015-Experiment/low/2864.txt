@@ -1,0 +1,22 @@
+public static void main(String[] args) {
+        try {
+            DecimalFormat df = new DecimalFormat();
+            String decimal1 = "54.60"; // Decimal is input as a string with a specific number of significant digits.
+            //
+            int index = decimal1.indexOf(".");
+            int prec = -1;
+            if (index != -1) {
+                prec = decimal1.substring(index, decimal1.length()).length();
+            }
+            if (prec>0) {
+                df.setMaximumFractionDigits(prec);
+                df.setMinimumFractionDigits(prec-1);
+            }
+            //
+            double d = df.parse(decimal1).doubleValue();
+            d = d * -1; // Multiply the decimal by -1 (this is why we parsed it, so we could do a calculatin).
+            System.out.println(df.format(d)); // I need to print this with the same # of significant digits.
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }

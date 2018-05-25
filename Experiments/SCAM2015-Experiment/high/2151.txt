@@ -1,0 +1,6 @@
+public List<String> getUsers() {
+  Factory sql = new Factory(Database.getInstance().connect(), SQLDialect.MYSQL);
+  Result<Record> results = sql.select().from("users").fetch();
+
+  return results.getValues(loginFieldIndex);
+}

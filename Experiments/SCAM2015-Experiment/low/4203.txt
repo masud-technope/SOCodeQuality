@@ -1,0 +1,69 @@
+package test;
+
+public class BankAccount
+{
+    private Money balance;
+
+    public BankAccount()
+    {
+        // start with zero balance
+        balance = new Money(0,0);
+    }
+
+    public void addMoneyToBalance(Money m)
+    {
+        balance.setDollars(m.getDollars());
+        balance.setCents(m.getCents());
+    }
+
+    public String accountBalanceToString()
+    {
+        return "$" + balance.getDollars() + "." + balance.getCents();
+    }
+
+    // inner class defines how money is held in memory
+    private static class Money
+    {
+        private int dollars;
+        private int cents;
+
+        public Money()
+        {}
+
+        // overloaded constructor, for a one-shot setup
+        public Money(int newDollars, int newCents)
+        {
+            dollars = newDollars;
+            cents = newCents;
+        }
+
+        public void setDollars(int newDollars)
+        {
+            dollars = newDollars;
+        }
+
+        public void setCents(int newCents)
+        {
+            cents = newCents;
+        }
+
+        public int getDollars()
+        {
+            return dollars;
+        }
+
+        public int getCents()
+        {
+            return cents;
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        BankAccount myAccount = new BankAccount();
+        // prepare a deposit of $69.69
+        Money currentDeposit = new Money(69, 69);
+        myAccount.addMoneyToBalance(currentDeposit);
+        System.out.println(myAccount.accountBalanceToString());
+    }
+}

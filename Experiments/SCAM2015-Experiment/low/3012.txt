@@ -1,0 +1,4 @@
+List<class> allClassess = HelloWorld.GetClasses();
+
+foreach (currentClass class in  allClassess )
+    currentClass.Initialize();

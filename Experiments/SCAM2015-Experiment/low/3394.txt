@@ -1,0 +1,10 @@
+@Override
+public void onTabSelected(Tab tab, FragmentTransaction ft) {
+// TODO Auto-generated method stub
+ if(tab.getText().equals("The test"){
+  //the test tab is selected
+ }
+else if(tab.getText().equals("Chat"){
+  // the chat tab is selected
+ }
+}

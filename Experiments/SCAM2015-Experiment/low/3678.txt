@@ -1,0 +1,9 @@
+class Test
+{
+    public static void main(String args[])
+    {
+        java.util.Scanner in = new java.util.Scanner(System.in);
+        String x = in.nextLine();
+        System.out.println("\n The type of the variable is : "+x.getClass());
+    }
+}

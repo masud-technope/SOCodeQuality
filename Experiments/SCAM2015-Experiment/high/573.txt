@@ -1,0 +1,9 @@
+public class Abc<T>
+ {
+
+    public T getInstanceOfT(Class<T> aClass)
+    {
+       return aClass.newInstance();
+    }      
+
+}

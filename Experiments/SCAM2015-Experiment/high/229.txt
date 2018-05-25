@@ -1,0 +1,3 @@
+Random generator = new Random();
+Map.Entry[] entries = myHashMap.entrySet().toArray();
+randomValue = entries[generator.nextInt(entries.length)].getValue();

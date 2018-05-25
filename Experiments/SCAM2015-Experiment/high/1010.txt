@@ -1,0 +1,3 @@
+List<List<URL>> announces = new ArrayList<List<URL>>();
+announces.add(new ArrayList<URL>());
+announces.add(new LinkedList<URL>());

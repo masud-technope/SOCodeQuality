@@ -1,0 +1,19 @@
+Set<Character> guesses = new HashSet<Character>();
+Character guess;
+// etc.
+
+while (lettersRemaining > 0 && livesLost < 10)
+{
+    //prompt user to guess a letter
+    System.out.println("Guess a letter:");
+    guess = myScanner.findWithinHorizon(".",0).charAt(0);
+
+    if (guesses.contains(guess)) {
+        System.out.println("You have already guessed this character!");
+    } else {
+        guesses.add(guess);
+        //check if the letter guessed is in the secretWord
+        guessInWord = (secretWord.indexOf(guess))!= -1;
+        // etc.
+    }
+}

@@ -1,0 +1,3 @@
+var el = document.getElementById('hiddenDivHL');
+var contents = el.innerHTML;
+alert("Found " + contents.length + " characters of content.");

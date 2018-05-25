@@ -1,0 +1,9 @@
+execve("/bin/echo", ["/bin/echo", "1 2", "3"], [/* 93 vars */]) = 0
+brk(0)                                  = 0x2400000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f420075b000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f420075a000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib64/alliance/lib/tls/x86_64/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/usr/lib64/alliance/lib/tls/x86_64", 0x7fff08757cd0) = -1 ENOENT (No such file or directory)
+open("/usr/lib64/alliance/lib/tls/libc.so.6", O_RDONLY) = -1 ENOENT (No such file or directory)
+...

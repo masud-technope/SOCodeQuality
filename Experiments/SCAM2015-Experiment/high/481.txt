@@ -1,0 +1,3 @@
+public static String decompose(String s) {
+    return java.text.Normalizer.normalize(s, java.text.Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+","");
+}

@@ -1,0 +1,26 @@
+package se.fnord.xmms2.predicate;
+
+import se.fnord.android.layout.PredicateLayout;
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class Predicate extends Activity {
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        PredicateLayout l = new PredicateLayout(this);
+        for (int i = 0; i < 10; i++) {
+            TextView t = new TextView(this);
+            t.setText("Hello");
+            t.setBackgroundColor(Color.RED);
+            t.setSingleLine(true);
+            l.addView(t, new PredicateLayout.LayoutParams(2, 0));
+        }
+
+        setContentView(l);
+    }
+}

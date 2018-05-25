@@ -1,0 +1,14 @@
+public boolean firstWednesdayOfTheMonth() {
+        // gets todays date
+        Calendar calendar = Calendar.getInstance();
+        // get the date
+        int date = calendar.get(Calendar.DAY_OF_MONTH);
+        // get the day of the week SUNDAY == 1, MONDAY == 2 ....
+        int day =   calendar.get(Calendar.DAY_OF_WEEK); 
+        // this checks if its a wednesday and the date falls within 8 then it should be the first wednesday
+        if (date < 8 &&  day == 4) {
+                return true;
+        }
+
+            return false;   
+    }

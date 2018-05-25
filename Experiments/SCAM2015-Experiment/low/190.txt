@@ -1,0 +1,6 @@
+cyril@merlin:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 8.10
+Release:    8.10
+Codename:   intrepid

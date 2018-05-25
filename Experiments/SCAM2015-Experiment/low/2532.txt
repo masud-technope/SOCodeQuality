@@ -1,0 +1,5 @@
+@Override  
+public int hashCode()  
+{  
+  return com.google.common.base.Objects.hashCode(Math.max(this.from, this.to),Math.min(this.from, this.to));  
+}

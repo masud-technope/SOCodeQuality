@@ -1,0 +1,10 @@
+public class TestClassLoaderAccess {
+    public static void main(String[] argv) {
+        TestClassLoaderAccess me = new TestClassLoaderAccess();
+        ClassLoader myLoader = me.getClass().getClassLoader();
+        System.out.println(myLoader.getClass().getSuperclass().getName());
+        java.net.URLClassLoader myUrlLoader = (java.net.URLClassLoader) myLoader;
+        java.net.URL resource = myUrlLoader.findResource("TestClassLoaderAccess.class");
+        System.out.println(resource.toString());
+    }
+}

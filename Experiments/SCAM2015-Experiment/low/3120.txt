@@ -1,0 +1,5 @@
+FragmentManager manager = getFragmentManager();
+    FragmentTransaction transaction = manager.beginTransaction();
+
+    transaction.add(R.id.LIST_LAYOUT,frag,"LIST");
+    transaction.commit();

@@ -1,0 +1,4 @@
+for(){
+type1Runnables.submit(new Runnable1());
+type2Runnables.submit(new Runnable2);
+}

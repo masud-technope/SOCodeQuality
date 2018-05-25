@@ -1,0 +1,8 @@
+int smaller, bigger;
+if (num1 > num2) {
+    smaller = num2;
+    bigger = num1;
+} else { /* may want to do something different if they are equal */
+    bigger = num2;
+    smaller = num1;
+}

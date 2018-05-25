@@ -1,0 +1,79 @@
+public class Prime 
+    {
+
+        void dispaly()
+        {
+            for(int i=1;i<100; i++)
+
+            {
+                boolean isPrimeNumber = true;
+
+                for(int j=2; j<i; j++)
+                {
+
+                    if(i%j==0) 
+                    {
+                    isPrimeNumber=false;
+                    break;
+                    }
+
+                }
+
+
+
+            if(isPrimeNumber)
+            {
+
+                System.out.print(i + " ");
+
+            }
+
+
+        }
+
+
+        }
+
+        void dispaly1()
+        {
+            System.out.print("\n");
+
+            for(int i=1;i<100; i++)
+
+            {
+
+
+                for(int j=2; j<i; j++)
+                {
+
+                    if(i%j==0) 
+                    {
+
+
+                    System.out.print(i + " ");
+                    break;
+
+                    }
+
+                }
+
+
+
+
+            }
+
+
+        }
+
+        public static void main(String[] args)
+        {
+            Prime p= new Prime();
+            System.out.print("The Prime Numbers are : ");
+            System.out.print("\n");
+            p.dispaly();
+            System.out.print("\n");
+            System.out.print("The Composite Numbers are : ");
+            p.dispaly1();
+
+        }
+    }

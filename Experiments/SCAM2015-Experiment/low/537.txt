@@ -1,0 +1,11 @@
+ArrayList<Integer> a=new ArrayList<>();
+
+   while(number > 0) 
+   { 
+     remainder = num % 10; 
+
+       a.add(remainder);
+      number = number / 10; 
+   } 
+
+int m=a.size();

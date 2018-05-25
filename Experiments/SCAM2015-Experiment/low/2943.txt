@@ -1,0 +1,23 @@
+boolean bisNumber = false;
+
+        if (number == null) {
+
+            bisNumber = false;
+
+        }
+
+        try {
+
+            Integer.parseInt(number);
+
+            bisNumber = true;
+
+        } catch (NumberFormatException ne) {
+
+            bisNumber = false;
+
+        }
+
+        return bisNumber;
+
+    }

@@ -1,0 +1,3 @@
+quesPart2 = ran.nextInt(UPPER_BOUND);
+int temp = ran.nextInt(UPPER_BOUND);
+questPart1 = temp * quesPart2;

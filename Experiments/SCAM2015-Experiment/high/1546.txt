@@ -1,0 +1,14 @@
+try{
+    URL url = new URL("http://74.127.61.106/udayavaniIpad/details_android.php?home=1&   catid=882&newsid=27593");
+    DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+    DocumentBuilder db = dbf.newDocumentBuilder();
+    Document doc = db.parse(new InputSource(url.openStream()));
+    doc.getDocumentElement().normalize();
+
+    XPath xpath = XPathFactory.newInstance().newXPath();
+    String expression = "/item/div[@id='hiddenDivHL']";
+    Node node = (Node) xpath.evaluate(expression, doc, XPathConstants.NODE);  
+
+} catch (Exception e) {
+    System.out.println("XML Pasing Excpetion = " + e);
+}

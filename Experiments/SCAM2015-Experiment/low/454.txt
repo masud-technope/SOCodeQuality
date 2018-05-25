@@ -1,0 +1,10 @@
+const char usage = "\n"
+"Usage: xxxx <options>\n"
+"\n"
+"Removes your options as designated by the required parameter <options>,\n"
+"which must be one of the following strings:\n"
+"  love\n"
+"  sex\n"
+"  drugs\n"
+"  rockandroll\n"
+"\n" ;

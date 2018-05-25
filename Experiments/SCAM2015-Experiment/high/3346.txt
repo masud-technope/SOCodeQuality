@@ -1,0 +1,19 @@
+String orig = "hellow hello hello how how he ho" ;
+//String orig = "how are you how do you do";
+
+String[] arr = orig.split(" ");
+
+//Arrays.sort(arr);
+
+for(int j1 = 0; j1 < arr.length; j1++){
+    if (arr[j1] != null) {
+        int counter = 1;
+        for(int j2 = j1+1; j2 < arr.length; j2++) {
+            if(arr[j2] != null && arr[j1].equals(arr[j2])){
+                counter++;
+                arr[j2] = null;
+            }
+        }
+        System.out.println(arr[j1]+" "+counter);
+    }
+}

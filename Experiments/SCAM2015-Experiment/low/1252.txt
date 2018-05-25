@@ -1,0 +1,11 @@
+class testTrick {
+
+    public static void main(String args[]) {
+        marker();
+    }
+
+    static void marker() {
+        System.out.println("programe executed");
+    }
+
+}

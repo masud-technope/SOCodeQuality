@@ -1,0 +1,18 @@
+private JTextArea outputText = new JTextArea();
+
+public void DoEverything() {
+    String output = "";
+    for(int i = 0; i <= 10; i++) {
+        output += TaskObject.someLongTask(i);
+        appendNewText(output);
+    }
+}
+
+public void appendNewText(String txt) {
+  SwingUtilities.invokeLater(new Runnable() {
+     public void run() {
+        outputText.setText(outputText.getText + txt);
+       //outputText.setText(outputText.getText + "\n"+ txt); Windows LineSeparator
+     }
+  });
+}

@@ -1,0 +1,7 @@
+public void actionPerformed(ActionEvent e)
+{
+    if (label.getIcon() == null)
+        label.setIcon(...);
+    else
+        label.setIcon( null );
+}

@@ -1,0 +1,15 @@
+@Override
+public View getView(int position, View convertView, ViewGroup parent){
+     //inflate your convertView, etc...
+     ...
+     ViewGroup baseLayout = (ViewGroup)convertView.findViewById(R.id.<your base layout id>);
+
+     //these conditions need to reflect how you decide which list item gets which color
+     if(position % 2 == 0){
+         baseLayout.setBackground(R.drawable.background_black);
+     } else {
+         baseLayout.setBackground(R.drawable.background_green);
+     //do whatever else you need
+     ...
+     return convertView;
+}

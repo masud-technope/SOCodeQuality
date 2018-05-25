@@ -1,0 +1,18 @@
+Public Class MyClass{
+
+       public static void main (String args[]){
+         StringBuilder sb = new StringBuilder();
+
+         for(int i=1; i<=100; i++){
+           sb.append(FizzOrBuzz(i));
+          }
+          System.out.println(sb);
+       }
+
+       public static String FizzOrBuzz(int num){
+            if (num % 15 ==0) {return "FizzBuzz\n";}
+            else if (num % 3 == 0) {return "Fizz\n";}
+            else if (num % 5 == 0) {return "Buzz\n";}
+            else {return Integer.toString(num);}
+       }
+}

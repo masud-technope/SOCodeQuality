@@ -1,0 +1,5 @@
+<TextView android:id="@+id/testStart" />
+<TextView android:id="@+id/test2" />
+<TextView android:id="@+id/test3" />
+<TextView android:id="@+id/testEnd" />
+<Button android:id="@+id/button1" />

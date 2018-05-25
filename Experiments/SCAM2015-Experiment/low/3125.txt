@@ -1,0 +1,3 @@
+Map args = new HashMap<String, Boolean>();
+args.put("isManufacturingKey", true);
+ZulHandler window = Preconditions.checkNotNull((ZulHandler) Executions.createComponents("/decision_comment_window.zul", null, args));

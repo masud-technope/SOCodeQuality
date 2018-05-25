@@ -1,0 +1,47 @@
+Compiled from "SBTest.java"
+public class SBTest extends java.lang.Object{
+public SBTest();
+Code:
+   0: aload_0
+   1: invokespecial  #1; //Method java/lang/Object."<init>":()V
+   4: return
+
+public static final void main(java.lang.String[]);
+Code:
+   0: getstatic   #2; //Field java/lang/System.out:Ljava/io/PrintStream;
+   3: new   #3; //class SBTest
+   6: dup
+   7: invokespecial  #4; //Method "<init>":()V
+   10: ldc   #5; //String testing
+   12: iconst_4
+   13: invokevirtual  #6; //Method repeat:(Ljava/lang/String;I)Ljava/lang/String;
+   16: invokevirtual  #7; //Method java/io/PrintStream.println:(Ljava/lang/String;)V
+   19: iconst_0
+   20: invokestatic   #8; //Method java/lang/System.exit:(I)V
+   23: return
+
+java.lang.String repeat(java.lang.String, int);
+Code:
+   0: iload_2
+   1: ifgt  7
+   4: ldc   #9; //String
+   6: areturn
+   7: aload_1
+   8: astore_3
+   9: iinc  2, -1
+   12: iload_2
+   13: ifle  38
+   16: new   #10; //class java/lang/StringBuilder
+   19: dup
+   20: invokespecial  #11; //Method java/lang/StringBuilder."<init>":()V
+   23: aload_3
+   24: invokevirtual  #12; //Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   27: aload_1
+   28: invokevirtual  #12; //Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   31: invokevirtual  #13; //Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+   34: astore_3
+   35: goto  9
+   38: aload_3
+   39: areturn
+
+}

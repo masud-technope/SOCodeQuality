@@ -1,0 +1,13 @@
+Map<String, String> users = new HashMap<String, String>();
+    users.put("1", "John");
+    users.put("2", "peter");
+    users.put("3", "uche");
+     Iterator<String> coll = users.values().iterator();
+        while(coll.hasNext()){
+
+
+       String currentUser = coll.next();
+       System.out.print(currentUser);
+
+      //coll.remove(currentUser);
+    }

@@ -1,0 +1,5 @@
+FileReader reader = new FileReader(path);
+BufferedReader br = new BufferedReader(reader);
+String firstline = br.readLine();
+System.out.println(firstline);
+...

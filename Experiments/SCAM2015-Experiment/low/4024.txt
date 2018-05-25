@@ -1,0 +1,15 @@
+public class  Sentence {                                                                   
+     private static String[] words = new String[]{"Hello", "name", "is", "Bob"};
+
+     public static String shortest(){                       
+      int shortestelement = 0;                    
+      String shortest ="";                        
+      for(int i = 0; i<words.length;i++) {         
+        if(shortest.length()<=words[i].length())
+            shortest=words[i];
+      }  
+
+    public static void main(String[] args) {                 
+     System.out.println("Shortest word"+Sentence.shortest());
+    }
+  }

@@ -1,0 +1,20 @@
+jTextField.addKeyListener(new KeyListener() {
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (text.getText().length() >= 1) {
+                button.setEnabled(true);
+            } else {
+                button.setEnabled(false);
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+        }
+
+    });

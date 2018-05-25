@@ -1,0 +1,10 @@
+Runnable checkMail = new Runnable() {
+    public void run() {
+        while(true) {
+            checkMails();
+            Thread.sleep(120000); //but this is very naive approach to use sleep, consider using timer ;)
+        }
+    }
+};
+
+SwingUtilities.invokeLater(checkMail);

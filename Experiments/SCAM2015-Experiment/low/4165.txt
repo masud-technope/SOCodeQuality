@@ -1,0 +1,9 @@
+int r = A.compareTo(B);
+
+if(r > 0) { 
+  System.out.println("B comes before A in alphabetical order");
+} else if(r < 0) {
+  System.out.println("A comes before B string in alphabetical order");
+} else {
+  System.out.println("The two strings are equal");
+}

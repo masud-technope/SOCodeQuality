@@ -1,0 +1,3 @@
+char arr[]=new char[30]; //declares an array which can hold 30 characters
+    arr[2]='a';
+    arr[20]='b';

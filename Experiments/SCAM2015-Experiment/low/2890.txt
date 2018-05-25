@@ -1,0 +1,3 @@
+$('body').append('<div id="invisibleDiv" style="display:none;"></div>'); //create a new invisible div
+$('#invisibleDiv').html(str); //Include yours "str" content on the invisible DIV
+console.log($('a', '#invisibleDiv').html()); //And this should output the text of any anchor inside that invisible DIV.

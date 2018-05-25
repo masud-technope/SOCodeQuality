@@ -1,0 +1,12 @@
+public class WalkServiceTest {
+  @Rule
+  public final ExpectedException thrown = ExpectedException.none();
+
+  @Test
+  public void testGoForAWalkWhenSpeedIsToPowerfulShouldThrowTerribleWindException throws TerribleWindException {
+    WalkService ws = new WalkService(100);
+    thrown.expect(TerribleWindException.class);
+    thrown.expect(Matchers.hasProperty("windSpeed", Matchers.equalTo("expected speed")));
+    ws.goForAWalk(); // this will throw TerribleWindException. The only way to check it's exception details is to use try {} catch() {} ?
+  }
+}

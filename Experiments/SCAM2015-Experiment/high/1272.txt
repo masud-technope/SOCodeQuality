@@ -1,0 +1,10 @@
+$ java PrintArgs hello world
+Args 1 is hello
+Args 2 is world
+
+$ java PrintArgs 3 4 6 8 1 
+Args 1 is 3
+Args 2 is 4
+Args 3 is 6
+Args 4 is 8
+Args 5 is 1

@@ -1,0 +1,5 @@
+for (Integer i : fib)
+{
+    text.append(i.toString());
+    text.append("\n");
+}

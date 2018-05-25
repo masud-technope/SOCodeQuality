@@ -1,0 +1,9 @@
+while (true) {
+   System.out.println("Enter the number of stones to play with: ");
+   BufferedReader br = new BufferedReader(new InputStreamReader(System.in));  
+   key = Integer.parseInt(br.readLine());
+   if (key > -1 && key < 10)
+      break;
+   else
+      System.out.println("Invalid number of stones. Choose from 0 - 9");
+}

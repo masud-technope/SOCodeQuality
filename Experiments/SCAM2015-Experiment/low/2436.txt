@@ -1,0 +1,5 @@
+String num = String.valueOf(bigInt);
+int sum = 0;
+for ( Character i : num.toCharArray() ) {
+    sum += Integer.parseInt(String.valueOf(i));
+}

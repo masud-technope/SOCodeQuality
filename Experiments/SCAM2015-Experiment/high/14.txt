@@ -1,0 +1,3 @@
+File[] roots = File.listRoots();
+for(int i = 0; i < roots.length ; i++)
+    System.out.println("Root["+i+"]:" + roots[i]);

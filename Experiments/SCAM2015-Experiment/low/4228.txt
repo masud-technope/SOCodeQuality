@@ -1,0 +1,15 @@
+public static String trimFront(String text, char character) {
+String normalizedText;
+int index;
+
+if (StringUtils.isNull(text)) {
+  return text;
+}
+
+normalizedText = text.trim();
+index = 0;
+
+while (normalizedText.charAt(index) == character) {
+  index++;
+}
+return normalizedText.substring(index).trim();}

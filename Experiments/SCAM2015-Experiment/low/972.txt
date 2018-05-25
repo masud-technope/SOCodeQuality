@@ -1,0 +1,8 @@
+for (int r = 0; r < 5; r++) {
+    long start = System.nanoTime();
+    ConcurrentLinkedQueue<Integer> list = new ConcurrentLinkedQueue<Integer>();
+    for (int i = 0; i < 500000; i++)
+        list.add(i);
+    long time = System.nanoTime() - start;
+    System.out.printf("Adding 500K %,d took ms%n", time / 1000 / 1000);
+}

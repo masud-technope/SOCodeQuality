@@ -1,0 +1,5 @@
+resetButton.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent evt) {
+        resetButtonActionPerformed(evt);
+    }
+});

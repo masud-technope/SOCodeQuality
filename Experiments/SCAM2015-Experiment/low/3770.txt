@@ -1,0 +1,19 @@
+try {
+                ConexionBd();
+                System.out.println("rut "+rut);
+                System.out.println("estado "+estado);
+           if(conexion!=null){
+                PreparedStatement enunciado = conexion.prepareStatement("update alumno set alu_estado = ? "
+                          + "where alu_rut = ? ;");
+             }else{ 
+  System.out.println("conexion not initialized (null)"); 
+
+}
+              enunciado.setString(1, rut);
+                enunciado.setString(2, estado);
+                enunciado.execute();
+                conexion.close();
+                return 1;
+            } catch (SQLException e) {
+                return 0;
+            }

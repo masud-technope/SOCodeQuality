@@ -1,0 +1,5 @@
+int count;
+if (isHere)
+    count = getHereCount(index);
+else
+    count = getAwayCount(index);

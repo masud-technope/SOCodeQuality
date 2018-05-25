@@ -1,0 +1,32 @@
+import static org.junit.Assert.assertEquals;
+import java.util.Arrays;
+import org.junit.Test;
+
+public class ContainsPrefix {
+
+    public static String findWithPrefix(String[] data, String prefix) {
+        int n = Arrays.binarySearch(data, prefix);
+        if (n < 0) n = -1 - n;
+        // Loop here if you want to find all matches ...
+        if (!data[n].startsWith(prefix)) return null;
+        return data[n];
+    }
+
+
+    @Test
+    public void shouldFindStringWithPrefix() {
+        String[] data = { //
+                "David's cat is in his bedroom", //
+                "I like the moon", //
+                "I want to travel to Mars", //
+                "My ball is red", //
+                "They always forget about Antarctida", //
+                "..." //
+            };
+        Arrays.sort(data);
+        String found = findWithPrefix(data, "I want to");
+        assertEquals("I want to travel to Mars", found);
+
+    }
+
+}

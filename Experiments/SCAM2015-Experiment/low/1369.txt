@@ -1,0 +1,4 @@
+@ExceptionHandler(NoSuchRequestHandlingMethodException.class)
+public ModelAndView handleNoSuchRequestHandlingMethod(NoSuchRequestHandlingMethodException ex, HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    ...
+}

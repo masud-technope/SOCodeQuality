@@ -1,0 +1,27 @@
+class NumericComparator implements Comparator<String> {
+
+  public int compare(String s1, String s2) {
+    final Double i1;
+    final Double i2;
+    if(s1 == null)
+    {
+      throw new NullPointerException("s1 is null"); // String behavior
+    }
+    try {
+      i1 = Double.parseDouble(s1)
+    } catch (NumberFormatException e) {
+      throw new ClassCastException("s1 incorrect format"); // Comparator  behavior
+    }
+
+    if(s2 == null)
+    {
+      throw new NullPointerException("s2 is null"); // String behavior
+    }
+    try {
+      i2 = Double.parseDouble(s1)
+    } catch (NumberFormatException e) {
+      throw new ClassCastException("s2 incorrect format"); // Comparator  behavior
+    }
+    return i1.compareTo(i2);
+  }
+}

@@ -1,0 +1,6 @@
+public static boolean contains(String s, Collection<String>c) {
+    for (String ss : c) {
+       if (s.equalsIgnoreCase(ss)) return true;
+    }
+    return false;
+}

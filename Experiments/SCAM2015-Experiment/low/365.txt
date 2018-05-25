@@ -1,0 +1,16 @@
+public final class LeaderboardConverter extends JsonDeserializer<Leaderboard> implements Converter<String, Leaderboard>
+    {
+        public Leaderboard convert(String source) throws IllegalArgumentException
+        {
+            Leaderboard activity = new Leaderboard();
+            activity.setId(new Integer(source));
+            return activity;
+        }
+
+
+        public Leaderboard deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException
+        {
+            return convert(jp.getText());
+        }
+
+}

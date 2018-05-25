@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(void)
+{
+    char string[80];
+
+    freopen("A.txt","r",stdin);
+
+
+
+    while(gets(string))
+    {
+        puts(string);
+    }
+
+    return 0;
+}

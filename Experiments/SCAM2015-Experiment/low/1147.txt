@@ -1,0 +1,17 @@
+public static void main(String[] args) throws Exception {
+    Stack<Integer>[] array = new Stack[] { new Stack(7) };
+    Integer result = array[0].pop();
+}
+
+class Stack<T> {
+
+    private final T foo;
+
+    public Stack(T foo) {
+        this.foo = foo;
+    }
+
+    T pop() {
+        return foo;
+    }
+}

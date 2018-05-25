@@ -1,0 +1,23 @@
+using System;
+using System.Linq;
+
+namespace Fibonaci
+{
+ class Program
+ {
+   static void Main()
+   {
+       foreach (var i in CFibonacci.BigFib(10))
+       {
+           Console.WriteLine("{0}", i);
+       }
+
+       var num = 12000;
+       var fib = CFibonacci.BigFib(num).Last();
+       Console.WriteLine("fib({0})={1}", num, fib);
+
+       Console.WriteLine("Press a key...");
+       Console.ReadKey();
+   }
+ }
+}

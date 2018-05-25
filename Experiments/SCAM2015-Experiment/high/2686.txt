@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * ListDemo
+ * @author mduffy
+ * @since 6/21/13 7:45 AM
+ * @link http://stackoverflow.com/questions/17234415/how-to-remove-item-from-list-interface-in-java
+ */
+public class ListDemo {
+
+    public static void main(String[] args) {
+        List<String> availableForms = new ArrayList<String>();
+        Collections.addAll(availableForms, args);
+        System.out.println("before: " + availableForms);
+        if (args.length > 0) {
+            availableForms.remove(args[0]);
+            System.out.println("after : " + availableForms);
+        }
+    }
+}

@@ -1,0 +1,5 @@
+int deltaX = 0;
+while(deltaX = 0) {
+      deltaX = -5 + v.nextInt(10);
+}
+System.out.println(deltaX);

@@ -1,0 +1,25 @@
+public void test_something()
+    {     
+        try
+        {
+            assertTrue(bw.doSomething("test"));
+        }
+        catch (SomeException e)
+        {
+            fail("exception = " + e.getReason());
+        }
+    }
+
+public void test_something1()
+    {
+        IBroadworks bw = getSomehting1();
+        try
+        {
+            assertTrue(bw.doSomething1("test1"));
+        }
+        catch (SomeException e)
+        {
+            fail("exception = " + e.getReason());
+        }
+    }
+...

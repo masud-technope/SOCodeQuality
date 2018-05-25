@@ -1,0 +1,22 @@
+class OtherState {
+    public double x1;
+    public int i;
+}
+
+enum MyState extends StateMachineState<MyState,OtherState>
+{
+    FOO {
+       MyState execute(OtherState otherState) { 
+           otherState.x1 += 3.0;
+           otherState.i++;
+           return BAR;
+       }
+    },
+    BAR {
+       MyState execute(OtherState otherState) { 
+           otherState.x1 -= 1.0;
+           otherState.i--;
+           return (i % 3 == 0) ? FOO : BAR;
+       }
+    },         
+}

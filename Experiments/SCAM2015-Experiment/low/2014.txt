@@ -1,0 +1,8 @@
+<gradient
+                android:angle="45"
+                android:centerX="0.5"
+                android:centerY="0.5"
+                android:endColor="#123123"
+                android:gradientRadius="50000%p"
+                android:startColor="#456456"
+                android:type="radial" />

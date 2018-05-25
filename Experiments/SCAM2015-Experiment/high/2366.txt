@@ -1,0 +1,5 @@
+class SomeGenericClass<V extends Foo & Bar> {
+    void someMethod() {
+        V bothFooAndBar = FooBar.<V>getFooBar(); // T is V
+    }
+}

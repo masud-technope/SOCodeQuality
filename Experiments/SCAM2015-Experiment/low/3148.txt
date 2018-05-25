@@ -1,0 +1,22 @@
+package MyExamples;
+
+import java.util.Scanner;
+
+public class GetInputFromUser {
+    public static void main(String srgs[])
+    {
+    int a,b,c;
+
+        Scanner input=new Scanner(System.in);
+    System.out.println("Enter first value =");
+    a=input.nextInt();
+    System.out.println("Enter second value =");
+    b=input.nextInt();
+
+    c=a+b;
+
+    System.out.println("Output is "+c);
+
+
+    }
+}

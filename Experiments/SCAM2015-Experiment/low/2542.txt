@@ -1,0 +1,16 @@
+public class MainClass implements Runnable {
+     private String toPrint;
+
+     public static void main(String[] args) {
+         new Thread(new MainClass("Hello")).start();
+         new Thread(new MainClass("World")).start();
+    }
+
+    public MainClass(String toPrint) {
+         this.toPrint = toPrint;
+    }
+
+    public void run() {
+         System.out.print(toPrint);
+    }
+}

@@ -1,0 +1,35 @@
+public class Base
+{
+   public object BaseMethod()
+   { 
+      return new String("From Base");
+   }
+
+}
+
+public class Child extends Base
+ {
+   public object BaseMethod
+   {
+      return new String("From Child.BaseMethod (overridden)");
+   }
+
+   public object ChildMethod
+   {
+      return new String("From Child.ChildMethod");
+   }
+}
+
+public class Test
+{
+   public static void main(String[] args)
+   {
+       Base base = new ChildMethod();
+       System.out.println(base.BaseMethod()); //prints "From Child.BaseMethod (overridden)"
+
+       System.out.println(base.ChildMethod()); //Will not compile as ChildMethod as reference is of type Base, and ChildMethod is not specified.
+
+       Child child = (Child) base; //But I can cast it.
+       System.out.println(child.ChildMethod()); // This will work.
+   }
+}

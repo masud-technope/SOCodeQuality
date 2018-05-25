@@ -1,0 +1,3 @@
+for(String i:list){
+        //
+    }

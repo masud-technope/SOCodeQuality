@@ -1,0 +1,7 @@
+public abstract class BankAccount implements NamedAccount {
+
+    abstract String getAccountHolderName();
+
+    abstract void setAccountHolderName(final String theNewName);
+
+}

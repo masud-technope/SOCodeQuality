@@ -1,0 +1,8 @@
+// Format for input
+SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+// Parsing the date
+Date date = dateParser.parse(dateTime);
+// Format for output
+SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
+// Printing the date
+System.out.println(dateFormatter.format(date));

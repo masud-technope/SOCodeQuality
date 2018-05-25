@@ -1,0 +1,7 @@
+File stopFile = new File("stop");
+        if (stopFile.exists()) {
+            stopFile.delete();
+            // perhaps set a volatile boolean to false to stop other
+            // threads
+            System.exit(0);
+        }

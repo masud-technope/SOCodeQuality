@@ -1,0 +1,29 @@
+//Create camera and parameter objects
+private Camera mCamera;
+private Camera.Parameters mParameters;
+private boolean mbTorchEnabled = false;
+
+//... later in a click handler or other location, assuming that the mCamera object has already been instantiated with Camera.open()
+mParameters = mCamera.getParameters();
+
+//Get supported flash modes
+List flashModes = mParameters.getSupportedFlashModes ();
+
+//Make sure that torch mode is supported
+//EDIT - wrong and dangerous to check for torch support this way
+//if(flashModes != null && flashModes.contains("torch")){
+if(flashModes != null && flashModes.contains(Camera.Parameters.FLASH_MODE_TORCH)){
+    if(mbTorchEnabled){
+        //Set the flash parameter to off
+        mParameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+    }
+    else{
+        //Set the flash parameter to use the torch
+        mParameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+    }
+
+    //Commit the camera parameters
+    mCamera.setParameters(mParameters);
+
+    mbTorchEnabled = !mbTorchEnabled;
+}

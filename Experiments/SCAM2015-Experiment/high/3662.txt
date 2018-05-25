@@ -1,0 +1,4 @@
+Long x = 3L;
+Integer y = 4;
+x = (Long)y;     // illegal
+y = (Integer)x;  // illegal

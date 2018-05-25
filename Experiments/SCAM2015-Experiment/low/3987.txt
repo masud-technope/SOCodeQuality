@@ -1,0 +1,9 @@
+Map<Integer, HashMap<String, String>> theTreeMap = new TreeMap<>();
+
+// Populate the map here.
+
+for (Map.Entry<Integer, HashMap<String, String>> me : theTreeMap.entrySet()) {
+    System.out.println(me.getValue().get("pic"));
+    System.out.println(me.getValue().get("name"));
+    System.out.println(me.getValue().get("dist"));
+}

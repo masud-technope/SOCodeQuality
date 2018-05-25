@@ -1,0 +1,8 @@
+public class ByteComparator implements Comparator<byte> {
+  public int compare(byte b1, byte b2) {
+    // convert to unsigned bytes (0 to 255) before comparing them.
+    int i1 = b1 < 0 ? 256 + b1 : b1;
+    int i2 = b2 < 0 ? 256 + b2 : b2;
+    return i2 - i1;
+  }
+}

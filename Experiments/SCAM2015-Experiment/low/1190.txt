@@ -1,0 +1,14 @@
+int property1;
+String otherProperty;
+public void loadProperties(File propFile) throws IOException {
+    BufferedReader reader = new BufferedReader(new FileReader(propFile));
+    String line;
+    while ((line = reader.readLine()) != null) {
+        if (line.startsWith("Property1=")) {
+            property1 = Integer.parseInt(line.substring(10));
+        }
+        if (line.startsWith("OtherProperty=")) {
+            otherProperty = line.substring(14);
+        }
+    }
+}

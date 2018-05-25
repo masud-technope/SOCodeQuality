@@ -1,0 +1,8 @@
+<Proxy http://localhost:8080/*>
+    Order Allow,Deny
+    Allow From All
+</Proxy>
+
+ProxyPreserveHost On
+ProxyPass / http://localhost:8080/WebApplication/
+ProxyPassReverse / http://localhost:8080/WebApplication/

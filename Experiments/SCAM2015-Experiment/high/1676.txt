@@ -1,0 +1,4 @@
+File file = new File("file");    
+if (file.exists()) {
+    FileInputStream fileInputStream = new FileInputStream(file);
+}

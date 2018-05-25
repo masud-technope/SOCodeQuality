@@ -1,0 +1,13 @@
+class Primary {
+    public int foo() {
+        return 1;
+    }
+}
+
+// no, this does not compile!
+class Secondary extends Primary {
+    @Override
+    public Integer foo() {
+        return 1;
+    }
+}

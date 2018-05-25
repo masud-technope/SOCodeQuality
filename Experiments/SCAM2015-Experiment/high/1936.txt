@@ -1,0 +1,6 @@
+class myList{
+  myList nextitem;
+  Info moreInfo
+}
+
+myList l = new myList();

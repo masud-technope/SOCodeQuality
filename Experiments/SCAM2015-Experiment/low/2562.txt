@@ -1,0 +1,12 @@
+Button[] buttons; 
+for(int i=0; i<4; i++) {
+{
+ String buttonID = "button" + (i+1);
+
+ int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+ buttons[i] = ((Button) findViewById(resID));
+ int height,width;   //get the width of your layout and set to these variables
+ width/=2;
+ buttons.setWidth(width);
+
+}

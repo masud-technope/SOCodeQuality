@@ -1,0 +1,12 @@
+Cylinder[] volume = new Cylinder[3]; 
+
+    for (int counter = 0; counter < 6; counter++)
+    {
+        double radius = Double.parseDouble(JOptionPane
+                .showInputDialog("Enter the radius"));
+        double height = Double.parseDouble(JOptionPane
+                .showInputDialog("Enter the height"));
+        volume[counter++] = new Cylinder(radius, height); 
+        //counter will count up to 5 (Array out of Bounds exception for sure..)
+        //also: why are you incrementing counter by yourself?
+    }

@@ -1,0 +1,4 @@
+public static void two(Integer four, Integer three){
+    int five = three + four;
+    System.out.println(five);
+}

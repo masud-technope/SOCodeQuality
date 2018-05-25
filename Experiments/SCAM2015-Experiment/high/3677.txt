@@ -1,0 +1,24 @@
+public abstract class StringOrderer {
+
+    public static ArrayList<String> order(ArrayList<String> items, boolean ascending) {
+
+        Collections.sort(items, new StringComparator());    
+
+        // reverse the order
+        if(!ascending) Collections.reverse(items);
+
+        return items; 
+    }
+
+    class StringComparator implements Comparator<String> {
+
+        @Override
+        public int compare(String s1, String s2) {
+
+            // use the users default locale to sort the strings
+            Collator c = Collator.getInstance(Locale.getDefault());
+
+            return c.compare(s1, s2);
+        }
+    }
+}

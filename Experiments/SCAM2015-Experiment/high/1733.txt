@@ -1,0 +1,15 @@
+public interface SlowTests {
+}
+
+public class MyTest {
+
+     @Test
+     public void test1{
+     }
+
+     @Category(SlowTests.class)
+     @Test
+     public void test1001{
+         // this is a slow test
+     }
+}

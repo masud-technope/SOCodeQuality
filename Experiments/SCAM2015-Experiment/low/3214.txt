@@ -1,0 +1,5 @@
+public <T extends Result> T execute(Command<T> command, Class<T> type)
+{
+
+     return type.cast( new LoginResult() );
+}

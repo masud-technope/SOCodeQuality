@@ -1,0 +1,5 @@
+@Embeddable class EmployeeId { name, dataOfBirth }
+@Entity class Employee {
+  @EmbeddedId EmployeeId employeeId;
+  ...
+}

@@ -1,0 +1,4 @@
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    PrintWriter writer = response.getWriter();
+    writer.print("something");
+}

@@ -1,0 +1,9 @@
+private final Object startupShutdownMonitor = new Object();
+
+public void refresh() throws BeansException, IllegalStateException {
+   synchronized (this.startupShutdownMonitor) {
+       // Prepare this context for refreshing.
+       prepareRefresh();
+   }
+
+}

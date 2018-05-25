@@ -1,0 +1,4 @@
+main(){
+    MyThread my = new MyThread().run();    
+    Object o = my.dosomething(p);
+}

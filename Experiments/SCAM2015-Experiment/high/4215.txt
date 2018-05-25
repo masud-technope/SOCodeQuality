@@ -1,0 +1,8 @@
+String pdfName="myPdf.pdf";
+    String fileTracciato=null;
+    if(pdfName.endsWith(".pdf")){ // if pdfName ends with .pdf
+        fileTracciato=pdfName.substring(0,pdfName.lastIndexOf("."))+".txt";
+    }else {
+        // do something as you want
+    }
+    System.out.println(fileTracciato);

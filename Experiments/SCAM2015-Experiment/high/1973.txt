@@ -1,0 +1,5 @@
+String str = "/var/www.dir/file.tar.gz";
+Matcher m = Pattern.compile(".*/.*?(\\..*)").matcher(str);
+if (m.matches()) {
+   fileExtension = m.group(1);
+}

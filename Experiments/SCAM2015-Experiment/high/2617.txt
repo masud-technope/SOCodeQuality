@@ -1,0 +1,4 @@
+Intent intent = new Intent(this, Activity1.class); // Your root activity
+intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Will remove all other activities from the task
+intent.putExtra("foo", true); // This is to tell Activity1 to launch Activity4
+startActivity(intent);

@@ -1,0 +1,8 @@
+List<String> strings = new ArrayList<String>();
+strings.add( "one" );
+strings.add( "two" );
+strings.add( "three" );
+
+for ( String item : strings ) {
+    System.out.println( item );
+}

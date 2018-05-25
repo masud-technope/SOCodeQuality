@@ -1,0 +1,8 @@
+string result = "I don't like your variables";
+
+if (a > 5)
+{
+    result = (b > 7) ? "Even better, b > 7" : "Very well, a > 5";
+}
+
+Print(result);

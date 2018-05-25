@@ -1,0 +1,4 @@
+for (Map.Entry<String, Object> e : hashmap.entrySet()) {
+    String key = e.getKey();
+    Object value = e.getValue();
+}

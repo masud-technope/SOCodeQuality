@@ -1,0 +1,21 @@
+public class Quadratic {
+
+    public static void main(String[] args) {
+
+        if (args.length> 1) {
+            double b = ((args.length > 0) ? Double.parseDouble(args[0]) : 0.0);
+            double c = ((args.length > 1) ? Double.parseDouble(args[1]) : 0.0);
+
+            double discriminant = b*b - 4.0*c;
+            double sqroot = Math.sqrt(discriminant);
+
+            double root1 = (-b + sqroot)/ 2.0;
+            double root2 = (-b - sqroot)/ 2.0;
+
+            System.out.println(root1);
+            System.out.println(root2);
+        } else {
+            System.out.println("two arguments are required: b and c, please");
+        }
+    }
+}

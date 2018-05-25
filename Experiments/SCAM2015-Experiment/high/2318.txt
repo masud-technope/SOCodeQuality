@@ -1,0 +1,23 @@
+Callback<PersonBean, Observable[]> extractor = new Callback<PersonBean, Observable[]>() {
+    List<Property> properties = new ArrayList<Property>();
+    @Override
+    public Observable[] call(PersonBean arg0) {
+        JavaBeanObjectProperty lastName = null;
+        JavaBeanObjectProperty age = null;
+        try {
+            lastName = JavaBeanObjectPropertyBuilder.create()
+                    .bean(arg0).name("lastName").build();
+            age = JavaBeanObjectPropertyBuilder.create()
+                    .bean(arg0).name("age").build();
+            // hack around loosing weak references ... 
+            properties.add(age);
+            properties.add(lastName);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return new Observable[] {lastName, age};
+    }
+
+};
+ObservableList<Person> teamMembers = FXCollections.observableArrayList(extractor);
+// fill list

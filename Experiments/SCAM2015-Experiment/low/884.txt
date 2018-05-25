@@ -1,0 +1,8 @@
+class BlockingSet extends ArrayBlockingQueue<E> {
+   /*Retain all other methods except put*/
+   public void put(E o) throws InterruptedException {
+      if (!this.contains(o)){
+         super.put(o);
+      }
+   }
+}

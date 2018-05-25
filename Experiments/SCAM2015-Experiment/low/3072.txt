@@ -1,0 +1,9 @@
+@Override 
+public String toString() {
+
+StringBuilder result = new StringBuilder();
+
+result.append(something);
+.....
+return result.toString();
+}

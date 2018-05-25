@@ -1,0 +1,13 @@
+// Initialization:
+int[] chars = new int[26];
+for (i = 0; i < chars.length; ++i) {
+    chars[i] = 0;
+}
+
+// Going over the string:
+for(char c : strs.toCharArray()) {
+    int i = c - 'a';
+    if (i >= 0 && i < chars.length) {
+        chars[i]++;
+    }
+}

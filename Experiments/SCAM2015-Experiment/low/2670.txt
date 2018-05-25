@@ -1,0 +1,5 @@
+<a>tags = html.find(all<a>tags);
+for(String <a>tag : <a>tags){
+    if(<a>tag.isHref()) continue;
+    //do proccessing
+}

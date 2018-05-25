@@ -1,0 +1,6 @@
+else if(user.contains("rv:11.0"))
+            {
+                String substring=userAgent.substring(userAgent.indexOf("rv")).split("\\)")[0];
+                browser=substring.split(":")[0].replace("rv", "IE")+"-"+substring.split(":")[1];
+
+            }

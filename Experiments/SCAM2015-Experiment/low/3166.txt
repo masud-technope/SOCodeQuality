@@ -1,0 +1,14 @@
+public class Extraction {
+
+  public static void main(String[] args) {
+    String test = "This is a test containing S and 10";
+    for (char c : test.toCharArray()) {
+        if (Character.isDigit(c)) {
+            System.out.println("Digit: " + c);
+        }
+        else if (Character.isUpperCase(c)) {
+            System.out.println("Uppercase letter: " + c);
+        }
+    }
+  }
+}

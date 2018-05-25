@@ -1,0 +1,4 @@
+List<Set<?>> b = new ArrayList<HashSet<Object>>();
+
+// this is same as above:
+List<Set<? extends Object>> b = new ArrayList<HashSet<Object>>();

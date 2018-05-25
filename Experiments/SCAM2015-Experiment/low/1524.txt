@@ -1,0 +1,7 @@
+String s ="0x6d4b" ;
+        char[] c = s.toCharArray();
+
+        for (char cc : c){
+
+            System.out.print(cc);
+        }

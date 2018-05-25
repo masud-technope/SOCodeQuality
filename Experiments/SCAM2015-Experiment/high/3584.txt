@@ -1,0 +1,6 @@
+// check if string is exist in array
+if(array.Contains("YourString"))
+{
+// if contain then u can use this or do operations
+Response.Write("YourString is available in array");
+}

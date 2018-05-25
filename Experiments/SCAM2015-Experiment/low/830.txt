@@ -1,0 +1,18 @@
+class MyButton extends JButton {
+
+    Image image;
+    ImageObserver imageObserver;
+
+
+    MyButtonl(String filename) {
+            super();
+            ImageIcon icon = new ImageIcon(filename);
+            image = icon.getImage();
+            imageObserver = icon.getImageObserver();
+        }
+
+     public void paint( Graphics g ) {
+            super.paint( g );
+            g.drawImage(image,  0 , 0 , getWidth() , getHeight() , imageObserver);
+        }
+    }

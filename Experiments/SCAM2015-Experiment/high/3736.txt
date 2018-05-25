@@ -1,0 +1,8 @@
+top = new JPanel() {
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        ...
+        // your custom painting code goes here
+    }
+};

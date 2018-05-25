@@ -1,0 +1,4 @@
+2013-03-12 10:50:00.000 [thread-offer] INFO offering value X
+2013-03-12 10:50:00.001 [thread-peak] INFO peeking value
+2013-03-12 10:50:00.002 [thread-peak] INFO peeked value null
+2013-03-12 10:50:00.003 [thread-offer] INFO offered value X

@@ -1,0 +1,5 @@
+class ImageProperties {
+   String imageHref;         // This gets what you are putting in td2
+   String imageProperties;   // This gets what you are putting in td3
+   // I assume you know how to create a constructor.
+ }

@@ -1,0 +1,56 @@
+public class Main extends JavaPlugin{
+public static Main plugin;
+public final Logger logger = Logger.getLogger("Minecraft");
+
+@Override
+public void onDisable(){
+    PluginDescriptionFile pdf = this.getDescription();
+    this.logger.info(pdf.getName() + " version " + pdf.getVersion() + " has been disabled! Neigh! ;D");
+    Bukkit.getServer().getPluginManager().registerEvents(this, this);
+}
+
+@Override
+public void onEnable(){
+    PluginDescriptionFile pdf = this.getDescription();
+    this.logger.info(pdf.getName() + " version " + pdf.getVersion() + " has been enabled! Neigh! ;D");
+}
+
+Map<UUID, Integer> tasks = new HashMap<UUID, Integer>();
+@Override
+public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
+    Player player = (Player) sender;
+    if(sender instanceof Player){
+        if(player.hasPermission("firehorse.spawn")){
+            if(commandLabel.equalsIgnoreCase("firehorse") || commandLabel.equalsIgnoreCase("fh")){
+                if(args.length == 0){
+                    Horse horse = (Horse) player.getWorld().spawnEntity(player.getLocation(), EntityType.HORSE);
+                    HorseInventory horseinv = null;
+                    ItemStack saddle = new ItemStack(Material.SADDLE);
+                    horse.setVariant(Variant.SKELETON_HORSE);
+                    horse.setCustomName(player.getDisplayName() + "'s Fire Horse");                     
+                    horse.setTamed(true);
+                    horseinv.setSaddle(saddle);
+                    int id = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new HorseTimer(horse), 0l, 5l);
+                    tasks.put(horse.getUniqueId(), id);
+                }else{
+                    player.sendMessage(ChatColor.RED + "Usage: /firehorse");
+                }
+            }
+        }else{
+            player.sendMessage(ChatColor.RED + "You can't spawn a fire horse!");
+        }
+    }else{
+        player.sendMessage(ChatColor.RED + "You must be a player in order to spawn a fire horse!");
+    }   
+    return false;
+} 
+
+    Map<UUID, Integer> map = null;
+    @EventHandler
+    public void handleDeaths(EntityDeathEvent event){
+        for(UUID id : map.keySet())
+            if(event.getEntity().getUniqueId().equals(id))
+                Bukkit.getServer().getScheduler().cancelTask(map.get(id));
+    }
+
+}

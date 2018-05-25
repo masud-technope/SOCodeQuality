@@ -1,0 +1,15 @@
+private static class Container<Key extends Comparable<? super Key>, Value>
+                    implements Comparable<Container<? extends Key, ?>> {
+
+    public Key key;
+    public Value value;
+
+    public Container(Key k, Value v) {
+        key = k;
+        value = v;
+    }
+
+    public int compareTo(Container<? extends Key, ?> o) {
+        return key.compareTo(o.key);
+    }
+}

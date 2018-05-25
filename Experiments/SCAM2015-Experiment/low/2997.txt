@@ -1,0 +1,9 @@
+private int indexOf(int searchingNum)
+    {
+         for (int index = 0; index < count; index++){
+           if (numberArray[index] == searchingNum)
+          return index;
+    }
+    else return -1;
+
+  }

@@ -1,0 +1,3 @@
+String saveUser = "user";
+String timeOfMAking = String.valueOf(time);
+String title = saveUser +"-"+ timeOfMAking;

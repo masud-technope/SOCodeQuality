@@ -1,0 +1,5 @@
+int my_array={1,2,3,4,5};
+
+for(int i=0; i < my_array.length; i++) {
+    System.out.print(my_array[i] + ",");//this line will print the value with a coma (,)
+}

@@ -1,0 +1,7 @@
+public static int getNumberOfOwned(Player owner, String type){
+  int count = 0;      
+  for (Field f: board.fieldList){
+    if (f.getType.equals(type)&& f.getOwnedBy().equesl(owner))
+    count++;
+  }
+  return count;

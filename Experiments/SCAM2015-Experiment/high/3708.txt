@@ -1,0 +1,8 @@
+for (i = 0; i < ROWS; i++) {
+   System.out.print(cellPhoneNumbers[i][0] + " ");
+   int phones = Integer.parseInt(cellPhoneNumbers[i][1]);
+   for (int p = 0; p< phones; p++) {
+        System.out.print("**");
+   }
+   System.out.println();
+ }

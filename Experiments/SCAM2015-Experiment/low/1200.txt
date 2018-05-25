@@ -1,0 +1,11 @@
+int[] combinedArrays = new int[one.length + two.length];
+int index = 0;
+for (int i : one) {
+    combinedArarys[index] = one[i];
+    index++;
+}
+
+for (int i : two) {
+    two[index] = two[i];
+    index++;
+}

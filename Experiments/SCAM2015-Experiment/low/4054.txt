@@ -1,0 +1,5 @@
+String[] old = myTextView.getText().split(" ");
+String add="";
+for(String s:old)
+    add+=""+s.charAt(0);
+myTextView.setText(add);

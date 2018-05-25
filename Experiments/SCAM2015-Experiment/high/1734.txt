@@ -1,0 +1,6 @@
+@RunWith(Categories.class)
+@ExcludeCategory(SlowTests.class)
+@SuiteClasses(MyTest.class)
+public class FastTestSuite {
+
+}

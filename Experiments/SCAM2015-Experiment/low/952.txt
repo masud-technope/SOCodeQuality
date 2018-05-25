@@ -1,0 +1,4 @@
+String[] separated = something.split("\t");
+for (String string : separated) {
+   System.out.println(string);
+}

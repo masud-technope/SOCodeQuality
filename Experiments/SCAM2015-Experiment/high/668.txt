@@ -1,0 +1,4 @@
+String foo = null;
+if (foo == null) {
+    // That will work.
+}

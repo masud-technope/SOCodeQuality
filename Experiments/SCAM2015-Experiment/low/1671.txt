@@ -1,0 +1,14 @@
+public String trimSpaces(String s){
+    String str = "";
+    boolean spacesOmitted = false;
+    for (int i=0; i<s.length; i++){
+        char ch = s.chatAt(i);
+        if (ch!=' '){
+            spacesOmitted = true;
+        }
+        if (spacesOmitted){
+            str+=ch;
+        }
+    }
+    return str;
+}

@@ -1,0 +1,5 @@
+Entity parsDataHolder = new Entity("parsing_data_done", guestbookKey);
+    parsDataHolder.setProperty("date", date);
+
+DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+datastore.put(parsDataHolder)

@@ -1,0 +1,27 @@
+public void method1 (int a, int b) {
+        MyClass myClass = method3(a, b);
+        List<SomeObject> list = service.getListA(myClass.getC(), myClass.getD());
+        method4(list);
+}
+
+public void method2 (int a, int b) {
+        MyClass myClass = method3(a, b);
+        List<SomeObject> list = service.getListB(myClass.getC(), myClass.getD(), myClass.getE());
+        method4(list);
+}
+
+public MyClass {
+    private final int c;
+    private final int d;
+    private final int e;
+    ...
+}
+
+public MyClass method3(int a, int b) {
+    // body
+    return new MyClass(c, d, e)
+}
+
+public void method4(List<SomeObject> list) {
+    // rest of body
+}

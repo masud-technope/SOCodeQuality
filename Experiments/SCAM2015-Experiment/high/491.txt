@@ -1,0 +1,3 @@
+public Simple(ResourceFactory factory) {
+    this(factory.createR1(), factory.createR2());
+}

@@ -1,0 +1,5 @@
+public void iterate(){
+    for(Text text : string){
+        string.get(i).printA();
+    }
+}

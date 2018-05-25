@@ -1,0 +1,5 @@
+DateTimeFormatter dtf = new DateTimeFormatterBuilder().appendHourOfDay(2).appendLiteral(":").appendMinuteOfHour(2).appendLiteral(" ").appendHalfdayOfDayText().toFormatter();
+LocalTime start = LocalTime.parse("09:00 am", dtf);
+LocalTime end = start.plusMinutes(45);
+
+System.out.println(start.toString("hh:mm a") + " to " + end.toString("hh:mm a"));

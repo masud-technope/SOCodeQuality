@@ -1,0 +1,7 @@
+String startInput = "02/20/2012";
+String stopInput = "03/20/2012";
+DateTimeFormatter formatter = DateTimeFormat.forPattern( "MM/dd/yyyy" );
+
+LocalDate start = formatter.parseLocalDate( startInput );
+LocalDate stop = formatter.parseLocalDate( stopInput );
+boolean isStopAfterStart = stop.isAfter( start );

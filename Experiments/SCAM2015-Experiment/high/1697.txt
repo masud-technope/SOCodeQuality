@@ -1,0 +1,13 @@
+String text = "_<A_>_<B_>_<Z_>";
+
+List<String> Result = new ArrayList<String>();
+
+Pattern p = Pattern
+    .compile("(?<=_<)" + // Lookbehind assertion to ensure the opening tag before
+        ".*?" +          // Match a less as possible till the lookahead is true 
+        "(?=_>)"         // Lookahead assertion to ensure the closing tag ahead
+        );
+Matcher m = p.matcher(text);
+while(m.find()){
+    Result.add(m.group(0));
+}

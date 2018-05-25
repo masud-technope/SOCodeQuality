@@ -1,0 +1,42 @@
+public final **synchronized** void join(long millis) 
+throws InterruptedException {
+long base = System.currentTimeMillis();
+long now = 0;
+
+if (millis < 0) {
+        throw new IllegalArgumentException("timeout value is negative");
+}
+
+if (millis == 0) {
+    while (isAlive()) {
+    wait(0);
+    }
+} else {
+    while (isAlive()) {
+    long delay = millis - now;
+    if (delay <= 0) {
+        break;
+    }
+    wait(delay);
+    now = System.currentTimeMillis() - base;
+    }
+}
+}
+
+
+public **synchronized** void start() {
+    /**
+ * This method is not invoked for the main method thread or "system"
+ * group threads created/set up by the VM. Any new functionality added 
+ * to this method in the future may have to also be added to the VM.
+ *
+ * A zero status value corresponds to state "NEW".
+     */
+    if (threadStatus != 0)
+        throw new IllegalThreadStateException();
+    group.add(this);
+    start0();
+    if (stopBeforeStart) {
+    stop0(throwableFromStop);
+}
+}

@@ -1,0 +1,5 @@
+byte[] MyByteArray;
+
+ String Str = new String(MyByteArray);
+
+ int Value = Integer.parseInt(Str);

@@ -1,0 +1,10 @@
+public boolean verifyUniqueIntegers(int array []){
+    Set<Integer> set = new HashSet<>(array.length);
+    for (int i : array)
+    {
+        if (set.contains(i))
+            return false;
+        set.add(i);
+    }
+    return true;
+}

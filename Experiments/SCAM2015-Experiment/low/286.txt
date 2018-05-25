@@ -1,0 +1,121 @@
+private final static Map<Class<?>, Class<?>> simpleTypes = new Hashtable<Class<?>, Class<?>>();
+static {
+    simpleTypes.put(String.class, String.class);
+    simpleTypes.put(Boolean.class, Boolean.class);
+    simpleTypes.put(boolean.class, boolean.class);
+    simpleTypes.put(Byte.class, Byte.class);
+    simpleTypes.put(byte.class, byte.class);
+    simpleTypes.put(Short.class, Short.class);
+    simpleTypes.put(short.class, short.class);
+    simpleTypes.put(Integer.class, Integer.class);
+    simpleTypes.put(int.class, int.class);
+    simpleTypes.put(Long.class, Long.class);
+    simpleTypes.put(long.class, long.class);
+    simpleTypes.put(Float.class, Float.class);
+    simpleTypes.put(float.class, float.class);
+    simpleTypes.put(Double.class, Double.class);
+    simpleTypes.put(double.class, double.class);
+    simpleTypes.put(Character.class, Character.class);
+    simpleTypes.put(char.class, char.class);
+    simpleTypes.put(BigDecimal.class, BigDecimal.class);
+    simpleTypes.put(StringBuffer.class, StringBuffer.class);
+    simpleTypes.put(BigInteger.class, BigInteger.class);
+    simpleTypes.put(Class.class, Class.class);
+    simpleTypes.put(java.sql.Date.class, java.sql.Date.class);
+    simpleTypes.put(java.util.Date.class, java.util.Date.class);
+    simpleTypes.put(Time.class, Time.class);
+    simpleTypes.put(Timestamp.class, Timestamp.class);
+    simpleTypes.put(Calendar.class, Calendar.class);
+    simpleTypes.put(GregorianCalendar.class, GregorianCalendar.class);
+    simpleTypes.put(URL.class, URL.class);
+    simpleTypes.put(Object.class, Object.class);
+}
+
+
+public static boolean isSimpleType(final Object object) {
+    if (object == null) { return false; }
+    return isSimpleType(object.getClass());
+}
+
+public static boolean isSimpleType(final Class<?> clazz) {
+    if (clazz == null) { return false; }
+    return simpleTypes.containsKey(clazz);
+}
+
+
+
+public static boolean isMapType(final Class<?> clazz) {
+    boolean lvReturn = false;
+    if (clazz != null) {
+        lvReturn = (Map.class.isAssignableFrom(clazz));
+    }
+    return lvReturn;
+}
+
+public static boolean isMapType(final Object object) {
+    boolean lvReturn = false;
+    if (object == null) { 
+        lvReturn = false;
+    }
+    else if (object instanceof Map) {
+        lvReturn = true;
+    }
+
+    return lvReturn;
+}
+
+public static boolean isCollection(final Object object) {
+    boolean lvReturn = false;
+    if (object == null) { 
+        lvReturn = false;
+    }else{
+        lvReturn=isCollection(object.getClass());
+    }
+    return lvReturn;
+}
+
+public static boolean isCollection(final Class<?> clazz) {
+    boolean lvReturn = false;
+    if (clazz == null) {
+        lvReturn = false;
+    }
+    else if (Collection.class.isAssignableFrom(clazz)) {
+        lvReturn = true;
+    } 
+    return lvReturn;
+}
+
+public static boolean isArray(final Object obj) {
+    if (obj == null) {
+        return false;
+    }       
+    return isArray(obj.getClass());
+}
+
+public static boolean isArray(final Class<?> clazz) {
+    boolean lvReturn = false;
+    if (clazz == null) {
+        lvReturn = false;
+    }else if(clazz.isArray()) {
+        lvReturn = true;
+    }
+    return lvReturn;
+}
+
+
+public static boolean isEnum(final Object obj) {
+    if (obj == null) {
+        return false;
+    }       
+    return isEnum(obj.getClass());
+}
+
+public static boolean isEnum(final Class<?> clazz) {
+    boolean lvReturn = false;
+    if (clazz == null) {
+        lvReturn = false;
+    }else if (clazz.isEnum()) {
+        lvReturn = true;
+    }
+    return lvReturn;
+}

@@ -1,0 +1,25 @@
+import java.util.*;
+class Test
+{
+  int x;
+}
+public class Demo
+{
+   public static void main(String args[])
+   {
+      Vector<Test> vect = new Vector<Test>();
+
+      Test t1 = new Test();
+      Test t2 = new Test();
+      t1.x = 10;
+      t2.x = 20;
+
+      vect.add(t1);
+      vect.add(t2);
+
+      for(Test t : vect)
+      {
+         System.out.println(t.x);
+      }  
+  }
+}

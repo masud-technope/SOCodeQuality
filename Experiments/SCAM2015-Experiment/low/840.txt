@@ -1,0 +1,5 @@
+DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+Document document  = documentBuilder.newDocument();
+
+Element Element_root  = document.createElement("rootElement");

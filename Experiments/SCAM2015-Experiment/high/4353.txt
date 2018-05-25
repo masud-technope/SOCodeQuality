@@ -1,0 +1,8 @@
+for (Figures figure: myList) {
+  int x = figure.getStartX(); // Method common and declared in Figures  
+  if (figure instanceof Circle) {
+    System.out.println("Oh no a Circle!");
+    int radius = ((Circle)figure).getRadius();
+    ...
+  }
+}

@@ -1,0 +1,5 @@
+// Test if both arrays are of the same type
+if (array1.class.getComponentType.equals(array2.class.getComponentTYpe)) {
+    // Polymorphism FTW !
+    return Arrays.equals(array1, array2);
+}

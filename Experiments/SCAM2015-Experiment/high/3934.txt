@@ -1,0 +1,9 @@
+if (a > b && c > d && e > f) {
+    em.setAlpha();
+    em.setBeta();
+    em.setOmega();
+    database.persist(em);
+}
+else {
+    // We show up here if one of the conditions was false.
+}

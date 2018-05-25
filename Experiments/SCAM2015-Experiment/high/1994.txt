@@ -1,0 +1,4 @@
+for (int dx = 0; dx < size; dx++) {
+    int diff = a[pa+dx] - b[pb+dx];
+    sum += diff*diff;
+}

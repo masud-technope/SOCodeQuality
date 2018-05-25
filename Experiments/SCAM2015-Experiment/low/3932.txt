@@ -1,0 +1,11 @@
+LinkedList<T> buk=new LinkedList<T>();
+    //make list
+    T current=buk.getFirst();
+    T previous=null;
+
+    if (fooCondition) {
+        previous = current.previous;
+    } else {
+        previous = current;
+        current = current.next;
+    }

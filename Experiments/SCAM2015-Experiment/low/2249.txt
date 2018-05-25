@@ -1,0 +1,19 @@
+package nmelssx;
+import java.util.Arrays;
+
+public class Nmelssx {
+
+    public static void main (String args[])
+    {
+        String text = "004-034556";
+        String text1 = text.substring(0,3);
+        String text2 = text.substring(5,10);
+
+        if (text.contains("-")) {
+            System.out.println("It contains the -");
+        }
+        else {
+            System.out.println("It doesn't contain the -");
+        }
+    }
+}

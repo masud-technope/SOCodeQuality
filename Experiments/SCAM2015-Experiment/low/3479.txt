@@ -1,0 +1,14 @@
+public static void getVowels(String aString) {
+    int[] arr = new int[128];
+    char c;
+    System.out.print("Your string has the following vowels: ");
+    for (int i = 0; i < aString.length(); i++){
+        c = aString.charAt(i);
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            if (arr[c] == 0) {
+                System.out.print(aString.charAt(i) + " ");
+                arr[c]++;
+            }
+        }
+    }   
+}

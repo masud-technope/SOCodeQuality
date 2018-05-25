@@ -1,0 +1,8 @@
+K key = null;
+V value = null;
+
+Map<K,V>  mapped = new HashMap<K,V>()
+.......//set the key and value..........
+mapped.put(key, value)
+.....
+V var = mapped.get(key);

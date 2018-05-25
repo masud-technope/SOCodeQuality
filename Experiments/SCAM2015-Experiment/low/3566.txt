@@ -1,0 +1,17 @@
+// prepare data
+Map<String, String> data = new HashMap<String, String>();
+data.put("key1", "value1");
+
+// save to file
+ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("config.ser")));
+oos.writeObject(data);
+oos.close();
+
+// load from file
+ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("config.ser")));
+Object loadedUntyped = ois.readObject();
+ois.close();
+
+// you can check type here, etc.
+Map<String, String> loadedTyped = (Map<String, String>) loadedUntyped;
+System.out.println("loaded: " + loadedTyped);

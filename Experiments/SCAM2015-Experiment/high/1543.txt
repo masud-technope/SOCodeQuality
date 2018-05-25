@@ -1,0 +1,11 @@
+package outside;
+
+public class Test {
+    public static void main(String[] args) {
+        String str;
+        while(true){
+            str =  String.valueOf(System.currentTimeMillis());
+            System.out.println(str);
+        }
+    }
+}

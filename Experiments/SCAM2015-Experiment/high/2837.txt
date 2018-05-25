@@ -1,0 +1,3 @@
+Map<Integer, Map<Integer, Integer> mmap = new ConcurrentSkipListMap<Integer, ConcurrentSkipListMap<Integer, Integer>>();
+
+mmap.put(5, new HashMap<Integer, Integer>());

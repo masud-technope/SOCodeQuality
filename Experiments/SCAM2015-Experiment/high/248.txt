@@ -1,0 +1,4 @@
+rem somebat.bat:
+d:
+cd D:\temp\_test
+copy somebat.bat somebat2.bat

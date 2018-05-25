@@ -1,0 +1,10 @@
+import officetools.OfficeFile; // this is my tools package
+        ...
+        FileInputStream fis = new FileInputStream(new File("test.html"));
+        FileOutputStream fos = new FileOutputStream(new File("test.pdf"));
+
+        // suppose OpenOffice.org runs on localhost, port 8100
+        OfficeFile f = new OfficeFile(fis,"localhost","8100", true); 
+
+        f.convert(fos,"pdf");
+        ...

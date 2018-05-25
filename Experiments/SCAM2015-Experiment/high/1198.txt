@@ -1,0 +1,12 @@
+public class NonNullable<T> {
+
+    private T element;
+
+    public void set(T element) {
+        if (element == null)
+            throw new NullPointerException("Parameter was null!");
+        else
+            this.element = element;
+    }
+
+}

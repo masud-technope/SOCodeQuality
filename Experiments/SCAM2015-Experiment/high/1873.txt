@@ -1,0 +1,4 @@
+horoscope
+microscope
+mobile
+phone

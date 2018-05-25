@@ -1,0 +1,14 @@
+long intervalNanos = ....
+long nextNanos = System.nanoTime() + intervalNanos;
+while(running) {
+    doSomething();
+    long now = System.nanoTime();
+    if (now > nextNanos) {
+       // we are not keeping up.
+       nextNanos = now + intervalNanos;
+       continue;
+    }
+    long delay = (nextNanos - now) / 1000000;
+    Thread.sleep(delay);
+    nextNanos += intervalNanos;
+}

@@ -1,0 +1,11 @@
+@Override
+public TableCellEditor getCellEditor(int row, int column) {
+   Object value = super.getValueAt(row, column);
+   if(value != null) {
+      if(value instanceof JComboBox) {
+           return new DefaultCellEditor((JComboBox)value);
+      }
+            return getDefaultEditor(value.getClass());
+   }
+   return super.getCellEditor(row, column);
+}

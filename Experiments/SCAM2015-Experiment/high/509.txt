@@ -1,0 +1,18 @@
+ExampleTest.beforeClass();
+
+ExampleTest t1 = new ExampleTest();
+t1.before();
+t1.test1();
+t1.after();
+
+ExampleTest t2 = new ExampleTest();
+t2.before();
+t2.test2();
+t2.after();
+
+ExampleTest t3 = new ExampleTest();
+t3.before();
+t3.test3();
+t3.after();
+
+ExampleTest.afterClass();

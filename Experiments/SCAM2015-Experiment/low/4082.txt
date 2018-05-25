@@ -1,0 +1,5 @@
+boolean duplicates=false;
+            for (int j=0;j<TelefonNrLista.size() - 1;j++){        
+                if (TelefonNrLista(j).getTelNr().equals(TelefonNrLista(j+1).getTelNr()))
+                  duplicates = true;
+        }

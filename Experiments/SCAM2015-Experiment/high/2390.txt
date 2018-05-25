@@ -1,0 +1,11 @@
+Some Thread
+---------------------------------------------------------------------
+ 10: resource = null; //default value                                  //write
+=====================================================================
+           Thread 1               |          Thread 2                
+----------------------------------+----------------------------------
+ 11: a = resource;                | 21: x = resource;                  //read
+ 12: if (a == null)               | 22: if (x == null)               
+ 13:   resource = new Resource(); | 23:   resource = new Resource();   //write
+ 14: b = resource;                | 24: y = resource;                  //read
+ 15: return b;                    | 25: return y;

@@ -1,0 +1,3 @@
+Create TreeSet
+Add all array elements to TreeSet
+Convert TreeSet back to array

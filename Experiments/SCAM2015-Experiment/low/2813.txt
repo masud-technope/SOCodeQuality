@@ -1,0 +1,4 @@
+name=foo.cf
+xyz=abc
+xyz1=abc1
+version=7.1

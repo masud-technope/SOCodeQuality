@@ -1,0 +1,8 @@
+public void toArray() {
+    int x = applicants.size();
+    StringBuffer strBuffer = new StringBuffer();
+    for(Object o:applicants){
+        strBuffer.append(o);
+    }
+    int []x = new int[]{strBuffer.toString()};
+}

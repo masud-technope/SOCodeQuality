@@ -1,0 +1,4 @@
+if (cls.isEnum()){
+    @SuppressWarnings("unchecked")
+    Object val = Enum.valueOf(cls, "NAME1");
+}

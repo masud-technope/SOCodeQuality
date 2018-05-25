@@ -1,0 +1,5 @@
+for (String pair : pairs) {
+    String[] parts = pair.split("=");
+    String key = parts[0];
+    String value = parts[1];
+}

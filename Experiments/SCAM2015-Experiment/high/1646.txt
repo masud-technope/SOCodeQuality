@@ -1,0 +1,3 @@
+double smallest = a;
+if (smallest > b) smallest = b;
+if (smallest > c) smallest = c;

@@ -1,0 +1,3 @@
+for (Object o : someSet) { // Not sure why you wanted to make a new Set
+    // doing some processing on o
+}

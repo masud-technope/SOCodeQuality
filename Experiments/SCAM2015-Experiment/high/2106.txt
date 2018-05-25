@@ -1,0 +1,32 @@
+public static void main(String[] args)
+{
+    Node n = new Node(1);
+    n.next = new Node(2);
+    n.next.next = new Node(3);
+    n.next.next.next = new Node(4);
+    n.next.next.next.next = new Node(5);
+
+    n = swap(n);
+}
+public static Node swap(Node n)
+{
+    if(n == null || n.next == null)
+        return n;
+    Node buffer = n;
+    n = n.next;
+    buffer.next = n.next;
+    n.next = buffer;
+    n.next.next = swap(buffer.next);
+    return n;
+ }
+
+public static class Node
+{
+    public int data; // value
+    public Node next; // pointer to next node
+
+    public Node(int value)
+    {
+        data = value;
+    }
+}

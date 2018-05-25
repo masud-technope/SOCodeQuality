@@ -1,0 +1,14 @@
+public enum OrderType {
+    ONE(R.string.order_type_one),
+    TWO(R.string.order_type_two)
+
+    private final int mTextResourceId;
+
+    OrderType(int resourceId) {
+        mTextResourceId = resourceId;
+    }
+
+    public int getTextResourceId() {
+        return mTextResourceId;
+    }
+}

@@ -1,0 +1,6 @@
+// String input = "2,5,23,523"; // 9000 integers
+String[] strArray = input.split(",");
+int[] numbers = new int[strArray.length];
+for(int i = 0; i < strArray.length; i++) {
+    numbers[i] = Integer.parseInt(strArray[i]);
+}

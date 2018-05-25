@@ -1,0 +1,24 @@
+public static void listFilesInDirectory(String pathString) {
+  // A local class (a class defined inside a block, here a method).
+  class MyFilter implements FileFilter {
+    @Override
+    public boolean accept(File file) {
+      return !file.isHidden() && file.getName().endsWith(".txt");
+    }
+  }
+
+  File directory = new File(pathString);
+  File[] files = directory.listFiles(new MyFilter());
+
+  for (File fileLoop : files) {
+    System.out.println(fileLoop.getName());
+  }
+}
+
+// Call it
+listFilesInDirectory("C:\\Users\\John\\Documents\\zTemp");
+
+// Output
+Cool.txt
+RedditKinsey.txt
+...

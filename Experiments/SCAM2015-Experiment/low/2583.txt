@@ -1,0 +1,5 @@
+public  <T> List<T> getDataList() throws SQLException {
+          List<String> l = new ArrayList<String>();
+          l.add("Test");
+           return (List<T>)l;
+        }

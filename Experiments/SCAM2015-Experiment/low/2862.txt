@@ -1,0 +1,4 @@
+Scanner keyBoard = new Scanner(System.in);
+       System.out.println("Enter Grade");
+       int grade = keyBoard.nextInt();
+       System.out.println(grade);

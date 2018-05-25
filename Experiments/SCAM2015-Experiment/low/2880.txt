@@ -1,0 +1,6 @@
+a
+Message us a
+s
+Message us s
+asd
+Thread is interrupted.. breaking from loop

@@ -1,0 +1,10 @@
+public List<String> getStrings() throws Exception {
+    return strings;
+}
+
+public void setStrings(List<String> strings) {
+    if (strings == null)
+        throw new Exception();
+
+    this.strings = strings;
+}

@@ -1,0 +1,10 @@
+import javax.xml.rpc.Stub;
+
+...
+
+
+int timeout = <number of milliseconds>;
+
+((Stub) port)._setProperty(
+                "axis.connection.timeout",
+                timeout);

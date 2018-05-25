@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+class MainDemo {
+    public static void main(String[] args) {
+        Integer[] array1 = { 1, 3, 5, 7 };
+        Integer[] array2 = { 2, 4, 6, 8 };
+
+        List<Integer> mylist = new ArrayList<Integer>();
+
+        mylist.addAll(Arrays.asList(array1));
+        mylist.addAll(Arrays.asList(array2));
+
+        Collections.sort(mylist);
+
+        // Print the sorted list....
+        for (Integer x : mylist) {
+            System.out.println(x+" ");
+        }
+
+        // You can also convert back to array
+        Integer[] FinalArray = mylist.toArray(new Integer[mylist.size()]);
+        for (int i = 0; i < FinalArray.length; i++) {
+            System.out.println(i);
+        }
+
+    }
+}

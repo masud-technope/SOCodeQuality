@@ -1,0 +1,4 @@
+URL url = Test.class.getProtectionDomain().getCodeSource().getLocation();
+// if your Test.java is on the filesystem and not in a jar...
+File testJava = new File(url.toURI());
+String directory = testJava.getParent();

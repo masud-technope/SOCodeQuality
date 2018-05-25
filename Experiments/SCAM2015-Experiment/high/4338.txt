@@ -1,0 +1,16 @@
+int a ;
+String b;
+
+Scanner input = new Scanner(System.in);
+System.out.println("Enter a: ");
+if (input.hasNextInt()) {
+    a = input.nextInt();
+} else {
+    System.out.println("That is not a number!");
+    // Skip the token so you won't get it later:
+    input.nextLine();
+}
+
+System.out.println("Enter your name: ");
+b = input.next();
+System.out.println("Hello " + b);

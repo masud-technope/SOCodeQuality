@@ -1,0 +1,6 @@
+change -= 25*quarters;
+dimes = change / 10;
+change -= 10*dimes;
+nickels = change / 5;
+change -= 5*nickels;
+pennies = change;

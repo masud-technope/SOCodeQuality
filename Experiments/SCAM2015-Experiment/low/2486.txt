@@ -1,0 +1,22 @@
+public double Convertir(double Number) {
+        // Number = nombre;
+        double annee = 0;
+        double semaine = 0;
+        double jour = 0;
+        while ((Number - 365) >= 0) {
+            annee += 1; // this calculates the number of years
+        }
+        if (annee > 0) {
+            return annee;
+        }
+        double nombreSemaine = Number - (annee * 365);
+        while ((nombreSemaine - 7) >= 0) {
+            semaine = semaine + 1;
+        }// this calculates the number of weeks
+        if (semaine > 0)
+            return semaine;
+
+        double nombreJour = Number - (annee * 365) - (semaine * 7);
+        nombreJour = jour;
+        return jour;
+    }

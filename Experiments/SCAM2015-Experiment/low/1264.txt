@@ -1,0 +1,5 @@
+public static void main(String[] args) {
+    String xmlstring = "<tag wsp:rsidR=\"005816D6\" foo=\"bar\" wsp:rsidRDefault=\"005816D6\">hello</tag>";
+    System.out.println(xmlstring);
+    System.out.println(xmlstring.replaceAll("\\bwsp:rsid\\w*?=\"[^\"]*\"", ""));
+}

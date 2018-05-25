@@ -1,0 +1,5 @@
+public static void myFun(Collection<MyClass> collection) {
+    for (MyClass mc : collection) {
+        // Stuff is processed here
+    }
+}

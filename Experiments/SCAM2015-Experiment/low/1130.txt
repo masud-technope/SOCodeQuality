@@ -1,0 +1,17 @@
+public List<Integer> giveSortIndexes(List<Integer> origList) {
+    List<Integer> retValue = new ArrayList<Integer>();
+    List<Integer> originalList = new ArrayList<Integer>(origList);
+    Collections.sort(origList);
+    Map<Integer, Integer> duplicates = new HashMap<Integer, Integer>();
+    for (Integer i : originalList) {
+        if(!duplicates.containsKey(i)) {
+            retValue.add(origList.indexOf(i) + 1);
+            duplicates.put(i, 1);
+        } else {
+            Integer currCount = duplicates.get(i);
+            retValue.add(origList.indexOf(i) + 1 + currCount);
+            duplicates.put(i, currCount + 1);
+        }
+    }
+    return retValue;
+}

@@ -1,0 +1,3 @@
+public void DoStuff(Something pInstance) {
+   pInstance.doSomething();
+}

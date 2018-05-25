@@ -1,0 +1,7 @@
+public int compareTo(SomeClass o) {
+    int result = field1.compareTo(o.field1);
+    if ( result == 0 ) {
+        result = field2.compareTo(o.field2);
+    }
+    return result;
+}

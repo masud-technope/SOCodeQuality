@@ -1,0 +1,11 @@
+public class Shift { 
+    private CrackerGUI gui;
+
+    public Shift(CrackerGUI gui) {
+        this.gui = gui;
+    }
+
+    public void btnClear() {
+        this.gui.setPlainText(" ");
+    }
+}

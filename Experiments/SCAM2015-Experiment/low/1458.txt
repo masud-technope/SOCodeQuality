@@ -1,0 +1,15 @@
+package javaapplication21;
+
+import java.util.Scanner;
+public class JavaApplication21 {
+    public static void main(String[] args) {
+       int a;
+       Scanner obj=new Scanner(System.in);
+       System.out.print("Enter array size=");
+       a=obj.nextInt();
+       int b[]=new int[a];
+       for(int i=0;i<b.length;i++){
+          System.out.println(b[i]+i);
+       }
+   }
+}

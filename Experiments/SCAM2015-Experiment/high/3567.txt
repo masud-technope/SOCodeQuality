@@ -1,0 +1,3 @@
+if( Arrays.asList(newAlphabet).contains(letters) ) {
+    newAlphabet[I] = letters; 
+}

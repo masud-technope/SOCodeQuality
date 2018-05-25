@@ -1,0 +1,5 @@
+@OneToMany
+@org.hibernate.annotations.LazyCollection(
+org.hibernate.annotations.LazyCollectionOption.EXTRA
+)
+private Set<Child> children = new HashSet<Child>();

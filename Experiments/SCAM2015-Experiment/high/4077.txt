@@ -1,0 +1,4 @@
+Intent intent = new Intent(this, RegisterActivity.class);
+ intent.putExtra("profile", profile.toString());
+ intent.putExtra("result", result.toString());
+ this.startActivity(intent);

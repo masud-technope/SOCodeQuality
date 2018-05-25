@@ -1,0 +1,10 @@
+List<Integer> list = new ArrayList<Integer>(50);
+
+
+public void add(int value) {
+  if (list.size <= 50) list.remove(list.size() - 1);
+
+  // inserting element at position 0 shifts other elements
+  list.add(0, value);
+
+}

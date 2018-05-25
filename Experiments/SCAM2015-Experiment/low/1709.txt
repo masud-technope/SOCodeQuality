@@ -1,0 +1,16 @@
+int i=1;
+        int mul;
+        while(true)
+        {
+            mul = i++;
+            if(mul*(ans2)==ans1)
+            {
+                System.out.println(mul);
+                break;
+            }
+            else if(mul*(ans2)>ans1)
+            {
+                System.out.println("Cannot be divided");
+                break;
+            }
+        }

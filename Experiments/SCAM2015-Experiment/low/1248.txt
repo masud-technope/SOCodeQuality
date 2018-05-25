@@ -1,0 +1,4 @@
+public static ArrayList GetUniqueValues(Collection values)
+{
+    return new ArrayList(new HashSet(values));
+}

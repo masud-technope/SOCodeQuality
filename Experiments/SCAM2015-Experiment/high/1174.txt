@@ -1,0 +1,3 @@
+ArrayList list = new ArrayList<Integer>();
+list.add("hello");
+String s = (String) list.get(0);

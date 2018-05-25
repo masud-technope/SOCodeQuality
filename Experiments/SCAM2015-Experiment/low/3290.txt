@@ -1,0 +1,11 @@
+String haystack = "This is a string";
+String needle = "i";
+int index = 0;
+
+while (index != -1) {
+    index = haystack.indexOf(needle, index + 1);
+
+    if (index != -1) {
+        System.out.println(String.format("Found %s in %s at index %s.", needle, haystack, index));
+    }
+}

@@ -1,0 +1,7 @@
+boolean answer = false;
+String inputAnswer;
+
+inputAnswer = input.getText();
+if(inputAnswer == "yes"){
+   answer = true;
+}

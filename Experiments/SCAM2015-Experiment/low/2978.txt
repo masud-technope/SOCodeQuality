@@ -1,0 +1,24 @@
+button.setOnClickListener(new OnClickListener(){
+@Override
+public void onClick()
+{
+    performOperation();
+
+}
+
+});
+
+public void performOperation()
+{
+static boolean working = true;
+if(working)
+{
+return;
+}
+working = true;
+
+//Do you work here;
+
+
+working = false;
+}

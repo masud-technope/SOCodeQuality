@@ -1,0 +1,9 @@
+while(index < CustomerList.size()) {
+    customer = CustomerList.get(index);
+    if (customer.returnFamilyName().equalsIgnoreCase(familyName)) { 
+        System.out.println(customer.returnFamilyName());
+        break;
+    } else {  
+        index++;
+    }
+}

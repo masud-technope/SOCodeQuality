@@ -1,0 +1,5 @@
+if( driver.findElement(By.cssSelector("a > font")).isEnabled()){
+System.out.println("Element is Enable");
+}else{
+System.out.println("Element is Disabled");
+}

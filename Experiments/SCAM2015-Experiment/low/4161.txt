@@ -1,0 +1,9 @@
+ArrayList<E> list2 = new ArrayList<E>();
+
+
+    for (int i = 1; i < list.size(); i++) {
+        String a1 = list2.get(i);
+        if (!list2.contains(a1)) {
+            list2.add(a1);
+        }
+    }

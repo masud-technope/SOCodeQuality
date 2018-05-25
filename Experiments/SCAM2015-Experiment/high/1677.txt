@@ -1,0 +1,3 @@
+Integer[][] board = new Integer[8][8];
+...
+if (board[x][y] != null) { ... }

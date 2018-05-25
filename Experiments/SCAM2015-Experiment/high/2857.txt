@@ -1,0 +1,37 @@
+class D {
+  final int p;
+  final double x;
+  final double y;
+  final double z;
+
+  public D(int p, double x, double y, double z) {
+    this.p = p;
+    this.x = x;
+    this.y = y;
+    this.z = z;
+  }
+}
+
+D[] d = {
+  new D(60,     0,   0, -1.5),
+  new D(65,  -1.2,   0,    0),
+  new D(124,    0,   0, +1.5),
+  new D(129, -1.2,   0,    0),
+  new D(188,    0,   0, -1.5),
+  new D(193, -1.2,   0,    0),
+  new D(252,    0,   0, +1.5),
+  new D(257, -1.2,   0,    0),
+  new D(316,    0,   0, -1.5),
+  new D(321, -1.2,   0,    0),
+  new D(376,    0,   0, +1.5),
+};
+
+...
+  whenToStop++;
+  D delta = null;
+  for ( int i = 0; i < d.length && whenToStop < d[i].p; i++ ) {
+    delta = d[i];
+  }
+  if ( delta != null ) {
+    setPosition(posX + delta.x, posY + delta.y, posZ + delta.z);
+  }

@@ -1,0 +1,18 @@
+for (int i = 0; i < 1000; i++) {
+    SoftReference<Object> softReference = new SoftReferencelt<Object>(new Object());
+    if (null == softReference.get()) {
+        throw new IllegalStateException("Reference should NOT be null");
+    }
+
+    try {
+        Object[] ignored = new Object[(int) Runtime.getRuntime().maxMemory()];
+    } catch (Throwable e) {
+        // Ignore OME
+    }
+
+    if (null != softReference.get()) {
+        throw new IllegalStateException("Reference should be null");
+    }
+
+    System.out.println("It worked!");
+}

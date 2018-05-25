@@ -1,0 +1,10 @@
+Letter  Date or Time Component  Presentation    Examples
+G   Era designator  Text    AD
+y   Year    Year    1996; 96
+M   Month in year   Month   July; Jul; 07
+w   Week in year    Number  27
+W   Week in month   Number  2
+D   Day in year Number  189
+d   Day in month    Number  10
+F   Day of week in month    Number  2
+E   Day in week Text    Tuesday; Tue

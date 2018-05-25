@@ -1,0 +1,16 @@
+try{
+
+    Connection conn = DriverManager.getConnection(url,username,password);
+
+    PreparedStatement pStat = conn.prepareStatement("Drop table info");
+
+    pStat.executeUpdate();
+      }
+       catch(Exception ex){
+        }
+
+   finally(){
+
+     pStat.close();
+     conn.close();
+ }

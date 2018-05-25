@@ -1,0 +1,7 @@
+for (int i = 0 ; !mustExit && i != lengthOfItemsToStream ; i++) {
+    doSomeWork();
+    if (mustExit) break; // Check the boolean flag
+    doAdditionalWork();
+    if (mustExit) break; // Check the boolean flag
+    doEvenMoreWork();
+}

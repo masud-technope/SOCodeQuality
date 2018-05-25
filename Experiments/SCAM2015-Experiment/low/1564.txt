@@ -1,0 +1,20 @@
+result = getIntent().getExtras();
+if(result!=null){
+    String get = result.getString("secilen");
+    if(number == 0){
+    imgView.setImageResource( R.drawable.tas );
+
+
+    if (get.equals("A"))
+        txtV.setText("...");
+    }
+
+    else if (get.equals("B")){
+        txtV.setText("...");
+    }
+
+    else if (get.equals("C")) {
+        txtV.setText("...");
+    }
+  }
+}

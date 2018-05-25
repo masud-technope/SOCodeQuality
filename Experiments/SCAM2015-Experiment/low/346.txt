@@ -1,0 +1,11 @@
+int x;
+public static void main(String args[]){
+    E a = new E();
+    System.out.println(a.hashcode());
+    E b = new E();
+    System.out.println(b.hashcode());
+}
+
+public int hashcode(){
+    return x*17;
+}

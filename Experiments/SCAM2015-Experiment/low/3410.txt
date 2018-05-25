@@ -1,0 +1,22 @@
+public class abc{
+public void acceptValidInput() {
+
+    System.out.print("Enter a number greater than 10: ");
+    Scanner sc = new Scanner(System.in);
+    int i = sc.nextInt();
+
+    // Adding this will make an exception to be thrown:
+
+
+    if (i <= 10) {
+        acceptValidInput();
+    }
+}
+
+  public static void main(String[] args) {
+     while(true){
+      abc a=new abc();
+   a.acceptValidInput();
+   System.out.println("Your input is valid");
+     }
+  }}

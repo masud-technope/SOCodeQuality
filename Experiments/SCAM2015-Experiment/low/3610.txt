@@ -1,0 +1,6 @@
+YourType[] arr3 = new YourType[3]; //declared as field
+...
+arr3[0] = a;
+arr3[1] = b;
+arr3[2] = c;
+add(arr3);

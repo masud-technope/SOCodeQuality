@@ -1,0 +1,9 @@
+String test = "001234";
+    long correctValue = 0;
+    if (test.charAt(0) == '0' || test.length() != 6) {
+        System.out.println("padded or incorrect length");
+
+    } else {
+               correctValue = Long.parseLong(test);             
+    }
+    System.out.println(correctValue);

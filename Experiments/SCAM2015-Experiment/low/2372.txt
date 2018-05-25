@@ -1,0 +1,12 @@
+class FooTest {
+    protected Foo fooImpl;
+
+    @Test
+    public void testGetBaz() {
+    ...
+    }
+
+    @Test
+    public void testDoBar() {
+    ...
+    }

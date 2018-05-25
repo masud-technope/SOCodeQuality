@@ -1,0 +1,4 @@
+public void addWindow(WindowItem newItem) {
+   super.addWindow(newItem);
+   item.addWindow(newItem);
+}

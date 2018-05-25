@@ -1,0 +1,7 @@
+public static void main(String args[]){
+    Sequence s = new Sequence(5);
+    Sequence s2 = new Sequence(5);// new Sequence(4)
+    s.set(0, 1);
+    s2.set(0, 1);
+    System.out.println(s.equals(s2));//will print true      
+}

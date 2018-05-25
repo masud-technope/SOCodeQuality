@@ -1,0 +1,7 @@
+void Foo(bool someCondition)
+{
+    while (someCondition)
+    {
+        // code here is never executed if someCondition is FALSE
+    }
+}

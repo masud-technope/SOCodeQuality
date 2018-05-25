@@ -1,0 +1,21 @@
+@SuppressWarnings("unchecked")
+private Location findFirst(E item) {
+    Location current;
+    int closestMatchArray1;
+    int closestMatchArray2;
+
+    // Object[] firstItemInArray2 = new Object[numArrayInUse];
+    // Object firstItem;
+
+    E[] firstItemInArray2 
+            = (E[]) Array.newInstance(item.getClass(), numArrayInUse); 
+    E firstItem;
+
+    Comparator<E> comparator = new CompareElement();
+
+    for (int i = 0; i < numArrayInUse; i++) {
+        firstItem = (E) topArray[i];
+        firstItemInArray2[i] = firstItem;
+    }
+
+    closestMatchArray1 = Arrays.binarySearch(firstItemInArray2, item, comparator);

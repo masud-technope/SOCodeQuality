@@ -1,0 +1,20 @@
+public final class Fidu {
+    private final String namePart1;
+    private final String namePart2;
+    private final String namePart3;
+    private final String type;
+
+    private Fidu(String namePart1, String namePart2, String namePart3, String type) {
+        this.namePart1 = namePart1;
+        this.namePart2 = namePart2;
+        this.namePart3 = namePart3;
+        this.type = type;
+    }
+
+    public static Fidu parse(String name, String type) {
+        String[] parts = name.split("/");
+        if (parts.length != 3)
+            throw new IllegalArgumentException(name);
+        return new Fidu(parts[0], parts[1], parts[2], type);
+    }
+}

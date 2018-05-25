@@ -1,0 +1,13 @@
+public class Frexp {
+  public static void main (String[] args)
+  {
+    double param, result;
+    int n;
+
+    param = 8.0;
+    n = Math.getExponent(param);
+    //result = ??
+
+    System.out.printf ("%f * 2^%d = %f\n", result, n, param);
+  }
+}

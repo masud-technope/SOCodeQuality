@@ -1,0 +1,25 @@
+<!--
+        ===========================Quartz configuration====================
+    -->
+    <bean id="jobDetail"
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="processLauncher" />
+        <property name="targetMethod" value="execute" />
+    </bean>
+
+    <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+        <!-- see the example of method invoking job above -->
+        <property name="jobDetail" ref="jobDetail" />
+        <!-- 10 seconds -->
+        <property name="startDelay" value="10000" />
+        <!-- repeat every 50 seconds -->
+        <property name="repeatInterval" value="50000" />
+    </bean>
+
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="simpleTrigger" />
+            </list>
+        </property>
+    </bean>

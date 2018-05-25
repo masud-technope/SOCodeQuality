@@ -1,0 +1,8 @@
+ArrayList<Double> list = new ArrayList();
+   boolean condition = true; 
+   Scanner input = new Scanner (System.in);
+   while(condition){
+       list.add(input.nextDouble());
+       System.out.println("Do you want to continue Y/N ?");
+       condition = (input.nextLine().charAt(0) == 'Y');
+   }

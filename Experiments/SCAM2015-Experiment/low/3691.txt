@@ -1,0 +1,6 @@
+try {
+  int i = Integer.parseInt(yourString);
+  mc.pushNUmber(i);
+} catch (NumberFormatException e){
+
+}

@@ -1,0 +1,3 @@
+BasicDBObject doc = new BasicDBObject( "name", "Matt" );
+collection.insert( doc );
+ObjectId id = (ObjectId)doc.get( "_id" );

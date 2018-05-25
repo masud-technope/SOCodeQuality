@@ -1,0 +1,31 @@
+import org.apache.commons.net.ftp.FTPClient;
+
+import org.apache.commons.net.ftp.FTPFile;
+import org.apache.commons.io.FileUtils;
+
+long dirSize = 0L; //global variable
+
+private long ftpFolderSize(String directoryPath,FTPClient client){
+
+    try{
+        client.changeWorkingDirectory(directoryPath); 
+        FTPFile[] ftpFiles = client.listFiles();
+        if(client.changeWorkingDirectory(directoryPath))
+        {
+            for (FTPFile ftpFile : ftpFiles) {
+                if(ftpFile.isFile()){
+                    dirSize = dirSize+ftpFile.getSize();// file size is calculated
+                }
+                else if(ftpFile.isDirectory())
+                {
+                    dirSize = dirSize + 4096;//folder minimum size is 4kb
+                    ftpFolderSize(directoryPath+"/"+ftpFile.getName(),client);
+                }
+
+            }
+        }
+    }catch (Exception e) {
+        e.printStackTrace();
+    }
+    return dirSize;
+}

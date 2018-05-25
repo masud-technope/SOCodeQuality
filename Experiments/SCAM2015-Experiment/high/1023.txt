@@ -1,0 +1,7 @@
+String _command = "AFTER_2011/03/01 GREATER_2004";
+Pattern patt = Pattern.compile("_(\\S+)");
+Matcher matcher = patt.matcher(_command);
+while(matcher.find()) {
+    String name = matcher.group(1);
+    System.out.println(name);
+}

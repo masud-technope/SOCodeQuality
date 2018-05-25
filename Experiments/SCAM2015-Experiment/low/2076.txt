@@ -1,0 +1,6 @@
+<dependency>
+    <groupId>org.glassfish.web</groupId>
+    <artifactId>javax.servlet.jsp.jstl</artifactId>
+    <version>1.2.1</version>
+    <scope>runtime</scope>
+</dependency>

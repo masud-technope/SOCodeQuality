@@ -1,0 +1,19 @@
+public void printPay(int employeeNum, double basePay, int hours) {
+    if (...) {
+        System.out.println("error");
+    }
+    else if (...) {
+        System.out.println("different error");
+    }
+    else {
+        System.out.println("employee X: " + totalPay(...));
+    }
+}
+
+public static void main(String[] args){
+    fooCorporation foo = new fooCorporation();
+
+    printPay(1, 7.50,  35);
+    printPay(2, 8.20,  47);
+    printPay(3, 10.00, 73);
+}

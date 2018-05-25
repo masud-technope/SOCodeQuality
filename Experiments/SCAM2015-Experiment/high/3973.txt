@@ -1,0 +1,12 @@
+public boolean removeAccount(String accountNumber)
+{
+    Iterator<Account> i = accounts.iterator();
+    while (i.hasNext()) {
+        Account s = i.next(); // must be called before you can call i.remove()
+        if(s.getAccountNumber().equals(accountNumber)){
+            i.remove();
+            return true; 
+        }
+    }
+    return false;
+}

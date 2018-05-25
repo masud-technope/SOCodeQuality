@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class SetTest {
+    public static void main(String[] args) {
+        int[] set = {1,2,3,4,5,6,7};
+        int[] nonSet = {1,2,3,4,5,4};
+
+        System.out.println(verifyUniqueIntegers(set));
+        System.out.println(verifyUniqueIntegers(nonSet));
+    }
+
+    public static boolean verifyUniqueIntegers(int[] array) {
+        Set<Integer> set = new HashSet<Integer>();
+        for(int i : array) // This is a construction called a for-each loop
+            if(!set.add(i)) // This is an example of what's called autoboxing
+                return false;
+        return true;
+    }
+}

@@ -1,0 +1,3 @@
+for (TypesOfDogEnum dog : TypesOfDogEnum.values()) {
+  // do what you want
+}

@@ -1,0 +1,11 @@
+Object bar = getFoo()
+
+if (bar == null) {
+  bar = getBoo()
+}
+
+if (bar == null) {
+  bar = getBaz()
+}
+
+return bar;

@@ -1,0 +1,10 @@
+if(age>76){
+    // Code...
+    continue;
+}else if(age>50){
+    // More Code...
+    continue;
+}else{
+    // Even more code...
+    continue;
+}

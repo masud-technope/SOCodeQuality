@@ -1,0 +1,16 @@
+class Transpose{
+    public static String halfStepUp(String note){
+        String n = null;
+        if (note == "c") n = "c#";
+        if (note == "d") n = "d#";
+        return n;
+    }
+}
+public class TransposeTest {
+    public static void main(String... args) {
+        String [] scale = new String[2];
+        scale[0] = "c";
+        scale[1] = "d";
+        System.out.println(Transpose.halfStepUp(scale[0]));
+    }
+}

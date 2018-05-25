@@ -1,0 +1,11 @@
+//Here's the full code that will DEFINITELY work: (can copy & paste)
+
+import java.awt.*;
+
+public class beeper
+{
+    public static void main(String args[])
+    {
+        Toolkit.getDefaultToolkit().beep();
+    }
+}

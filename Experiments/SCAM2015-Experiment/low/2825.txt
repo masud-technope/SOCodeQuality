@@ -1,0 +1,11 @@
+public void initializeButtons(Container container) {
+    Component[] components = container.getComponents();
+    for (Component component : components) {
+        //If you're using JButton, if not, change the type. This only asks if the component's
+        //type is a button. You could add another clause if the buttons have something else special
+        if(!(component instanceof JButton)){ //If the component is not a button we skip it.
+            continue;
+        }
+        ((JButton)component).setText("0");
+    }
+}

@@ -1,0 +1,5 @@
+Pattern p = Pattern.compile("[^A-F]", Pattern.CASE_INSENSITIVE); // Do this before all loops
+// ...
+Matcher m = p.matcher(input);
+incorrectInput = m.find();
+if(incorrectInput) System.out.println("This symbol is invalid: " + m.group());

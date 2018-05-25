@@ -1,0 +1,3 @@
+If n == nx -> x = x + 1
+If n == ny -> y = y + 1
+If n == nz -> z = z + 1

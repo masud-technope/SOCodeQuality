@@ -1,0 +1,8 @@
+import secondFile.help;
+
+public class TicketAdminTestSuite extends something {
+       Help help = new Help();
+       void printStuff(){
+            System.out.println(help.getBar());
+       }    
+}

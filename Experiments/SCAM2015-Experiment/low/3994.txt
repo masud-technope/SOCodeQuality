@@ -1,0 +1,15 @@
+int ans[5]; // you could declare an array of undetermined length here, if you don't want "garbage" in case the subarray has less than 5 members
+bool beenMax[9]={false};
+for (int i=0; i<5; i++)
+{
+    int max=0; // if you need exactly five numbers in the answer, initialize max to -99999 so that it can later become the largest negative number
+    for(int j=0; j<9; j++)
+    {
+        if (!beenMax[j] && a[j]>max) {
+            max=a[j];
+            beenMax[j]=true;
+        }
+    }
+    if (max!=0) {ans[i]=max;} // remove this if/else, but keep ans[i]=max if you need exactly 5
+    else { break; }
+}

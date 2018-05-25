@@ -1,0 +1,7 @@
+String seq= "101010101";
+char[] charArray = seq.toCharArray();
+
+for (int i = 0; i < charArray.length; i++) {
+            char b=charArray[i]; 
+            System.out.println(b);
+}

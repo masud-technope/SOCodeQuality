@@ -1,0 +1,3 @@
+Integer val = (Integer)v.elementAt(arr[x][y]);
+int newVal = val.intValue() + i;
+v.setElementAt(new Integer(newVal), arr[x][y]);

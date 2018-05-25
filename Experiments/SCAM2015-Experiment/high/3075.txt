@@ -1,0 +1,7 @@
+for(i=0;i<arCopy.length;i++) // for i= 0 i< array length (6))
+{
+     System.out.print(Arrays.toString(arCopy)); // print the full array
+     Arrays.sort(arCopy);  // sort the array
+
+     System.out.print(" ");
+}

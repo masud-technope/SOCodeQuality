@@ -1,0 +1,5 @@
+if (nl.item(i).toString().matches("(?i)(?s).*ns1:(spare|tearline).*")) {
+    // not matched
+else {
+    // matched
+}

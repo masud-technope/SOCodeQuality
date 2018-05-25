@@ -1,0 +1,35 @@
+public class PrintNumbersbyThreads implements Runnable {
+    private int i;
+
+    public PrintNumbersbyThreads(int i) {
+        this.i = i;
+    }
+
+    public static void main(String[] args) {
+        PrintNumbersbyThreads p = new PrintNumbersbyThreads(1);
+        PrintNumbersbyThreads p2 = new PrintNumbersbyThreads(2);
+        PrintNumbersbyThreads p3 = new PrintNumbersbyThreads(3);
+        Thread t1 = new Thread(p, "t1");
+        Thread t2 = new Thread(p2, "t2");
+        Thread t3 = new Thread(p3, "t3");
+        t1.start();
+
+        try {
+            t1.join();
+            t2.start();
+            t2.join();
+            t3.start();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void run() {
+        System.out.println("\n" + Thread.currentThread().getName() + " prints  ");
+        for (int j = 0; j < 10; j++) {
+            System.out.print(i + " ");
+            i = i + 10;
+        }
+    }
+}

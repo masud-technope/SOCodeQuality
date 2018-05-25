@@ -1,0 +1,12 @@
+public class ThreadWithState implements Runnable {
+
+  private Object state;
+
+  public ThreadWithState(Object state) {
+    this.state = state;
+  }
+
+  public void run() {
+    // Do something with state
+  }
+}

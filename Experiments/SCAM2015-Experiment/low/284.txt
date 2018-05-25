@@ -1,0 +1,3 @@
+public static final long IMMEDIATE = 0;
+public static final long NEVER = -1L;
+private long expires = NEVER;

@@ -1,0 +1,7 @@
+ypos=e.getY();
+if (this.ypos<0){
+ this.polyrot--;
+}else if (this.ypos>0) {
+ this.polyrot++;
+}
+this.repaint();

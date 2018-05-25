@@ -1,0 +1,13 @@
+CREATE TEMPORARY TABLE temp1 AS
+SELECT * FROM car_journey
+WHERE start_date > ? AND
+end_date < ?
+
+SELECT car_id, journey_id
+FROM temp1 t1, (
+  SELECT car_id, MIN(start_date)
+  FROM temp1
+  GROUP BY car_id 
+) t2
+WHERE t1.car_id = t2.car_id AND
+t1.start_date = t2.start_date

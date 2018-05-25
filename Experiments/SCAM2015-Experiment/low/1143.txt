@@ -1,0 +1,5 @@
+Pattern firstPat = Pattern.compile("(((\\+|-)?)\\d+(.\\d+)?)");//for matching the first number, leading sign is optional
+Pattern remainingPat = Pattern.compile("(\\+|-)(\\d+(.\\d+)?)");//for remaining numbers, leading sign is mandatory.
+Pattern remainingPatWithExtOps = Pattern.compile("(\\*|/|\\+|-)(-?\\d+(.\\d+)?)");//for remaining numbers, accommodating multiply and divide with negative signs(positive signs should have been cleaned out)
+
+Matcher match = firstPat.matcher(inputString);

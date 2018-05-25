@@ -1,0 +1,27 @@
+public class Test {
+    public static void main( String [] args ) { 
+        Ball ball = new IllegalBall();
+        Test test = new Test();
+        test.add( ball );
+        test.add( new IllegalBall() );
+        test.add( new LegalBall() );
+    }
+    private void add( Ball ball ){
+        System.out.println("Generic method: I'll have someone handling this : "  + ball );
+        if( ball instanceof IllegalBall ) {
+            add( ( IllegalBall ) ball );
+        } else if( ball instanceof LegalBall ) {
+            add( ( LegalBall ) ball );
+        }
+    }
+    private void add( IllegalBall ball ){
+        System.out.println("illega-ball: I won't do anything about it! " + ball );
+    }
+    private void add( LegalBall ball ) { 
+        System.out.println("legal-ball: Hey this is legal I'll do my best!! " + ball );
+    }
+}
+
+class Ball {}
+class IllegalBall extends Ball {}
+class LegalBall extends Ball {}

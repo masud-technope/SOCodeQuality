@@ -1,0 +1,4 @@
+Scanner sc = new Scanner (process.getInputStream());
+while (sc.hasNextXxx()) {
+   System.out.println(sc.nextXxx());
+}

@@ -1,0 +1,9 @@
+public static void main(String[] args) {
+   try {
+      Runtime.getRuntime().exec( "wscript D:/Send_Mail_updated.vbs" );
+   }
+   catch( IOException e ) {
+      System.out.println(e);
+      System.exit(0);
+   }
+}

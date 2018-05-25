@@ -1,0 +1,13 @@
+public State[] neighborStates(String config, int modeFlag){
+    State[] neighborStates=new State[7];
+    int i=0;
+    for (Operation o : Operation.values()){
+        neighborStates[i] = new State(move(config,o.name().charAt(0)),
+                                      someRealCost, //what's the value of this parameter?
+                                      getHeuristicCost(config, modeFlag),
+                                      modeFlag
+                                      );
+        ....
+        i++;
+    }
+}

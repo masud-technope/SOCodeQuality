@@ -1,0 +1,6 @@
+public boolean checkEqual(DateTime first,DateTime second){
+     if(first.<getterforyear> == second.<getterforyear> && first.<getterformonth> == second.<getterformonth> && first.<getterforday> == second.<getterforday>){
+         return true;
+  }
+ return false;
+}

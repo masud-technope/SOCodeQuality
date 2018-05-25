@@ -1,0 +1,23 @@
+@Test
+public void testIsoShortDate() {
+    String test =  "1994-11-05T08:15:30Z";
+
+    Date date = Dates.fromISO8601 ( test );
+    Date date2 = Dates.fromISO8601_ ( test );
+
+    assertEquals(date2.toString (), date.toString ());
+
+    puts (date);
+}
+
+@Test
+public void testIsoLongDate() {
+    String test =  "1994-11-05T08:11:22-05:00";
+
+    Date date = Dates.fromISO8601 ( test );
+    Date date2 = Dates.fromISO8601_ ( test );
+
+    assertEquals(date2.toString (), date.toString ());
+
+    puts (date);
+}

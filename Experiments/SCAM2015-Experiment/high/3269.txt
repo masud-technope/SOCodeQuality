@@ -1,0 +1,24 @@
+public void actionPerformed(ActionEvent event){
+    String row1 = inrows.getText();
+    int row2 = Integer.parseInt(row1);
+    String col1 = incolumns.getText();
+    int col2 = Integer.parseInt(col1);
+    fillMatricen(row2, col2);
+    String matricaString = '';
+    for( int i=0; i<row2; i++){
+        for( int j=0; j<col2; j++){
+            matricaString += matrica[i][j] + "  ";
+        }
+        matricaString += "\n"
+    }
+    matric.setText(matricaString);
+
+}
+
+public  void fillMatricen(int x, int y){
+    for (int i =0; i<x; i++){
+        for (int j=0; j<y; j++){
+            matrica[i][j]=(int) ((double) Math.random()*10);
+        }
+    }
+}

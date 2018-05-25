@@ -1,0 +1,5 @@
+try {
+    int number = Integer.parseInt(nameValue[1].substring(2));
+} catch (Exception e) {
+    // Invalid parameter value, not the expected format!
+}

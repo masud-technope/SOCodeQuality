@@ -1,0 +1,15 @@
+package i2;:
+
+import i1.C1;
+import i1.I1;
+public class C2 {
+    public static void main(String[] args) {
+        C1 c1 = new C1();
+
+        c1.x.hello(); // Will not compile.
+        c1.x.toString(); //Will not compile.             
+
+        Object mObject=(Object)c1.x;
+        mObject.toString(); //Will compile.
+    }
+}

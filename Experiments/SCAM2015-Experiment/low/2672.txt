@@ -1,0 +1,16 @@
+public class Test 
+ {
+
+        Integer temp()
+        {
+           return(true ? null : 0);  
+        }
+
+
+     public static void main(String[] args)
+     {
+         Test m=new Test();
+         System.out.println(m.temp());
+      }
+
+ }

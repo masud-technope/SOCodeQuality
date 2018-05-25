@@ -1,0 +1,22 @@
+@Component
+public class ImTheFactoryImpl implements
+        ImTheFactory {
+
+    @Autowired
+    private IWantThisBadly anInstance;
+    @Autowired
+    private IAlsoWantThis anotherInstance;
+
+    @Override
+    public IWantThis getInstance(Parameters parameters) {
+        if (parameters.equals(Parameters.THIS)) {
+            return anInstance;
+        }
+
+        if (parameters.equals(Parameters.THAT)) {
+            return anotherInstance;
+        }
+
+        return null;
+    }
+}

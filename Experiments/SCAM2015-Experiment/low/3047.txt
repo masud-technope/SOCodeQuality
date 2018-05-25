@@ -1,0 +1,10 @@
+while (true) {
+        try {
+            lastInput = Input.readLine();
+        } catch (IOException e) {}
+        if (lastInput != null) {
+            System.out.println(lastInput);
+            if (lastInput.startsWith("Chat: ")) {
+                sendToAllClients(lastInput.substring(7));
+            }
+        }

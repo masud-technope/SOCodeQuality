@@ -1,0 +1,3 @@
+SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+String formattedDate = formatDate.format(new Date()); // Sample date to be formatted
+System.out.println(formattedDate); // Watch the output

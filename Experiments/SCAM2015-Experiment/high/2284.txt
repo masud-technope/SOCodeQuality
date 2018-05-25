@@ -1,0 +1,4 @@
+METHOD_NAME="";
+NAMESPACE ="";      
+SOAP_ACTION ="";
+URL ="";

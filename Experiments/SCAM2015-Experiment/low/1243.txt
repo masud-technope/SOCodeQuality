@@ -1,0 +1,5 @@
+public Claus clone(Claus source) {
+      XStream xstream = new XStream();
+      String serializedObj = xstream.toXML(source);
+      return (Claus) xstream.fromXML(serializedObj);
+   }

@@ -1,0 +1,3 @@
+for (Integer integer : list) {
+    System.out.print(integer);
+}

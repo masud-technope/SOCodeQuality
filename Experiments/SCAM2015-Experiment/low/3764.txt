@@ -1,0 +1,9 @@
+long now = System.currentTimeMillis();
+Date whenToRun = new Date(now+millisecondsInFuture);
+Timer timer = new Timer();
+TimerTask task = new TimerTask() {
+  public void run() {
+// job code here
+  }
+};
+ timer.schedule(task, whenToRun);

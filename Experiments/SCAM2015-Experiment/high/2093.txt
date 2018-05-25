@@ -1,0 +1,5 @@
+int[] numbers; // Single-dimensional arrays // 1
+
+string[,] names; // Multidimensional arrays // 2
+
+int[][] detail;  // jagged arrays // 3

@@ -1,0 +1,5 @@
+void getNewValues(int[] ms) {
+    m[0] += 5;
+    m[1] *= 100;
+    ....
+}

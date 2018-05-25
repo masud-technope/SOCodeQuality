@@ -1,0 +1,10 @@
+public boolean checkType(Vector<?> vec)
+{
+  if(!vec.isEmpty())
+  {
+    if("String".equals(vec.get(0).getClass().getSimpleName()))
+             return false;
+    else if("Integer".equals(vec.get(0).getClass().getSimpleName()))
+             return true;               
+   }
+}

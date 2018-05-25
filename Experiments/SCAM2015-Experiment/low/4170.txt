@@ -1,0 +1,8 @@
+public boolean prefixAgain(String str, int n) {
+  String prefix = str.substring(0,n); // prefix String
+  int index = str.indexOf(prefix); //first loc of prefix
+  if(str.lastIndexOf(prefix) > index){ //see if it appears again
+  return true; 
+  }
+  else return false; //if we get here, doesn't appear again, false
+}

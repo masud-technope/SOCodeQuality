@@ -1,0 +1,6 @@
+<mx:Script>
+<![CDATA[
+import MyAsFile.as //if your file is inculded in .src folder
+import path/MyAsFile.as //if in other folder
+]]>
+</mx:Script>

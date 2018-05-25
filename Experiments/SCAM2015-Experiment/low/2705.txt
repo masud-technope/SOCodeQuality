@@ -1,0 +1,3 @@
+if(yourTextFieldName.getText().endsWith(".") && yourTExtFieldName.startsWith(".")) {
+    //write your code here
+}

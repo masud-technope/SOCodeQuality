@@ -1,0 +1,16 @@
+public class ListCount {
+    public static LinkedList<String>    ll  = new LinkedList<String>();
+
+    public static void main(String[] args) {
+        String s = "Hi I am a programmer and I am currently working on an assignment that is based on " +
+                "linkedlists for java";
+        ll = new LinkedList<String>(Arrays.asList(s.split("\\s+")));
+        System.out.println(countsize(0));
+        System.out.println(ll.size());
+    }
+
+    public static int countsize(int somevalue) {
+        Iterator<String> it = ll.listIterator(somevalue);
+        return it.hasNext() ? countsize(somevalue + 1) + 1 : 0;
+    }
+}

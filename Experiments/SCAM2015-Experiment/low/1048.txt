@@ -1,0 +1,4 @@
+if(inv[0] <= 0)
+{
+    inv[0]=map.getTileId(tileX-1, tileY-1, 0);
+}

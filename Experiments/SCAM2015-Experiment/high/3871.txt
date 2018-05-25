@@ -1,0 +1,3 @@
+public static void main(String[] args) {
+    new Nestedclass().new Student("ishtiaque", 10, 107060).show();
+}

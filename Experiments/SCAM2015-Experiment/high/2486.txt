@@ -1,0 +1,4 @@
+public class Joker implements Card {
+    public void handleUserEvent(UserEvent event) {
+         // hey I'm a joker
+    }

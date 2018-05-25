@@ -1,0 +1,40 @@
+public class Whatever_MainActivity extends Activity
+{
+    ImageButton button1, button2, button3, button4, button5;      // my buttons
+    Button start, reroll, hold;
+
+    Button reroll_dice1, reroll_dice2, reroll_dice3, reroll_dice4, reroll_dice5;
+
+    Button ok_button1;
+
+@Override
+    public void onCreate(Bundle savedInstanceState) 
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+
+        Buttons(); // "Come here button"
+
+        // Scoring_Method();
+    }
+
+public void Buttons()
+    {
+       ok_button1 = (Button)findViewById(R.id.ok_button1);
+       ok_button1.setOnClickListener(new OnClickListener()
+                        {
+                            public void onClick(View buttonn)
+                            {
+                                reroll_dice1.setVisibility(View.INVISIBLE);
+                                reroll_dice2.setVisibility(View.INVISIBLE);
+                                reroll_dice3.setVisibility(View.INVISIBLE);
+                                reroll_dice4.setVisibility(View.INVISIBLE);
+                                reroll_dice5.setVisibility(View.INVISIBLE);
+                                ok_button1.setVisibility(View.INVISIBLE);
+
+
+                                reroll.setVisibility(View.VISIBLE);
+                                hold.setVisibility(View.VISIBLE);
+                            }
+                        });
+   }

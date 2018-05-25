@@ -1,0 +1,3 @@
+Thread t = new Thread( this.table ); // or new Thread( this )
+
+t.start(); // call start on the read

@@ -1,0 +1,8 @@
+if ( Pattern.matches("\\s*[yY]\\s*[eE]\\s*[sS]\\s*", input) ) {
+  // do something
+}
+
+
+if ( input.replaceAll("\\s", "").equalsIgnoreCase("yes") ) {
+  // do something
+}

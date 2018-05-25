@@ -1,0 +1,42 @@
+java.security.AccessController.doPrivileged(
+            new java.security.PrivilegedAction() {
+    public Object run() {
+    Thread t = new Thread("process reaper") {
+        public void run() {
+                    try {
+                        pid = forkAndExec(prog,
+                      argBlock, argc,
+                      envBlock, envc,
+                      dir,
+                      redirectErrorStream,
+                      stdin_fd, stdout_fd, stderr_fd);
+                    } catch (IOException e) {
+                        gate.setException(e); /*remember to rethrow later*/
+                        gate.exit();
+                        return;
+                    }
+                    java.security.AccessController.doPrivileged(
+                    new java.security.PrivilegedAction() {
+                        public Object run() {
+                        stdin_stream = new BufferedOutputStream(new
+                                                FileOutputStream(stdin_fd));
+                        stdout_stream = new BufferedInputStream(new
+                                                FileInputStream(stdout_fd));
+                        stderr_stream = new FileInputStream(stderr_fd);
+                        return null;
+                    }
+                    });
+                    gate.exit(); /* exit from constructor */
+        int res = waitForProcessExit(pid);
+        synchronized (UNIXProcess.this) {
+            hasExited = true;
+            exitcode = res;
+            UNIXProcess.this.notifyAll();
+        }
+        }
+    };
+            t.setDaemon(true);
+            t.start();
+    return null;
+    }
+});

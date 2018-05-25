@@ -1,0 +1,4 @@
+if (someBool)
+    doSomething();
+else
+    doSomethingElse();

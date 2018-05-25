@@ -1,0 +1,14 @@
+String one = "ASDR";
+String two ="MRT";
+StringBuilder s = new StringBuilder();
+
+Set<Character> set = new HashSet<>();
+for(char c : two.toCharArray())
+    set.add(c); //add all second string character to set
+for(char c : one.toCharArray())
+{
+    if(!set.contains(c)) //check if the character is not one of the character of second string
+        s.append(c); //append the current character to the pool
+}
+
+System.out.println(s);

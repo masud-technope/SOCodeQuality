@@ -1,0 +1,3 @@
+<property name="firstLoginDate" type="timestamp">
+    <column name="firstLoginDate" length="19"/>
+</property>

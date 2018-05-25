@@ -1,0 +1,5 @@
+<xsl:template match="a">
+  <xsl:value-of disable-output-escaping="yes" select="
+    concat('&lt;abc:href var="',@href,'"&gt;',.,'&lt;/abc:href&gt;')
+   "/>
+</xsl:template>

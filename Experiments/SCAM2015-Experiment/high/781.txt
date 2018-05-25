@@ -1,0 +1,9 @@
+public Object methodUnderTest() throws SomeException {
+    ...
+}
+
+@Test
+public void testMethod() throws SomeException() {
+      Object obj = methodUnderTest();
+      assert...
+}

@@ -1,0 +1,4 @@
+List<Playlist> mPlaylists = new List<Playlist>();
+
+p = new Playlist(<some parameters>);
+mPlaylists.Add(p);

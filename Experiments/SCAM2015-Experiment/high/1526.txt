@@ -1,0 +1,15 @@
+<plugin>
+<groupId>org.codehaus.mojo</groupId>
+<artifactId>hibernate3-maven-plugin</artifactId>
+<version>2.2</version>
+<configuration>
+    ...
+</configuration>
+<dependencies>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>3.6.8.Final</version>
+    </dependency>
+</dependencies>
+</plugin>

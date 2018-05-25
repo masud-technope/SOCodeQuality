@@ -1,0 +1,5 @@
+<static-files>
+  <include path="/favicon.ico" expiration="1d" />
+  <include path="/static/**" />
+  <include path="/**.css" />      
+</static-files>

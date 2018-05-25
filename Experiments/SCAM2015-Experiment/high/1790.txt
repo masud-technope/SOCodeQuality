@@ -1,0 +1,3 @@
+(age-is-25::OR::last_name-is-qa6)
+AND
+(age-is-20::OR::first_name-contains-test)

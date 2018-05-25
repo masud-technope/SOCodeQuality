@@ -1,0 +1,8 @@
+JButton button1 = new JButton("+");
+    JButton button2 = new JButton("-");
+    JToolBar toolbar = new JToolBar();
+
+    <JPanel,JFrame,Whatever>.add(toolbar, BorderLayout.SOUTH);
+
+    toolbar.add(button1);
+    toolbar.add(button2);

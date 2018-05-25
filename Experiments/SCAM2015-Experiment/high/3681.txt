@@ -1,0 +1,7 @@
+if(age > 5) {
+   // code
+} else if(age ==5) {
+   // code
+} else { // don't need to use (age < 5)
+   // code
+}

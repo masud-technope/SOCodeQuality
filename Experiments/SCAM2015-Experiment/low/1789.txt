@@ -1,0 +1,28 @@
+class class1 {
+ int IDNumber = 123;  //same person as class2
+ String name = "John";
+ String company = "Intel";
+ }
+
+ class class2 { 
+
+ int IDNumber = 123;  //same person as class1
+ int income = 500;
+ int workYears = 3;
+ } 
+
+
+ public class MyData{
+public static void main(String arg[]){
+    HashMap<Integer, class1> one = new HashMap<Integer, class1>();
+    HashMap<Integer, class2> two = new HashMap<Integer, class2>();
+    one.put(1, new class1());
+    two.put(2, new class2());
+
+    HashMap<Integer, Object> three = new HashMap<Integer, Object>();
+    three.putAll(one);
+    three.putAll(two);
+
+    System.out.println(three);
+}
+ }

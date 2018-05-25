@@ -1,0 +1,10 @@
+First Name : Kiran
+Last Name : Pai
+Age : 22
+First Name : Bill
+Last Name : Gates
+Age : 46
+First Name : Steve
+Last Name : Jobs
+Age : 40
+3 persons

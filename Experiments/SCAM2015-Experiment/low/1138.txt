@@ -1,0 +1,6 @@
+try {
+    System.out.println(foo.totalPay(8.20,47));
+}
+catch (InvalidTotalPayException e) {
+    System.out.println("Exception: " + e.toString());
+}

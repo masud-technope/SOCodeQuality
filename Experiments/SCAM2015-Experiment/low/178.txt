@@ -1,0 +1,4 @@
+Class c = cronTrigger.getClass();
+Field f = c.getDeclaredField("cronEx");
+f.setAccessible(true);
+CronExpression cronEx = (CronExpression) f.get(cronTrigger);

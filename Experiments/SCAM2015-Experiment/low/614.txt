@@ -1,0 +1,4 @@
+Random randomGenerator = new Random();
+
+   int i = randomGenerator.nextInt(256);
+   System.out.println((char)i);

@@ -1,0 +1,9 @@
+public class Router {
+  private List<Route> routes = new ArrayList<Route>();
+
+  public Router(Iterable<Route> routes) {
+    for (Route route : routes)
+      this.routes.add(route);
+  }
+
+}

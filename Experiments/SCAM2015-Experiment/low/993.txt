@@ -1,0 +1,5 @@
+int index = 4;
+
+    ArrayList<String> myObjects = Lists.newArrayList("a", "b", "c", "d");
+    Object o = index  < myObjects.size() && index >= 0 ? myObjects.get(index) : null;
+    System.out.println(o);

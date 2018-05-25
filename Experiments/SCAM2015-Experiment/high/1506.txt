@@ -1,0 +1,5 @@
+public static void main(String[] args) {
+    Storage data = new Storage();
+    data.Store("Jack", 60, 182);
+    data.Store("Peter", 70, 176);
+}

@@ -1,0 +1,15 @@
+public class A {
+        B b = new B();
+        private int tryToAccess;
+        public void doSomething() {
+             // this does something
+        }
+
+    public class B{
+
+     public B()
+         {
+          tryToAccess=5;
+         }
+    }//B ends
+   }//A ends

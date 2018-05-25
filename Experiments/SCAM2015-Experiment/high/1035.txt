@@ -1,0 +1,13 @@
+public class A {
+  //statements
+}
+
+public class B extends A {
+  public void foo() { }
+}
+
+A a=new B();
+
+//To execute **foo()** method.
+
+((B)a).foo();

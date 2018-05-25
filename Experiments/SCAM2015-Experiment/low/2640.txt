@@ -1,0 +1,100 @@
+#include "iostream"
+#include <string>
+
+using namespace std;
+
+int hash_f(string s){
+        int key=0;
+        for(unsigned int i=0;i<s.size();i++){
+           key += s[i];
+        }
+        return key;
+}
+
+class collection{
+
+int key[100];
+string str[10000];
+
+public: 
+collection(){
+    str[hash_f( "abacus")] = "abacus"; 
+    str[hash_f( "deltoid")] = "deltoid"; 
+    str[hash_f( "gaff")] = "gaff"; 
+    str[hash_f( "giraffe")] = "giraffe"; 
+    str[hash_f( "microphone")] = "microphone"; 
+    str[hash_f( "reef")] = "reef"; 
+    str[hash_f( "qar")] = "qar"; 
+}
+
+string  find(int _key){
+    return str[_key];
+}
+};
+
+string sub_str(string s,int* indexes,int n ){
+    char c[20];
+    int i=0;
+    for(;i<n;i++){
+        c[i] = s[indexes[i]];
+    }
+    c[i] = 0;
+    return string(c);
+}
+
+string* combination_m_n(string str , int m,int n , int& num){
+
+    string* result = new string[100];
+    int index = 0;
+
+    int * indexes = (int*)malloc(sizeof(int)*n);
+
+    for(int i=0;i<n;i++){
+        indexes[i] = i; 
+    }
+
+    while(1){
+            result[index++] = sub_str(str , indexes,n);
+            bool reset = true;
+            for(int i=n-1;i>0;i--)
+            {
+                if( ((i==n-1)&&indexes[i]<m-1) ||  (indexes[i]<indexes[i+1]-1))
+                {
+                    indexes[i]++;
+                    for(int j=i+1;j<n;j++) 
+                        indexes[j] = indexes[j-1] + 1;
+                    reset = false;
+                    break;
+                }
+            }
+            if(reset){
+                indexes[0]++;
+                if(indexes[0] + n > m) 
+                    break;
+                for(int i=1;i<n;i++)
+                    indexes[i] = indexes[0]+i;
+            }
+    }
+    num = index;
+    return result;
+}
+
+
+int main(int argc, char* argv[])
+{
+    string str = "aeffgirq";
+    string* r;
+    int num;
+
+    collection c;
+    for(int i=8;i>0;i--){
+        r = combination_m_n(str, str.size(),i ,num);
+        for(int i=0;i<num;i++){
+            int key = hash_f(r[i]);
+             string temp = c.find(key);
+            if(  temp != "" ){
+                  cout << temp ;
+            }
+        }
+    }
+}

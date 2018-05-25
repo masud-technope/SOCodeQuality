@@ -1,0 +1,7 @@
+try {
+    // Try something.
+} catch (Exception e) {
+    // Catch the exception.
+} finally {
+    // The finally block always executes when the try block exits.
+}

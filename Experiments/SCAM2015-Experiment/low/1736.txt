@@ -1,0 +1,18 @@
+// static String[] valsbyte = new String[10]; // global variable if you return a string
+static byte[] valsbyte = new byte[10]; // global variable
+
+
+// static String[] toBinary(int a){ // if you return a string
+static byte[] toBinary(int a){
+n++;
+if(n>10){ // check recursion to jump over process and internal method call
+
+
+// valsbyte[n] = a%2; // if you reurn a string
+
+valsbyte[n] = new Integer(ax).byteValue(); // convert to byte
+
+
+
+//LAST LINE OF METHOD
+return valsbyte[n];

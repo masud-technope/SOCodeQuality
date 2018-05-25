@@ -1,0 +1,17 @@
+package rpsgame;
+
+public final class RPSObject {
+    private final String name;
+
+    public RPSObject(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String toString() {
+        return getName();
+    }
+}

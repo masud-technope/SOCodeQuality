@@ -1,0 +1,14 @@
+List<Integer> list = new ArrayList<Integer>();
+
+for (int i = 1; i <= 12; i++) {
+    list.add(i);
+}
+
+Collections.sort(list, new Comparator<Integer>() {
+
+    @Override
+    public int compare(Integer o1, Integer o2) {
+          return Math.random() > 0.5 ? 1 : -1;
+    }
+);
+Integer[] array = list.toArray(new Integer[list.size()]);

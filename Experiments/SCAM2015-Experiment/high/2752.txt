@@ -1,0 +1,8 @@
+double n = myDouble - Math.floor(myDouble); //This will give you the number 
+                                            //after the decimal point.
+if(n < 0.6) {
+     myDouble = Math.floor(myDouble);
+}
+else {
+     myDouble = Math.ceil(myDouble);
+}

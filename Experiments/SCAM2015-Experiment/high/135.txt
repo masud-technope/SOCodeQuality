@@ -1,0 +1,18 @@
+int nearest = -1;
+int bestDistanceFoundYet = Integer.MAX_INTEGER;
+// We iterate on the array...
+for (int i = 0; i < array.length; i++) {
+  // if we found the desired number, we return it.
+  if (array[i] == desiredNumber) {
+    return array[i];
+  } else {
+    // else, we consider the difference between the desired number and the current number in the array.
+    int d = Math.abs(desiredNumber - array[i]);
+    if (d < bestDistanceFoundYet) {
+      // For the moment, this value is the nearest to the desired number...
+      bestDistanceFoundYet = d; // Assign new best distance...
+      nearest = array[i];
+    }
+  }
+}
+return nearest;

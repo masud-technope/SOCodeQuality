@@ -1,0 +1,7 @@
+// Within Singleton class
+
+public void writePreference(String key, String value){
+     Editor e = mMyPreference.edit();
+     e.putString(key, value);
+     e.commit();
+}

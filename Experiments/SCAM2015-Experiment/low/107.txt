@@ -1,0 +1,19 @@
+class ThirdPartyApi {
+     void foo(){}  // available in all versions
+     void bar(){}  // available only in new version
+}
+
+ThirdPartyApiV1 extends ThirdPartyApi {
+     void foo() {
+        thirdpartyV1Object.foo();
+     }
+}
+
+ThirdPartyApiV2 extends ThirdPartyApi {
+     void foo() {
+        thirdpartyV2Object.foo();
+     }
+     void bar() {
+        thirdpartyV2Object.bar();
+     }
+}

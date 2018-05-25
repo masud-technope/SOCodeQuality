@@ -1,0 +1,12 @@
+class NumericComparator implements Comparator<String> {
+ public int compare(String s1, String s2) throws NullPointerException, NumberFormatException {
+
+  double test = Double.parseDouble(s1) - Double.parseDouble(s2);
+
+  int retVal = 0;
+  if (test < 0) retVal = -1;
+  else if (test > 0) retVal = 1;
+
+  return retVal;  
+ }
+}

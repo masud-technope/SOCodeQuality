@@ -1,0 +1,8 @@
+class Door {
+    boolean permission;
+    String name;
+    int id;
+    public Door(boolean permission, String name, int id) {
+        //initialize your variables here!
+    }
+}

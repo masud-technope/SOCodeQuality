@@ -1,0 +1,11 @@
+Bird getMyBird(Integer aniInteger) {
+        Bird b = new Bird();
+        //Do somthig with bird object...
+
+        return b;
+        //get your modifeid bird object
+    }
+
+    Bird myBird = animalList.get(animalIndex);
+
+    myBird.move();

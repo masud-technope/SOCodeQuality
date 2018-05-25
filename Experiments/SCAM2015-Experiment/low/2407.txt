@@ -1,0 +1,38 @@
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class LabelThread {
+    private JLabel textLabel;
+
+    public LabelThread() {
+        try {
+            JFrame frame  = new JFrame("Label");
+            frame.setSize(500, 500);
+
+            textLabel = new JLabel("Hiiii.... Kill me");
+            frame.setContentPane(textLabel);
+
+            frame.setVisible(true);
+
+            MyThread thread = new MyThread();
+            MyThread.sleep(5000);
+            thread.start();
+        } catch (InterruptedException ex) {
+
+        }
+    }
+    class MyThread extends Thread{
+
+        @Override
+        public void run() {
+            System.out.print("Running thread");
+            textLabel.setText("");
+        }
+
+}
+public static void main(String args[]){
+    LabelThread labelThread = new LabelThread();
+}
+}

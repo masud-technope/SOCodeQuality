@@ -1,0 +1,13 @@
+public class PersonDTO {
+    private String id;
+    private String address;
+
+    public PersonDTO() {
+    }
+    public PersonDTO(String id, String address) {
+        this.id = id;
+        this.address = address;
+    }
+
+    //getter and setter 
+}

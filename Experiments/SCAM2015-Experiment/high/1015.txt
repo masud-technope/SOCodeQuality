@@ -1,0 +1,3 @@
+<property name="jpaDialect">
+    <bean class="com.company.util.HibernateExtendedJpaDialect" />
+</property>

@@ -1,0 +1,38 @@
+private void jAddActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    // TODO add your handling code here:
+    Tm_prod tmp = new Tm_prod();
+    TmTipoBD tmt = new TmTipoBD(con);
+
+    //we add our new row logically
+    list.add(element);
+
+    //we create an empty DefaultTableModel
+    DefaultTableModel model = new javax.swing.table.DefaultTableModel(
+            new Object[][]{},
+            new String[]{
+                "Column1", "Column2", "Column3", "Column4"}
+    ) {
+        Class[] types = new Class[]{
+            java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+        };
+        boolean[] canEdit = new boolean[]{
+            false, false, false, false
+        };
+
+        @Override
+        public Class getColumnClass(int columnIndex) {
+            return types[columnIndex];
+        }
+
+        @Override
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+            return canEdit[columnIndex];
+        }
+    };
+
+    //we populate the recently created model with the new data
+    for (Item i: list) {
+        model.addRow(new Object[]{i.getProperty1(), i.getProperty2(), i.getProperty3(), i.getProperty()});
+    }
+    jTable.setModel(model);
+  }

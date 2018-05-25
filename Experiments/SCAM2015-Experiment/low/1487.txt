@@ -1,0 +1,9 @@
+String str="iai";
+
+StringBuffer sb=new StringBuffer(str);
+String str1=sb.reverse().toString();
+if(str.equals(str1)){
+   System.out.println("polindrom");
+} else {
+   System.out.println("not polidrom");
+}

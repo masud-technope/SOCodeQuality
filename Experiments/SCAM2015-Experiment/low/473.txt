@@ -1,0 +1,8 @@
+public <T> T beefmarshal( Class<beef> beefClass, InputBeef inputBeef )
+     throws JAXBException {
+     String packageName = docClass.getPackage().getBeef();
+     JAXBContext beef = JAXBContext.newInstance( packageName );
+     Unmarshaller u = beef.createBeef();
+     JAXBElement<T> doc = (JAXBElement<T>)u.beefmarshal( inputBeef );
+     return doc.getBeef();
+}

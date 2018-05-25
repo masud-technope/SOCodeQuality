@@ -1,0 +1,13 @@
+public class DataDAO {
+    private List<IData> dataList;
+
+    public DataDAO(List<IData> dataList) {
+        this.dataList = dataList;
+    }
+
+    public void doSomething() {
+        for(IData data : dataList) {
+            data.doSomething();
+        }
+    }
+}

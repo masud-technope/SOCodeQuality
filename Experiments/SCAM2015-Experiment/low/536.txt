@@ -1,0 +1,17 @@
+public interface MyRemoteInterface extedns Remote {
+    ...
+}
+
+public class MyRemoteObject implements MyRemoteInterface {
+    ...
+}
+
+public static MyRemoteObject obj = new MyRemoteObject();
+
+public static void main(String[] args) {
+    //removing cast to MyRemoteInterface fixes the problem
+    this.obj = UnicastRemoteObject.exportObject((MyRemoteInterface) this.obj, 0);
+
+    //unless the above cast is removed, this throws NoSuchObjectException occasionally
+    LocateRegisry.getRegistry("127.0.0.1", 1099).bind("name", this.obj);
+}

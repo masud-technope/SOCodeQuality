@@ -1,0 +1,4 @@
+String input = JOptionPane.showInputDialog(null, "Enter the name of object?”); 
+Switch (input){
+case String: String string  = new String();
+case int: int Int = new int();

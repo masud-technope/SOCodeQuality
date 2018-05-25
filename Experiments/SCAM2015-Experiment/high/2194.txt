@@ -1,0 +1,36 @@
+private static final Pattern EMAIL_REGEX =
+        Pattern.compile("[A-Za-z0-9](:?(:?[_\\.\\-]?[a-zA-Z0-9]+)*)@(:?[A-Za-z0-9]+)(:?(:?[\\.\\-]?[a-zA-Z0-9]+)*)\\.(:?[A-Za-z]{2,})");
+
+private static final Pattern WEBSITE_REGEX =
+        Pattern.compile("http(:?s?)://[_#\\.\\-/\\?&=a-zA-Z0-9]*");
+
+public static String readFileAsString(String fileName) throws IOException {
+    File f = new File(fileName);
+    byte[] b = new byte[(int) f.length()];
+    InputStream is = null;
+    try {
+        is = new FileInputStream(f);
+        is.read(b);
+        return new String(b, "UTF-8");
+    } finally {
+        if (is != null) is.close();
+    }
+}
+
+public static List<String> filterEmails(String everything) {
+    List<String> list = new ArrayList<String>(8192);
+    Matcher m = EMAIL_REGEX.matcher(everything);
+    while (m.find()) {
+        list.add(m.group());
+    }
+    return list;
+}
+
+public static List<String> filterWebsites(String everything) {
+    List<String> list = new ArrayList<String>(8192);
+    Matcher m = WEBSITE_REGEX.matcher(everything);
+    while (m.find()) {
+        list.add(m.group());
+    }
+    return list;
+}

@@ -1,0 +1,3 @@
+temp = dCol;
+dCol = -dRow;
+dRow = temp;

@@ -1,0 +1,4 @@
+HashMap<Integer, String> map = new HashMap<Integer, String>()
+  map.put(0, "North")
+  map.put(45, "Northeast")
+  etc...

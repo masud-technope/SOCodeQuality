@@ -1,0 +1,12 @@
+private PostManager pm;
+
+void main()
+{
+    pm = new PostManager();
+
+    string author = "John";
+    Post p = new Post(author);
+    md.addPost(p);
+
+    pm.addPost(new Post("Jane"));
+}

@@ -1,0 +1,33 @@
+public class Vec2<E extends Number> {
+
+private E x, y;
+
+public Vec2(E xa, E ya) {
+    this.x = xa;
+    this.y = ya;
+}
+
+//Not _easily_ possible with generics, as the compiler has no guarantee that
+//zero is an acceptable value. Consider some variation of a Factory pattern,
+//but this will work. Note that there is an "officially"-unchecked cast warning.
+public Vec2() {
+    super();
+
+    final Number zero = 0.0; 
+    this.x = (E)zero;
+    this.y = (E)zero;
+}
+
+public Vec2(Vec2<E> vec) {
+    this(vec.x, vec.y);
+}
+
+public void addX(E xa) {
+    Number c = x.doubleValue() + xa.doubleValue();
+    x = (E)c;
+}
+
+public void addY(E ya) {
+    Number c = y.doubleValue() + ya.doubleValue();
+    x = (E)c;
+}

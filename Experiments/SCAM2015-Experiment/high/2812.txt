@@ -1,0 +1,11 @@
+Circle(int r){
+ radius = r;
+}
+
+Rectangle(int l, int b){
+length = l;
+breadth = b;
+}
+
+Circle c = new Circle(9); //creates a new Circle with radius 9
+Rectangle r = new Rectangle(2,3) //Creates a new Rectangle with length as 2, breadth as 3

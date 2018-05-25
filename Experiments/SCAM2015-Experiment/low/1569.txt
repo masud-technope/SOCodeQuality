@@ -1,0 +1,9 @@
+<bean id="dir" class="java.lang.String">
+    <property name="path" value="c:/work/" />
+</bean>
+<bean id="file" class="java.lang.String">
+    <property name="fileName" value="file.properties" />
+</bean>
+<bean id="path" class="java.lang.String">
+    <property name="initialShapeSeed" value="#{dir.path}#{file.fileName}"/>
+</bean>

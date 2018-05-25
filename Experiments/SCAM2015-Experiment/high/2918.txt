@@ -1,0 +1,6 @@
+class CategoryHandler extends DatabaseHandler<Category>{
+
+      @Override
+      public void add(List<Category> object) {}
+
+}

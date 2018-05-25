@@ -1,0 +1,5 @@
+ChainableFilter chainableFilter = new ChainableFilter();
+chainableFilter.addFilter(new RestrictedLengthFilter()); // User supplied filter 
+chainableFilter.addFilter(new NumericFilter()); // User supplied filter 
+
+((AbstractDocument)textField.getDocument()).setDocumentFilter(chainableFilter);

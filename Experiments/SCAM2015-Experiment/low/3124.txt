@@ -1,0 +1,10 @@
+My School
+   |
+   |----src
+   |     |
+   |     |---Subject_one
+   |     |      |-----//.java files
+   |     |
+   |     |---Subject_two
+   |     |      |----//.java files
+   |     |

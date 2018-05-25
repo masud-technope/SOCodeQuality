@@ -1,0 +1,3 @@
+private void tableMouseClicked(java.awt.event.MouseEvent evt) {
+ // Do something.
+}

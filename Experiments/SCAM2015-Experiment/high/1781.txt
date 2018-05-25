@@ -1,0 +1,6 @@
+for(String value : new Vector<String>(v)) // make a copy
+{
+    String value=(String) it.next();
+    System.out.println(value);
+    v.remove(value);
+}

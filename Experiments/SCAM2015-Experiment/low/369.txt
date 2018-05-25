@@ -1,0 +1,15 @@
+class Widen {
+    private static widen(long k) {
+        System.out.println("Converted to long: " + k);
+    }
+    private static widen(int ... k) {
+        System.out.println("Converted to varargs: " + k);
+    }
+    private static widen(Integer k) {
+        System.out.println("Converted to Integer: " + k);
+    }
+    public static void main(String ... args) {
+        int value = 3;
+        widen(value);  // Output: Converted to long: 3
+    }
+}

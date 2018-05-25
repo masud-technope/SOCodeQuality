@@ -1,0 +1,4 @@
+a1 = read(a)
+b1 = read(b)
+a2 = read(a)
+result = op(a1, b1, a2)

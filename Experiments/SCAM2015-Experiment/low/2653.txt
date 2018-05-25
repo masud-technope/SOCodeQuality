@@ -1,0 +1,26 @@
+public class Lock {
+
+private static Lock instance;
+private static boolean inUse = false;
+
+public static Lock getInstance() {
+    if(instance == null) {
+        instance = new Lock();
+    }
+    return instance;
+}
+
+public boolean acquireLock() {
+    boolean rv = false;
+    if(inUse == false) {
+        inUse = true;
+        rv = true;
+    }
+    return rv;
+}
+
+public void releaseLock() {
+    inUse = false;
+}
+
+}

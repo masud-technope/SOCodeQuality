@@ -1,0 +1,4 @@
+enum Browser {
+    CHROME,
+    FIREFOX,
+    IE

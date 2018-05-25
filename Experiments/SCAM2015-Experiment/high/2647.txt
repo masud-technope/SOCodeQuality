@@ -1,0 +1,8 @@
+public static void main (String [] args) throws IOException, InterruptedException
+{
+    ...
+
+    System.out.println("Press return to continue.");
+    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+    in.readLine();
+}

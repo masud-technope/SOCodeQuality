@@ -1,0 +1,35 @@
+package com.stack.overflow.works.main;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * @author sarath_sivan
+ */
+
+public class DuplicatesFinder {
+
+    public static void findDuplicates(String inputString) {
+        Map<Character, Integer> duplicatesMap = new HashMap<Character, Integer>(); 
+        char[] charArray = inputString.toCharArray();
+        for (Character ch : charArray) {
+            if (duplicatesMap.containsKey(ch)) {
+                duplicatesMap.put(ch, duplicatesMap.get(ch) + 1);
+            } else {
+                duplicatesMap.put(ch, 1);
+            }
+        }
+        Set<Character> keySet = duplicatesMap.keySet();
+        for (Character ch: keySet) {
+            if (duplicatesMap.get(ch) > 1) {
+                System.out.println("[INFO: CHARACTER " + ch + " IS DUPLICATE, OCCURENCE: " + duplicatesMap.get(ch) + " TIMES]");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        DuplicatesFinder.findDuplicates("sarath kumar sivan");
+    }
+
+}

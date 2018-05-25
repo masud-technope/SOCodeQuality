@@ -1,0 +1,10 @@
+public void getOrderInformation() throws InvalidCardNumberException
+{
+  try {
+    getCreditCardNumber();
+  } catch(InvalidLengthException ex) {
+    System.err.println("Card number must be 16 digits.");
+  } catch(NonNumericException ex) {
+    System.err.println(“Card number must be numbers only.”);
+  }
+}

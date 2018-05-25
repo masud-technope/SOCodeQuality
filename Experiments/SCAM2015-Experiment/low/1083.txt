@@ -1,0 +1,27 @@
+private void hash(String passwd, int hashType){
+    byte[] bSalt = new byte[8];
+    try {
+        if(this.salt == null){
+            bSalt = getSecure8ByteSalt();
+        }
+        else{ 
+            bSalt = base64ToByte(salt);
+        }
+    } catch (IOException e1) {
+        log.error(e1.getMessage(),e1);
+        return;
+    }
+
+
+    byte[] bDigest=null;
+    try {
+        bDigest = getHash(ITERATION_NUMBER,passwd,bSalt,hashType);
+    } catch (NoSuchAlgorithmException e) {
+        log.error(e.getMessage(),e);
+    }
+
+    String sDigest = byteToBase64(bDigest);
+    if(this.salt == null)
+        setSalt(byteToBase64(bSalt));
+setPasswordHash(sDigest);
+}

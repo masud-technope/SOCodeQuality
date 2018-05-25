@@ -1,0 +1,4 @@
+Map<String, Pojo> pojoMap = new HashMap<String, Pojo>();
+for (Pojo pojo:pojoList) {
+  pojoMap.put(pojo.getName(), pojo);
+}

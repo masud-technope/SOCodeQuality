@@ -1,0 +1,4 @@
+int[] arr = new int[] {1232, -1221, 0, 345, 78, 99};
+Arrays.sort(arr);
+int[] top4 = Arrays.copyOfRange(arr, arr.length-4,arr.length);
+System.out.println(Arrays.toString(top4));

@@ -1,0 +1,12 @@
+DateFormat formatter=new SimpleDateFormat("dd-MM-yyyy");; 
+Date date =(Date)formatter.parse("12-01-1990");     //birthDate is a String, in format dd-MM-yyyy
+
+Calendar birthDate = Calendar.getInstance();
+birthDate.setTime(date);
+
+Calendar sysDate = Calendar.getInstance();
+sysDate.setTime(new Date());
+
+int ageDiff = sysDate.get(Calendar.YEAR) - birthDate.get(Calendar.YEAR);
+
+System.out.println(ageDiff);

@@ -1,0 +1,11 @@
+private static int howManyChar(String s, char c){
+        if(s.length() == 0){
+            return 0;
+        }else{
+            if(s.charAt(0)==c)
+                return howManyChar(s.substring(1),c) + 1;
+            else
+                return howManyChar(s.substring(1),c);
+        }
+
+    }

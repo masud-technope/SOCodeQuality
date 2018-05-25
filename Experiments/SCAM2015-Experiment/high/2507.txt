@@ -1,0 +1,11 @@
+...
+}else if{ /* condition missing at this if */  
+
+    if(appleFragment==null){
+
+        ft.add(R.id.realtabcontent,new AppleFragment(), "apple");                       
+    }else{
+
+        ft.attach(appleFragment);               
+    }
+}...

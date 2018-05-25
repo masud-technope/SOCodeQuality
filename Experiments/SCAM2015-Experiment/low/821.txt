@@ -1,0 +1,29 @@
+public  class WorkerThread implements Runnable
+    {
+        CountDownLatch start;
+
+        CountDownLatch end;
+
+        String name;
+
+        WorkerThread(CountDownLatch startLatch, CountDownLatch stopLatch)
+        {
+            this.start = startLatch;
+            this.end = stopLatch;
+
+        }
+
+        public void run()
+        {
+            try
+            {
+
+                start.await();
+            } catch (InterruptedException ex)
+            {
+                ex.printStackTrace();
+            }
+            System.out.println("Will run when start is released ");
+            end.countDown();
+        }
+    }

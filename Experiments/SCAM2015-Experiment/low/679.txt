@@ -1,0 +1,43 @@
+public class Main3 {
+
+    public static void main(String[] args) {
+        Test3 t = new Test3();
+        new Thread(t).start();
+        new Thread(t).start();
+        try {
+            Thread.sleep(1000);
+        } catch (Exception ex) {
+        }
+        t.testNotifyAll();
+    }
+}
+
+class Test3 implements Runnable {
+
+    synchronized public void run() {
+
+        System.out.println(Thread.currentThread().getName() + ": " + "wait block got the lock");
+        try {
+            wait();
+        } catch (Exception ex) {
+        }
+        System.out.println(Thread.currentThread().getName() + ": " + "wait block got the lock again");
+        try {
+            Thread.sleep(1000);
+        } catch (Exception ex) {
+        }
+        System.out.println(Thread.currentThread().getName() + ": " + "bye wait block");
+
+    }
+
+    synchronized void testNotifyAll() {
+        System.out.println(Thread.currentThread().getName() + ": " + "notify block got the lock");
+        notifyAll();
+        System.out.println(Thread.currentThread().getName() + ": " + "notify sent");
+        try {
+            Thread.sleep(2000);
+        } catch (Exception ex) {
+        }
+        System.out.println(Thread.currentThread().getName() + ": " + "bye notify block");
+    }
+}

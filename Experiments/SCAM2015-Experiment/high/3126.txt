@@ -1,0 +1,8 @@
+String remainingPart= str.substring(str.indexOf(keyWord)+keyWord.length());
+StringTokenizer st=new StringTokenizer(remainingPart);
+if(st.hasMoreTokens()){
+   Value1=st.nextToken();
+}
+if(st.hasMoreTokens()){
+   Value2=st.nextToken();
+}

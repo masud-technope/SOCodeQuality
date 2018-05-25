@@ -1,0 +1,11 @@
+public class Utils {
+
+    private static final Object[] lock = new Object[] { new Object(), new Object() };
+
+    public static void doSomething() {
+        synchronized(lock[0]) {
+            // doSomething code
+        }
+    }
+    ...
+}

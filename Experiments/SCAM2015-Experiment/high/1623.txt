@@ -1,0 +1,7 @@
+public void methodSomething(Object o){
+
+   assert (o != null);  // will throw AssertionError during development
+
+   ...
+
+}

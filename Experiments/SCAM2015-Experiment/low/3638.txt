@@ -1,0 +1,21 @@
+class  WeaponFactory
+{
+  Collection c;
+  public WeaponFactory(Collection coll){c=coll;}
+  public Weapon makeWeapon(String text)   // Makes sense when the object is not String , like a Weapon class which also contains stats or something
+  {
+   Weapon w = new Weapon(text)
+   c.add(w);
+   return w;
+  }
+}
+
+
+class Weapon
+{
+  String name;
+  public Weapon(String text)
+  {
+    name = text;
+  }
+}

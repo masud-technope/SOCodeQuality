@@ -1,0 +1,7 @@
+public static boolean bruteforce(int[] input) {
+     for(int i = 1; i < input.length; i++) {
+         if(input[0] != input[i]) return false;
+     }
+
+     return true;
+}

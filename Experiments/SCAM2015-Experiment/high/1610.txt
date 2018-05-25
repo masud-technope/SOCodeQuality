@@ -1,0 +1,4 @@
+List<HashMap<String,String>> orig = new ArrayList<HashMap<String,String>>();
+List<? extends Map<String, String>> listEntries = orig;
+listEntries.add(new TreeMap<>()); // Shouldn't work!
+HashMap<String,String> treeMap = orig.get(0); // Oops!

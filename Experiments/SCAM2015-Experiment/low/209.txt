@@ -1,0 +1,32 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class CsvWriter {
+ public static void main(String args[]) throws IOException {
+
+  String fileName = "test.xls";
+
+  PrintWriter out = new PrintWriter(new FileWriter(fileName));
+  out.println("a,b,c,d");
+  out.println("e,f,g,h");
+  out.println("i,j,k,l");
+  out.close();
+
+  BufferedReader in = new BufferedReader(new FileReader(fileName));
+  String line = null;
+  while ((line = in.readLine()) != null) {
+
+   Scanner scanner = new Scanner(line);
+   String sep = "";
+   while (scanner.hasNext()) {
+    System.out.println(sep + scanner.next());
+    sep = ",";
+   }
+  }
+  in.close();
+ }
+}

@@ -1,0 +1,15 @@
+for (String s: list1) {
+    boolean obtained = false;
+    double tempD;
+
+    try {
+        tempD = Double.parseDouble(s); 
+        obtained = true;
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    if (obtained) {
+        list2.add(tempD);
+    }
+}

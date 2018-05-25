@@ -1,0 +1,13 @@
+class TheBean {
+    private List strings = ....
+
+    getStrings(){
+        return Collections.unmodifiableList(this.strings) // so if you return the reference people cant muck with it.
+    }
+
+    addListElement(String toAdd) {
+        // possibly validate toAdd
+        this.strings.add(toAdd);
+    }
+    // you also need removeListelement
+}

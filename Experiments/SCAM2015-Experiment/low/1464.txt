@@ -1,0 +1,6 @@
+String str="word1:word2|word3||word4|word5|||word6|word7";
+    String[] tokens={"[:]","[|]{3}","[|]{2}","[|]"};
+    for (int i = 0; i < tokens.length; i++) {
+        str=str.replaceAll(tokens[i], " ");
+        System.out.println(str);
+    }

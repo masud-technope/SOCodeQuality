@@ -1,0 +1,16 @@
+@Entity
+public class PersonEntity {
+    @Id
+    private String id;
+    private String address;
+
+    public PersonEntity(){
+
+    }
+    public PersonEntity(String id, String address) {
+        this.id = id;
+        this.address = address;
+    }
+    //getter and setter
+
+}

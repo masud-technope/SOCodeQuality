@@ -1,0 +1,11 @@
+class Foo {
+    private Object complex;
+    private String s;
+    Foo(String s){ this.s = s;}
+    Object getComplex() {
+        if (complex == null) {
+            *complex=new Complex(s);
+        }
+        return complex;
+    }
+}

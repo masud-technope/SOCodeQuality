@@ -1,0 +1,12 @@
+try{
+        av = UserHelper.importUsers(data, admin);
+        System.out.print("test2");
+    } catch (ImportException ie) {
+        System.out.print("testE");
+        returnMessageValue = ie.getMessage();
+    } catch (Exception e) {
+        System.out.print("testE2");
+    } catch (Throwable t) {
+        // Here you'll catch *anything* else
+        System.out.print("testTE");
+    }

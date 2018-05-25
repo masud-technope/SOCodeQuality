@@ -1,0 +1,3 @@
+PropertiesConfiguration config = new PropertiesConfiguration("usergui.properties");
+config.setProperty("colors.background", "#000000);
+config.save("usergui.backup.properties);

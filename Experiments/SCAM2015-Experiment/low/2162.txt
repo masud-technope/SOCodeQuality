@@ -1,0 +1,3 @@
+public String getStringValue(){
+     return (this.stringValue == null) ? "Default" : stringValue;
+}

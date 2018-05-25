@@ -1,0 +1,3 @@
+DSTORE tmp
+GETSTATIC ...
+DLOAD tmp

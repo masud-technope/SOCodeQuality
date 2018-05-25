@@ -1,0 +1,6 @@
+Adjustable sb = messageScrollList.getVerticalScrollBar()
+boolean onBottom = sb.getValue() == sb.getMaximum();
+//
+// add your message to the JList.
+//
+if(onBottom)  sb.setValue(sb.getMaximum());

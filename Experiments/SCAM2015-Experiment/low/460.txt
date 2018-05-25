@@ -1,0 +1,12 @@
+<jxb:globalBindings>
+    <jxb:javaType name="org.joda.time.LocalDateTime" xmlType="xs:dateTime"
+        parseMethod="test.util.JaxbConverter.parseDateTime"
+        printMethod="se.seb.bis.test.util.JaxbConverter.printDateTime" />
+    <jxb:javaType name="org.joda.time.LocalDate" xmlType="xs:date"
+        parseMethod="test.util.JaxbConverter.parseDate"
+        printMethod="test.util.JaxbConverter.printDate" />
+    <jxb:javaType name="org.joda.time.LocalTime" xmlType="xs:time"
+        parseMethod="test.util.JaxbConverter.parseTime"
+        printMethod="test.util.JaxbConverter.printTime" />
+    <jxb:serializable uid="2" />
+</jxb:globalBindings>

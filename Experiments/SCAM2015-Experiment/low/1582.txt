@@ -1,0 +1,4 @@
+HttpResponse response = httpclient.execute(httppost, localContext);
+
+//look here
+List<Cookie> cookies = mycookieStore.getCookies();

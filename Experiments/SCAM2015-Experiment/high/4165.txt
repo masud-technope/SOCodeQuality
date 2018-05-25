@@ -1,0 +1,13 @@
+// Initialization:
+Map<Character,Integer> map = new HashMap<>();
+for (char c = 'a'; c <= 'z'; ++c) {
+    map.put (c, 0);
+}
+
+// Going over the string:
+for(char c : strs.toCharArray()) {
+    Integer i = map.get(c);
+    if (i != 0) {
+        map.put (c, i + 1);
+    }
+}

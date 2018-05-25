@@ -1,0 +1,8 @@
+String[] strings = {"string1", "string2", "string3"};
+int[] boosts = {40, 32, 34};
+
+final String[] sorted = IntStream.range(0, boosts.length)
+        .mapToObj(i -> new BoostString(boosts[i], strings[i])) // Create the instance
+        .sorted(Comparator.comparingInt(b -> b.boost))         // Sort using a Comparator
+        .map(b -> b.str)                                       // Map it back to a string
+        .toArray(String[]::new);                               // And return an array

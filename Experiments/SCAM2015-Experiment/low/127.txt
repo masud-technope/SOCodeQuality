@@ -1,0 +1,3 @@
+for s in strArray do
+     print s
+     print " "

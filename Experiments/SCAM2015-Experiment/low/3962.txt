@@ -1,0 +1,11 @@
+DecimalFormat df = new DecimalFormat("#.##");
+                String hour = JOptionPane.showInputDialog("Please input your hourly salary: ");
+                double hr = Double.parseDouble(hour);
+                double dr = hr * 8;             
+                double wr = hr * 40;
+                double mr = hr * 160;
+                double yr = mr * 12;
+
+    JOptionPane.showMessageDialog(null, "Yearly: " + df.format(yr) + " / " + "Monthly: "
+                    + df.format(mr) + " / " + "Weekly: "+ df.format(wr) + " / " + "Hour: " + df.format(hr),
+                    "Yearly Salary Calculator by the hour", JOptionPane.OK_OPTION, icon);

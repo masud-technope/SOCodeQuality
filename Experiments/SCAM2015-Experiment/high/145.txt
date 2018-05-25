@@ -1,0 +1,7 @@
+final JScrollPane pane = new JScrollPane();
+    pane.addMouseListener(new MouseAdapter() {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            pane.revalidate();
+        }
+    });

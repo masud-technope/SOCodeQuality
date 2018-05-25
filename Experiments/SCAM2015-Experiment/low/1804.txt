@@ -1,0 +1,42 @@
+HttpURLConnection connection = (HttpURLConnection)new URL(uri).openConnection();
+InputStream stream = null;
+BufferedReader reader = null;
+try {
+        stream = connection.getInputStream();
+        reader = new BufferedReader(new InputStreamReader(stream, Charset.forName("UTF-8")));
+
+        // do work on part of the input stream
+
+} catch (IOException e) {
+
+    // read the error stream
+    InputStream es = connection.getErrorStream();
+    if (es != null) {
+        BufferedReader esReader = null;
+        esReader = new BufferedReader(new InputStreamReader(es, Charset.forName("UTF-8")));
+        while (esReader.ready() && esReader.readLine() != null) {
+        }
+        if (esReader != null)
+            esReader.close();
+    }
+
+    // do something with the IOException
+} finally {
+
+    // finish reading the input stream if it was not read completely in the try block, then close
+    if (reader != null) {
+        while (reader.readLine() != null) {
+        }
+        reader.close();
+    }
+
+    // Not sure if this is necessary, closing the buffered reader may close the input stream?
+    if (stream != null) {
+        stream.close();
+    }
+
+    // disconnect
+    if (connection != null) {
+        connection.disconnect();
+    }
+}

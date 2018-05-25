@@ -1,0 +1,8 @@
+public double solveQuadratic(double a, double b, double c)
+{
+    double D = b * b - 4 * a * c;
+    if (D < 0)
+        throw new RuntimeException(); // complex solution
+
+    return (-b + Math.sqrt(D)) / (2 * a);
+}

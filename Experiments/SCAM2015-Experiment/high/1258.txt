@@ -1,0 +1,4 @@
+BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(yourFile));
+bos.write(fileBytes);
+bos.flush();
+bos.close();

@@ -1,0 +1,25 @@
+String number;
+Boolean binaryfail;
+number Keyboard.nextline();
+
+while (true)
+{
+    binaryfail = (number.length() != 8); // set "fail" flag to true if length is wrong
+
+    for(int i = 0; i < number.length() && !binaryfail; i++) // loop - exit if fail
+    {
+        if (number.charAt(i) != 48 && number.charAt(i) != 49) // <<< note && not ||
+        {
+            binaryfail = true; // this causes the for loop to stop
+        }
+    }
+
+    if (binaryfail == true)
+    {
+        System.out.println("The number you entered is not a binary number or 8 digits");
+        number=Keyboard.nextline();  // so try again...
+    }
+    else break; // got here: so no failure - must have found a good number
+}
+
+System.out.println("Congratulations - " + number + " is an eight digit binary number");

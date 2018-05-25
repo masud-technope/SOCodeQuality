@@ -1,0 +1,8 @@
+for(Character c : s.toCharArray()){
+        if(c.toString().toUpperCase().equals(c.toString())){
+            System.out.println("Upper case");
+        }
+        else {
+            System.out.println("Lower case");
+        }
+    }

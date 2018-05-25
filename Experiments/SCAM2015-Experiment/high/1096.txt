@@ -1,0 +1,11 @@
+Class<?> c = null;
+if(StringClassname != null) {
+    try {
+        c = Class.forName(StringClassname );
+    } catch (ClassNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+}
+Intent intent = new Intent(mail.this, c);
+startActivity(intent);

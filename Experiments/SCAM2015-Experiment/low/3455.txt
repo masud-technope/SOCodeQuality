@@ -1,0 +1,5 @@
+String ALL_ABRBREVIATIONS = ...; // all possible
+
+public boolean isValid(String toCheck) {
+  return ALL_ABRBREVIATIONS.contains(toCheck);
+}

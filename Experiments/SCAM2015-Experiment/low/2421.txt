@@ -1,0 +1,21 @@
+public class Vehicle {
+
+    private int modelNo;
+    private String color;
+
+    /**
+     * @return the modelNo
+     */
+    public int getModelNo() {
+        return modelNo;
+    }
+
+    /**
+     * @param modelNo
+     *            the modelNo to set
+     */
+    public void setModelNo(int modelNo) {
+        this.modelNo = modelNo;
+    }
+
+}

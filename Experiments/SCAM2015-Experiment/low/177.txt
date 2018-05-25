@@ -1,0 +1,5 @@
+while(whatever) {
+    //do something
+    //Note the capitol 'T' here, this sleeps the current thread.
+    Thread.sleep(someNumberOfMilliSeconds);
+}

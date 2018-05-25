@@ -1,0 +1,10 @@
+public String getFirstLetters(String text)
+{
+  String firstLetters = "";
+  text = text.replaceAll("[.,]", ""); // Replace dots, etc (optional)
+  for(String s : text.split(" "))
+  {
+    firstLetters += s.charAt(0);
+  }
+  return firstLetters;
+}

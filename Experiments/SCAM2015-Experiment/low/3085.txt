@@ -1,0 +1,16 @@
+String email1 = new String("william.burroughs@gmail.com");
+    String email2 = new String("williamburroughs@gmail.com");
+
+     Pattern emailFinder = Pattern.compile("gmail.com");
+     Matcher emailmatcher = emailFinder.matcher(email1);
+     Matcher emailmatcher1 = emailFinder.matcher(email2);
+     if (emailmatcher.find() && emailmatcher1.find()) {
+
+            email1 = email1.replaceAll(".","");
+            email2 = email2.replaceAll(".","");
+
+            if(email1.equals(email2)){
+                System.out.println("The values match");
+            }
+
+     }

@@ -1,0 +1,11 @@
+public class Piece {
+    public String getValue() {
+        return "P";
+    }
+}
+
+public class King extends Piece {
+    public String getValue() {
+        return "K";
+    }
+}

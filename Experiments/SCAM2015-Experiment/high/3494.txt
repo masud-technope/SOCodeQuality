@@ -1,0 +1,5 @@
+Optional<Other> result =
+    things.stream()
+          .map(this::resolve)
+          .flatMap(Optional::stream)
+          .findFirst();

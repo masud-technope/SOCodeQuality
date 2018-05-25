@@ -1,0 +1,5 @@
+centerPanel = new JPanel();
+    JFrame frame = new JFrame();
+    frame.add(centerPanel);
+    frame.setVisible(true);
+    centerPanel.setVisible(true);

@@ -1,0 +1,14 @@
+public class job
+{
+    private static int jobID;
+    private String name;
+    private boolean isFilled;
+
+    public Job(String title){
+        name = title;
+        isFilled = false;
+
+        synchronized {
+            jobID = jobID + 1;
+        } 
+}

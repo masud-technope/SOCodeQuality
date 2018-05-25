@@ -1,0 +1,3 @@
+ByteArrayInputStream bis = new ByteArrayInputStream(htmlSource.toString().getBytes());  
+ByteArrayInputStream cis = new ByteArrayInputStream(cssSource.toString().getBytes());
+XMLWorkerHelper.getInstance().parseXHtml(writer, document, bis, cis);

@@ -1,0 +1,12 @@
+Loop master string
+for every character (using index i, lets say)
+   check whether this is same as first character of the other string
+   if it is
+      //potential match
+      loop through the characters in the child string (lets say using index j)
+
+      match them with the consecutive characters in the master string 
+      (something like master[j+i] == sub[j])
+
+       If everything match, 'i' is what you want
+       otherwise, continue with the master, hoping you find a match

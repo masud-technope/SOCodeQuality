@@ -1,0 +1,7 @@
+public class SimpleDateFormatExample {
+         private static final SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+
+         public String someMethod(Date date) {
+            return simpleFormat.format(date);
+         }
+    }

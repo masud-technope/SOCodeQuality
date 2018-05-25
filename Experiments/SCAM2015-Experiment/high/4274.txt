@@ -1,0 +1,9 @@
+public double[] conversionNumber(List<String> list) {
+    double[] sequence = new double[list.size()];
+    int pos = 0;
+    for (String element : list) {
+        double val = Double.parseDouble(element);
+        sequence[pos++] = val; // <-- post-increment
+    }
+    return sequence;
+}

@@ -1,0 +1,4 @@
+String val="<blablabla word blablabla> word123 <word>";
+String REGEX="(?<=>)[^<]+";
+String replaceString="replace";
+System.out.println(val.replaceAll(REGEX, replaceString));

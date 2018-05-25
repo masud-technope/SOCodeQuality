@@ -1,0 +1,8 @@
+<form action="servlet" method="post">
+    <select name="prodnd" multiple>
+        <option value="Andorra">Andorra</option>
+        <option value="Antarctica">Antarctica</option>
+        <option value="Bulgaria">Bulgaria</option>
+    </select>
+    <input type="submit">
+</form>

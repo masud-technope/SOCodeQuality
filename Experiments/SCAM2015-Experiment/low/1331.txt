@@ -1,0 +1,8 @@
+import java.util.Set;
+
+Set<Integer> mySet = new HashSet<Integer>(10); // do you know how many elements do you need?
+boolean elementNotThere;
+do {
+    int myInt = r.nextInt(hoogste + 1 - laagste);
+    elementNotThere = mySet.add(myInt);
+} while ( ! elementNotThere );

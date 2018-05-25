@@ -1,0 +1,4 @@
+static final long ONE_MINUTE_IN_MILLIS=60000;//millisecs
+
+long t=date.getTime();
+Date afterAddingTenMins=new Date(t + (10 * ONE_MINUTE_IN_MILLIS));

@@ -1,0 +1,10 @@
+byte[] locationGen = new byte[1];
+for(byte i = 0; i < locationGen.length; i++) {
+    locationGen[i] = (byte)(Math.random()*7+1);
+}
+byte[] locations = new byte[locationGen.length*3];
+for(int i = 0; i < locationGen.length; ++i) {
+    locations[i] = locationGen[i];
+    locations[i+locationGen.length] = locationGen[i] + 1;
+    locations[i+2*locationGen.length] = locationGen[i] + 2;
+}

@@ -1,0 +1,4 @@
+if (userInput.matches (".*[bcdfghjklmnpqrstvwx]+.*"))
+    results += "has consonants";
+else
+    results += "no consonants";

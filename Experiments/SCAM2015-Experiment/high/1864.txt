@@ -1,0 +1,4 @@
+// I personally prefer ReadWriteLocks, but this sounds like it will do...
+synchronized (windowItem) {
+    windowItem.getMethodWithProblem();
+}

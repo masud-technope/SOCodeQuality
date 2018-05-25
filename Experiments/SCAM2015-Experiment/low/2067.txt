@@ -1,0 +1,12 @@
+public Set<Object> findDuplicates(List<Object> list) {
+        Set<Object> items = new HashSet<Object>();
+        Set<Object> duplicates = new HashSet<Object>();
+        for (Object item : list) {
+            if (items.contains(item)) {
+                duplicates.add(item);
+                } else { 
+                    items.add(item);
+                    } 
+            } 
+        return duplicates;
+        }

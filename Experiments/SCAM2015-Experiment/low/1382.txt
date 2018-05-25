@@ -1,0 +1,5 @@
+StringBuffer buf=new StringBuffer();
+rng=new Random();
+for(int a=0;a<N;a++)
+    buffer.append((char) ('0'+rng.nextInt(10)));
+return buffer.toString();

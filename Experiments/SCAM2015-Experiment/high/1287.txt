@@ -1,0 +1,5 @@
+double[][] matrix = new double[20][4];
+
+// Fill each row with 1.0
+for (double[] row: matrix)
+    Arrays.fill(row, 1.0);

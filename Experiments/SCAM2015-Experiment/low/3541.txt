@@ -1,0 +1,7 @@
+void f(const BigClass& big_class)
+{
+    struct { std::string str; int i; } props;
+    props.str = big_class.GetFilename();
+    props.i = big_class.GetID();
+    // etc...
+}

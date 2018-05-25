@@ -1,0 +1,3 @@
+String saveUser = "user";
+  String timeOfMAking = String.valueOf(1000000000);
+  String result = saveUser.concat("-".concat(timeOfMAking));

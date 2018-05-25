@@ -1,0 +1,9 @@
+// Complete class name, including Package
+  String name = "com.foo.Emp";
+
+  Object object = Class.forName(name).getConstructor().newInstance();
+  if (object instanceof Emp) {
+     // Specific logic for Emp objects
+  } else if (object instanceof Dept) {
+     // Specific logic for Dept objects
+  }

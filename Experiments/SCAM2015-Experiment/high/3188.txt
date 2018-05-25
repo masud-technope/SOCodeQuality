@@ -1,0 +1,7 @@
+String[] items ={"Joe","jon","And So On".....};
+for (String item : items ) {
+    if (person.contains(item)) {
+       //found
+        break; 
+    } 
+}

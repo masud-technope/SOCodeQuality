@@ -1,0 +1,46 @@
+private synchronized static String utftoasci(String s){
+  final StringBuffer sb = new StringBuffer( s.length() * 2 );
+
+  final StringCharacterIterator iterator = new StringCharacterIterator( s );
+
+  char ch = iterator.current();
+
+  while( ch != StringCharacterIterator.DONE ){
+   if(Character.getNumericValue(ch)>0){
+    sb.append( ch );
+   }else{
+    boolean f=false;
+    if(Character.toString(ch).equals("Ê")){sb.append("E");f=true;}
+    if(Character.toString(ch).equals("È")){sb.append("E");f=true;}
+    if(Character.toString(ch).equals("ë")){sb.append("e");f=true;}
+    if(Character.toString(ch).equals("é")){sb.append("e");f=true;}
+    if(Character.toString(ch).equals("è")){sb.append("e");f=true;}
+    if(Character.toString(ch).equals("è")){sb.append("e");f=true;}
+    if(Character.toString(ch).equals("Â")){sb.append("A");f=true;}
+    if(Character.toString(ch).equals("ä")){sb.append("a");f=true;}
+    if(Character.toString(ch).equals("ß")){sb.append("ss");f=true;}
+    if(Character.toString(ch).equals("Ç")){sb.append("C");f=true;}
+    if(Character.toString(ch).equals("Ö")){sb.append("O");f=true;}
+    if(Character.toString(ch).equals("º")){sb.append("");f=true;}
+    if(Character.toString(ch).equals("Ó")){sb.append("O");f=true;}
+    if(Character.toString(ch).equals("ª")){sb.append("");f=true;}
+    if(Character.toString(ch).equals("º")){sb.append("");f=true;}
+    if(Character.toString(ch).equals("Ñ")){sb.append("N");f=true;}
+    if(Character.toString(ch).equals("É")){sb.append("E");f=true;}
+    if(Character.toString(ch).equals("Ä")){sb.append("A");f=true;}
+    if(Character.toString(ch).equals("Å")){sb.append("A");f=true;}
+    if(Character.toString(ch).equals("ä")){sb.append("a");f=true;}
+    if(Character.toString(ch).equals("Ü")){sb.append("U");f=true;}
+    if(Character.toString(ch).equals("ö")){sb.append("o");f=true;}
+    if(Character.toString(ch).equals("ü")){sb.append("u");f=true;}
+    if(Character.toString(ch).equals("á")){sb.append("a");f=true;}
+    if(Character.toString(ch).equals("Ó")){sb.append("O");f=true;}
+    if(Character.toString(ch).equals("É")){sb.append("E");f=true;}
+    if(!f){
+     sb.append("?");
+    }
+   }
+   ch = iterator.next();
+  }
+  return sb.toString();
+ }

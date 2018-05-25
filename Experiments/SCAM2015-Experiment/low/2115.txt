@@ -1,0 +1,21 @@
+String a[] = new String[]{"Hello","Hi","faridi","yello","this works"};
+String c[] = new String[]{"yello","tis works"};
+
+String b[] = a;
+
+for (int i = 0; i < b.length; i++) {
+
+    System.out.println(b[i]);
+
+    } 
+
+b = c;
+for (int i = 0; i < b.length; i++) {
+
+    System.out.println(b[i]);
+
+    }
+
+
+
+}

@@ -1,0 +1,8 @@
+class RNumber{
+    public static void main(String str[]){
+        int countNum=100;   
+        for(int i=0;i<countNum;i++){
+            System.out.println("Random Unique values="+(int)(Math.random()*100));
+        }
+    }
+}

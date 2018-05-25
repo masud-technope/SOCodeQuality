@@ -1,0 +1,12 @@
+.....
+anim2.setAnimationListener(animButnListener);
+askbtn.startAnimation(anim2);
+AnimationListener animButnListener = new AnimationListener(){
+  @Override
+  public void onAnimationEnd(Animation animation) {
+
+   // make  Button Visibility GONE  here
+    againbtn.setVisibility(View.GONE);
+  }
+  //.......other AnimationListener methods
+};

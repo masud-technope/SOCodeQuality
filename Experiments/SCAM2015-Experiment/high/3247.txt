@@ -1,0 +1,6 @@
+String s1 = "This is";
+    s1 = s1 + " my book"; // Note the space
+    String s2 = "This is my book";
+    String s3 = "This is my book";
+    System.out.println(s1==s2); // False
+    System.out.println(s2==s3); // True

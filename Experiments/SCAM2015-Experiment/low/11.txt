@@ -1,0 +1,8 @@
+try {
+    // code that may or may not throw an exception
+} catch {
+// catch block must exist.
+finally {
+    SomeCleanupFunctionThatThrows();
+// this portion is ran after catch block finishes
+}

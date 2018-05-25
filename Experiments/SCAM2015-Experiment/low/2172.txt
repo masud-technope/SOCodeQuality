@@ -1,0 +1,56 @@
+package sample;
+
+import java.io.IOException;
+import java.lang.management.ManagementFactory;
+import java.rmi.registry.LocateRegistry;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.management.MBeanServer;
+import javax.management.ObjectName;
+import javax.management.remote.JMXConnectorServer;
+import javax.management.remote.JMXConnectorServerFactory;
+import javax.management.remote.JMXServiceURL;
+
+public class MBServerTest {
+    public static void loadJMXAgent(int port, MBeanServer mbs) throws IOException  {
+        LocateRegistry.createRegistry(port);
+        System.out.println("Initialize the environment map");
+        Map<String,Object> env = new HashMap<String,Object>();
+        env.put("com.sun.management.jmxremote.authenticate", "false");
+        env.put("com.sun.management.jmxremote.ssl", "false");
+        System.out.println("Create an RMI connector server");
+        JMXServiceURL url =
+            new JMXServiceURL("service:jmx:rmi:///jndi/rmi://:"+port+"/jmxrmi");
+        JMXConnectorServer cs =
+            JMXConnectorServerFactory.newJMXConnectorServer(url, env, mbs);
+
+        // Start the RMI connector server.
+        //
+        System.out.println("Start the RMI connector server");
+        cs.start();
+
+    }
+
+    public static void main(String[] args) throws Exception {
+        MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+        loadJMXAgent(1199,mbs);
+
+        SimpleStandard cache = new SimpleStandard();
+
+        ObjectName name = new ObjectName(
+                "org.javalobby.tnt.jmx:type=ApplicationCacheMBean");
+        mbs.registerMBean(cache, name);
+        imitateActivity(cache);
+    }
+
+    private static void imitateActivity(SimpleStandard cache) {
+        while (true) {
+            try {
+                cache.cacheObject("hello");
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+            }
+        }
+    }
+}

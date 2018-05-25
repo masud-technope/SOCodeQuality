@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class SeparatingDigits {
+
+    public static void main( String[] args )
+    {
+
+        System.out.print( "Enter the digit to print separately :- ");
+        Scanner scan = new Scanner( System.in );
+
+        int element1 = scan.nextInt();
+        int divider;
+
+        if( ( element1 > 9999 ) && ( element1 <= 99999 ) )
+        {
+            divider = 10000;
+        }
+        else if( ( element1 > 999 ) && ( element1 <= 9999 ) )
+        {
+            divider = 1000;
+        }
+        else if ( ( element1 > 99) && ( element1 <= 999 ) )
+        {
+            divider = 100;
+        }
+        else if( ( element1 > 9 ) && ( element1 <= 99 ) )
+        {
+            divider = 10;
+        }
+        else 
+        {
+            divider = 1;
+        }
+
+        quotientFinder( element1, divider );
+
+
+
+
+    }
+
+     public static void quotientFinder( int elementValue, int dividerValue )
+     {
+         for( int count = 1;  dividerValue != 0; count++)
+         {
+            int quotientValue = elementValue / dividerValue ;
+            elementValue = elementValue % dividerValue ;
+            System.out.printf( "%d  ", quotientValue );
+
+            dividerValue /= 10;
+
+         }
+     }
+    }

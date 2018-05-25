@@ -1,0 +1,6 @@
+<props>
+  <!-- some possible values: create, create-drop, update -->
+  <prop key="hibernate.hbm2ddl.auto">update</prop>
+  <prop key="hibernate.show_sql">true</prop>
+  ....
+<props>

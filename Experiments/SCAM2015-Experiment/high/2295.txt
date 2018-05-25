@@ -1,0 +1,8 @@
+@Entity
+@Table(name = "ta_bodystat", uniqueConstraints = {@UniqueConstraint(columnNames = {"id"})})
+public class BodyStat extends BusinessObject {
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="trainee_fk")
+    @JsonBackReference
+    private Trainee trainee;

@@ -1,0 +1,3 @@
+Files.write(Paths.get("output.txt"),
+        Files.readAllBytes(Paths.get("input.txt")),
+        StandardOpenOption.CREATE);

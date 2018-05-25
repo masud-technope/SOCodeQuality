@@ -1,0 +1,8 @@
+private void add( Ball ball ){
+    System.out.println("Generic method: I'll have someone handling this : "  + ball );
+    if( ball instanceof IllegalBall ) {
+        add( ( IllegalBall ) ball );
+    } else if( ball instanceof LegalBall ) {
+        add( ( LegalBall ) ball );
+    }
+}

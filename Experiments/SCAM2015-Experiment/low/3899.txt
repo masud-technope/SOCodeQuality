@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Fibonacci2 {
+
+    public static void main(String[]args){
+
+        int a;
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.print("Number of Fibonacci numbers to print: ");
+            a = sc.nextInt();
+            sc.close();
+        }
+        int c=1; /*c current number b last number*/
+        int b=0;
+        System.out.println(b);
+        System.out.println(c);
+        int bb;
+        for (int z = 2; z < a ; z++){
+        bb = b; 
+        b = c;
+        c = bb + b; /*bb last last number*/
+        System.out.println(z);
+
+    }
+    }
+}

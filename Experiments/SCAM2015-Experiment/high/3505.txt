@@ -1,0 +1,3 @@
+void rename(String newName) {
+    name = newName;
+}

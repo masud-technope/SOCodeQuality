@@ -1,0 +1,26 @@
+// This is the dividend
+int m;    
+// Whether can't divisible
+boolean band;    
+
+//  From 100 all digital lookup
+for (int i=2;i<100;i++){ 
+        // Divisor increasing from 2
+    m=2;
+    // If not divisible, here defined as cannot be divided exactly by first, if we can find a divisor aliquot, the current number is not a prime 
+    band=true;
+    // From 2 to the current number one by one
+    while(band && m <i){    
+            // Remainder of 0, explain aliquot, band = false, jump out the while
+        if(i%m==0){
+            band=false;
+        }else{
+        // Remainder is not 0, i cannot be divided exactly by m, continue to verify the m + 1
+            m++;
+        }
+    }
+    // From 2 to i-1 cannot be divisible, that i was a prime number
+    if(band){
+        System.out.println("The number "+i+" is prime");
+    }
+}

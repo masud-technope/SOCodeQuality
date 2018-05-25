@@ -1,0 +1,5 @@
+Java final variable: If you make any variable as final, you cannot change the value of final variable (It will be constant).
+
+Java final method: If you make any method as final, you cannot override it.
+
+Java final class: If you make any class as final, you cannot extend it.

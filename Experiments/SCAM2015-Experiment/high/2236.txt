@@ -1,0 +1,3 @@
+String variation1 = "SELECT ... WHERE fur = 'fluffy' OR colour = 'white'";
+String variation2 = "SELECT ... WHERE colour = 'white' OR fur = 'fluffy'";
+assertThat(generatedSql, is(anyOf(variation1, variation2)));

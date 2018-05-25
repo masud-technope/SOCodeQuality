@@ -1,0 +1,10 @@
+String result;
+String x = "39.33";
+Double x1 = new Double(x);
+int xPre = x1.intValue();
+
+if ( x1 > xPre) {
+    result = x1;
+} else {
+    result = Integer.toString(xPre);
+}

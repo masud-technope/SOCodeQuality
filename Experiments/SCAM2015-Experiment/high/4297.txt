@@ -1,0 +1,4 @@
+public RandomBag() {
+    bag = new ArrayList<E>();
+    rand = new Random();
+}

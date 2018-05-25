@@ -1,0 +1,7 @@
+private int totalTax(ArrayList<? extends Taxable> lst) {
+    int total;
+    for (Taxable t : lst) {
+        total += t.getTax();
+    }
+    return total;
+}

@@ -1,0 +1,6 @@
+if(!(theList.get(theIndexofObject) == null)){
+   do something...
+}
+else{
+   do nothing...
+}

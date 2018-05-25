@@ -1,0 +1,5 @@
+Intent intent = new Intent(UserpickActivity.this, CommunicationActivity.class);
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);              
+    startActivity(intent);
+
+    //YOUR_ACTIVITY.finish();

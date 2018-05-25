@@ -1,0 +1,14 @@
+<!-- load environment into the env property -->
+<property environment="env" />
+
+<javac srcdir="${src}" destdir="${obj}"
+    includes="**/*.java"
+    excludes="**/package-info.java **/deprecated/*.java"
+    includeAntRuntime="no" includeJavaRuntime="no"
+    debug="true" debuglevel="source,lines"
+>
+    <!-- add -classpath option manually -->
+    <compilerarg value="-classpath" />
+    <compilerarg value="${env.CLASSPATH}" />
+    <compilerarg value="-Xlint"/>
+</javac>

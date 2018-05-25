@@ -1,0 +1,5 @@
+public static Agent generateAgent() {//Declares the type of object being given back
+  Agent randomAgent = new Agent();
+  //eliding everything else
+  return randomAgent;
+}

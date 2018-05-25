@@ -1,0 +1,32 @@
+Complete code :
+public class Overloading {
+public static void show(int i) {
+    System.out.println("int:"+i);
+}
+  public static void show(Integer i){
+     System.out.println("Integer>>"+i);
+}
+public static void show(long i){
+    System.out.println("long>>"+i);
+}
+public static void show(Long i){
+    System.out.println("Long>>"+i);
+}
+public static void show(int... i){
+    System.out.println("int...>>"+i);
+}
+public static void show(Integer... i){
+    System.out.println("Integer...>>"+i);
+}
+public static void show(Long... i){
+    System.out.println("Long...>>"+i);
+}
+public static void show(Object i){
+    System.out.println("Object>>"+i);
+}
+public static void main(String[] args) {
+    show(1);
+    show(1l);
+
+}
+}

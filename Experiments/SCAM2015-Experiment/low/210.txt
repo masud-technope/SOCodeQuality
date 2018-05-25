@@ -1,0 +1,6 @@
+private static String[] join(String[] array1, String[] array2) {
+
+    List<String> list = new ArrayList<String>(Arrays.asList(array1));
+    list.addAll(Arrays.asList(array2));
+    return list.toArray(new String[0]);
+}

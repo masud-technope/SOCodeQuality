@@ -1,0 +1,4 @@
+List<List<String>> list = new ArrayList<>();
+// Initialize list
+String[][] arr = new String[list.size()][0];
+multiListToArray(list, arr);

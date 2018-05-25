@@ -1,0 +1,20 @@
+@arr1 = ["a", "b", "c", "d"]
+arr2 = ["+", "-", "*", "/"]
+@base = []
+@arr1.each do |char|
+  arr2.each do |op|
+    @base << char + op
+  end
+end
+@right_vals = @arr1
+loop do
+  @new_values = []
+  @base.each do |left|
+    @right_vals.each do |right|
+      val = left + right
+      puts val
+      @new_values << val
+    end
+  end
+  @right_vals = @new_values
+end

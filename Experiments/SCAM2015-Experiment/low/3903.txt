@@ -1,0 +1,23 @@
+String str1=new String("nitesh");
+    String str2=new String("nitesh");
+    String str3="nitesh";
+    String str4=str3;
+    String str5=str2;
+
+    System.out.println(str1.hashCode());
+    System.out.println(str2.hashCode());
+    System.out.println(str3.hashCode());
+    System.out.println(str4.hashCode());
+    System.out.println(str5.hashCode());
+
+ if (str1 == str2)
+        System.out.println("str1 == str2");
+
+    if (str2== str3)
+        System.out.println("str2 == str3");
+
+    if (str3== str4)
+        System.out.println("str3 == str4");
+
+    if (str4== str5)
+        System.out.println("str4 == str5");

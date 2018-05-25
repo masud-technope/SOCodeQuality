@@ -1,0 +1,23 @@
+public class Duplicatestring {
+
+    public static void main(String[] args) {
+
+        String[] ip = { "mani", " manivannan", "raghv ", "mani" };
+        for (int i = 0; i < ip.length; i++) {
+
+            boolean duplicated = false;
+
+            //search back to check if a same word already exists
+            for (int j = i - 1; j >= 0; j--) {
+                if(ip[i].equals(ip[j])) {
+                    duplicated = true;
+                    break;
+                }
+            }
+            if(!duplicated) {
+                System.out.println(ip[i]);
+            }
+        }
+
+    }
+}

@@ -1,0 +1,8 @@
+public boolean equals(Object other) {
+    if(!other instanceof Customer) {
+        return false;
+    }
+
+    Customer that = (Customer) other;
+    return this.name.equals(that.name);
+}

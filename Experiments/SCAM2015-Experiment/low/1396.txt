@@ -1,0 +1,12 @@
+int a = 9909;
+
+switch(a)
+{
+   case a < 10:
+     //ones place
+     break;
+   case a < 100:
+     //hundreds place
+     break;
+   //etc.....
+}

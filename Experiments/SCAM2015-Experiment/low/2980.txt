@@ -1,0 +1,3 @@
+public static int getAtPosition(int nextPosition, int... elements) {
+    return elements[nextPosition];
+}

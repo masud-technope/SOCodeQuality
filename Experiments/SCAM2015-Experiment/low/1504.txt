@@ -1,0 +1,9 @@
+public void init() {
+    ...
+    producer.getCountDownLatch().await();      // wait for all producers to finish
+    boolean allFinished = consumer.getCountDownLatch().await(5, TimeUnit.MINUTES);      // wait 5 minutes for all consumers to finish.
+    if (!allFinished) {
+        // alert that not all consumers ended on time
+    }
+    ...
+}

@@ -1,0 +1,21 @@
+Integer input = 5278;
+char[] digits = String.valueOf(input).toCharArray();
+
+int numberOfTrinities = 4;
+String result = "";
+Random generator = new Random();
+List<String> trinities = new ArrayList<String>();
+while(trinities.size() < numberOfTrinities ) {
+    String nextTrinity = "";
+    for(int i = 0; i < 3; i++) {
+        nextTrinity  += digits(generator.nextInt(digits.size()));
+    }
+    if(isUniqueDigitsTrinity(trinities, nextTrinity)) {
+        trinities.add(nextTrinity);
+    }        
+}
+String result = "";
+for(String trinity : trinities) {
+    result += trinity;
+}
+System.out.printl("Input: " + input + ", Result: " + result);

@@ -1,0 +1,12 @@
+for(int i=0; i<1; i++){count++;}
+    count=count;
+    System.out.println(count);
+    if(count==1){
+      System.out.println("open");
+      jButton1.setText("open");
+     }
+    if(count==2){
+      System.out.println("close");
+      jButton1.setText("close");
+    count=0;
+    }

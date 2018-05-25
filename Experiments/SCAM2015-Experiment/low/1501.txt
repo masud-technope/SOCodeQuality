@@ -1,0 +1,12 @@
+public void init() throws InterruptedException {
+    ...
+    producer = r.createThreads();
+    r.startThreads();
+    consumer = s.createThreads();
+    s.startThreads();
+    ...
+    producer.getCountDownLatch().await();      // wait for all producers to finish
+    consumer.getCountDownLatch().await();      // wait for all consumers to finish 
+    // note: you could also encapsulate the latch and internally delegate the await
+    // producer.await(); // nicer to read
+}

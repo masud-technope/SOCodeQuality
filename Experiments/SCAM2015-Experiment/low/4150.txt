@@ -1,0 +1,93 @@
+public class OptionalTest
+{
+  public static Optional<DbObject> getObjectFromDb()
+  {
+    // doa.find()
+    DbObject v = find();
+
+    // create appropriate Optional
+    Optional<DbObject> object = (v == null) ? Optional.empty() : Optional.of(v);
+
+    OptionalAction
+    .ifPresent(object)
+    .then(o -> o.setAvailable(true))
+    .elseDo(o -> System.out.println("Fatal! Object not available!"));
+
+    return object;
+  }
+
+  public static void main(String[] args)
+  {
+    Optional<DbObject> object = getObjectFromDb();
+    if (object.isPresent())
+      System.out.println(object.get());
+    else
+      System.out.println("There is no object!");
+  }
+
+  // find may return null
+  public static DbObject find()
+  {
+    return (Math.random() > 0.5) ? null : new DbObject();
+  }
+
+  static class DbObject
+  {
+    private boolean available = false;
+
+    public boolean isAvailable()
+    {
+      return available;
+    }
+
+    public void setAvailable(boolean available)
+    {
+      this.available = available;
+    }
+
+    @Override
+    public String toString()
+    {
+      return "DbObject [available=" + available + "]";
+    }
+  }
+
+  static class OptionalAction
+  {
+    public static <T> IfAction<T> ifPresent(Optional<T> optional)
+    {
+      return new IfAction<>(optional);
+    }
+
+    private static class IfAction<T>
+    {
+      private final Optional<T> optional;
+      public IfAction(Optional<T> optional)
+      {
+        this.optional = optional;
+      }
+
+      public ElseAction<T> then(Consumer<? super T> consumer)
+      {
+        if (optional.isPresent())
+          consumer.accept(optional.get());
+        return new ElseAction<>(optional);
+      }
+    }
+
+    private static class ElseAction<T>
+    {
+      private final Optional<T> optional;
+      public ElseAction(Optional<T> optional)
+      {
+        this.optional = optional;
+      }
+
+      public void elseDo(Consumer<? super T> consumer)
+      {
+        if (!optional.isPresent())
+          consumer.accept(null);
+      }
+    }
+  }
+}

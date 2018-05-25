@@ -1,0 +1,14 @@
+String phrase = 
+"6
+0 1 1 0 0
+1 1 1 1 0
+0 0 0 1 0
+4
+1 1 0 1 0
+0 0 0 1 0
+1 1 0 1 0
+0 1 1 0 0";
+
+String delims = "[4 6]+";
+
+String[] parts= phrase.split(delims);

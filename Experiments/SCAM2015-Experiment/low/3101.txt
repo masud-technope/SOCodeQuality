@@ -1,0 +1,8 @@
+import urllib
+
+f = urllib.urlopen("your url")
+s = f.read()
+
+print s
+
+f.close()

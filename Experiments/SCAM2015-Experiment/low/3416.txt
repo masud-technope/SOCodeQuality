@@ -1,0 +1,45 @@
+import java.awt.FlowLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Test {
+
+    public static void main(String[] args) {
+        final JFrame frame = new JFrame();
+        frame.setLayout(new FlowLayout());
+
+        final JCheckBox chckbxNewCheckBox_1 = new JCheckBox("New Folder");
+        final JPanel panel_3 = new JPanel();
+        frame.add(panel_3);
+
+        panel_3.add(chckbxNewCheckBox_1);
+
+        final JTextField textField_3 = new JTextField();
+        panel_3.add(textField_3);
+
+        textField_3.setColumns(20);
+        textField_3.setVisible(false); //if a comment it in.. it never becomes visible
+
+        chckbxNewCheckBox_1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent arg0) {
+                if (chckbxNewCheckBox_1.isSelected()) {
+                    textField_3.setVisible(true);
+                } else
+                    textField_3.setVisible(false);
+
+                frame.pack();
+            }
+        });
+
+        frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+
+}

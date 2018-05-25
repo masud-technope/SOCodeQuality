@@ -1,0 +1,5 @@
+byte[] bytes = ByteBuffer.allocate(4).putInt(1695609641).array();
+
+for (byte b : bytes) {
+   System.out.format("0x%x ", b);
+}

@@ -1,0 +1,10 @@
+package inside;
+
+public class Test {
+    public static void main(String[] args) {
+        while(true){
+            String str = String.valueOf(System.currentTimeMillis());
+            System.out.println(str);
+        }
+    }
+}

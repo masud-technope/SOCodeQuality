@@ -1,0 +1,4 @@
+Pattern p = Pattern.compile("[a-z]");
+Matcher m = p.matcher(inputstring);
+if (m.find())
+    // match

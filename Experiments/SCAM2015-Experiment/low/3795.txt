@@ -1,0 +1,7 @@
+int numberOfUsers = getUserCount() + 1000; // to provide for additional users 
+int numberOfItems = getItemCount() + 1000;
+HashMap<Integer,Rating> ratings = new HashMap<Integer,Rating>();
+
+public Rating getRating(int userNum, int itemNum) {
+   return ratings.get(userNum + itemNum * numberOfUsers);
+}

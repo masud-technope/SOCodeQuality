@@ -1,0 +1,4 @@
+[findbugs] Executing findbugs from ant task
+[findbugs] Running FindBugs...
+[findbugs] The java class is not found:  org.apache.bcel.classfile.ClassFormatException
+[findbugs] Output saved to C:\\findbugs\\out.html

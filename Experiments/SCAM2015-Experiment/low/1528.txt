@@ -1,0 +1,7 @@
+public class MyClass
+{
+    public static string InvertText(string text)
+    {
+        return text.Invert();
+    }
+}

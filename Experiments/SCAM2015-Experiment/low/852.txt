@@ -1,0 +1,18 @@
+public boolean isDescendant(member currentRoot, member x){
+    //check the current level
+    if (currentRoot.children().contains(x)){
+        return true;
+    }
+
+    //leaf
+    if( currentRoot.children().isEmpty() ){ return false; }
+
+    //try all my children
+    boolean found = false;
+    for( Member child : currentRoot.children() ){
+       found = isDescendant( child, x );
+       if( found ) break;
+    }
+
+    return found;
+}

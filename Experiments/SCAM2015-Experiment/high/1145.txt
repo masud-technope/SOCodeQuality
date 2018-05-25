@@ -1,0 +1,33 @@
+// Don't be lazy like this, do something about the exceptions
+public static void main(String[] args) throws Exception {
+    List<POJO> pojos = new ArrayList<POJO>();
+    POJO p1 = new POJO();
+    p1.setAge("20");
+    p1.setName("Name");
+    pojos.add(p1);
+    POJO p2 = new POJO();
+    // ...
+    System.out.println(convertCollection(pojos));
+}
+
+public static List<Map<String, ?>> convertCollection(Collection collection) 
+        throws Exception {
+    List<Map<String, ?>> list = new ArrayList<Map<String, ?>>();
+    for (Object element : collection) {
+        list.add(getValues(element));
+    }
+    return list;
+}
+
+public static Map<String, ?> getValues(Object o) 
+        throws Exception {
+    Map<String, Object> values = new HashMap<String, Object>();
+    BeanInfo info = Introspector.getBeanInfo(o.getClass());
+    for (PropertyDescriptor pd : info.getPropertyDescriptors()) {
+        // This will access public properties through getters
+        Method getter = pd.getReadMethod();
+        if (getter != null)
+            values.put(pd.getName(), getter.invoke(o));
+    }
+    return values;
+}

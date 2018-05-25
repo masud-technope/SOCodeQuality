@@ -1,0 +1,3 @@
+char a = 'a';
+a -= 32;
+System.out.println("a is " + a); //a is A

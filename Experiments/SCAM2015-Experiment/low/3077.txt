@@ -1,0 +1,14 @@
+TreeMap<String, Integer> map = new TreeMap<String, Integer>();
+        Scanner scanner = null;
+        while (scanner.hasNext()) {
+            String NewWord = scanner.next().toLowerCase();
+
+            if (map.containsKey(NewWord)) {
+                Integer count = map.get(NewWord);
+                // Add the element back along with incremented count
+                map.put(NewWord, count++); 
+            } else {
+                map.put(NewWord,1); // Add a new entry
+            }
+
+        }

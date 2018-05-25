@@ -1,0 +1,4 @@
+for (int k = 0; k < arrayOfInts.length-1; k++){
+     System.out.print(arrayOfInts[k]+"");
+     System.out.println();
+ }

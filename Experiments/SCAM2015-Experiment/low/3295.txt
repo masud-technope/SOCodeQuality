@@ -1,0 +1,14 @@
+ArrayList<String> myList = new ArrayList<String>(); // creates an object evrytime whem main will be called.
+
+ try { 
+String sessionId = "b03c0-000-5h6-" + uuid.substring(0,4)
+/* from where uuid is comming?? */
+ + "-000000000";
+        myList.add(sessionId); 
+// thiss will add inside new arraylist not in previous,
+// because everytime it is getting new object reference
+  } catch(Exception e){
+    e.printStackTrace();
+   }
+
+        }

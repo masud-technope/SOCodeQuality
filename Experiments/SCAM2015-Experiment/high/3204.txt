@@ -1,0 +1,8 @@
+public boolean containsList(HashMap<K, V> map, List<V> list) {
+    for(V value : list) {
+       if(!map.containsValue(value)) {
+          return false;
+       }
+    }
+    return true;
+}

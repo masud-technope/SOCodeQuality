@@ -1,0 +1,4 @@
+$string  = "Some text, bla-bla http://www.easypolls.net/poll.html?p=51e5a300e4b084575d8568bb#.UeWjBcCzaaA.twitter";
+$pieces = explode("http://", $string);
+echo $pieces[0]; // Would print "Some text, bla-bla"
+echo $pieces[1]; // Would print "www.easypolls.net/poll.html?p=51e5a300e4b084575d8568bb#.UeWjBcCzaaA.twitter"

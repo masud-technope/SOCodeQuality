@@ -1,0 +1,8 @@
+class MouseActions implements MouseMotionListener, MouseListener
+{
+..
+..
+}
+
+canvas.addMouseListener(new MouseActions ());
+canvas.addMouseMotionListener(new MouseActions() );

@@ -1,0 +1,4 @@
+ObjectMapper mapper = new ObjectMapper();
+MyJson resultObj = mapper.readValue(str, MyJson.class);  
+//get List of week  
+List<Week> week =  resultObj.getResult().getWeek();

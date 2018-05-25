@@ -1,0 +1,13 @@
+public String SomeMethodWantingToKnowParameterNames(Value<? extends Number> parm1)
+{
+    if (parm1 != null)
+    {
+        // Do your work with the parameter - it's name can be accessed via parm1.name
+        // This is only an example
+        // You would probably want to write an accessor for name
+        return parm1.name;
+    }
+
+    // Return null for null
+    return null;
+}

@@ -1,0 +1,5 @@
+BigDecimal bd = BigDecimal.valueOf(amount, 3);
+NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("en","US"));
+formatter.setMinimumFractionDigits(3);
+String moneyString = formatter.format(bd);    
+System.out.println(moneyString);

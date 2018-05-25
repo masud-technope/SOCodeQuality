@@ -1,0 +1,14 @@
+public static void main(String[] args) {
+    String s = "10.0";
+    System.out.println(s.replaceAll("[0]+$", "").replaceAll("(\\.)(?!.*?[1-9]+)", ""));
+
+}
+
+O/P:
+10
+
+input :String s = "10.0750";
+O/P : 10.075
+
+input : String s = "10.2750";
+O/P : 10.275

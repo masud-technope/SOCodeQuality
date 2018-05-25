@@ -1,0 +1,5 @@
+Map<String,String> entry = new HashMap<String,String>();
+entry.put("1", "abc");
+entry.put("2", "xyz");
+listEntries.add(entry);
+listEntries.add(new LinkedHashMap<String, String>()); // if you want you can use different implementations of Map

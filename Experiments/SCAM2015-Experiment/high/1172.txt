@@ -1,0 +1,3 @@
+public Set firstOf2(List<? extends Set> l) {
+    return l.get(0);
+}

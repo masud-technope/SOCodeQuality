@@ -1,0 +1,4 @@
+public static void main(String[] args) {
+    Deck deck = new Deck();
+    // Call your methods here and do what do you want...
+}

@@ -1,0 +1,19 @@
+while (rs.next()) {
+
+     System.out.println("done5");    
+
+     String username=rs.getString(1);
+     String password=rs.getString(2);    
+
+     if(user.equals(username) && pass.equals(password))
+     {
+         response.sendRedirect("LoginSuccess.jsp");
+         return;
+
+     }  
+     else
+     {
+        JOptionPane.showMessageDialog(null, "retry");
+     }
+break;
+     }

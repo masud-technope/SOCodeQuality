@@ -1,0 +1,5 @@
+DetachedCriteria maxId = DetachedCriteria.forClass(Foo.class)
+    .setProjection( Projections.max("id") );
+session.createCriteria(Foo.class)
+    .add( Property.forName("id").eq(maxId) )
+    .list();

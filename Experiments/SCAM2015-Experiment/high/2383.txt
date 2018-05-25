@@ -1,0 +1,14 @@
+public static Resource getInstance();
+Code:
+0:   getstatic       #20; //Field resource:LResource;
+3:   astore_0
+4:   getstatic       #20; //Field resource:LResource;
+7:   ifnonnull       22
+10:  new     #22; //class Resource
+13:  dup
+14:  invokespecial   #24; //Method Resource."<init>":()V
+17:  dup
+18:  putstatic       #20; //Field resource:LResource;
+21:  astore_0
+22:  aload_0
+23:  areturn

@@ -1,0 +1,31 @@
+String str = "{"+
+      "\"Demo\": {"+
+        "\"CONTENT\": ["+
+         " {"+
+        "\"ID\": \" 283 \","+
+        "\"UID\": \" 87897bc8-ae9b-11e1-bdcf-123141042154 \","+
+        "\"DURATION\": \"Full\""+
+         " },"+
+          "{"+
+        "\"ID\": \" 283 \","+
+        "\"UID\": \" 87897bc8-ae9b-11e1-bdcf-123141042154 \","+
+        "\"DURATION\": \"Full\""+
+         " }"+
+        "]"+
+      "}"+
+    "}";
+
+try {
+    JSONObject jsr = new JSONObject(str); // JSON object with above data
+    JSONObject demo = jsr.getJSONObject("Demo"); // get Demo which is a JSON object inside jsr.
+    JSONArray content = demo.getJSONArray("CONTENT");// get CONTENT which is Json array inside Demo
+    for (int i = 0; i < content.length(); i++) { // iterate over array to get inner JSON objects and extract values inside
+        JSONObject record = content.getJSONObject(i); // each item of Array is a JSON object
+        String ID = record.getString("ID");
+        String UID = record.getString("UID");
+        String DURATION = record.getString("DURATION");
+    }
+}
+catch (JSONException e) {
+    e.printStackTrace();
+}

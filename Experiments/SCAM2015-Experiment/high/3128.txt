@@ -1,0 +1,6 @@
+int a = 2;
+
+{
+  // the outer 'a' is still in scope
+  int a = 3; // so this is a redeclare <-- nooo!
+}

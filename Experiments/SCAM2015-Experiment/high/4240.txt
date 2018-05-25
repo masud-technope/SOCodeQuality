@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Sample {
+
+    public List<String> filterSublist(List<String> lst) {
+        List<String> uniq = new ArrayList<String>(lst);
+        lst.forEach(elem -> uniq.removeIf(x -> !x.equals(elem) && elem.contains(x)));
+        return uniq;
+    }
+
+    public static void main(String[] args) {
+        Sample sample = new Sample();
+
+        List<String> filtered = sample.filterSublist(
+            Arrays.asList("hello", "there", "the", 
+                          "low", "hell", "lower", "here"));
+
+        System.out.println(filtered); // [hello, there, lower]
+    }
+}

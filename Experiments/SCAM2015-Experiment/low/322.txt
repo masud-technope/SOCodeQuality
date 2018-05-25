@@ -1,0 +1,11 @@
+public static void main(String[] args) {
+
+    new SwingWorker<Void, Void>() {
+        @Override
+        protected Void doInBackground() throws Exception {
+            System.out.println("ok");
+            return null;
+        }
+    }.execute();
+
+}

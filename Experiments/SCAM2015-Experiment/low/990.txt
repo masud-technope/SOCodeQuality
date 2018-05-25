@@ -1,0 +1,24 @@
+public boolean isCorrect() {
+    data = new String[6];
+    for (int i = 0; i < informationLabel.length; i++) {
+        if (i == 0) {
+            if (!informationTextField[i].getText().equals("")) {
+                data[i] = informationTextField[i].getText();
+            }
+            else
+                return false;
+        }
+        if (i == 1 || i == 2) {
+            if (informationPasswordField[i - 1].getText().equals(""))
+                return false;
+        }
+        if (i == 3 || i == 4 || i == 5 || i == 6) {
+            if (!informationTextField[i - 2].getText().equals("")) {
+                data[i - 1] = informationTextField[i - 2].getText();
+            }
+            else
+                return false;
+        }
+    }
+    return true;
+}

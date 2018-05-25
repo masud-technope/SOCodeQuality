@@ -1,0 +1,6 @@
+it.'p'.each{
+switch (it.@name.text()){
+   case "choclate":
+     myholder.myval=(it.text());
+     break;
+     }}...

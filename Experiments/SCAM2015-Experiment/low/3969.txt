@@ -1,0 +1,9 @@
+InetAddress old = InetAddress.getLocalHost();
+while(true) {
+    InetAddress new = InetAddress.getLocalHost();
+    if(!old.toString().equals(new.toString())) {
+        System.out.println("IP has changed to: " + new.toString());
+        System.out.println("IP was: " + old.toString());
+        old = new;
+    }
+}

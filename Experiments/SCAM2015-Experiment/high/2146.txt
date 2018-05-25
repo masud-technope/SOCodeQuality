@@ -1,0 +1,5 @@
+String sentence = "Your sentence here.";
+String[] words = sentence.split("\\s+"); // splits by whitespace
+for (String word : words) {
+    System.out.println(word);
+}

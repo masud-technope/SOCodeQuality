@@ -1,0 +1,26 @@
+public String TotalExtMemory()
+{
+    StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getAbsolutePath());   
+    int Total = (statFs.getBlockCount() * statFs.getBlockSize()) / 1048576;
+
+    String strI = Integer.toString(Total);
+    return strI;
+}
+
+public String FreeExtMemory()
+{
+    StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getAbsolutePath());
+    int Free  = (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1048576;
+    String strI = Integer.toString(Free);
+    return strI;
+}
+
+public String BusyExtMemory()
+{
+    StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getAbsolutePath());   
+    int Total = (statFs.getBlockCount() * statFs.getBlockSize()) / 1048576;
+    int Free  = (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1048576;
+    int Busy  = Total - Free;
+    String strI = Integer.toString(Busy);
+    return strI;
+}

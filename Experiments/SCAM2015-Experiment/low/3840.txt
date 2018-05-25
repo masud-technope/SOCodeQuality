@@ -1,0 +1,7 @@
+do {
+        if (changeLog.isVisible()) {
+        } else {
+            changeLog.dispose();
+            break;
+        }
+    } while (hold < 1);

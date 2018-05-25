@@ -1,0 +1,34 @@
+// URL that generated this code:
+// http://txt2re.com/index-java.php3?s=PT1M13S&6&3&18&20&-19&-21 
+
+import java.util.regex.*;
+
+class Main
+{
+  public static void main(String[] args)
+  {
+    String txt="PT1M13S";
+
+    String re1="(P)";   // Any Single Character 1
+    String re2="(T)";   // Any Single Character 2
+    String re3="(\\d+)";    // Integer Number 1
+    String re4="(M)";   // Any Single Character 3
+    String re5="(\\d+)";    // Integer Number 2
+    String re6="(S)";   // Any Single Character 4
+
+    Pattern p = Pattern.compile(re1+re2+re3+re4+re5+re6,Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+    Matcher m = p.matcher(txt);
+    if (m.find())
+    {
+        String c1=m.group(1);
+        String c2=m.group(2);
+        String minutes=m.group(3); // Minutes are here
+        String c3=m.group(4);
+        String seconds=m.group(5); // Seconds are here
+        String c4=m.group(6);
+        System.out.print("("+c1.toString()+")"+"("+c2.toString()+")"+"("+minutes.toString()+")"+"("+c3.toString()+")"+"("+seconds.toString()+")"+"("+c4.toString()+")"+"\n");
+
+        int totalSeconds = Integer.parseInt(minutes) * 60 + Integer.parseInt(seconds);
+    }
+  }
+}

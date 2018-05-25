@@ -1,0 +1,8 @@
+@Override
+    public void onSensorChanged(SensorEvent event) {
+        int i = event.sensor.getType();
+        if (i == Sensor.TYPE_ACCELEROMETER)
+            aValues = (event.values.clone());
+        else if (i == Sensor.TYPE_MAGNETIC_FIELD)
+            mValues = (event.values.clone());
+    }

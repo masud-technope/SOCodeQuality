@@ -1,0 +1,6 @@
+new A(instanceOfB);
+
+someMethodOfA() {
+    doSomething();
+    instanceOfB.callback();
+}

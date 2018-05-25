@@ -1,0 +1,4 @@
+// this decimal format will display number after the dot only if there is.
+// 1256.200 -> 1,256.2  whereas 152.0 -> 152
+DecimalFormat df2 = new DecimalFormat( "###,##0.###" );
+System.out.println("formated square : "+df2.format(Square));

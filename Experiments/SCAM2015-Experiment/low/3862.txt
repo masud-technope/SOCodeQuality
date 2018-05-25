@@ -1,0 +1,6 @@
+public class help  {
+        public static final String bar = "blah";            
+        public String getBar(){
+              return this.bar;
+        }         
+    }

@@ -1,0 +1,3 @@
+String a = "a";
+String temp = a + "b"; // useless creation of a string here
+sb.append(temp);

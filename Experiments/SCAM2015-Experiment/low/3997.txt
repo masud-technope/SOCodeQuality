@@ -1,0 +1,37 @@
+public abstract class U {
+    abstract String getValueString ();
+}
+public class A extends U{
+    @Override
+    String getValueString() {
+        return "Class A";
+    }
+}
+public class B extends U{
+    @Override
+    String getValueString() {
+        return "Class B";
+    }
+}
+public class Z {
+    public static void main(String[] args) {
+        System.out.println(getValue(new B()));
+        ArrayList<U> p = new ArrayList<>();
+        p.add(new A());
+        p.add(new B());
+        System.out.println(concatedValue(p));
+    }
+
+    public static String getValue(U u) {
+        return u.getValueString();
+    }
+
+    public static String concatedValue(ArrayList<U> uList) {
+        String test = "";
+        for (U u : uList) {
+            test += u.getValueString();
+        }
+        return test;
+    }
+
+}

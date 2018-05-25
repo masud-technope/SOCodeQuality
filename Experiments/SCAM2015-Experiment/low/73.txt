@@ -1,0 +1,4 @@
+public void test(Integer i, Integer j){
+  i = i.add(1);
+  j = j.add(1);
+}

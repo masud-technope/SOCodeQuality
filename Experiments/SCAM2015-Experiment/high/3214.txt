@@ -1,0 +1,5 @@
+if (savedInstanceState == null) {
+    getFragmentManager().beginTransaction()
+                        .add(R.id.list_layout, new ListFragment(), "LIST")
+                        .commit();
+}

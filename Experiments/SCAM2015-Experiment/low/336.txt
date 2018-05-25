@@ -1,0 +1,13 @@
+/**
+ * Generate a BitmapData HSL color square (n x n) of hue
+ * At a low n dimension you get cool blocky color palettes (e.g. try n=10)
+ */
+function generateColorSquare(n:uint, hue:uint):BitmapData
+            {
+                var bd:BitmapData = new BitmapData(n, n, false, 0xFFFFFF);
+                for (var i:uint=n*n; i > 0; i--)
+                {
+                    bd.setPixel(i % n, Math.floor(i / n),  HSBColor.convertHSBtoRGB(hue, i / (n*n), (1/n) * (i % n) ));
+                }
+                return bd;
+            }

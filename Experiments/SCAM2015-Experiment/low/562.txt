@@ -1,0 +1,6 @@
+public static int generateRandomInteger(int min, int max) {
+    SecureRandom rand = new SecureRandom();
+    rand.setSeed(new Date().getTime());
+    int randomNum = rand.nextInt((max - min) + 1) + min;
+    return randomNum;
+}

@@ -1,0 +1,10 @@
+public static final int findSmallestDistance(final int[] pArray) {
+    int lMinimumDistance = Integer.MAX_VALUE;
+    for(int i = 1; i < pArray.length; i++) {
+        int lDifference = pArray[i] - pArray[i - 1];
+        if(lDifference < lMinimumDistance) {
+            lMinimumDistance = lDifference;
+        }
+    }
+    return lMinimumDistance;
+}

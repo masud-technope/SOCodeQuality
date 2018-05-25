@@ -1,0 +1,9 @@
+public Car carFactory(DB database) {
+    if (DB.shouldMakeAudi()) {
+        return new Audi();
+    } else if (DB.shouldMakeBMW()) {
+        return new BMW();
+    } else {
+        return null;
+    }
+}

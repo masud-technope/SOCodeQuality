@@ -1,0 +1,15 @@
+public static void main(String[] args) {
+    System.out.println("Integer Value :" +convertIntToString(new int[]{3,4,5}));
+}
+
+public static String convertIntToString(int intArray[]) {
+    List<Integer> listInteger = new ArrayList<Integer>();
+
+    for (int i = 0; i < intArray.length; i++) {
+        listInteger.add(intArray[i]);
+    }
+
+    Object o = listInteger;
+
+    return String.valueOf(o).replace("[", "").trim().replaceAll(", ","").trim().replaceAll("\\]","").trim();
+}

@@ -1,0 +1,6 @@
+<fmt:format var="month" value="${theDate}" pattern="MM"/>
+<select name="">
+    <option value="01" ${month == "01" ? "selected='selected'" : ""}>January</option>
+    <option value="02" ${month == "02" ? "selected='selected'" : ""}>February</option>
+    ...
+</select>

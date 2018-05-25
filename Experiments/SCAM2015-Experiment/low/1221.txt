@@ -1,0 +1,45 @@
+public class Five {
+    public static void main(String args[]) {
+        try {
+
+            String greatest = "731671765313306249192251196744265747423553491949349698352031277450632623957831801698480186947885184385861560789112949495459501737958331952853208805511125406987471585238630507156932909632952274430435576689664895044524452316173185640309871112172238311362229893423380308135336276614282806444486645238749303589072962904915604407723907138105158593079608667017242712188379087922749219016997208880937766572733300105336788122023542180975125454059475224352584907711670556013604839586446706324415722155397 5369781797784617406495514929086256932197846862248283972241375657056057490261407972968652414535100474821663704844031998900088952434506585412275886668811642717147992444292823086346567481391912316282458617866458359124566529476545682848912883142607690042242190226710556263211111093705442175069416589604080719840385096245544436298123098787992724428490918884580156166097919133875499200524063689912560717606058861164671094050775410022569831552000559357297257163626956188267042825248360082325753042075296345099879";
+            int n = 0;
+            int count = 0;
+            long biggest = 0;
+            int countBlock = 1;
+            int biggestBlock = 1;
+            long X = 1;
+
+            for (int i = 0; i < greatest.length()-4; i++) {
+                for (int k = i; k < i + 5; k++) {
+                    char c = greatest.charAt(k);
+                    n = Character.getNumericValue(c);
+                    count++;
+                    X = (X * n);
+                    System.out.println("Product is:" + X);
+                }
+                if(biggest < X){
+                    biggest = X;
+                    biggestBlock = countBlock;
+                }
+
+                System.out.println("Now the biggest one is: "+ biggest);
+                count = 0;
+                X = 1;
+                countBlock++;
+                System.out.println("Block number: " + biggestBlock);
+                System.out.println("Block number: " + countBlock);
+                System.out.println("------------------------------------");
+
+            }
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println("ARRAY ERROR");
+        } catch (ArithmeticException ex) {
+            System.out.println("MATH ERROR");
+        } catch (NumberFormatException ex) {
+            System.out.println("NUMBER FORMAT EXCEPTION");
+        } catch (StringIndexOutOfBoundsException ex) {
+            System.out.println("INDEX ERROR");
+        }
+    }
+}

@@ -1,0 +1,14 @@
+ArrayList<String> files = ...; // whatever
+
+// write the object to a file
+
+ObjectOutput out = new ObjectOutputStream(new FileOutputStream("filename.ser"));
+out.writeObject(files);
+out.close();
+
+// read the object back
+
+InputStream is = new FileInputStream("filename.ser"); 
+ObjectInputStream ois = new ObjectInputStream(is); 
+ArrayList<String> newFiles = = (ArrayList)ois.readObject(); 
+ois.close();

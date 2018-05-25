@@ -1,0 +1,6 @@
+List<Integer> lst = Arrays.asList(new Integer[] { 0, 0, 0, 0 });
+
+    int temp = Integer.parseInt(lst.toString().replaceAll(", ", "").replaceAll("\\[", "").replaceAll("]", "").trim());
+    if(temp == 0) {
+        System.out.println("All zeros");
+    }

@@ -1,0 +1,7 @@
+@Override
+public void onItemClick(AdapterView<?> arg0, View viewThatWasClicked, 
+                                     int position, long arg3) {
+    TextView tid = (TextView) viewThatWasClicked.findViewById(R.id.tid);
+
+    String text= tid.getText().toString();
+}

@@ -1,0 +1,3 @@
+int x = applicants.size();
+ String []appArray = new String[x];
+ appArray=applicants.toArray(appArray);

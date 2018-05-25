@@ -1,0 +1,18 @@
+bool is_permutation(const char *a, const char *b)
+{                                                
+    if (a == NULL || b == NULL)              
+            return false;                    
+
+    if (strlen(a) != strlen(b))              
+            return false;                    
+
+    int sum_a = 0, sum_b = 0;                
+
+    while (*a != '\0')                       
+            sum_a += (int)*a++;              
+
+    while (*b != '\0')                       
+            sum_b += (int)*b++;              
+
+    return (sum_a == sum_b);                 
+}

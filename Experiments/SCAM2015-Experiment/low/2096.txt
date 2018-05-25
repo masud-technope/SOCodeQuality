@@ -1,0 +1,5 @@
+if (string.contains("a"))
+{
+    numberOf_a++;
+    string = string.replaceFirst("a", "");
+}

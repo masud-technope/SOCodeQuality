@@ -1,0 +1,3 @@
+return new StringBuilder()
+   .append("(").append(topTwenty).append(")")
+   .toString();

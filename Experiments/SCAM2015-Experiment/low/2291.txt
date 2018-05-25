@@ -1,0 +1,27 @@
+int[] things={11,22,33,44};
+
+List<int[]> Listdata = Arrays.asList(things);
+
+int[] n=Listdata.get(0);
+
+int n1=n[0];
+
+System.out.println(n1);
+
+int[] n=Listdata.get(1);
+
+int n1=n[0];
+
+System.out.println(n1);
+
+int[] n=Listdata.get(2);
+
+int n1=n[0];
+
+System.out.println(n1);
+
+int[] n=Listdata.get(3);
+
+int n1=n[0];
+
+System.out.println(n1);

@@ -1,0 +1,8 @@
+For each string
+    pos = string.indexOf(".")
+    Split string into two parts min, sec based on the index "pos"
+    stringSecs = min*60 + sec
+
+Find difference of stringSecs by regular subtraction.
+
+Convert back to required format using min = answer/60, sec=answer%60

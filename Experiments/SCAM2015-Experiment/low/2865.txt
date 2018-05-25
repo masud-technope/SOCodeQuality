@@ -1,0 +1,68 @@
+<?php
+
+    session_start();
+    $_SESSION['email']="";
+    $currentLoc="http://".$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'];
+
+    require_once 'openid.php';
+
+    $openIdAuth= new SimpleAuth($currentLoc);
+
+    //:::::::::::::Authenticate:::::::::::::::
+    $openIdAuth->identity = 'https://www.google.com/accounts/o8/id';//OpenId provider url
+    $openIdAuth->required = array('contact/email');//add more data to retrieve e.g namePerson/first,namePerson/last
+    $openIdAuth->returnUrl = $currentLoc;//can be change to whatever url you want user to redirect to
+    //::::::::::::::::::::::::::::::::::::::::
+
+
+    //:::::::::::::::::::Validate::::::::::::::::::::::::::::::: 
+    if ($openIdAuth->mode) {
+
+        if ($openIdAuth->mode == 'cancel') {
+            echo "User has canceled authentication !";
+        } 
+
+        else if($openIdAuth->validate()) {
+
+            $data = $openIdAuth->getAttributes();       
+           $_SESSION['email']= $data['contact/email']; 
+           $logout= '<a href="?logout">LoGout</a>';    
+
+        } 
+
+        else {
+            echo "The user has not logged in";
+        }
+    }
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+    if (isset($_REQUEST['logout'])) {
+    session_start();
+    $_SESSION = array();
+     session_destroy(); 
+        echo "<script>window.location.replace(".$currentLoc.");</script>";
+
+    }
+    ?>
+
+<div id="body" style="margin:80px auto;border:2px solid #00ffcc;width:400px; padding:20px">
+<h1>Welcome To My Secure Page</h1>
+<?php 
+//when User Has Not Login do something
+if($_SESSION['email']==""){
+?>
+
+<a href="<?php echo $openIdAuth->authUrl() ?>">Login with Google</a>
+
+<?php 
+} 
+//If all is fine do something or redirect to another page
+else{
+?>
+
+<?php echo $_SESSION['email'] ."<br />   ::::::::::::   ".$logout."   ::::::::::";?>
+
+
+<?php } ?>
+</div>

@@ -1,0 +1,9 @@
+List<DetailAST> packageDefinition = findAllAstsOfType(aAST, TokenTypes.IDENT);
+for (int j = 0; j < packageDefinition.size() - 2; j++) {
+    if (packageDefinition.get(j).getText().equals("java") &&
+        packageDefinition.get(j + 1).getText().equals("sql") &&
+        packageDefinition.get(j + 2).getText().equals("PreparedStatement")) {
+        importsPreparedStatement = true;
+        break;
+    }
+}

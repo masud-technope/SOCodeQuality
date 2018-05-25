@@ -1,0 +1,5 @@
+final ClassLoader classLoader = ...
+final Class<?> aClass = classLoader.loadClass("java.lang.Integer");
+final Constructor<?> constructor = aClass.getConstructor(int.class);
+final Object o = constructor.newInstance(123);
+System.out.println("o = " + o);

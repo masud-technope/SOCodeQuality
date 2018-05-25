@@ -1,0 +1,6 @@
+int[] arr= new int[]{-5,-5,-6,-6,-6};
+Set<Integer> newSet = new HashSet<Integer>();
+for(int i=0;i<arr.length;i++)
+  newSet.add(Math.abs(arr[i]));    
+
+System.out.println(newSet.size());

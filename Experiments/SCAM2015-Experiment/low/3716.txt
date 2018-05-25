@@ -1,0 +1,7 @@
+if (element.startsWith("if") == true
+            && (element.contains("goto") == true)) {
+        System.out.print("If and Goto detected");
+        if (element.contains(":") == true) {
+           System.out.print("There's a Colon");
+        }
+    }

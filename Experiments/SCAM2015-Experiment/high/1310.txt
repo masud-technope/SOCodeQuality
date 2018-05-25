@@ -1,0 +1,4 @@
+Calendar cal = Calendar.getInstance( TimeZone.getTimeZone("America/Los_Angeles") );
+Date dt = cal.getTime();
+
+System.out.println( dt);

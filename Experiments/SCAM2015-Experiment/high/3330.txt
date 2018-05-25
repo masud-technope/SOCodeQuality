@@ -1,0 +1,5 @@
+public class Company implements Cloneable {
+   // stuff ...
+
+   public Company clone() throws CloneNotSupportedException { /* do clone */ }
+}

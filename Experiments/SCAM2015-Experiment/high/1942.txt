@@ -1,0 +1,14 @@
+public static void main(String[] args) {
+
+    List<Integer> aList = new ArrayList<Integer>(Arrays.asList(1,2,3));
+    @SuppressWarnings("unchecked")
+    Collection<Integer> view = Collections2.filter(aList, new Predicate() {
+        public boolean apply(Object arg0) {
+            return ((Integer) arg0).intValue() % 3 != 0;
+        }});
+    view.add(new Integer(4));
+    view.remove(new Integer(2));
+    System.out.println("aList: " + aList);
+    System.out.println("view : " + view);
+
+}

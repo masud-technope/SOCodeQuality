@@ -1,0 +1,5 @@
+Intent intent = new Intent(MyActivity.class.getSimpleName());
+intent.putExtra("actionType", "updateTextView");
+
+// Once this is called, your broadcast receiver in MyActivity should receive it and start processing
+LocalBroadcastManager.getInstance(context).sendBroadcast(intent);

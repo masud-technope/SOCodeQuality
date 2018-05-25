@@ -1,0 +1,24 @@
+private void checkForReload() {
+        if (cachedObject == null || isExpired()) {
+                if (!isReloading()) {
+
+                       // Recheck expiration because another thread might have
+                       // refreshed the cache before we were allowed into the
+                        // synchronized block.
+                        if (isExpired()) {
+                                synchronized (lock) {
+                                        if (isExpired()) {
+                                                isLoading = true;
+                                                try {
+                                                        cachedObject = retrieve();
+                                                        lastRetrieval = System.currentTimeMillis();
+                                                } catch (Exception e) {
+                                                        log.error("Exception occurred retrieving cached object", e);
+                                                } finally {
+                                                        isLoading = false;
+                                                }
+                                        }
+                                }
+                        }
+                }
+        }

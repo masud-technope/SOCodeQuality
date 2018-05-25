@@ -1,0 +1,8 @@
+for (int i = 0; i < abcd.length; i++)
+{
+    if (abcd[i] == A)
+    {
+        A = i+1;
+    }
+}
+// Rinse and repeat for B, C, D

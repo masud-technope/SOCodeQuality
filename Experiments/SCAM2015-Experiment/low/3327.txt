@@ -1,0 +1,3 @@
+if(A){ System.out.println("a"); }
+if(not A and B){ System.out.println("else B"); }
+if(not A and not B and C){ System.out.println("else C"); }

@@ -1,0 +1,5 @@
+List<String> tables = new List<String>{ "TabA","TabB","TabC"};
+foreach( var tname in tables )
+{
+   deleteTable(tname); 
+}

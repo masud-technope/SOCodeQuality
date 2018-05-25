@@ -1,0 +1,13 @@
+<p:column>
+              <f:facet name="header">
+                  <h:outputText value="isApproved"/>
+               </f:facet>
+               <c:choose>
+                 <c:when test="#{company.isAppIsApproved}">
+                    <h:graphicImage value="resources/images/correct.png"/>
+                 </c:when>
+                 <c:otherwise>
+                    <h:graphicImage value="resources/images/incorrect.png"/>
+                 </c:otherwise>
+               </c:choose>
+            </p:column>

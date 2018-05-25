@@ -1,0 +1,8 @@
+public static Triangle createTriangle(int x , int y, int z) 
+{
+   Triangle t = new Triangle(x,y,z));
+   if(! cache.contains(t))
+      cache.put(t);
+
+   return cache.get(t);       
+}

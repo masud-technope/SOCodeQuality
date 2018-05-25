@@ -1,0 +1,11 @@
+public class StringNumSuffixComparator implements Comparator<String>{
+
+    @Override
+    public int compare(String o1, String o2) {
+        String str1 = o1;
+        String str2 = o2;
+        Integer num1 = Integer.parseInt(str1.replaceAll("\\D+",""));
+        Integer num2 = Integer.parseInt(str2.replaceAll("\\D+",""));        
+        return num2.compareTo(num1);
+    }
+}

@@ -1,0 +1,9 @@
+public class Example {
+  public static void main(String[] args) {
+
+    int[][] envoriment = {{1, 1, 1, 1}, {0, 1, 6}, {1}};
+
+    int[][] copyArray = new int[envoriment.length][];
+    System.arraycopy(envoriment, 0, copyArray, 0, envoriment.length);
+  }
+}

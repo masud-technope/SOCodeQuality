@@ -1,0 +1,9 @@
+String retVal = "";
+
+try {
+    retVal = URLEncoder.encode(in_, "UTF8");
+} catch (UnsupportedEncodingException ex) {
+    Log.get().exception(Log.Level.Error, "urlEncode ", ex);
+}
+
+return retVal;

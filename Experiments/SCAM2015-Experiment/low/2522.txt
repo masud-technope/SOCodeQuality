@@ -1,0 +1,12 @@
+public class C1 {
+    static class I2 implements I1 {
+        public int xxx() {
+            return 1;
+        }
+
+        public int hello(){
+            return 1;
+        }
+    }
+    public I2 x = new I2();
+}

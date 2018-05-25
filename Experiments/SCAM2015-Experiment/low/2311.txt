@@ -1,0 +1,14 @@
+myTableModel = new DefaultTableModel();
+myTableModel.setColumnIdentifiers(new Object[]{"ID", "Name"});
+JTable myTable = new JTable(myTableModel);
+
+// remember to save the references
+TableColumn myTableColumn0 = guiLoteryNumbersTable.getColumnModel().getColumn(0);
+TableColumn myTableColumn1 = guiLoteryNumbersTable.getColumnModel().getColumn(1);
+//...
+
+// remove temporary the column ("hide")
+myTable.getColumnModel().removeColumn(myTableColumn1);
+
+// then you restore that column when you need it ("show")
+myTable.getColumnModel().addColumn(myTableColumn1);

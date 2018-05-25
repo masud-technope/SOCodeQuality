@@ -1,0 +1,4 @@
+ArrayList al = new ArrayList();
+al.Add(array1);
+al.Add(array2);
+al.Add(array3);

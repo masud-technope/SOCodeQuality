@@ -1,0 +1,4 @@
+public boolean isDead(){
+    if(this.HP>0) return true;
+    else return false;
+}

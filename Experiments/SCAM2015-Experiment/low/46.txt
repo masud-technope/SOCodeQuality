@@ -1,0 +1,5 @@
+// Lazy initialization holder class idiom for static fields
+private static class FieldHolder {
+   static final FieldType field = computeFieldValue();
+}
+static FieldType getField() { return FieldHolder.field; }

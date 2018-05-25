@@ -1,0 +1,8 @@
+Dog aDog = new Dog("Max");
+foo(aDog);
+aDog.getName().equals("Fifi"); // true
+
+public void foo(Dog d) {
+    d.getName().equals("Max"); // true
+    d.setName("Fifi");
+}

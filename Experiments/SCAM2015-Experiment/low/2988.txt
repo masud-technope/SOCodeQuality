@@ -1,0 +1,5 @@
+sol = num1 / num2
+if (sol == (int)sol)
+{
+   ... //true if the solution is an integer
+}

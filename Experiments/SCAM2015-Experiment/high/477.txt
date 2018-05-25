@@ -1,0 +1,8 @@
+var connection = new SqlConnection();
+
+var command = new SqlCommand();
+
+var transaction = connection.BeginTransaction();
+
+command.Connection = connection;
+command.Transaction = transaction;

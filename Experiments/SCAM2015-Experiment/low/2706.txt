@@ -1,0 +1,3 @@
+public void myMethod(Object... params){
+    // method body
+}

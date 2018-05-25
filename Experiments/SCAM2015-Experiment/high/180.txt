@@ -1,0 +1,8 @@
+String str = "helloslkhellodjladfjhello";
+    Pattern p = Pattern.compile("hello");
+    Matcher m = p.matcher(str);
+    int count = 0;
+    while (m.find()){
+    	count +=1;
+    }
+    System.out.println(count);

@@ -1,0 +1,5 @@
+ArrayList<String> list1 = new ArrayList<String>();
+ArrayList<String> list2 = new ArrayList<String>();
+list1.add("hi");
+list2.add("hello");
+get("hi");

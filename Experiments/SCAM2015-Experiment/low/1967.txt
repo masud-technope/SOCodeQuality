@@ -1,0 +1,3 @@
+String str = "xyz"; // given String
+char st = str.charAt(0); // for example we take 0 index element 
+System.out.println(st); // print the char at 0 index

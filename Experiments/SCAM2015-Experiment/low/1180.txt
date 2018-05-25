@@ -1,0 +1,3 @@
+output = (condition1) ? "Condition1 is true" : ((condition2) ?
+      "Condition2 is true" : ( (condition3) ? 
+      "Condition3 is true" : " all Condition are false"));

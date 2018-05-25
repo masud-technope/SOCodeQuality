@@ -1,0 +1,14 @@
+if(!won){
+    computer.takeTurn(Setup.getBoard(), human);
+    turns++;
+    System.out.println();
+    Setup.printBoard();
+    System.out.println();
+    if(Setup.hasWon(Setup.getBoard())){
+        won = true;
+        System.out.println("You lost!");
+    } else if (turns == 9){
+        won = true;
+        System.out.println("Its a draw!");
+    }
+}

@@ -1,0 +1,5 @@
+Pattern p = Pattern.compile(".*,\\s*(.*)");
+Matcher m = p.matcher("abcd,fg;ijkl, cas");
+
+if (m.find())
+    System.out.println(m.group(1));

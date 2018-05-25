@@ -1,0 +1,17 @@
+public static class MyPropertyChangeSupport extends PropertyChangeSupport {
+    private Object mySource;
+
+    public MyPropertyChangeSupport(Object sourceBean) {
+        super(sourceBean);
+        // store the bean reference in your field
+        this.mySource = sourceBean;
+    }
+
+    @Override
+    public void firePropertyChange(String propertyName, Object oldValue, Object newValue) {
+        if (oldValue == null || newValue == null || !oldValue.equals(newValue)) {
+            // use mySource here
+            firePropertyChange(new JoystickPropertyChangeEvent(mySource, propertyName, oldValue, newValue)); 
+        }
+    }
+}

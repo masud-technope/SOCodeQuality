@@ -1,0 +1,6 @@
+String a = "aa";
+    String b = new String(a);
+    System.out.println("aa" == "aa");
+    System.out.println(a == b);
+    System.out.println(a.equals(b));
+    System.out.println(a.intern() == b.intern());

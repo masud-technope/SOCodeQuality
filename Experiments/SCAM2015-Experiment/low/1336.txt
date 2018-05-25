@@ -1,0 +1,10 @@
+Connection connTemp = null;
+final Connection conn;
+try {
+    connTemp = getConn(prefix);
+} catch (Exception e) {
+    throw new DbHelperException("error opening connection", e);
+} finally {
+    closeConnection(conn);
+}
+conn = connTemp;

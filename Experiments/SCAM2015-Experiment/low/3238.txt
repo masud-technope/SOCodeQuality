@@ -1,0 +1,13 @@
+Hi Autolycus,
+             I think you have to parse  responseData as JSONArray like below
+
+            **JSONArray jsonHospitals = new JSONArray(responseData);**
+
+          for(int i = 0; i< jsonHospitals.length(); i++){
+                    JSONObject obj = jsonHospitals.getJSONObject(i);
+                    JSONObject hospital_obj = obj.getJSONObject("Hospital");
+                    String hospital_name =  hospital_obj.getString("hospital_name");
+                    Log.v(TAG, hospital_name);
+                }
+
+       Hope it will work for you :)

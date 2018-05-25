@@ -1,0 +1,3 @@
+if(front == null) {
+    throw new IllegalArgumentException("List is empty");
+}

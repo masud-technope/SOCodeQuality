@@ -1,0 +1,17 @@
+private MyNode findNode(int pos) {
+//node will have pos=pos-1
+        pos-- = 1; 
+        MyNode prevNode = null;
+        int count = 0;  
+        MyNode p = first.next;  // first = head node, find it however you want.
+//this is for circular linked list, you can use first!=last for singly linked list
+        while (p != first) { 
+            if (count == pos) {
+                prevNode = p;
+                break;
+            }
+            p = p.next;
+            count++;
+        }
+        return prevNode;
+    }

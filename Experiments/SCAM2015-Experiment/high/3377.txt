@@ -1,0 +1,5 @@
+if (x % 2 == 0) {
+    // even, do logic
+} else {
+    // odd, do logic
+}

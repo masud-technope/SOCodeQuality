@@ -1,0 +1,4 @@
+while (strTok.hasMoreTokens()) {
+      tok01 = strTok.nextToken();                  
+      System.out.println("     tok01: " + tok01);
+    }

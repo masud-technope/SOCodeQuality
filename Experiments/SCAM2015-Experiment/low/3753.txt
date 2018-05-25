@@ -1,0 +1,6 @@
+public static void main(String[] args) {
+    Long amount = 67890L;
+    NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("en", "US"));
+    String moneyString = formatter.format((double) amount / 1000);
+    System.out.println(moneyString);
+}

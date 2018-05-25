@@ -1,0 +1,22 @@
+System.out.println(">_");
+playerCommand = input.nextLine();
+loop: while (playerCommand) {
+    switch (playerCommand) {
+    case "go north":
+    case "n":
+        alleywayGoNorth();
+        break loop;
+    case "go south":
+    case "s":
+        alleywayGoSouth();
+        break loop;
+    case "open door":
+    case "o door":
+        alleywayOpenDoorLocked();
+        break loop;
+    default:
+        System.out.println("That command is not valid at the moment.");
+        break;
+    }
+    playerCommand = input.nextLine();
+}

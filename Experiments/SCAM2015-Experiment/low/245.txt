@@ -1,0 +1,21 @@
+public static <T> void apply(final List<T> list, final Function<T> func)
+{
+    for(final T val : list)
+    {
+        func.perform(val);
+    }
+}
+
+interface Function<T>
+{
+    void apply(T value);
+}
+
+class DisplayFunction<T>
+    implements Function<T>
+{
+    public void perform(T value)
+    {
+        System.out.println(value);
+    }
+}

@@ -1,0 +1,7 @@
+String getValue() {
+     StringBuilder bs = new StringBuilder();
+     //
+     // More code here that sets sb
+
+     return bs.toString();
+}

@@ -1,0 +1,3 @@
+Graphics g = getGraphics();
+if (g != null) paintComponent(g);
+else repaint();

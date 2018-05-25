@@ -1,0 +1,32 @@
+public void test(){
+      //firstLetter -> list of name-phone pair
+      Multimap<String, Pair> mMap =  ArrayListMultimap.create();
+
+      put(mMap, "Brown",  "+1236389023");
+      put(mMap, "Bob",    "+1236389023");
+      put(mMap, "Harmer", "+1236389023");
+      put(mMap, "Harris", "+1236389023");
+      put(mMap, "Hawken", "+1236389023");
+      put(mMap, "Hosler", "+1236389023");
+
+      //Test
+      System.out.println(mMap.get("H"));
+   }
+
+   void put(Multimap<String, Pair> mMap, String name, String phone){
+      mMap.put(name.substring(0,1), new Pair(name, phone));
+   }
+
+   public static class Pair{
+      String name;
+      String phone;
+
+      public Pair(String name, String phone) {
+         this.name = name;
+         this.phone = phone;
+      }
+
+      @Override
+      public String toString() {
+         return "Pair [name="+name+", phone="+phone+"]";
+      }

@@ -1,0 +1,3 @@
+private <? extends Number> indexRange(<? extends Number> idx_max, <? extends Number> size) 
+{
+}

@@ -1,0 +1,11 @@
+@Override
+public boolean equals(Object other)
+{
+   if(other instanceof MyClass)
+   {
+      MyClass obj = (MyClass)other;
+      return obj.getID() == this.getID();
+   }
+   else
+      return false;
+}

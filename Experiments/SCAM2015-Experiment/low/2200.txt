@@ -1,0 +1,9 @@
+String List_name;
+List<String> myNameList = new ArrayList<String>();
+myNameList.add("Veeru");
+myNameList.add("Nikhil");
+myNameList.add("Ashish");
+myNameList.add("Paritosh");
+
+List_name = myNameList.toString().replace("[", "")
+                    .replace("]", "").replace(", ", ",");

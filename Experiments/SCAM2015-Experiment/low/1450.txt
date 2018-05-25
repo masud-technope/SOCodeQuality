@@ -1,0 +1,10 @@
+getInstance() {
+     if (singleton == null) {
+         lock();
+         if (singleton == null) {
+               singleton = new Singleton();
+         }
+         unlock();
+     }
+     return singleton;
+}

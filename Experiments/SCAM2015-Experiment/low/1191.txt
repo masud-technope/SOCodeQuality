@@ -1,0 +1,7 @@
+public class Spring3HelloWorldTest {
+    public static void main(String[] args) {        
+        DefaultListableBeanFactory  beanFactory = new DefaultListableBeanFactory ((BeanFactory) new ClassPathResource("SpringHelloWorld.xml"));     
+        Spring3HelloWorld myBean = (Spring3HelloWorld) beanFactory.getBean("Spring3HelloWorldBean");
+        myBean.sayHello();
+    }
+}

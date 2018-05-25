@@ -1,0 +1,5 @@
+if(((grid[0][0] == grid[1][1]) && (grid[1][1] == grid[2][2])) || 
+   ((grid[0][2] == grid[1][1]) && (grid[1][1] == grid[2][0]))) {
+     winner = grid[1][1];
+     return winner;
+ }

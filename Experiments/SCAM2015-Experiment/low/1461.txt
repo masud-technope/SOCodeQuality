@@ -1,0 +1,22 @@
+//Singleton support ...
+private static A singleton = null;
+    public static A get() {
+        if (singleton == null){
+        singleton = new A();
+    }
+        return singleton;
+}
+public static A getSingleton() {
+    return singleton;
+}
+public static void setSingleton(A singleton) {
+    A.singleton = singleton;
+}
+
+//Re instantiate 
+public class Test(){
+....
+....
+    A.setSingleton(null);
+
+}

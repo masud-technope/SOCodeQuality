@@ -1,0 +1,3 @@
+System.out.println("enter if you want to use plus or minus");
+plumi = Max.next();
+System.out.println("You entered ["+plumi+"]"); // poor man's debugger

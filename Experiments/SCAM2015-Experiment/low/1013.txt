@@ -1,0 +1,12 @@
+String s = "";
+String t = "";
+if (s == t){
+  //false! s and t refer to different objects
+}
+if (s.equals(t) && t.equals(s)){ //these two are equivalent
+  //true!
+}
+s = t;
+if (s == t){
+  //now they refer to the same object, so true!
+}

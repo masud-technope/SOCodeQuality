@@ -1,0 +1,6 @@
+class FooImplTest extends FooTestSuper {
+
+@Override
+protected Foo createFoo() {
+    return new FooImpl();
+}

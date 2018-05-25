@@ -1,0 +1,11 @@
+int[] tal = {3, 8, 5, 8, 2, 3, 9, 12, 21};
+int nextMax = tal[0];
+int max=tal[0];
+for(int i=0;i<tal.length;i++){
+  if(tal[i]>max){
+      nextMax = max;
+      max = tal[i];
+  }
+}
+System.out.println("Biggest: "+ max);
+System.out.println("Next biggest: " + nextMax);

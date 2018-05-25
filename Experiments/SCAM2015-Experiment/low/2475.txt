@@ -1,0 +1,8 @@
+Color c = new Color(0,0,0,0);
+Color d = new Color(0,0,0,0);
+
+    if( c.equals(d)){
+        System.out.println("True");
+    } else {
+        System.out.println("False");
+    }

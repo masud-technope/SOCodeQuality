@@ -1,0 +1,5 @@
+Set<Set<String>> pairs = ...
+try(BufferedReader br = ... ) {
+    for(String line; (line = br.readLine()) != null;) 
+        pairs.add(new HashSet<String>(Arrays.asList(line.split(" ")));
+}

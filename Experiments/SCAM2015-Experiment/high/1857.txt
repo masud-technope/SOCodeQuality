@@ -1,0 +1,55 @@
+class Test {
+
+    public static void main(String[] args) {  
+        int[] sortedArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        PrintIntSumValues(6, sortedArray);
+
+        sortedArray = new int[] {1, 2,3, 12, 23423};
+        PrintIntSumValues(15, sortedArray);
+
+
+        sortedArray = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        PrintIntSumValues(100, sortedArray);
+
+        sortedArray = new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50};
+        PrintIntSumValues(48, sortedArray);  
+    }
+
+    //    Print at the system out the first two ints found in the sorted array: sortedInts[] whose sum is equal to Sum in a single pass over the array sortedInts[] with no 0 value allowed.  
+    //  i.e. sortedInts[i] + sortedInts[?] = Sum where ? is the target index to be found to complete the task.  
+    static void PrintIntSumValues(int Sum, int sortedInts[]) {  
+        // need to test to see if the Sum value is contained in the array sortedInts. And, if not do nothing.  
+        int offset = sortedInts.length-1;
+
+        for(int i=0; i<sortedInts.length; i++) {  
+            //            ... do some work: algebra and logic ...   
+            if ((sortedInts[i] + sortedInts[offset]) == Sum){
+                System.out.println("sortedInts[" + i + "]+sortedInts[" + offset + "] sums to " + Sum + ".");
+                return;
+            } else {
+                int remaining = Sum - sortedInts[i];
+                if (remaining < sortedInts[i] ){
+                    // We need something before i
+                    if (remaining < sortedInts[offset]) {
+                        // Even before offset
+                        offset = 0 + (offset - 0)/2;
+                    } else {
+                        // Between offset and i
+                        offset = offset + (i - offset)/2;
+                    }
+                } else {
+                    // We need something after i
+                    if (remaining < sortedInts[offset]) {
+                        // But before offset
+                        offset = i + (offset - i)/2;
+                    } else {
+                        // Even after offset
+                        offset = offset + (sortedInts.length - offset)/2;
+                    }
+                }
+            }
+        }  
+        System.out.println("There was no sum :(");
+
+    }  
+}

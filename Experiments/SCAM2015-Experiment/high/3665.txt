@@ -1,0 +1,13 @@
+public final class Fidu implements Comparable<Fidu> {
+    ...
+    public int compareTo(Fidu other) {
+        // an example:
+        int compare = this.namePart3.compareTo(other.namePart3);
+        if (compare != 0)
+            return compare;
+        compare = this.namePart2.compareTo(other.namePart2);
+        if (compare != 0)
+            return compare;
+        return this.namePart1.compareTo(other.namePart1);
+    }
+}

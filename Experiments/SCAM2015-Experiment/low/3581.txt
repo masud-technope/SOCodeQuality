@@ -1,0 +1,14 @@
+List<String> pathParam = null;
+    if(null!=request.getPathInfo() && !request.getPathInfo().trim().isEmpty()){
+
+        String paths[] = this.getPathInfo().replaceAll("\\/$|^\\/", "").split("/");
+        pathParam = new ArrayList<>(Arrays.asList(paths));
+     }
+
+    // assume your servlet url  is "/login/*" 
+
+   // called url in browser /login/param1/param2/param3
+
+    String param1 = pathParam.get(0);
+    String param2 = pathParam.get(1);
+    String param3= pathParam.get(2);

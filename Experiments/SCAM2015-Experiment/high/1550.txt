@@ -1,0 +1,4 @@
+Camaro      Orange     1968
+Silverado   Red        1996
+Sierra      Black      2007
+Equinox     Silver     2011

@@ -1,0 +1,12 @@
+public static void main(String[] args) {
+
+    String s1 = "wednesday,banglore,karnataka,30";
+    String s2 = "monday,chennai,10";
+    String[] arr1 = s1.split("(?<=^\\w+),|,(?=\\d+)");
+    for(String ss : arr1)
+        System.out.println(ss);
+    System.out.println();
+    String[] arr2 = s2.split("(?<=^\\w+),|,(?=\\d+)");
+    for(String ss : arr2)
+        System.out.println(ss);
+}

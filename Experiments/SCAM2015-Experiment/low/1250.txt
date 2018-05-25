@@ -1,0 +1,9 @@
+String str = "Good^Evening";
+String[] temp;
+
+  String sep= "^";
+  /* given string will be split by the argument sep provided. */
+  temp = str.split(sep);
+  /* print substrings */
+  for(int i =0; i < temp.length ; i++)
+  System.out.println(temp[i]);

@@ -1,0 +1,27 @@
+class DriverCommand implements Callable<WebElement> {
+        String criteria;
+        public DriverCommand setCriteria(String criteria){
+          this.criteria = criteria;
+          return this;
+        }
+        @Override
+        public WebElement call() throws Exception {
+              driver.findElement(By.name(criteria));
+              return elem;
+        }
+    }
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future<String> future = executor.submit(new DriverCommand().setCriteria("x");
+
+        try {
+              System.out.println(future.get(3, TimeUnit.SECONDS));
+          } catch (TimeoutException e) {
+            System.out.println("Terminated!");
+        }
+
+        executor.shutdownNow();
+    }
+}

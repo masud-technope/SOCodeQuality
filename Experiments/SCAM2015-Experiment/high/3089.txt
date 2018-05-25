@@ -1,0 +1,3 @@
+final String test = "123absäöü#+a";
+final String result = test.replaceAll("[^\\p{IsDigit}\\p{IsAlphabetic}]", "");
+System.out.println(result);

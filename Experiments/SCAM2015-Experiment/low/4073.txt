@@ -1,0 +1,14 @@
+public class StuffFactory {
+  public static Stuff createStuff(int value) {
+    return new StuffProxy(value);
+  }
+}
+
+public class StuffProxy extends Stuff {
+   // Replacement for useStuff from your original UseStuff class
+   @Override 
+   public int getX() {
+     //Put custom logic here
+     return super.getX();
+   }
+}

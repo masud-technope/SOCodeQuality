@@ -1,0 +1,3 @@
+public static  BigInteger ZERO;
+public static  BigInteger ONE;
+public static  BigInteger TEN;

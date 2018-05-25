@@ -1,0 +1,20 @@
+public static void doSomething(LinkedList<String> strings, int num) {
+    if (strings == null)
+        return;
+    // here we modify the content of strings
+    strings.add("NEW STRING!");
+    // now the calling method can see the change, the list size
+    // increased by 1 to anything that holds a reference to this list
+
+    // here we lose our reference to strings
+    strings = new LinkedList<String>();
+    // we can no longer make changes to strings that the calling
+    // method will see because we no longer have a reference to
+    // the original list!
+
+    // here we save, then change num
+    int oldNum = num;
+    num = Integer.MAX_VALUE;
+    // the calling method has no way to know that num has changed.
+    // it still thinks num = oldNum
+}

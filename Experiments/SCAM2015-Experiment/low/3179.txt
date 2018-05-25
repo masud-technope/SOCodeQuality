@@ -1,0 +1,67 @@
+public class Atherosclerosis extends Activity{
+
+    ScrollView scrollView;
+
+    TextView tvabove=(TextView)findViewById(R.id.pathophysiology_id);
+
+        @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+        @SuppressLint("NewApi")
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.atherosclerosis);
+             ActionBar bar = getActionBar();
+                bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#6B8E23")));
+                getActionBar().setDisplayHomeAsUpEnabled(true);
+                getActionBar().setHomeButtonEnabled(true); 
+        TextView tv=(TextView)findViewById(R.id.Signandsymptompsid);
+
+        tv.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                scrollView.post(
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                new CountDownTimer(1500, 20) {
+                                    @Override
+                                    public void onTick(long millisUntilFinished) {
+                                        scrollView.scrollTo(0, (int) (tvabove.getBottom()-millisUntilFinished));
+                                    }
+
+                                   @Override
+                                   public void onFinish() {                 
+                                   }
+                                }.start();
+                            }
+                        }
+                    );
+            }
+        });
+        }
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            // Inflate the menu; this adds items to the action bar if it is present.
+            getMenuInflater().inflate(R.menu.atherosclerosis, menu);
+            return true;
+        }
+          @Override
+            public boolean onOptionsItemSelected(MenuItem item) {
+                // Take appropriate action for each action item click
+                switch (item.getItemId()) {
+                case R.id.id_search:
+                    Intent newActivity0 = new Intent(this,Search.class);     
+                     startActivity(newActivity0);
+                    return true;
+                case R.id.id_favorit:
+                   return true;
+
+                default:
+                    return super.onOptionsItemSelected(item);
+                }
+            }
+
+    }

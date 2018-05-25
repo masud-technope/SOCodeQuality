@@ -1,0 +1,17 @@
+Thread1{
+
+synchronized (Lock1) {
+
+synchronized (Lock2) {}
+
+}
+}
+
+Thread2{
+
+ synchronized (Lock2) {
+
+ synchronized (Lock1) {}
+
+ }
+ }

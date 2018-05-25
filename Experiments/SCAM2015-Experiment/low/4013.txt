@@ -1,0 +1,4 @@
+case 2:
+case 3:
+    System.out.println("Number is prime and less than 5");
+    break;

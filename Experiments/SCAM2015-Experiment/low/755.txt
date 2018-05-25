@@ -1,0 +1,5 @@
+if (val.length() < 8) {
+  for (int i = 0; i < val - 8; i++) {
+    val = "0" + val;
+  }
+}

@@ -1,0 +1,37 @@
+public static void main(String[] args) {
+    ArrayList<String> listOfPaths = new ArrayList<String>();
+    listOfPaths.add("folder a/folder b/file 1");
+    listOfPaths.add("folder a/folder b/file 2");
+    listOfPaths.add("folder a/folder c");
+
+    TreeMap structure = new TreeMap();
+    for (String path : listOfPaths) {
+        String[] tmp = path.split("/", 2); // [ "folder a/", "folder b/file 1"]  for first loops step
+        put(structure, tmp[0], tmp[1]);
+    }
+
+    print(structure, "");
+}
+private static void put(TreeMap structure, String root, String rest) {
+    String[] tmp = rest.split("/", 2);
+
+    TreeMap rootDir = (TreeMap) structure.get(root);
+
+    if (rootDir == null) {
+        rootDir = new TreeMap();
+        structure.put(root, rootDir);
+    }
+    if (tmp.length == 1) { // path end
+        rootDir.put(tmp[0], null);
+    } else {
+        put(rootDir, tmp[0], tmp[1]);
+    }
+}
+private static void print(TreeMap map, String delimeter) {
+    if (map == null || map.isEmpty())
+        return;
+    for (Object m : map.entrySet()) {
+        System.out.println(delimeter + "-" + ((Map.Entry)m).getKey());
+        print((TreeMap)((Map.Entry)m).getValue(), " |" + delimeter);
+    }
+}

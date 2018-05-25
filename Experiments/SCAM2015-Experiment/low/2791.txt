@@ -1,0 +1,45 @@
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class Progetto {
+
+    public static void main(String args[]) throws IOException {
+        int a[] = null;
+        int b[] = null;
+        try {
+            // Open the file that is the first
+            // command line parameter
+
+            FileInputStream fstream = new FileInputStream("prova.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+            String strLine = br.readLine(); // step 1
+
+            if (strLine != null) {
+                String[] delims = strLine.split(","); // step 2
+
+                // step 3
+                a = new int[Integer.parseInt(delims[0])];
+                b = new int[Integer.parseInt(delims[1])];
+
+                // step 4
+                for (int i = 0; i < a.length; i++)
+                    a[i] = Integer.parseInt(br.readLine());
+
+                // step 5
+                for (int i = 0; i < b.length; i++)
+                    b[i] = Integer.parseInt(br.readLine());
+
+                br.close();
+            }// step 6
+        } catch (Exception e) {// Catch exception if any
+            System.err.println("Error: " + e.getMessage());
+        }
+        // step 7
+        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(b));
+    }
+
+}

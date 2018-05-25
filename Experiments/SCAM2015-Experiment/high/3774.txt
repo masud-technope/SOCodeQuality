@@ -1,0 +1,3 @@
+A a;
+a = [no matter what];
+a.static_method();

@@ -1,0 +1,13 @@
+static public String generateCollection(List list){
+    if(list == null || list.isEmpty())
+        return "()";
+    String result = "( ";
+    for(Iterator it = list.iterator();it.hasNext();){
+        Object ob = it.next();
+        result += ob.toString();
+        if(it.hasNext())
+            result += " , ";
+    }
+    result += " )";
+    return result;
+}

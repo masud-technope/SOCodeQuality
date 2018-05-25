@@ -1,0 +1,5 @@
+Arrays.sort(sortedIDXs, new Comparator<String>() {
+ public int compare(String idx1,String idx2) {
+    //Your method of sorting here
+    //return 1 if string idx1 should be before, 0 if equal and -1 in opposite 
+ }

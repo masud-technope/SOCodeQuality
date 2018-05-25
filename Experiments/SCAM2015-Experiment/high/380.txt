@@ -1,0 +1,11 @@
+public void increment() 
+{
+   if(value > limit)
+   {
+   }
+   else
+   {
+       value = (value + 1);
+   }
+   value = 0;
+}

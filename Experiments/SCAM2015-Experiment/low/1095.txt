@@ -1,0 +1,24 @@
+public void run() {
+  while (keepRunning && notSuspended) {
+     doNextItem(...);
+  }
+  while (notSuspended == false) {
+     try {
+       Thread.sleep(1000);
+     } catch (InterruptedException e) {
+       // do nothing but continue
+     }
+  }
+}
+
+public void suspend() {
+  notSuspended = false;
+}
+
+public void resume() {
+  notSuspended = true;
+}
+
+public void kill() {
+  keepRunning = false;
+}

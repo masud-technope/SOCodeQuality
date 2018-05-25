@@ -1,0 +1,8 @@
+List<Item> lstItem = new ArrayList<Item>();
+//fill the data...
+Comparator<Item> comparator = new Comparator<Item>() {
+    public int compareTo(Item i1, Item i2) {
+        return i1.count.compareTo(i2.count);
+    }
+};
+Collections.sort(lstItem, comparator);

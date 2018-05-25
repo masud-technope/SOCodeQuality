@@ -1,0 +1,8 @@
+Scanner fileReader = new Scanner(new File(<File to read>));
+
+while (fileReader.hasNextLine()) {
+    String line = fileReader.readLine();
+    <Process Line>
+}
+
+fileReader.close()

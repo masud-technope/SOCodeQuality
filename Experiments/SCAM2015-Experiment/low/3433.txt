@@ -1,0 +1,31 @@
+#include<iostream>
+#include<cstdlib>
+#include<cstdio>
+
+#define FORN(i,n) for(i=0;i<n;i++)
+#define FOR1N(i,n) for(i=1;i<=n;i++)
+#define IFELSE(c, s, o) if(c) s else o 
+
+using namespace std;
+
+void print_pattern(int n)
+{
+    int i,k=n;
+    char *stars = new char[2*n];
+    char *dots = new char[k];
+    FOR1N(i, 2*n) 
+        IFELSE(i%2 == 0, stars[i-1]='.';, stars[i-1] = '*';);
+    FORN(i, k) 
+        dots[i] = '.';
+    FOR1N(i, 2*n)
+        IFELSE(i%2!=0, 
+                printf("%.*s%.*s%.*s\n", k--, dots, i, stars,
+                        k>=0 ? k : 0, dots); , ;);
+}
+
+int main()
+{
+    print_pattern(5);
+    system("pause");
+    return 0;
+}

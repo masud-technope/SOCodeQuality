@@ -1,0 +1,4 @@
+<%
+String param1 = request.getParameter("parameter_name");
+
+  %>

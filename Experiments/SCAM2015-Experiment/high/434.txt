@@ -1,0 +1,3 @@
+boolean isNeverDeleted(){
+    return deletionDate == null;
+}

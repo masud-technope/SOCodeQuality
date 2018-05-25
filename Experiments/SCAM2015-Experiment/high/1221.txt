@@ -1,0 +1,5 @@
+static List<Integer> add2(List<Integer> ns) {
+  return Lists.transform(ns, new Function<Integer, Integer>() {
+    @Override Integer apply(Integer n) { return n + 2; }
+  }
+}

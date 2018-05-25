@@ -1,0 +1,5 @@
+StringBuffer strBuffer = new StringBuffer();
+        for(Object o:list){
+            strBuffer.append(o);
+        }
+        double []x = new double[]{strBuffer.toString()};

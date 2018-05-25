@@ -1,0 +1,5 @@
+SELECT *
+FROM 
+    StackOverflow.`Table`
+ WHERE STR_TO_DATE(`date`, '%d-%m-%Y') BETWEEN 
+    STR_TO_DATE('12-5-2005', '%d-%m-%Y') AND STR_TO_DATE('20-6-2005', '%d-%m-%Y')

@@ -1,0 +1,11 @@
+String line = value.toString();
+   StringTokenizer tokenizer = new StringTokenizer(line);
+   double percentage = 1.0 / 0.5 // replace 0.5 with the percentage you want
+   int x = 0;
+   while (tokenizer.hasMoreTokens()) {
+         ++x;
+         if (x >= percentage) {
+              // print here
+              x = 0;
+         }
+   }

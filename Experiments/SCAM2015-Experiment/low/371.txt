@@ -1,0 +1,169 @@
+public class CKL {
+public String resultFinal;
+public void resultDiv(String string){
+    StringTokenizer stkn = new StringTokenizer(string, "+-*/");
+    int length = 0;
+    while(stkn.hasMoreTokens()){
+        stkn.nextToken();
+        length++;
+    }
+    if(length==1){           
+    }
+    else{
+        int[] numbersList = new int[length];
+        StringTokenizer noToken = new StringTokenizer(string, "-/*+");
+        int i=0;
+        while(noToken.hasMoreTokens()){
+            numbersList[i] = Integer.parseInt(noToken.nextToken());
+            i++;
+        }
+
+        StringBuffer noop = new StringBuffer();
+        StringTokenizer noOp = new StringTokenizer(string, "[0123456789]");
+        while(noOp.hasMoreTokens()){
+            noop.append(noOp.nextToken());
+        }
+        for(int k=0;k<1;k++){
+            int divIndexFind = string.indexOf("/");
+            if(divIndexFind!=-1){
+                int indexOp = noop.indexOf("/");
+                int temp = numbersList[indexOp++]/numbersList[indexOp];
+                indexOp--;
+                int firstLength = String.valueOf(numbersList[indexOp++]).length();
+                int secondLength = String.valueOf(numbersList[indexOp]).length();
+                StringBuffer b = new StringBuffer();
+                b.append(string);
+                b.replace(divIndexFind-firstLength,divIndexFind+secondLength+1, String.valueOf(temp));
+                String finalNewString = "";
+                finalNewString = b.toString();
+                resultFinal = finalNewString;
+                resultDiv(finalNewString);
+            }
+        }
+    }
+}
+public void resultMul(String string){
+    StringTokenizer stkn = new StringTokenizer(string, "+-*/");
+    int length = 0;
+    while(stkn.hasMoreTokens()){
+        stkn.nextToken();
+        length++;
+    }
+    if(length==1){
+    }
+    else{
+        int[] numbersList = new int[length];
+        StringTokenizer noToken = new StringTokenizer(string, "-/*+");
+        int i=0;
+        while(noToken.hasMoreTokens()){
+            numbersList[i] = Integer.parseInt(noToken.nextToken());
+            i++;
+        }
+        StringBuffer noop = new StringBuffer();
+        StringTokenizer noOp = new StringTokenizer(string, "[0123456789]");
+        while(noOp.hasMoreTokens()){
+            noop.append(noOp.nextToken());
+        }
+        for(int k=0;k<1;k++){
+            int divIndexFind = string.indexOf("*");
+            if(divIndexFind!=-1){
+                int indexOp = noop.indexOf("*");
+                int temp = numbersList[indexOp++]*numbersList[indexOp];
+                indexOp--;
+                int firstLength = String.valueOf(numbersList[indexOp++]).length();
+                int secondLength = String.valueOf(numbersList[indexOp]).length();
+                StringBuffer b = new StringBuffer();
+                b.append(string);
+                b.replace(divIndexFind-firstLength,divIndexFind+secondLength+1, String.valueOf(temp));
+                String finalNewString = "";
+                finalNewString = b.toString();
+                resultFinal = finalNewString;
+                resultMul(finalNewString);
+            }
+        }
+    }
+}
+public void resultPlu(String string){
+    StringTokenizer stkn = new StringTokenizer(string, "+-*/");
+    int length = 0;
+    while(stkn.hasMoreTokens()){
+        stkn.nextToken();
+        length++;
+    }
+    if(length==1){
+    }
+    else{
+        int[] numbersList = new int[length];
+        StringTokenizer noToken = new StringTokenizer(string, "-/*+");
+        int i=0;
+        while(noToken.hasMoreTokens()){
+            numbersList[i] = Integer.parseInt(noToken.nextToken());
+            i++;
+        }
+
+        StringBuffer noop = new StringBuffer();
+        StringTokenizer noOp = new StringTokenizer(string, "[0123456789]");
+        while(noOp.hasMoreTokens()){
+            noop.append(noOp.nextToken());
+        }
+        for(int k=0;k<1;k++){
+            int divIndexFind = string.indexOf("+");
+            if(divIndexFind!=-1){
+                int indexOp = noop.indexOf("+");
+                int temp = numbersList[indexOp++]+numbersList[indexOp];
+                indexOp--;
+                int firstLength = String.valueOf(numbersList[indexOp++]).length();
+                int secondLength = String.valueOf(numbersList[indexOp]).length();
+                StringBuffer b = new StringBuffer();
+                b.append(string);
+                b.replace(divIndexFind-firstLength,divIndexFind+secondLength+1, String.valueOf(temp));
+                String finalNewString = "";
+                finalNewString = b.toString();
+                resultFinal = finalNewString;
+                resultPlu(finalNewString);
+            }
+        }
+    }
+}
+public void resultMin(String string){
+    StringTokenizer stkn = new StringTokenizer(string, "+-*/");
+    int length = 0;
+    while(stkn.hasMoreTokens()){
+        stkn.nextToken();
+        length++;
+    }
+    if(length==1){
+    }
+    else{
+        int[] numbersList = new int[length];
+        StringTokenizer noToken = new StringTokenizer(string, "-/*+");
+        int i=0;
+        while(noToken.hasMoreTokens()){
+            numbersList[i] = Integer.parseInt(noToken.nextToken());
+            i++;
+        }
+
+        StringBuffer noop = new StringBuffer();
+        StringTokenizer noOp = new StringTokenizer(string, "[0123456789]");
+        while(noOp.hasMoreTokens()){
+            noop.append(noOp.nextToken());
+        }
+        for(int k=0;k<1;k++){
+            int divIndexFind = string.indexOf("-");
+            if(divIndexFind!=-1){
+                int indexOp = noop.indexOf("-");
+                int temp = numbersList[indexOp++]-numbersList[indexOp];
+                indexOp--;
+                int firstLength = String.valueOf(numbersList[indexOp++]).length();
+                int secondLength = String.valueOf(numbersList[indexOp]).length();
+                StringBuffer b = new StringBuffer();
+                b.append(string);
+                b.replace(divIndexFind-firstLength,divIndexFind+secondLength+1, String.valueOf(temp));
+                String finalNewString = "";
+                finalNewString = b.toString();
+                resultFinal = finalNewString;
+                resultMin(finalNewString);
+            }
+        }
+    }
+}

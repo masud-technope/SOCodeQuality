@@ -1,0 +1,5 @@
+Pattern pattern = Pattern.compile("\\d+");
+Matcher matcher = pattern.matcher("I Need 5000 points");
+while (matcher.find()) {            
+    System.out.println(matcher.group());
+}

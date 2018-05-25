@@ -1,0 +1,8 @@
+class PauzaAction(models.Model):
+
+    # ... all like above, plus:
+
+    def save(self, *args, **kwargs):
+        raise Exception('Permission Denied')
+    def delete(self, *args, **kwargs):
+        raise Exception('Permission Denied')

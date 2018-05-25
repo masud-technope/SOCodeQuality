@@ -1,0 +1,4 @@
+LinkedList<Double> list = new LinkedList<Double>();
+for(double i=0;i<10000000000000000;i++)
+    list.add(i);
+//Output list to file next.

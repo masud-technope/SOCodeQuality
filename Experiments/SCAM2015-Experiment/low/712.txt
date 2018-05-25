@@ -1,0 +1,8 @@
+// here it is 2 millis; because we got started at 2 millis
+blahblah2(); // Do some other stuff
+// here it is 25 millis;
+Thread.sleep(300); // after calling this line the two threads are sleeping...
+// here it is 325 millis;
+... // some stuff
+// here it is 328 millis;
+return; // we are done;

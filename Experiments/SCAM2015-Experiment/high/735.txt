@@ -1,0 +1,5 @@
+int sum = 0, x = 0;
+long time = System.nanoTime();
+do sum += log2nlz( x ); while( ++x != 0 );
+time = System.nanoTime() - time;
+System.out.println( "time=" + time / 1000000L / 1000.0 + "s -> " + sum );

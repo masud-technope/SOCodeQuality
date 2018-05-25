@@ -1,0 +1,3 @@
+A a = new A("Hello");
+B b = new B("Hello");
+a.equals(b) != b.equals(a);

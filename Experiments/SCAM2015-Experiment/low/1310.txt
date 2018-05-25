@@ -1,0 +1,6 @@
+public Magazine (double price,
+     int numberOfPages,
+     paperQuality quality,
+     issuingFrequency freq) {
+
+}

@@ -1,0 +1,3 @@
+for (Map.Entry<String,User> entry : users.entrySet()) {
+    // entry.getValue() is of type User now
+}

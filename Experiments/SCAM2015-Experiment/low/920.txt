@@ -1,0 +1,8 @@
+public class Vehicle
+{
+    protected Logger logger = Logger.getLogger(this.getClass());
+}
+
+public class Car extends Vehicle
+{
+}

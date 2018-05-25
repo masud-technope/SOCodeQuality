@@ -1,0 +1,8 @@
+public class GroupComparator implements Comparator {
+
+    public int compare(Object grp1, Object grp2) {
+        return ((Group) grp1).getCreationDate().compareTo(
+                ((Group) grp2).getCreationDate());
+    }
+
+}

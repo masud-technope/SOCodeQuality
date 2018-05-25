@@ -1,0 +1,17 @@
+public class OverloadVarArgs {
+
+public static void main(String... args){
+    OverloadVarArgs a = new OverloadVarArgs("One Argument");
+    OverloadVarArgs b = new OverloadVarArgs("Two", "Arguments");
+    OverloadVarArgs c = new OverloadVarArgs("One, Argument");
+
+}
+
+public OverloadVarArgs(String a){
+    System.out.println("Constructor 1");
+}
+
+public OverloadVarArgs(String... a){
+    System.out.println("Constructor 2");
+}
+}

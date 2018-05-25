@@ -1,0 +1,3 @@
+Hashtable<String, String> schedule = new Hashtable<String, String>();
+schedule.put("A-Winter", "M");
+schedule.put("A-Spring", "tTS");

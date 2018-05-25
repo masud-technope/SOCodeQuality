@@ -1,0 +1,8 @@
+public static void giveHint (int actual, int guess) {
+         if(Math.abs(actual - guess) <= 5) {
+             System.out.println("Hot");
+             return;
+         }
+
+         System.out.println("Cold");
+    }

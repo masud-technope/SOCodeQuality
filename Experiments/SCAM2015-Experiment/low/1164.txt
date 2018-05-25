@@ -1,0 +1,19 @@
+public DateTime getFirstDayOfPreviousWeek(DateTime input)
+{
+    return getFirstDayOfPreviousWeek(input, DateTimeConstants.MONDAY); 
+}
+
+public DateTime getFirstDayOfPreviousWeek(DateTime input, int firstDayOfWeek)
+{
+    return new DateTime(input.minusWeeks(1).withDayOfWeek(firstDayOfWeek));
+}
+
+public DateTime getLastDayOfPreviousWeek(DateTime input)
+{
+    return getLastDayOfPreviousWeek(input, DateTimeConstants.MONDAY); 
+}
+
+public DateTime getLastDayOfPreviousWeek(DateTime input, int firstDayOfWeek)
+{
+    return new DateTime(getFirstDayOfPreviousWeek(input, firstDayOfWeek).plusDays(6));
+}

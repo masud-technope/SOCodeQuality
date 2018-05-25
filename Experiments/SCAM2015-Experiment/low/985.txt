@@ -1,0 +1,13 @@
+package com.example;
+
+public class Enumerations {
+
+    public enum enumA { A1, A2, A3 };
+    public enum enumB { B1, B2, B3 };
+    public enum enumC { C1, C2, C3 };
+
+    private void test() {
+        Enumerations.enumA[][] enumerations = new Enumerations.enumA[3][];
+        enumerations[0][1] = enumA.A1; //legal
+        enumerations[0][2] = enumB.B1; //illegal since enumB is a different type
+    }

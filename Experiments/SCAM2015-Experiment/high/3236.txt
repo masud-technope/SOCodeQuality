@@ -1,0 +1,4 @@
+for (String s = in.next(); !s.equals("end"); s = in.next()) {
+    ...
+    i++;
+}

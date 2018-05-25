@@ -1,0 +1,5 @@
+String testString = "Hello World.";
+
+testString = testString.replace('o', '\u0001');
+testString = testString.replace('e', 'o');
+testString = testString.replace('\u0001', 'e');

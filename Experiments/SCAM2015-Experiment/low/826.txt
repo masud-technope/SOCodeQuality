@@ -1,0 +1,20 @@
+int main(int argc, char*argv[])
+{
+std::vector<std::string> in (argv+1,argv+argc), out();
+
+out.push_back("java.exe");
+out.push_back("-cp");
+out.push_back("my-jar.jar");
+out.push_back("main.class")
+
+for( auto it = in.begin(); it!=in.end(); ++in)
+{
+//process CLI args. turn "-abc","BLAH" into "-Darg.a=true","-Darg.b=true","-Darg.c=BLAH" and push to out
+//Do additional processing. Maybe evn use get_opt() or Boost.ProgramOptions
+}
+//use exec or CreateProcess to launch java with the proper args
+//or even use something like WinRun4J's methods to load the jvm.dll
+//Then your program shows up as "MyExe.exe" instead of "java.exe"
+
+//Use System.getProperty("arg.a","false") to get the value of a
+}

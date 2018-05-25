@@ -1,0 +1,3 @@
+for (int[] is : set) {
+   System.out.printf("Sorted Elements: %d ", is[0]);
+}

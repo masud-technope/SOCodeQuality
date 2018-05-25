@@ -1,0 +1,13 @@
+class Main {
+    public static void main(String[] args){
+        int someInt = 36;
+
+        String binary = Integer.toBinaryString(someInt);
+
+        String binaryZeroes = binary.replaceAll("1", "");
+        String binaryOnes = binary.replaceAll("0", "");
+
+        System.out.println("number of zeroes: " + binaryZeroes.length());
+        System.out.println("number of ones: " + binaryOnes.length());
+    }
+}

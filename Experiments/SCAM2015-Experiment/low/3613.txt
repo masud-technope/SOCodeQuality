@@ -1,0 +1,7 @@
+java.awt.EventQueue.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                //your code if you want to run it in next gui update
+            }
+        });

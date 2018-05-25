@@ -1,0 +1,11 @@
+public void Foo () {
+    IntWrapper aw = new IntWrapper();
+    aw.value = 5;
+    System.out.println(aw.value);//prints 5
+    setA(aw);
+    System.out.println(aw.value);//prints 3
+}
+
+public void setA (IntWrapper aw) {
+    aw.value = 3;
+}

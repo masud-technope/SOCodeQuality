@@ -1,0 +1,6 @@
+try{
+   methodFoo(int param);
+
+}catch (IllegalArgumentException e){
+       //if any method call inside methodFoo will raise such exception the execution flow of the program will be interrupted and the execution restart from the first catch block that intercept that execption
+}

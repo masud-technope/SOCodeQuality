@@ -1,0 +1,4 @@
+System.out.println(cal.get(Calendar.YEAR));
+System.out.println(cal.get(Calendar.HOUR));
+System.out.println(cal.get(Calendar.HOUR_OF_DAY));
+System.out.println(cal.get(Calendar.MINUTE));

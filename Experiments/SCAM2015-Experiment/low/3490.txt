@@ -1,0 +1,10 @@
+public static void main()
+{
+   AtomicInteger n = new AtomicInteger(5);
+   add(n);
+}
+
+static void add(AtomicInteger n)
+{
+   n.addAndGet(1);
+}

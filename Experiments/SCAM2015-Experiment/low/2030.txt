@@ -1,0 +1,80 @@
+public class Money implements Comparable<Money> {
+
+private static Locale CURRENT_LOCALE = new Locale("pt", "br");
+
+private Long amount = 0L;
+
+public Money() { }
+
+public Money(long cents) {
+    super();
+    this.setAmount(cents);
+}
+
+public Money(float cents) {
+    super();
+    this.setAmount(cents);
+}
+
+public Money(double cents) {
+    super();
+    this.setAmount(cents);
+}
+
+public void setAmount(Long cents) {
+    this.amount = cents;
+}
+
+public void setAmount(Float amount) {
+    this.amount = new Long(Math.round(amount * 100));
+}
+
+public void setAmount(Double amount) {
+    this.amount = Math.round(amount * 100);
+}
+
+public Double amount() {
+    return ((double) this.amount/100);
+}
+
+public Money add(Money portion) {
+    if (amount != null) {
+        this.amount += portion.amount;
+    }
+    return this;
+}
+
+public Money subtract(Money portion) {
+    if (amount != null) {
+        this.amount -= portion.amount;
+    }
+    return this;
+}
+
+public Money multiplyBy(double times) {
+    this.amount = Math.round(this.amount * times);
+    return this;
+}
+
+public Money divideBy(double divisor) {
+    this.amount = Math.round(this.amount / divisor);
+    return this;
+}
+
+@Override
+public String toString() {
+    return NumberFormat.getCurrencyInstance(currentLocale()).format(amount());
+}
+
+@Override
+public int compareTo(Money value) {
+    return (int) (amount - value.amount);
+}
+
+protected static void currentLocale(Locale locale) {
+    CURRENT_LOCALE = locale;
+}
+
+protected static Locale currentLocale() {
+    return CURRENT_LOCALE;
+}

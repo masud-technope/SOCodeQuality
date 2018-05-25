@@ -1,0 +1,5 @@
+Iterator iter = o.getIterator();
+while (iter.hasNext()){
+     obj value = iter.next();
+     ...do something
+}

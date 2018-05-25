@@ -1,0 +1,105 @@
+public class Test {
+
+    // Extend this to magically get a JSON-Like toString.
+    public static interface JSONObject {
+
+        public String asJSON();
+    }
+
+    class RequestA implements JSONObject {
+
+        @Override
+        public String asJSON() {
+            return "RequestA {}";
+        }
+    }
+
+    class RequestB implements JSONObject {
+
+        @Override
+        public String asJSON() {
+            return "RequestB {}";
+        }
+    }
+
+    static class Conversation<Q extends JSONObject, R> {
+
+        // Parser factory.
+        private static final JsonFactory factory = new JsonFactory();
+
+        // General query of the website. Takes an object of type Q and returns one of class R.
+        public R query(String urlBase, String op, Q q, Class<R> r) throws IOException {
+            // Prepare the post.
+            HttpPost postRequest = new HttpPost(urlBase + op);
+            // Get it all into a JSON string.
+            StringEntity input = new StringEntity(q.asJSON());
+            input.setContentType("application/json");
+            postRequest.setEntity(input);
+            // Post it and wait.
+            return requestResponse(postRequest, r);
+        }
+
+        private <R> R requestResponse(HttpRequestBase request, Class<R> r) throws IOException {
+            // Start a conversation.
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            CloseableHttpResponse response = httpclient.execute(request);
+            // Get the reply.
+            return readResponse(response, r);
+        }
+
+        private <R> R readResponse(CloseableHttpResponse response, Class<R> r) throws IOException {
+            // What was read.
+            R red = null;
+            try {
+                // What happened?
+                if (response.getStatusLine().getStatusCode() == 200) {
+                    // Roll out the results
+                    HttpEntity entity = response.getEntity();
+                    if (entity != null) {
+                        // Always make sure the content is closed.
+                        try (InputStream content = entity.getContent()) {
+                            red = parseAs(content, r);
+                        }
+                    }
+                } else {
+                    // The finally below will clean up.
+                    throw new IOException("HTTP Response: " + response.getStatusLine().getStatusCode());
+                }
+            } finally {
+                // Always close the response.
+                response.close();
+            }
+
+            return red;
+        }
+
+        private <R> R parseAs(InputStream content, Class<R> r) throws IOException {
+            JsonParser rsp;
+            // Roll it directly from the response stream.
+            rsp = factory.createJsonParser(content);
+            // Bring back the response.
+            return rsp.readValueAs(r);
+        }
+    }
+
+    static class ConversationA extends Conversation<RequestA, Integer> {
+
+    }
+
+    static class ConversationB extends Conversation<RequestB, String> {
+
+    }
+
+    public void test() throws IOException {
+        Integer a = new ConversationA().query("http://host/api", "JSON", new RequestA(), Integer.class);
+        String b = new ConversationB().query("http://host/api", "JSON", new RequestB(), String.class);
+    }
+
+    public static void main(String args[]) {
+        try {
+            new Test().test();
+        } catch (Throwable t) {
+            t.printStackTrace(System.err);
+        }
+    }
+}

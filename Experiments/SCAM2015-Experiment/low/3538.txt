@@ -1,0 +1,4 @@
+int var = 0;
+while(true) {
+    var = 0;
+}

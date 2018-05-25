@@ -1,0 +1,15 @@
+public class TestUserAccessor implements UserAccessor
+{
+    private static User _user;
+
+    public TestUserAccessor(User user)
+    {
+        _user = user;
+    }
+
+    @Override
+    public User getUser()
+    {
+        return _user;
+    }
+}

@@ -1,0 +1,7 @@
+// s is array of char that holds the string
+i=0
+j=s.length - 1
+while (i < j) 
+    swap characters at positions i and j
+    i++
+    j--

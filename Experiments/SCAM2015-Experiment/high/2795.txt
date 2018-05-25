@@ -1,0 +1,19 @@
+public static void main(String[] args) {
+            Box b1 = new Box(5);                 // b1 == location A
+            Box[] ba = go(b1, new Box(6));       // ba == location B which stores Location A, D
+
+           // PLEASE NOTE HERE
+           // After the function go() is executed;
+           // ba[] will have {D, A}
+           // So ba[0] will have object b1 which is at location A. 
+
+            ba[0] = b1;                          // location B will now store A and A
+            for(Box b : ba)
+                System.out.println(b.size + " ");  //  Output: 4 and 4
+        } 
+
+        static Box[] go (Box b1, Box b2) {        // go(location A, location D )
+            b1.size = 4;                          // A's object.size = 4
+            Box[] ma = {b2, b1};                  // position is interchanged here (D and A)
+            return ma;                            // return the location of ma
+        }

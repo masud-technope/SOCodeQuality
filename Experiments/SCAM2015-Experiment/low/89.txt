@@ -1,0 +1,18 @@
+public SomeServlet extends HttpServlet {
+
+    private instance = null;
+
+    private SomeServlet() {
+        // Construction code here
+    }
+
+    public synchronized SomeServlet getInstance() {
+        if(instance == null) {
+            instance = SomeServlet();
+        }
+        return instance;
+    }
+
+    // Servlet methods here
+
+}

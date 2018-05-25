@@ -1,0 +1,6 @@
+TimeLimiter limiter = new SimpleTimeLimiter();
+String result = limiter.callWithTimeout(new Callable<String>() {
+    public String call() {
+      return getStaticJsonResponse("build", "post");
+    }
+  }, 3, TimeUnit.SECONDS, false);

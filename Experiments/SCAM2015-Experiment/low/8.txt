@@ -1,0 +1,4 @@
+Serializable myObject;
+ObjectOutputStream oos = new ObjectOutputStream (new FileOutputStream ("obj.ser"));
+oos.write (myObject);
+oos.close ();

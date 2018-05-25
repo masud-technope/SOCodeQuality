@@ -1,0 +1,54 @@
+public static void main(String[] args)
+{
+    final Object lock = new Object(); 
+
+    final JFrame frame = new JFrame("Notify Test");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    JButton button = new JButton("Notify");
+    button.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent evt) {
+            synchronized(lock) {
+                lock.notify();
+            }
+        }
+    });
+    frame.add(button);
+
+    SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+            frame.setVisible( true );
+        }
+    });
+
+    new Thread(new Runnable() {
+        public void run() {
+            synchronized(lock) {
+                try {
+                    System.out.println("1. starting");
+                    lock.wait();
+                    System.out.println("1. step 1");
+                    lock.wait();
+                    System.out.println("1. step 2");
+                } catch (InterruptedException ie) {
+                    ie.printStackTrace();
+                }
+            }
+        }
+    }).start();
+    new Thread(new Runnable() {
+        public void run() {
+            synchronized(lock) {
+                try {
+                    System.out.println("2. starting");
+                    lock.wait();
+                    System.out.println("2. step 1");
+                    lock.wait();
+                    System.out.println("2. step 2");
+                } catch (InterruptedException ie) {
+                    ie.printStackTrace();
+                }
+            }
+        }
+    }).start();
+
+}

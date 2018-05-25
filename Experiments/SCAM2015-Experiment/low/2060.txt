@@ -1,0 +1,4 @@
+<bean id="dataSource" class="org.springframework.jdbc.datasource.IsolationLevelDataSourceAdapter">
+    <property name="isolationLevelName" value="ISOLATION_READ_COMMITTED"/>
+    <property name="targetDataSource" ref="_dataSource"/>
+</bean>

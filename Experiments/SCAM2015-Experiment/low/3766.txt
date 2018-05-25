@@ -1,0 +1,11 @@
+public class XMLDemo {
+    public interface Projection {
+    @XBRead("/ADI/Content/@Value")
+    String getContentValue();
+    }
+
+    public static main(String[] args) {
+    Projection projection = new XBProjector().io().file("D:\\seachange\\AssetFlow Test Files\\DR-Sun3.xml").read(Projection.class);
+    System.out.println(projection.getContentValue());
+    } 
+}

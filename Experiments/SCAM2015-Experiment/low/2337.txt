@@ -1,0 +1,14 @@
+=========================================================================
+
+  JBoss Bootstrap Environment
+
+  JBOSS_HOME: /apps/jboss-eap-6.2
+
+  JAVA: /apps/jdks/jdk_1.7/bin/java
+
+  JAVA_OPTS:  -server -XX:+UseCompressedOops -Xms1303m -Xmx1303m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true
+
+=========================================================================
+
+21:07:20,380 INFO  [org.jboss.modules] (main) JBoss Modules version 1.3.3.Final-redhat-1
+21:07:22,206 INFO  [stdout] (main) JBoss EAP 6.2.2.GA (AS 7.3.2.Final-redhat-2)

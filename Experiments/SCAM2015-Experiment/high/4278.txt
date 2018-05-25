@@ -1,0 +1,5 @@
+@Override
+public void paintComponent(Graphics g){
+    super.paintComponent(g);
+    //do your custom drawing here, and never call repaint from this method
+}

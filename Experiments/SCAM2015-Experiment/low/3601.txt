@@ -1,0 +1,8 @@
+public class DateHashMap implements Map<String, Date>{ 
+..
+@Override
+public String put(Date key, String value) {
+        // Check date...
+    }
+..
+}

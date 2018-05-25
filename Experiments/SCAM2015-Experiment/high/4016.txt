@@ -1,0 +1,4 @@
+function are_gray_neighbours(a: gray, b: gray) -> boolean
+    return b = a ^ 1 OR
+           b = a ^ ((a & -a) << 1)
+end

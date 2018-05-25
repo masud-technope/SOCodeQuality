@@ -1,0 +1,3 @@
+String getValue() {
+    return new StringBuilder().toString();
+}

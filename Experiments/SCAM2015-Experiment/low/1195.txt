@@ -1,0 +1,5 @@
+public static boolean smallestCharacter(char ch1, char ch2) {
+  if (ch1 > 0x60) ch1 -= 0x20;
+  if (ch2 > 0x60) ch2 -= 0x20;
+  return ch1 < ch2;
+}

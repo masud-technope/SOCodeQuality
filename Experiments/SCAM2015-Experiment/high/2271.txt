@@ -1,0 +1,4 @@
+<p:inputMask 
+   mask="9?9999"
+   maxlength="5"
+   placeHolder=" "/>

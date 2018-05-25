@@ -1,0 +1,14 @@
+public static class Key<T>
+{
+    public static final Key<Long> FIRST_KEY 
+                  = new Key("actual key 1", Long.class);
+    ...
+
+    public final String value;
+    public final Class<T> type;
+
+    Key(String value, Class<T> type) {
+        this.value = value;
+        this.type = type;
+    }
+}

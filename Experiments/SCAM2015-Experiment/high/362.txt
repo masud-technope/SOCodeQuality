@@ -1,0 +1,5 @@
+TagNode root = htmlCleaner.clean( stream );
+Object[] found = root.evaluateXPath( "//div[id='something']" );
+if( found.length > 0 && found instanceof TagNode ) {
+    ((TagNode)found[0]).removeFromTree();
+}

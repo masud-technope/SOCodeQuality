@@ -1,0 +1,14 @@
+public class Main {
+    public static void main(String args[]) {
+        Customer[] cus = new Customer[1];
+        cus[0] = new Customer("John");
+
+        // Compare against name
+        if (cus[0].getName().equals("John"))
+            System.out.println("Name equals.");
+
+        // Compare against another customer:
+        if (cus[0].equals(new Customer("John")))
+            System.out.println("Customer equals.");
+     }
+}

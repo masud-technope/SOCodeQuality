@@ -1,0 +1,6 @@
+for (Shop shop : list1) {
+    total += shop.shopTax();
+}
+for (House house : list2) {
+    total += house.houseTax();
+}

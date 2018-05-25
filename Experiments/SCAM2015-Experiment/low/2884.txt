@@ -1,0 +1,24 @@
+String firstName = "John";
+String lastName = "Smith";
+
+//call the class's constructor to set up the instance, before calling the private function
+InspectionTree inspectionTree = new InspectionTree(firstName, lastName);
+
+String privateMethodName ="getSamePackagePathAndName";        
+Class[] privateMethodArgClasses = new Class[] { String.class, String.class };
+
+Method method = 
+         inspectionTree.getClass().getDeclaredMethod(privateMethodName, privateArgClasses);
+
+method.setAccessible(true);
+
+String className = "Person";
+String classPath = "C:\\workspace";
+
+Object[] params = new Object[]{className, classPath};        
+
+//note the return type of function 'getSamePackagePathAndName' is a String, so we cast
+//the return type here as a string
+String answer=  (String)method.invoke(inspectionTree, params);
+
+method.setAccessible(false);

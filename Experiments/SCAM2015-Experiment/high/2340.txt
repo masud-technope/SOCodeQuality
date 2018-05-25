@@ -1,0 +1,10 @@
+public class ChicagoPizzaStore extends PizzaStore {
+
+Pizza createPizza(String item) {
+        try {
+            //some assumptions about the classpath locations made here
+            return Class.forName(item).newInstance();
+        } catch(Exception e) {
+            return null;
+        }
+}

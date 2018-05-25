@@ -1,0 +1,4 @@
+InputStream pxy = (InputStream) java.lang.reflect.Proxy.newProxyInstance(
+    obj.getClass().getClassLoader(),
+    new Class[]{ InputStream.class },
+    new ThrowOnEOFProxy(obj));

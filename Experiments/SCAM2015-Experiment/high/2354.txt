@@ -1,0 +1,3 @@
+public javax.swing.JPanel BenderPanel1;
+public javax.swing.JPanel BenderPanel2;
+public javax.swing.JPanel BenderPanel3;

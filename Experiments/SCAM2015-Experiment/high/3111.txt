@@ -1,0 +1,3 @@
+Map<String, Choice> result =
+    choices.stream().collect(Collectors.toMap(Choice::getName,
+                                              Function.identity()));

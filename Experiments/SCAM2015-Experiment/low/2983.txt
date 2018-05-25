@@ -1,0 +1,23 @@
+while ((line = reader.readLine()) != null)
+                {
+                    if (!(line.startsWith("*")))
+                    {
+//Skip line like this. just check after skip whether file ended or not! to avoid null pointer exception.
+                        reader.readLine();
+                        reader.readLine();
+                        reader.readLine();
+                        //display booking IDs of target customer
+                        if (line.equals(String.valueOf(customermobilenumber)))
+                        {   
+                           //use null pointer check here.
+                           if(reader.readLine != null)
+                           {                                        
+                            System.out.println (reader.readLine());
+                           }
+                           else
+                           {
+                              //File end.
+                           }
+                        }
+                    }
+                }

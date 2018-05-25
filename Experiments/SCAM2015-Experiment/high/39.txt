@@ -1,0 +1,5 @@
+CREATE TABLE  `Users` (
+    `id` int(10) unsigned NOT NULL auto_increment,
+    `name` varchar(30) collate utf8_swedish_ci default NULL
+    PRIMARY KEY  (`id`)
+   ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci ROW_FORMAT=DYNAMIC;

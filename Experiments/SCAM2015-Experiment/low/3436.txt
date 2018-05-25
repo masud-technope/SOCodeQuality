@@ -1,0 +1,30 @@
+package com.kvvssut.misc;
+
+public class ResetStatic {
+
+    private static int SCORE = 0;
+    private static float SPEED = 2.3f; 
+
+    private static void init() {
+        SCORE = 0;
+        SPEED = 2.3f;       
+    }
+
+
+
+    public static void main(String[] args) {
+
+        SCORE = 100;
+        SPEED = 230.3f;
+
+        try {
+            throw new RuntimeException();
+        } catch (Exception e) {
+            init();
+        }
+
+        System.out.println(SCORE);
+        System.out.println(SPEED);
+    }
+
+}

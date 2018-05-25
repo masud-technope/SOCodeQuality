@@ -1,0 +1,8 @@
+public static String collapse(List<String> list) {
+    StringBuilder sb = new StringBuilder(50 * list.size());
+    for (String s : list) {
+        sb.append(" ").append(s);
+    }
+    sb.delete(0, 1);
+    return sb.toString();
+}

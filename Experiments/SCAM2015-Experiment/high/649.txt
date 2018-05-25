@@ -1,0 +1,10 @@
+import java.nio.CharBuffer;
+
+/**
+ * Creates a string of spaces that is 'spaces' spaces long.
+ *
+ * @param spaces The number of spaces to add to the string.
+ */
+public String spaces( int spaces ) {
+  return CharBuffer.allocate( spaces ).toString().replace( '\0', ' ' );
+}

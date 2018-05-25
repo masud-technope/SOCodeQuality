@@ -1,0 +1,8 @@
+return
+{
+//Properties
+//#region
+Name:null,
+Address:null
+//#endregion
+}

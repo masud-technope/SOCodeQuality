@@ -1,0 +1,3 @@
+print "one" !~ /one|two|three/ --> false
+print "two" !~ /one|two|three/ --> false
+print "ten" !~ /one|two|three/ --> true

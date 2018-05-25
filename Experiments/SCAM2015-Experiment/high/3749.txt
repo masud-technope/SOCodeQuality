@@ -1,0 +1,4 @@
+Calendar cal = Calendar.getInstance();
+cal.setTime(start);
+cal.add(Calendar.MINUTE, 45);
+Date end = cal.getTime();

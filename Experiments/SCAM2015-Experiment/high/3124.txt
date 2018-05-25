@@ -1,0 +1,3 @@
+int pos = getIntent().getIntExtra("key",0);
+String url = "file:///android_asset/"+pos+".html"
+web.loadUrl(url);

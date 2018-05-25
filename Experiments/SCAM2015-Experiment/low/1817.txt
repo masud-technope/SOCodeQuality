@@ -1,0 +1,3 @@
+public void positionColumn(JTable table,int col_Index) {
+ table.moveColumn(table.getColumnCount()-1, col_Index);
+  }

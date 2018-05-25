@@ -1,0 +1,12 @@
+class Parent{
+   void method(){ System.out.print("this is the parent"); }
+}
+
+class Child extends Parent{
+   @override
+   void method(){ System.out.print("this is the child"); }
+}
+...
+Parent o = new Child();
+o.method();
+((Child)o).method();

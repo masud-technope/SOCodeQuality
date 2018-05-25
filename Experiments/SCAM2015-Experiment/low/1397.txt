@@ -1,0 +1,26 @@
+try {
+                User sessionuser =(User)session.getAttribute("User");
+                String username = sessionuser.getUsername(),firstname="",surname="",password="";
+
+                if (request.getParameter("firstname") == ""){
+                    firstname = sessionuser.getFirstname();
+                }
+                else{firstname = request.getParameter("firstname");
+                }
+
+                if (request.getParameter("surname") == ""){
+                    surname = sessionuser.getSurname();
+                }
+                else{surname = request.getParameter("surname");
+                }
+                password = request.getParameter("password");
+
+                User user = new User(username, firstname, surname, password);
+                //this.updateUser(user); 
+                this.updateUser(username, firstname, surname, password);
+
+                //user.updateUser();
+
+                session.setAttribute("User", user);
+                request.setAttribute("u", user);
+                request.getRequestDispatcher("UpdateUser.jsp").forward(request,     response);

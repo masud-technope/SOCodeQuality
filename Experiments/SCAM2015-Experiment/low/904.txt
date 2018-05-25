@@ -1,0 +1,17 @@
+@Entity
+public class CurrentElement {
+
+    @OneToOne        
+    private Element currentVersion;
+
+    public static Element getCurrentVersion(EntityManager em) {
+         return em.createQuery("select x from Element x ").getSingleResult().currentVersion;
+    }
+
+    public static void setCurrentVersion(EntityManager em, Element newVersion) {
+         em.remove(getCurrentVersion(em));
+         CurrentElement ce = new CurrentElement();
+         ce.currentVersion = newVersion;
+         em.persist(ce);
+    }
+}

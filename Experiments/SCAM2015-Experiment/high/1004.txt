@@ -1,0 +1,5 @@
+for (int i = 0; i < persons.size(); i++) {
+    Person person = persons.get(i);
+    System.out.println(person.getFirstName());
+    int size = persons.size(); // Do with it whatever you want.
+}

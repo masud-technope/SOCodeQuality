@@ -1,0 +1,4 @@
+if(a)
+  do_something();
+if(b)
+  do_something();

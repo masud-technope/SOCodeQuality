@@ -1,0 +1,36 @@
+public class Main {
+
+public static void main(String[] args) {
+    boolean cond = true;
+    int nothing = 0;
+
+    for (int i = 0; i < 20; i++) {
+        int value = 0;
+        long time = System.nanoTime();
+        for (int count = 0; count < 10000000; count++) {
+            if (cond) {
+                value = 1 + 2;
+            }
+        }
+
+        time = System.nanoTime() - time;
+        System.out.println("1) performance: " + time);
+        nothing = value; // prevent java ignoring value
+
+        value = 0;
+        time = System.nanoTime();
+        for (int count = 0; count < 10000000; count++) {
+            if (cond) {
+                value = 1 + 2;
+            } else {
+                value = 1 + 3;
+            }
+        }
+        time = System.nanoTime() - time;
+        System.out.println("2) performance: " + time);
+        nothing = value; // prevent java ignoring value
+    }
+
+    nothing = nothing + 1;
+}
+}

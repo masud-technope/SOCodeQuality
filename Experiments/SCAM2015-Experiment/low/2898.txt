@@ -1,0 +1,13 @@
+File file = new File("test.txt");
+ if(file.exists()) { 
+    BufferedReader reader = new BufferedReader(new FileReader(file));
+
+    String line = null;
+    while ((line = reader.readLine())!= null)  
+    {
+        System.out.println(line);
+    }   
+   reader.close();  
+ }else{
+       System.out.println("File is not present");
+ }

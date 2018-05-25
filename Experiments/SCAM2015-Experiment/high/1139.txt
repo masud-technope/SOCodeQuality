@@ -1,0 +1,13 @@
+Fine grained:
+Worked 1 spent 1080 ms
+Worked 2 spent 1230 ms
+Worked 0 spent 1250 ms
+Worked 3 spent 1260 ms
+wall time: 1620 ms
+
+Coarse grained:
+Worked 1 spent 190 ms
+Worked 2 spent 270 ms
+Worked 3 spent 410 ms
+Worked 0 spent 280 ms
+wall time: 1298 ms

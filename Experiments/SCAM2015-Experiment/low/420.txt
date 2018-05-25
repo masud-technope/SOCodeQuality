@@ -1,0 +1,10 @@
+public void load(String filename) {
+
+    Toolkit tk = Toolkit.getDefaultToolkit();
+    image = tk.getImage(getURL(filename));
+    while(getImage().getWidth(observerwin) <= 0){loaded = false;}
+    double x = observerwin.getSize().width/2  - width()/2;
+    double y = observerwin.getSize().height/2 - height()/2;
+    at = AffineTransform.getTranslateInstance(x, y);
+    loaded = true;
+}

@@ -1,0 +1,24 @@
+class a{
+  function dosomething(){
+     //code goes here
+   }
+}
+
+class b{
+    a firstobject=new a();
+    c secondobject=new c(a objtopass);  //passing object of a to c
+    function donext(){
+        //next code
+    }
+}
+
+class c{
+a receivedobj=null;
+public c(a objtoreceive){
+    //constructor
+    receivedobj=objtoreceive;
+}
+ function doAdd(){
+   //function code
+  }
+}

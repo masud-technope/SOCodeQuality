@@ -1,0 +1,4 @@
+BigDecimal bd = new BigDecimal("000000003625")
+                        .divide(new BigDecimal(100));
+DecimalFormat df = new DecimalFormat("0.00");
+String result = df.format(bd);

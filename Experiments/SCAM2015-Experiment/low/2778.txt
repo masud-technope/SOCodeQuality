@@ -1,0 +1,11 @@
+import java.nio.charset.CharsetDecoder;  
+import java.nio.charset.Charset;
+import java.util.Arrays; 
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        byte[] encoding1 = "以下便是有关此问题的所有信� �".getBytes("ISO8859-1");                
+        String s = new String(encoding1, "UTF-8");
+        System.out.println(s);
+    }
+}

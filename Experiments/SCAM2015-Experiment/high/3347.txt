@@ -1,0 +1,8 @@
+private static void reverseRecursively(char[] myCharArr, int next) {
+    if (next >= myCharArr.length)
+        return;
+
+    // use recusion BEFORE printing in order to print in reversed order
+    reverseRecursively(myCharArr, next+1); 
+    System.out.println(myCharArr[next]);
+}

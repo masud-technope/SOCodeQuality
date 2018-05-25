@@ -1,0 +1,5 @@
+PreparedStatement statement = connection.prepareStatement("INSERT INTO history (to, subject, body) VALUES (?, ?, ?)");
+statement.setString(1, DATA1);
+statement.setString(2, DATA2);
+statement.setString(3, DATA3);
+statement.execute();

@@ -1,0 +1,4 @@
+String s="";
+for (int i = 0; i < mac.length; i++) { 
+  s += String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : "");
+}

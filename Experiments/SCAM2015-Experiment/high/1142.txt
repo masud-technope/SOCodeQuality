@@ -1,0 +1,7 @@
+int efficientPDFPageCount(String path) {
+  RandomAccessFileOrArray file = new RandomAccessFileOrArray(path, false, true );
+  PdfReader reader = new PdfReader(file);
+  int ret = reader.getNumberOfPages();
+  reader.close();
+  return ret;
+}

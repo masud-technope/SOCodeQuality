@@ -1,0 +1,3 @@
+IntStream.range(1, arrayList.size())
+             .mapToObj(i -> new Pair(arrayList.get(i-1), arrayList.get(i)))
+             .forEach(System.out::println);

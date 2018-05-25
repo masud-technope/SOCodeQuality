@@ -1,0 +1,9 @@
+int[] oldArray;
+
+... // Here you would assign and fill oldArray
+
+Integer[] newArray = new Integer[oldArray.length];
+int i = 0;
+for (int value : oldArray) {
+    newArray[i++] = Integer.valueOf(value);
+}

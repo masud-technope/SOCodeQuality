@@ -1,0 +1,3 @@
+try (Writer w = new FileWriter(...)) {
+    // write stuff to the file
+} // the `w` resource is automatically closed

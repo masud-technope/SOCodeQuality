@@ -1,0 +1,10 @@
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    float a = 4;
+    float b = 2;
+    auto z = a / b;
+    std::cout << std::fixed << std::setprecision(4);
+    std::cout << z << std::endl;
+}

@@ -1,0 +1,5 @@
+public void display() {
+    for (int i = 0; i < nItems; i++) {
+        System.out.println(queArray[(front + i) % maxSize]);
+    }
+}

@@ -1,0 +1,153 @@
+public static void genrateCsvMonth_Region(String pdfpath, String csvpath) {
+        try {
+            String line = null;
+            // Appending Header in CSV file...
+            BufferedWriter writer1 = new BufferedWriter(new FileWriter(csvpath,
+                    true));
+            writer1.close();
+            // Checking whether file is empty or not..
+            BufferedReader br = new BufferedReader(new FileReader(csvpath));
+
+            if ((line = br.readLine()) == null) {
+                BufferedWriter writer = new BufferedWriter(new FileWriter(
+                        csvpath, true));
+                writer.append("REGION,");
+                writer.append("YEAR,");
+                writer.append("MONTH,");
+                writer.append("THERMAL,");
+                writer.append("NUCLEAR,");
+                writer.append("HYDRO,");
+                writer.append("TOTAL\n");
+                writer.close();
+            }
+            // Reading the pdf file..
+            PdfReader reader = new PdfReader(pdfpath);
+            BufferedWriter writer = new BufferedWriter(new FileWriter(csvpath,
+                    true));
+
+            // Extracting records from page into String..
+            String page = PdfTextExtractor.getTextFromPage(reader, 1);
+            // Extracting month and Year from String..
+            String period1[] = page.split("PEROID");
+            String period2[] = period1[0].split(":");
+            String month[] = period2[1].split("-");
+            String period3[] = month[1].split("ENERGY");
+            String year[] = period3[0].split("VIS");
+
+            // Extracting Northen region
+            String northen[] = page.split("NORTHEN REGION");
+            String nthermal1[] = northen[0].split("THERMAL");
+            String nthermal2[] = nthermal1[1].split(" ");
+
+            String nnuclear1[] = northen[0].split("NUCLEAR");
+            String nnuclear2[] = nnuclear1[1].split(" ");
+
+            String nhydro1[] = northen[0].split("HYDRO");
+            String nhydro2[] = nhydro1[1].split(" ");
+
+            String ntotal1[] = northen[0].split("TOTAL");
+            String ntotal2[] = ntotal1[1].split(" ");
+
+            // Appending filtered data into CSV file..
+            writer.append("NORTHEN" + ",");
+            writer.append(year[0] + ",");
+            writer.append(month[0] + ",");
+            writer.append(nthermal2[4] + ",");
+            writer.append(nnuclear2[4] + ",");
+            writer.append(nhydro2[4] + ",");
+            writer.append(ntotal2[4] + "\n");
+
+            // Extracting Western region
+            String western[] = page.split("WESTERN");
+
+            String wthermal1[] = western[1].split("THERMAL");
+            String wthermal2[] = wthermal1[1].split(" ");
+
+            String wnuclear1[] = western[1].split("NUCLEAR");
+            String wnuclear2[] = wnuclear1[1].split(" ");
+
+            String whydro1[] = western[1].split("HYDRO");
+            String whydro2[] = whydro1[1].split(" ");
+
+            String wtotal1[] = western[1].split("TOTAL");
+            String wtotal2[] = wtotal1[1].split(" ");
+
+            // Appending filtered data into CSV file..
+            writer.append("WESTERN" + ",");
+            writer.append(year[0] + ",");
+            writer.append(month[0] + ",");
+            writer.append(wthermal2[4] + ",");
+            writer.append(wnuclear2[4] + ",");
+            writer.append(whydro2[4] + ",");
+            writer.append(wtotal2[4] + "\n");
+
+            // Extracting Southern Region
+            String southern[] = page.split("SOUTHERN");
+
+            String sthermal1[] = southern[1].split("THERMAL");
+            String sthermal2[] = sthermal1[1].split(" ");
+
+            String snuclear1[] = southern[1].split("NUCLEAR");
+            String snuclear2[] = snuclear1[1].split(" ");
+
+            String shydro1[] = southern[1].split("HYDRO");
+            String shydro2[] = shydro1[1].split(" ");
+
+            String stotal1[] = southern[1].split("TOTAL");
+            String stotal2[] = stotal1[1].split(" ");
+
+            // Appending filtered data into CSV file..
+            writer.append("SOUTHERN" + ",");
+            writer.append(year[0] + ",");
+            writer.append(month[0] + ",");
+            writer.append(sthermal2[4] + ",");
+            writer.append(snuclear2[4] + ",");
+            writer.append(shydro2[4] + ",");
+            writer.append(stotal2[4] + "\n");
+
+            // Extracting eastern region
+            String eastern[] = page.split("EASTERN");
+
+            String ethermal1[] = eastern[1].split("THERMAL");
+            String ethermal2[] = ethermal1[1].split(" ");
+
+            String ehydro1[] = eastern[1].split("HYDRO");
+            String ehydro2[] = ehydro1[1].split(" ");
+
+            String etotal1[] = eastern[1].split("TOTAL");
+            String etotal2[] = etotal1[1].split(" ");
+            // Appending filtered data into CSV file..
+            writer.append("EASTERN" + ",");
+            writer.append(year[0] + ",");
+            writer.append(month[0] + ",");
+            writer.append(ethermal2[4] + ",");
+            writer.append(" " + ",");
+            writer.append(ehydro2[4] + ",");
+            writer.append(etotal2[4] + "\n");
+
+            // Extracting northernEastern region
+            String neestern[] = page.split("NORTH");
+
+            String nethermal1[] = neestern[2].split("THERMAL");
+            String nethermal2[] = nethermal1[1].split(" ");
+
+            String nehydro1[] = neestern[2].split("HYDRO");
+            String nehydro2[] = nehydro1[1].split(" ");
+
+            String netotal1[] = neestern[2].split("TOTAL");
+            String netotal2[] = netotal1[1].split(" ");
+
+            writer.append("NORTH EASTERN" + ",");
+            writer.append(year[0] + ",");
+            writer.append(month[0] + ",");
+            writer.append(nethermal2[4] + ",");
+            writer.append(" " + ",");
+            writer.append(nehydro2[4] + ",");
+            writer.append(netotal2[4] + "\n");
+            writer.close();
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+    }

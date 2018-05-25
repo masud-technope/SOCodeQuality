@@ -1,0 +1,18 @@
+enum PenColor {
+    RED,GREEN,BLUE,ORANGE
+}
+
+class Student {
+
+    private Pen[] pens;
+
+    public Student() {
+        pens = new Pen[4];
+        pens[PenColor.RED] = // instantiate red pen
+        // etc
+    }
+
+    public Pen getPen(PenColor color) {
+        return pens[color];
+    }
+}

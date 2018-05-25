@@ -1,0 +1,17 @@
+import java.net.*;
+
+public class demo{
+
+  public static void main(){
+
+       String Data = "data=Hello+World!";
+       URL url = new URL("http://localhost:8084/WebListenerServer/webListener");
+       HttpURLConnection con = (HttpURLConnection) url.openConnection();
+       con.setRequestMethod("POST");
+       con.setDoOutput(true);
+       con.getOutputStream().write(Data.getBytes("UTF-8"));
+       con.getInputStream();
+
+    }
+
+}

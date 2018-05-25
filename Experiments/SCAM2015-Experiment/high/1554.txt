@@ -1,0 +1,5 @@
+std::vector<boost::any> miscArray;
+miscArray.push_back(Apple());
+miscArray.push_back(Onion());
+miscArray.push_back(Bear());
+miscArray.push_back(Beer());

@@ -1,0 +1,3 @@
+if (StringUtils.equals(foo, bar)) {
+    // Do something here.
+}

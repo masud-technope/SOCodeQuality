@@ -1,0 +1,5 @@
+List<Employee> additionalDataInListA = new ArrayList<Employee>(listA);
+additionalDataInListA.removeAll(listB);
+
+List<Employee> additionalDataInListB = new ArrayList<Employee>(listB);
+additionalDataInListB.removeAll(listA);

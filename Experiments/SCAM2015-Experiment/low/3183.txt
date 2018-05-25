@@ -1,0 +1,15 @@
+public class MyRunnable implements Runnable{
+
+private MyCustomObj obj;
+
+public MyRunnable( MyCustomObj obj) {
+
+  this.obj = obj;
+
+}
+
+public void run() {
+
+  System.out.println("Name:" + obj.name );
+
+}

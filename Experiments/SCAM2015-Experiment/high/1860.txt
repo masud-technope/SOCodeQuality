@@ -1,0 +1,4 @@
+double d = 52.92;
+    JSONObject js_price = new JSONObject();
+    js_price.put("price", d);
+    Log.d("json", js_price.toString());

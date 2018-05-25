@@ -1,0 +1,4 @@
+List<Integer> list = Arrays.asList(1, 2, 3, 4);
+Collections.shuffle(list);
+rnd1 = list.get(0);
+rnd2 = list.get(1);

@@ -1,0 +1,3 @@
+if(cls == Integer.class) {
+    return cls.getConstructor(int.class).newInstance(0);
+}

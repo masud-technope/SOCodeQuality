@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:abc="http://abc.ru"
+                exclude-result-prefixes="abc">
+
+    <xsl:template match="/">
+      <xsl:apply-templates select="@* | node()"/>
+    </xsl:template>
+
+    <xsl:template match="a">
+     <href var="{@href}"><xsl:value-of select="."/></href>
+    </xsl:template>
+
+</xsl:stylesheet>

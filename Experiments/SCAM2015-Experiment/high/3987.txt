@@ -1,0 +1,4 @@
+Actions actionobj = new Actions(fd1);
+actionobj.moveToElement(heatmap).build().perform();
+Thread.sleep(10000); 
+actionobj.click(heatmap).build().perform();

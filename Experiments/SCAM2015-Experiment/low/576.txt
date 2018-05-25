@@ -1,0 +1,6 @@
+public static synchronized ObjectFactory getInstance() throws Exception {
+  if (SingletonObjectFactoryHolder.INSTANCE == null) {
+    SingletonObjectFactoryHolder.INSTANCE = new ObjectFactory();
+  }
+  return SingletonObjectFactoryHolder.INSTANCE;
+}

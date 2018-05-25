@@ -1,0 +1,9 @@
+byte a = -128;
+byte b = 127;
+int diff = a - b;
+System.out.println(diff); // -255
+
+a = 127;
+b = -128;
+diff = a - b;
+System.out.println(diff); // 255

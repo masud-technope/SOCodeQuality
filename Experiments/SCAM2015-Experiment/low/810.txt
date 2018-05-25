@@ -1,0 +1,4 @@
+public class TheClass {
+  @Autowired
+  private TheData theData;
+}

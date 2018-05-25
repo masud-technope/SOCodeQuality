@@ -1,0 +1,8 @@
+List<T> toRemove = new LinkedList<T>();
+for (T t : masterList) {
+  if (t.shouldRemove()) {
+    toRemove.add(t);
+  }
+}
+
+masterList.removeAll(toRemove);

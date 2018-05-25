@@ -1,0 +1,3 @@
+JSONObject obj = new JSONObject("{'var1':'val1','var2':200});
+     String var1=obj.getString("var1");
+     int var2=obj.getInt("var2");

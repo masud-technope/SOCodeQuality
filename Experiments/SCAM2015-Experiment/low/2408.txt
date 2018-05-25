@@ -1,0 +1,12 @@
+public static void main(String[] args) {
+    Double x = new Double("39.33");
+    Double y = new Double("39.0");
+
+   printDouble(x);
+   printDouble(y);
+
+}
+
+public static void printDouble(Double dbl){
+    System.out.println(dbl.toString().replaceAll("[0]*$", "").replaceAll(".$", ""));
+}

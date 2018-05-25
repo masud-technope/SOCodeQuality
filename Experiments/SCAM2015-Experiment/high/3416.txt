@@ -1,0 +1,12 @@
+Collection<String> sessionsID = crateSessionStorage();
+
+private Collection<String> crateSessionStorage() {
+
+    boolean useUniqueStorage = isUniqueStorage(); 
+
+    if(UseUniqueStorage) {
+       return new HashSet<String>();
+    }
+
+    return new ArrayList<String>();
+}

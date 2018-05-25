@@ -1,0 +1,5 @@
+boolean mod3 = x mod 3 == 0
+boolean mod5 = x mod 5 == 0
+if (mod3 && mod5) return "ab"
+if (mod3) return "a"
+if (mod5) return "b"

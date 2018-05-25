@@ -1,0 +1,28 @@
+// We set the valid ones
+if (a > b) {
+    em.setAlpha();
+} else {
+    //throw error that prevents em.persist
+}
+if (c > d) {
+    em.setBeta();
+} else {
+    //throw error that prevents em.persist
+}
+if (e > f) {
+    em.setOmega();
+} else {
+    //throw error that prevents em.persist
+}
+
+public boolean validate() {
+    if ((a > b) && (c > d) && (e > f)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+if (validate()) {
+    database.persist(em);
+}

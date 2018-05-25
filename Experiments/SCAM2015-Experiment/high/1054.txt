@@ -1,0 +1,6 @@
+Java code                        bytecode
+
+m1:    Byte f(List<Byte> list)           f List -> Byte
+m2:    Long f(List<Byte> list)           f List -> Long
+m3:    Byte f(List<Long> list)           f List -> Byte
+m4:    Long f(List<Long> list)           f List -> Long

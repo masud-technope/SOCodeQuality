@@ -1,0 +1,15 @@
+package homework;
+public class Homework {
+
+    public static int fact(int from, int to){
+    int result = 1;
+    while(to>0){
+        result*=from+to;
+        to--;
+    }
+    return result*from;
+    }
+    public static void main(String[] args) {
+    System.out.println(fact(2,4));
+    }
+}

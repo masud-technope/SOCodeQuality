@@ -1,0 +1,13 @@
+public class Products {
+private Brands brand;
+...
+}
+public class Brands {
+private long id;
+...
+}
+...
+
+DetachedCriteria dc=DetachedCriteria.forClass(Products.class, "prod");
+
+dc.add(Restrictions.ge("prod.brand.id", Long.parseLong("12345")));

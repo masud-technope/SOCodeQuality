@@ -1,0 +1,3 @@
+${:import(org.apache.log4j.Logger)}
+private final static Logger log = Logger.getLogger(${enclosing_type}.class);
+${cursor}

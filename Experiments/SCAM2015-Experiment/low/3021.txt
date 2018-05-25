@@ -1,0 +1,5 @@
+int width = 7;
+double half = width / 2
+for (int i = 0; i < width; i++){
+    System.out.println(String.format("%"+((i < half ? i : (width-i-1))*2+1)+"s", "").replaceAll(" ", "*"));
+}

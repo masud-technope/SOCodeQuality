@@ -1,0 +1,27 @@
+interface Foo {
+    void bar(int x);
+}
+
+public class Test {
+    public static void main(String[] args) {
+        // Hack to give us a mutable variable we can
+        // change from the closure.
+        final int[] mutableWrapper = { 0 };
+
+        Foo times = new Foo() {
+            @Override public void bar(int num) {
+                mutableWrapper[0] *= num;
+                System.out.println(mutableWrapper[0]);
+            }
+        };
+
+        for (int i = 1; i < 100; i++) {
+            mutableWrapper[0] = i;
+            times.bar(2);
+            i = mutableWrapper[0];
+
+            times.bar(i);
+            i = mutableWrapper[0];
+        }
+    }
+}

@@ -1,0 +1,17 @@
+textField.addKeyListener(new KeyAdapter()
+{
+    @Override
+    public void keyTyped(KeyEvent keyEvent)
+    {
+        if (textField.getText().length() < 3 && keyEvent.getKeyChar() >= '0' && keyEvent.getKeyChar() <= '9')
+        {
+            // Optional
+            super.keyTyped(keyEvent);
+        }
+        else
+        {
+            // Discard the event
+            keyEvent.consume();
+        }
+    }
+});

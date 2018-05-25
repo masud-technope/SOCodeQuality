@@ -1,0 +1,3 @@
+public interface ISybil extends IAlpha {
+  public Comparator<IAlpha> getLengthComparator();
+}

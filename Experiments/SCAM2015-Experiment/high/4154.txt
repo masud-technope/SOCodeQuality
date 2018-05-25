@@ -1,0 +1,5 @@
+try {
+    return false;
+} finally {
+    method2();
+}

@@ -1,0 +1,22 @@
+ArrayList<String> list = new ArrayList<String>();
+    String input = null;
+    while (!"done".equals(input)) {
+        //  prompt the user to enter an input
+        System.out.print("Enter input: ");
+
+        //  open up standard input
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+
+        //  read the input from the command-line; need to use try/catch with the
+        //  readLine() method
+        try {
+            input = br.readLine();
+        } catch (IOException ioe) {
+            System.out.println("IO error trying to read input!");
+            System.exit(1);
+        }
+        if (!"done".equals(input) && !"".equals(input))
+            list.add(input);
+    }
+    System.out.println("list = " + list);

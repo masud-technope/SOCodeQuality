@@ -1,0 +1,4 @@
+public interface Generator<T> {
+    T generate();
+    T[] generateSeveral(int);
+}

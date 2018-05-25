@@ -1,0 +1,25 @@
+public SQL(String host, String port, String database, String userid, String password)
+	{
+		queryType = QUERYTYPE.Single;
+		String driver = "org.gjt.mm.mysql.Driver";
+		String url = "jdbc:mysql://" + host;
+		if (port != null)
+			{
+				url += ":" + port;
+			}
+		else
+			{
+				url += ":" + defaultPort;
+			}
+		url += "/" + database;
+		try
+			{
+				Class.forName(driver);
+
+				connection = DriverManager.getConnection(url, userid, password);
+			}
+		catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+	}

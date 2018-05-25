@@ -1,0 +1,4 @@
+public interface GameObject
+ {
+ public boolean beats(GameObject g);
+ }

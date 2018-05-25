@@ -1,0 +1,4 @@
+public List<JComponent> getComponents()
+{
+  return new ArrayList<JComponent>( buttons );
+}

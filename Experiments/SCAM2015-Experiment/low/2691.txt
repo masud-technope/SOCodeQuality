@@ -1,0 +1,5 @@
+j = 0;
+while (j < a.size() && a.get(j) != 10) j++;
+if (j < a.size()) do {
+    print (a.get(j)); j++;
+} while (j < a.size() && a.get(j) != 20);

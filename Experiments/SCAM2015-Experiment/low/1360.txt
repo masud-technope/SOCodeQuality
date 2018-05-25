@@ -1,0 +1,8 @@
+String value = tvInput.getText().toString();
+\\tvInput is my textView
+int result = 0;
+int input1 = 0;
+int input2 = 0;
+input=Integer.parseInt(value);
+result = input1 + input2;
+tvInput.setText(Integer.toString(result));

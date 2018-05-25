@@ -1,0 +1,8 @@
+l=[1,2,3,4,5,6,7,8,9]
+seen=set()
+
+I=11
+for item in l:
+        if I-item in seen:
+                print "(%d,%d)"%(item,I-item)
+        seen.add(item)

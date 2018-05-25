@@ -1,0 +1,121 @@
+package example;
+
+public class PlayerCharacter
+{
+
+  int strength, dexterity, constitution, intelligence, wisdom, charisma;
+  int[] strRolls, dexRolls, conRolls, intRolls, wisRolls, charRolls;
+
+  private int getScore(Dice d, int[] storage)
+  {
+    for (int i=0; i<storage.length; i++)
+    {
+      storage[i] = d.getNewRoll();
+    }
+    int result = 0;
+    for (int i=0; i<storage.length; i++) { result += storage[i]; }
+
+  }
+
+  public void generateAbilityScoresMethod1()
+  {
+
+    strRolls = new int[3];
+    dexRolls = new int[3];
+    conRolls = new int[3];
+    intRolls = new int[3];
+    wisRolls = new int[3];
+    charRolls = new int[3];
+
+    for (int i = 0; i < 3; i++)
+    {
+      strength      = getScore(dice.Dice.D6, strRolls);
+      dexterity     = getScore(dice.Dice.D6, dexRolls);
+      constitution  = getScore(dice.Dice.D6, conRolls);
+      intelligence  = getScore(dice.Dice.D6, intRolls);
+      wisdom        = getScore(dice.Dice.D6, wisRolls);
+      charisma      = getScore(dice.Dice.D6, charRolls);
+
+    }
+
+  }
+
+  public int getStrength()
+  {
+    return strength;
+  }
+
+  private void printArrayRolls(String label, int[] rolls)
+  {
+    for (int i=0; i < rolls.length; i++)
+    {
+      System.out.println(label + ": roll " + rolls[i]);
+    }
+  }
+
+  public void printStrRolls()
+  {
+    printArrayRolls("Str", strRolls);
+  }
+
+  public int getDexterity()
+  {
+    return dexterity;
+  }
+
+  public void printDexRolls()
+  {
+    printArrayRolls("Dex", dexRolls);
+  }
+
+  public int getConsitution()
+  {
+    return constitution;
+  }
+
+  public void printConRolls()
+  {
+    printArrayRolls("Con", conRolls);
+  }
+
+  public int getIntelligence()
+  {
+    return intelligence;
+  }
+
+  public void printIntRolls()
+  {
+    printArrayRolls("Int", intRolls);
+  }
+
+  public int getWisdom()
+  {
+    return wisdom;
+  }
+
+  public void printWisRolls()
+  {
+    printArrayRolls("Wis", wisRolls);
+  }
+
+  public int getCharisma()
+  {
+    return charisma;
+  }
+
+  public void printCharRolls()
+  {
+    printArrayRolls("Char", charRolls);
+  }
+
+  public void printAbilities()
+  {
+    System.out.println("Str = " + getStrength());
+    System.out.println("Dex = " + getDexterity());
+    System.out.println("Con = " + getConsitution());
+    System.out.println("Int = " + getIntelligence());
+    System.out.println("Wis = " + getWisdom());
+    System.out.println("Char = " + getCharisma());
+  }
+
+}

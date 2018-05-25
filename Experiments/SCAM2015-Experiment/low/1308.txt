@@ -1,0 +1,6 @@
+@Override
+    public void onKeyPress(KeyUpEvent event) {
+       char charCode= keyUpEvent.getNativeKeyCode();
+       if(charCode == (char) KeyCodes.KEY_BACKSPACE){
+           //do someThing 
+    }

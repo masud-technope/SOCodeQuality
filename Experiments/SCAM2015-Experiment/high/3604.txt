@@ -1,0 +1,6 @@
+left = i;           // left of +
+right = i;          // right of +, original value 
+incr = right + 1;   // incremented value
+i = incr;           // effect of ++
+sum = left + right; // sum of left and right sides of +
+i = sum;            // assign sum to i

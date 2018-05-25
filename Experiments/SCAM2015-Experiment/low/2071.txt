@@ -1,0 +1,5 @@
+int[] d = new int[list.size()];
+
+for (int i = 0; i < list.size(); i++) {
+    d[i] = list.get(i);
+}

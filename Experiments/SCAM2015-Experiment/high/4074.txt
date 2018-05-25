@@ -1,0 +1,63 @@
+public class FieldAccessor {
+    public static class Destination {
+        private final Map<String, Object> fields = new HashMap<>();
+
+        public Destination(Object o) {
+            final Set<Field> accessibleFields = Arrays.stream(o.getClass().getDeclaredFields())
+                    .map(field -> {
+                        field.setAccessible(true);
+                        return field;
+                    })
+                    .collect(Collectors.toSet());
+
+            accessibleFields.forEach(field -> {
+                try {
+                    fields.put(field.getName(), field.get(o));
+                } catch (IllegalAccessException e) {
+                    throw new IllegalStateException("Unable to access field", e);
+                }
+            });
+        }
+
+        public Set<String> fieldNames() {
+            return fields.keySet();
+        }
+
+        public Optional<Object> fieldValue(String fieldName) {
+            return Optional.ofNullable(fields.get(fieldName));
+        }
+    }
+
+    public static class Source {
+        private final String fieldA;
+        private final Integer fieldB;
+        private final int fieldC;
+
+        public Source(String fieldA, Integer fieldB, int fieldC) {
+            this.fieldA = fieldA;
+            this.fieldB = fieldB;
+            this.fieldC = fieldC;
+        }
+
+        public String getFieldA() {
+            return fieldA;
+        }
+
+        public Integer getFieldB() {
+            return fieldB;
+        }
+
+        public int getFieldC() {
+            return fieldC;
+        }
+    }
+
+    @Test
+    public void testFields() {
+        Destination destination = new Destination(new Source("Abc", 123, 456));
+
+        destination.fieldNames().stream().forEach(fieldName -> {
+            System.out.println("Fieldname: " + fieldName + ", value: " + destination.fieldValue(fieldName).get());
+        });
+    }
+}

@@ -1,0 +1,6 @@
+public void swap(String name1, String name2)
+{
+        String temp = name1;
+        name1 = name2;
+        name2 = temp;
+}

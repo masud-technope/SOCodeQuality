@@ -1,0 +1,5 @@
+±[hh]:[mm]
+±[hh][mm]
+±[hh]
+
+Eg:  "18:30Z", "22:30+04", "1130-0700", and "15:00-03:30" all mean the same time. - 06:30PM UTC

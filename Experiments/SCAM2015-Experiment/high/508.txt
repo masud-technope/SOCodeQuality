@@ -1,0 +1,11 @@
+beforeClass
+ExampleTest@3358fd70    before
+ExampleTest@3358fd70    test1
+ExampleTest@3358fd70    after
+ExampleTest@6293068a    before
+ExampleTest@6293068a    test2
+ExampleTest@6293068a    after
+ExampleTest@22928095    before
+ExampleTest@22928095    test3
+ExampleTest@22928095    after
+afterClass

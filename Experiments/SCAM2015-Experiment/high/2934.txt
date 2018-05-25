@@ -1,0 +1,3 @@
+String st = "a;b;c";        
+    String[] tokens = st.split(";");
+    System.out.println(tokens[0]);

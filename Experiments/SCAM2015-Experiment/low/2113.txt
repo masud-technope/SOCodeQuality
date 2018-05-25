@@ -1,0 +1,3 @@
+when(myMock.doSomething("1")).thenReturn( "1" );
+assertEquals(myMock.doSomething("1"),"1");
+verify(myMock).doSomething("1")

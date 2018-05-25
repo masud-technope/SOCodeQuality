@@ -1,0 +1,7 @@
+Benchmark       Mode Thr    Cnt  Sec         Mean   Mean error    Units
+testArray1      thrpt   1      5    5        6.870        0.083 ops/msec
+testArray2      thrpt   1      5    5        6.720        0.374 ops/msec
+testArray3      thrpt   1      5    5        3.770        0.019 ops/msec
+testHashMap1    thrpt   1      5    5     1269.123      251.766 ops/msec
+testHashMap2    thrpt   1      5    5       12.776        0.165 ops/msec
+testHashMap3    thrpt   1      5    5        0.141        0.005 ops/msec

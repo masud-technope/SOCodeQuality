@@ -1,0 +1,10 @@
+@Test
+public void functionTest() throws TestException {
+    try {
+        function (-1);
+        fail("");
+    } catch (TestException e) {
+        if (!e.getMessage().equals("Integer may not be negative..")) 
+          fail("");
+    }
+}

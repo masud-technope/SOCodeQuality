@@ -1,0 +1,4 @@
+String str = "Some text, bla-bla http://www.easypolls.net/poll.html?p=51e5a300e4b084575d8568bb#.UeWjBcCzaaA.twitter";
+    String [] ar = str.split("http\\.*");
+    System.out.println(ar[0]);
+    System.out.println("http"+ar[1]);

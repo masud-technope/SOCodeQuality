@@ -1,0 +1,15 @@
+public abstract class Shape {
+    public abstract void draw();
+}
+
+public class Square extends Shape {
+    public void draw() {
+        // Draw a square
+    }
+}
+
+public class Circle extends Shape {
+    public void draw() {
+        // Draw a circle
+    }
+}

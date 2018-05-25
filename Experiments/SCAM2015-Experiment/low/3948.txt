@@ -1,0 +1,18 @@
+Scanner s = new Scanner(System.in);
+        int i;
+        String a = "";
+        int count;
+
+        for (count = 0; count<6; count++)
+                {
+            System.out.println("Enter integer: ");
+
+            if(s.hasNextInt()) 
+                        {  
+                        System.out.println(a + "is correct integer"); 
+                        }
+                        else
+                        {
+                        System.out.println("invalid input");
+                        }
+                }

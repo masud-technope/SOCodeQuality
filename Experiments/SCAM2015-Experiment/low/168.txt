@@ -1,0 +1,54 @@
+public class CountTrailingZeroes {
+
+    public int countTrailingZeroes(double number) {
+        return countTrailingZeroes(String.format("%.0f", number));
+    }
+
+    public int countTrailingZeroes(String number) {
+        int c = 0;
+        int i = number.length() - 1;
+
+        while (number.charAt(i) == '0') {
+            i--;
+            c++;
+        }
+
+        return c;
+
+    }
+
+    @Test
+    public void $128() {
+        assertEquals(0, countTrailingZeroes("128"));
+    }
+
+    @Test
+    public void $120() {
+        assertEquals(1, countTrailingZeroes("120"));
+    }
+
+    @Test
+    public void $1200() {
+        assertEquals(2, countTrailingZeroes("1200"));
+    }
+
+    @Test
+    public void $12000() {
+        assertEquals(3, countTrailingZeroes("12000"));
+    }
+
+    @Test
+    public void $120000() {
+        assertEquals(4, countTrailingZeroes("120000"));
+    }
+
+    @Test
+    public void $102350000() {
+        assertEquals(4, countTrailingZeroes("102350000"));
+    }
+
+    @Test
+    public void $1023500000() {
+        assertEquals(5, countTrailingZeroes(1023500000.0));
+    }
+}

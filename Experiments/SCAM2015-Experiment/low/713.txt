@@ -1,0 +1,6 @@
+Graphics g = _yourcomponent_.getGraphics();
+if (g != null) {
+    _yourcomponent_.paint(g);
+    // below the estimated code for Swing:
+    _yourcomponent_.paintComponent(g);
+}

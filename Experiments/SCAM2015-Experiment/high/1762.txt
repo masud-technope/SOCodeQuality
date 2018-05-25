@@ -1,0 +1,5 @@
+<script>
+var router = new App.TabRouter({
+    model: new App.MyModel(<k:json value="${it}"/>)
+});
+</script>

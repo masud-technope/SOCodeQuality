@@ -1,0 +1,3 @@
+roll.compareTo(obj1.getRoll()) 
+// Wrong Statement Compile Time Error Because roll 
+// is not an Object Type, it is primitive type.

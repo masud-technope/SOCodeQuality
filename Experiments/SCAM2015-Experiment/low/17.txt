@@ -1,0 +1,4 @@
+Set stringSet = new HashSet();
+// do some stuff...
+Object o = "foobar";
+stringSet.remove(o);

@@ -1,0 +1,14 @@
+int lineNumber = 0;
+
+and then in while loop 
+
+while ((line = br.readLine()) != null) {
+                        if(lineNumber == 0) {
+                            lineNumber++;
+                            continue;
+                        }
+                        lineNumber++;
+
+                       //do waterver u have to do with the tokens in this line(second line)
+
+            }

@@ -1,0 +1,9 @@
+JTextField textField = new JTextField();
+    textField.addCaretListener(new CaretListener() {
+
+        @Override
+        public void caretUpdate(CaretEvent e) {
+            System.out.println("text field have changed");
+
+        }
+    });

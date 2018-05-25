@@ -1,0 +1,23 @@
+public void workOnFiles(){
+
+    File []D = new File("directoryName").listFiles(); //D.length should equal to N.
+
+    for(File F:D){
+
+        doSortingForEachFile(F);//do sorting part here. The same reader cannot open same file here again.
+
+    }
+}
+
+public void doSortingForEachFile(File f){
+    try{
+        ArrayList<Integer> list=new ArrayList<Integer>();
+        Scanner s=new Scanner(f);
+        while(s.hasNextInt()){//store ints inside the file.
+            list.add(s.nextInt());
+        }
+        s.close();//once closed, cannot open again.
+        Collections.sort(list);//this method will sort the ArrayList of int.
+        //...write numbers inside list to another file...
+    }catch(Exception e){}
+}

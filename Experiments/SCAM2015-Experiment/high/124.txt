@@ -1,0 +1,8 @@
+if (condition == true)
+{
+  // when condition is true 
+}
+else if (condition == false)
+{
+  // when condition is false
+}

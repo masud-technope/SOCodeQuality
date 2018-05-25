@@ -1,0 +1,18 @@
+if (cx >= p1x && cx <= p2x)
+    a += "Circle is inside of Rectangle \n";
+if (cx >= p1x && cx <= p2x)
+    a += "Circle is inside of Rectangle\n";
+if (cx+r >= p1x && cx+r <= p2x)
+    a += "Circle is inside of Rectangle\n";
+if (cx-r >= p1x && cx-r <= p2x)
+    a += "Circle is inside of Rectangle\n";
+if (cy >= p1y && cy <= p2y)
+    a += "Circle is inside of Rectangle\n";
+if (cy >= p1y && cy <= p2y)
+    a += "Circle is inside of Rectangle\n";
+if (cy+r >= p1y && cy+r <= p2y)
+    a += "Circle is inside of Rectangle\n";
+if (cy-r >= p1y && cy-r <= p2y)
+    a += "Circle is inside of Rectangle\n";
+else
+    a += "Circle is outside of Rectangle\n";

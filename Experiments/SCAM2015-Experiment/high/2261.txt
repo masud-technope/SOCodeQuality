@@ -1,0 +1,3 @@
+String url = "jdbc:sqlserver://MYPC\\SQLEXPRESS;databaseName=MYDB;integratedSecurity=true";
+Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+Connection conn = DriverManager.getConnection(url);

@@ -1,0 +1,7 @@
+@Override
+        public void onClick(View arg0) {
+
+            Intent intent = new Intent(this,Seccond.class);
+                startActivity(intent);
+
+        }

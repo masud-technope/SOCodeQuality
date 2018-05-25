@@ -1,0 +1,12 @@
+String arrayFromString[] = s.split("[/]+");
+ String updatedArrayFromString[] = new String[50];
+    for(int i=0 ; i< arrayFromString.length;i++)
+    {
+        updatedArrayFromString[i] = arrayFromString[i].replace("," , "");
+    }
+    Arrays.asList(updatedArrayFromString);
+    for (String str : updatedArrayFromString)
+    {
+       if(str != null)
+        winChanceArray.add(Integer.parseInt(str));
+    }

@@ -1,0 +1,13 @@
+String sql= null;
+if(val.isEmpty()){
+System.out.println(val);
+System.out.println("Insert ts: " + ts + " val: null");
+sql= "INSERT INTO " + table + "(ts,val,pointId)" + " VALUES" + "(" + "'" + ts + "'" + ", " + "NULL" + " , " + "'" + pointId + "'" + ")";
+}
+else{
+System.out.println("Insert ts: " + ts + " val: " + val);
+sql= "INSERT INTO " + table + "(ts,val,pointId)" + " VALUES" + "(" + "'" + ts + "'" + ", " + "'" + val + "'" + ", " + "'" + pointId + "'" + ")";
+}
+
+Statement st = (Statement) conn.createStatement();  //create the instances of statement
+count = st.executeUpdate(sql);

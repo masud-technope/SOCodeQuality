@@ -1,0 +1,3 @@
+Connection conn =
+   DriverManager.getConnection("jdbc:mysql://localhost/test?" +
+                               "user=monty&password=greatsqldb");

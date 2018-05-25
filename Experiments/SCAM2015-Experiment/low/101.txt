@@ -1,0 +1,5 @@
+Arrays.sort(abcd);
+A = Arrays.binarySearch(abcd, A) + 1;
+B = Arrays.binarySearch(abcd, B) + 1;
+C = Arrays.binarySearch(abcd, C) + 1;
+D = Arrays.binarySearch(abcd, D) + 1;

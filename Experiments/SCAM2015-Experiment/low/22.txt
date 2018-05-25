@@ -1,0 +1,12 @@
+private static byte[] decode(String encoded) {
+    byte result[] = new byte[encoded/2];
+    char enc[] = encoded.toUpperCase().toCharArray();
+    StringBuffer curr;
+    for (int i = 0; i < enc.length; i += 2) {
+        curr = new StringBuffer("");
+        curr.append(String.valueOf(enc[i]));
+        curr.append(String.valueOf(enc[i + 1]));
+        result[i] = (byte) Integer.parseInt(curr.toString(), 16);
+    }
+    return result;
+}

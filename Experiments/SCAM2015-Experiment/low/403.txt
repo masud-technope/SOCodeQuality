@@ -1,0 +1,21 @@
+public class TestTryCatchFinally {
+    static int x = 0;
+
+    public static void main(String[] args){
+        System.out.println(f1() );
+        System.out.println(f2() );
+    }
+
+    public static int f1(){
+        try{
+            x = 1;
+            return x;
+        }finally{
+            x = 2;
+        }
+    }
+
+    public static int f2(){
+        return x;
+    }
+}

@@ -1,0 +1,16 @@
+public class Library
+{
+    private ArrayList<Member>listOfMembers;
+    public Library()
+    {
+        listOfMembers = new ArrayList<Member>();
+    }
+    public void storeMember(Member member)
+    {
+        listOfMembers.add(member);
+    }
+    public int numberOfMembers()
+    {
+        return listOfMembers.size();
+    }
+}

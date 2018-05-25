@@ -1,0 +1,13 @@
+//This would work..Test it like this first
+String f=" SELECT * FROM users WHERE username='adam villiam'";
+//but if you type adam villiam and press enter 
+//to asign it to a variable via Scanner.next() 
+//only villiam would be saved in the variable.
+//you expect (adam villiam)
+username="adam villiam";
+//but result would be (only villiam)
+username="villiam"
+//so if you do it like this it will not return as expected,
+String f=" SELECT * FROM users WHERE username='"+username+"'";
+//because this clause mean to be like this(only villiam)
+String f=" SELECT * FROM users WHERE username='villiam'";

@@ -1,0 +1,6 @@
+content = ReplaceCallback.find(content, regex, new ReplaceCallback.Callback() {
+    public String matches(MatchResult match) {
+    	// Do something special not normally allowed in regex's...
+    	return "newstring"
+    }
+});

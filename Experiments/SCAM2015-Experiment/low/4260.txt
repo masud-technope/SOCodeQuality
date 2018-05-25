@@ -1,0 +1,22 @@
+private static void imYourNewMethod(Context context,Boolean isAddTag){
+        String traceId = null, tagId = null;
+        for (Record record : context.getContext().readCacheTable("subscribe")) {
+          getTraceIdAndTagIdFromRecord(record, traceId, tagId);
+          if (traceSet.contains(traceId) == false)
+            continue;
+          if (!checkTagIdIsNumber(tagId))
+          {
+            context.getCounter("Error", "tag_id not a number").increment(1);
+            continue;
+          }
+        if(isAddTag){
+            Vector<String> ret = traceListMap.get(tagId);
+              if (ret == null) {
+                ret = new Vector<String>();
+              }
+          ret.add(traceId);
+          traceListMap.put(tagId, ret);
+        }else{
+            tagSet.add(tagId);
+        }
+    }

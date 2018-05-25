@@ -1,0 +1,14 @@
+/**
+ * Assumes that all rows are the same length as the first row.
+ */
+public float[] addValues(float[][] values){
+    float[] result = new float[values[0].length];
+    for(float[] row : values){
+        if(row != null){
+            for(int i = 0; i < row.length; i++){
+                result[i] += row[i];
+            }
+        }
+    }
+    return result;
+}

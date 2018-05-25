@@ -1,0 +1,12 @@
+@Entity 
+class A{
+ List<MyRefTable> p;
+ @OneToMany
+ getP(...){..};
+ setP(...){..};
+}
+
+@Entity MyRefTable {
+  long myRefTableId;
+  int p;
+}

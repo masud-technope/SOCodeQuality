@@ -1,0 +1,13 @@
+private ArrayList<Integer> getIntegerArray(ArrayList<String> stringArray) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for(String stringValue : stringArray) {
+            try {
+                //Convert String to Integer, and store it into integer array list.
+                result.add(Integer.parseInt(stringValue));
+            } catch(NumberFormatException nfe) {
+               //System.out.println("Could not parse " + nfe);
+                Log.w("NumberFormat", "Parsing failed! " + stringValue + " can not be an integer");
+            } 
+        }       
+        return result;
+    }

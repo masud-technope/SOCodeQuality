@@ -1,0 +1,10 @@
+class User
+{
+String name;
+int age;
+
+public String toString()
+{
+return "name :"+name+" \n  age :"+age;
+}
+}

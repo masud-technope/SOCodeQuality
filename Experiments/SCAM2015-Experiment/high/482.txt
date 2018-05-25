@@ -1,0 +1,6 @@
+@RequestMapping("/articles/{subject}")
+public ModelAndView findArticleBySubject(@PathVariable("subject") String subject)
+{
+   // strip out the '-' character from the subject
+   // then the usual logic returning a ModelAndView or similar
+}

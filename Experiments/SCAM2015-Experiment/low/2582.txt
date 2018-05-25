@@ -1,0 +1,9 @@
+public int countOdds (int[] values) {
+  int countOdd =0;
+  for (int i=0; i<values.length; i++) {
+    if (values[i] %2 != 0) {
+      countOdd++;
+    }
+  }
+  return countOdd;
+}

@@ -1,0 +1,13 @@
+import org.junit.Test;
+import org.junit.Assert;
+import your.project.Menu;
+
+public class MenuTest {
+@Test
+public void testCase() {
+Menu menu = new Menu();
+assertEquals("1",menu.runCase("bar"));
+assertEquals("2",menu.runCase("foo"));
+//etc
+}
+}

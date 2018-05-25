@@ -1,0 +1,3 @@
+String mystring = null;
+mystring.length() 
+// Cause error

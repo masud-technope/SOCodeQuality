@@ -1,0 +1,11 @@
+public class Main { 
+    public static void main(String[] args) {
+        String text = "This is the first line \n" +  
+                      "And this is second line\n" +  
+                      "Thus is @@{xyz} should not appear \n" +  
+                      "This is 3rd line and should come\n" +  
+                      "This will not appear @@{abc}\n" +  
+                      "But this will appear\n";  
+        System.out.println(text.replaceAll("(?m)^.*@@.*$(\r?\n|\r)?", ""));
+    }
+}

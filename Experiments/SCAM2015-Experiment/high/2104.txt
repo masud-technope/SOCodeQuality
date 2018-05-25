@@ -1,0 +1,25 @@
+public interface ISetFiltersInterface{
+public void setFilters(List<Filter>);
+}
+
+public class MyActivity extends Activity implements ISetFiltersInterface{
+...
+    public void setFilters(List<Filter>){
+        //TODO
+}
+}
+
+public class AycanClass extends AsyncTask<String, Void, String> implements IAppointments {
+
+ISetFiltersInterface delegate;
+
+public AycanClass(ISetFiltersInterface delegate){
+    this.delegate = delegate;
+}
+
+@Override
+protected void onPostExecute(String result) {
+       super.onPostExecute(result); 
+       delegate.setFilters(value);      
+}     
+}

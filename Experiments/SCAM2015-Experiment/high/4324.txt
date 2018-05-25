@@ -1,0 +1,9 @@
+boolean firstIteration = true;
+for (double value : output.getPvalues()) {
+     if (firstIteration) {
+         firstIteration = false;
+     } else {
+         System.out.print(",");
+     }
+     System.out.print(values[i]);
+}

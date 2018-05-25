@@ -1,0 +1,3 @@
+List<Integer> integerList = new ArrayList<Integer>();
+Integer[] integerArray = integerList.toArray(new Integer[0]);
+int[] intArray = ArrayUtils.toPrimitive(integerArray);

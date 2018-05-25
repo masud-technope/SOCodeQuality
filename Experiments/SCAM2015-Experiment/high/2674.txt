@@ -1,0 +1,3 @@
+long tmp = this.p.longValue();
+tmp += 1;
+this.p = new Long(tmp);

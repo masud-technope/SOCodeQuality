@@ -1,0 +1,4 @@
+Entity entity = new Entity();
+   mappingSession.save(entity);
+   entity = mappingSession.get(Entity.class, id);
+   mappingSession.delete(entity);

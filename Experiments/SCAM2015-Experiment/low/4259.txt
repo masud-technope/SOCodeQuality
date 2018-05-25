@@ -1,0 +1,4 @@
+<logger name="packageName.Class" additivity="false">
+    <level value="INFO" />
+    <appender-ref ref="fileAppender" />
+</logger>

@@ -1,0 +1,6 @@
+function doSomething() {
+    $.post("SaveFileServlet", {data : JSON.stringify(jsonPieces)}, function(response) {
+      alert('post done');
+    }
+    alert('doSomething done');
+}

@@ -1,0 +1,14 @@
+private Map<Integer, Integer> getUniqueArray(int[] duplicateArray) {
+    Map<Integer, Integer> uniqueMap = new HashMap<>();
+    int count = 0;
+    for (int element : duplicateArray) {
+        count = 0;
+        if (uniqueMap.get(element) != null) {
+            ++count;
+        }
+        if (count == 0) {
+            uniqueMap.put(element, count);
+        }
+    }
+    return uniqueMap;
+}

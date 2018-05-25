@@ -1,0 +1,3 @@
+create(Object o)  -> will parametrize Something by Object
+
+create(Integer i) -> will instantiate Something by Integer

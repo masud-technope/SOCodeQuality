@@ -1,0 +1,3 @@
+String s="java  -classpath abcd/ "+pgmname+" "+filename;   
+Process pro2 = Runtime.getRuntime().exec(s); 
+BufferedReader in = new BufferedReader(new InputStreamReader(pro2.getInputStream()));

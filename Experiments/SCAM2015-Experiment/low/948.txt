@@ -1,0 +1,7 @@
+String regex = "[0-9A-F]"
+String input = "J900ZZAAFZ99X"
+Pattern p = Pattern.compile(regex)
+Matcher m = p.matcher(input)
+String mask = m.replaceAll('+').replaceAll('[^+]', '-')
+System.out.println(input)
+System.out.println(mask)

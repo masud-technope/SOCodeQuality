@@ -1,0 +1,7 @@
+public static void main(String[] args) {
+
+  for(i=0;i <= 10; i++) {
+      int s = i*3;
+     System.out.println(i + "-> " + (s+1) + "," + (s+2) + "," + (s+3)):
+  }
+}

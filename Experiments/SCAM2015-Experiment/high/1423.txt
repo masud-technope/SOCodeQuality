@@ -1,0 +1,5 @@
+String s = "12:18:00";
+DateFormat f1 = new SimpleDateFormat("HH:mm:ss"); //HH for hour of the day (0 - 23)
+Date d = f1.parse(s);
+DateFormat f2 = new SimpleDateFormat("h:mma");
+f2.format(d).toLowerCase(); // "12:18am"

@@ -1,0 +1,7 @@
+for (ListIterator<E> it = listIterator(); it.hasNext(); ){
+     if (e == null ? it.next() == null : e.equals(it.next())) {
+        return it.previousIndex();}
+     } else {         
+        return -1;
+     }
+  }

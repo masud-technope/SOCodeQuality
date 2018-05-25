@@ -1,0 +1,5 @@
+public double accerlate ()
+{
+    double accerlate = ++speed;
+    return accerlate;
+}

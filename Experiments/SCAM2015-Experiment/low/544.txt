@@ -1,0 +1,8 @@
+public static String reverse(String s){
+
+    int n = s.length()-1;
+
+    if(n >=0)
+    return  s.substring(s.length()-1)+ReverseString(s.substring(0,n--));
+    else return "";
+}

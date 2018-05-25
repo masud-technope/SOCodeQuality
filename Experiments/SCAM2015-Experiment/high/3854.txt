@@ -1,0 +1,7 @@
+if (Character.isDigit(input.charAt(i))) {
+    input.setCharAt(i, '*');
+} else if (Character.isUpperCase(input.charAt(i))) {
+    input.setCharAt(i, Character.toLowerCase(input.charAt(i)));
+} else if (Character.isLowerCase(input.charAt(i))) {
+    input.setCharAt(i, Character.toUpperCase(input.charAt(i)));
+}

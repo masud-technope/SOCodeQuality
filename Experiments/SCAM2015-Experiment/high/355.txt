@@ -1,0 +1,3 @@
+BlockingQueue<Runnable> queue = threadPool.getQueue();
+List<Runnable> list = new ArrayList<Runnable>();
+int tasks = queue.drainTo(list);

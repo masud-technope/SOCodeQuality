@@ -1,0 +1,3 @@
+if (str.contains("'") && str.indexOf("'") != str.lastIndexOf("'")) {
+    // There are more than one apostrophes
+}

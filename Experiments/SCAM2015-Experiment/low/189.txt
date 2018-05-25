@@ -1,0 +1,9 @@
+MyState state = MyState.FOO;
+OtherState otherState = new OtherState();
+otherState.i = 77;
+otherState.x1 = 3.14159;
+while (true)
+{
+    state = state.execute(otherState);
+    /* do something else here */        
+}

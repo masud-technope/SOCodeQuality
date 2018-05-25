@@ -1,0 +1,5 @@
+int diff_ms = 61200;
+    SimpleDateFormat fmt = new SimpleDateFormat("HH:mm:ss.SSS");
+    fmt.setTimeZone(TimeZone.getTimeZone("GMT"));
+    String str = fmt.format(new Date(diff_ms));
+    System.out.println(str);

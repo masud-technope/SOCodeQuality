@@ -1,0 +1,3 @@
+String st = "a;b;c";        
+    StringTokenizer tokenizer = new StringTokenizer(st,";");
+    System.out.println(tokenizer.nextToken());

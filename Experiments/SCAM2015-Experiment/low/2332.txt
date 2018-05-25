@@ -1,0 +1,28 @@
+package mypack;
+import java.util.List;
+
+import org.openqa.selenium.By;
+
+import mypackage.WebDriver;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+@SuppressWarnings("unused")
+public class classnew {
+
+    private static FirefoxDriver driver;
+
+    public static void main(String[] args) {
+        //String baseUrl = "http://newtours.demoaut.com/";
+      FirefoxDriver Firefoxdriver = new FirefoxDriver();
+
+        driver = null;
+        driver.get("http://newtours.demoaut.com");
+
+        String linkText1 = driver.findElement(By.partialLinkText("egis")).getText();
+        System.out.println(linkText1);
+        String linkText2 = driver.findElement(By.partialLinkText("EGIS")).getText();
+        System.out.println(linkText1);  
+        driver.quit();
+    }
+}

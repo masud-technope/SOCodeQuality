@@ -1,0 +1,13 @@
+File test = new File("c:/tmp/example.txt");
+
+    long freeMemory = Runtime.getRuntime().freeMemory();
+    if(test.length()<freeMemory) {
+        byte[] bytes = new byte[(int) test.length()];
+        FileChannel fc = new FileInputStream(test).getChannel();
+        MappedByteBuffer mbb = fc.map(FileChannel.MapMode.READ_ONLY, 0, (int) fc.size());
+
+        while(mbb.hasRemaining()) {
+            mbb.get(bytes);
+        }
+        fc.close();
+    }

@@ -1,0 +1,13 @@
+public class TestArray {
+    String[] arrayA = new String[] { "A content" };
+    String[] arrayB = new String[] { "B content" };
+    String[] arrayC = new String[] { "C content" };
+
+    public void printArray(String id) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
+        System.out.println("Array " + id + ": " + Arrays.toString((String[]) getClass().getDeclaredField("array" + id).get(this)));
+    }
+
+    public static void main(String[] args) throws Exception {
+        (new TestArray()).printArray("C"); // prints "Array C: [C content]"
+    }
+}

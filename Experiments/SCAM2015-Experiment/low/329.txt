@@ -1,0 +1,3 @@
+<StringRefAddr addrType="password">
+        <Contents>051DC8A88C574538CC4AEE32D326E9480659C06CEC271EA6D7</Contents>
+     </StringRefAddr>

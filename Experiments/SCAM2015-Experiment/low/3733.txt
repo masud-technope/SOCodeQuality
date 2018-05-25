@@ -1,0 +1,7 @@
+public void listCharacterCodes(char a, char b){
+    int j = (int) b;
+    int x = (int) a;
+    for(int i=x; i<j ; i++) {
+        System.out.println("'" + a + "': " + i);
+    }
+}

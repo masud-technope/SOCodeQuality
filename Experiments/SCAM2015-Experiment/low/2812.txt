@@ -1,0 +1,7 @@
+String s = "\"111 \" \" 222\" \" 333\" \"4";
+// s.replaceAll("[^\"]+", "").length() gives count of " in String
+if (s.replaceAll("[^\"]+", "").length() % 2 == 1) {
+    int i = s.lastIndexOf('"');
+    s = s.substring(0, i) + "\\\"" + s.substring(i+1);
+}
+System.out.println(s); // "111 " " 222" " 333" \"4

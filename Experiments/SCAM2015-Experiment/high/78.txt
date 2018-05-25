@@ -1,0 +1,17 @@
+import java.util.Collections;
+
+class Metadata {
+
+    private volatile Map validProgramCodes = Collections.emptyMap();
+
+    public Map getValidProgramCodes() { 
+      return validProgramCodes; 
+    }
+
+    public void setValidProgramCodes(Map h) { 
+      if (h == null)
+        throw new NullPointerException("validProgramCodes == null");
+      validProgramCodes = Collections.unmodifiableMap(new HashMap(h));
+    }
+
+}

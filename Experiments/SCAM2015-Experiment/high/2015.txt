@@ -1,0 +1,7 @@
+public double sum() {...}  // returns a double
+
+public boolean sum() {...}  // returns a boolean
+
+public String sum() {...}  // returns a String
+
+...  // you get the idea

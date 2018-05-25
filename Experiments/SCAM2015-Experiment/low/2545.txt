@@ -1,0 +1,9 @@
+public static String interChange(String input){
+        if(input.length() % 2 != 0) throw new IllegalArgumentException("Not supported");
+        int middle = input.length()/2;
+        StringBuilder result = new StringBuilder();
+        for(int i=middle;i<input.length();++i){
+            result.append(""+input.charAt(i-middle)+input.charAt(i));
+         }
+         return result.toString();
+}

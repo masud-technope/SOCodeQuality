@@ -1,0 +1,12 @@
+String str = "This is a very long string which needs to be broken";
+int begin=0;
+int end=str.length();
+int lengthToWrap = 30;
+
+while (str.length() > lengthToWrap) {
+    System.out.println(str.substring(begin,begin+lengthToWrap));
+    str=str.substring(begin+lengthToWrap,end);
+    end=end-lengthToWrap;
+}
+
+System.out.println(str.substring(begin,end));

@@ -1,0 +1,10 @@
+if(attribute.getDate() < currentDate)
+{
+    List<Attribute> list = historicalElement.get(attribute.getValue());
+    if(list == null){
+        list = new ArrayList<>();
+        historicalElement.put(attribute.getValue() , list);
+    }
+
+    list.add(attribute);  
+}

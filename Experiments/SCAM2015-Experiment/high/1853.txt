@@ -1,0 +1,3 @@
+draw a line of k stars
+call stars(k + 1, n)
+draw a line of k stars

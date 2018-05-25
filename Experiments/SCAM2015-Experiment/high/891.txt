@@ -1,0 +1,3 @@
+int[] array = {1, 2};
+List<int[]> listOfArrays = Arrays.asList(array);
+System.out.println(listOfArrays.contains(1));

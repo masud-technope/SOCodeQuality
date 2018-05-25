@@ -1,0 +1,6 @@
+switch(ms)
+{
+    case READ_PARAMETER_VALUE:  // read parameter values
+        switch(prm){
+            case PARAMETER_DRIVE_MODE:  // paramet drive mode
+                Helper.paramDriveMod =(Integer.toString(((USB_RXBuffer[4]<< 8)&0xff00)));

@@ -1,0 +1,4 @@
+class A{methodA...}
+class B extends A{methodA...}
+A a=new B;
+a.methodA(); <<<< this should call B's methodA

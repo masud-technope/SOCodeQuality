@@ -1,0 +1,7 @@
+rule[0].equals("")
+rule[0].equals(null)
+rule[0].equals("null")
+rule[0].matches("")
+rule[0].matches("null")
+rule.length == 0
+rule.equals(null)

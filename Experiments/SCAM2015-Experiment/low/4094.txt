@@ -1,0 +1,8 @@
+ArrayList<int> psListpsSideLengthList = new ArrayList<int>;
+for (int i = 1; i <= numSides; i++) {
+
+    System.out.println("Enter the length of side " + i);
+    side = sc.nextInt();
+     psListpsSideLengthList.add(side);
+
+}

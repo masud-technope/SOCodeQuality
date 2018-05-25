@@ -1,0 +1,10 @@
+public static boolean isSorted (double [] list){
+    boolean isSorted=true;
+    for(int i=1; i<list.length; i++){
+        if (list[i] > list[i+1]){
+        System.out.println("Not Sorted");
+        isSorted = false;
+    }
+    }
+    return isSorted;
+}

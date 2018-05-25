@@ -1,0 +1,3 @@
+String replaceUml = str
+    .replaceAll("(?<=[A-Z])ß", "SS")
+    .replaceAll("ß", "ss");

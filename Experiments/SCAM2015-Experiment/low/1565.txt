@@ -1,0 +1,15 @@
+public class StringArray 
+{
+
+    /**
+     * @param args
+     */
+    public static void main(String[] args) 
+    {
+        show(new String[]{"A", "B"});
+    }
+    static void show(String[] s)
+    {
+        System.out.println(s[0] + s[1]);
+    }
+}

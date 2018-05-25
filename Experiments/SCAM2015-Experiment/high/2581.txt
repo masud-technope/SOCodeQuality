@@ -1,0 +1,73 @@
+public class ChangeLockObjectState {
+
+    private volatile Object obj = new Object();
+
+    void foo() {
+        synchronized (obj) {
+            try {
+                System.out.println("inside foo");
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    void bar() {
+        synchronized (obj) {
+            try {
+                System.out.println("inside bar");
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            obj = new Object(); // <<<< notice this line (call it line-x)
+
+            System.out.println("going out of  bar");
+
+            try {
+
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            System.out.println("wait over");
+
+        }
+    }
+
+    /**
+     * @param args
+     * @throws InterruptedException
+     */
+    public static void main(String[] args) throws InterruptedException {
+        final ChangeLockObjectState test = new ChangeLockObjectState();
+
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                test.bar();
+
+            }
+        }).start();
+
+        Thread.sleep(6000);
+
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                test.foo();
+
+            }
+        }).start();
+
+    }
+
+}

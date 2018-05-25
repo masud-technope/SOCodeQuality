@@ -1,0 +1,4 @@
+method(int… ids){
+    userid = ids[0];
+    productid = ids[1];
+}

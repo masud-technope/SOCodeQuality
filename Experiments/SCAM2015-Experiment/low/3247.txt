@@ -1,0 +1,8 @@
+public interface StreamableIterable<T> extends Iterable<T> {
+
+   public default Stream<T> stream() {
+      final Stream.Builder<T> streamBuilder = Stream.builder();
+      forEach(t -> streamBuilder.add(t));
+      return streamBuilder.build();
+   }
+}

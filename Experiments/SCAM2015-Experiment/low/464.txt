@@ -1,0 +1,16 @@
+@Column(name="doubleColumn"}
+private Double doubleColumn = Double.NaN  //yes, this is intentional. Verily.
+
+public void setDouble(Double d)
+{
+    if(d.isNan || d.isInfinite()
+    {
+       //do something nice here
+    }
+    else
+       this.doubleColumn = d;
+}
+public Double getDouble()
+{
+   return !this.doubleColumn.isNaN() && !this.doubleColumn.isInfinite() ? this.doubleColumn : new Double();
+}

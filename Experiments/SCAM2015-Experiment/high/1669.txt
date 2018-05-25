@@ -1,0 +1,16 @@
+public class Game {
+     private StageObj gamestage;
+     private PlayerObj player;
+
+(...) - and in the constructor :
+
+        if(createstage == true) {
+            gamestage = new StageObj(slength, sheight);
+        }
+        if(createplayer==true) {
+            player = new PlayerObj(plength, pheight, psprite, pcontrols);
+        }
+
+(...)
+
+}

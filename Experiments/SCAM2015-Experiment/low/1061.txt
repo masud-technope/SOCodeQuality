@@ -1,0 +1,4 @@
+kprotected something doInBackground(<your parameters here>){
+//do your work    
+return something
+}

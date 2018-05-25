@@ -1,0 +1,5 @@
+List<Lado> lados = new LinkedList<>();
+:
+lados.add(new Artista (..));
+:
+return lados;

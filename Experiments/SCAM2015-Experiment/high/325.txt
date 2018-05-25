@@ -1,0 +1,3 @@
+assertThat(objectUnderTest, is(not(someOtherObject)));
+assertThat(objectUnderTest, not(someOtherObject));
+assertThat(objectUnderTest, not(equalTo(someOtherObject)));

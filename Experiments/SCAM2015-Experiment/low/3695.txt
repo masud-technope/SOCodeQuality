@@ -1,0 +1,7 @@
+Restart Hadoop
+Go to /app/hadoop/tmp/dfs/name/current
+Open VERSION (i.e. by vim VERSION)
+Record namespaceID
+Go to /app/hadoop/tmp/dfs/data/current
+Open VERSION (i.e. by vim VERSION)
+Replace the namespaceID with thve namespaceID you recorded in step 4.

@@ -1,0 +1,18 @@
+Calendar cal1 = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+Calendar cal2 = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+
+// Set the dates for calendars
+cal1.set(2011, 1, 1);
+cal2.set(2011, 2, 2);
+
+// Get the represented date in milliseconds as a long
+long milis1 = cal1.getTimeInMillis();
+long milis2 = cal2.getTimeInMillis();
+
+// Calculate difference in milliseconds
+long diff = milis2 - milis1;
+
+// Calculate difference in seconds
+long diffSecs = diff / 1000;
+
+System.out.println("In seconds: " + diffSecs + " seconds");

@@ -1,0 +1,12 @@
+public boolean clearSelection(){
+    int i = 0;
+    if (!this.m_SelectedComps.isEmpty())
+    {
+        i = 1;
+        Iterator localIterator = this.m_SelectedComps.iterator();
+        while (localIterator.hasNext())
+            ((AnnotComponent)localIterator.next()).remove();
+        this.m_SelectedComps.clear();
+     }
+     return (i!=0);
+}

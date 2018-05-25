@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class RemoveDuplicateWord {
+
+    public static void main(String[] args) {
+        String str = "Hai hello Hai how hello are how you";
+        removeDupWord(str);
+    }
+
+    public static void removeDupWord(String input) {
+        List<String> list = Arrays.asList(input.split(" "));
+        LinkedHashSet<String> lhs = new LinkedHashSet<String>(list);
+        for(String s : lhs) {
+            System.out.print(s+" ");
+        }                   
+    }
+}

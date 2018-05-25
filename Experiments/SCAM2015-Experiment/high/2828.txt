@@ -1,0 +1,17 @@
+public static void main(String[] args) {
+    System.out.printf("src: %s%nout: %s%n%n",
+            "\"ABC def\" xxy\"u",
+            replaceNotPairs("\"ABC def\" xxy\"u"));
+    System.out.printf("src: %s%nout: %s%n%n",
+            "\"111\" \"222\" \"333\" \"4",
+            replaceNotPairs("\"111\" \"222\" \"333\" \"4"));
+    System.out.printf("src: %s%nout: %s%n%n",
+            "\"AAA\" \"bbb\" \"CCC \"DDD\"",
+            replaceNotPairs("\"AAA\" \"bbb\" \"CCC \"DDD\""));
+    System.out.printf("src: %s%nout: %s%n%n",
+            "\"4 \"111\" \"222\"",
+            replaceNotPairs("\"4 \"111\" \"222\""));
+    System.out.printf("src: %s%nout: %s%n%n",
+            "\"11\" \"2 \"333\"",
+            replaceNotPairs("\"11\" \"2 \"333\""));
+}

@@ -1,0 +1,10 @@
+public class Application{
+
+    private static final boolean DEBUG = true;
+
+    public static void main(String args[]){
+        if(DEBUG){
+            System.out.println("Debugging information");
+        }
+    }
+}

@@ -1,0 +1,3 @@
+StringBuilder sb = new StringBuilder("abcdefgh");
+sb.replace(2, 3, "x");
+String output = sb.toString();

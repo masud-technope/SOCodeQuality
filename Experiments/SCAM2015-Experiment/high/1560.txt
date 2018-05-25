@@ -1,0 +1,4 @@
+// Assuming values is IEnumerable<double>
+values = values.Where(v => v <= input);
+
+return values.Any() ? values.Max() : resultWhenInputTooSmall;

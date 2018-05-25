@@ -1,0 +1,19 @@
+class A extends Thread {
+    public void run() {
+        System.out.println("**************started***************");
+        for(double i = 0.0; i < 500000000000000000.0; i++) {
+            System.gc();
+            System.out.println(Thread.currentThread().getName());
+        }
+        System.out.println("************************finished********************************");
+    }
+}
+
+public class Manager {
+    public static void main(String[] args) {
+        for(double j = 0.0; j < 50000000000.0; j++) {
+            A a = new A();
+            a.start();
+        }
+    }
+}

@@ -1,0 +1,12 @@
+scala> import scala.collection.mutable.LinkedList
+import scala.collection.mutable.LinkedList
+
+scala> def reverseLinkedList[A](ll: LinkedList[A]): LinkedList[A] =
+         ll.foldLeft(LinkedList.empty[A])((accumulator, nextElement) => nextElement +: accumulator)
+reverseLinkedList: [A](ll: scala.collection.mutable.LinkedList[A])scala.collection.mutable.LinkedList[A]
+
+scala> reverseLinkedList(LinkedList("a", "b", "c"))
+res0: scala.collection.mutable.LinkedList[java.lang.String] = LinkedList(c, b, a)
+
+scala> reverseLinkedList(LinkedList("1", "2", "3"))
+res1: scala.collection.mutable.LinkedList[java.lang.String] = LinkedList(3, 2, 1)

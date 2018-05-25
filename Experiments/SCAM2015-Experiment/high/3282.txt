@@ -1,0 +1,16 @@
+public class Main {
+    static Integer three;
+    static Integer four;
+
+    // more code
+    public static void one() {
+        three = 3;
+        four = 4;
+        Integer five = two();
+        System.out.println(five);
+    }
+
+    public static Integer two() {
+        return three + four;
+    }
+}

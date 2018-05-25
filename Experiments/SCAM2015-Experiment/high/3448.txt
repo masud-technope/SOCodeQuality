@@ -1,0 +1,5 @@
+void insert(int element)
+{
+    elements[this.length] = element;
+    this.length++;
+}

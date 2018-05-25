@@ -1,0 +1,8 @@
+public String dealCard(int i){
+
+    cardsRemaining--;
+
+    if(cardsRemaining >= 0) {
+        return deckOfCardsArray[i].dealCard();
+    }
+}

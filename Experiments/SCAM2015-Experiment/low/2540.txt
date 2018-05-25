@@ -1,0 +1,6 @@
+String inputStr= "hello, this\nis a long sentence";
+Pattern pattern = Pattern.compile("(.*?[\\s]){3}", Pattern.DOTALL); 
+Matcher matcher = pattern.matcher(inputStr);
+matcher.find(); 
+String result = matcher.group(); 
+System.out.println(result);

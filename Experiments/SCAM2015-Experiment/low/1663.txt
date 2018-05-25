@@ -1,0 +1,3 @@
+String mysting="37,78584";
+String newString=myString.replace(",", "");
+int value=Integer.parseInt(newString);

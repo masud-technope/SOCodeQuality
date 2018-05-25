@@ -1,0 +1,15 @@
+List<String[]> stringLists = ....
+
+for(int firstListIndex = 0; firstListIndex < stringLists.size(); firstListIndex++){
+    String[] primaryList = stringLists.get(firstListIndex);
+    for(int secondList = firstListIndex + 1; ....){
+             String[] secondaryList = ....
+             for(String first : primaryList){
+                 for(String second : secondaryList){
+                     System.out.println(first + second);
+                 }
+             }
+
+    }
+
+}

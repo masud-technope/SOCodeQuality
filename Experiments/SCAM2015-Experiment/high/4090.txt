@@ -1,0 +1,3 @@
+enum A {enum1};
+enum B {enum1};
+System.out.println(A.enum1.name() == B.enum1.name()); // Prints "true"

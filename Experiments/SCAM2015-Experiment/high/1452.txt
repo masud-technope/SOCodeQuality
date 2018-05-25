@@ -1,0 +1,6 @@
+if (rs.last()) {
+    int rows = rs.getRow();
+    // Move to beginning
+    rs.beforeFirst();
+    ...
+}

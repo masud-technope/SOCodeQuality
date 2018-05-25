@@ -1,0 +1,15 @@
+public class BaseFoo
+{
+    public void myMethod()
+    {
+        // do nothing
+    }
+}
+
+public class DerivedFoo extends BaseFoo
+{
+    public void myMethod()
+    {
+        // do actual work
+    }
+}

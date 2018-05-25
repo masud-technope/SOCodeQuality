@@ -1,0 +1,5 @@
+[firstWordWithSpaceAfter ]
+[secondWordWithSpaceAfter ]
+[wordWithLineBreakAfter
+]
+[lastWord]

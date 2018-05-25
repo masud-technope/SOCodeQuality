@@ -1,0 +1,5 @@
+if (resultSet.next()) {
+    int max = resultSet.getInt("max_id");
+} else {
+    // There are no records. Set max to -1 or something?
+}

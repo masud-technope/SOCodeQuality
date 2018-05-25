@@ -1,0 +1,4 @@
+call c:\bkn-batfiles\setclasspath.bat 
+set
+java -jar  E:\DATA\JAVACLASSES-NETBEANS\search_files_with_java_fx\dist\search_files.jar 
+pause

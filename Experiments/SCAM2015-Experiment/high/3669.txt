@@ -1,0 +1,7 @@
+while (<condition-1>)
+    if (<condition-2>) {
+        // calculate k here 
+        synchronized (c) {                        
+            c.setInt(c.getInt()+k); 
+        }
+    }

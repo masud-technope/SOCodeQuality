@@ -1,0 +1,5 @@
+final Holder<String> stringHolder = Holder.absent(); // nothing at first
+
+public void mutate(String arg) {
+  stringHolder.set(arg);
+}

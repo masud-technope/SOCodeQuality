@@ -1,0 +1,3 @@
+public static boolean isFullname(String str) {
+    return str.matches("^[a-zA-z ]*$");
+}

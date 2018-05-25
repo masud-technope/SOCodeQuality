@@ -1,0 +1,4 @@
+int len = strlen(str);
+int count = (len + sizeof(int))/sizeof(int);
+int *ptr = (int *)calloc(count, sizeof(int));
+memcpy((void *)ptr, (void *)str, count*sizeof(int));

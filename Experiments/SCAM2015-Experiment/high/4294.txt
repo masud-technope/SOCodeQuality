@@ -1,0 +1,7 @@
+Dog(String type, int weight)
+    {
+        super(); //You can also explicitly state this. This will invoke Animal() constructor before going to below statements.
+        this.type = type;
+        this.weight = weight;
+        System.out.println("running the Dog's dual arg'd constructor");
+    }

@@ -1,0 +1,22 @@
+private static final HashMap<String, Point> hash = new HashMap<String, Point>();
+
+public static Point createPoint(int x, int y, int z) {
+ String key = getKey(x,y,z);
+ Point created = hash.get(key)
+ if (created == null) {
+  created = new Point(x,y,z);
+  hash.put(key,created);
+ }
+ return created;
+}
+
+private static String createKey(int x, int y, int z) {
+ StringBuffer buffer = new StringBuffer();
+ buffer.append("x:");
+ buffer.append(x);
+ buffer.append("y:");
+ buffer.append(y);
+ buffer.append("z:");
+ buffer.append(z);
+ return buffer.toString()
+}

@@ -1,0 +1,12 @@
+StringBuffer str = new StringBuffer("A");
+    ThreadParent obj = new ThreadParent(str);
+    ThreadParent obj1 = new ThreadParent(str);
+    ThreadParent obj2 = new ThreadParent(str);
+    obj.setName("Thread1");
+    obj1.setName("Thread2");
+    obj2.setName("Thread3");
+    obj.start();
+    obj1.start();
+    obj2.start();
+
+}

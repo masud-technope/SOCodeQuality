@@ -1,0 +1,3 @@
+javac Projectfile.java
+Press Enter
+java -cp . Projectfile < Input.txt

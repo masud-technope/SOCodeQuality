@@ -1,0 +1,5 @@
+String x = "Hello";
+
+System.out.print(x); // Hello
+
+System.out.print(x.substring(1)); //ello

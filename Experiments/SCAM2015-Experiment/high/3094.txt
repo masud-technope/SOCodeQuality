@@ -1,0 +1,15 @@
+class Fraction {
+    public int Numerator = 0;
+    public int Denominator = 1;
+    public Fraction(int numerator, int denominator) {
+        Numerator = numerator;
+        Denominator = denominator;
+    }
+    public static Fraction parse(String fractionString) {
+        int num, denom;
+
+        // Your parse code (without the int num and int denom declarations) goes here.
+
+        return new Fraction(num, denom);
+    }
+}

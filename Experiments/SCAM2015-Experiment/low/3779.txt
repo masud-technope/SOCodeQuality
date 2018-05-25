@@ -1,0 +1,9 @@
+// loop to deal card
+for(row = 0; row <7; row++){
+   for(col = 0; col < 3; col++){
+    play[row][col] = deck[card];
+    System.out.print(play[row][col].toString() + "\t\t\t"); // Change here.
+    card++;
+}
+
+System.out.println();

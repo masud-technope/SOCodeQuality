@@ -1,0 +1,5 @@
+String myString = "test"; // we create one instance of String here
+myString += " and more"; // we create another instance of String (" and more")
+                         // and append that. Did we modify the instance stored in
+                         // myString now? NO! We created a third instance that
+                         // contains "test and more".

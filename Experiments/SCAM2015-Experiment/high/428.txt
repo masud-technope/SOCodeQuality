@@ -1,0 +1,13 @@
+class Base
+{
+   private void foo()
+   {
+   }
+}
+
+class Child extends Base
+{
+    private void foo()
+    {
+    }
+}

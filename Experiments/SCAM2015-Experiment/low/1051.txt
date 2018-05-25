@@ -1,0 +1,8 @@
+public static boolean isValidName(String text) {
+    try {
+        File file = new File(text);
+        return file.getPath().equals(text);
+    }
+    catch(Exception ex){}
+    return false;
+}

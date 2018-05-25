@@ -1,0 +1,28 @@
+/**
+ * Causes the <code>run()</code> method of the runnable to
+ * be invoked by the user-interface thread at the next 
+ * reasonable opportunity. The caller of this method continues 
+ * to run in parallel, and is not notified when the
+ * runnable has completed.  Specifying <code>null</code> as the
+ * runnable simply wakes the user-interface thread when run.
+ * <p>
+ * Note that at the time the runnable is invoked, widgets 
+ * that have the receiver as their display may have been
+ * disposed. Therefore, it is necessary to check for this
+ * case inside the runnable before accessing the widget.
+ * </p>
+ *
+ * @param runnable code to run on the user-interface thread or <code>null</code>
+ *
+ * @exception SWTException <ul>
+ *    <li>ERROR_DEVICE_DISPOSED - if the receiver has been disposed</li>
+ * </ul>
+ * 
+ * @see #syncExec
+ */
+public void asyncExec (Runnable runnable) {
+    synchronized (Device.class) {
+        if (isDisposed ()) error (SWT.ERROR_DEVICE_DISPOSED);
+        synchronizer.asyncExec (runnable);
+    }
+}

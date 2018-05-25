@@ -1,0 +1,11 @@
+class Foo {
+
+    static public <X> int bar() { return 42; }
+
+    public int baz() {
+        return true ? 42 : (
+            Foo.bar() > 42 ? 41 : 43     
+        )
+        ;
+    }
+}

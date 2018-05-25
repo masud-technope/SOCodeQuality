@@ -1,0 +1,45 @@
+public static void main(String[] args) {
+    /* Make list */
+    List<String> input = new ArrayList<String>();
+    input.add("12");
+    input.add("11");
+    input.add("11");
+    input.add("12");
+    input.add("12");
+    input.add("15");
+    input.add("12");
+    input.add("17");
+    input.add("18");
+    input.add("11");
+
+    /*
+     * count duplicates
+     */
+    Map<String, Integer> map = new LinkedHashMap<String, Integer>();
+    for (String str : input) {
+        if (map.containsKey(str)) {
+            Integer prevCount = map.get(str);
+            map.put(str, ++prevCount);
+        } else {
+            map.put(str, 0);
+        }
+    }
+
+    /*
+     * make string to display
+     */
+    StringBuffer sb = new StringBuffer();
+    for (Map.Entry<String, Integer> entry : map.entrySet()) {
+
+        String key = entry.getKey();
+        Integer count = entry.getValue();
+        if (count == 0) {
+            sb.append(key + ", ");
+        } else
+            sb.append(key + "(" + count + "), ");
+    }
+    String tmp = sb.toString();
+    String output = tmp.substring(0, tmp.length() - 2); //remove last ", "
+    System.out.println("[" + output + "]");
+
+}

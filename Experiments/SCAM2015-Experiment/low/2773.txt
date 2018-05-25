@@ -1,0 +1,23 @@
+// base class
+
+public class Base<T extends Base> {
+
+  private T myself;
+
+  public Base(T myself, Class<T> cls) {
+    this.myself = myself;
+  }
+
+  public T withSomething() {
+    return myself;
+  }
+}
+
+// subclass
+
+public class SomeSubCls extends Base<SomeSubCls> {
+
+  public SomeSubCls() {
+    super(this, SomeSubCls.class);
+  }
+}

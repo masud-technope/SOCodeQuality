@@ -1,0 +1,3 @@
+public boolean isWhole(double value) {
+    return Math.floor(value) == value;
+}

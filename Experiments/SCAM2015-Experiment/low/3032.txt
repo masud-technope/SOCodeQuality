@@ -1,0 +1,9 @@
+import org.apache.commons.lang3.StringUtils;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int amountOf_ = 10;
+        System.out.println("|" + StringUtils.rightPad("Word", amountOf_, "_") + "|");
+    }
+}

@@ -1,0 +1,3 @@
+System.out.println(Math.round(12.51));//Yields 13
+System.out.println(Math.round(12.49));//Yields 12
+System.out.println(Math.round(12.50));//Yields 13

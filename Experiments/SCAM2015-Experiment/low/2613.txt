@@ -1,0 +1,5 @@
+package com.worse;
+import com.bad.IAlpha;
+
+// an Alpha ordered by name length
+public interface ISybil extends IAlpha, Comparable<IAlpha> {}

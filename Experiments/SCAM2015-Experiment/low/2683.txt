@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+
+public class Main {
+
+public static void main(String[] args) {
+
+    ArrayList<Integer> randomNumbers = new ArrayList<Integer>();
+    ArrayList<Integer> expandingPlace = new ArrayList<Integer>();
+    ArrayList<Integer> sequenceOfDuplicates = new ArrayList<Integer>();
+
+    for (int i = 0; i < 100; i++) {
+        randomNumbers.add((int) (Math.random() * 10));
+        expandingPlace.add(randomNumbers.get(i));
+    }
+
+    System.out.println(randomNumbers); // Original list.
+
+    for (int i = 0; i < randomNumbers.size(); i++) {
+        if (expandingPlace.get(i) == expandingPlace.get(i + 1)) {
+            expandingPlace.add(0);
+            sequenceOfDuplicates.add(expandingPlace.get(i)); 
+            sequenceOfDuplicates.add(expandingPlace.get(i + 1));
+        }
+    }
+
+    System.out.println(sequenceOfDuplicates); // What was in duplicate there.
+
+}
+
+}

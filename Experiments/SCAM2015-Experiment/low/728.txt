@@ -1,0 +1,8 @@
+OutputStream notToBeClosed = ...
+OutputStream guard = new FilterOutputStream(notToBeClosed) {
+    public void close() { flush(); /*  don't close this.out */ }
+};
+GZIPOutputStream zip = new GZIPOutputStream(guard);
+
+// will call guard.close(), but that won't propagate to notToBeClosed.close()
+zip.close();

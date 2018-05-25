@@ -1,0 +1,8 @@
+@XmlElement(name = "CrewId")
+protected String crewId;
+@XmlElement(name = "OrderID ")
+protected String orderID;
+@XmlElement(name = "Login")
+protected String login;
+@XmlElement(name = "OrderNumber")
+protected String orderNumber;

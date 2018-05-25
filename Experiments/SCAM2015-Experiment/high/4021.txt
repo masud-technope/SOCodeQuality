@@ -1,0 +1,10 @@
+if (usersMap.containsKey(loginUser.getText())) {
+    String storedPassword = usersMap.get(loginUser.getText());
+    if (storedPassword.equals(loginPassword.getPassword())) {
+        // valid login
+    } else {
+        // invalid login
+    }
+} else {
+    // invalid login
+}

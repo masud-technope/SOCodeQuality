@@ -1,0 +1,15 @@
+interface Swimmable{
+    void swim();
+}
+
+interface Talkable{
+    void talk();
+}
+
+interface Walkable{
+    void walk();
+}
+
+class Person {
+    void breed();
+}

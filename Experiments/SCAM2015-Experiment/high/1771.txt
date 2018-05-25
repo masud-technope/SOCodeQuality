@@ -1,0 +1,3 @@
+<h:inputText id="usEmail" ... />    
+<h:inputText id="usMobilePhone" ... />
+<o:validateOneOrMore components="usEmail usMobilePhone" showMessageFor="@all" />

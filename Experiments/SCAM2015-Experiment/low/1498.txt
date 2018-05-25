@@ -1,0 +1,3 @@
+if(rs.getRow() >= 1){
+      //Has at least 1 result
+    }

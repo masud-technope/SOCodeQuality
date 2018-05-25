@@ -1,0 +1,28 @@
+String removeAll(char c, String s) {
+
+        boolean removed = false;
+
+        String to_return = "";
+
+        while(true) {
+            if (s.equals(""))
+                return to_return;
+
+            // at this point s is not ""
+            char c2 = s.charAt(0);
+            if (c2 != c)
+            {
+                to_return += c2;
+            }
+            else
+            {
+                if(! removed)
+                    removed = true;
+                else
+                    to_return += c2;
+            }
+
+            s = s.substring(1);
+        }
+
+    }

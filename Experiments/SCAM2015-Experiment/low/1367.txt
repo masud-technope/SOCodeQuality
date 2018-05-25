@@ -1,0 +1,6 @@
+if ( txtText != null ){
+    ...
+}
+if ( txtLongText != null ){
+    ...
+}

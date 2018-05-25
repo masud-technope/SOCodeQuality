@@ -1,0 +1,8 @@
+boolean isDouble;
+try
+{
+   Double.parseDouble("1.2");
+   isDouble = true;
+}catch(Exception e){
+   isDouble = false;
+}

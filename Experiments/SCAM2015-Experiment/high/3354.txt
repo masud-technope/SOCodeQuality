@@ -1,0 +1,23 @@
+public void swap(String name1, String name2) {
+
+        int position1 = -1;
+        int position2 = -1;
+
+        for (int i = 0; i < 10; i++) {
+
+            if (name1.equals(names[i])) {
+                position1 = i;
+            }
+
+            if (name2.equals(names[i])) {
+                position2 = i;
+            }
+        }
+
+        if ( position1 != -1 && position2 != -1 ) {
+
+            String temp = names[position1];
+            names[position1] = names[position2];
+            names[position2] = temp;
+         }
+    }

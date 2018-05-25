@@ -1,0 +1,10 @@
+String s ="stackjomvammssastackvmlmvlrstack";      
+  String pattern = "stack";
+
+Matcher m = pattern.matcher(s);
+int i=0;
+while (m.find())
+{    
+    System.out.println(m.start());
+    System.out.println(m.start()+m.length());
+}

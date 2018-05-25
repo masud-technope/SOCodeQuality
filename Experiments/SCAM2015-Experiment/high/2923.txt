@@ -1,0 +1,3 @@
+int fact(int x, int y) {
+    return (y < x ? 0 : 1 + fact(x, y-x));
+}

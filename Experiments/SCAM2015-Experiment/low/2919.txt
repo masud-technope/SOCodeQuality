@@ -1,0 +1,3 @@
+String result="";
+   result=(x%3 == 0 && x%5 == 0 ? "ab" : x%5 == 0 ? "a" : x%3 == 0 ? "b" : "not divisible to any number" );
+   System.out.println(result);

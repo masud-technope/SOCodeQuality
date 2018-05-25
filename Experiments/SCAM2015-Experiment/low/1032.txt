@@ -1,0 +1,7 @@
+int[] intA = {5, 8, 9, 11};
+List<Integer> l = new Vector<Integer>();
+for (int i: intA)
+    l.add(i);
+System.out.println("original: " + l.getClass().getCanonicalName() + ", " + l);
+List<Integer> n = add2(l);
+System.out.println("converted: " + n.getClass().getCanonicalName() + ", " + n);

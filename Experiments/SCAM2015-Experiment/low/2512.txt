@@ -1,0 +1,4 @@
+a = new ArrayList<Integer>();
+a = new LinkedList<Integer>();
+a = new Vector()<Integer>;
+a = new Stack()<Integer>;

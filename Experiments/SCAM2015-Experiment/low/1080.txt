@@ -1,0 +1,11 @@
+interface Extractor<T, R> {
+        public List<R> extract(T source);
+    }
+
+    class BaseExtractor<T> implements Extractor<T, Record>
+    {
+        public List<Record> extract(T source)
+        {
+            //do your thing
+        }
+    }

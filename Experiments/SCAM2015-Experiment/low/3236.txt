@@ -1,0 +1,4 @@
+String value = "string12asd";
+String intValue = value.replaceAll("[^0-9]", "");
+String stringValue = value.replaceAll("[0-9]","");
+System.out.println("int are: "+intValue+" \n string are: "+stringValue);

@@ -1,0 +1,4 @@
+int d1 = twodim.length;
+// d1 = 2, the length of the outer array
+int d2 = twodim[1].length;
+// d2 = 7, the length of the second inner array, [2,4,5,5,4,3,3]

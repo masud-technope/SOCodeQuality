@@ -1,0 +1,5 @@
+Fraction f1, f2;
+    f1= Fraction.parse(fraction1);
+    f2= Fraction.parse(fraction2);
+    int num = f1.Numerator * f2.Numerator;
+    int denom = f1.Denominator * f2.Denominator;

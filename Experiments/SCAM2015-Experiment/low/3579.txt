@@ -1,0 +1,3 @@
+URLConnection connection = new URL(url + "?" + query).openConnection();
+connection.setRequestProperty("Accept-Charset", charset);
+InputStream response = connection.getInputStream();

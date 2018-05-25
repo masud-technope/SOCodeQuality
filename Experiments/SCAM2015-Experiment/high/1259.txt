@@ -1,0 +1,13 @@
+try {
+    if (true) {
+        throw new Exception("ERROR");
+    } 
+}      
+catch (Exception e) {
+    if (e == null) {
+        Log.e("e", "e is really null!!!");
+    }
+    else {
+        Log.e("e", "e is not null, toString is " + e + " and message is " + e.getMessage());
+    }
+}

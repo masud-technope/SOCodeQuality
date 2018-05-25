@@ -1,0 +1,7 @@
+public Simple(Resource r1, Resource r2) {
+    this(new SimpleParams(r1, r2));
+}
+
+public Simple(SimpleParams params) {
+    this.params = params;
+}

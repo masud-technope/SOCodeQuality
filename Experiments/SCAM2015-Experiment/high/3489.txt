@@ -1,0 +1,19 @@
+public class YourAsyncTask extends AsyncTask{
+
+    @Override
+    protected Object doInBackground(Object... arg0) {
+        // Work to be done in the background.
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+        // Changes to be made to UI
+    }
+
+    @Override
+    protected void onPreExecute() {
+         // Changes to be made to UI
+    }
+
+}

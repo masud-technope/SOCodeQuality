@@ -1,0 +1,7 @@
+public class A {
+String _id;
+String description;
+HashMap<String,Integer> choices;
+String title;
+String type;
+}

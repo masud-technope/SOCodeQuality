@@ -1,0 +1,10 @@
+@Controller
+@RequestMapping("/library/{libraryId}")
+public class HelloWorldController {
+
+    @RequestMapping(value="/book/{bookId}")
+    public ModelAndView helloWorld() {
+        ....
+    }
+
+}

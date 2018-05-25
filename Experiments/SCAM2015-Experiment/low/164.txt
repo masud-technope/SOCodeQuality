@@ -1,0 +1,6 @@
+import simplejson
+import sys
+for request in sys.stdin.readlines():
+    args = simplejson.loads( request )
+    result = myFunction( args['this'], args['that'] )
+    sys.stdout.writeline( simplejson.dumps( result ) + "\n" )

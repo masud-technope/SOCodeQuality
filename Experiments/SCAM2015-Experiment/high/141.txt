@@ -1,0 +1,5 @@
+<se.fnord.android.layout.PredicateLayout
+    android:id="@+id/predicate_layout"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+/>

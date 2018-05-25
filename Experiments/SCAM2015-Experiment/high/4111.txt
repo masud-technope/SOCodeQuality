@@ -1,0 +1,3 @@
+public static String currencyFormat(BigDecimal n) {
+  return NumberFormat.getCurrencyInstance().format(n);
+}

@@ -1,0 +1,8 @@
+StringWriter xmlStringWriter = new StringWriter();
+    StreamResult streamResult = new StreamResult(xmlStringWriter);
+    Transformer transformer = TransformerFactory.newInstance().newTransformer();
+    transformer.setOutputProperty(OutputKeys.INDENT, "yes"); // http://stackoverflow.com/a/1264872/535646
+    transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+    DOMSource domSource = new DOMSource(root);
+    transformer.transform(domSource, streamResult);
+    System.out.println (xmlStringWriter);

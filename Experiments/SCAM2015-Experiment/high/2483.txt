@@ -1,0 +1,12 @@
+public static void main(String[] args) {
+    String s = "asdasdasda";
+    char[] chars = s.toCharArray();
+
+    //      List<Character> list = Arrays.asList(chars); // this does not compile,
+    List<char[]> asList = Arrays.asList(chars); // because this DOES compile.
+
+    List<Character> listC = new ArrayList<Character>();
+    for (char c : chars) {
+        listC.add(c);
+    }
+}

@@ -1,0 +1,18 @@
+public class MyClass {
+    public static void main(String args[]) {
+        StringBuilder sb = new StringBuilder(700);
+        for (int k = 1; k <= 100; k++) {
+            if (k % 15 == 0) {
+                sb.append("FizzBuzz\n");
+            } else if (k % 3 == 0) {
+                sb.append("Fizz\n");
+            } else if (k % 5 == 0) {
+                sb.append("Buzz\n");
+            } else {
+                sb.append(k);
+                sb.append("\n");
+            }
+        }
+        System.out.println(sb.toString());
+    }
+}

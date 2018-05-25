@@ -1,0 +1,17 @@
+public abstract class Enum<E extends Enum<E>> {
+    E getMe() { return (E)this; }
+}
+public class E1 extends Enum<E1> {
+    void doE2_only() {}
+    void doE2() {
+        // This line is to prove that Javac will see this.getMe() as a function of E1
+        this.getMe().doE2_only();
+    }
+}
+public class E2 extends Enum<E2> {
+    void doE2_only() {}
+    void doE2() {
+        // This line is to prove that Javac will see this.getMe() as a function of E2
+        this.getMe().doE2_only();
+    }
+}

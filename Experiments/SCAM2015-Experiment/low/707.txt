@@ -1,0 +1,11 @@
+Object clone = null;
+if(anObj instanceof Clonable) {
+    Method cloneMethod = anObj.getClass().getMethod("clone");
+    /*
+     * TODO: Handle the case where an object is cloneable but 
+     * does not have a public clone() method.
+     */
+    clone = cloneMethod.invoke(anObj);
+} else {
+    throw new RuntimeException("can't clone object");
+}

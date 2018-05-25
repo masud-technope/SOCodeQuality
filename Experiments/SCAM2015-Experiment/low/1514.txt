@@ -1,0 +1,8 @@
+if(even) {
+            sum += fib(i);
+i++;
+        }
+        else {
+      continue;
+  i++;
+      }

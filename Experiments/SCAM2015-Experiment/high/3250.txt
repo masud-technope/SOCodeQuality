@@ -1,0 +1,77 @@
+public final class Foo {
+
+    public final int a;
+    public final int b;
+    public final int c;
+
+    private Foo(
+            int a,
+            int b,
+            int c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    public static BuilderA<? extends BuilderB<?>> newBuilder() {
+        return new BuilderFinal();
+    }
+
+    public static class BuilderA<T extends BuilderB<?>> {
+        private volatile int a;
+
+        @SuppressWarnings("unchecked")
+        public T a(int v) {
+            a = v;
+            return (T) this;
+        }
+
+        public int a() {
+            return a;
+        }
+    }
+
+    public static class BuilderB<T extends BuilderC<?>> extends BuilderA<T> {
+        private volatile int b;
+
+        @SuppressWarnings("unchecked")
+        public T b(int v) {
+            b = v;
+            return (T) this;
+        }
+
+        public int b() {
+            return b;
+        }
+    }
+
+    public static class BuilderC<T extends BuilderFinal> extends BuilderB<T> {
+        private volatile int c;
+
+        @SuppressWarnings("unchecked")
+        public T c(int v) {
+            c = v;
+            return (T) this;
+        }
+
+        public int c() {
+            return c;
+        }
+    }
+
+    public static class BuilderFinal extends BuilderC<BuilderFinal> {
+
+        public Foo build() {
+            return new Foo(
+                    a(),
+                    b(),
+                    c());
+        }
+    }
+
+    public static void main(String[] args) {
+        Foo f1 = newBuilder().a(1).b(2).c(3).build();
+        Foo f2 = newBuilder().a(1).b(2).c(3).a(4).build();
+    }
+
+}

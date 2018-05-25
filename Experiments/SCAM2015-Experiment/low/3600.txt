@@ -1,0 +1,5 @@
+public void addToSet(I iInstance) {
+   if(iInstance instanceof A){  
+   //logic to add to your set
+    }
+}

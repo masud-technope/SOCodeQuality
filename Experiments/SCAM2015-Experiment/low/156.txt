@@ -1,0 +1,5 @@
+public class YourClass implements Foo {
+   public YourClass() {
+      System.out.println("Hello " + constant1);
+   }
+}

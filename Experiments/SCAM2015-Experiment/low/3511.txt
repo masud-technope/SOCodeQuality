@@ -1,0 +1,4 @@
+List<String> emails = new ArrayList<String>();
+while(...){
+emails.add(rs.getString("EmailAddress"));
+}

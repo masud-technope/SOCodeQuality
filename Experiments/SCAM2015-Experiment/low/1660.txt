@@ -1,0 +1,26 @@
+System.out.println("get date range from week number and year in java");
+   System.out.println(); // print a blank line
+
+   // get the input from the user
+   Scanner sc = new Scanner(System.in);
+
+   System.out.print("Enter the week : ");
+   int weekNumber  = sc.nextInt(); 
+   System.out.print("Enter the Year: ");
+   int year = sc.nextInt() ;
+
+
+
+   Calendar cal = Calendar.getInstance();
+   //cal.setTime(new Date());
+
+   cal.set(Calendar.YEAR, year);
+   cal.set(Calendar.WEEK_OF_YEAR, weekNumber);
+
+   SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+   cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+   System.out.println(formatter.format(cal.getTime())); // start date
+
+   cal.add(Calendar.DAY_OF_WEEK, 6);
+   System.out.println(formatter.format(cal.getTime())); // end date

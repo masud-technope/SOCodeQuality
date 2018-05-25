@@ -1,0 +1,10 @@
+//javascript code
+function callInititiate(){
+
+   //This sends a get request to executeInit.jsp
+   //
+   $.get('localhost/myWebbApp/executeInit.jsp');
+
+}
+
+$(callInitiate);

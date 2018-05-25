@@ -1,0 +1,86 @@
+package rpsgame;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public final class RPSSystem {
+
+    private final List<RPSObject> objects;
+    private final int[][] beatsRules;
+
+    public static final int WINS = 1;
+    public static final int TIE = 0;
+    public static final int LOSES = -1;
+
+
+    public RPSSystem(RPSObject... objects) {
+        this.objects = Arrays.asList(objects.clone());
+        this.beatsRules = new int[objects.length][objects.length];
+    }
+
+    void defineBeatsRule(RPSObject winner, RPSObject loser) {
+        if (winner.equals(loser)) throw new IllegalArgumentException();
+
+        int winnerIndex = getObjectIndex(winner);
+        int loserIndex = getObjectIndex(loser);
+
+        beatsRules[winnerIndex][loserIndex] = WINS;
+        beatsRules[loserIndex][winnerIndex] = LOSES;
+    }
+
+    public int fight(RPSObject a, RPSObject b) {
+        int aIndex = getObjectIndex(a);
+        int bIndex = getObjectIndex(b);
+
+        return beatsRules[aIndex][bIndex];
+    }
+
+    public List<RPSObject> getObjects() {
+        return Collections.unmodifiableList(objects);
+    }
+
+    private int getObjectIndex(RPSObject o) {
+        int index = objects.indexOf(o);
+        if (index < 0) throw new IllegalArgumentException();
+        return index;
+    }
+
+    // test
+    public static void main(String[] args) {
+
+        RPSSystem classicRPS = buildClassicRPS();
+
+        List<RPSObject> objects = classicRPS.getObjects();
+
+        for (RPSObject a: objects) {
+            for (RPSObject b: objects) {
+                int result = classicRPS.fight(a, b);
+                switch (result) {
+                    case RPSSystem.WINS:
+                        System.out.println(a + " beats " + b);
+                        break;
+                    case RPSSystem.TIE:
+                        System.out.println(a + " vs " + b + " is tied");
+                        break;
+                    case RPSSystem.LOSES:
+                        System.out.println(a + " loses against " + b);
+                        break;
+                }   
+            }
+        }
+    }
+
+    private static RPSSystem buildClassicRPS() {
+        RPSObject rock = new RPSObject("Rock");
+        RPSObject paper = new RPSObject("Paper");
+        RPSObject scissors = new RPSObject("Scissors");
+
+        RPSSystem classicRPS = new RPSSystem(rock, paper, scissors);
+
+        classicRPS.defineBeatsRule(rock, scissors);
+        classicRPS.defineBeatsRule(paper, rock);
+        classicRPS.defineBeatsRule(scissors, paper);
+        return classicRPS;
+    }
+}

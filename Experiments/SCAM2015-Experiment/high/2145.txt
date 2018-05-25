@@ -1,0 +1,3 @@
+SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+String currentDate = "24-10-2012";
+System.out.println(formatter.parse(currentDate));

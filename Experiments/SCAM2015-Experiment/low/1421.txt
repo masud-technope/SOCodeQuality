@@ -1,0 +1,4 @@
+<context-param>
+     <param-name>spring.profiles.active</param-name>
+     <param-value>${spring.prfile}</param-value>
+</context-param>

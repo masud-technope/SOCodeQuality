@@ -1,0 +1,31 @@
+/* package whatever; // don't place package name! */
+
+import java.io.*;
+
+import java.util.*;
+
+class Ideone
+{
+public static void main (String[] args) throws java.io.IOException
+{
+String s1;
+String s2="";
+String input="Proserpine";
+String strline;
+   s1 = "PPP, Proserpine Queensland, Australia";
+   int numTokens = 0;
+   StringTokenizer st = new StringTokenizer(s1);
+
+  while (st.hasMoreTokens())
+  {
+     s2 = st.nextToken();
+     ++numTokens;
+      if (s2.equalsIgnoreCase(input))
+      {
+      System.out.print(s1);
+     break;
+     }
+
+  }
+ } 
+ }

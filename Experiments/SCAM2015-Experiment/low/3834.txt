@@ -1,0 +1,19 @@
+public BigInteger doubleIt(BigInteger num)
+{
+    return num.multiply(BigInteger.valueOf(2));
+}
+
+public BigDecimal doubleIt(BigDecimal num)
+{
+    return num.multiply(BigDecimal.valueOf(2));
+}
+
+public double doubleIt(double num)
+{
+    return num*2.0;
+}
+
+public long doubleIt(long num)
+{
+    return num*2;
+}

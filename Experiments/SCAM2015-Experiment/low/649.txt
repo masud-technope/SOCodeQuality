@@ -1,0 +1,35 @@
+public static Object[] getNumberWords(String s, int nWords, int offset){
+    Object[] os = new Object[2];
+    Pattern p = Pattern.compile("(\\w+)");
+    Matcher m = p.matcher(s);
+    m.region(offset, m.regionEnd());
+    int wc = 0;
+    String total = "";
+    while (wc <= nWords && m.find()) {
+      String word = m.group();
+      total += word + " ";
+      wc++;
+    }
+    os[0] = total;
+    os[1] = total.lastIndexOf(" ") + offset;
+    return os; }
+
+    String foo(String s, int n){
+    Object[] os = getNumberWords(s, n, 0);
+    String a = (String) os[0];
+    String m[] = new String[5];
+    int indexCount = 0;
+    int lastEndIndex = 0;
+    for(int count = (n / 5); count <= n; count += (n/5)){
+        if(a.length()<count){count = a.length();}
+        os = getNumberWords(a, (n / 5), lastEndIndex);
+        lastEndIndex = (Integer) os[1];
+        m[indexCount] = (String) os[0];
+        indexCount++;
+    }
+    return "Part One: \n" + m[0] + "\n\n" + 
+    "Part Two: \n" + m[1] + "\n\n" + 
+    "Part Three: \n" + m[2] + "\n\n" +
+    "Part Four: \n" + m[3] + "\n\n" + 
+    "Part Five: \n" + m[4];
+}

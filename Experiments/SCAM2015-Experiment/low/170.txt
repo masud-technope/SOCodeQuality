@@ -1,0 +1,5 @@
+DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+dbf.setValidating(false);
+dbf.setSchema(null);
+DocumentBuilder db = dbf.newDocumentBuilder();
+Document doc = db.parse(file);

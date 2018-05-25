@@ -1,0 +1,8 @@
+HashSet<String> set = new HashSet<String>() {
+    @Override
+    public boolean add(String s) {
+        if(s == null)
+            throw new NullPointerException();
+        return super.add(s);
+    }
+};

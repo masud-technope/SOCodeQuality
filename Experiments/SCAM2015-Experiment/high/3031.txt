@@ -1,0 +1,22 @@
+public static boolean arrayIsCompleteChain(int[] array) {
+    boolean[] visited = new boolean[array.length];
+    int index = 0;
+    int steps = 0;
+
+    // stop once we visit an index twice
+    while(!visited[index]) {
+        visited[index] = true; // mark index as visited
+        index = array[index];  // go to the next index
+        steps++;               // count this step
+    }
+
+    // if we made one step for every index, then the array is a complete chain
+    if(steps == array.length) {
+        return true;
+    } else {
+        return false;
+    }
+
+    // for anyone reading this who thinks to himself the "if" construct is
+    // unnecessary: this is for didactic purposes
+}

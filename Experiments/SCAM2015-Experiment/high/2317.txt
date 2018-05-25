@@ -1,0 +1,9 @@
+Callback<Person, Observable[]> extractor = new Callback<Person, Observable[]>() {
+
+    @Override
+    public Observable[] call(Person p) {
+        return new Observable[] {p.lastNameProperty(), p.firstNameProperty()};
+    }
+};
+ObservableList<Person> teamMembers = FXCollections.observableArrayList(extractor);
+// fill list

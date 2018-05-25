@@ -1,0 +1,25 @@
+public class YourFileReader() {
+    File defaultFile;
+
+    public YourFileReader() {
+        //initialize
+    }
+
+    public YourFileReader(File aDefault) {
+        defaultFile = aDefault;
+        //initialize
+    }
+
+    public void readFromFile() {
+        if(defaultFile!=null) {
+            //read from defaultFile
+        }
+        else {
+            //exception?
+        }
+    }
+
+    public void readFromFile(File file) {
+        //read from file
+    }
+}

@@ -1,0 +1,11 @@
+String[] sentences = {
+        "It's surprising",
+        "It's cold",
+        "It's $*($&%!",
+        "That is a hot coffee indeed..."
+    };
+    for (String sentence : sentences) {
+        System.out.println(
+            sentence.replaceAll("It's (.+)", "Isn't it $1!")
+        );
+    }

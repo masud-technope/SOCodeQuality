@@ -1,0 +1,8 @@
+public boolean equals(Object oo) {
+    if(!(oo instanceof Hashvalue)) {
+        return false;
+    }
+
+    HashValue hh = (HashValue)oo;
+    return (this.x == hh.x);
+}

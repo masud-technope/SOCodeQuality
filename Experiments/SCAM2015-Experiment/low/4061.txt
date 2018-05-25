@@ -1,0 +1,14 @@
+SwingUtilities.invokeLater(new Runnable(){
+
+                        public void run()
+                        {
+                        try {
+                        tInput.putClientProperty("JComboBox.isTableCellEditor", Boolean.TRUE);
+                        tInput.showPopup();
+                        }
+                        catch   (IllegalComponentStateException e) {
+                                return;
+                                }
+
+                          }
+                 });

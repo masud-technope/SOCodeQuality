@@ -1,0 +1,6 @@
+Pattern pattern = Pattern.compile("[0-9]+"); //or you can use \\d if you want
+Matcher matcher = pattern.matcher(a);
+
+while(matcher.find()) {
+    sum += Integer.parseInt(matcher.group());
+}

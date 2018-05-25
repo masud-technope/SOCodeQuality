@@ -1,0 +1,3 @@
+file.setExecutable(boolean); – true, allow execute operations; false to disallow it.
+file.setReadable(boolean); – true, allow read operations; false to disallow it.
+file.setWritable(boolean); – true, allow write operations; false to disallow it.

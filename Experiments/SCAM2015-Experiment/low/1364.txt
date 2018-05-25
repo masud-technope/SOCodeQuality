@@ -1,0 +1,3 @@
+for(int loop = 0; i < questionList.size(); loop++){
+       questionList.get(loop).setCorrect(true);
+   }

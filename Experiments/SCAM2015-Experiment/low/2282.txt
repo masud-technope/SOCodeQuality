@@ -1,0 +1,10 @@
+String[] matches = "SS,ss,ﬂ".split(",");
+System.out.printf("%12s %5s %5s %5s\n", " ", matches[0], matches[1], matches[2]);
+String g = "Groﬂenhain";
+for (String g1 : new String[]{g, g.toUpperCase(), g.toLowerCase(), g.toUpperCase().toLowerCase()})
+{
+    System.out.printf("%12s", g1);
+    for (String match : matches)
+        System.out.printf(" %5d", g1.indexOf(match));
+    System.out.println();
+}

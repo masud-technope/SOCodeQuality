@@ -1,0 +1,10 @@
+Bitmap bmp[];
+     **BitmapFactory.Options options = new BitmapFactory.Options();
+    options.inSampleSize = 2;**
+    bmp=new Bitmap[fileNames.length]; /* FileName is the total files to be decoded*/
+
+    for(int i = 0; i < fileNames.length; i++)   
+    {
+
+        bmp[i]=BitmapFactory.decodeFile(path.getPath()+"/"+ fileNames[i],options);
+             }

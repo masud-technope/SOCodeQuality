@@ -1,0 +1,8 @@
+private static String getFormattedString(String variable) {
+  //No need this.
+  // char [] specialCharacters = {'.', '\\', '+', '*', '?', '[', '^', ']', '$', '(', ')' ,'{' ,'}', '=', '!', '<', '>', '|', ':', '-'};
+  variable = variable.replaceAll(".","\\."); //same for all.
+  variable = variable.replaceAll("+","\\+");.
+  variable = variable.replaceAll("*","\\*");
+return formatted;
+}

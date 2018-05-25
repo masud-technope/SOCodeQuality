@@ -1,0 +1,25 @@
+public enum Status {
+    ACTIVE,
+    PENDING,
+    FINISHED;
+
+    @Override
+    public String toString() {
+        String name = "";
+        switch (ordinal()) {
+        case 0:
+            name = "A";
+            break;
+        case 1:
+            name = "P";
+            break;
+        case 2:
+            name = "F";
+            break;
+        default:
+            name = "";
+            break;
+        }
+        return name;
+    }
+};

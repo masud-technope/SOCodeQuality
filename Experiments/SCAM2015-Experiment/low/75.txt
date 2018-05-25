@@ -1,0 +1,13 @@
+C:\oreyes\samples\java\URL>type URLEncodeSample.java
+import java.net.*;
+
+public class URLEncodeSample {
+    public static void main( String [] args ) throws Throwable {
+        System.out.println( URLEncoder.encode( args[0], "UTF-8" ));
+    }
+}
+
+C:\oreyes\samples\java\URL>javac URLEncodeSample.java
+
+C:\oreyes\samples\java\URL>java URLEncodeSample "http://google.com/resource?key=value"
+http%3A%2F%2Fgoogle.com%2Fresource%3Fkey%3Dvalue

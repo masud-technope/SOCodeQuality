@@ -1,0 +1,6 @@
+for (int leapYear = 2001; leapYear <= 2100; leapYear += 4) {
+                    if((leapYear - 1) % 40 == 0) {
+                        System.out.println(" ");
+                    }
+                    System.out.print(leapYear + " ");
+                }

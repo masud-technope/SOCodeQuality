@@ -1,0 +1,5 @@
+kprotected Void doInBackground(Void... unused) {             
+for (String item: items){        
+  publishProgress(item);                
+ SystemClock.sleep(200);          
+   }

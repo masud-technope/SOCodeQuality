@@ -1,0 +1,6 @@
+// final used to avoid misreferencing variables and enforcing immutability
+private final SomeObject obj;
+
+public AnotherObject(final SomeObject obj) {
+   this.obj = obj;
+}

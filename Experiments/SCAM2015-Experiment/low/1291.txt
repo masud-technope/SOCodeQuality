@@ -1,0 +1,10 @@
+class sqrt{
+    public static void main(String [] args){
+        double n=9;
+        double x=1;
+        double a=n;
+        for(int i=0;i<n;i++)
+            x=0.5*(x+a/x);
+        System.out.println(x);
+    }
+}

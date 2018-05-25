@@ -1,0 +1,7 @@
+public static int smallest(int... numbers) {
+    if (numbers.length == 0) {
+        throw new IllegalArgumentException("numbers: numbers.length == 0");
+    }
+    Arrays.sort(numbers);
+    return numbers[0];
+}

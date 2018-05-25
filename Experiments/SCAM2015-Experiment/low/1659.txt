@@ -1,0 +1,21 @@
+public class Practice {
+
+public static void main(String[] args) {
+    String input = "<tr><td>Hello world</td></tr>";
+    String output = "<body><tr><td>Hello world</td></tr></body>";
+    String tag = "<body>";
+    String replace = "";
+
+    System.out.println("Output : " + validate(input, output, tag, replace));
+
+}
+
+private static String validate(String input, String output, String word,
+        String replace) {
+
+    if (!(input.contains(word)) && !(input.contains(word))) {
+        output = output.replace(word, replace).replace(word, replace);
+    }
+    return output;
+
+}}

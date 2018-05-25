@@ -1,0 +1,8 @@
+A a = new A();
+B b = new B();
+
+System.out.println(a.method());  // prints 'A.method()'
+System.out.println(b.method());  // prints 'B.method()'
+
+b = a;
+System.out.println(b.method());  // prints 'B.method()'

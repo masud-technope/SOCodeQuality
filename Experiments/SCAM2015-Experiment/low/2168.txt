@@ -1,0 +1,4 @@
+By by = By.xpath("//div[@class='btn magenta_s']/a/span");
+WebDriverWait w = new WebDriverWait(driver, timeout);
+WebElement element = w.waitUntil(ExpectedConditions.elementToBeClickable(by);
+element.click();

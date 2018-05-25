@@ -1,0 +1,4 @@
+String foo = null;
+if (foo.equals(null)) {
+    // That fails every time. 
+}

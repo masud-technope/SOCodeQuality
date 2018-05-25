@@ -1,0 +1,5 @@
+int ret = methodFoo();
+
+if (ret == null){
+     //error
+}

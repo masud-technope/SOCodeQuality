@@ -1,0 +1,20 @@
+public class Main {
+
+    public static void main(String[] args) {
+        one();
+    }
+
+    public static void one() {
+        Integer three;
+        Integer four;
+        three = 3;
+        four = 4;
+        two(four, three);
+
+    }
+
+    public static void two(Integer four, Integer three) {
+        int five = three + four;
+        System.out.println(five);
+    }
+}

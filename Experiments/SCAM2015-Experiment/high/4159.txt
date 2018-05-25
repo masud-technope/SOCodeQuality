@@ -1,0 +1,14 @@
+String word;
+Scanner myinput = new Scanner(System.in);
+System.out.println("Please enter a word.");
+word = myinput.next();
+//Convert your string to lowercase using toLowerCase() method.
+char[] wordc = word.toLowerCase().toCharArray();
+int vowels = 0; //This counter will count the vowels.
+for(int w = 0;w < word.length();w++) {
+  if(wordc[w] == 'a' || wordc[w] == 'e' || wordc[w] == 'i' || wordc[w] == 'o' || wordc[w] == 'u') {
+      vowels++;
+  }
+}
+int consonants = word.length() - vowels; 
+//Assuming no special characters in your word.

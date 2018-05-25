@@ -1,0 +1,5 @@
+public Collection<String> shuffle() {
+    List<String> list = Arrays.asList(FullDeck);
+    Collections.shuffle(list);
+    return list;
+}

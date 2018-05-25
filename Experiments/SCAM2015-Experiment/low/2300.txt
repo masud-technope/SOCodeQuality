@@ -1,0 +1,3 @@
+Properties props = new Properties();
+props.load(new FileInputStream("log4j property file path"));
+props.setProperty("log4j.appender.File.File", "Folder where you want to store log files/" + "File Name");

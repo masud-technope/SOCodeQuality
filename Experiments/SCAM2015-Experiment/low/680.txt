@@ -1,0 +1,11 @@
+public void one()  
+{
+    String s = "one";
+    s = two(); // Here your local variable will point to a new instance of a String with the value "two"
+    System.out.println(s);
+}
+
+public String two() 
+{
+  return "two";
+}

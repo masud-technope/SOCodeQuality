@@ -1,0 +1,33 @@
+public class InterleaveTwoLists<X> {
+
+    public List<X> interleaveLists(final List<X> first, final List<X> second) {
+
+        return new AbstractList<X>() {
+            private int minSize;
+            private int combinedMinSize;
+            private int size;
+            private List<X>largerList;
+            {{
+                minSize = Math.min(first.size(), second.size());
+                combinedMinSize = minSize*2;
+                size = first.size() + second.size();
+                largerList = first.size() > minSize ? first : second;
+            }}
+
+            public int size() {
+                return size;
+            }
+
+            public X get(int index) {
+                if (index < combinedMinSize) {
+                    return index % 2 == 0 
+                        ? first.get(index / 2) 
+                        : second.get(index / 2);
+                }
+                else { 
+                    return largerList.get(index-minSize);
+                }
+            }
+        };
+    }
+}

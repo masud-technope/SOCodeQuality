@@ -1,0 +1,5 @@
+if ((v == true) && !(v = false)) {
+    v != true;   /* negate with true if true. */
+} else {
+    v =! false;  /* negate with false if false. */
+}

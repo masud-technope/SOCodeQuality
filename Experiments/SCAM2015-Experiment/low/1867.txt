@@ -1,0 +1,22 @@
+yourJTextField.addKeyListener(new KeyAdapter()
+        {
+            @Override
+            public void keyTyped(KeyEvent e)
+            {
+                // Here limiting the character of your number. for examlpe this wil only accept one digit
+                if (yourJTextField.getText().length() == 1) {
+                    e.consume();
+                }
+
+                // Here limiting your input to only number
+                char c = e.getKeyChar();
+                if(!((c >= '0') && (c <= '7') || (c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE)))
+                {
+                    //do what so ever you want
+                }
+                else
+                {
+                    //do what so ever you want
+                }
+            }
+        })

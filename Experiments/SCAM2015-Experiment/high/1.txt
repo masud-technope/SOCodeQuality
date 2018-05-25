@@ -1,0 +1,17 @@
+interface Season
+{
+    public string getDays();
+}
+
+interface User
+{
+    public Season getWinter();
+    public Season getSpring();
+    public Season getSummer();
+    public Season getFall();
+}
+
+interface UserMap
+{
+    public User getUser(string name);
+}

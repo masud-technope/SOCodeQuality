@@ -1,0 +1,8 @@
+// This line is useless
+// String output = v.replace("[", "").replace("]", "");
+JSONArray arr = new JSONArray(output);
+ArrayList<String> list = new ArrayList<String>();
+for(int i = 0 ; i < arr.length(); i++){
+    System.out.println(arr.getJSONObject(i).getString(c));
+    list.add(arr.getJSONObject(i).getString(c));
+}

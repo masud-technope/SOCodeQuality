@@ -1,0 +1,46 @@
+/* This code is just for convert a single uppercase character to lowercase 
+character & vice versa.................*/
+
+/* This code is made without java library function, and also uses run time input...*/
+
+
+
+import java.util.Scanner;
+
+class CaseConvert {
+char c;
+void input(){
+//@SuppressWarnings("resource")  //only eclipse users..
+Scanner in =new Scanner(System.in);  //for Run time input
+System.out.print("\n Enter Any Character :");
+c=in.next().charAt(0);     // input a single character
+}
+void convert(){
+if(c>=65 && c<=90){
+    c=(char) (c+32);
+    System.out.print("Converted to Lowercase :"+c);
+}
+else if(c>=97&&c<=122){
+        c=(char) (c-32);
+        System.out.print("Converted to Uppercase :"+c);
+}
+else
+    System.out.println("invalid Character Entered  :" +c);
+
+}
+
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    CaseConvert obj=new CaseConvert();
+    obj.input();
+    obj.convert();
+    }
+
+}
+
+
+
+/*OUTPUT..Enter Any Character :A Converted to Lowercase :a 
+Enter Any Character :a Converted to Uppercase :A
+Enter Any Character :+invalid Character Entered  :+*/

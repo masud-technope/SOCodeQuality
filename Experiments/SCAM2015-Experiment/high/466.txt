@@ -1,0 +1,5 @@
+<c:choose>
+    <c:when test="${bean.name1 != bean.name2}">
+        fields that are supposed to appear _only_ when name1 is different from name2
+    </c:when>
+</c:choose>

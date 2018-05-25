@@ -1,0 +1,7 @@
+while (true) {    
+ int totalFoos = getTotalFoos();    
+ int barredFoos = getBarredFoos();    
+ if (totalFoos == getTotalFoos()) {        
+  int nonBarredFoos = totalFoos - barredFoos;        
+  break;    
+ }

@@ -1,0 +1,3 @@
+List<IPayable> accountsToPay = new List<IPayable>();
+accountsToPay.add(new CustomerAccount());
+accountsToPay.add(new BusinessAccount());

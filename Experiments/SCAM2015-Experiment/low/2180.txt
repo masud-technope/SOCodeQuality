@@ -1,0 +1,39 @@
+public class RestartDemo
+{
+    public void oddeven(int x)
+    {
+        if(x % 2 != 0)
+        {
+            try
+            {
+                this.restart();
+            }
+            catch(Exception e)
+            { 
+                 //do nothing
+            }
+        }
+        else
+        {
+            System.out.println(x + " is even");
+        }
+    }
+
+    public void restart()throws Exception
+    {
+        try
+        {
+            throw new Exception("Force restart!");
+        }
+        finally
+        {
+            RestartDemo.main(new String[0]);
+        }
+    }
+
+    public static void main(String args[])
+    {
+        RestartDemo r = new RestartDemo();
+        r.oddeven((int)(Math.random() * 100));
+    }
+}

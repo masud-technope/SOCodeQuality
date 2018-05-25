@@ -1,0 +1,5 @@
+public class ShapeComparator implements Comparator<Shape> {
+    public int compare(Shape a, Shape b) {
+        return Double.compare(a.getVolume(), b.getVolume());
+    } 
+}

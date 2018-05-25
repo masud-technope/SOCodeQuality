@@ -1,0 +1,4 @@
+HashSet hs = new HashSet();
+                hs.addAll(arrayList);
+                arrayList.clear();
+                arrayList.addAll(hs);

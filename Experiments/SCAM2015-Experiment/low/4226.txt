@@ -1,0 +1,39 @@
+import java.util.Scanner;
+public class solve {
+
+    public static void main(String[] args){
+
+
+        Scanner scanner = new Scanner(System.in);
+        float num = scanner.nextInt();
+        float denom =scanner.nextInt();
+        float d = num / denom;
+
+        String s = Float.toString(d);
+        String check=".0";
+        String cop="";
+
+        int a = s.indexOf(".0");
+
+        int pos = 0;
+        while ((pos = s.indexOf(".0", pos)) != -1) 
+        {
+            cop =s.substring(pos);
+            pos++;
+        }
+
+            if(check.equals(cop))
+            {
+                String result = s.substring(0, a) + s.substring(a+2);
+                System.out.println(result);
+            }
+
+            else
+            {
+                System.out.println(s);
+
+            }
+
+        }
+
+}

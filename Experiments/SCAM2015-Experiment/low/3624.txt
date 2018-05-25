@@ -1,0 +1,5 @@
+String modify( String x ){
+    x = x.toLowerCasae();
+    x = x.substring( 1 );
+    return x;
+}

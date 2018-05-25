@@ -1,0 +1,4 @@
+public <T extends Parent> List<T> myfunction(List<T> myList) {
+   ... // Add something to myList
+   return myList;
+}

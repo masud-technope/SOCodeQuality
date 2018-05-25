@@ -1,0 +1,13 @@
+try
+{
+    Robot r = new Robot();
+    r.keyPress(KeyEvent.VK_CONTROL);
+    r.keyPress(KeyEvent.VK_V);
+    r.keyRelease(KeyEvent.VK_CONTROL);
+    r.keyRelease(KeyEvent.VK_V);
+
+}
+catch(Exception e)
+{
+
+}

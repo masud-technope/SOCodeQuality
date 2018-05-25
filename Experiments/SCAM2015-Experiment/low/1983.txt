@@ -1,0 +1,12 @@
+SuppressWarnings("unchecked")
+public void removeStones() {
+  ArrayList<Stone> clone = (ArrayList<Stone>) stones.clone();
+  // remove the stones moved to the table
+  for (Stone stone : stones) {
+      if (stone.isOnTable()) {
+         clone.remove(stone);
+      }
+  }
+  stones = (ArrayList<Stone>) clone.clone();
+  sortStones();
+}

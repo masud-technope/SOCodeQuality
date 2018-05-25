@@ -1,0 +1,9 @@
+public static int seqCount(int n)
+{
+   if(hm.get(n) != null) {
+       return hm.get(n);
+   }
+   if (n < 1) {
+      // this should never happen, right? ;)
+   } ...
+   ...

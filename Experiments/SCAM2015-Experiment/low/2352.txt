@@ -1,0 +1,29 @@
+qlist=dao.getdistinctquestion();
+            System.out.println(qlist);
+            List<QuestionMaster> alist = new ArrayList<QuestionMaster>();
+            int i=1, c=0;  String sub="";
+            for( QuestionMaster qq:qlist){
+                System.out.println("element:"+qq.getSubject());
+                if(i==1){
+                    c=1;   // sub = qq.getSubject();
+                }
+                else
+                if (qq.getSubject().equals(sub)==false){
+                    QuestionMaster ss = new QuestionMaster();
+                    ss.setSubject(sub);
+                    ss.setTag(""+c);
+                    alist.add(ss);
+                    c=1;
+                }
+                else
+                    c++;
+                sub=qq.getSubject();
+                i++;
+            }
+            QuestionMaster ss = new QuestionMaster();
+                ss.setSubject(sub);
+                ss.setTag(""+c);
+                alist.add(ss);
+
+
+            qlist=alist;

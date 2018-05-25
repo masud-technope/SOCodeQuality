@@ -1,0 +1,9 @@
+for (int count = 0; count < 6; count++) {
+    System.out.println("Enter integer: ");
+    if (keyboard.hasNextInt()) {
+        int a = keyboard.nextInt();
+        System.out.printf("%d is an integer%n", a);
+    } else {
+        System.out.println("invalid input " + keyboard.nextLine());
+    }
+}

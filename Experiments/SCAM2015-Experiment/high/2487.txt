@@ -1,0 +1,8 @@
+Whatever.x = 10; // This only sets your "x" to 10.
+
+System.out.println(foo.x); // prints 10
+System.out.println(foo.z); // prints 6 - because x is 10, but z is still 6
+
+Whatever bar = new Whatever(); // Now z = x*3 is called and z becomes 30.
+
+System.out.println(bar.z);

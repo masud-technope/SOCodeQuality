@@ -1,0 +1,5 @@
+for (int i = 0; i < twodim.length; i++){
+    for (int j = 0;j < twodim[i].length; j++){
+        System.out.println(twodim[i][j]);
+    }
+}

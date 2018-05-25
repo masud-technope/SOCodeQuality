@@ -1,0 +1,4 @@
+String wavPlayer = "/path/to/winmediaplayer.exe";
+String fileToPlay = "/path/to/wav/file.wav";
+
+Runtime.getRuntime().exec(wavPlayer, new String[]{fileToPlay}) ;

@@ -1,0 +1,10 @@
+String[] inputArray = new String[0];
+do{
+  String input=getinput();//replace with custom input code
+  newInputArray=new String[inputArray.length+1];
+  for(int i=0; i<inputArray.length; i++){
+    newInputArray[i]=inputArray[i];
+  }
+  newInputArray[inputArray.length]=input
+  intputArray=newInputArray;
+}while(!input.equals("done"));

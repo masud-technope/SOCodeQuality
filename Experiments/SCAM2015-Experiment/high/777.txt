@@ -1,0 +1,10 @@
+interface MyInterface {}
+
+class A {}
+
+public class InterfaceCasting {
+    public static void main(String[] args) {
+        MyInterface myObject = new MyInterface() {};
+        A a = (A) myObject;
+    }
+}

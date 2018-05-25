@@ -1,0 +1,6 @@
+int main() {
+   type a(1), b(2);
+   type *pa = &a, *pb = &b;
+   pa = pb;
+   // a is still 1, b is still 2, pa == pb == &b
+}

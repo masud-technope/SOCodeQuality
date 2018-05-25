@@ -1,0 +1,5 @@
+Input: triple (a,b,c)
+1. mx=max(max(a,b),c)
+2. mn=min(min(a,b),c)
+3. md=a^b^c^mx^mn
+4. return md

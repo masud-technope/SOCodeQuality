@@ -1,0 +1,16 @@
+public class ArrayMapDeserializer extends JsonDeserializer<Map<String, UUIDInfo>> {
+
+    @Override
+    public Map<String, UUIDInfo> deserialize(JsonParser jp, DeserializationContext context)
+            throws IOException {
+        ObjectMapper mapper = (ObjectMapper) jp.getCodec();
+        if (jp.getCurrentToken().equals(JsonToken.START_OBJECT)) {
+            return mapper.readValue(jp, new TypeReference<HashMap<String, UUIDInfo>>() {
+            });
+        } else {
+            //consume this stream
+            mapper.readTree(jp);
+            return new HashMap<String, UUIDInfo>();
+        }
+    }
+}

@@ -1,0 +1,7 @@
+public static void SetCheckedSetting(Context context, String value)
+{
+    SharedPreferences settings = getSharedPreferences("prefs", 0);
+    SharedPreferences.Editor editor = settings.edit();
+    editor.putString("examplesetting", value);
+    editor.commit();
+}

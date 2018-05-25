@@ -1,0 +1,5 @@
+data data1 = new data();
+data1.price = 50;
+ArrayList ftsedata = new ArrayList<data>();
+ftsedata.add(data1);
+data1.price = 500;

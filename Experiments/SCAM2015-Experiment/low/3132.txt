@@ -1,0 +1,14 @@
+public void printBlock(String email, String first_name, int numTests, int cost, int total){
+                System.out.println("** COPY/PASTE THIS DRAFT **");
+                System.out.println("To: " + email);
+                System.out.println("Subject: 2014 AP Test Receipt for " + first_name);
+                System.out.println();
+                System.out.println("Hi " + first_name + ",\n");
+                System.out.println("Thank you for registering for the 2014 AP Exams!");
+                System.out.println("According to our records, you ordered " + numTests + " tests.\n");
+                System.out.println("Because you stated that you qualified for a fee waiver, " +
+                        "each test will cost you $" + cost + ".");
+                System.out.println("Your total cost is $" + cost + " * " + numTests +
+                       " = $" + total + ".\n"); 
+                System.out.println("Please submit your payment to the College Counseling Office ASAP.\nThank you.\n");
+    }

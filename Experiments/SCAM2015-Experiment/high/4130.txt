@@ -1,0 +1,5 @@
+} catch(InputMismatchException e) {
+    System.out.println("Invalid input, it can only be integer.");
+    in.next(); // skip this token
+    return inputStudentNumber();
+}

@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class onlinelab2task4{
+
+  public static void main(String[]args){
+
+    Scanner abir=new Scanner(System.in);
+
+    System.out.println("Enter raw");
+
+    double r=abir.nextDouble();
+
+    double [][] a=new double[(int)r][(int)r];
+
+    int c=0;
+
+    while(c<a.length){
+
+      //System.out.print("["+a[c][0]+"]");
+      int d=0;
+
+      while(d<a[c].length){
+
+        if(c==d)
+        {
+          a[c][d]=1;
+        }
+        System.out.print("["+a[c][d]+"]");
+        d++;
+      }
+      c++;
+      System.out.println();
+    }
+  }
+}

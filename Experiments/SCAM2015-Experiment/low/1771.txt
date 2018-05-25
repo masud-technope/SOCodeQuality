@@ -1,0 +1,14 @@
+public class absBase{
+
+    private string name;
+    private int ID;
+
+    public abstract int GetID();
+}
+
+public class concreteClass:absBase{
+    @Override
+    public int GetID(){
+        return ID + 1;
+    }
+}

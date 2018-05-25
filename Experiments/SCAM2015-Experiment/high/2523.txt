@@ -1,0 +1,3 @@
+for (long value : uaCount.get(args[1]).getSingleValues()) {
+    out.write(String.valueOf(value));
+}

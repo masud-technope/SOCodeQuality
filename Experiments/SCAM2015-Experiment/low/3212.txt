@@ -1,0 +1,10 @@
+bufferedWriter.flush();  // flush 
+
+// now close the bufferwriter
+bufferedWriter.close();
+
+now read your file again
+
+while((line = bufferedReader.readLine()) != null){
+  // your reading code
+}

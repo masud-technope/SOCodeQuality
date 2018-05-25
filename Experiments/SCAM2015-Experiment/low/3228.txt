@@ -1,0 +1,5 @@
+public class Today   
+{
+  private String date;  
+  //other parameters and it's getter and setter method.  
+}

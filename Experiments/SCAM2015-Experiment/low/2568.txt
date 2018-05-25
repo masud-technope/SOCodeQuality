@@ -1,0 +1,14 @@
+public class MyClass {
+    public MyClass() {
+        // constructor code
+    }
+
+    public static void main( String[] args ) {
+        MyClass myClass = new MyClass();
+        myClass.doStuff();
+    }
+
+    public void doStuff() {
+        // do stuff
+    }
+}

@@ -1,0 +1,3 @@
+interface ClerkResolver {
+    String resolveClerk(Task task);
+}

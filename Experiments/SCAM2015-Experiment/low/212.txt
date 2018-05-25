@@ -1,0 +1,16 @@
+class A
+{ 
+    public static final A _1 = new A() {
+        public A foo()
+        {
+            return _2;
+        }
+    };
+
+    public static final A _2 = new A() {
+        public A foo()
+        {
+            return _1;
+        }
+    };
+}

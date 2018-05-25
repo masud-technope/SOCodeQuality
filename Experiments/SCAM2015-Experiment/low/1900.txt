@@ -1,0 +1,4 @@
+System.out.println("Would you like to exit? ");
+    String Exit = input.nextLine();
+
+}while(!Exit.equals('y');

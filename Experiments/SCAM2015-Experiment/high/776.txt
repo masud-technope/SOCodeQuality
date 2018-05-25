@@ -1,0 +1,5 @@
+String[] arr = { "Alice", "Bob", "Carol" };
+    Set<String> names = new HashSet<String>(Arrays.asList(arr));
+
+    System.out.println(names.contains("Alice")); // true
+    System.out.println(names.contains("Dean")); // false

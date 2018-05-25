@@ -1,0 +1,4 @@
+for(int i=0; i< length; i = sub){
+    System.out.println(line.substring(i,sub));
+    sub++;
+}

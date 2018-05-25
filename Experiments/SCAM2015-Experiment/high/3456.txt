@@ -1,0 +1,3 @@
+IfStatement ::=  IfPart [ ElsePart ]
+   IfPart      ::= 'if' '(' Expression ')' Statement
+   ElsePart    ::= 'else' Statement

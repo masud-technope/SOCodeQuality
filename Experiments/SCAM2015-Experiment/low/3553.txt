@@ -1,0 +1,15 @@
+private static final String Fish = "Fish";
+
+public static void main(String args[]) {
+    Scanner scan = new Scanner(System.in);
+
+    System.out.println("What is the password? ");
+
+    if (scan.nextLine().equals(Fish)) {
+        System.out.println("You pass!");
+    }
+    else {
+        System.out.println("You're wrong!");
+    }
+
+}

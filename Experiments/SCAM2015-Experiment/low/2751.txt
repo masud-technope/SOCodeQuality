@@ -1,0 +1,13 @@
+public void addString(string[] myString) {
+  StringBuilder sb = new StringBuilder();
+
+   sb.Append("(");
+   for(int i = 0; i < myString.length; i++) {
+      sb.Append(myString[i] + " AND ");
+   }
+
+   string result = sb.ToString().Substring(0, sb.ToString().LastIndexOf("AND"));
+   result += ")";
+
+   System.out.println(result);
+}

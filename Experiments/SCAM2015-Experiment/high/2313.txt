@@ -1,0 +1,6 @@
+Process tr = Runtime.getRuntime().exec( new String[]{"wkhtmltopdf",mainPage,mainPagePDF});
+        BufferedReader stdOut=new BufferedReader(new InputStreamReader(tr.getInputStream()));
+        String s;
+        while((s=stdOut.readLine())!=null){
+            //nothing or print
+        }

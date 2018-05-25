@@ -1,0 +1,4 @@
+public static int sumOfMultiples(int i, int j, int limit){
+    int s = --limit / i, t = limit / j, u = limit / (i * j);
+    return (i*(s*(s+1)/2)) + (j*(t*(t+1)/2)) - ((i*j)*(u*(u+1)/2));
+}

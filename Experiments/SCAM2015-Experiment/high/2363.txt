@@ -1,0 +1,13 @@
+final CountDownLatch done = new CountDownLatch(1);
+
+new Thread(new Runnable() {
+
+    @Override
+    public void run() {
+        longProcessing();
+        done.countDown();
+    }
+}).start();
+
+//in your waiting thread:
+boolean processingCompleteWithin1Second = done.await(1, TimeUnit.SECONDS);

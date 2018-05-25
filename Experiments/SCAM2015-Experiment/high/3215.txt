@@ -1,0 +1,3 @@
+String test = "Goof 23N, 45, 88, GOOF 33*, 12-24";
+    // (?i) in the below regex will ignore case while matching
+    String value = test.replaceAll("(?i)Goof\\s*", "");

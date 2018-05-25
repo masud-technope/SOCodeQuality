@@ -1,0 +1,3 @@
+if (newDate.compareTo(endDate) <= 0) {
+    list.add(newDate);
+}

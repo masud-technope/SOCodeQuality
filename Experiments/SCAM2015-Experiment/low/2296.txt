@@ -1,0 +1,7 @@
+switch(var)
+{
+  case 1 || 2 :   expression; break;
+  case 3 :   expression; break;
+  case 4 :   expression; break;
+
+}

@@ -1,0 +1,8 @@
+Map<String, List<User>> usersByCountry = new HashMap<String, List<User>>();
+for(User user : listOfUsers) {
+    List<User> users = usersByCountry.get(user.getCountry());
+    if (users == null) {        
+        usersByCountry.put(user.getCountry(), users = new ArrayList<User>());
+    }
+    users.add(user);
+}

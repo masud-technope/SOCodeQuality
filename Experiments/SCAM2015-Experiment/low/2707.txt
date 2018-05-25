@@ -1,0 +1,23 @@
+public static byte[] toBytes(String s) {
+    try {
+      return s.getBytes("UTF-8");
+    } catch (UnsupportedEncodingException e) {
+      System.out.println("UTF-8 not supported?", e);
+      return null;
+    }
+    } 
+
+      public static String toString(final byte [] b, int off, int len) {
+          if (b == null) {
+             return null;
+          }
+          if (len == 0) {
+             return "";
+          }
+          try {
+            return new String(b, off, len, "UTF8");
+          } catch (UnsupportedEncodingException e) {
+          System.out.println("UTF-8 not supported?", e);
+          return null;
+          }
+      }

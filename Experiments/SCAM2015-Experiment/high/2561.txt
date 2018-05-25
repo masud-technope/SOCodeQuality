@@ -1,0 +1,21 @@
+public static void main(String[] args) {
+    List<String> paths = new ArrayList<String>();
+    getAllFolders("/path/to/folder", "normal", paths);
+}
+
+
+private static void getAllFolders(String path, String folderName, List<String> paths) throws Exception {
+
+    Path mainPath = Paths.get(path);
+    Iterator<Path> stream = Files.newDirectoryStream(mainPath).iterator();
+
+    while(stream.hasNext()) {
+        Path currentPath = stream.next();
+        String currentFolderName = currentPath.getFileName().toString();
+        if(currentFolderName.equals(folderName)) {
+            paths.add(currentPath.toString());
+        }
+        getAllFolders(currentPath.toString(), folderName, paths);
+    }
+
+}

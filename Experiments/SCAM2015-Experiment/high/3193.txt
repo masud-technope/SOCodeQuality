@@ -1,0 +1,5 @@
+ArrayList<String> bibo = new ArrayList<String>();
+bibo.add("obj1");
+bibo.add("obj2");
+bibo.add("obj3");
+String json = new Gson().toJson(bibo);

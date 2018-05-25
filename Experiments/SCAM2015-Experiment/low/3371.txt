@@ -1,0 +1,3 @@
+public void doSomthing(String text) {
+   print text;
+}

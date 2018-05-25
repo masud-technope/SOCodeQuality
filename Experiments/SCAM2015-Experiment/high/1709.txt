@@ -1,0 +1,9 @@
+public static final String MARKER = new String("Marker");
+public void someFictionalMethod(String arg) {
+    if (arg == MARKER) {
+        // Take action on the marker
+    }
+    else {
+        // Take action on the string
+    }
+}

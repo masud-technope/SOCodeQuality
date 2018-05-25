@@ -1,0 +1,20 @@
+ByteArrayInputStream bis = new 
+   ByteArrayInputStream(uploadedFile.getContents());
+Iterator<?> readers = ImageIO.getImageReadersByFormatName("jpg");
+ImageReader reader = (ImageReader) readers.next();
+IIOMetadata meta = reader.getImageMetadata(0);
+Element tree = (Element) meta.getAsTree("javax_imageio_jpeg_image_1.0");
+Element jfif = (Element)tree.getElementsByTagName("app0JFIF").item(0);
+int dpiH = Integer.parseInt( jfif.getAttribute("Xdensity") );
+int dpiV = Integer.parseInt( jfif.getAttribute("Ydensity") );
+
+/* now test that (dpiH == dpiV) */
+/* imports are:
+import javax.imageio.ImageIO;
+import javax.imageio.ImageReadParam;
+import javax.imageio.ImageReader;
+import javax.imageio.metadata.IIOMetadata;
+import javax.imageio.stream.ImageInputStream;
+import org.primefaces.model.UploadedFile;
+import org.w3c.dom.Element;
+*/

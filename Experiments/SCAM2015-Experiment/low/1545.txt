@@ -1,0 +1,28 @@
+public class A{
+
+
+Map map;
+
+    A a;
+
+    private A()  {
+
+    }
+
+    synchronized  A getInstance()  {
+        if(a!=null)
+            return new A();
+        else
+            return null;
+    }
+
+ public getValue(String key){
+  return map.get(key);
+ }
+
+ public remove(String key){
+  synchronized(map){
+   map.remove(key);
+  }
+ }
+}

@@ -1,0 +1,18 @@
+Multipart multipart = new MimeMultipart();
+  multipart.addBodyPart("some text");
+
+  // Part two is attachment
+  messageBodyPart = new MimeBodyPart();
+
+  String filePath = "your file path";
+ File f1 = new File(filePath);  
+DataSource source = new FileDataSource(filePath);
+  messageBodyPart.setDataHandler(new DataHandler(source));
+ messageBodyPart.setFileName(f1.getName());
+  multipart.addBodyPart(messageBodyPart);
+  // Put parts in message
+  m.setContent(multipart);
+  //String msg="Hello Prabhakar";
+  //m.setContent(msg,"text/html");
+  transport.sendMessage(m,m.getAllRecipients());
+  transport.close();

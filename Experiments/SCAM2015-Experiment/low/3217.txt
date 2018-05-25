@@ -1,0 +1,32 @@
+String phrase = "WazzUp ? Who’s On FIRST??? IDUNNO";
+phrase = phrase.toLowerCase();
+
+int count = 0;
+
+int i = 0;
+ System.out.println(phrase);
+
+for (i = 0 ; i < phrase.length(); i++) {
+
+String t = phrase.substring(i, i + 1);
+
+if (t == "a") {
+  count++;
+  System.out.println(count);
+  }
+if (t == "e") {
+  count++;
+  }
+if (t == "i") {
+  count++;
+  }
+if (t == "o") {
+  count++;
+  }
+if (t == "u") {
+  count++;
+  }
+
+  }
+
+  System.out.println(count);

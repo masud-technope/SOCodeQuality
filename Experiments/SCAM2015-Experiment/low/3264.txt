@@ -1,0 +1,6 @@
+SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+
+    Date inputDate = new Date();
+
+    System.out.println(simpleDateFormat.format(inputDate));
+}

@@ -1,0 +1,4 @@
+String queryTest = "select username,password from login where username=? and password=?";
+PreparedStatement pstmt = conn.prepareStatement(queryTest);
+pstmt.setString(1, user);    
+pstmt.setString(2, pass);

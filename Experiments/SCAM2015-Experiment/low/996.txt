@@ -1,0 +1,20 @@
+public class Hero implements Character, Fightable
+{
+    // heros version of implemented method
+
+    public int attack(Character character)
+    {
+        // idealy when hero attacks, the health value will be reduced by 15 of what it is.
+        character.setHealth(-15);
+    }
+}
+
+public class Villon implements Character, Fightable
+{
+    // rival version of implemented method
+    public int attack(Character character)
+    {
+        // idealy when rival attacks, the health value will be reduced by 15 of what it is.
+        character.setHealth(- 15);
+    }
+}

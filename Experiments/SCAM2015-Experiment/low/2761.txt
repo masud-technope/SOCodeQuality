@@ -1,0 +1,9 @@
+private String sppAcronym;
+public void setsppAcronym(String sppAcronym)
+{
+this.sppAcronym=sppAcronym;
+}
+public String getsppAcronym()
+{
+return sppAcronym;
+}

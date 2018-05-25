@@ -1,0 +1,28 @@
+public static void main(String[] arg) {
+    int result2 = sumVarArgs(1, 2);
+    System.out.println(result2);
+    int result3 = sumVarArgs(1, 2, 3);
+    System.out.println(result3);
+    int result4 = sumVarArgs(1, 2, 3, 4);
+    System.out.println(result4);
+    int result5 = sumVarArgs(1, 2, 3, 4, 5);
+    System.out.println(result5);
+
+}
+
+
+    /**
+     * Aoccepts an all int variables and conciders them as an array and adds
+     * them
+     *
+     * @param argsAry multiple number of input parameters having data type
+     * <i>int</i>
+     * @return sum of all passed int variables in int format
+     */
+public static int sumVarArgs(int... argsAry) {
+     int c = 0;
+     for (int i = 0; i < argsAry.length; i++) {
+         c += argsAry[i];
+     }
+     return c;
+}

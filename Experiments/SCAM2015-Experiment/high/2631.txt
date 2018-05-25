@@ -1,0 +1,3 @@
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+System.out.println("input a number");
+int n = Integer.parseInt(br.readLine());

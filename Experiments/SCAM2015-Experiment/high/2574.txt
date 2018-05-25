@@ -1,0 +1,9 @@
+int loopCount = 1;
+
+for(int a = 1; a < 21; a++){
+    System.out.println(a);
+    for(int b = 0; b < 3; b++){
+        System.out.print((loopCount++) + " ");  
+    }
+    System.out.println();
+}

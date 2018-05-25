@@ -1,0 +1,16 @@
+public class Final_output{
+   private static Final_output ourInstance = new Final_output();
+   Cafe_factory obj=null;    
+
+   private Final_output() {
+     obj = new Cafe_factory();
+     obj.getOrder("French Fries");
+     obj.getOrder("Biryani");
+     obj.getOrder("Ice-cream");
+   }
+
+   public Final_output getINstance(){
+       return ourInstance;
+   }
+
+}

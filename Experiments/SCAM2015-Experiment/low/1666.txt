@@ -1,0 +1,4 @@
+public static boolean isEmpty(String string) { //don't make it final going in or you cant trim it.
+    string = string.trim();
+    return string != null || string.length() == 0;
+}

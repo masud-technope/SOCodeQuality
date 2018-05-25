@@ -1,0 +1,19 @@
+catch(NullPointerException ex){
+     Thread t = new Thread(new Runnable(){
+
+                            public void run(){
+
+                                  isOpenDialog = true;
+
+                                  JOptionPane.setMessageDialog(Title,Content);
+                                }
+                              });
+
+     t.start();
+
+     t.join(); // Join will make the thread wait for t to finish its run method, before
+                  executing the below lines
+
+     isOpenDialog = false;
+
+   }

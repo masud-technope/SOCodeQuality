@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class test {
+
+private static int number1 = 100;
+private static int number2 = 1;
+
+public static double avgAge() {
+
+    return (number1 + number2) / 2.0;
+}
+
+public static void main(String[] args) {
+
+    System.out.println("Average number: " + test.avgAge()); //Average number: 50.5
+}   
+}

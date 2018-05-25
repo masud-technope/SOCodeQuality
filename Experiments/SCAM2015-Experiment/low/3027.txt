@@ -1,0 +1,127 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class javatest3
+{
+    static int num1 = 0;
+    static int num2 = 0;
+    static int denom1 = 0;
+    static int denom2 = 0;
+
+    public static void main(String[] args)
+    {
+        javatest3 javatest3 = new javatest3();
+        System.out.println("Enter an expression (or \"quit\"): "); // prompts
+                                                                    // user for
+                                                                    // input
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        String[] array = null;
+        try {
+            array = in.readLine().trim().split(" ");
+            /*
+             * I get the array[0] and array[2], it because 2/3 * 3/4
+             * 2/3 is array[0], * is array[1] and 3/4 is array[2]
+             */
+            String[] arrayX = array[0].split("/");
+            String[] arrayY = array[2].split("/");
+            String result = javatest3.multiplyFaction(
+                    Integer.valueOf(arrayX[0]), Integer.valueOf(arrayY[0]),
+                    Integer.valueOf(arrayX[1]), Integer.valueOf(arrayY[1]));
+
+            System.out.println("Result: " + result);
+        }
+        catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        // intro();
+
+    }
+
+    private String multiplyFaction(int x1, int y1, int x2, int y2)
+    {
+        int mf1 = x1 * y1;
+        int mf2 = x2 * y2;
+
+        return String.valueOf(mf1) + "/" + String.valueOf(mf2);
+    }
+
+//  public static void intro()
+//  {
+//      Scanner input = new Scanner(System.in);
+//      String user = input.nextLine();
+//      while (!user.equals("quit") & input.hasNextLine()) { // processes code
+//                                                              // when user
+//                                                              // input does
+//                                                              // not equal
+//                                                              // quit
+//          StringTokenizer chunks = new StringTokenizer(user, " "); // parses
+//                                                                      // by
+//                                                                      // white
+//                                                                      // space
+//          String fraction1 = chunks.nextToken(); // first fraction
+//          String operand = chunks.nextToken(); // operator
+//          String fraction2 = chunks.nextToken(); // second fraction
+//          System.out.println("Fraction 1: " + fraction1);
+//          System.out.println("Operation: " + operand);
+//          System.out.println("Fraction 2: " + fraction2);
+//          System.out.println("Enter an expression (or \"quit\"): "); // prompts
+//                                                                      // user
+//                                                                      // for
+//                                                                      // more
+//                                                                      // input
+//
+//          while (user.contains("*")) {
+//              parse(fraction1);
+//              parse(fraction2);
+//              System.out.println("hi");
+//              int num = num1 * num2;
+//              int denom = denom1 * denom2;
+//              System.out.println(num + "/" + denom);
+//              user = input.next();
+//
+//          }
+//
+//      }
+//  }
+
+//  public static void parse(String fraction)
+//  {
+//      if (fraction.contains("_")) {
+//          StringTokenizer mixed = new StringTokenizer(fraction, "_");
+//          int wholeNumber = Integer.parseInt(mixed.nextToken());
+//          System.out.println(wholeNumber);
+//          String frac = mixed.nextToken();
+//          System.out.println(frac);
+//          StringTokenizer parseFraction = new StringTokenizer(frac, "/"); // parses
+//                                                                          // by
+//                                                                          // forward
+//                                                                          // slash
+//          int num = Integer.parseInt(parseFraction.nextToken());
+//          System.out.println(num);
+//          int denom = Integer.parseInt(parseFraction.nextToken());
+//          System.out.println(denom);
+//
+//      }
+//      else if (!fraction.contains("_") && fraction.contains("/")) {
+//          StringTokenizer parseFraction = new StringTokenizer(fraction, "/"); // parses
+//                                                                              // by
+//                                                                              // forward
+//                                                                              // slash
+//          int num = Integer.parseInt(parseFraction.nextToken());
+//          System.out.println(num);
+//          int denom = Integer.parseInt(parseFraction.nextToken());
+//          System.out.println(denom);
+//
+//      }
+//      else {
+//          StringTokenizer whiteSpace = new StringTokenizer(fraction, " ");
+//          int num = Integer.parseInt(whiteSpace.nextToken());
+//          System.out.println(num);
+//      }
+//  }
+}

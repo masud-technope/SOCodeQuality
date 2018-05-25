@@ -1,0 +1,3 @@
+List<Integer> list = new ArrayList<Integer>();
+list.add("string"); // compile error
+Map m = (Map) list.get(0); // compile error

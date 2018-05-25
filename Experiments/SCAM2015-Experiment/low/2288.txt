@@ -1,0 +1,18 @@
+We can move all zeros in order of  o(n). The idea is to move all the number along with their corresponding positions and put zero after shifting the numbers on the newly available indexes.
+   private static int[] reArrangeNonZeroElementInBack(int arr[]) {
+            int count = arr.length - 1;
+            int len = arr.length;
+            if (len == 0)
+                return arr;
+            for (int i = len - 1; i >= 0; i--) {
+                if (arr[i] != 0) {
+                    arr[count--] = arr[i];
+
+                }
+            }
+            for (; count >= 0;) {
+                arr[count--] = 0;``
+
+            }
+            return arr;
+        }

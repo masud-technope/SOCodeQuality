@@ -1,0 +1,4 @@
+//                           | word boundary
+//                           |  | one or more digits
+//                           |  |    | word boundary
+Pattern p = Pattern.compile("\\b\\d+\\b");

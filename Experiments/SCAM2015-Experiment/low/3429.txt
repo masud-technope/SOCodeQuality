@@ -1,0 +1,26 @@
+public class TrialArray
+{
+    int[][] dataStorage;
+
+    public static void main(String [] args)
+    {
+        dataStorage = new int[5][5];
+        arrayTest();
+        arrayTest2(dataStorage);
+    }
+
+    public static void arrayTest()
+    {
+
+        dataStorage[1][2] = 1;
+
+        System.out.printf("THIS PART WORKS");
+    }
+
+    public static void arrayTest2(int[][] dataStorage)
+    {
+        dataStorage[2][2] = 3;
+
+        System.out.printf("THIS DOESNT");
+    }
+}

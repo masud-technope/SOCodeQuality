@@ -1,0 +1,4 @@
+Query q = sess.createQuery("from DomesticCat cat");
+q.setFirstResult(20);
+q.setMaxResults(10);
+List cats = q.list();

@@ -1,0 +1,3 @@
+InputSource someXML = new InputSource(new StringReader("<someXML>...</someXML>)");
+Object result = expression.evaluate(someXML, XPathConstants.NODE); 
+Node node = (Node) result; // ClassCastException

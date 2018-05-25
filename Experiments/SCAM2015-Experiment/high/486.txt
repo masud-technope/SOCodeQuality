@@ -1,0 +1,24 @@
+public class Simple {
+
+    public Simple() {
+        this(null);
+    }
+
+    public Simple(Resource r) {
+        this(r, null);
+    }
+
+    public Simple(Resource r1, Resource r2) {
+        // Guard statements, initialize resources or throw exceptions if
+        // the resources are wrong
+        if (r1 == null) {
+            r1 = new Resource();
+        }
+        if (r2 == null) {
+            r2 = new Resource();
+        }
+
+        // do whatever with resources
+    }
+
+}

@@ -1,0 +1,8 @@
+public static void main(String[] args) throws Exception {
+        Stack<Integer>[] array = new Stack[] { new Stack(7) };
+
+        Stack notAnIntegerStack = new Stack<Object>(new Object());
+        array[0] = notAnIntegerStack;
+
+        Integer result = array[0].pop(); // class cast exception at runtime
+    }

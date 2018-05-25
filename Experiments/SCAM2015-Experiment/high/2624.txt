@@ -1,0 +1,27 @@
+public static void main(String[] args)
+{
+    System.out.println("ABCDE");
+    System.out.println("ABDC");
+    dashedHelp("ABCDE","ABDC");
+    System.out.println();
+    System.out.println();
+    System.out.println("String 1");
+    System.out.println("Strone 2");
+    String phrase1 = "String 1";
+    String phrase2 = "Strone 2";
+    dashedHelp(phrase1, phrase2);
+}
+
+public static String dashedHelp(String phrase1, String phrase2) 
+{
+    StringBuilder newPhrase = new StringBuilder(phrase1);
+    for(int i = 0; i < phrase1.length() && i < phrase2.length(); i++)
+    {
+        if(phrase1.charAt(i) == phrase2.charAt(i))
+        {
+            newPhrase.setCharAt(i, '_');
+        }
+    }
+    System.out.print(newPhrase);
+    return newPhrase.toString();
+}

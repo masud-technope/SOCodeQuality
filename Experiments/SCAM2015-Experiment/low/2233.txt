@@ -1,0 +1,4 @@
+public static String convertUTF8Units_version2(String input) throws UnsupportedEncodingException
+    {
+         return URLDecoder.decode(input.replaceAll("\\\\x", "%"),"UTF-8");
+    }

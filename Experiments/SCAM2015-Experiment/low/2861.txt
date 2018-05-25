@@ -1,0 +1,3 @@
+double[] organismsArr = new double[days];
+for(int i=1;i<=days;i++)
+organisms[i-1] = showPopulation(i, days, organisms + organisms*(dailyIncrease/100), dailyIncrease);

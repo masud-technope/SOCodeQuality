@@ -1,0 +1,11 @@
+private URL getURL(String filename) {
+    URL url = null;
+    try 
+    {
+        url = this.getClass().getResource("" + extention + filename); //extention isn't needed if you are loading from the jar file normally. but I have it for loading from files deeper within my jar file like say. gameAssets/Images/ 
+    }
+    //catch (MalformedURLException e) { e.printStackTrace(); }
+    catch (Exception e) { }
+
+    return url;
+}

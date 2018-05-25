@@ -1,0 +1,13 @@
+for (int i = 0; i < strInput.length(); i++)
+    {
+      cur = strInput.charAt(i)
+      switch (cur){
+          case '?': ... 
+              break;
+          case 'a': ...   
+              break;
+          case 'c': ...    
+              break;
+          ...
+    }
+    System.out.println(strChanged);

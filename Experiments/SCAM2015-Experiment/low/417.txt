@@ -1,0 +1,13 @@
+// Do your insert code
+
+myDataBase.execSQL("INSERT INTO TABLE_NAME (FIELD_NAME1,FIELD_NAME2,...)VALUES (VALUE1,VALUE2,...)");
+
+// Use the sqlite function "last_insert_rowid"
+
+Cursor last_id_inserted = yourBD.rawQuery("SELECT last_insert_rowid()", null);
+
+// Retrieve data from cursor.
+
+last_id_inserted.moveToFirst(); // Don't forget that!
+
+ultimo_id = last_id_inserted.getLong(0);  // For Java, the result is returned on Long type  (64)

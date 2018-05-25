@@ -1,0 +1,8 @@
+if( time > fileserverTimeout )
+    {
+        synchronized(this.fileservers)
+        {
+             if( time > fileserverTimeout )
+                  this.fileservers.remove( server );
+        }
+    }

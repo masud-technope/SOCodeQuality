@@ -1,0 +1,4 @@
+StringTokenizer tok = new StringTokenizer(yourString,";");
+column1 = tok.nextToken();
+column2 = tok.nextToken();
+...

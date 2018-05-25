@@ -1,0 +1,7 @@
+class Demo {
+  static final int x;
+
+   static {
+        x = 10;
+   }
+}

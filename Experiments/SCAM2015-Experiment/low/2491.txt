@@ -1,0 +1,13 @@
+// Number.java
+public class Number {  
+  private static long n;
+ public static void setNumber(long number){
+        n = number;
+ }
+ static boolean isPrime() {
+     for(long k = 2; k < n; k++) {
+       if(n % k == 0) return false;
+     }
+     return true;
+ }
+}

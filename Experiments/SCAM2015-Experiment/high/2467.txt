@@ -1,0 +1,11 @@
+public List<ArrayList<Object>> dynamicSizedLists(final int size) {
+    List<ArrayList<Object>> retVal = new LinkedList<ArrayList<Object>>();
+    final int MAX_SIZE = 1000;
+    int iterations = size / MAX_SIZE;
+    for(; iterations > 0; iterations--) {
+        retVal.add(new ArrayList<Object>(MAX_SIZE));
+    }
+    retVal.add(new ArrayList<Object>(size % MAX_SIZE));
+
+    return retVal;
+}

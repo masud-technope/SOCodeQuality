@@ -1,0 +1,13 @@
+LoaderInfo info = mLoaders.get(id);
+if (info != null) {
+    LoaderInfo inactive = mInactiveLoaders.get(id);
+    if (inactive != null) {
+        // does a lot of stuff to deal with already inactive loaders
+    } else {
+        // Keep track of the previous instance of this loader so we can destroy
+        // it when the new one completes.
+        info.mLoader.abandon();
+        mInactiveLoaders.put(id, info);
+    }
+}
+info = createAndInstallLoader(id, args,  (LoaderManager.LoaderCallbacks<Object>)callback);

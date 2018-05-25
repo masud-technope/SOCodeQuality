@@ -1,0 +1,5 @@
+union u_intstr myIntStr;
+myIntStr.fourChars[0] = ch1;
+myIntStr.fourChars[1] = ch2;
+myIntStr.fourChars[2] = ch3;
+myIntStr.fourChars[3] = ch4;

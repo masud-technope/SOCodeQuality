@@ -1,0 +1,12 @@
+var resetTime_int;
+function resetTimer(){
+    if(resetTime_int) window.clearTimeout(resetTime_int)
+    resetTime_int=window.setTimeout(function (){
+    if(prompt('Your session is going to be end by 5 min, Please click OK to continue'))     
+    location.reload()
+    }, 1000*60*25)
+}
+
+resetTimer()
+document.onmousemove=resetTimer
+document.onkeyup=resetTimer

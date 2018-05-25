@@ -1,0 +1,3 @@
+public static boolean invalidChain(Set<Integer> values, int index) {
+    return !values.add(index);
+}

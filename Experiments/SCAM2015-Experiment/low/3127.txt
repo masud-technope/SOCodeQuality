@@ -1,0 +1,23 @@
+public class Main {
+    public static void main(String[] args) {
+        try {
+            maybeThrowAnException1();
+            maybeThrowAnException2();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getStackTrace()[0].getMethodName());
+        }
+
+    }
+
+    private static void maybeThrowAnException1() throws FileNotFoundException{
+        if(new Random().nextInt(2) % 2 == 0){
+            throw new FileNotFoundException();
+        }
+    }
+
+    private static void maybeThrowAnException2() throws FileNotFoundException{
+        if(new Random().nextInt(2) % 2 == 0){
+            throw new FileNotFoundException();
+        }
+    }
+}

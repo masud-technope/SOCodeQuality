@@ -1,0 +1,5 @@
+OuterTwo d;
+public OuterTwo() {
+  d = new OuterTwo(); // <-- this is infinite recursion.
+  System.out.println("OUTER!");
+}

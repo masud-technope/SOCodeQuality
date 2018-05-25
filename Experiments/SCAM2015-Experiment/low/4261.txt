@@ -1,0 +1,4 @@
+Figure figure = figures.get(0);
+if ("line".equals(figure.getType())) {
+   Line line = (Line)figure;
+}

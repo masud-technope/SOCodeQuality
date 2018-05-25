@@ -1,0 +1,31 @@
+public class WordReverse {
+
+static StringBuilder sb = new StringBuilder();
+
+public static void main(String[] args) {
+
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter the correct Sentence :");
+    String str = sc.nextLine().replaceAll("\\s+", " ");         //remove unwanted space using regex
+
+    int lastIndex = 0, i = 0;
+
+    for (char chars : str.toCharArray()) {
+        if (chars != ' ') {
+            i++;
+        } else {
+            myReverse(str.substring(lastIndex, i).toCharArray());
+            lastIndex = i + 1;
+            i++;
+        }
+    }
+    myReverse(str.substring(lastIndex, i).toCharArray());       //reverse the last word
+
+    System.out.println(sb);
+}
+public static void myReverse(char c[]) {
+    for (int i = (c.length - 1) ; i >= 0 ; i--) {
+        sb.append(c[i]);
+    }
+    sb.append(" ");
+} }

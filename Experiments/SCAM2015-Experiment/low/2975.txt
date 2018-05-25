@@ -1,0 +1,8 @@
+for(int i = 0; i < modArray.size; ++i) {
+      modArray[i].makeVisible();
+      modArray[i].moveVertical(200-moduleMarks[i]);
+      modArray[i].changeSize(15, moduleMarks[i]);
+      modArray[i].moveHorizontal(35*i);
+
+      //etc.
+ }

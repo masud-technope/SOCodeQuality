@@ -1,0 +1,10 @@
+SelectElement elSel = new SelectElement(driver.FindElement(By.Id("id of select box")));
+IList<IWebElement> opts = elSel.Options;
+foreach (IWebElement elOpt in opts)
+{
+    if(elOpt.Text.Contains("partial text to look for"){
+        elOpt.Click();
+        return true;
+    }
+}
+return false;

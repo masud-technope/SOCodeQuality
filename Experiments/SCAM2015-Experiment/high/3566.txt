@@ -1,0 +1,3 @@
+SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.getDefault());
+Date d = null;
+d = parser.parse("String that is formatted as the above date format");

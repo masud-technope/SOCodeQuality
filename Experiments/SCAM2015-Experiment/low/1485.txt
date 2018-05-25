@@ -1,0 +1,32 @@
+enum MyEnum
+{
+    val1("value < 4"),val2("4<value<6");
+    private String value;
+
+    private MyEnum(String value)
+    {
+        this.value = value;
+    }
+}
+
+
+public static void chooseStrategy(MyEnum enumVal)
+{   
+    int value = getValue();
+    switch(enumVal)
+    {
+        case val1:
+        if(value > 2){}
+        break;
+        case val2:
+        if(4 < value && value < 6) {}
+        break;
+        default:
+    }
+}
+
+public static void main(String[] args)
+{
+    String str = "4<value<6";
+    chooseStrategy(MyEnum.valueOf(str));
+}

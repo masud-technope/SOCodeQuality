@@ -1,0 +1,5 @@
+Set<Object> set1 = new HashSet<Object>();
+set1.addAll(list1);
+Set<Object> set2 = new HashSet<Object>();
+set2.addAll(list2);
+set1.equals(set2)

@@ -1,0 +1,26 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
+
+public class TestProgram {
+    public static void main(String... args) throws IOException {
+        File file = new File("out.txt");
+        file.deleteOnExit();
+        PrintWriter out = new PrintWriter(new FileWriter(file), true);
+
+        int runs = 100000;
+        long[] times = new long[runs];
+        for (int i = -10000; i < runs; i++) {
+            long t1 = System.nanoTime();
+            out.println("0123456789qwertyuiop0123456789qwertyuiop0123456789qwertyuiop0123456789qwertyuiop");
+            long t2 = System.nanoTime();
+            if (i >= 0)
+                times[i] = t2 - t1;
+        }
+        out.close();
+        Arrays.sort(times);
+        System.out.printf("Median time was %,d ns, the 90%%tile was %,d ns%n", times[times.length / 2], times[times.length * 9 / 10]);
+    }
+}

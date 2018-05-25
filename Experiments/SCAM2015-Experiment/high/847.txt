@@ -1,0 +1,3 @@
+stringBufferVariable.append("something")
+                    .append("more");
+...

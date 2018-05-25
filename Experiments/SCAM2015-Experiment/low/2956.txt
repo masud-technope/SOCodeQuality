@@ -1,0 +1,12 @@
+String text;
+text = "3.14159265358979323846264338327950288419716939937510582097494459230781640628";
+int index = 0; 
+while (index<text.length()) {
+    String string = text.substring(index, Math.min(index+10,text.length()));
+
+    //function to process 10 digits. if true break
+    if(processDigits(string))
+         break;
+
+    index+=10;
+}

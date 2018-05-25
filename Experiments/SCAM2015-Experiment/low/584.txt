@@ -1,0 +1,11 @@
+try {
+   stmt = createStatement();
+   doSomething(stmt);
+}
+ catch (Exception e) {
+    throw e;
+}
+finally {
+   if(stmt != null) 
+      stmt.close();
+}

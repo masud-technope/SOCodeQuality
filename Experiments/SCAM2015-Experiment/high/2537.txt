@@ -1,0 +1,14 @@
+public static int numel(Object array) {
+    if (array == null)
+        return 1;// I will count nulls as elements since new String[10] is
+                    // initialized with nulls 
+    int total = 1;
+    if (array.getClass().isArray()) {
+        total = 0;
+        int length = java.lang.reflect.Array.getLength(array);
+        for (int index = 0; index < length; index++) {
+            total += numel(java.lang.reflect.Array.get(array, index));
+        }
+    }
+    return total;
+}

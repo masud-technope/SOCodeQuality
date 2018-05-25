@@ -1,0 +1,6 @@
+String str = "";
+int index = 0;
+
+while(dst[index] != null) {
+    str.append(dst[index]);
+}

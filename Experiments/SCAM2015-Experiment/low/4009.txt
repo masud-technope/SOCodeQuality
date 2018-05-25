@@ -1,0 +1,6 @@
+public class Car implements Comparable<Car>
+
+@Override
+public int compareTo(Car o) {
+    return this.totalOdMiles < o.totalOdMiles ? 0 : 1;
+}

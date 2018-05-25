@@ -1,0 +1,9 @@
+public String result() {
+  String result = "";
+  for (char c : log.toCharArray()) {
+    if (!" ".equals(c)) {
+      result += c;
+    }
+  }
+  return result;
+}

@@ -1,0 +1,4 @@
+List<List<? extends Number>> l = new ArrayList<List<Number>>();
+//        ----------------                          ------
+// 
+// "? extends Number" matched by "Number". Success!

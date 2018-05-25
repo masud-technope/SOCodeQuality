@@ -1,0 +1,3 @@
+if ( list.stream().allMatch(element -> a > element) ) {
+  //...a is higher than anything in list
+}

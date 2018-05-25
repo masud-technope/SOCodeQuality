@@ -1,0 +1,3 @@
+File file = new File("d:/test/test.java");
+File parentDir = file.getParentFile(); // to get the parent dir 
+String parentDirName = file.getParent(); // to get the parent dir name

@@ -1,0 +1,4 @@
+public int compareTo(Object o)
+{    
+    return (field.compareTo(o.field)==1 && field2.compareTo(o.field2)==0)? 0 : 1; 
+}

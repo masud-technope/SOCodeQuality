@@ -1,0 +1,5 @@
+char[] chars = "Hello".toCharArray();
+StringBuilder sb = new StringBuilder();
+sb.append(chars);
+sb.replace(2, 4, "L");
+System.out.println(sb);

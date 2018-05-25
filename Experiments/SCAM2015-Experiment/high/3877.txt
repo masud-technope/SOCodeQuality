@@ -1,0 +1,14 @@
+String s = "chapterId=c_1&sectionId=s_24666&isHL=1&cssFileName=haynes";
+
+String[] params = s.split("&");
+for (String param : params) {
+    String[] nameValue = param.split("=");
+
+    if ("sectionId".equals(nameValue[0])) {
+        int number = Integer.parseInt(nameValue[1].substring(2));
+        System.out.println(number); // Prints 24666
+
+        // If you don't care about other parameters, this will skip the rest:
+        break;
+    }
+}

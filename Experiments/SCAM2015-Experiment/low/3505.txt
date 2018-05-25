@@ -1,0 +1,6 @@
+public static void main(String[] args) {
+    double d = 22 / 7; // same as double d = (int)22 / (int) 7 
+    System.out.println(d);  // so prints 3.0
+    double dd = 22.0/7;  // same as double dd = (double)22 / (int) 7 
+    System.out.println(dd);//prints 3.14xxxx
+}

@@ -1,0 +1,3 @@
+if (o instanceof T) { x = new Something<T>();}
+  else if (o instanceof String) {x = new Something<String>();}
+  else if ....

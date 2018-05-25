@@ -1,0 +1,7 @@
+unemployed <- date.difference[
+    From = 2009-07-01, 
+    Till = now, 
+    YEARS, MONTHS, DAYS
+]: yyyy-MM-dd
+
+$$-> *unemployed -> date.translate[ YEARS, MONTHS, DAYS ] -> print["Unemployed for:", .]

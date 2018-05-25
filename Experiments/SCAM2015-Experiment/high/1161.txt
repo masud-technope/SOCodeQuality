@@ -1,0 +1,15 @@
+static Integer[] factorsOf(int val) {
+    List<Integer> numArray = new ArrayList<Integer>();
+
+    System.out.println("\nThe factors of " + val + " are:");
+    for (int i = 2; i <= Math.ceil(Math.sqrt(val)); i++) {
+        if (val % i == 0) {
+            numArray.add(i);
+            val /= i;
+            System.out.print(i + ", ");
+        }
+    }
+    numArray.add(val);
+    System.out.print(val);
+    return numArray.toArray(new Integer[numArray.size()]);
+}

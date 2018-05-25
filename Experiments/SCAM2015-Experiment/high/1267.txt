@@ -1,0 +1,4 @@
+StringBuilder myName = new StringBuilder("domanokz");
+myName.setCharAt(4, 'x');
+
+System.out.println(myName);

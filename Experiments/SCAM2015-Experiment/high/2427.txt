@@ -1,0 +1,29 @@
+// Find the first letter that is not equal to the first one, 
+// or return the entire string if it consists of one type of characters
+int start = 0;
+int i = 1;
+while (i < str.length() && str[i] == str[start])
+    i++;
+if (i == str.length())
+    return str;
+
+// The main algorithm
+char[2] chars = {str[start], str[i]};
+int lastGroupStart = 0;
+while (i < str.length()) {
+    if (str[i] == chars[0] || str[i] == chars[1]) {
+        if (str[i] != str[i - 1])
+            lastGroupStart = i;
+    }
+    else {
+        //TODO: str.substring(start, i) is a locally maximal string; 
+        //      compare it to the longest one so far
+        start = lastGroupStart;
+        lastGroupStart = i;
+        chars[0] = str[start];
+        chars[1] = str[lastGroupStart];
+    }
+    i++;
+}
+//TODO: After the loop, str.substring(start, str.length()) 
+//      is also a potential solution.

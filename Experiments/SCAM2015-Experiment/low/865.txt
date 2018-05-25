@@ -1,0 +1,20 @@
+public enum GenericEnum<T> {
+  SIMPLE, COMPLEX;
+
+  public T parse(String s) {
+    return T.parse(s);
+  }
+}
+
+public void doSomething() {
+  GenericEnum<Long> longGE = GenericEnum<Long>.SIMPLE;
+  GenericEnum<Integer> intGE = GenericEnum<Integer>.SIMPLE;
+
+  List<Long> longList = new LinkedList<Long>();
+  List<Integer> intList = new LinkedList<Integer>();
+
+  assert(longGE == intGE);              // 16
+  assert(stringList.equals(intList));   // 17
+
+  Object x = longGE.parse("1");  // 19
+}

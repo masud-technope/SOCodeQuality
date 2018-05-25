@@ -1,0 +1,19 @@
+class ThreadPrinter implements Runnable {
+    int counter;
+    Semaphore ins, outs;
+
+    ThreadPrinter(int counter, Semaphore ins, Semaphore outs) {
+        this.counter = counter;
+        this.ins = ins;
+        this.outs = outs;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 25; i++) {
+            ins.aquire(); // wait for permission to run
+            System.out.println("" + counter);
+            outs.release();  // allow another thread to run
+            counter += 2;
+        }
+    }

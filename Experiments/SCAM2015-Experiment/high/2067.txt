@@ -1,0 +1,4 @@
+double x = ... // whatever calculation you do
+if (Double.isNaN(x)) {
+    ...
+}

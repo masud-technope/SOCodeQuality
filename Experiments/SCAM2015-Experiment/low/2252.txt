@@ -1,0 +1,14 @@
+public List<String> trimmer(List<String> x) {
+    Log.e("", Integer.toString(x.size()));
+    for (int i = 0; i < x.size(); i++) {
+        String s = x.get(i).toString(); 
+        String a = s.substring(6);
+        Log.e("after trim is?", a);
+        x.remove(i);
+        x.add(i, a);
+    }
+    // check if the element got added back
+    Log.e("Trimmer function", x.get(1));
+
+    return x;
+}

@@ -1,0 +1,22 @@
+public static void main(String[] args) {
+  String[] tests = {
+    "11,22,33", //valid.
+    "12,23,34", //valid.
+    "11,11,22", //not valid.
+    "12,12,23" //not valid.
+  };
+
+  for (String s : tests) {
+    System.out.println(isValid(s));
+  }
+}
+
+public static boolean isValid(String source) {
+  Set<String> set = new HashSet<String>();
+  for (String sub : source.split(",")) {
+    if (!set.add(sub)) {
+      return false;
+    }
+  }
+  return true;
+}

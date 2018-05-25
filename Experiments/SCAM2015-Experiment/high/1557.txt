@@ -1,0 +1,4 @@
+public MountainBike(args...) {
+  super(args);  // must come first!!!
+  maxGear = 4;
+}

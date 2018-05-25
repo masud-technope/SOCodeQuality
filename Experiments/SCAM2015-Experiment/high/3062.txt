@@ -1,0 +1,16 @@
+private final List<Item> items = new ArrayList<>();
+
+// to add
+items.add(new Item("name", "id", 1234, 10, 1224));
+
+// you can add any size 0 up to 2 billion.
+int actualSize = items.size();
+
+
+class Item {
+    private String name;             // softdrink name
+    private String id;               // softdrink identification
+    private int startingInventory;   // starting inventory of the softdrink
+    private int finalInventory;      // final inventory of the softdrink
+    private int transactionCount;
+}

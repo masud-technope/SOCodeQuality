@@ -1,0 +1,24 @@
+public static boolean isSolution(final int[] board)
+{
+    for (int i = 0; i < board.length; i++) {
+        for (int j = i + 1; j < board.length; j++) {
+            if (board[i] == board[j]) return false;     // same column "|"
+            if (board[i]-board[j] == i-j) return false; // diagonal "\"
+            if (board[i]-board[j] == j-i) return false; // diagonal "/"
+        }
+    }
+    return true;
+}
+
+public static void solve(int depth, int[] board)
+{
+    if (depth == board.length && isSolution(board)) {
+        outputSolution(board);
+    }
+    if (depth < board.length) {  // try all positions of the next row
+        for (int i = 0; i < board.length; i++) {
+            board[depth] = i;
+            solve(depth + 1, board);
+        }
+    }
+}

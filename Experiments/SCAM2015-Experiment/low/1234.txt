@@ -1,0 +1,3 @@
+void setText(JTextField t, String s){
+  t.setText(s);
+}

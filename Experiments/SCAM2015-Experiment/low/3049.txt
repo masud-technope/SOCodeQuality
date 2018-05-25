@@ -1,0 +1,5 @@
+for(int i = 0 ; i < stream.length-1 ; i++)
+{
+    Pair pair = new Pair(stream[i], stream[i+1]);
+    // then add your pair to an array
+}

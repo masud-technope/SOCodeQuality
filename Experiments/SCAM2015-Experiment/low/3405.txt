@@ -1,0 +1,8 @@
+1. Using ‘replace’ method: This would be the good choice if you want to replace a string literal and not a pattern.
+
+
+2. Escaping ‘*’ symbol: If you need to a use regular expression, and your pattern has no groups identified, then you can escape any group identification symbols from your replace string as shown below:
+
+
+
+String replaceValue = java.util.regex.Matcher.quoteReplacement("*100");

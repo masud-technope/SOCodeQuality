@@ -1,0 +1,3 @@
+public static float numDivisible(float low, float high, float test) {
+    return Math.ceil((high-low)/test);
+}

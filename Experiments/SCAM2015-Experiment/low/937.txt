@@ -1,0 +1,6 @@
+int index = 0;
+
+    while (index < columnNum){
+        shipsAndOwnHitsTable.getColumnModel().getColumn(index).setPreferredWidth(800);
+        index+=1;
+    }

@@ -1,0 +1,4 @@
+double myDouble = 55.2; //55.51
+BigDecimal test = new BigDecimal(myDouble);
+test = test.setScale(0, BigDecimal.ROUND_HALF_UP);
+//test is 55 in the first example and 56 in the second

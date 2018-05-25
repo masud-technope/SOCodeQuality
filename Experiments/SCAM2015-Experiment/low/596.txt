@@ -1,0 +1,12 @@
+public static void main (String args[]) {
+    Collection c = getCollection();
+    List myList = (ArrayList) c;
+}
+
+public static Collection getCollection()
+{
+    Collection c = new ArrayList();
+    c.add("Apple");
+    c.add("Oranges");
+    return c;
+}

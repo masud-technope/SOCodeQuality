@@ -1,0 +1,13 @@
+import java.lang.Scanner;
+/*setup everything here, you just need that import*/
+Scanner input = new Scanner(System.in);
+//ask for input
+String str = input.next();
+if(str.contains(/*char1*/) || str.contains(/*char2*/) || /*continue the pattern, 1 for every character*/)
+{
+    //event if it contains one
+}
+else
+{
+    //event if it does not contain any
+}

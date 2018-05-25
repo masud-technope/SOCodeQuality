@@ -1,0 +1,8 @@
+TableColumn column = new TableColumn(table, SWT.CENTER, i);
+column.addListener(SWT.Resize, new Listener() {
+    @Override
+    public void handleEvent(Event event) {
+        int min = 10;
+        setItemHeight(table, min);
+    }
+});

@@ -1,0 +1,11 @@
+int lcm(int x,int y){
+
+    int i=1;    
+
+    while(true){
+
+        if(!(x*i)%y)
+             return x*i;
+
+        i++;
+    }

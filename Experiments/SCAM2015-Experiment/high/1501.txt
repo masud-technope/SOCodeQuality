@@ -1,0 +1,4 @@
+int[] slot = new int[40];
+for(int i = 0; i < slot.length; i++) {
+    slot[i] = 12 + i;
+}

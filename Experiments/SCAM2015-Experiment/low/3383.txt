@@ -1,0 +1,9 @@
+String s1 = "H";
+        String s2 = "e";
+        String s3 = s1+s2;
+        String s4 = "He";
+        System.out.println(s3.equals(s4));//false
+
+        String s5="h";
+        String s6="h";
+        System.out.println(s5.equals(s6));//true

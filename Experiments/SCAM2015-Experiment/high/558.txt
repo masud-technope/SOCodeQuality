@@ -1,0 +1,17 @@
+new Timer ( 1000, new ActionListener () {
+        int i = 0; // moved out of loop 
+
+        @Override
+        public void actionPerformed ( ActionEvent event ) {
+            if ( i < 5 ) {
+                i++;
+
+                table.setValueAt ( "text", i, i );
+
+            } else {
+                // stop the timer firing events when the loop end 
+                // condition is reached
+                ( ( Timer ) event.getSource() ).setRepeats ( false );
+            }
+        }
+    } ).start();

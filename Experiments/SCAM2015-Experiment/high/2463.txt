@@ -1,0 +1,30 @@
+import static org.junit.Assert.assertEquals;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class MyClassTest {
+
+  MyClass tester;
+
+  @BeforeClass
+  public static void testSetup() {
+    tester = new MyClass();
+  }
+
+  @AfterClass
+  public static void testCleanup() {
+    // Do your cleanup here like close URL connection , releasing resources etc
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testExceptionIsThrown() {        
+    tester.divide(1000, 0);
+  }
+
+  @Test
+  public void testMultiply() {
+    assertEquals("Result", 50, tester.multiply(10, 5));
+  }
+}

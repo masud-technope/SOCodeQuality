@@ -1,0 +1,19 @@
+class Read
+{
+    private static final String TEXT_FILE = "textfile.txt";
+
+    public static void main(String args[])
+    {
+        // BAD
+        try {
+          Scanner scan = new Scanner(new java.io.File("textfile.txt"));
+        } 
+        catch (FileNotFoundException e) {
+          ; // Eating exceptions - a bad habit :(
+        }        
+        while(scan.hasNext()){
+          String line = scan.nextLine();
+          String[] elements = line.split(",");
+        }
+    }
+}

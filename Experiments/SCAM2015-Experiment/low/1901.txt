@@ -1,0 +1,3 @@
+public void someMethod(Car c) {
+  c.thisIs(); 
+}

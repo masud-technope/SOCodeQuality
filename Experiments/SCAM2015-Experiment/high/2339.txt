@@ -1,0 +1,22 @@
+public static void insertionRecursive(int[] a){
+    if(a.length > 0){ // base case
+        insertionOut(a, 1, a.length);
+    }
+}   
+private static void insertionOut(int[] a, int i, int length){ //outer loop
+    if(i < length){ // iterates from 1 to the length
+        int temp = a[i]; // temp value
+        int k = i;
+        insertionIn(a, k, temp);
+        insertionOut(a, i + 1, length); // iterates through the loop
+    }
+}
+private static void insertionIn(int[] a, int k, int temp){ // inner loop
+    if(k > 0 && a[k - 1] > temp){
+       //this does a basic swap
+        a[k] = temp;
+        a[k] = a[k - 1];
+        a[k - 1] = temp;
+        insertionIn(a, k - 1, temp);    // iterates through the loop
+    }
+}

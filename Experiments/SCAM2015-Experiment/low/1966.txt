@@ -1,0 +1,3 @@
+public int negate(){
+    int val =mul(-1);
+    return val;}}

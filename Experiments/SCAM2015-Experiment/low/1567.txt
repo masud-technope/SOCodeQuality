@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"> 
+<HTML> 
+<HEAD> 
+<TITLE>JSP</TITLE> 
+</HEAD> 
+<BODY> 
+<H2>JSP </H2> 
+<UL> 
+<LI>Curent time: <%= new java.util.Date() %> 
+<LI>Host name: <%= request.getRemoteHost() %> 
+<LI>ID sesion: <%= session.getId() %> 
+</UL> 
+<% deleteconfig deletecfg = new deleteconfig(); %>
+<%= delectecfg.initiate(); =%>
+</BODY> 
+</HTML>

@@ -1,0 +1,20 @@
+private static void changelist(List<Integer> list) {
+    list.add(4);//This modifies the list object
+    list = new ArrayList<Integer>();//This modifies the local copy of the reference to the list object
+    list.add(5);
+}
+public static void main(String[] args) {
+    List<Integer> list = new ArrayList<Integer>();
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    System.out.println(list);//output is [1,2,3]
+    //This copies the value of the reference. 
+    //If you modify the object in the underlying 
+    //function, changes will be preserved when you return
+    //However if you modify what the reference points to,
+    //the function will only modify the local copy
+    changelist(list);
+    System.out.println(list);//output is [1,2,3,4]
+
+}

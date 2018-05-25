@@ -1,0 +1,18 @@
+import java.io.*;
+
+class ReadData
+{
+    public static void main(String args[])
+    {
+        FileReader fr = new FileReader(new File("<put your file path here>"));
+        while(true)
+        {
+            int n=fr.read();
+            if(n>-1)
+            {
+                char ch=(char)fr.read();
+                System.out.print(ch);
+            }
+        }
+    }
+}

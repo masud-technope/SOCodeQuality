@@ -1,0 +1,3 @@
+public static long getUnsignedInt(int x) {
+    return x & 0x00000000ffffffffL;
+}

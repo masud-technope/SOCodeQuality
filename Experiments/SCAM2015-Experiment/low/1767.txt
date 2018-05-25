@@ -1,0 +1,28 @@
+public class TestIterator {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<String>();
+
+        list.add("1");
+        list.add("1");
+        list.add("2");
+        list.add("3");
+
+        for (String s : new UniqueIterator<String>(list)) {
+            System.out.println(s);
+        }
+    }
+}
+
+public class UniqueIterator<T> implements Iterable<T> {
+    private Set<T> hashSet = new HashSet<T>();
+
+    public UniqueIterator(Iterable<T> iterable) {
+        for (T t : iterable) {
+            hashSet.add(t);
+        }
+    }
+
+    public Iterator<T> iterator() {
+        return hashSet.iterator();
+    }
+}

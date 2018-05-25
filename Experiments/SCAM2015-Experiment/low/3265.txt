@@ -1,0 +1,7 @@
+SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat format2 = new SimpleDateFormat("MMMM dd,yyyy");
+        Date date = format1.parse("2014-02-27 17:26:49.00");
+        System.out.println(format2.format(date));       
+
+INPUT : 2014-02-27 17:26:49.00
+OUTPUT : February 27,2014

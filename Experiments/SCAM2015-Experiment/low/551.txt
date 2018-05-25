@@ -1,0 +1,49 @@
+private static final Exception InsufficientFundsException = null;
+
+private int  accountNumber;
+private double availableBalance;
+private int pin;
+public Account(int account, int pin,double amount )
+{
+
+    this.accountNumber = account;
+    this.pin = pin;
+    this.availableBalance = amount;
+}
+
+public void credit(double amount)
+{
+    this.availableBalance= this.availableBalance+amount;
+}
+
+public void debit(double amount) throws Exception
+{
+    if(this.availableBalance>=amount)
+    {
+    this.availableBalance= this.availableBalance-amount;
+    }
+    else
+    { 
+        throw new InsufficientFundsException();
+    }
+
+}
+
+public int getAccountNumber() 
+{
+    return accountNumber;
+}   
+
+public double getAvailableBalance()
+{
+    return availableBalance;
+}
+public String toString()
+{
+    return "Account="+accountNumber+"pin="+pin+"balance"+availableBalance;
+}
+public boolean validatePIN(int pin)
+{
+    if(this.pin==pin)
+        return true;
+    else return false;

@@ -1,0 +1,8 @@
+import fj.F;
+import static fj.data.List.list;
+import static fj.pre.Monoid.stringMonoid;
+import static fj.Function.flip;
+import static fj.Function.compose;
+
+F<String, F<String, String>> sum = stringMonoid.sum();
+String abc = list("a", "b", "c").foldLeft1(compose(sum, flip(sum).f(",")));

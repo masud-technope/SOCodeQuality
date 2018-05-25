@@ -1,0 +1,12 @@
+String expression = "^[a-zA-Z]*$";
+        CharSequence inputStr = str;
+        Pattern pattern = Pattern.compile(expression);
+        Matcher matcher = pattern.matcher(inputStr);
+        if(matcher.matches())
+        {
+              //if pattern matches 
+        }
+        else
+        {
+             //if pattern does not matches
+        }

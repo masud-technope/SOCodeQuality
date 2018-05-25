@@ -1,0 +1,36 @@
+public class TestClass
+{
+    private List<Integer> list = new ArrayList<Integer>();
+
+    /**
+     * @param args
+     * @throws NoSuchFieldException
+     * @throws SecurityException
+     */
+    public static void main(String[] args)
+    {
+        try
+        {
+            new TestClass().getClass().getDeclaredField("list").getGenericType(); // this is the type parameter passed to List
+        }
+        catch (SecurityException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch (NoSuchFieldException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        new TestClass().<Integer> insert(new ArrayList<Integer>());
+    }
+
+    public <T> void insert(List<T> tList)
+    {
+        ParameterizedType paramType;
+        paramType = (ParameterizedType) tList.getClass().getGenericInterfaces()[0];
+        paramType.getActualTypeArguments()[0].getClass();
+    }
+}

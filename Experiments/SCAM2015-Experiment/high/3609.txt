@@ -1,0 +1,24 @@
+HashMap<String, HashMap<String,String>> mainMap  = new HashMap<String, HashMap<String,String>>();
+
+HashMap <String, String> subMap  = new HashMap<String,String>();
+
+subMap.put("11", "12");
+subMap.put("13", "124");
+subMap.put("21", "122");
+subMap.put("14", "152");
+
+System.out.println("For One : "+subMap);
+mainMap.put("one", subMap);
+
+subMap  = new HashMap<String,String>(); /// <<<<<<<<
+subMap.put("21", "122");
+subMap.put("17", "152");
+subMap.put("15", "152");
+subMap.put("13", "124");
+subMap.put("14", "152");
+subMap.put("11", "12");
+
+System.out.println("For Two : "+subMap);
+mainMap.put("two", subMap);
+
+System.out.println(mainMap);

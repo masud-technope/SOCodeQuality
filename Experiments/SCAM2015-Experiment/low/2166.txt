@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+ <script type="text/javascript" src ="code.js"></script>
+ <script type="text/javascript">
+ var main = function(){//Linear in 2 start
+ var choice = prompt("Choose your type of equation : Type 1 for linear in 2 variables, 2 for quadratic in one variable ");
+ if(choice ==1){
+ alert("The two equations are of the forms a1x + b1y + c1 = 0 and a2x + b2y + c2 = 0 respectively")
+ var a1 = prompt("Enter value of a (a1) for equation 1");
+ var b1 = prompt("Enter value of b (b1) for equation 1");
+ var c1 = prompt("Enter value of c (c1) for equation 1");
+ var a2 = prompt("Enter value of a (a2) for equation 2");
+ var b2 = prompt("Enter value of b (b2) for equation 2");
+ var c2 = prompt("Enter value of c (c2) for equation 2");
+ if(a1/a2===b1/b2===c1/c2){
+ alert("No solution is possible for the equation, i.e. the lines are parallel")
+ }
+ else if(a1/a2===b1/b2 && b1/b2!=c1/c2){
+ alert("The lines are collinear and the values of x and y are infinite")
+ }
+ else{
+ var ansy = (c2*a1-c1*a2)/(b1*a2-b2*a1);
+ var ansx = (c1-b1*ansy/a1);
+ alert("x is equal to : " + ansx);
+ alert("y is equal to : " + ansy);
+ }
+ }
+ else if(choice == 2){//quadratic start
+ alert("the equation is of the form : ax^2 + bx + c == 0 , only input the coefficients i.e - the value of ax^2 is a, or the value of bx is b, not bx. The value of b for the equation 5x^2 + 7x +3 is 7, not 7x");
+ var a = prompt("Put in the value of a");//declaring variables
+ var b = prompt("Put in the value of b, if the bx part of the equation doesn't exist, input 0. Ex for equation 2x^+6==0 , b ==0, since its technically 2x^2 + 0b + 6 == 0");
+ var c = prompt("Put in the value of c, if the c part of the equation doesn't exist, input 0. Ex for equation 2x^+6x==0 , c ==0, since its technically 2x^2 + 6b + 0 == 0");
+ var D = ((b*b)-(4*a*c));//computing discriminant
+ if(D < 0){
+ alert("The quadratic equation doesn't have real roots; the closest value is : " + (-b/2) +" + i/2");
+ }
+ else{
+ root1 = (- b + Math.sqrt(D))/(2*a);
+ root2 = (- b - Math.sqrt(D))/(2*a);
+ }
+ if(D===0){
+ console.log("Both roots are equal, their value is " + root1);
+ alert("Both roots are equal, their value is " + root1);
+ }
+ else if ( D > 0){
+ console.log("The roots of the equation are: " + root1 + " and " + root2);
+ alert("The roots of the equation are: " + root1 + " and " + root2 );
+ }
+ }//quadratic end
+}
+var again = confirm("Proceed to equation selection menu?");
+if(again === true){
+ main();
+}
+ </script>
+ <title>Equation Solver</title>
+</head>
+<body>
+</body>
+</html>

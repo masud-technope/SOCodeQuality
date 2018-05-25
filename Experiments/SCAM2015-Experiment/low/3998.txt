@@ -1,0 +1,6 @@
+char c;
+ Scanner input = new Scanner(System.in);
+ System.out.print("Enter a number:");
+ int ip = input.nextInt();//<---- get integer
+ c = (char)ip;// cast int value to char
+ System.out.println(c);

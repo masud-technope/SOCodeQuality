@@ -1,0 +1,4 @@
+/**  
+ * The count is the number of characters used.
+ */
+int count;

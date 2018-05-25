@@ -1,0 +1,12 @@
+this.MenuInflater.Inflate(Resource.Menu.share_action_provider, menu);
+var shareItem = menu.FindItem(Resource.Id.menu_item_share_action_provider_action_bar);
+MenuItemCompat.SetShowAsAction (shareItem,  MenuItemCompat.ShowAsActionIfRoom);
+var actionprov = new Android.Support.V7.Widget.ShareActionProvider (this);
+MenuItemCompat.SetActionProvider (shareItem, actionprov);
+var test =  MenuItemCompat.GetActionProvider (shareItem);
+shareActionProvider = test.JavaCast<Android.Support.V7.Widget.ShareActionProvider>();
+var intent = new Intent(Intent.ActionSend);
+intent.SetType("text/plain");
+intent.PutExtra(Intent.ExtraText, "ActionBarCompat is Awesome! Support Lib v7 #Xamarin");
+shareActionProvider.SetShareIntent (intent);
+return base.OnCreateOptionsMenu(menu);

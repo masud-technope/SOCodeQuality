@@ -1,0 +1,40 @@
+public class DuplicateInteger {
+
+    private static int countDuplicate;
+
+    public static int[] getDuplicateIntegers(int[] integerArray){
+        int duplicateIntegers[] = new int[integerArray.length];
+        countDuplicate = 0;
+        for(int i=0;i<integerArray.length;i++){
+            for(int j=i+1;j<integerArray.length;j++){
+                int replicaTest = 0;
+                if(integerArray[i]==integerArray[j]){
+                    for(int k=0;k<countDuplicate;k++){
+                        if(duplicateIntegers[k]==integerArray[i]){
+                            replicaTest = 1;
+                        }
+                    }
+                    if(replicaTest==0){
+                        duplicateIntegers[countDuplicate] = integerArray[i];
+                        countDuplicate++;
+                    }
+                }
+            }
+        }
+        return duplicateIntegers;
+    }
+
+    public static void printDuplicateIntegers(int[] duplicateIntegers){
+        System.out.println("Duplicate Integers:");
+        System.out.println("-------------------");
+        for(int i=0;i<countDuplicate;i++){
+            System.out.println(duplicateIntegers[i]);
+        }   
+    }
+
+    public static void main(String[] args){
+        int numberArray[] = {1, 2, 3, 4, 5, 6, 7, 1, 3, 5, 7};
+        printDuplicateIntegers(getDuplicateIntegers(numberArray));
+    }
+
+}

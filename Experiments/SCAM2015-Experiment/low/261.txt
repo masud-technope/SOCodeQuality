@@ -1,0 +1,10 @@
+List<SomeObject> toRemove = new ArrayList<SomeObject>();
+for (SomeObject key: map.keySet()) {
+    if (something) {
+        toRemove.add(key);
+    }
+}
+
+for (SomeObject key: toRemove) {
+    map.remove(key);
+}

@@ -1,0 +1,5 @@
+if (someExpression) {
+        return true;
+    } else {
+        return false;
+    }

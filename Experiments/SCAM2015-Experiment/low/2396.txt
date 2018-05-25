@@ -1,0 +1,25 @@
+try
+    {
+
+        FileInputStream fstream = new FileInputStream("\\file path");
+        DataInputStream in = new DataInputStream(fstream);
+        BufferedReader br = new BufferedReader(new InputStreamReader(in));
+        String line = "";
+        ArrayList<String> lines = new ArrayList<String>();
+
+        //Read lines and save in ArrayList 
+        while (br.ready())
+        {
+            lines.add(br.readLine());
+        }
+
+        //Go backwards through the ArrayList
+        for (int i = lines.size(); i >= 0; i--)
+        {
+            line = lines.get(i);
+        }
+    }
+    catch (Exception e)
+    {
+        e.printStackTrace();
+    }

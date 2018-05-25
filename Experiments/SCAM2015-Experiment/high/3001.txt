@@ -1,0 +1,8 @@
+public static Test of(String str) {
+    for (Test test: values()) {
+        if (test.value.equals(str)) {
+            return test;
+        }
+    }
+    return null;
+}

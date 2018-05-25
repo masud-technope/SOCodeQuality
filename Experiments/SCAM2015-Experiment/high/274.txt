@@ -1,0 +1,16 @@
+public static byte[] loadFile(String sourcePath) throws IOException
+{
+    InputStream inputStream = null;
+    try 
+    {
+        inputStream = new FileInputStream(sourcePath);
+        return readFully(inputStream);
+    } 
+    finally
+    {
+        if (inputStream != null)
+        {
+            inputStream.close();
+        }
+    }
+}

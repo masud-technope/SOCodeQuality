@@ -1,0 +1,11 @@
+try{
+
+    // Your code
+
+ }catch(Exception ex){
+
+   // syserr
+
+ }finally{
+      //redirect
+ }

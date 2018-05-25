@@ -1,0 +1,17 @@
+class Team
+{
+    private List<Player> players = new ArrayList<>();
+
+// ...
+
+    public List<Player> getPlayers()
+    {
+        return Collections.unmodifiableList(players);
+    }
+
+    public Stream<Player> getPlayerStream()
+    {
+        return players.stream();
+    }
+
+}

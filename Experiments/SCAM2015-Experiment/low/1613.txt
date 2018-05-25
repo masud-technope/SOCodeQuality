@@ -1,0 +1,8 @@
+String string = "1,234,567";
+    String[] splits = string.trim().split(",");
+    int num = 0;
+    for (String split : splits)
+    {
+        num = (num * 1000) + Integer.parseInt(split.trim());
+    }
+    System.out.println(num); // prints 1234567

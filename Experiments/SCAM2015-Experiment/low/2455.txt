@@ -1,0 +1,12 @@
+BufferedWriter bw = new BufferedWriter(new FileWriter(new File(
+                                        "C:/new.txt"), true));
+
+StringBuffer sb = new StringBuffer();
+
+for(int i =0;i<=Name.length;i++){
+    sb.append("Student " + Name[i] + " scored " + Scores[i]
+    + " with average of " + average[i] + "\n"); 
+}
+
+bw.write(sb.toString());
+bw.close();

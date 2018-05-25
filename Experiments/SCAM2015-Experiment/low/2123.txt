@@ -1,0 +1,13 @@
+abstract class Example{
+void display(){
+ System.out.println("Hi I am Abstract Class.");
+}
+}
+class ExampleDemo 
+{
+public static void main(String[] args) 
+{
+Example ob = new Example(){};
+ob.display();
+}
+}

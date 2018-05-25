@@ -1,0 +1,3 @@
+String val = "000000003625";
+Float i = Float.parseFloat(val);
+System.out.println(i / 100);

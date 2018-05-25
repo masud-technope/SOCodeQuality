@@ -1,0 +1,17 @@
+package in.javadomain;
+
+public class JavaSplit {
+
+    public static void main(String[] args) {
+        String input = "chennai\nvellore\ncoimbatore\nbangalore\narcot";
+        System.out.println("Before split:\n");
+        System.out.println(input);
+
+        String[] inputSplitNewLine =input.split("\\n");
+        System.out.println("\n After split:\n");
+        for(int i=0;i<inputSplitNewLine.length;i++){
+            System.out.println(inputSplitNewLine[i]);
+        }
+    }
+
+}

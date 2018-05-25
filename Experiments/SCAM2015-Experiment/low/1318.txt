@@ -1,0 +1,15 @@
+urlconnection.setRequestMethod("POST"); 
+urlconnection.setRequestProperty("Content-Type","application/x-www-form-urlenc??oded");     
+urlconnection.setDoOutput(true); 
+
+OutputStreamWriter out = new OutputStreamWriter(urlconnection.getOutputStream());
+out.write(postData); 
+out.close(); 
+
+BufferedReader in = new BufferedReader(new InputStreamReader(urlconnection.getInputStream()));
+
+String decodedString; 
+
+while ((decodedString = in.readLine()) != null) { 
+  retval += decodedString; 
+}

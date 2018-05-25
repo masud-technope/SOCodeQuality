@@ -1,0 +1,4 @@
+public void m() {
+   class MyClass{}
+   MyClass cl = new MyClass();
+}

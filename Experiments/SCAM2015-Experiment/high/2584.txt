@@ -1,0 +1,5 @@
+Ability strength;
+strength = new Ability(3);
+strength.roll(); // get new value
+System.out.println(strength.getValue()); // e.g. print
+strength.printRolls(); // e.g. print rolls

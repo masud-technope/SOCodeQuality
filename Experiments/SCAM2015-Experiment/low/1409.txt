@@ -1,0 +1,126 @@
+package com.trip.test;    
+
+import java.util.SortedMap;    
+import java.util.TreeMap;    
+
+import org.slf4j.Logger;    
+import org.slf4j.LoggerFactory;    
+
+public class ComparisonTest {    
+
+private static Logger logger = LoggerFactory.getLogger(ComparisonTest.class);    
+
+private static String[] a = {"1","2","3","4"};    
+private static String[] b = {"A","B","D"};    
+private static String[] c = {"1","B","D","1","B","D"};    
+/**    
+ * @param args    
+ */    
+static SortedMap<KeyWithLength, String[]> myMap = new TreeMap<KeyWithLength, String[]>();    
+
+static {    
+
+        myMap.put(new KeyWithLength("a", a.length), a);    
+        myMap.put(new KeyWithLength("b", b.length), b);    
+        myMap.put(new KeyWithLength("c", c.length), c);             
+}    
+
+public static void main(String[] args) {    
+
+    // print Map    
+    logger.info("Original Map:");    
+
+    int i = 0;    
+    for (String[] strArray: myMap.values() ){    
+        logger.info(String.format("*** Entry %s: ", i++));    
+        printStrings(strArray);    
+    }    
+
+    // chop off 2 shortest    
+    chopNShortest(myMap, 2);    
+
+    // print Map    
+    logger.info("ShortenedMap:");    
+
+    i = 0;    
+    for (String[] strArray: myMap.values() ){    
+        logger.info(String.format("*** Entry %s: ", i++));    
+        printStrings(strArray);    
+    }    
+
+}    
+
+static void printStrings(String[] strArray){    
+    StringBuffer buf = new StringBuffer();    
+
+    for (String str: strArray){    
+        buf.append(String.format("%s, ", str));    
+    }    
+    logger.info(buf.toString());    
+}    
+
+static void chopNShortest(SortedMap<KeyWithLength, String[]> sortedMap, int n) {    
+    // Assuming map is not unmodifiable    
+    if (n <= sortedMap.size()-1){    
+        for (int i = 0; i< n;i++){    
+            sortedMap.remove(sortedMap.firstKey());    
+        }    
+    }    
+}    
+
+}    
+
+class KeyWithLength implements Comparable<KeyWithLength> {    
+private String key;    
+private Integer length;    
+
+public KeyWithLength(String key, int length) {    
+    super();    
+    this.key = key;    
+    this.length = length;    
+}    
+
+public String getKey() {    
+    return key;    
+}    
+
+public int getLength() {    
+    return length;    
+}    
+
+@Override    
+public int hashCode() {    
+    final int prime = 31;    
+    int result = 1;    
+    result = prime * result + ((key == null) ? 0 : key.hashCode());    
+    return result;    
+}    
+
+@Override    
+public boolean equals(Object obj) {    
+    if (this == obj)    
+        return true;    
+    if (obj == null)    
+        return false;    
+    if (getClass() != obj.getClass())    
+        return false;    
+    KeyWithLength other = (KeyWithLength) obj;    
+    if (key == null) {    
+        if (other.key != null)    
+            return false;    
+    } else if (!key.equals(other.key))    
+        return false;    
+    return true;    
+}    
+
+@Override    
+public int compareTo(KeyWithLength another) {    
+    // TODO Auto-generated method stub    
+    return compare(this.length, another.length);    
+}    
+
+    public static int compare(int x, int y) {    
+        return (x < y) ? -1 : ((x == y) ? 0 : 1);    
+    }    
+
+}

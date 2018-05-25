@@ -1,0 +1,22 @@
+public static int inputGrades()
+{
+    Scanner scanner = new Scanner (System.in);
+
+    int GRADE_SIZE = 10;
+
+    List<Integer> iGrades = new ArrayList<>();
+
+    System.out.print("\nInput test scores, enter -1 when you're finished.\n");
+
+    for (int idx = 0; idx < GRADE_SIZE; idx++)
+    {
+        int inputNum = scanner.nextInt();
+        iGrades.add(inputNum);
+
+        if(inputNum == -1){
+            break;
+        }
+    }
+
+    return iGrades.size();   
+}

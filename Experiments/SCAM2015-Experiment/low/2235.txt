@@ -1,0 +1,23 @@
+float a[] = {1.0f,3.0f,5.0f,6.0f,7.0f,10.0f,11.0f,3.2f,4.0f};
+
+float first =0.0f;
+float second=0.0f;
+float third =0.0f;
+for (int i=0; i<a.length; i++){
+    if(first < a[i]){
+        first=a[i];
+    }
+}
+System.out.println("first largest is "+first);
+for (int j=0; j<a.length; j++){
+    if(a[j] <first && a[j] > second){
+        second = a[j];
+    }
+}
+System.out.println("second largest is "+second);
+for (int k=0;k<a.length; k++){
+    if(a[k]<second && a[k]>third){
+        third =a[k];
+    }
+}
+System.out.println("third largest is "+third);

@@ -1,0 +1,3 @@
+int a;
+...
+Object x = (Integer) a;

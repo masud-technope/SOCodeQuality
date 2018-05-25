@@ -1,0 +1,6 @@
+// Prepare items Array 
+for (int j = 0; j < allEds.size(); j++) {
+    items[j] = allEds.get(j).getText().toString();
+}
+data.putExtra("edData", items);
+data.putExtra("size", str);

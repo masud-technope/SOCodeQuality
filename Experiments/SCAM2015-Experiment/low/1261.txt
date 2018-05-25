@@ -1,0 +1,5 @@
+date : String date
+formatpattern : String formatPatten
+
+SimpleDateFormat formatter = new SimpleDateFormat(formatpattern);
+Date date = formatter.parse(date);

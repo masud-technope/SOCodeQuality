@@ -1,0 +1,11 @@
+try
+            {
+                         String conUrl = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=" + filepath;
+
+                       Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+                           con=DriverManager.getConnection(conUrl);
+            }
+            catch(SQLException s)
+            {
+                   System.out.println(s);
+            }

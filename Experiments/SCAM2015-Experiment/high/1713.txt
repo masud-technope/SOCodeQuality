@@ -1,0 +1,10 @@
+String arr[] = {"12341234abc", "1234foo1234", "12121212"};
+String regex = "(\\d+?)\\1";
+Pattern p = Pattern.compile(regex);
+for (String elem : arr) {
+   Matcher matcher = p.matcher(elem);
+   if (matcher.find())
+      System.out.println(elem + " got repeated: " + matcher.group(1));
+   else
+      System.out.println(elem + " has no repeation");
+}

@@ -1,0 +1,11 @@
+public static int findDuplicate(String s) {
+    char[] chars = s.toCharArray();
+    Map<Character, Integer> uniqueChars = new HashMap<Character, Integer> (chars.length, 1);
+    for (int i = 0; i < chars.length; i++) {
+        Integer previousIndex = uniqueChars.put(chars[i], i);
+        if (previousIndex != null) {
+            return previousIndex;
+        }
+    }
+    return -1;
+}

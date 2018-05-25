@@ -1,0 +1,21 @@
+//Just use a List
+//create the list
+public final List<Object> myObjects;
+
+//instantiate the list
+myObjects = new ArrayList<Object>();
+
+//add objects to the list
+Object object = myObject;
+myObjects.add(object);
+
+//remove the object calling this method if you have more than 1 objects still works with 1
+//object too.
+
+private void removeObject(){
+int len = myObjects.size();
+for(int i = 0;i<len; i++){
+Objects object = myObjects.get(i);
+myObjects.remove(object);
+}
+}

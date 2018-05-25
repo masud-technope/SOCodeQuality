@@ -1,0 +1,10 @@
+String test1[] = { "Diamond", "Iron", "Leather" };
+    String test2[] = { "Leggings", "Boots", "Helmet", "Chestplate" };
+
+    List<String> merged = new ArrayList<String>();
+
+    for (String str1 : test1) {
+        for (String str2 : test2)
+            merged.add(str1 + " " + str2);
+    }
+    System.out.println(merged);

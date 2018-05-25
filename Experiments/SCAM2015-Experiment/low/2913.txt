@@ -1,0 +1,19 @@
+function strallpos($haystack,$needle,$offset = 0){
+$result = array();
+for($i = $offset; $i<strlen($haystack); $i++){
+    $pos = strpos($haystack,$needle,$i);
+    if($pos !== FALSE){
+        $offset =  $pos;
+        if($offset >= $i){
+            $i = $offset;
+            $result[] = $offset;
+        }
+    }
+}
+return $result;
+}
+$haystack = "you are awesome honey";
+
+$needle = "o";
+
+print_r(strallpos($haystack,$needle));

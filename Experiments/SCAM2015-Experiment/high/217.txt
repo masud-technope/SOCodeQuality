@@ -1,0 +1,5 @@
+List<DocumentSummary> arr = new ArrayList<DocumentSummary>();
+
+for (Document doc : resultDto.getDocumentArray())
+    if (doc.displayOnAccessIndicator)
+        arr.add(doc);

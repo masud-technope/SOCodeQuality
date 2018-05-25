@@ -1,0 +1,13 @@
+<T extends Number> T[][] zeroMatrix(Class<? extends Number> of, int row, int col) {
+    T[][] matrix = (T[][]) java.lang.reflect.Array.newInstance(of, row, col);
+    T zero = (T) of.getConstructor(String.class).newInstance("0");
+    // not handling exception      
+
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; 
+            matrix[i][j] = zero;
+        }
+    }
+
+    return matrix;
+}

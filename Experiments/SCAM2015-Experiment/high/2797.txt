@@ -1,0 +1,12 @@
+for(int j = 0; j < permj; j++){
+    wordcomb[c-1] = ""; // <--------------------------
+    for(int k = 0; k < i+1; k++){
+        int permi = i * size;
+        int index = permi + (k%permj);
+        wordcomb[c-1] += "" + wordlist[l%size];
+        out(l%size + "");
+        l++;
+    }
+    System.out.println(c + ": " + wordcomb[c-1]);
+    c++;
+}

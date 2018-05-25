@@ -1,0 +1,5 @@
+//Outside the for-loop:
+String firstLetters = "";
+
+// Insdie the for-loop:
+firstLetters = s.charAt(0);

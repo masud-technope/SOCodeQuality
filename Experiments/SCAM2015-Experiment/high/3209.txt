@@ -1,0 +1,3 @@
+panel.add(redButton);
+ panel.add(greenButton);
+ panel.add(blueButton);

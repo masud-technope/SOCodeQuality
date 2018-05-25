@@ -1,0 +1,10 @@
+public boolean findIfAllItemsMatch(String[] searchItems, String text) {
+    boolean allItemsMatch = true;
+    for (String item_ : searchItems) {
+        if(!text.contains(item_)) {  
+              allItemsMatch = false;
+              break;
+         }
+    }
+    return allItemsMatch;
+}

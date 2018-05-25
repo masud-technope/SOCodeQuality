@@ -1,0 +1,5 @@
+@Before
+public void setup() {
+    customService = new CustomServiceImpl();
+    Setter.set(customService, "dataService", dataService);
+}

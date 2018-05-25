@@ -1,0 +1,3 @@
+Took 305.243 ms to write 1,024 MB using ByteBuffer
+Took 286.404 ms to read 1,024 MB MemoryMappedFile
+Took 155.598 ms to read 1,024 MB File via NIO

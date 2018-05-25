@@ -1,0 +1,70 @@
+public class ChampionInfo extends FragmentActivity {
+
+
+    GridView gridtable;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_champion_info);
+
+        gridtable = (GridView) findViewById(R.id.gridtable);
+        gridtable.setAdapter(new GridAdapter(this));
+
+    }
+
+    public class GridAdapter extends BaseAdapter {
+        private Context mContext;
+        private String[] list;
+        private int[] champImage;
+
+
+        public int[] getImage() {
+            int[] tempImage = new int[list.length];
+            for (int i = 0; i < list.length; i++) {
+                tempImage[i] = getResources().getIdentifier(list[i],
+                        "drawable", getPackageName());
+            }
+            return tempImage;
+
+        }
+
+        public GridAdapter(Context c) {
+            mContext = c;
+            list = getResources().getStringArray(R.array.championlist);
+            champImage = getImage();
+        }
+
+        public int getCount() {
+            return champImage.length;
+        }
+
+        public Object getItem(int position) {
+            return champImage[position];
+        }
+
+        public long getItemId(int position) {
+            return position;
+        }
+
+        // create a new ImageView for each item referenced by the Adapter
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ImageView imageView;
+            if (convertView == null) {
+                imageView = new ImageView(mContext);
+                imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                imageView.setPadding(8, 8, 8, 8);
+
+            } else {
+                imageView = (ImageView) convertView;
+            }
+
+            imageView.setImageResource(champImage[position]);
+            return imageView;
+        }
+
+        // Keep all Images in array
+
+    }
+}

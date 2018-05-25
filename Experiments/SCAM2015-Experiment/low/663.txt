@@ -1,0 +1,17 @@
+class AThread extends Thread {
+   Semaphore sem;
+   AThread(Semaphore sem) {
+     this.sem = sem;
+   }
+   public void run(){
+      while(true){
+         Thread.sleep(ONE_MINUTE);
+         sem.acquire();
+         try {
+           //Lots of computation every minute
+         } finally {
+           sem.release();
+         }
+      }
+   }
+}

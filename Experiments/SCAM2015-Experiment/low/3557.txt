@@ -1,0 +1,6 @@
+String a="";
+        double x = 2.4;
+        a=x+"";
+        String [] v =a.split("\\.");
+        int before = Integer.parseInt(v[0]);
+        int after = Integer.parseInt(v[1]);

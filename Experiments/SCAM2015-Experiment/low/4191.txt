@@ -1,0 +1,6 @@
+public class QuizMap extends FragmentActivity implements OnMarkerClickListener {
+    /*...*/
+    new SearchForQuestions(this).execute();
+    /*...*/
+    /*When calling the toast:*/
+Toast.makeText(this.activity, "This is Toast!!!", Toast.LENGTH_SHORT).show();

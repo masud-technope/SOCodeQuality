@@ -1,0 +1,3 @@
+setPreferredSize()
+setMinimumSize()
+setMaximumSize()

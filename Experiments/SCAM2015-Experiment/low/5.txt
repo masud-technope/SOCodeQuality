@@ -1,0 +1,4 @@
+foreach (IPayable account in accountsToPay)
+{
+    account.Pay(50.00);
+}

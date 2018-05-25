@@ -1,0 +1,4 @@
+if (!userInput.matches (".*[aeiou]+.*"))
+    results += "has consonants";
+else
+    results += "no consonants";

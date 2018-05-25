@@ -1,0 +1,4 @@
+assertEquals(bd("1.05"), round(bd("1.03"), bd("0.05"), RoundingMode.UP));
+assertEquals(bd("1.10"), round(bd("1.051"), bd("0.05"), RoundingMode.UP));
+assertEquals(bd("1.05"), round(bd("1.05"), bd("0.05"), RoundingMode.UP));
+assertEquals(bd("1.95"), round(bd("1.900001"), bd("0.05"), RoundingMode.UP));

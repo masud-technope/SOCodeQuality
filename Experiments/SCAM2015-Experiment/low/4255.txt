@@ -1,0 +1,11 @@
+public FlightFinderPage doLogin(String uname, String pwd){
+          try{
+                username.sendKeys(uname);
+                password.sendKeys(pwd);
+                login.submit();         
+            }catch(Exception e){
+                TestUtil.takeScreenShot("LoginElement");
+                APP_LOGS.warn("Element not found",e);           
+            }   
+                return PageFactory.initElements(driver, FlightFinderPage.class);    
+}

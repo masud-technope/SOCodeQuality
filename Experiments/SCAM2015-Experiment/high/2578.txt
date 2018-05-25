@@ -1,0 +1,4 @@
+B b2 = new B(T obj1, V obj3);
+b.equals(a) // will return true now, because we altered equals to do mixed comparisions
+b2.equals(a) // will return true for the same reason
+b.equals(b2) // will return false, because obj2 != obj3

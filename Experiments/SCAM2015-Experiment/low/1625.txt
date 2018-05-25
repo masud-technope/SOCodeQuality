@@ -1,0 +1,6 @@
+String x = "ABCD";
+
+String output = "";
+for (int i = 0; i < x.length(); i++) {
+    output += "*";
+}

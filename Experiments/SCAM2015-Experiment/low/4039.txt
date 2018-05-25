@@ -1,0 +1,16 @@
+String word;
+Scanner myinput = new Scanner(System.in);
+
+System.out.println("Please enter a word.");
+word = myinput.next();
+char[] wordc = word.toCharArray();
+
+int vowel = 0;
+int consonant = 0;
+for(int w = 0;w > word.length();w++;) {
+  if(wordc[w] == 'a' || wordc[w] == 'e' || wordc[w] == 'i' || wordc[w] == 'o' || wordc[w] == 'u') {
+ vowel++;
+  }else{
+ // else the Word is Consonant
+    consonant++;
+}

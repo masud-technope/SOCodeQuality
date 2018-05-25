@@ -1,0 +1,4 @@
+import javax.ws.rs.core.MediaType;
+@Provider
+@Produces(MediaType.APPLICATION_JSON)
+public class MyJacksonConfigurator extends JacksonConfigurator

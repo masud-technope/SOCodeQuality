@@ -1,0 +1,11 @@
+public int rBetweenGenerator(int min, int max, int div)
+{
+  int res = min + ((new Random()).nextInt(max - min + 1))
+  for(int i = res; i < res + div; i++)
+  {
+    if( i % div == 0 )
+    {
+      return i;
+    }
+  } return -1; //error
+}

@@ -1,0 +1,7 @@
+public class Test {
+    public static void main(String[] args) {
+        int i = -13;
+        int j = 64;
+        System.out.println(i % j);
+    }
+}

@@ -1,0 +1,8 @@
+if(age<5)
+              System.out.println("Are you learning how to tie your shoes?");
+
+          if(age==5)
+              System.out.println("You know how to tie your shoes!");
+
+          if(age>5)
+              System.out.println("YOU BETTER KNOW HOW TO TIE YOUR SHOES!");

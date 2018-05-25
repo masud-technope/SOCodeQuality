@@ -1,0 +1,15 @@
+public static T getPreviousVersion(T entity, int current_rev) {
+    AuditReader reader = AuditReaderFactory.get(JPA.em());
+
+    Number prior_revision = (Number) reader.createQuery()
+    .forRevisionsOfEntity(entity.getClass(), false, true)
+    .addProjection(AuditEntity.revisionNumber().max())
+    .add(AuditEntity.id().eq(((Model) entity).id))
+    .add(AuditEntity.revisionNumber().lt(current_rev))
+    .getSingleResult();
+
+    if (prior_revision != null)
+        return (T) reader.find(entity.getClass(), ((Model) entity).id, prior_revision);
+    else
+        return null
+}

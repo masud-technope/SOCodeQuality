@@ -1,0 +1,11 @@
+Important Answar
+String name;
+int roll;
+
+public int compare(Object obj1,Object obj2) { // For Comparator interface
+    return obj1.compareTo(obj1);
+}
+
+public int compareTo(Object obj1) { // For Comparable Interface
+    return obj1.compareTo(obj);
+}

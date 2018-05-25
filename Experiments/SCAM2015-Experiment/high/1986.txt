@@ -1,0 +1,4 @@
+Mail body...
+[...]
+<a href="http://your_server/path/your_file.jsp?number=[the number here]">Link</a>
+[...]

@@ -1,0 +1,7 @@
+ed1.setOnFocusChangeListener(new OnFocusChangeListener() {
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if(hasFocus)
+            Toast.makeText(getApplicationContext(), "onFocusChange", Toast.LENGTH_LONG).show();
+    }
+});

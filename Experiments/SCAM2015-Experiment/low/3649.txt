@@ -1,0 +1,25 @@
+public class listPrimes {
+public static void main(String[] args) {
+    printPrimes(1000);
+
+}
+
+static void printPrimes(int max) 
+{
+
+    for(int k=2;k<=max;k++)
+    { 
+        int counter=0;
+        for(int i=1;i<=k;i++)
+        {
+            if((k%i)==0)
+            {
+                counter++;
+            }
+        }
+        if(counter==2)
+        {
+            System.out.println(k+"is prime");
+        }
+    }
+}

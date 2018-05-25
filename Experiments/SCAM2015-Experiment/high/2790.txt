@@ -1,0 +1,4 @@
+static void anotherMethod(Person p) {
+   p.name = "anotherMethod";
+   System.out.println(p.name);
+}

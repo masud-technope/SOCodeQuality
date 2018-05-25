@@ -1,0 +1,3 @@
+interface FooCallable extends Callable<T> {
+T call() throws IOException; // Narrows Exception from the parent interface
+}

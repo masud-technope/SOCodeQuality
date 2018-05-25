@@ -1,0 +1,4 @@
+<activeProfiles>
+<activeProfile>external</activeProfile>   
+<activeProfile>nexus</activeProfile>
+</activeProfiles>

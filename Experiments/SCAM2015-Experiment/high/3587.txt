@@ -1,0 +1,27 @@
+<pluginManagement>
+     <plugins>
+      <plugin>
+       <groupId>org.eclipse.m2e</groupId>
+        <artifactId>lifecycle-mapping</artifactId>
+         <version>1.0.0</version>
+       <configuration>
+        <lifecycleMappingMetadata>
+          <pluginExecutions>
+           <pluginExecution>
+            <pluginExecutionFilter>
+              <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+             <artifactId>android-maven-plugin</artifactId>
+             <versionRange>[1.0.0,)</versionRange>
+              <goals>
+               <goal>consume-aar</goal>
+              </goals>
+             </pluginExecutionFilter>
+            <action>
+             <ignore />
+            </pluginExecution>
+           </action>
+           </pluginExecutions>
+          </lifecycleMappingMetadata>
+         </configuration>
+       </plugin>
+       . . .

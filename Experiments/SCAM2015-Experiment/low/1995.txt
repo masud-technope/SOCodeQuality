@@ -1,0 +1,5 @@
+def isValidUuid(uuid: String): Boolean =
+    try uuid != null && UUID.fromString(uuid).toString.equals(uuid)
+    catch {
+      case e: IllegalArgumentException => false
+    }

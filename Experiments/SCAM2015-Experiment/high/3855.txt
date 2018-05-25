@@ -1,0 +1,11 @@
+public int indexOf(String string) {
+   if (string == null) {
+      throw new NullPointerException();
+   }
+   for (int index = size-1; index >= 0; index--) {
+      if (string.equals(strings[index])) {
+          return index;
+      }
+   }
+   return -1;
+}

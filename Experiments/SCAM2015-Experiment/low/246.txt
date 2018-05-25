@@ -1,0 +1,4 @@
+union u_intstr {
+  char fourChars[4];
+  int  singleInt;
+};

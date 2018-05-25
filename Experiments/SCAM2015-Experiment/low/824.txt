@@ -1,0 +1,4 @@
+DataInputStream in = new DataInputStream(myinput);
+  //where muinput is your BufferedInputStream.
+
+  char c = in.readChar();

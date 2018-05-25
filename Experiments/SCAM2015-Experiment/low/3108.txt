@@ -1,0 +1,4 @@
+<EditText 
+     android:id = "@+id/editText1"
+     <!-- other properties-->
+</EditText

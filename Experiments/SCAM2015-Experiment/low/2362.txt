@@ -1,0 +1,40 @@
+import com.google.inject.Inject;
+import com.yourPackage.ConnectionHelper;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+public class rawRepository {
+    // Helper to get connections and handle the datasource.
+    ConnectionHelper _connectionHelper;    
+     // Inject it by Dependency Injection     
+    @Inject
+    public rawRepository(ConnectionHelper connectionHelper) {
+        _connectionHelper = connectionHelper;
+    }
+    // Simple Update
+    public void update(long id, String name, String lastname, String country) throws Exception {
+        String updateSql = "UPDATE YOURTABLE" +
+                " SET NAME = ?, " +
+                " LASTNAME = ?, " +
+                " COUNTRY = ?" +
+                " WHERE ID = ?";
+        // Gets the Connection!
+        Connection connection = _connectionHelper.getConnection();
+        try {                            
+            PreparedStatement statement;
+            statement = connection.prepareStatement(updateSql);
+            statement.setString(1, lastname);
+            statement.setString(2, name);
+            statement.setString(3, country);
+            statement.setLong(4, id);
+            int resultQuery = statement.executeUpdate();
+            if (resultQuery == 0)
+                throw new Exception("Execute Update did not update anything");
+            // Commits the connection.
+            connection.commit();
+        } catch (Exception e) {
+            // Remember that this close won't close the connection physically since it's a pool of connections.
+            connection.close();
+        }
+    }
+}

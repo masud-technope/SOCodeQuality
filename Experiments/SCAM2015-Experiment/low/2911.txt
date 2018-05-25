@@ -1,0 +1,7 @@
+abstract class Trainer<T extends Animal>{
+     public enum Trainables implements TrainingActions<Animal>{
+            BARK, BITE, ROLLOVER, FETCH;
+     }
+      public Set<Trainables> completed = new HashSet<Trainables>();
+      abstract public void trainingComplete(Trainables t);
+}

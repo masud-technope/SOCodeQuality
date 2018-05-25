@@ -1,0 +1,8 @@
+public void example(Object o) {
+  if(o instanceof List<?>)
+     example((List)o);    // can only hope that the type is correct here
+}
+
+public void example(List<MyType> list){
+    // do something
+}

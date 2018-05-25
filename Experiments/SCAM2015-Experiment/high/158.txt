@@ -1,0 +1,3 @@
+for (Method m : getClass().getMethods())
+  if (m.getAnnotation(HeySuperclassCallMe.class) != null)
+     m.invoke(...)

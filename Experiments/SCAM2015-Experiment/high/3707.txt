@@ -1,0 +1,5 @@
+// If API returns Collection, convert with stream()
+getFoo().stream()...
+
+// If API returns Stream, use collect()
+Collection<T> c = getFooStream().collect(toList());

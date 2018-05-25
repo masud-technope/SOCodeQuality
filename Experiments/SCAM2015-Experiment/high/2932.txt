@@ -1,0 +1,5 @@
+var str = "<a href=www.google.com>Google</a>";
+var str1 = document.createElement('str1');
+str1.innerHTML = str;
+alert(str1.textContent);
+alert( str1.innerText);

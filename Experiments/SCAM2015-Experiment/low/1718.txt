@@ -1,0 +1,15 @@
+class PairHolder {
+   public final ConcurrentMap map1;
+   public final ConcurrentMap map2;
+   public PairHolder(...) // set values here.
+}
+
+private AtomicReference<PairHolder> mapHolder = ... // initialize it somehow
+
+do {
+  PairHolder holder = mapHolder.get();
+  ConcurrentMap map1 = holder.map1.clone()
+  ConcurrentMap map2 = holder.map2.clone()
+  newMap1.putIfAbsent(...);
+  newMap2.putIfAbsent(...);
+} while (!mapHolder.compareAndSet(holder, new PairHolder(newMap1,newMap2))

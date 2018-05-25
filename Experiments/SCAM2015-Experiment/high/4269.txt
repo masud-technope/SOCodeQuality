@@ -1,0 +1,4 @@
+String X="StackOverflow";
+String Y="flow";
+X=X.replaceAll(Y,"");
+System.out.println(X);

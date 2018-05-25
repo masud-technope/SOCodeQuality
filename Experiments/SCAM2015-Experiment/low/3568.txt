@@ -1,0 +1,31 @@
+/**
+ *
+ * @author salathielgenese
+ */
+public class Loader
+{
+
+    /**
+ * @param args the command line arguments
+ */
+    public static void main(String[] args)
+    {
+        // Init «n» to «0» by default. Even if the conversion failed, you'll get you variable to 0
+        // But if the conversion goes on, then the value will be updated to args[0]
+        int n = 0;
+        if (null != args && 0 < args.length)
+        {
+            try
+            {
+                n = Integer.parseInt(args[0]);
+            }
+            catch (NumberFormatException e)
+            {
+                System.err.println("Argument" + args[0] + " must be an integer.");
+                System.exit(1);
+            }
+        }
+        // The rest of your code
+    }
+
+}

@@ -1,0 +1,11 @@
+username = self.request.get('username')
+usernameLower = username.lower()
+rec = user.get_by_key_name(usernameLower)
+if rec is None:
+    U = user(
+        key_name = usernameLower,
+        username = username,
+        etc...)
+    U.put()
+else:
+    self.response.out.write(yourMessageHere)

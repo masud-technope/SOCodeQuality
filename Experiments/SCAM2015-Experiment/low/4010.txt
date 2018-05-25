@@ -1,0 +1,57 @@
+public class Sorter(){
+
+    private int[] grades = {7, 6, 4, 10, 8};
+    private String[] names = {"John", "Erik", "Bob", "Frank", "Judy"};
+
+    public static void main(String args[]) {
+        new Sorter();
+    }
+
+    public Sorter(){
+        int[] tempGrades = {0, 0, 0, 0, 0};
+        String[] tempNames = {"", "", "", "", ""};
+        for (int x = 0; x < tempGrades.length; x++) {
+            if (grades[x] < tempGrades[1]) {
+                tempGrades[0] = grades[x];
+                tempNames[0] = names[x];
+            } else if (grades[x] < tempGrades[2]) {
+                tempGrades[0] = tempGrades[1];
+                tempGrades[1] = grades[x];
+                tempNames[0] = tempNames[1];
+                tempNames[1] = names[x];
+            } else if (grades[x] < tempGrades[3]) {
+                tempGrades[0] = tempGrades[1];
+                tempGrades[1] = tempGrades[2];
+                tempGrades[2] = grades[x];
+                tempNames[0] = tempNames[1];
+                tempNames[1] = tempNames[2];
+                tempNames[2] = names[x];
+            } else if (grades[x] < tempGrades[4]) {
+                tempGrades[0] = tempGrades[1];
+                tempGrades[1] = tempGrades[2];
+                tempGrades[2] = tempGrades[3];
+                tempGrades[3] = grades[x];
+                tempNames[0] = tempNames[1];
+                tempNames[1] = tempNames[2];
+                tempNames[2] = tempNames[3];
+                tempNames[3] = names[x];
+            } else {
+                tempGrades[0] = tempGrades[1];
+                tempGrades[1] = tempGrades[2];
+                tempGrades[2] = tempGrades[3];
+                tempGrades[3] = tempGrades[4];
+                tempGrades[4] = grades[x];
+                tempNames[0] = tempNames[1];
+                tempNames[1] = tempNames[2];
+                tempNames[2] = tempNames[3];
+                tempNames[3] = tempNames[4];
+                tempNames[4] = names[x];
+            }
+        }
+        grades = tempGrades;
+        names = tempNames;
+        for (int x = 0; x < grades.length; x++) {
+            System.out.println(tempNames[x] + " " + tempGrades[x]);
+        }
+    } 
+}

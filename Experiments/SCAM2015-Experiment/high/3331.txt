@@ -1,0 +1,30 @@
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.messages_activity_menu, menu);
+    MenuItem menuItem = menu.findItem(R.id.menu_item_share);
+    shareActionProvider = new ShareActionProvider(this);
+    MenuItemCompat.setActionProvider(menuItem, shareActionProvider);
+
+    return super.onCreateOptionsMenu(menu);
+}
+
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+
+    if(item.getItemId() == R.id.menu_item_share){
+        onShareAction();
+    }
+
+    return super.onOptionsItemSelected(item);
+}
+
+private void onShareAction(){
+    // Create the share Intent
+    String playStoreLink = "https://play.google.com/store/apps/details?id=" + getPackageName();
+    String yourShareText = getResources().getString(R.string.share_text) + playStoreLink;
+    Intent shareIntent = ShareCompat.IntentBuilder.from(this).setType("text/plain").setText(yourShareText).getIntent();
+    // Set the share Intent
+    if (shareActionProvider != null) {
+        shareActionProvider.setShareIntent(shareIntent);
+    }
+}

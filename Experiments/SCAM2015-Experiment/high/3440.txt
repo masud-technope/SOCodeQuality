@@ -1,0 +1,4 @@
+ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
+
+dataOutputStream.writeShort(someShortValue);

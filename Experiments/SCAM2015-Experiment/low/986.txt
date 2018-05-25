@@ -1,0 +1,4 @@
+private void createAndStoreEnum() {
+        EnumMap<Enumerations.enumA, String> aMap = new EnumMap<Enumerations.enumA, String>(enumA.class);
+        aMap.put(enumA.A1, "Example");
+}

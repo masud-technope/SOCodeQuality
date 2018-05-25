@@ -1,0 +1,3 @@
+String s="[SBD]";
+  s=  s.replace("[","");
+   s= s.replace("]","");

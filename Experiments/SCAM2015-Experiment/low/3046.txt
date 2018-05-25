@@ -1,0 +1,7 @@
+Scanner sc=new Scanner(System.in);
+word=sc.nextLine();   
+  for(int j=word.length;j>=0;j--)
+   {
+
+  }
+    }

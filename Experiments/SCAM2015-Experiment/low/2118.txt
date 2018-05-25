@@ -1,0 +1,4 @@
+byte[] iv=new byte[8]; // assuming RC2
+System.arraycopy(key.getBytes(), 0, iv, 0, key.getBytes().length > iv.length ? key.getBytes().length);
+
+// Now decrypt and hopefully this should work

@@ -1,0 +1,3 @@
+myTextField.getDocument().addDocumentListener(new DocumentListener() {
+    // implement the methods
+});

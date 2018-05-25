@@ -1,0 +1,7 @@
+} catch (final Exception e) {
+    SwingUtilities.invokeLater(new Runnable(){
+        public void run() {
+           //do whatever you want with the exception
+        }
+    }); 
+}

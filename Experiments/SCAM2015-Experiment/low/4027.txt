@@ -1,0 +1,19 @@
+private LinkedList<String> list = new LinkedList<>();
+
+    private void fillList() {
+        for (int i = 0; i < 10; i++) {
+            list.add("Hello " + i);
+        }
+    }
+
+    private void removeAllRandomly() {
+
+        Random random = new Random();
+
+        while (!list.isEmpty()) {
+            int randomPosition = random.nextInt(list.size());
+            String s = list.remove(randomPosition);
+            System.out.println(String.format("Item on position: %s (%s) was removed", randomPosition, s));
+        }
+
+    }

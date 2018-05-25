@@ -1,0 +1,5 @@
+main(..)
+{
+ProDat obj = new ProDat();
+obj.produceFile(..);
+}

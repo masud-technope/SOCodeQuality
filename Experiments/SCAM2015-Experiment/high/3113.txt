@@ -1,0 +1,3 @@
+private void shoot(Droid first, Droid second) {
+    second.setPower(second.getPower() - first.getImpact());
+}

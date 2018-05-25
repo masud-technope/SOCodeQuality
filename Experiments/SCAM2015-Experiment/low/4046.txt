@@ -1,0 +1,12 @@
+StringBuilder builder = new StringBuilder();
+for (int i = 0; i < array1.length; i++)
+{
+    builder.append("\"");
+    builder.append(array1[i]);
+    builder.append("\":\"");
+    builder.append(array2[i]);
+    builder.append("\"");
+    if (i < (array1.length - 1))
+        builder.append(", ");
+}
+String result = builder.toString();

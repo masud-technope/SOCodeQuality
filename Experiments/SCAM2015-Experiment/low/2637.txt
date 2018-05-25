@@ -1,0 +1,5 @@
+try {
+    value1 = userDict.get("key1").toString();
+  } catch (Exception e) {
+    value1 = 0;
+  }

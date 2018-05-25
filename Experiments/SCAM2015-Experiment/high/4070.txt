@@ -1,0 +1,7 @@
+public int foo() {
+    return 1;
+}
+
+public Integer foo(int multiplicand) {
+    return 10 * multiplicand;
+}

@@ -1,0 +1,8 @@
+private void setSomething(final List someListOfObjects)
+{
+   for(Object n : someListOfObjects){
+     if(n instanceof Double) {}
+     else if(n instanceof Long) {}
+     ...
+   }
+}

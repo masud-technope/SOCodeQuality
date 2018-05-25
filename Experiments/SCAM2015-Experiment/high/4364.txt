@@ -1,0 +1,4 @@
+Map<?, List<?>>
+//      ¦  ¦    + no capture (not applied recursively)
+//      ¦  + T2 is not a wildcard
+//      + T1 is a wildcard

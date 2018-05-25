@@ -1,0 +1,6 @@
+String str = "He needs to have java skills";
+String rx = "\\b(?<!S?[hH]e/)S?[Hh]e(?:/(?:He|She))?\\b";
+System.out.println(str.replaceAll(rx, "She/He"));
+
+String str2 = "She/He needs to have java skills";
+System.out.println(str2.replaceAll(rx, "She/He"));

@@ -1,0 +1,4 @@
+private void inText_UserIDKeyReleased( java.awt.event.KeyEvent evt ) {
+    String UsrID=inText_UserID.getText().toUpperCase();
+    inText_UserID.setText( UsrID );
+}

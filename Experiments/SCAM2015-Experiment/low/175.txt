@@ -1,0 +1,25 @@
+public class encryptedTable {
+    @Column(name="encrypted_field")
+    private String encryptedValue;
+
+    @Transient
+    private String value;
+
+    public String getEncryptedValue() {
+        return encryptedValue;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setEncryptedValue(String encryptedValue) {
+        this.encryptedValue = encryptedValue;
+        this.value = decrypt(encryptedValue);
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+        this.encryptedValue = encrypt(value);
+    }
+}

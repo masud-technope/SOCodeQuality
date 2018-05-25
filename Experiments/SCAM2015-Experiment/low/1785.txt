@@ -1,0 +1,7 @@
+if (mediaType.equals(MediaType.APPLICATION_JSON)) {
+    body = projectValues;
+} else if (mediaType.equals(MediaType.APPLICATION_XML)) {
+    body = new Project(projectValues);
+} else {
+    throw new NotImplementedException("Project lookup is not implemented for media type '" + mediaType + "'");
+}

@@ -1,0 +1,7 @@
+var a = [2,3,-1,4,5,7,8,13,-20];
+var positiveNums =  a.filter(function(num){
+  return num > 0
+}); // [2,3,4,5,7,8,13]
+var sum = positiveNums.reduce(function(a, b){
+  return a+b;
+}); // 42

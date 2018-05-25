@@ -1,0 +1,82 @@
+Please find the below code snippet.
+
+package com.java.examples;
+
+public class ProducerConsumer {
+    public static void main(String[] args) throws InterruptedException {
+        ProduceCosumeData p = new ProduceCosumeData();
+        ProducerT pt = new ProducerT(p); // with p obj i am creating thread
+        ConsumerT ct = new ConsumerT(p); // with same p obj i am creating thread
+        pt.start();
+        Thread.sleep(1000);
+        ct.start(); // i am starting 2 threads
+    }
+}
+
+class ProduceCosumeData {
+    boolean flag = false;
+
+    public synchronized void printStringP(int n) {
+        for (int i = 0; i < n; i++) {
+            try {
+                if (flag) {
+                    notify();
+                } else
+                    flag = true;
+                System.out.println("Pay");
+                if (i <= n - 1) {
+                    wait();
+                } else {
+                    break;
+                }
+
+            } catch (Exception e) {
+                System.out.print(e);
+            }
+        }
+        notify();
+    }
+
+    public synchronized void printStringC(int n) {
+        for (int i = 0; i < n; i++) {
+            try {
+                if (flag) {
+                    System.out.println("Tm");
+                    if (i <= n - 1) {
+                        notify();
+                    } else {
+                        break;
+                    }
+                } else
+                    flag = false;
+                wait();
+            } catch (Exception e) {
+                System.out.print(e);
+            }
+        }
+    }
+}
+
+class ProducerT extends Thread {
+    ProduceCosumeData p;
+
+    ProducerT(ProduceCosumeData p) {
+        this.p = p; // i am saving the same obj for both threads
+    }
+
+    public void run() {
+        p.printStringP(10); // it will print 10 times pay
+    }
+}
+
+class ConsumerT extends Thread {
+    ProduceCosumeData p;
+
+    ConsumerT(ProduceCosumeData p) {
+        this.p = p; // i am saving the same obj for both threads
+    }
+
+    public void run() {
+        p.printStringC(10); // it will print 10 times tm
+    }
+}

@@ -1,0 +1,3 @@
+<xsl:if test="contains($customerName,'&amp;')">
+    <xsl:value-of select="concat(substring-before($customerName,'&amp;'),substring-after($customerName,'&amp;'))"/>
+  </xsl:if>

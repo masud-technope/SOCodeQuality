@@ -1,0 +1,3 @@
+final List<Integer> sack = new ArrayList<>(RANGE);
+for (int i = 0; i < RANGE; i++) sack.add(i);
+Collections.shuffle(sack);

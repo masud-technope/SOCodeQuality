@@ -1,0 +1,4 @@
+labels[i] = new JLabel("Antwoord Vraag"+ (i +1) +": "+antwoord.get(i),SwingConstants.LEFT);
+           // verander de kleur van de labels
+           labels[i].setForeground(rood);
+           center.add(labels[i]);

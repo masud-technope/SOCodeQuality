@@ -1,0 +1,14 @@
+public class One {
+    public static void main(String[] args) {
+
+        One o = new Two();
+        if (o instanceof Two) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+
+class Two extends One {
+}

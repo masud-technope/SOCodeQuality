@@ -1,0 +1,5 @@
+HttpSession session = request.getSession (true);
+if (session.isNew() == false) {
+session.invalidate();
+session = request.getSession(true);
+}

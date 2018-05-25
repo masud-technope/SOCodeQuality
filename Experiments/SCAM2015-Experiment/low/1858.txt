@@ -1,0 +1,3 @@
+String oldString = "<someTag>I only want this part</someTag>";
+String regExp = "(?i)(<someTag.*?>)(.+?)(</someTag>)";
+String newString = oldString.replaceAll(regExp, "$2");

@@ -1,0 +1,10 @@
+public boolean equals(Object oo) {
+    if(oo instanceof HashValue)
+        HashValue hh = (HashValue)oo;
+
+    if (this.x==hh.x) {
+        return true;
+    } else {
+        return false;
+    }
+}

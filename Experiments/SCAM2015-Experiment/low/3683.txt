@@ -1,0 +1,3 @@
+public putOneElement(Object key, Object value) {
+this.get(key).put(value);
+}

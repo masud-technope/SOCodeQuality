@@ -1,0 +1,8 @@
+public void setPartner(Person partner) {
+    if (this.partner != null)
+       this.partner.partner = null;
+    this.partner = partner;
+    if (partner.partner != null)
+       partner.partner.partner = null;
+    partner.partner = this;
+}

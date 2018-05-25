@@ -1,0 +1,7 @@
+byte b1 = -1;
+    byte b2 = -2;
+    byte b3 = -3;
+    byte b4 = -4;
+    int i = ((0xFF & b1) << 24) | ((0xFF & b2) << 16) |
+            ((0xFF & b3) << 8) | (0xFF & b4);
+    System.out.println(Integer.toHexString(i)); // prints "fffefdfc"

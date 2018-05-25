@@ -1,0 +1,9 @@
+final String operatorAdd = "add";
+// ...
+
+if (input.equals("+"))
+  operator = operatorAdd;
+  // ...
+
+if (operator == operatorAdd)
+  // ...

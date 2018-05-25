@@ -1,0 +1,8 @@
+Iterator<float[][]> values = array.iterator();
+while (values.hasNext()) {
+        float[][] result = values.next();
+        //calculating.
+
+        //after calculating remove the items.
+        values.remove();
+}

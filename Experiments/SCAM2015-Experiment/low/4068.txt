@@ -1,0 +1,53 @@
+public static void iterateDirectory( File directory, 
+                                     boolean globo_dict_fixed, 
+                                     Map<String, ArrayList<String> > fileDict,
+                                     Set<String> GLOBO_DICT) throws IOException 
+{
+    for (File file : directory.listFiles()) 
+    {
+        if (file.isDirectory()) 
+        {
+            iterateDirectory(directory, globo_dict_fixed, fileDict, GLOBO_DICT );
+        } 
+        else 
+        {   
+            String line; 
+            BufferedReader br = new BufferedReader(new FileReader( file ));
+
+            String key_file_loke = file.getPath()
+                       .toString()
+                    .replaceAll("/[^/]*$", "")
+                    .replaceAll("/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/train/", "")
+                    .replaceAll("/home/matthias/Workbench/SUTD/ISTD_50.570/assignments/practice_data/data/test/", "");
+
+            ArrayList<String> document_words_on_line = fileDict.get(key_file_loke);
+
+            while((line = br.readLine()) != null) 
+            {
+                String[] words = line.split(" ");//those are your words
+
+                if(globo_dict_fixed == false)
+                {
+                    Data_GloboPop.populate_globo_dict( words, GLOBO_DICT );
+                }
+                else
+                {
+                    String word;
+
+                    for (int i = 0; i < words.length; i++) 
+                    {
+                        word = words[i];
+
+                        document_words_on_line.add(word);
+                    }
+
+                }
+
+            }
+
+            //put all documents from the same directory under the same key
+            fileDict.put( key_file_loke , document_words_on_line );
+
+        }
+    }
+}

@@ -1,0 +1,11 @@
+class AB { //common functionality of A and B
+   //singleton pattern here
+   //common data and functionality here
+}
+class A {
+   private AB ab = AB.getInstance();
+   //singleton pattern here
+   //unique functionality and data of A
+
+   //to use any of the functionality in AB delegate to member ab
+}

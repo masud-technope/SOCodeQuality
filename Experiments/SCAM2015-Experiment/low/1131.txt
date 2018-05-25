@@ -1,0 +1,4 @@
+Client lock = yourClient;
+synchronized (lock) {
+
+}

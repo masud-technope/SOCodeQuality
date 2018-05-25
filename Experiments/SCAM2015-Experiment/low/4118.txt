@@ -1,0 +1,21 @@
+int t_siffer = 0;
+int original = tall;
+for (int siffer=0; siffer<=9; siffer++) { // iterate over the possible digits - 0 to 9
+    System.out.println("Siffer = " + siffer);
+    siffervekt = 0;
+    tall = original;
+    for (int x=0; x<lengde; x++) { // count the number of times current digit appears
+        int asiffer = (tall%10);
+        System.out.println("Asiffer = " + asiffer);
+        if (asiffer == siffer) {
+            siffervekt++;
+            System.out.println(siffervekt);
+        }
+        tall = tall/10; 
+    }
+    if (siffervekt > t_siffervekt) {
+        t_siffervekt = siffervekt;
+        t_siffer = siffer;
+    }
+}
+System.out.println ("Digit " + t_siffer + " appears " + t_siffervekt + " times");

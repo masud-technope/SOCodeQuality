@@ -1,0 +1,16 @@
+/**
+    * Retrieves the current row number.  The first row is number 1, the
+    * second number 2, and so on.
+    * <p>
+    * <strong>Note:</strong>Support for the <code>getRow</code> method
+    * is optional for <code>ResultSet</code>s with a result
+    * set type of <code>TYPE_FORWARD_ONLY</code>
+    *
+    * @return the current row number; <code>0</code> if there is no current row
+    * @exception SQLException if a database access error occurs
+    * or this method is called on a closed result set
+    * @exception SQLFeatureNotSupportedException if the JDBC driver does not support
+    * this method
+    * @since 1.2
+ */
+      int getRow() throws SQLException;

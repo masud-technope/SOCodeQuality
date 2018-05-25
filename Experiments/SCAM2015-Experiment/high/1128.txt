@@ -1,0 +1,3 @@
+String relativeWebPath = "/IMAGES/image1.jpg";
+InputStream input = getServletContext().getResourceAsStream(relativeWebPath);
+// ...

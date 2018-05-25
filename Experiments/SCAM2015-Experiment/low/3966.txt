@@ -1,0 +1,14 @@
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+    public static enum Day{SUNDAY, MONDAY, TUESDAY};
+    public static enum MyDays{SUNDAY};
+
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        MyDays m = Ideone.MyDays.SUNDAY;
+        Day d = Ideone.Day.SUNDAY;
+
+        System.out.println(d.name() == m.name());
+    }
+}

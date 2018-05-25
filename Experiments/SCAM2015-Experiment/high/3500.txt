@@ -1,0 +1,4 @@
+Scanner scanner = new Scanner(System.in);
+String result = "";
+System.out.println("Enter Data:");
+result = scanner.nextLine();

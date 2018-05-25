@@ -1,0 +1,5 @@
+int compRes = a.compareTo(b);
+if(compRes < 0 || compRes > 0)
+    System.out.println("not equal");
+else
+    System.out.println("equal);

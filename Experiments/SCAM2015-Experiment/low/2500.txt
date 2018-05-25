@@ -1,0 +1,20 @@
+**if("A".equals(package_plan.toUpperCase()) && getUsageCharge() > 14.95)
+        {
+            sB = getUsageCharge() - 14.95;
+            System.out.println("You're spending more money than you should. If you switched to Plan B you would save:$" + sB);
+        }
+        else if("A".equals(package_plan.toUpperCase()) && getUsageCharge() > 19.95)
+        {
+            sC = getUsageCharge() - 19.95;
+            System.out.println("You're spending more money than you should. If you switched to Plan C you would save:$" + sC);
+        }
+        else if("B".equals(package_plan.toUpperCase()) && hours < 10)
+        {
+            sA = getUsageCharge() - 9.95;
+            System.out.println("You're spending more money than you should. If you switched to Plan A you would save:$" + sA);
+        }
+        else if("B".equals(package_plan.toUpperCase()) && getUsageCharge() > 19.95)
+        {
+            sC = getUsageCharge() - 19.95;
+            System.out.println("You're spending more money than you should. If you switched to Plan C you would save:$" + sC);**
+        }**

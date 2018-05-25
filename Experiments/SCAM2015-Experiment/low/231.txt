@@ -1,0 +1,3 @@
+Person person = new Person();
+// set each property to something
+Database.Save(person);

@@ -1,0 +1,11 @@
+while(Input.hasNextInt()){
+
+    count++;           
+
+    temp = Input.nextInt();
+    sum += temp;
+    System.out.println(temp);
+    System.out.println(count); 
+    break;          
+
+} // End of while

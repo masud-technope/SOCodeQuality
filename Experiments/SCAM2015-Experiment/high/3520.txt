@@ -1,0 +1,5 @@
+SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
+String day = dayFormat.format(Date.parse(payback.creationDate.date));
+
+SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
+String month = monthFormat .format(Date.parse(payback.creationDate.date));

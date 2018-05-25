@@ -1,0 +1,8 @@
+JPanel panel = new JPanel();
+JTable table = new JTable(rowData, colData);
+JScrollPane scrollPane = new JScrollPane(table);
+panel.add(scrollPane, BorderLayout.CENTER);
+panel.setSize(800, 150);
+panel.add(table);
+panel.setLocationRelativeTo(null);
+panel.setVisible(true);

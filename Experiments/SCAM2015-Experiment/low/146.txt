@@ -1,0 +1,3 @@
+java.lang.String
+
+boolean matches(String regex)

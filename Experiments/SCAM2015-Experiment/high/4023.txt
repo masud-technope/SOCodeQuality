@@ -1,0 +1,3 @@
+CardLayout layout = new CardLayout();
+JPanel deck = new JPanel();
+deck.setLayout(layout);

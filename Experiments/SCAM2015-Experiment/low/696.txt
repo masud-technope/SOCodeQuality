@@ -1,0 +1,3 @@
+string myString = new String();
+myString.length()
+// will not cause error

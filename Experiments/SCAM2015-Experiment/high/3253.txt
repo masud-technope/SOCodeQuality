@@ -1,0 +1,3 @@
+findMin(num , count );
+computePositiveSum(num , count );
+countNegative(num , count );

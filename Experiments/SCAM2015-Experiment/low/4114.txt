@@ -1,0 +1,8 @@
+for(Task theTask: tasksToDo){
+       if (theTask instanceof TimingTask){
+          TimingTask theTimingTask = (TimingTask)theTask;
+          //Your treatments for your theTimingTask objects
+       }else{
+          //If you need other treatments for only the Task objects and your other different objects
+       }
+    }

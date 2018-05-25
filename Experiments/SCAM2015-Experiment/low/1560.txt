@@ -1,0 +1,32 @@
+public List<CommissionSummary> getCommissionSummary(AdvisorReportForm advisorReportForm) {
+        Criteria criteria = getSession().createCriteria(CommissionSummary.class);
+        if (advisorReportForm.getAdvisorId() != null && advisorReportForm.getAdvisorId() > 0) {
+            criteria.add(Restrictions.eq("advisorCode", advisorReportForm.getAdvisorId().toString()));
+        }
+
+        if (advisorReportForm.getFromDate() != null && advisorReportForm.getToDate() != null) {
+            Calendar calFrom = Calendar.getInstance();
+            calFrom.setTime(advisorReportForm.getFromDate());
+
+            Calendar calTo = Calendar.getInstance();
+            calTo.setTime(advisorReportForm.getToDate());
+
+            Criterion crit1 = Restrictions.eq("month", calFrom.get(Calendar.MONTH) + 1);
+            Criterion crit2 = Restrictions.eq("year", calFrom.get(Calendar.YEAR));
+            Criterion critMonthYear1 = Restrictions.and(crit1, crit2);
+            calFrom.add(Calendar.MONTH, 1); // increment loop by month
+
+            Criterion critAll = critMonthYear1;
+            while (calFrom.getTimeInMillis() < calTo.getTimeInMillis()) {
+                Criterion crit1Loop = Restrictions.eq("month", calFrom.get(Calendar.MONTH) + 1);
+                Criterion crit2Loop = Restrictions.eq("year", calFrom.get(Calendar.YEAR));
+                Criterion critMonthYearLoop = Restrictions.and(crit1Loop, crit2Loop);
+                critAll = Restrictions.or(critAll, critMonthYearLoop);
+                calFrom.add(Calendar.MONTH, 1); // increment loop by month
+            }
+            criteria.add(critAll);
+
+        }
+
+        return criteria.list();
+    }

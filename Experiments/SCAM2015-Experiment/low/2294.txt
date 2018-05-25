@@ -1,0 +1,3 @@
+int addMinuteTime = 5;
+Date targetTime = new Date(); //now
+targetTime = DateUtils.addMinutes(targetTime, addMinuteTime); //add minute

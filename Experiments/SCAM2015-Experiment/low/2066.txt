@@ -1,0 +1,8 @@
+AQuery aq = new AQuery(getActivity());
+            aq.id(view.findViewById(R.id.image)).image(imageUrl, true, true, 0,  0,
+                    new BitmapAjaxCallback() {
+                        @Override
+                        public void callback(String url, ImageView iv, Bitmap bm, AjaxStatus status){
+                            iv.setImageBitmap(bm);
+                        }
+                    }.header("User-Agent", "android"));

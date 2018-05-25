@@ -1,0 +1,24 @@
+public static void main(String[] args){
+        String[] arr = new String[5];
+        arr[0] =  "One";
+        arr[1] =  "Two";
+        arr[2] =  "One";
+        arr[3] =  "Three";
+        arr[4] =  "Two";
+
+        List<String> lstString = Arrays.asList(arr);
+        Collections.sort(lstString);
+        for(String eachString : arr){
+            System.out.println("Frequency of " + eachString + " is " + getFrequency(eachString,lstString));
+        }
+    }
+
+    private static int getFrequency(String word, List lstOfString){
+        int frequency = 1;
+        if(lstOfString != null && lstOfString.size() > 0){
+            int firstIndex = lstOfString.indexOf(word);
+            int lastIndex = lstOfString.lastIndexOf(word);
+            frequency += lastIndex - firstIndex;
+        }
+        return frequency;
+    }

@@ -1,0 +1,18 @@
+String testString = "-SD12431;ABC333";
+ArrayList<String> remplaceBy= new ArrayList<String>();
+remplaceBy.add("first");
+remplaceBy.add("second");
+remplaceBy.add("third");
+
+String newString = testString;
+String oldString ="";
+int i =0;
+while(!newString.equals(oldString))
+{
+oldString = new String(newString);
+newString = newString.replaceFirst("[0-9]+",remplaceBy.get(i));
+i++;
+System.out.println("N1:"+newString);
+System.out.println("O1:"+oldString); 
+}
+System.out.println("New String"+newString);

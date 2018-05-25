@@ -1,0 +1,3 @@
+String text = ...
+
+text = text.replaceAll("('|\")", "\\\\$1");

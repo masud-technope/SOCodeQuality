@@ -1,0 +1,7 @@
+int position = 3; Array starts from 0. 4th index points the fifth value.
+
+int position = 3;
+if(ar.length > position)
+  {
+     ar[position] = 6;
+  }

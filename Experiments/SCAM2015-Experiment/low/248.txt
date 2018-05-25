@@ -1,0 +1,4 @@
+union u_my16ints {
+  char str[16*sizeof(int)];
+  int  ints[16];
+};

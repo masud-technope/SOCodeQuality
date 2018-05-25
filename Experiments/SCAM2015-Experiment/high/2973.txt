@@ -1,0 +1,31 @@
+@Controller
+public class FileUploadController {
+     
+    @RequestMapping(value = "/show", method = RequestMethod.GET)
+    public String displayForm() {
+        return "file_upload_form";
+    }
+     
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String save(
+            @ModelAttribute("uploadForm") FileUploadForm uploadForm,
+                    Model map) {
+         
+        List<MultipartFile> files = uploadForm.getFiles();
+ 
+        List<String> fileNames = new ArrayList<String>();
+         
+        if(null != files && files.size() > 0) {
+            for (MultipartFile multipartFile : files) {
+ 
+                String fileName = multipartFile.getOriginalFilename();
+                fileNames.add(fileName);
+                //Handle file content - multipartFile.getInputStream()
+ 
+            }
+        }
+         
+        map.addAttribute("files", fileNames);
+        return "file_upload_success";
+    }
+}

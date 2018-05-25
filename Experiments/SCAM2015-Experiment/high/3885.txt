@@ -1,0 +1,16 @@
+public class LeapYear {
+    public static void main(String[] args) {
+
+        int leapYear = 2001; // initialize leapYear variable to 2001
+
+        while (leapYear <= 2100) { // a simple change of "If" to "While" here
+                                    // will do the trick
+            for (int x = 0; x < 10; x++) {
+                System.out.print(leapYear + " "); // print ten leap years per
+                                                    // line
+                leapYear = leapYear + 4;
+            }
+            System.out.println();
+        } // end of while loop
+    } // end of main method
+}// end of class

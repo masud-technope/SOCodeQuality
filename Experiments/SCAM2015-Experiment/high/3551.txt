@@ -1,0 +1,16 @@
+public interface Shape extends Comparable<Shape> {
+    public double getVolume();
+}
+
+public abstract class BaseShape implements Shape {
+    public int compareTo(Shape other) {
+        return Double.compare(getVolume(), other.getVolume());
+    }
+} 
+
+public class Box extends BaseShape {
+    public double getVolume() {
+        return volume;
+    } 
+} 
+public class Ball extends BaseShape { /* ... */ }

@@ -1,0 +1,11 @@
+public class MyActivity extends Activity {
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        new MyAsyncTask(this).execute();
+    }
+
+    public void sayHello(String name){
+        Log.d("log","hello "+name+"!!!");
+    }
+}

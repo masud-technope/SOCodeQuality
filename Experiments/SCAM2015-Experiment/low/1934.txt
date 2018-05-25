@@ -1,0 +1,27 @@
+package com.example.payroll.domain;
+
+public class Contract {
+
+    private String mPositionName;
+    private int mSalary;
+
+    public Contract(String positionName, int salary) {
+        mPositionName = positionName;
+        mSalary = salary;
+    }
+
+    public String getPositionName() {
+        return mPositionName;
+    }
+
+    public int getSalary() {
+        return mSalary;
+    }
+
+    /*
+        Not much business logic here. You can think
+        about a contract as a very simple, immutable type,
+        whose state doesn't change and that can't really
+        answer to any message, like a piece of paper.
+    */
+}

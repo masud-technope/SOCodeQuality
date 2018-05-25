@@ -1,0 +1,3 @@
+String[] arr1 = {"cat", "dog", "horse"};
+String[] arr1 = {"dog", "donkey", "horse"};
+String[] arr1 =  {"cat", "dog", "donkey", "horse"};

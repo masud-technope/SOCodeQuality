@@ -1,0 +1,3 @@
+you can get button using 
+
+String buttonName =  request.getParameter("button-name")

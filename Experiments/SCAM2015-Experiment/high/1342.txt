@@ -1,0 +1,4 @@
+double d = ...;
+BigDecimal bd = new BigDecimal(d);
+bd = bd.round(new MathContext(3));
+double rounded = bd.doubleValue();

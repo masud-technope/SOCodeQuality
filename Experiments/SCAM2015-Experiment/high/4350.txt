@@ -1,0 +1,3 @@
+public static class PerformingInterface {
+     void accept(String tagId, String traceId);
+}

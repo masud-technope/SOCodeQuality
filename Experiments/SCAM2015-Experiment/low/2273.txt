@@ -1,0 +1,12 @@
+private static void iterateBetweenDates(Date startDate,Date endDate) {
+    Calendar startCalemder = Calendar.getInstance();
+    startCalemder.setTime(startDate);
+    Calendar endCalendar = Calendar.getInstance();
+    endCalendar.setTime(endDate);
+
+    for(; startCalemder.compareTo(endCalendar)<=0;
+          startCalemder.add(Calendar.DATE, 1)) {
+        // write you main logic here
+    }
+
+}

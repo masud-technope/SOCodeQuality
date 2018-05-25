@@ -1,0 +1,21 @@
+def myfunc(num):
+    if (num > 1):
+        return 1
+    else:
+        return 0
+
+>>> dis.dis(myfunc)
+  2           0 LOAD_FAST                0 (num)
+              3 LOAD_CONST               1 (1)
+              6 COMPARE_OP               4 (>)
+              9 JUMP_IF_FALSE            5 (to 17)
+             12 POP_TOP
+
+  3          13 LOAD_CONST               1 (1)
+             16 RETURN_VALUE
+        >>   17 POP_TOP
+
+  5          18 LOAD_CONST               2 (0)
+             21 RETURN_VALUE
+             22 LOAD_CONST               0 (None)
+             25 RETURN_VALUE

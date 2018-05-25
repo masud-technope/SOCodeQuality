@@ -1,0 +1,4 @@
+import static fj.data.List.list;
+import static fj.pre.Monoid.stringMonoid;
+...
+String abc = stringMonoid.join(list("a", "b", "c"), ",");

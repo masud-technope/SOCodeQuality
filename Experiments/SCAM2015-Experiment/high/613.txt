@@ -1,0 +1,21 @@
+public class Words {
+    static char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+
+    static void generate(StringBuilder sb, int n) {
+        if (n == sb.length()) {
+            System.out.println(sb.toString());
+            return;
+        }
+        for (char letter : alphabet) {
+            sb.setCharAt(n, letter);
+            generate(sb, n + 1);
+        }
+    }
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder();
+        for (int length = 2; length <= 5; length++) {
+            sb.setLength(length);
+            generate(sb, 0);
+        }
+    }
+}

@@ -1,0 +1,6 @@
+JARS=""
+for jar in /home/guest/lib/* # Loop through all the jar files
+do
+    JARS="$JARS:$jar"        # Append the jar file to the variable
+done 
+java -cp "$JARS" ...

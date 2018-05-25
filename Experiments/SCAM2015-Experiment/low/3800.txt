@@ -1,0 +1,4 @@
+public void updateMethod() {
+    int newValue = .....;
+    MySingleton.getInstance().setValue(newValue);
+ }

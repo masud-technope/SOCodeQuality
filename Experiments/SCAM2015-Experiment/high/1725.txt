@@ -1,0 +1,23 @@
+<groupId>foo</groupId>
+<artifactId>bar</artifactId>
+<version>1.0</version>
+
+<properties>
+    <!-- default classifier is empty -->
+    <my.project.classifier></my.project.classifier>
+</properties>
+
+<build>
+...
+<plugins>
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    <version>2.3.1</version>
+    <configuration>
+      <classifier>${my.project.classifier}</classifier>
+    </configuration>
+    <executions>...</executions>
+  </plugin>
+</plugins>
+</build>

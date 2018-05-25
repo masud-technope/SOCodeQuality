@@ -1,0 +1,51 @@
+package versione1;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class WhiteEnter {
+    final JFrame frame = new JFrame();
+    private JTextArea area = new JTextArea();
+
+
+    public static void main(String[]args) {
+
+        WhiteEnter prova = new WhiteEnter();
+        prova.run();
+    }
+
+    public void run(){
+        area.setPreferredSize(new Dimension(200, 200));
+        area.addKeyListener(new PressEnterKeyListener());
+
+        frame.add(area);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    public class PressEnterKeyListener implements KeyListener{
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+        }
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+            if (e.getKeyChar() == (KeyEvent.VK_ENTER)){
+                try{
+                    area.setText(null);
+                    area.setCaretPosition(0);
+                } catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+}

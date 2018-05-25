@@ -1,0 +1,3 @@
+public static final BigInteger ZERO = BigInteger.ZERO;
+public static final BigInteger ONE = BigInteger.ONE;
+public static final BigInteger TEN = BigInteger.TEN;

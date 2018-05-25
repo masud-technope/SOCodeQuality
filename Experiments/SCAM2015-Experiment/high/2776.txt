@@ -1,0 +1,5 @@
+byte[] dst = new byte[256];
+String foo = "foo";
+byte[] src = foo.getBytes("utf-8");
+dst[0] = src.length;
+System.arraycopy(src, 0, dst, 1, src.length);

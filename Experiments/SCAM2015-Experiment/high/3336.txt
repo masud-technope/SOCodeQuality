@@ -1,0 +1,3 @@
+Runtime rm = Runtime.getRuntime();
+
+rm.exec("launch_browser.bat");

@@ -1,0 +1,7 @@
+public static String arrayToString (String[] array) {
+    StringBuilder result = new StringBuilder();
+    for (String value : array) {
+        result.append(value);
+    }
+    return StringBuilder.toString();
+}

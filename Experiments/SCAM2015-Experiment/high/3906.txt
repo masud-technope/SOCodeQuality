@@ -1,0 +1,5 @@
+double val = 4593.78 ;
+ double result = val / 10;
+ DecimalFormat df = new DecimalFormat("#.##");
+ df.setRoundingMode(RoundingMode.DOWN);
+ System.out.println(df.format(result));

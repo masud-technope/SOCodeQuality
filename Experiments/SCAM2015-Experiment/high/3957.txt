@@ -1,0 +1,23 @@
+public class MyMethod
+{
+
+   public static int Asterisk(int loRange, int hiRange)
+      {
+           // Do magic let's make a sum for this example
+
+           // You enter loRange and hiRange (you defined it above)
+
+
+            return loRange + hiRange // Here the method returns a result
+
+      }
+}
+
+// So then....
+
+public static void main(String [] args)
+        {
+            // WHATEVER IS IN HERE RUNS ALWAYS FIRST.
+          z = Asterisk(1,2); // 1 and 2 is lo and hi range values ;)
+            // Z has a value of 3 now because Asterisk(1,2) returns 1 + 2
+        }

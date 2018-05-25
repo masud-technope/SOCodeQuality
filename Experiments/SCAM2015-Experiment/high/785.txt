@@ -1,0 +1,3 @@
+import static com.google.common.base.CaseFormat.*;
+
+String result = LOWER_HYPHEN.to(LOWER_CAMEL, "do-some-stuff");

@@ -1,0 +1,3 @@
+public class ValueType {
+       public static final TextTransformable<ValueType> CONVERT = ....
+ }

@@ -1,0 +1,45 @@
+CREATE FUNCTION dbo.IdentifyIfInRange 
+    (
+        -- Add the parameters for the function here
+        @Field1 float
+        ,@Field2 float
+        ,@low float
+        ,@high float
+    )
+    RETURNS float
+    AS
+    BEGIN
+        -- Declare the return variable here
+        DECLARE @ResultVar float
+        SET @ResultVar = NULL
+        -- Add the T-SQL statements to compute the return value here
+        IF @Field2 BETWEEN @low and @high
+            BEGIN 
+                SET @ResultVar=@Field1 
+            END
+        -- Return the result of the function
+        RETURN @ResultVar
+
+    END
+
+-- Do a join:
+
+        SELECT Table_Sensor.sensor_id
+         , Table_Sensor.sensor_name
+         , Table_Sensor_Detection.azimuth
+         , dbo.IdentifyIfInRange( 
+    Table_Sensor_Detection.azimuth || Table_Sensor.sensor_id, Table_Sensor_Detection.azimuth, low_degs, high_degs ) AS acceptable_azimuth_or_id
+        FROM Table_Sensor 
+         INNER JOIN Table_Sensor_Detection 
+          ON Table_Sensor_Detection.sensor_id= Table_Sensor.sensor_id
+        WHERE Table_Sensor.sensor_id IN ( sensor_ids )
+
+-- OR TO Limit to only the acceptable sensorset
+
+        SELECT Table_Sensor.sensor_id
+         , Table_Sensor.sensor_name
+         , Table_Sensor_Detection.azimuth
+        FROM Table_Sensor 
+         INNER JOIN Table_Sensor_Detection 
+          ON Table_Sensor_Detection.sensor_id= Table_Sensor.sensor_id
+        WHERE Table_Sensor.sensor_id IN ( sensor_ids ) and Table_Sensor.sensor_id = dbo.IdentifyIfInRange( Table_Sensor.sensor_id, Table_Sensor_Detection.azimuth, low_degs, high_degs )

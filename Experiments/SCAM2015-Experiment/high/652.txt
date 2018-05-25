@@ -1,0 +1,5 @@
+public String toString() {
+  return "HouseVo [ "
+  + "Name  :  " + (this.name == null ? "" : this.name)
+  + "Address  :  " + (this.address == null ? "" : this.address)
+}

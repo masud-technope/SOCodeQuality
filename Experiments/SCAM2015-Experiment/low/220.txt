@@ -1,0 +1,9 @@
+public enum Direction
+{
+    NORTH,EAST,SOUTH,WEST;
+
+    public Direction opposite()
+    {
+        return Direction.values()[ (this.ordinal() + 2) & 3 ];
+    }
+}

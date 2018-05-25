@@ -1,0 +1,21 @@
+int totalLength = numberOfIntsInBuffer;
+ByteBuffer myBuffer = whateverMyBufferIsCalled;
+int[] block = new int[1024];
+IntBuffer intBuff = myBuffer.asIntBuffer();
+int partialLength = totalLength/1024;
+
+//Handle big blocks of 1024 ints at a time
+try{
+  for (int i = 0; i < partialLength; i++) {
+     intBuff.get(block);
+     // Do processing on ints, w00t!
+  }
+
+  partialLength = totalLength % 1024; //modulo to get remainder
+  if (partialLength > 0) {
+    intBuff.get(block,0,partialLength);
+    //Do final processing on ints
+  }
+} catch BufferUnderFlowException bufo {
+   //well, dang!
+}

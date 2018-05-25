@@ -1,0 +1,3 @@
+AddActivityCustomList adapter=listView.getAdapter();
+adapter.add(add_act_title.getText().toString());
+adapter.notifyDataSetChanged();

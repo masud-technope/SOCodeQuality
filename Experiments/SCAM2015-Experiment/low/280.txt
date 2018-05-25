@@ -1,0 +1,9 @@
+InetSocketAddress socketAddress = new InetSocketAddress("localhost", 2121);
+
+if (networkInterfaceName != null){
+        NetworkInterface ni = NetworkInterface.getByName(networkInterfaceName);
+socket.joinGroup(this.socketAddress, ni);
+
+}else {
+   socket.joinGroup(socketAddress.getAddress());
+}

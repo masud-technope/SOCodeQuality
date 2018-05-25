@@ -1,0 +1,9 @@
+class Generic<T>
+{
+    public T type;
+
+    public Generic(T obj)
+    {
+        type = obj;
+    }
+}

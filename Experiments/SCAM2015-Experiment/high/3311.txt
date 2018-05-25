@@ -1,0 +1,3 @@
+JARS=(/home/guest/lib/*)  # Put all the jars in an array 
+IFS=:                     # Set the field separator to :
+java -cp "${JARS[*]}" ... # Join all the array elements on the field separator

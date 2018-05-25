@@ -1,0 +1,12 @@
+class Base {
+   public void callFoo() {
+     foo();
+   }
+   private void foo() {
+   }
+}
+
+class Child extends Base {
+    private void foo() {
+    }
+}

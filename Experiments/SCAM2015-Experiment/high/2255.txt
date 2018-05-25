@@ -1,0 +1,5 @@
+if(driver.findElements(By.xpath("value")).size() != 0){
+System.out.println("Element is Present");
+}else{
+System.out.println("Element is Absent");
+}

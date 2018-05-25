@@ -1,0 +1,7 @@
+try {
+
+        System.out.println("Today: " + dateFormat.format(calendar.getTime()));
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }

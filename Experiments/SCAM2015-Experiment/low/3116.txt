@@ -1,0 +1,4 @@
+class c {
+    public void f(List<? extends A> list);
+    public void f(List<A> list);
+}

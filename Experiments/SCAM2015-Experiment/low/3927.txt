@@ -1,0 +1,3 @@
+DataInputStream br=new DataInputStream(System.in);
+System.out.println("input a number");
+int n=Integer.parseInt(br.readLine(System.in));

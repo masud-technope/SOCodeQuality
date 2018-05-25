@@ -1,0 +1,4 @@
+tiles[0] = null;
+tiles[1] = null;
+...
+tiles[9] = null;

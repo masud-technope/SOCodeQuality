@@ -1,0 +1,5 @@
+private static class IntegerArrayList extends ArrayList<Integer> {
+    IntegerArrayList () { super(); }
+    IntegerArrayList (Collection<? extends Integer> c) { super(c); }
+    IntegerArrayList (int initialCapacity) { super(initialCapacity); }
+}

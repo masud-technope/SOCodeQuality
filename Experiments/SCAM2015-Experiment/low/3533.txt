@@ -1,0 +1,3 @@
+double valToRound = 172.485 - 4119.7;   
+DecimalFormat df = new DecimalFormat("#.###");
+System.out.println(df.format(valToRound));

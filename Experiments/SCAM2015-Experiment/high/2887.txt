@@ -1,0 +1,16 @@
+public static void test(BufferedReader r, PrintWriter w) throws IOException {
+
+    String[] prev22 = new String[22];
+    String line;
+    int n = 0;
+    while ((line = r.readLine()) != null) {
+        prev22[n % 22] = line;
+        if(line.trim() == null){
+            w.println(prev22[n-22 % 22]);
+        }
+        else{
+            w.println(line);
+        }
+        n++;
+    }
+}

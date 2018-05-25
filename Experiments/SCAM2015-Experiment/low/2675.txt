@@ -1,0 +1,15 @@
+Try{
+String yourSQL="insert into Table1(Id,Col2,Col3) values(SEQ.nextval,?,?)";
+myPrepStatement = <Connection>.prepareStatement(yourSQL, Statement.RETURN_GENERATED_KEYS);
+myPrepStatement.setInt(1, 123); 
+myPrepStatement.setInt(2, 123); 
+
+myPrepStatement.executeUpdate();
+ResultSet rs = getGeneratedKeys;
+if(rs.next()) {
+  java.sql.RowId rid=rs.getRowId(1); 
+  //what you get is only a RowId ref, try make use of it anyway U could think of
+  System.out.println(rid);
+}
+} catch (SQLException e) {
+}

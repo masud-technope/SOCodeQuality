@@ -1,0 +1,6 @@
+// this is overloading
+class A {
+   void method(boolean b) {..}
+   void method(String arg) {..}
+   void method(int arg) {..}
+}

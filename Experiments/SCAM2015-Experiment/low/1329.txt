@@ -1,0 +1,5 @@
+imgResult.setOnTouchListener(new OnClickListener() {           
+                public void onClick(View v) {    
+        System.out.println("Somethog is touched");    
+      }    
+    });

@@ -1,0 +1,9 @@
+class Foo {
+    int x;
+    String s;
+    private setS(String s) { this.s=s;this.x=s.length();}
+
+    Foo(String s) {
+            setS(s);
+    }
+}

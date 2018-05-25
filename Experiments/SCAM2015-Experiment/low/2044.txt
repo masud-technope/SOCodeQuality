@@ -1,0 +1,5 @@
+@echo
+setpath d:\jre
+d:
+cd myprogfolder
+java myprogram

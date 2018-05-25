@@ -1,0 +1,3 @@
+if (conditionA && conditionB) { return true; }
+
+if (conditionA && !conditionB) { return false;}

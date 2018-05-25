@@ -1,0 +1,4 @@
+try it
+int[] Values = new int[]{ 5, 12, 4, 2, 4 };
+    int Size = Values.length;
+    Log.i(Integer.toString(Size));

@@ -1,0 +1,20 @@
+public MyClass( String varA, String varB, int varC )
+{
+  if ( varA == null )
+  {
+    this.varA = '(empty)';
+  }
+  else
+  {
+    this.varA = varA;
+  }
+
+  this.varB = varB;
+
+  if ( varC < 0 )
+  {
+    callSomeMethod();
+  }
+
+  this.varC = varC;
+}

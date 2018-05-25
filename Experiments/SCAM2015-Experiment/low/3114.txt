@@ -1,0 +1,5 @@
+var x = 0;
+do {
+    if (x % 2 != 0) System.out.println(x);
+    x++;
+} while (x < 10);

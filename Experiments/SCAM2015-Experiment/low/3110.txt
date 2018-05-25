@@ -1,0 +1,9 @@
+double d;        
+    int whole = (int) d;
+    if(whole == d){
+        return whole;
+    }
+    else{
+        (your formatting here)
+        return formattedDouble;
+    }

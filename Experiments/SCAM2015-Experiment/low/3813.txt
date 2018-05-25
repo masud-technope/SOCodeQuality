@@ -1,0 +1,37 @@
+protected void displayNotification() {
+  Log.i("Start", "notification");
+
+  /* Invoking the default notification service */
+  NotificationCompat.Builder  mBuilder = 
+  new NotificationCompat.Builder(this); 
+
+  mBuilder.setContentTitle("New Message");
+  mBuilder.setContentText("You've received new message.");
+  mBuilder.setTicker("New Message Alert!");
+  mBuilder.setSmallIcon(R.drawable.woman);
+
+  /* Increase notification number every time a new notification arrives */
+  mBuilder.setNumber(++numMessages);
+
+  /* Creates an explicit intent for an Activity in your app */
+  Intent resultIntent = new Intent(this, NotificationView.class);
+
+  TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+  stackBuilder.addParentStack(NotificationView.class);
+
+  /* Adds the Intent that starts the Activity to the top of the stack */
+  stackBuilder.addNextIntent(resultIntent);
+  PendingIntent resultPendingIntent =
+     stackBuilder.getPendingIntent(
+        0,
+        PendingIntent.FLAG_UPDATE_CURRENT
+     );
+
+  mBuilder.setContentIntent(resultPendingIntent);
+
+  mNotificationManager =
+  (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+  /* notificationID allows you to update the notification later on. */
+  mNotificationManager.notify(notificationID, mBuilder.build());
+  }

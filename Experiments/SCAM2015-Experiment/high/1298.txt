@@ -1,0 +1,25 @@
+firstRow = 0, lastRow = N - 1 // Bounds of the grid
+firstCol = 0, lastCol = N - 1
+
+dRow = 0  // Amount to move in the Y direction
+dCol = 1  // Amount to move in the X direction
+
+row = 0   // Current position
+col = 0
+
+for each character ch in the string:
+    Write character ch to position (row, col).
+
+    // See if we're blocked and need to turn.
+    If (row + dRow, col + dCol) is not contained in the rectangle [firstRow, lastRow] x [firstCol, lastCol]:
+        // Based on which way we are currently facing, adjust the bounds of the world.
+        If moving left,  increment firstRow
+        If moving down,  decrement lastCol
+        If moving right, decrement lastRow
+        If moving up,    increment firstCol
+
+        Rotate 90 degrees
+
+    // Finally, move forward a step.
+    row += dRow
+    col += dCol

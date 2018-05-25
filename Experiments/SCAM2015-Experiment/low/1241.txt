@@ -1,0 +1,11 @@
+public void setColumnEditable(int columnIndex,boolean editable){
+    if(editable){
+        if(!columnsEditable.contains(new Integer(columnIndex))){
+            columnsEditable.add(new Integer(columnIndex));
+        }
+    }else{
+        if(columnsEditable.contains(new Integer(columnIndex))){
+            columnsEditable.remove(new Integer(columnIndex));
+        }
+    }
+}

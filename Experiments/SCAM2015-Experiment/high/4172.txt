@@ -1,0 +1,10 @@
+private static void printIt(int n) {
+  System.out.println(n);
+
+  if (n < 100)
+    printIt(n + 1);
+}
+
+...
+
+printIt(1);

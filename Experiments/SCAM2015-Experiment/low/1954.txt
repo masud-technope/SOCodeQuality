@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+
+public class dmar {
+
+public static void main ( String  []  srgs){
+
+    Scanner dmar=new Scanner(System.in);{
+
+        {
+
+System.out.println ( "inter number of x  plz") ;
+
+double x=dmar.nextDouble();
+
+System.out.println ( "inter number of y plz") ;{
+
+
+double y=dmar.nextDouble();
+
+System.out.println ( "inter number of t  plz") ;
+double t=dmar.nextDouble();
+
+System.out.println ( "inter number of f  plz") ;
+double f=dmar.nextDouble();
+
+{
+
+{
+if (x>y);
+
+System.out.println("x biger than y");
+
+
+if (x>t);
+System.out.println("x biger than t");
+
+ if (x>f);
+
+System.out.println("x biger than f");
+
+
+ if (y>x);
+System.out.println("y biger than x");
+
+
+
+if (y>t);
+System.out.println("y biger than t");
+
+ if (y>f);
+System.out.println("y biger than f");
+
+if (t>x&t>f&t>y);
+System.out.println("t biger than x");
+
+if (t>y);
+System.out.println("t biger than y");
+
+if (t>f);
+System.out.println("t biger than f");
+
+ if (f>x);
+System.out.println("f biger than x");
+
+
+if (f>y);
+System.out.println("f biger than y");
+
+
+         if (f>t);
+System.out.println("f biger than t");
+
+}

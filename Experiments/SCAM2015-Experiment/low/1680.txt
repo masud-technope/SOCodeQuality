@@ -1,0 +1,3 @@
+public static <T> List<T> asList(T... a) {
+    return new ArrayList<T>(a);
+}

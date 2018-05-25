@@ -1,0 +1,4 @@
+var Date1 = new Date(dateObject1.toDateString()); //this sets time to 00:00:00
+var Date2 = new Date(dateObject2.toDateString()); 
+//do a normal compare
+if(Date1 > Date2){ //do something }

@@ -1,0 +1,4 @@
+<activity
+        android:name=".A"
+        android:label="@string/app_name"
+        android:noHistory="true" >

@@ -1,0 +1,5 @@
+static class Global {
+
+    public int globalStuff = 0;
+
+}

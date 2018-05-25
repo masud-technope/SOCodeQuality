@@ -1,0 +1,9 @@
+public EServer (int port) 
+        throws IOException 
+{
+    // 'backlog' is in fact a listening queue length. 
+    // if more than 2 socket requests are made at a time,
+    // they are refused. probably want to parameterize 
+    // this :)
+    serverSocket = new ServerSocket (port, 2); 
+}

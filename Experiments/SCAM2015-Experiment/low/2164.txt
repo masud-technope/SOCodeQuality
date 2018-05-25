@@ -1,0 +1,29 @@
+//Service interface
+public interface Service {
+  //Service specific methods here
+}
+
+//Class for service registration and access
+public class Services {
+  private Services(){}
+
+  private static final Map<String, Service> services =
+    new ConcurrentHashMap<String, Service>();
+  public static final String DEFAULT_SERVICE_NAME = "<def>";
+
+  //Registration
+  public static void registerDefaultService(Provider p) {
+    registerService(DEFAULT_SERVICE_NAME, p);
+  }
+  public static void registerService(String name, Provider p) {
+    services.put(name, p);
+  }
+
+  //Access
+  public static Service getInstance() {
+    return newInstance(DEFAULT_SERVICE_NAME);
+  }
+  public static Service getInstance(String name) {
+     // you get the point..lookup in the map the service by name
+     // and return it;
+  }

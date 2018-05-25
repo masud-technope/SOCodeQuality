@@ -1,0 +1,4 @@
+<bean id="accountService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+    <property name="serviceUrl" value="rmi://HOST:1199/AccountService"/>
+    <property name="serviceInterface" value="example.AccountService"/>
+</bean>

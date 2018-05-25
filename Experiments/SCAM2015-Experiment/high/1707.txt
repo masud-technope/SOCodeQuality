@@ -1,0 +1,3 @@
+JSONObject object = new JSONObject(json);
+double lng = object.getDouble("location.lng");
+double lat = object.getDouble("location.lat");

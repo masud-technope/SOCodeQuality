@@ -1,0 +1,28 @@
+public class Vec2<T> {
+
+    private final BinaryOperator<T> adder;
+
+    private T x, y;
+
+    private Vec2(BinaryOperator<T> adder, T x, T y) {
+        this.adder = adder;
+        this.x = x;
+        this.y = y;
+    }
+
+    public void addX(T xa) {
+        x = adder.apply(x, xa);
+    }
+
+    public void addY(T ya) {
+        y = adder.apply(y, ya);
+    }
+
+    public static Vec2<Integer> ofInt(Integer x, Integer y) {
+        return new Vec2<>(Integer::sum, x, y);
+    }
+
+    public static Vec2<Double> ofDouble(Double x, Double y) {
+        return new Vec2<>(Double::sum, x, y);
+    }
+}

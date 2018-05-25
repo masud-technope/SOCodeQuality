@@ -1,0 +1,5 @@
+for (int i = 0; i < list.length-1; i++) {
+    str = str + list[i];
+    str = str + ",";    
+}
+str = str + list[list.length-1]

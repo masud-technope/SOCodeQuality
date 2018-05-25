@@ -1,0 +1,3 @@
+Element Element_childnode      = document.createElement("childnode");//create child node                
+Element_childnode.appendChild(document.createTextNode("Enter the value of text here"));//add data to child node
+Element_root.appendChild(Element_childnode);//close the child node

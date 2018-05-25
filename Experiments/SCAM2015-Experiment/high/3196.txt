@@ -1,0 +1,4 @@
+public static <T> boolean oneValue(java.util.List<T> in) {
+   // A one-liner.
+   return (in == null) ? false : new java.util.HashSet<T>(in).size() == 1;
+}

@@ -1,0 +1,10 @@
+private static double f(double i, double j) { // make i and j ints, they do not need to be doubles here.
+    if (i == 0.0 && j == 0.0) return 0.0;
+    if (i == 0.0 || j == 0.0) return 1.0;
+    if (storageMatrix[i, j] != -1) {
+      return storageMatrix[i, j];
+    }
+
+    storageMatrix[i, j] = (1.0 / 3) * (f(i - 1, j) + f(i - 1, j - 1) + f(i, j - 1));
+    return storageMatrix[i, j];
+}

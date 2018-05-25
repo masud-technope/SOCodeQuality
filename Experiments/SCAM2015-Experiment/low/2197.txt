@@ -1,0 +1,8 @@
+DateAdded: {
+                        title: 'Date added',
+                        width: '20%',
+                        sorting: false,
+                        display: function (data) {
+                            return moment(data.record.DateAdded).format('DD/MM/YYYY HH:mm:ss');
+                        }
+                    }

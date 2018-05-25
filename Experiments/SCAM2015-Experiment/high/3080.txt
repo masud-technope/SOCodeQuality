@@ -1,0 +1,68 @@
+public class MainActivity extends Activity {
+
+    //URL to get JSON Array
+    private static String url = "http://api.worldbank.org/countries/ir?format=json";
+
+    //JSON node Names
+    private static final String PAGE = "page";
+    private static final String VALUE = "value";
+    private static final String NAME = "name";
+    private static final String GEO = "region";
+
+    JSONArray page = null;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        new GetJSONTask().execute(url);
+
+        // do not parse here..
+        ...
+        ...
+    }
+    ...
+    ...
+
+    class GetJSONTask extends AsyncTask<String, Void, JSONObject> {
+
+
+        protected JSONObject doInBackground(String... urls) {
+            try {
+                JSONParser jParser = new JSONParser();
+                return jParser.getJSONFromUrl(urls[0]);
+            } catch (Exception e) {
+                return null;
+            }
+        }
+
+        protected void onPostExecute(JSONObject json) {
+            // do all the parsing here:
+            try {
+                //Getting JSON Array
+                page = json.getJSONArray(PAGE);
+                JSONObject c = page.getJSONObject(0);
+
+                //Sorting JSON item in a Variable
+                String value = c.getString(VALUE);
+                String name = c.getString(NAME);
+                String geo = c.getString(GEO);
+
+                //Importing to TextView
+                final TextView id1 = (TextView) findViewById(R.id.id);
+                final TextView name1 = (TextView) findViewById(R.id.name);
+                final TextView geo1 = (TextView) findViewById(R.id.geo);
+
+                //set JSON Data in TextView
+                id1.setText(value);
+                name1.setText(name);
+                geo1.setText(geo);
+            }
+            catch (JSONException e)
+            {
+                e.printStackTrace();
+            }
+        } 
+    }
+}

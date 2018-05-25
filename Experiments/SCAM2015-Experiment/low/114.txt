@@ -1,0 +1,11 @@
+public boolean sameClassAs(Object o) {
+    boolean same = false;
+    try {
+        E t = (E)o;
+        same = true;
+    } catch (ClassCastException e) {
+        // same is false, nothing else to do
+    } finally {
+        return same;
+    }
+}

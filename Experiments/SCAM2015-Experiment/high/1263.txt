@@ -1,0 +1,4 @@
+if (!inventory.containsKey(item))
+    inventory.put(item, 0);
+
+inventory.put(item, inventory.get(item) + 1);

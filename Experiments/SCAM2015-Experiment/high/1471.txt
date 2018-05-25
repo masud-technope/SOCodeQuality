@@ -1,0 +1,3 @@
+while(doingWork && !Thread.isInterrupted() {
+  // do the work
+}

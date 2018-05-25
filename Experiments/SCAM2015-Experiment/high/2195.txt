@@ -1,0 +1,4 @@
+public static void main(String[] args) {
+    System.out.println(filterEmails("Orange, pizza whatever else joe@somewhere.com a lot of text here. Blahblah blah with Luke Skywalker (luke@starwars.com) hfkjdsh fhdsjf jdhf Paulo <aaa.aaa@bgf-ret.com.br>"));
+    System.out.println(filterWebsites("Orange, pizza whatever else joe@somewhere.com a lot of text here. Blahblah blah with Luke Skywalker (http://luke.starwars.com/force) hfkjdsh fhdsjf jdhf Paulo <https://darth.vader/blackside?sith=true&midclorians> And the http://www.somewhere.com as x."));
+}

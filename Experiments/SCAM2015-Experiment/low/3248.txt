@@ -1,0 +1,8 @@
+if(x % 2 == 0) // remainder is 0 when divided by 2
+{
+//even num
+}
+else
+{
+//odd num
+}

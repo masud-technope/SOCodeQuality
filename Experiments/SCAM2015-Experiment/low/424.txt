@@ -1,0 +1,3 @@
+Date newDate = new Date();
+newDate.setDate(newDate.getDate()+1);
+System.out.println(newDate);

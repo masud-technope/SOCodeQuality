@@ -1,0 +1,4 @@
+if (_dbImage == null) {
+_dbImage = createImage(getSize().width, getSize().height);
+_dbGraphics = (Graphics2D)_dbImage.getGraphics();
+}

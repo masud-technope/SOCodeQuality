@@ -1,0 +1,11 @@
+for (int i = 0; i < r; ) {
+    for (int j = 0; j < c; ) {
+            int n = (int)(Math.random()*(474))+1;
+                if(!myList.contains(n)) {
+                    myList.add(n);
+                    myList.add(n);
+                    i++;
+                    j = j+2;
+                }
+    }
+}

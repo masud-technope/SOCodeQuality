@@ -1,0 +1,6 @@
+Set<Record> allItems = new HashSet<>();
+allItems.addAll(arrayList1);
+allItems.addAll(arrayList2);
+// .. allItems contains a unique set of items from the two lists.
+// Convert back to an ArrayList with List<Item> newList = new ArrayList<>(allItems);
+// if you like.

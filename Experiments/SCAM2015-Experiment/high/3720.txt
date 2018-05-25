@@ -1,0 +1,5 @@
+try (FileOutputStream fos = new FileOutputStream("someName.xml")) {
+  fos.write(bos.toByteArray());
+} catch (IOException ioe) {
+  ioe.printStackTrace();
+}

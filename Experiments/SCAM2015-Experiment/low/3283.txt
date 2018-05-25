@@ -1,0 +1,28 @@
+import java.math.*;
+import java.util.Scanner;
+
+public class Triangle
+{
+private double A, B, C, D, h;
+public double x1, x2, x3, y1, y2, y3;
+public double lengthA, lengthB, lengthC;
+private double angleA, angleB, angleC;
+private double calcPerimeter, calcArea, getHeight;
+
+//Create new Triangle
+public Triangle(double x1,double x2,double y1,double y2,double x3, double y3){
+    this.x1=x1;
+    this.y1=y1;
+    this.x2=x2;
+    this.y2=y2;
+    this.x3=x3;
+    this.y3=y3;
+}
+
+//to get length of a (AB) use A = (x1, y1) & B = (x2,y2)
+public double getLengthC(){
+double distance = Math.sqrt((Math.pow((x1-x2),2))+(Math.pow((y1-y2),2)));
+System.out.println(distance);
+return distance;
+}
+}

@@ -1,0 +1,5 @@
+String dataResourceDirectory = "raw";
+String dataResoruceFilename = "nicemusic";
+
+Uri uri=Uri.parse("android.resource://" + getPackageName() + "/" + 
+                  dataResourceDirectory + "/" + dataResoruceFilename);

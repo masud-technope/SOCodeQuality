@@ -1,0 +1,8 @@
+final Path path = FileSystems.getDefault().getPath("test.txt");  // working directory
+try (final Reader r = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
+    String line = null;        
+    while ((line = r.readLine()) != null) {
+        System.out.println(line);
+    }
+}  // No need for catch; let IOExceptions bubble up.
+   // No need for finally; try-with-resources auto-closes.

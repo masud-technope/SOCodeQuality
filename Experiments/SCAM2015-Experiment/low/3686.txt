@@ -1,0 +1,24 @@
+public boolean StringContains(String full, String part) {
+    long st = System.currentTimeMillis();
+    if(full == null || full.trim().equals("")){
+        return false;
+    }
+    if(part == null ){
+        return false;
+    }
+    char[] fullChars = full.toCharArray();
+    char[] partChars = part.toCharArray();
+    int fs = fullChars.length;
+    int ps = partChars.length;
+    int psi = 0;
+    if(ps == 0) return true;
+    for(int i=0; i< fs-1; i++){
+        if(fullChars[i] == partChars[psi]){
+            psi++; //Once you encounter the first match, start increasing the counter
+        }
+        if(psi == ps) return true;
+    }
+    long et = System.currentTimeMillis()- st;
+    System.out.println("StringContains time taken =" + et);
+    return false;
+}

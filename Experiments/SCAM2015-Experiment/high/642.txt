@@ -1,0 +1,6 @@
+public void m1(@CheckForNull String text) {
+    if(_closed) // FindBugs: text must be nonnull but is marked as nullable
+        System.out.println(text.toUpperCase());
+    else
+        System.out.println(text.toLowerCase());
+}

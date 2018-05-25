@@ -1,0 +1,5 @@
+public int compare(HashMap<String, String>> lhs,
+        HashMap<String, String>> rhs) {
+    return Integer.compare(Integer.parseInt(lhs.get("number")),
+        Integer.parseInt(rhs.get("number")));
+}

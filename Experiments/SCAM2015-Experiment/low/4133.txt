@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Inheritance {
+    public static void main(String[] args) {
+        //create a list to hold all animals
+        List<Animal> animals = new ArrayList<Animal>();
+
+        //add animals
+        animals.add(new Animal());
+        animals.add(new Dog());
+        animals.add(new Cat());
+
+        for (Animal a:animals) {
+
+            //Use instanceof to determine type of object
+
+            if(a instanceof Dog){
+                Dog dog = (Dog)a;
+                dog.displayDog();
+            }else if (a instanceof Cat) {
+                Cat cat = (Cat)a;
+                cat.displayCat();
+            }else{
+                a.display();
+            }
+        }
+
+
+    }
+
+}
+
+class Animal{
+    public void display(){
+        System.out.println("This is a Animal");
+    }
+}
+
+class Dog extends Animal{
+    public void displayDog(){
+        System.out.println("This is a Dog");
+    }
+}
+
+class Cat extends Animal{
+    public void displayCat(){
+        System.out.println("This is a Cat");
+    }
+}

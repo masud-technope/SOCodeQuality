@@ -1,0 +1,4 @@
+<Location />
+   AddOutputFilterByType SUBSTITUTE text/xml
+   Substitute "s|http://internal:8080/foo|https://external/foo|ni"
+</Location>

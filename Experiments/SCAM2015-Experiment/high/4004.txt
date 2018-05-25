@@ -1,0 +1,3 @@
+if (a > Collections.max(list)) {
+   //a is higher than anything in list
+}

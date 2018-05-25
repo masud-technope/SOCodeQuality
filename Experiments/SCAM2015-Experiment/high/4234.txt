@@ -1,0 +1,17 @@
+import java.util.*;
+public class squarefree {
+
+    public static void main(String[] args) {
+        int i, j, k;
+
+        for(i=1; i<=59; i++){
+            k=1;
+            for(j=2; j<i; j++)
+                if(i % (j*j) == 0)
+                    k=0; 
+            if (k != 0)
+                System.out.println(i);
+        }
+        System.out.println(i);
+    }
+}

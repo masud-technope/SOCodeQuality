@@ -1,0 +1,26 @@
+public class Calculator {
+    public static void main(String args []){
+
+        int x=10,y=5,add,sub,div,mul;
+
+        switch (4) {
+        case 1:
+            add=x+y;
+            System.out.print("add :"+add);
+            break;
+        case 2:
+            sub=x-y;
+            System.out.print("sub :"+sub);
+            break;
+        case 3:
+            mul=x*y;
+            System.out.print("mul:"+mul);
+            break;
+        case 4:
+            div=x/y;
+            System.out.print("div:"+div);           
+        default:
+            System.out.print("invailid");
+        }
+    }
+}

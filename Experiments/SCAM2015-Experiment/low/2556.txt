@@ -1,0 +1,6 @@
+public static int length(BufferedImage bi)
+{
+    int x;
+    x=bi.getHeight()*bi.getWidth();
+    return x;
+}

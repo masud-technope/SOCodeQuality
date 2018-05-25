@@ -1,0 +1,5 @@
+if (BaseClass.isAnInstance(object))
+{
+    // Class of object is 'BaseClass' or
+    // it extends the 'BaseClass'
+}

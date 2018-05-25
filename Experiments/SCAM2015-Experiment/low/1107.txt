@@ -1,0 +1,4 @@
+synchronized(mList){
+    mList.add(1, drawableElem);
+    ...
+}

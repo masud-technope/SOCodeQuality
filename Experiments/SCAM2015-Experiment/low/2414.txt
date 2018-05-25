@@ -1,0 +1,3 @@
+Text=Text.replace(" red ", " blue ");
+Text=Text.replace(" red<"," blue<");
+Text=Text.replace(" red.", " blue.");

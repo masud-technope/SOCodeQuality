@@ -1,0 +1,5 @@
+List<String> list=new ArrayList<>();
+ while(scanner.hasNextLine()){
+     list.add(scanner.nextLine()); 
+
+ }

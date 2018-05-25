@@ -1,0 +1,7 @@
+long maximum = Long.signum(a) == Long.signum(b) ? Long.MAX_VALUE : Long.MIN_VALUE;
+
+if (a != 0 && (b > 0 && b > maximum / a ||
+               b < 0 && b < maximum / a))
+{
+    // Overflow
+}

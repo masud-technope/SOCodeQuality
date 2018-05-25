@@ -1,0 +1,10 @@
+YourClasss instance; // this instance has those all JPanel fields
+Method setVisible = JPanel.class.getMethod("setVisible", new Class[] {Boolean.class});
+
+List<String> numberOfFieldList = getNumbersOfFieldsToSetInvisible(); 
+
+for (String number : numerOfFieldList) {
+  Field benderPanelField = YourClass.getField("BenderPanel" + number);
+  Object fieldInYourInstance = benderPanelField.get(instance);
+  setVisible.invoke(fieldInYourInstance, Boolean.FALSE);
+}

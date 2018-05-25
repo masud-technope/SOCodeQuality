@@ -1,0 +1,5 @@
+List<Bar> bars = new ArrayList<Bar>();
+for(Foo foo: foos) {
+   // do some simple local transform of foo into a Bar.
+   bars.add(bar);
+}

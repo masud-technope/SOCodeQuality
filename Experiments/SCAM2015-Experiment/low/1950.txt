@@ -1,0 +1,10 @@
+public class NAME
+     {
+        public static final String THUNNE = "";
+        public static final String SHAATA = ""; 
+        public static final String THULLU = ""; 
+     }
+
+-------This can be replaced by--------
+
+  enum NAME{THUNNE, SHAATA, THULLU}

@@ -1,0 +1,5 @@
+public interface MyGeneralInterface {}
+public interface SpecificInterface1 implements MyGeneralInterface {}
+public interface SpecificInterface2 implements MyGeneralInterface {}
+public class SpecificClass1 implements SpecificInterface1 {}
+public class SpecificClass2 implements SpecificInterface2 {}

@@ -1,0 +1,11 @@
+Class A{
+      public static void show(){
+             SOP("class a");
+        }
+   }
+
+   Class B extends A{
+     public static void show(){
+         SOP("class B");
+     }
+   }

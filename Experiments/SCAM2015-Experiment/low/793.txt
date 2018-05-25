@@ -1,0 +1,10 @@
+public boolean isInteger(String s) {
+  boolean result = false;
+  try {
+    Integer.parseInt("-1234");
+    result = true;
+  } catch (NumberFormatException nfe) {
+    // no need to handle the exception
+  }
+  return result;
+}

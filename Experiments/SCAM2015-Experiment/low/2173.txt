@@ -1,0 +1,10 @@
+Employee e1=new Employee();
+    Employee e2=new Employee();
+    e1.setName("e1");
+    e2.setName("e2");   
+    System.out.println(e1);
+    System.out.println(e2);
+    Employee temp= new Employee();
+    temp=e1;
+    e1=e2;
+    e2=temp;

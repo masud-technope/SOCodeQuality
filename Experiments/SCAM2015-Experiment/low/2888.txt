@@ -1,0 +1,17 @@
+//Declare the timer
+Timer t = new Timer();
+//Set the schedule function and rate
+t.scheduleAtFixedRate(new TimerTask() {
+
+    @Override
+    public void run() {
+        // Call your service or broadcasting or whatever here that is going to be repeated.
+        //Called each time when 1000 milliseconds (1 second) (the period parameter)
+        // Here you can specify that this action repeat after whatever time.
+    }
+
+},
+//Set how long before to start calling the TimerTask (in milliseconds)
+0,
+//Set the amount of time between each execution (in milliseconds)
+1000);

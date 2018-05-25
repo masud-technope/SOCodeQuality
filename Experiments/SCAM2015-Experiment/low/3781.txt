@@ -1,0 +1,4 @@
+pstmt.getDate(2, sqlDate);
+      pstmt.getTime(3, sqlTime);
+      pstmt.getTimestamp(4, sqlTimestamp);
+      pstmt.executeUpdate();

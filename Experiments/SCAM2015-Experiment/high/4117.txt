@@ -1,0 +1,21 @@
+public interface Taxable{
+    public int getTax();
+}
+
+public class House implements Taxable{
+
+    //Other code you've written for House
+
+    public int getTax(){
+        return houseTax();
+    }
+}
+
+public class Shop implements Taxable{
+
+    //Other code you've written for Shop
+
+    public int getTax(){
+        return shopTax();
+    }
+}

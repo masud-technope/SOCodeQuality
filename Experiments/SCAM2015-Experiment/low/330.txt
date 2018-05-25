@@ -1,0 +1,4 @@
+public class Foo
+{
+    public static final String PROGNAME = new Foo().getClass().getName();
+}

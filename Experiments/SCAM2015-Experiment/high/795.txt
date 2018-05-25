@@ -1,0 +1,8 @@
+SimplePBEConfig config = new SimplePBEConfig(); 
+config.setAlgorithm("PBEWithMD5AndTripleDES");
+config.setKeyObtentionIterations(1000);
+config.setPassword("propertiesFilePassword");
+
+StandardPBEStringEncryptor encryptor = new org.jasypt.encryption.pbe.StandardPBEStringEncryptor();
+encryptor.setConfig(config);
+encryptor.initialize();

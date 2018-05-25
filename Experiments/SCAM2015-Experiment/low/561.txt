@@ -1,0 +1,9 @@
+//myFile should only be created using this method to ensure thread safety
+public synchronized File getMyFile(){
+  File file = new File("path/to/myfile.ext");
+  if(!file.exists()){
+     file.getParentFile().mkdirs();
+     file.createNewFile();
+  }
+  return file;
+}

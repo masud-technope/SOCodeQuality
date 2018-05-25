@@ -1,0 +1,4 @@
+Person[] people = { new Person("Fred"), new Person("Mike") };
+System.out.println(Arrays.toString(people));
+
+// Prints: [Fred, Mike]

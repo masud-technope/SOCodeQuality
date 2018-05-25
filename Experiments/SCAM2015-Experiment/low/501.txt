@@ -1,0 +1,4 @@
+// set the width on the jTextArea causing a calc of preferred height
+jtxt.setSize(table.getWidth(), Short.MAX_VALUE);
+int prefH = jtxt.getPreferredSize().height;
+table.setRowHeight(row, prefH);

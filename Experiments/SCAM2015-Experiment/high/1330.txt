@@ -1,0 +1,24 @@
+// this if/else reads "(if age >= 30 then return old) else return young"
+public String getAge() {
+    if (30 <= age)
+       return "old";
+    else
+       return "young";
+}
+
+// this ternary statement reads "return (if age >= 30 then old) else young"
+public String getAge() {
+    return (30 <= age)? "old":"young";
+}
+
+// This would be my preference
+public String getAge() {
+    // add bounds checking!
+    if (125 <= age)
+       return "You are probably dead";
+    else if (0 > age)
+       return "Hi doc brown! What's it like to travel through time?";
+    else if (30 <= age)
+       return "old";
+    return "young";
+}

@@ -1,0 +1,16 @@
+public class ReverseString {
+
+public static void main(String[] args) {
+    String a="abrakadabra";
+    String b=reverse(a);
+    System.out.print(b);
+}
+    public static String reverse(String b){
+        String j="";
+        int a=b.length();           
+        for (int x=a;x>0;x--){          
+        j=j+b.substring(x-1,x);}
+
+        return j;
+    }
+}

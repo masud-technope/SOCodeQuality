@@ -1,0 +1,101 @@
+Why we do override clone() in cloning process?
+    //clone() in Object class is protected
+    package java.lang;
+
+
+    protected native Object clone()
+            throws CloneNotSupportedException;
+
+    java.lang is default import in our java applications.
+
+Note: If parent and sub class are both in same package then the methods in parent class are directly accessible. If they are in different package,then in subclass we have to override the parent class methods to use.
+
+    Note:Object class is in java.lang package,we are using it in different package,so we have to override the clone() which is protected in Object class
+
+
+first we will look into Protected method behavior.here is sample program to understand this
+    //this class is in com.anusha.clonetrial
+    package com.anusha.clonetrial;
+
+    public class A {
+
+        public A()
+        {
+
+        }
+        protected void disp1()
+        {
+            System.out.println("class a");
+        }
+        protected void disp2()
+        {
+            System.out.println("class a");
+        }
+    }
+    //below classes are in com.anusha.Test
+    package com.anusha.Test;
+    import com.anusha.clonetrial.A;
+
+
+    class AA {
+
+
+        protected void disp1()
+        {
+            System.out.println("class aa");
+        }
+
+        protected void disp2()
+        {
+            System.out.println("class aa");
+        }
+    }
+
+    //class B derived from AA which is present in the same package
+    class B extends AA
+    {
+
+        void show()
+        {
+
+
+            System.out.println("class b");
+        }
+    }
+
+    //class C derived from A which is present in the different package
+
+    class C extends A
+    {
+
+        @Override
+        protected void disp1()
+        {
+            super.disp1();
+        }
+        void show()
+        { 
+            System.out.println("class c");
+        }
+    }
+
+    package com.anusha.Test;
+
+
+
+
+    public class CloneTest {
+
+
+        public static void main(String[] args) {
+            B b=new B();
+            C c=new C();
+            b.disp1();
+            b.disp2();
+            c.disp1();
+            c.disp2();//gives error because it is not overridden.
+
+
+        }
+
+    }

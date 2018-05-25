@@ -1,0 +1,19 @@
+class Graycode{
+    public static boolean graycheck(int one, int two){
+        int differences = 0;
+        while (one > 0 || two > 0){
+            // Checking if the rightmost bit is same
+            if ((one & 1) != (two & 1)){
+                differences++;
+            }
+            one >>= 1;
+            two >>= 1;
+        }
+        return differences == 1;
+    }
+    public static void main(String[] args){
+        int one = Integer.parseInt(args[0]);
+        int two = Integer.parseInt(args[1]);
+        System.out.println(graycheck(one,two));
+    }
+}

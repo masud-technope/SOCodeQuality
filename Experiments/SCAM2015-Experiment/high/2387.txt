@@ -1,0 +1,7 @@
+public class Resource {
+    public final double foo;
+
+    public Resource() {
+        this.foo = Math.random();
+    }
+}

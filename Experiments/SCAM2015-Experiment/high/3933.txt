@@ -1,0 +1,5 @@
+Map<String, Integer[]> personIDs = new HashMap<>(25);
+
+personIDs.put("Peter", new Integer[]{5,22,7734});
+
+personIDs.get("Peter");//returns the array 5,22,7734

@@ -1,0 +1,5 @@
+Observable.just(1)
+.doOnNext(e -> System.out.println("Action before"))
+.delay(3, TimeUnit.SECONDS)
+.doOnNext(e -> System.out.println("Action after"))
+.toBlocking().first();

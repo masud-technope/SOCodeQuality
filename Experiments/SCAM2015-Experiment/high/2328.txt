@@ -1,0 +1,3 @@
+scheduledExecutor = new ScheduledThreadPoolExecutor(128); //no more than 128 threads
+scheduledExecutor.setKeepAliveTime(10, TimeUnit.SECONDS);
+scheduledExecutor.allowCoreThreadTimeOut(true);

@@ -1,0 +1,5 @@
+Type x = value_of_x_which_meets_condition;
+  while(someCondition(x)) {
+      x = getSomehow();
+      doSomethingWith(x);
+  }

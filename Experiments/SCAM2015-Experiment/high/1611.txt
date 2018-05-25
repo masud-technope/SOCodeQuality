@@ -1,0 +1,7 @@
+public static void main(String[] args) {
+
+    Matcher m = Pattern.compile("not\\s+in").matcher("c not  in(5,6)");
+
+    if (m.find())
+        System.out.println("matches");
+}

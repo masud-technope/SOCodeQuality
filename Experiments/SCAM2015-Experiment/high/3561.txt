@@ -1,0 +1,7 @@
+boolean isExist = false;
+for(int i=0;i<val.size();i++){
+    if(val.get(i).trim().toLowerCase().equals("abcd")){
+        isExist=true;
+        break;
+    }
+}

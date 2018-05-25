@@ -1,0 +1,17 @@
+DateTime myBirthDate = new DateTime(1978, 3, 26, 12, 35, 0, 0);
+DateTime now = new DateTime();
+Period period = new Period(myBirthDate, now);
+
+PeriodFormatter formatter = new PeriodFormatterBuilder()
+    .appendYears().appendSuffix(" years, ")
+    .appendMonths().appendSuffix(" months, ")
+    .appendWeeks().appendSuffix(" weeks, ")
+    .appendDays().appendSuffix(" days, ")
+    .appendHours().appendSuffix(" hours, ")
+    .appendMinutes().appendSuffix(" minutes, ")
+    .appendSeconds().appendSuffix(" seconds")
+    .printZeroNever()
+    .toFormatter();
+
+String elapsed = formatter.print(period);
+System.out.println(elapsed + " ago");

@@ -1,0 +1,5 @@
+public class Bar {
+    Logger logger = Logger.getLogger("com.foo.Bar");
+    ...
+    logger.debug("debug message");
+}

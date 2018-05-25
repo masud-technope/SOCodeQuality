@@ -1,0 +1,43 @@
+public  Class Student(){
+  private int id;
+  private  name;
+  public Student(int id,String name){
+  this.name=name;
+  this.id=id; 
+}
+
+public void main(String[] args){
+  Student A=new Student(20,'Lily');
+  Student B=new Student(20,'Lily');
+  boolean flag=A.equals(B)//flag=flase;
+/*
+ *Although they attribute the same, but they are two different objects, they point to     different memory
+ */
+
+
+@Override
+public boolean equals(Object obj) {
+
+
+  if (obj == null) {
+    return false;
+  }
+  if (this == obj) {
+    return true;
+  }
+
+  if (this.getClass() != obj.getClass()) {
+    return false;
+  }
+  Student s=(Student)obj;
+  return new Integer(this.id).equals(new Integer(s.id))&&this.name.equals(s.name);
+  }
+
+/**
+  *Sometimes even though we Override  the equals, but we still can not determine whether   the *two objects the same,
+  *In the collection object, such as HashSet, this time we have to Override the hashoCode ()
+  */
+
+public int hashCode(){
+  return id + name.hashCode() ;
+}

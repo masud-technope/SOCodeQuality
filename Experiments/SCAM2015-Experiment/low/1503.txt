@@ -1,0 +1,11 @@
+class MyRunnable implements Runnable {
+    private final CountDownLatch latch;
+    public MyRunnable(CountDownLatch latch) {
+        this.latch = latch;
+        ...
+    } 
+    public void run() {
+        // DO STUFF
+        latch.countDown();
+    }
+}

@@ -1,0 +1,4 @@
+for (int i = 0; i < numbers1.length(); i++)
+{
+numbers1[i] %= 2;
+}

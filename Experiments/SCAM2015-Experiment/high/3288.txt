@@ -1,0 +1,5 @@
+Pattern p = Pattern.compile("(?m:^U\\d+:|\\G/)%x\\[(-?\\d+),(-?\\d+)\\]");
+Matcher m = p.matcher(s); // s is all the content of your txt file
+while (m.find()) {
+    System.out.print(m.group(1) + "," + m.group(2));
+}

@@ -1,0 +1,9 @@
+try
+{
+   //some code
+}
+catch(Throwable t)
+{
+    //Will automatically show a stacktrace in eclipse.  
+    //I believe on a real device it will put the stacktrace in the eventlog.  
+}

@@ -1,0 +1,8 @@
+if(string1.length() > string2.length())
+{
+    // string1 is longer
+}
+else if(string2.length() > string1.length())
+{
+    // string2 is longer
+}

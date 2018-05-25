@@ -1,0 +1,34 @@
+// Array size
+    int row = 6;
+    int col = 6;
+    // Indices of concern
+    int i = 4;
+    int j = 5;
+
+    // To the left of current Column
+    int index = i - 1;
+    for (int k = -1; k < 2; k++) {
+        if (index % row > 0 && ((j + k)  % col) > 0) {
+            System.out.println(arr[index][j + k]);
+        }
+    }
+
+
+    // In the current Column
+    index = i;
+
+    // Increment is 2 as we don't want (i, j)
+    for (int k = -1; k < 2; k = k + 2) {            
+        if (index % row > 0 && ((j + k)  % col) > 0) {
+            System.out.println(arr[index][j + k]);
+        }
+    }
+
+    // To the right of current Column
+    index = i + 1;
+    for (int k = -1; k < 2; k++) {
+        if (index % row > 0 && ((j + k)  % col) > 0) {
+            System.out.println(arr[index][j + k]);
+        }
+
+    }

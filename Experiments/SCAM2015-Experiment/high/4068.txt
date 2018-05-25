@@ -1,0 +1,10 @@
+Comparator<String[]> comp = new Comparator<>() {
+    @Override
+    public int compare(String[] student1, String[] student2) {
+        // comparison logic goes here
+        // return:
+        //    a negative number if student1 goes before student2
+        //    0 if student1 is tied with student2
+        //    a positive number if student1 goes after student2
+    }
+};

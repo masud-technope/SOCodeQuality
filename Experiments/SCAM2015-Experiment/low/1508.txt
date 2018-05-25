@@ -1,0 +1,17 @@
+abstract class Rectangle{
+
+    public abstract double getHeight();
+    public abstract double getWidth();
+    public double getHeight(){
+        return getWidth()*getHeight();
+    }
+}
+
+abstract class Container extends Rectangle{
+    public abstract void printTypes();
+    public abstract void printEachElement();
+}
+
+abstract class Array extends Container{ 
+
+}

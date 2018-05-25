@@ -1,0 +1,9 @@
+<beans:bean name="handlerAdapter"
+    class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+    <beans:property name="messageConverters">
+        <util:list>
+            <beans:bean
+                class="org.springframework.http.converter.StringHttpMessageConverter" />
+        </util:list>
+    </beans:property>
+</beans:bean>

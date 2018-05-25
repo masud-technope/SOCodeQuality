@@ -1,0 +1,15 @@
+// usage:
+Map<String, String> replaceRules = new HashMap<String, String>();
+replaceRules.put("ao", "1");
+replaceRules.put("df", "2");
+replaceRules.put("n", "3");
+String s = replacePartsOf("foobooandfoo", replaceRules);
+
+// actual method
+public String replacePartsOf(String thisString, Map<String, String> withThese) {
+    for(Entry<String, String> rule : withThese.entrySet()) {
+    	thisString = thisString.replaceAll(rule.getKey(), rule.getValue());
+    }
+
+    return thisString;
+}

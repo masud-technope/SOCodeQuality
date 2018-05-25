@@ -1,0 +1,5 @@
+<style name="Style">  
+<item name="android:textSize">9px</item>
+<item name="android:gravity">center_horizontal</item>
+<item name="android:textColor">#fff</item>
+<item name="android:textStyle">bold</item>

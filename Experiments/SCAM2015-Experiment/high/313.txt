@@ -1,0 +1,11 @@
+public class Country {
+
+    public static final Country SWITZERLAND;
+
+    private static ArrayList<Country> countries;
+
+    static {
+        countries = new ArrayList<Country>();
+        SWITZERLAND = new Country("SWITZERLAND");
+    }
+}

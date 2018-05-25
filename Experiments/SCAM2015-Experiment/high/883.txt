@@ -1,0 +1,4 @@
+// Will produce only bright / light colours:
+float r = rand.nextFloat(0.5) + 0.5;
+float g = rand.nextFloat(0.5) + 0.5;
+float b = rand.nextFloat(0.5) + 0.5;

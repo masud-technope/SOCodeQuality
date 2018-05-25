@@ -1,0 +1,7 @@
+Iterator<String> it=v.iterator();
+while(it.hasNext())
+{
+    String value=(String) it.next();
+    System.out.println(value);
+    it.remove(); // not v.remove(value); !!
+}

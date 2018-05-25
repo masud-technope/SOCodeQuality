@@ -1,0 +1,7 @@
+import java.io.*;
+import java.util.StringTokenizer;
+public class Test {
+  public Test() {
+  } 
+
+ public void execute(String str) { String date, time, firstName, lastName, cardNo; StringTokenizer st = new StringTokenizer(str, " "); date = st.nextToken(); time = st.nextToken(); st.nextToken(); //Admitted lastName = st.nextToken(",").trim(); firstName = st.nextToken(",(").trim(); st.nextToken("#"); //Card cardNo = st.nextToken(")#"); System.out.println("date = " + date +"\ntime = " + time +"\nfirstName = " + firstName +"\nlastName = "+ lastName +"\ncardNo = " +cardNo); }

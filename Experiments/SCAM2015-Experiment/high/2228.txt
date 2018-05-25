@@ -1,0 +1,35 @@
+public TreeMap<String, Contact> readContact() throws FileNotFoundException,
+            IOException, ClassNotFoundException {
+
+    TreeMap<String, Contact> contactMap = new TreeMap<String, Contact>();
+
+    // The following call can throw a FileNotFoundException or an IOException.
+    // Since this is probably better dealt with in the calling function, 
+    // readContact is made to throw these exceptions instead.
+    ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(
+                new FileInputStream(file)));
+
+    while (true) {
+        try {
+            // Read the next object from the stream. If there is none, the
+            // EOFException will be thrown.
+            // This call might also throw a ClassNotFoundException, which can be passed
+            // up or handled here.
+            Contact c = (Contact) in.readObject();
+            contactMap.put(c.getLastName(), c);
+
+            for (Map.Entry<String, Contact> contact : contactMap.entrySet()) {
+                Contact con = contact.getValue();
+                System.out.println(con.getLastName() + ", "
+                          + con.getFirstName() + ": " + con.getPhoneNumber()
+                          + "\t" + con.getEmail());
+            }
+        } catch (EOFException e) {
+            // If there are no more objects to read, return what we have.
+            return contactMap;
+        } finally {
+            // Close the stream.
+            in.close();
+        }
+    }
+}

@@ -1,0 +1,3 @@
+final List<String> whatever = new ArrayList<String>();
+whatever.add("Yup");
+whatever.get(1); // OH NOES!

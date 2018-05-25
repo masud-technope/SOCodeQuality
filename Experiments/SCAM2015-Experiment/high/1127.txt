@@ -1,0 +1,5 @@
+String relativeWebPath = "/IMAGES/image1.jpg";
+String absoluteDiskPath = getServletContext().getRealPath(relativeWebPath);
+File file = new File(absoluteDiskPath);
+InputStream input = new FileInputStream(file);
+// ...

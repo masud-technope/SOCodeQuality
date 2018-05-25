@@ -1,0 +1,9 @@
+interface IMyIF {
+int MyMeth(int x);
+}
+//then it is legal to implement IMyIF as shown here:
+class MyClass : IMyIF {
+int IMyIF.MyMeth(int x) {
+return x / 3;
+}
+}

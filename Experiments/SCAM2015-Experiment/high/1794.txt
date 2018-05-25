@@ -1,0 +1,6 @@
+class VectorMath(f: Float) { def * (v: Vector3f) = v mult f }
+implicit def VectorMath(f: Float) = new VectorMath(f)
+
+val v = new Vector3f(1,2,3)
+1.2F * v
+// treated as: VectorMath(1.2F).*(v)

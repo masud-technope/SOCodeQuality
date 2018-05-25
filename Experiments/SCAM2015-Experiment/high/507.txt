@@ -1,0 +1,37 @@
+public class ExampleTest {
+
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.println("beforeClass");
+    }
+
+    @AfterClass
+    public static void afterClass() {
+        System.out.println("afterClass");
+    }
+
+    @Before
+    public void before() {
+        System.out.println(this + "\tbefore");
+    }
+
+    @After
+    public void after() {
+        System.out.println(this + "\tafter");
+    }
+
+    @Test
+    public void test1() {
+        System.out.println(this + "\ttest1");
+    }
+
+    @Test
+    public void test2() {
+        System.out.println(this + "\ttest2");
+    }
+
+    @Test
+    public void test3() {
+        System.out.println(this + "\ttest3");
+    }
+}

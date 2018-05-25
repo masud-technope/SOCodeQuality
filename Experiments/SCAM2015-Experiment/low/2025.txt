@@ -1,0 +1,9 @@
+public static void main(String[] args){
+
+    Scanner Input = new Scanner(System.in);
+
+    System.out.println("Enter # to end ");
+    while( !Input.hasNextInt("#"))// return true if u input value = its argument
+    {
+        //ur code
+    }//end while

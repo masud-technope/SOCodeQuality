@@ -1,0 +1,8 @@
+String[] list = new String[] {"abc","def","ghi","jkl"};
+StringBuffer str = new StringBuffer();
+for (String s : list) {
+   str.append(s);
+   str.append(",");
+}
+str.deleteCharAt(str.length());
+System.out.println(str); //automatically invokes StringBuffer.toString();

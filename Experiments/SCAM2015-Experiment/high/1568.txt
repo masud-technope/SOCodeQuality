@@ -1,0 +1,7 @@
+Lock lock = new ReentrantLock();
+
+lock.lock();
+
+c1++;
+
+lock.unlock();

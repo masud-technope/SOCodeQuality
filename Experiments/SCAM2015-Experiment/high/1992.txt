@@ -1,0 +1,3 @@
+String str = "<blockquote>1. ???? </blockquote><blockquote>2. 1) ?????; ??????? </blockquote>";
+
+String p = "[(.*)<blockquote>[\\d[\\.\\)]\\s]+([[\\p{IsCyrillic}][\\d\\;\\s]+]+) </blockquote>(.*)]+";

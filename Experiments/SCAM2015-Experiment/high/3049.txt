@@ -1,0 +1,8 @@
+private static double errorDemo(int n) {
+    double r = Math.pow(1000.0, 1.0/n);
+    double result = 1.0;
+    for (int i = 0; i < n; i++) {
+        result *= r;
+    }
+    return 1000.0 - result;
+}

@@ -1,0 +1,14 @@
+<ScrollView 
+ android:id="@+id/scrollView1"
+ android:layout_width="match_parent"
+ android:layout_height="200dp"
+ android:layout_alignParentBottom="true" >
+
+           <LinearLayout
+            android:id="@+id/maincontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+           </LinearLayout>
+</ScrollView>

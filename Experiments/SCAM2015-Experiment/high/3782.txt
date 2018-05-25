@@ -1,0 +1,106 @@
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingWorker;
+import javax.swing.WindowConstants;
+
+public class FinCSV implements ActionListener {
+
+    JFrame frame = new JFrame("ICON");
+    JPanel panel = new JPanel(new GridLayout(2, 1, 4, 4));
+    JButton primaryButton = new JButton(" Primary Process");
+    JButton secondaryButton = new JButton(" Secondary Process");
+
+    public static void main(String[] args)
+            throws Exception {
+        FinCSV msql = new FinCSV();
+        msql.initGUI();
+    }
+
+    public void initGUI() {
+        this.primaryButton.setActionCommand("Primary");
+        this.secondaryButton.setActionCommand("Secondary");
+        this.primaryButton.addActionListener(this);
+        this.secondaryButton.addActionListener(this);
+
+        this.primaryButton.setFont(new Font("Serif", Font.BOLD, 22));
+        this.secondaryButton.setFont(new Font("Serif", Font.BOLD, 22));
+
+        panel.add(this.primaryButton);
+        panel.add(this.secondaryButton);
+        frame.setContentPane(panel);
+        frame.setSize(650, 300);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getActionCommand().equals("Primary")) {
+            secondaryButton.setVisible(false);
+            PrimaryWorker worker = new PrimaryWorker(secondaryButton);
+            worker.execute();
+        } else if (e.getActionCommand().equals("Secondary")) {
+            primaryButton.setVisible(false);
+            SecondaryWorker secondaryWorker = new SecondaryWorker(primaryButton);
+            secondaryWorker.execute();
+        }
+    }
+
+    public abstract class StateWorker<T, V> extends SwingWorker<T, V> {
+
+        private JButton btn;
+
+        public StateWorker(JButton btn) {
+            this.btn = btn;
+        }
+
+        @Override
+        protected void done() {
+            btn.setVisible(true);
+        }
+
+    }
+
+    public class PrimaryWorker extends StateWorker<Integer, Integer> {
+
+        public PrimaryWorker(JButton btn) {
+            super(btn);
+        }
+
+        @Override
+        protected Integer doInBackground() throws Exception {
+            int sum = 0;
+            for (int i = 0; i < 10000; i++) {
+                System.out.println("[ " + (i + 1) + " ] Inside Primary Process");
+                sum += i;
+                publish(i);
+            }
+            return sum;
+        }
+
+    }
+
+    public class SecondaryWorker extends StateWorker<Integer, Integer> {
+
+        public SecondaryWorker(JButton btn) {
+            super(btn);
+        }
+
+        @Override
+        protected Integer doInBackground() throws Exception {
+            int sum = 0;
+            for (int i = 0; i < 10000; i++) {
+                System.out.println("[ " + (i + 1) + " ] Inside Secondary Process");
+                sum += i;
+                publish(i);
+            }
+            return sum;
+        }
+
+    }
+}

@@ -1,0 +1,6 @@
+class Motor {
+  @Timeable(limit = 1, unit = TimeUnit.SECONDS)
+  void forward() {
+    // execution as usual
+  }
+}

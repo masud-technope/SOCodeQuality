@@ -1,0 +1,27 @@
+@Entity
+@SQLInsert(sql="INSERT INTO my_table(my_column, id) VALUES(encrypt(?),?)")
+@SQLUpdate( sql="UPDATE my_table SET my_column = encrypt(?) WHERE id = ?")
+public class MyEntity {
+
+  private String myValue;
+
+  ....
+
+  @Formula("decrypt(my_column)")
+  public String getValue() {
+    return myValue;
+  }
+
+  public void setValue(String value) {
+    myValue = value;
+  }
+
+  @Column (name="my_column")
+  private String getValueCopy() {
+    return myValue;
+  }
+
+  private void setValueCopy(String value) {
+  }
+
+}

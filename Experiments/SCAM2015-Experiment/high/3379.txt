@@ -1,0 +1,39 @@
+InvoiceItem[] createInvoiceItems() {
+
+    InvoiceItem[] items = new InvoiceItem[3];
+
+    items[0] = new InvoiceItem();
+    items[0].setItemId(123);
+    items[0].setItemQuantity(55);
+    items[0].setItemPrice(2.99);
+    items[0].setItemDescription("Ball");
+
+
+    items[1] = new InvoiceItem();
+    items[1].setItemId(55);
+    items[1].setItemQuantity(95);
+    items[1].setItemPrice(0.5);
+    items[1].setItemDescription("Nails");
+
+
+    items[2] = new InvoiceItem();
+    items[2].setItemId(4235);
+    items[2].setItemQuantity(10);
+    items[2].setItemPrice(5.68);
+    items[2].setItemDescription("Soda");
+
+    return items;
+}
+
+void runProcess() {
+
+    Invoice[] invoices = new Invoice[1];
+    //create an Invoice Object
+    Invoice invoice = new Invoice();
+    invoices[0] = invoice;
+
+    //createInvoiceItems(); // Not required here
+    invoices[0].calculateInvoice();
+    invoices[0].displayInvoice();
+    invoices[0].setInvoiceItems(//call here createInvoiceItems());
+}

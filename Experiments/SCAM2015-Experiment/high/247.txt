@@ -1,0 +1,12 @@
+Process proc = null;
+	try
+	{
+		proc = Runtime.getRuntime().exec("cmd /c start /B D:\\temp\\_test\\somebat.bat");
+		proc = Runtime.getRuntime().exec("cmd /c call D:\\temp\\_test\\somebat.bat");
+		proc = Runtime.getRuntime().exec("D:\\temp\\_test\\somebat.bat");
+	}
+	catch (IOException e)
+	{
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}

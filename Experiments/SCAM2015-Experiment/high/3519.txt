@@ -1,0 +1,34 @@
+public class Calculator {
+
+public static void main(String[] args) {
+
+    Scanner in = new Scanner(System.in);
+
+    System.out.println("Welcome to the calculator!");
+
+    int a;
+    int b;
+    String Op; //Operator
+    int c = 0;
+
+    System.out.println("Enter First Value :");
+    a = in.nextInt();
+    System.out.println("Enter Second Value :");
+    b = in.nextInt();
+    System.out.println("Enter Operator :");
+    Op = in.next();
+
+    if (Op.equals("*")) {
+        c = a * b;
+    } else if (Op.equals("/")) {
+        c = a / b;
+    } else if (Op.equals("+")) {
+        c = a + b;
+    } else if (Op.equals("-")) {
+        c = a - b;
+    }
+
+    System.out.println("Output is " + c);
+
+}
+}

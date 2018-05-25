@@ -1,0 +1,3 @@
+A a = ...;
+Map<Integer,A> map = new HashMap<Integer,A>();
+map.put( a.id, a );

@@ -1,0 +1,4 @@
+// wait 16 milliseconds to cap frame rate to 60 fps
+while (System.nanoTime() < lastFrame + 16000000)        {
+  Thread.yield();
+}

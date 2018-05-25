@@ -1,0 +1,6 @@
+public static void main(String[] args) {
+    int first = 1;
+    int second = 2;
+    int product = first / second; // this product is 0, because you are forcing an int
+    double product2 = (double) first / second; // this will be 0.5
+}

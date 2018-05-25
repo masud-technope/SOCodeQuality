@@ -1,0 +1,5 @@
+ListView view = (ListView)findViewById(R.id.YourListView);
+
+int height = view.getHeight();
+int itemHeight = view.getChildAt(0).getHeight();
+view.setSelectionFromTop(position, height/2 - itemHeight/2);

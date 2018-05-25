@@ -1,0 +1,12 @@
+add_activity.setOnClickListener(new OnClickListener() {
+
+        @Override
+        public void onClick(View arg0) {
+            // get the adapter from the listview
+            AddActivityCustomList adapter = (AddActivityCustomList) lv.getAdapter();
+            // call ArrayAdapter.add, no need to call notifyDataSetChanged as add does this
+            adapter.add(add_act_title.getText().toString());
+            // clear old title
+            add_act_title.setText("");
+        }
+    });

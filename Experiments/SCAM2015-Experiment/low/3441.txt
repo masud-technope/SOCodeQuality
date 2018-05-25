@@ -1,0 +1,11 @@
+public static int howManyChar (String s, char c)
+{
+    index++;
+        if (s.length() == index)
+            return 0;
+        else if(s.charAt(index) == c)
+           return 1 + howManyChar(s, c);
+        else
+            return 0 +  howManyChar(s, c);
+
+  }

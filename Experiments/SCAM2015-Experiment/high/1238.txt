@@ -1,0 +1,17 @@
+public class FilesAdapter {
+
+    private final File file;
+
+    @Inject
+    protected FilesAdapter( @Assisted File file ) {
+        this.file = file;
+    }
+
+    public List<String> readLines( Charset charset ) {
+        return Files.readLines( file, charset );
+    }
+
+    public interface Factory {
+        FilesAdapter create( File file );
+    }
+}

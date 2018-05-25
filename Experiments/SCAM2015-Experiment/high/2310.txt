@@ -1,0 +1,5 @@
+<T> T swap(T... args) {   // usage: z = swap(a, a=b, b=c, ... y=z);
+    return args[0];
+}
+
+c = swap(a, a=b, b=c)

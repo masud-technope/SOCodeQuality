@@ -1,0 +1,4 @@
+Triangle() {
+    System.out.print("y "); //initialisation block
+    System.out.print("c ");
+}

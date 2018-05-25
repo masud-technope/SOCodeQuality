@@ -1,0 +1,5 @@
+String s = "message.txt.cpabe";
+int indexOfLast = s.lastIndexOf(".");
+String newString = s;
+if(indexOfLast >= 0) newString = s.substring(0, indexOfLast);
+System.out.println(newString); // prints "message.txt"

@@ -1,0 +1,3 @@
+public void setActionListener(MyTaskActionListener l){
+    listener = l;
+}

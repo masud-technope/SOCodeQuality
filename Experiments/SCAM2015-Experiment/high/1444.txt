@@ -1,0 +1,5 @@
+Class[] columns = new Class[]{String.class, String.class, Date.class};
+
+public Class getColumnClass(int c) {  
+     return columns[c];
+}

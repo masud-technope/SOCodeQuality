@@ -1,0 +1,10 @@
+Class A 
+{
+ $x;
+ function method1()
+  {
+   $time = microtime(true);
+  }
+ sleep($time + 30);
+ task()//want to run this after (x+30) time
+}

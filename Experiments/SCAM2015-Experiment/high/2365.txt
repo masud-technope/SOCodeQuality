@@ -1,0 +1,3 @@
+<U extends Foo & Bar> void someGenericMethod() {
+    U bothFooAndBar = FooBar.<U>getFooBar(); // T is U
+}

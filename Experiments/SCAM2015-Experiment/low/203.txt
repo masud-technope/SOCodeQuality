@@ -1,0 +1,9 @@
+Number k= null;
+Number v= null;
+
+Map<Number,Number>  mapped = new HashMap<Number,Number>()
+.......//set the key and value..........
+k = double someDouble;
+v = int someInt;
+mapped.put(k, v)
+.....

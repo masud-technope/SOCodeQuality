@@ -1,0 +1,5 @@
+log4j.rootLogger=off, stdout
+#log4j.logger.ac.biu.nlp.nlp.engineml=info, logfile
+#log4j.logger.org.BIU.utils.logging.ExperimentLogger=warn
+
+...

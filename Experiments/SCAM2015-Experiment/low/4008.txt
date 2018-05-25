@@ -1,0 +1,14 @@
+driver.findElement(By.id("ms__id3")).click();
+WebElement table = driver.findElement(By.className("combo-list-table"));
+allRows = table.findElements(By.tagName("tr"));
+for (WebElement row : allRows) 
+{
+cells = row.findElements(By.tagName("td"));
+for (WebElement cell : cells) 
+{   
+if(cell.getAttribute("text").equalsIgnoreCase("Business"))
+{
+cell.click();
+}
+}
+}

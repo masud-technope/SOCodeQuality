@@ -1,0 +1,13 @@
+public static void emptyVase( int flowersInVase ) {
+    // if there is a flower to take from the vase
+    if( flowersInVase > 0 ) {
+        // print the count of flowers BEFORE one is taken!
+        System.out.println(flowersInVase);
+        // take one flower and put it aside
+        emptyVase( flowersInVase - 1 ) ;
+    } else {
+           // the vase is empty, nothing to do
+           System.out.println(flowersInVase);
+           // print 0!
+    }
+}

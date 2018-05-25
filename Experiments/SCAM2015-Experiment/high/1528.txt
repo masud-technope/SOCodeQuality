@@ -1,0 +1,5 @@
+List<T> temp = new ArrayList<T>();
+for (int i = 0; i < n; i++)
+    temp.add(null);
+T[] result = temp.toArray();
+// equivalent to: T[] result = new T[n];

@@ -1,0 +1,5 @@
+OPTION1 = 1
+OPTION2 = 2
+OPTION3 = 4
+OPTION4 = 8
+...

@@ -1,0 +1,3 @@
+public static void main(String[] args) {
+    balance(1000.0, .05, 8.5); 
+}

@@ -1,0 +1,3 @@
+if(l.isDebugEnabled()) {
+     l.debug("Entry number: " + i + " is " + String.valueOf(entry[i]));
+ }

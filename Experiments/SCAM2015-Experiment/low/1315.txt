@@ -1,0 +1,35 @@
+public class NumericTextFieldTest extends JFrame {
+
+    private JPanel contentPane;
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    NumericTextFieldTest frame = new NumericTextFieldTest();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+    public NumericTextFieldTest() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 200, 150);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+
+        NumericTextField numericText = new NumericTextField();
+        numericText.setBounds(25, 27, 158, 19);
+        contentPane.add(numericText);
+        numericText.setColumns(10);
+
+        JLabel lblNumericTextfield = new JLabel("Numeric textField");
+        lblNumericTextfield.setBounds(37, 12, 123, 15);
+        contentPane.add(lblNumericTextfield);
+
+    }
+}

@@ -1,0 +1,6 @@
+ByteArrayInputStream stream  = <<Assign stream>>;
+    byte[] bytes = new byte[1024];
+    stream.read(bytes);
+    BufferedWriter writer = new BufferedWriter(new FileWriter(new File("FileLocation")));
+    writer.write(new String(bytes));
+    writer.close();

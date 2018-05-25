@@ -1,0 +1,13 @@
+class SingleInstance {
+private static SingleInstance instance;
+
+public SingleInstance getInstance() {
+    if (instance==null)
+        instance = new SingleInstance();
+    return instance;
+}
+
+private SingleInstance() {
+//construct it!
+}
+}

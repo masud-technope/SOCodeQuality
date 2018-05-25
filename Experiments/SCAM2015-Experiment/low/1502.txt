@@ -1,0 +1,14 @@
+class Sender {
+    final CountDownLatch sync;
+    public Sender (int threadCount) {
+        sync = new CountDownLatch(threadCount);
+        ...
+    }
+    public CountDownLatch getCountDownLatch() {
+        return sync;
+    }
+    // alternative
+    public boolean await() {
+        return sync.await();
+    }
+}

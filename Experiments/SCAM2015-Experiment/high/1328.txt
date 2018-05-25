@@ -1,0 +1,75 @@
+import java.awt.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+public class DelayedComboBoxTest extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JCheckBox chkA = new JCheckBox("A");
+    private JCheckBox chkB = new JCheckBox("B");
+    private JCheckBox chkC = new JCheckBox("C");
+    private JComboBox cboItems = new JComboBox();
+
+    public DelayedComboBoxTest() {
+        super("Delayed ComboBox Test");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        JPanel p = new JPanel();
+        p.add(chkA);
+        p.add(chkB);
+        p.add(chkC);
+        p.add(cboItems);
+        Container c = getContentPane();
+        c.setLayout(new BorderLayout());
+        c.add(p);
+        pack();
+        cboItems.addPopupMenuListener(new MyPopupMenuListener());
+    }
+
+    private void rebuildList() {
+        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        Vector<String> items = new Vector<String>();
+        if (chkA.isSelected()) {
+            items.add("A");
+        }
+        if (chkB.isSelected()) {
+            items.add("B");
+        }
+        if (chkC.isSelected()) {
+            items.add("C");
+        }
+        cboItems.setModel(new DefaultComboBoxModel(items));
+        try {
+            new Thread().sleep(2500); // simulate a long transaction
+        } catch (InterruptedException ex) {
+        }
+        setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+    }
+
+    public static void main(String[] args) {
+        JFrame f = new DelayedComboBoxTest();
+        f.setVisible(true);
+    }
+
+    private class MyPopupMenuListener implements PopupMenuListener {
+
+        @Override
+        public void popupMenuCanceled(PopupMenuEvent e) {
+        }
+
+        @Override
+        public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
+        }
+
+        @Override
+        public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
+            int items = cboItems.getItemCount();
+            rebuildList();
+
+            if (items != cboItems.getItemCount()) {
+                cboItems.hidePopup();
+                cboItems.showPopup();
+            }
+        }
+    }
+}

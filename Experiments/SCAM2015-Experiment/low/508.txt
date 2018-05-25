@@ -1,0 +1,13 @@
+public static String toString(final Collection<?> collection) {
+    final StringBuilder sb = new StringBuilder("{");
+    boolean isFirst = true;
+    for (final Object object : collection) {
+        if (!isFirst)
+            sb.append(',');
+        else
+            isFirst = false;
+        sb.append(object);
+    }
+    sb.append('}');
+    return sb.toString();
+}

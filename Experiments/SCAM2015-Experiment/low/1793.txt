@@ -1,0 +1,62 @@
+import javax.swing.JOptionPane;
+
+public class NearestNumber {
+
+public static void main(String[] arg)
+{
+    int[] array={100,-3420,3040,400433,500,-100,-200,532,6584,-945};
+
+    String myNumberString =JOptionPane.showInputDialog(null,"Enter the number to test:");
+    int myNumber = Integer.parseInt(myNumberString);
+
+    int nearestNumber = findNearestNumber(array,myNumber);
+
+    JOptionPane.showMessageDialog(null,"The nearest number is "+nearestNumber);
+}
+
+public static int findNearestNumber(int[] array,int myNumber)
+{
+
+    int min=0,max=0,nearestNumber;
+
+    for(int i=0;i<array.length;i++)
+    {
+        if(array[i]<myNumber)
+        {
+            if(min==0)
+            {
+                min=array[i];
+            }
+            else if(array[i]>min)
+            {
+                min=array[i];
+            }
+        }
+        else if(array[i]>myNumber)
+        {
+            if(max==0)
+            {
+                max=array[i];
+            }
+            else if(array[i]<max)
+            {
+                max=array[i];
+            }
+        }
+        else
+        {
+            return array[i];
+        }
+    }
+
+    if(Math.abs(myNumber-min)<Math.abs(myNumber-max))
+    {
+        nearestNumber=min;
+    }
+    else
+    {
+        nearestNumber=max;
+    }
+
+    return nearestNumber;
+}

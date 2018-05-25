@@ -1,0 +1,5 @@
+System.out.println( "history: " + history );
+System.out.println( "today: " + today );
+System.out.println( "duration: " + duration );
+System.out.println( "millis: " + millis );
+System.out.println( "seconds: " + seconds );

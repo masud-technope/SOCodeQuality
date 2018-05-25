@@ -1,0 +1,5 @@
+<dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version><!-- Your spring version here --></version>
+    </dependency>

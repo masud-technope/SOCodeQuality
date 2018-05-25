@@ -1,0 +1,4 @@
+synchronized (isOn) {
+   if (isOn) {
+      // this changes the synchronized object isOn to another object
+      isOn = true;

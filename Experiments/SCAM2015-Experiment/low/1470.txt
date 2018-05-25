@@ -1,0 +1,9 @@
+Random r = new Random();
+    Set<Integer> generatedNumbers = new HashSet<Integer>();
+    for(int i = 1;i<=5;i++)  {
+      int rand = r.nextInt(10)
+      if (!generatedNumbers.contains(rand)) {
+        Log.d("Ramdom number", String.valueOf(rand));
+        generatedNumbers.add(rand);
+      } 
+    }

@@ -1,0 +1,6 @@
+int x = 1;
+
+for(int a = 0; a < 21; a++){    
+    System.out.println(a + " -> " + (x) + " " + (x + 1) + " " + (x + 2));   
+    x = x + 3;
+}

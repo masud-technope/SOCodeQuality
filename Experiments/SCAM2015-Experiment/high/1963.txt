@@ -1,0 +1,4 @@
+Method method = classLoader.loadClass("testClass").getMethod("getInstance");
+Object object = method.invoke(null);
+// or works but is perhaps confusing.
+Object object = method.invoke(null, null);

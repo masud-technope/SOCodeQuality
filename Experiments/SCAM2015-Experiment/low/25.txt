@@ -1,0 +1,5 @@
+Date theDate = new Date();
+if(MyFunction(a, b ,theDate ) 
+{
+   do stuff with C
+}

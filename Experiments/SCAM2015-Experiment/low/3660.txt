@@ -1,0 +1,3 @@
+String mQuestion = " Hi I am an \n example of a \n string that is \n breaking \n correctly  on \n  
+    words";
+textView.setText(mQuestion);

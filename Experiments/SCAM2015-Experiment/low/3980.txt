@@ -1,0 +1,7 @@
+Scanner scan = new Scanner(System.in);
+    try {
+         float yourNumber = Float.parseFloat(scan.next()); 
+    }
+    catch (NumberFormatException e){
+         System.out.println ("not a float");
+    }

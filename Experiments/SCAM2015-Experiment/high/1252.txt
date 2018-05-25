@@ -1,0 +1,3 @@
+public String deDup(String s) {
+    return s.replaceAll("(\\b\\w+\\b)-(?=.*\\b\\1\\b)", "");
+}

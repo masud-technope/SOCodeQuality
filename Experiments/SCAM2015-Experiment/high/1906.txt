@@ -1,0 +1,3 @@
+public <T>  boolean contains(final T[] array, final T key) {
+    return Arrays.asList(array).contains(key);
+}

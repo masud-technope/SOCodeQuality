@@ -1,0 +1,14 @@
+class X
+{  
+public static void main(String args[])
+{
+   int a = 2;    // At this point var 'a' is stored on Stack
+   {
+       /*
+       Now as the prev. 'main method is not yet complete so var 'a' is still present on the Stack. So at this point compiler will give error "a is already defined in main(java.lang.String[])" 
+        */
+       int a = 3;   
+
+   }
+ }
+}

@@ -1,0 +1,4 @@
+if(str.isEmpty() || str.trim().length() == 0){
+   return 0;
+}
+return (str.trim().split("\\s+").length);

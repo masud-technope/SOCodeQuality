@@ -1,0 +1,9 @@
+public static <T> void reverse( LinkedList<T> list )
+{
+    if (list.size() <= 1) {
+        return;
+    }
+    T first = list.removeFirst();
+    reverse( list);
+    list.addLast( first );
+}

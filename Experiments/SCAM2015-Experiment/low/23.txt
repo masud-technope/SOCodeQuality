@@ -1,0 +1,6 @@
+as<T,Type> (left, right)  
+which evaluates to 
+if (typeof(left) == right)
+   return (right)left
+else
+    return null

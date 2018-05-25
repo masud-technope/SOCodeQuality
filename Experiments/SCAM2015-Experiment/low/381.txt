@@ -1,0 +1,11 @@
+hasValue() {
+    return (internalValue != -1);
+}
+
+getValue() {
+    if (internalValue == -1) {
+        throw new IllegalStateException(
+            "Check hasValue() before calling getValue().");
+    }
+    return internalValue;
+}

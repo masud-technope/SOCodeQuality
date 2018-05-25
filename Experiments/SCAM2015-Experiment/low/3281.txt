@@ -1,0 +1,15 @@
+abstract class Graph {
+  int width;
+  int height;
+
+  public Graph(int width, int height) {
+    this.width = width;
+    this.height = height;
+  }
+}
+
+class LinearGraph extends Graph {
+  public LinearGraph(int width, int height) {
+    super(width, height);
+  }
+}

@@ -1,0 +1,9 @@
+public class blah{
+    static class A {
+        int foo;
+        void bar(B b) {b.foo=42;}
+    }
+    static class B extends A {
+
+    }
+}

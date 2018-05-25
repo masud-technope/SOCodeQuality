@@ -1,0 +1,11 @@
+public class Test {
+public void replaseSpaces(str) {
+    str = str.replaceAll(" ","%20");
+    System.out.println(str);
+}
+
+public static void main(String[] args) {
+    Test tst = new Test();
+   String str = "the dog  ";
+   tst.replaseSpaces(str, length);  
+}

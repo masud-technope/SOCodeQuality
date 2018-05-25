@@ -1,0 +1,4 @@
+private static class Vertex<E> {
+    E elem;
+    List<Vertex<E>> neighbors;
+}

@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+public class BobbelAlgo implements ItineraryAlgorithm {
+    private final Stack<String> routes = new Stack<String>();
+
+    public List<Integer> processItinerary(String[] towns) {
+        routes.removeAllElements();
+        final List<Integer> results = new ArrayList<Integer>();
+        final int[] townIndexList = new int[towns.length];
+
+        for (int i = 0; i < towns.length; i++) {
+            townIndexList[i] = i;
+        }
+
+        // add starting town to list
+        results.add(0);
+
+        // start with route 'town 0' to 'town 1'
+        visitTowns(townIndexList, townIndexList[0], townIndexList[1], results);
+
+        return results;
+    }
+
+    public int visitTowns(final int[] towns, final Integer from, final Integer to, final List<Integer> results) {
+        // 'from' is equals to 'to' or route already exists 
+        if (from.equals(to) || routes.contains(from + "-" + to)) {
+            return 2;
+        }
+
+        routes.push(from + "-" + to);
+        results.add(to);
+
+        if (routes.size() == towns.length * (towns.length - 1)) {
+            // finished, all ways done
+            return 0;
+        }
+
+        for (final int town : towns) {
+            final int ret = visitTowns(towns, to, town, results);
+
+            if (ret == 0) {
+                // finished, all ways done
+                return 0;
+            } else if (ret == 1) {
+                // no new way found, go back!
+                routes.pop();
+                results.remove(results.size() - 1);
+            }
+        }
+
+        // no new way found, go back!
+        return 1;
+    }
+}

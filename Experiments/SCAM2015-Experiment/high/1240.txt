@@ -1,0 +1,27 @@
+Process process = Runtime.getRuntime().exec(command);
+LogStreamReader lsr = new LogStreamReader(process.getInputStream());
+Thread thread = new Thread(lsr, "LogStreamReader");
+thread.start();
+
+
+public class LogStreamReader implements Runnable {
+
+    private BufferedReader reader;
+
+    public LoggingStreamReader(InputStream is) {
+        this.reader = new BufferedReader(new InputStreamReader(is));
+    }
+
+    public void run() {
+        try {
+            String line = reader.readLine();
+            while (line != null) {
+                System.out.println(line);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

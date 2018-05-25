@@ -1,0 +1,4 @@
+public static void delay(int waitTime) {
+        long endTime = System.currentTimeMillis() + (waitTime * 1000);
+        while (System.currentTimeMillis() < endTime) {}
+    }

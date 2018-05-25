@@ -1,0 +1,3 @@
+public int invertInt(int arg1) { // Invert negative and positive
+    return arg1-arg1*2;
+}

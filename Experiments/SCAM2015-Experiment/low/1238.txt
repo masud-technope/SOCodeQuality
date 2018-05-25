@@ -1,0 +1,39 @@
+String[] a = new String[5];
+        String[] b = new String[5];
+        String[] c = new String[5];
+        String[] d = new String[5];
+        String[] e = new String[5];
+
+        String[] finalarray = new String[a.length + b.length + c.length + d.length + e.length];
+
+        int count = 0;
+        for (int i = 0; i < a.length; i++) {
+            if(a[i] != null){
+                finalarray[count] = a[i];
+                count++;
+            }
+        }
+        for (int i = 0; i < b.length; i++) {
+            if(b[i] != null){
+                finalarray[count] = b[i];
+                count++;
+            }
+        }
+        for (int i = 0; i < c.length; i++) {
+            if(c[i] != null){
+                finalarray[count] = c[i];
+                count++;
+            }
+        }
+        for (int i = 0; i < d.length; i++) {
+            if(d[i] != null){
+                finalarray[count] = d[i];
+                count++;
+            }
+        }
+        for (int i = 0; i < e.length; i++) {
+            if(e[i] != null){
+                finalarray[count] = e[i];
+                count++;
+            }
+        }

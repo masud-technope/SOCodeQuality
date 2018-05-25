@@ -1,0 +1,4 @@
+<build>
+  <finalName>osmwse</finalName>
+  <sourceDirectory>src/main/java, src/interfaces, src/services</sourceDirectory>
+</build>

@@ -1,0 +1,18 @@
+public class test2 {
+
+    class c {
+    }
+
+    public test2() {
+        c obj = new c();
+        System.out.println(isIns(obj));
+    }
+
+    public boolean isIns(Object o) {
+        return (o instanceof c);
+    }
+
+    public static void main(String argv[]) {
+        new test2();
+    }
+}

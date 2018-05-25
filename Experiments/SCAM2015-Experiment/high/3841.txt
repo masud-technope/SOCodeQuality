@@ -1,0 +1,3 @@
+if (m.matches("\\d+")) {
+    mc.pushNumbers(m);
+}

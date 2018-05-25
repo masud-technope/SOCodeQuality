@@ -1,0 +1,6 @@
+if (!obj.isPresent()) {
+    logger.fatal(...);   
+} else {
+    obj.get().setAvailable(true);
+}
+return obj;

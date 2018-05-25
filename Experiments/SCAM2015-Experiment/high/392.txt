@@ -1,0 +1,12 @@
+size_t IntArrayFromString(const char * Source, int ** Dest)
+{
+    size_t stringLength=strlen(Source);
+    size_t intArrElements;
+    intArrElements=stringLength/sizeof(int);
+    if(stringLength%sizeof(int)!=0)
+        intArrElements++;
+    *Dest=(int *)malloc(intArrElements*sizeof(int));
+    (*Dest)[intArrElements-1]=0;
+    memcpy(Dest, Source, stringLength);
+    return intArrElements;
+}

@@ -1,0 +1,5 @@
+int checkSum = 0;
+
+  for(byte b : bytes){
+    checkSum += (0xff & b);
+  }

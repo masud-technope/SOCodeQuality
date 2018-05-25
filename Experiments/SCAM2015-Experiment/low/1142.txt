@@ -1,0 +1,7 @@
+try {
+    list.lock();
+    Integer someElement = getElement(list);
+    use(someElement);
+} finally {
+    list.unlock();
+}

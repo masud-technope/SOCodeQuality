@@ -1,0 +1,6 @@
+<html>
+  <a href="123">link1</a>
+  <a href="xxx">link2</a>
+  <a href="yyy">link3</a>
+  <a href="zzz">link4</a>
+</html>

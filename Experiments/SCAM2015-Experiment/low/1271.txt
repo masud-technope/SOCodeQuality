@@ -1,0 +1,18 @@
+try {
+        Process p=Runtime.getRuntime().exec ("cmd /c dir");
+
+        InputStream is = p.getInputStream();
+
+        BufferedReader br = new BufferedReader (new InputStreamReader (is));
+
+        String aux = br.readLine();
+
+        while (aux!=null) {
+            System.out.println (aux);
+
+            aux = br.readLine();
+        }
+    } 
+    catch (Exception e) {
+        e.printStackTrace();
+    }

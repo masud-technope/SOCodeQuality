@@ -1,0 +1,3 @@
+Set<Object> weakHashSet = Collections.newSetFromMap(
+    Collections.synchronizedMap(new WeakHashMap<Object, Boolean>()
+));

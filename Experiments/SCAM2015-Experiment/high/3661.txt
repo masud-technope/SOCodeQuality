@@ -1,0 +1,3 @@
+public void set(int row, int col, T value) {
+    matrix[getIndex(row, col)] = value;
+}

@@ -1,0 +1,3 @@
+Integer i = 95;
+System.out.println(i.getClass().getName() + "@" + Integer.toHexString(i.hashCode()));
+//java.lang.Integer@5f

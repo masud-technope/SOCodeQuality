@@ -1,0 +1,6 @@
+public class MyVariable{
+    public byte variable;
+    MyVariable(int a){
+        variable = new byte[a];
+    }
+}

@@ -1,0 +1,6 @@
+public void callMethods(List<intface> intfaces){
+    for(Interface intface : intfaces) {
+      intface.methodOne();
+      intface.methodTwo();
+    }
+  }

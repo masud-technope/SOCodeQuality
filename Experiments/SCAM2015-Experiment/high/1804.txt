@@ -1,0 +1,8 @@
+mysql> select myId, @rowid:=@rowid+1 as myrow from maxID, (SELECT @rowid:=0) as
+init ORDER BY myrow desc LIMIT 1;
++------+-------+
+| myId | myrow |
++------+-------+
+| A003 |     4 |
++------+-------+
+1 row in set (0.00 sec)

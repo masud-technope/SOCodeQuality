@@ -1,0 +1,3 @@
+PreparedStatement st = connection.prepareStatement("DELETE FROM Table WHERE name = ?");
+st.setString(1,name);
+st.executeUpdate();

@@ -1,0 +1,4 @@
+@Test(expected = ValidationException.class)
+public void testGreaterEqual() throws ValidationException {
+    Validate.greaterEqual(new Float(-5), 0f, "error7");
+}

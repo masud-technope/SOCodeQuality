@@ -1,0 +1,12 @@
+private Thread thread = new Thread(new ClientThread());
+private boolean isStarted = false;
+btnUpload.setOnClickListener(new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            if (!isStarted)
+                thread.start();
+            else
+                thread.stop();
+    }
+});

@@ -1,0 +1,4 @@
+@Id
+@Column(name = "customer_id")
+@org.hibernate.annotations.Type(type="pg-uuid")
+private UUID id;

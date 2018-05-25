@@ -1,0 +1,4 @@
+if ((value & (1L << x)) != 0)
+{
+   // The bit was set
+}

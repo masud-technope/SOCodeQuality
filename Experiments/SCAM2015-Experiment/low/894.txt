@@ -1,0 +1,7 @@
+<modifier> Account(Object arg) {
+    if (!super.getClass().isAssignableFrom(this.getClass())) {
+        throw new AssertionError("This constructor is only available to super classes.");
+    } else {
+        // Continue...
+    }
+}

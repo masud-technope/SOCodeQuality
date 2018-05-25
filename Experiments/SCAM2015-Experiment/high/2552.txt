@@ -1,0 +1,4 @@
+List<Foo> list; //From your method
+for(Foo foo:list) {
+    Object fieldValue = foo.fieldName;
+}

@@ -1,0 +1,16 @@
+int  b = 0;
+while(in.hasNext()) {
+          String line=in.nextLine();
+            if (0<b<6) {
+System.out.println(line);
+              b++;
+            }
+            if (b == 6){
+              b = 0;}
+
+            if(b==0 && line.contains("(1)")) {
+            System.out.println(line);
+            b++;
+         }
+
+        }

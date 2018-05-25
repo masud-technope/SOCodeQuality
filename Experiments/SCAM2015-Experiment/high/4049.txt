@@ -1,0 +1,6 @@
+"xxx"
+"yyy|bar"
+"zzz"
+"nn
+n"
+"...."

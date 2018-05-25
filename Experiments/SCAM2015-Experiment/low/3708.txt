@@ -1,0 +1,7 @@
+public int method(double d){
+//your logic
+}
+
+public int method(int i){
+//your logic
+}`enter code here

@@ -1,0 +1,16 @@
+public class TrialArray
+{
+    private static int[][] dataStorage;
+
+    // ...
+
+    public static void arrayTest() {
+        dataStorage = new int[5][5];
+
+        dataStorage[1][2] = 1;
+
+        System.out.printf("THIS PART WORKS");
+    }
+
+    // ...
+}

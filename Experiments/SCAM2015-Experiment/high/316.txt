@@ -1,0 +1,8 @@
+class Foo {    
+  final String s;    
+  final int sizeOfS;
+  Foo(String s) {        
+    this.s = s;    
+    sizeOfS = s.length();
+  }
+}

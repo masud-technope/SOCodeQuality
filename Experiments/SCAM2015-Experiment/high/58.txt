@@ -1,0 +1,4 @@
+String path = "/var/data/stuff/xyz.dat";
+String base = "/var/data";
+String relative = new File(base).toURI().relativize(new File(path).toURI()).getPath();
+// relative == "stuff/xyz.dat"

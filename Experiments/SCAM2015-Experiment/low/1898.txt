@@ -1,0 +1,7 @@
+public enum JavaObject {
+    INSTANCE;
+
+    public void doSomething(){
+        System.out.println("Hello World!");
+    }
+}

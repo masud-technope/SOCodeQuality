@@ -1,0 +1,19 @@
+public class Collate {
+    public static void main(String[] args) {
+        Scanner in1 = new Scanner(System.in);
+        System.out.printf("Enter 1st word: ");
+        String a = in1.next();
+        System.out.printf("Enter second word: ");
+        String b = in1.next();
+        System.out.println(collate(a,b));
+    }
+
+    public static String collate(String a, String b) {
+        String result = "";
+        for (int i = 0; i < a.length(); i++) {
+            result += a.charAt(i);
+            result += b.charAt(i);
+        }
+        return result;
+    }
+}

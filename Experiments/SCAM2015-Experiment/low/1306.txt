@@ -1,0 +1,12 @@
+var list = new List<string>();
+list.AddRange(new string[] {
+    "How are you?",
+    "How you doing?",
+    "Joe",
+    "Mike", });
+
+foreach (string str in list.Where(s => s.Contains("How")))
+{
+    Console.WriteLine(str);
+}
+Console.ReadLine();

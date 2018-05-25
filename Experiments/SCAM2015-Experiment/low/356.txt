@@ -1,0 +1,6 @@
+String url = "file:///d:/teststuff/IMG_0393.JPG";
+String to = "d:/teststuff/out.jpg";
+BufferedImage oldImage = ImageIO.read(new URL(url));
+BufferedImage buffer = new BufferedImage (oldImage.getWidth(),
+                 oldImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+ImageIO.write(ImageIO.read(new URL(url)), "jpg", new File(to));

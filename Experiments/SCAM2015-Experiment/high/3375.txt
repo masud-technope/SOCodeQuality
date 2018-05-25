@@ -1,0 +1,6 @@
+try {
+    new SimpleDateFormat("yyyyDDmm").parse(input);
+    // good format
+} catch (ParseException e) {
+    // bad format
+}

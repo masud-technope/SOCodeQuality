@@ -1,0 +1,20 @@
+public abstract class Piece {
+
+    ... // other code
+
+    public abstract String getName();
+
+    ... // other code
+}
+
+public class King extends Piece {
+
+    ... // other code
+
+    @Override
+    public String getName() {
+        return "K";
+    }
+
+    ... // other code
+}

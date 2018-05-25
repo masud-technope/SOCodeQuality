@@ -1,0 +1,5 @@
+@Override
+public void finish() {
+  doFamousLastWords();
+  super.finish();
+}

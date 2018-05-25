@@ -1,0 +1,4 @@
+Matcher m = Pattern.compile("('.*')?,('.*')?,('.*')?,('.*')?,('.*')?,('.*')?").matcher(row);
+m.find();
+m.group(1); //gives you the first group on the line; 
+//change the index to get the other groups

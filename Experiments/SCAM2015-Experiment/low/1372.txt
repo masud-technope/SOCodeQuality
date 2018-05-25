@@ -1,0 +1,5 @@
+NavigableMap<String, Integer> nav = new TreeMap<String, Integer>();
+nav.put("key1", value1);
+nav.put("key2", value2);
+nav.put("key3", value3);
+System.out.printf("The Whole:%s", nav);

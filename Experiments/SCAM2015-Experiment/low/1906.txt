@@ -1,0 +1,5 @@
+frame.setLayout(null);
+    frame.getContentPane().add(drawPanel1);
+    frame.getContentPane().add(drawPanel2);
+    drawPanel1.setBounds(0, 0, frame.getWidth(), frame.getHeight());
+    drawPanel2.setBounds(0, 0, frame.getWidth(), frame.getHeight());

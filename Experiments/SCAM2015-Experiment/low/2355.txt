@@ -1,0 +1,14 @@
+cameralariUpdateEt();
+    batch.setProjectionMatrix(cameraGame.combined);
+    batch.begin();
+    for (Sprite kare_sprite : kareler_sprite_array) {
+        kare_sprite.draw(batch);
+    }
+    bit_secici_sprite.draw(batch);
+    batch.end();
+
+    batch.setProjectionMatrix(cameraScore.combined);
+    batch.begin();
+    customFont.draw(batch, "Score " + level_skoru, KARE_KOSESI,
+            ekran_yuksekligi - KARE_KOSESI * 4f);
+    batch.end();

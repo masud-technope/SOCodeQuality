@@ -1,0 +1,6 @@
+$ pwd
+/tmp/guava-13.0.1-sources
+$ grep -R 'instanceof' | wc -l
+439
+$ grep -Rl 'instanceof' | wc -l
+122

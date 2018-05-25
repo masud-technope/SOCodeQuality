@@ -1,0 +1,19 @@
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+
+public class CalendarExample {
+
+  public static void main(String[] args) {
+    SimpleDateFormat sdf = new SimpleDateFormat("MM - yyyy");  
+    Calendar calendar = new GregorianCalendar();
+    System.out.println(sdf.format(calendar.getTime()));
+
+    for (int i = 0; i < 11; i++) {
+      calendar.add(Calendar.MONTH, -1);
+      System.out.println(sdf.format(calendar.getTime()));
+    }
+
+  }
+}

@@ -1,0 +1,11 @@
+def copyInputToOutputFunctional(inputStream: InputStream, outputStream: OutputStream,bufferSize: Int) {
+  val buffer = new Array[Byte](bufferSize);
+  def recurse() {
+    val len = inputStream.read(buffer);
+    if (len > 0) {
+      outputStream.write(buffer.take(len));
+      recurse();
+    }
+  }
+  recurse();
+}

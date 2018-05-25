@@ -1,0 +1,31 @@
+public class TextAreaSample {
+
+    public static void main(String[] args) throws IOException {
+        //readAllLines does what you do in readFileAsList
+        List<String> strings1 = Files.readAllLines(Paths.get("C:/temp/deneme1.txt"), Charset.defaultCharset());
+        List<String> strings2 = Files.readAllLines(Paths.get("C:\\temp\\deneme2.txt"), Charset.defaultCharset());
+        Set<String> notInCommon = getNotInCommon(strings1, strings2);
+        write(notInCommon, "C:\\temp\\deneme3.txt");
+    }
+
+    private static void write(Collection<String> out, String fname) throws IOException {
+        FileWriter writer = new FileWriter(new File("C:\\temp\\deneme3.txt"));
+        for (String s : out) {
+            writer.write(s + "\n");
+        }
+        writer.close();
+    }
+
+    private static Set<String> getNotInCommon(List<String> strings1, List<String> strings2) {
+        //Sets are great to get unique lists and check commonality
+        Set<String> onlyInFile1 = new HashSet<String>(strings1);
+        onlyInFile1.removeAll(strings2); //remove strings in s1 AND s2
+        Set<String> onlyInFile2 = new HashSet<String>(strings2);
+        onlyInFile2.removeAll(strings1); //remove strings in s1 AND s2
+        Set<String> notInCommon = new HashSet<>();
+        notInCommon.addAll(onlyInFile1);
+        notInCommon.addAll(onlyInFile2);
+
+        return notInCommon;
+    }
+}

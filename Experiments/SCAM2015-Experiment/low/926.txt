@@ -1,0 +1,17 @@
+public class MyClass {
+
+   //the English word is synchronizer, not syncronisator
+   private static final Object syncronisator = new Object();
+
+   public void doSomething() {
+      doSomethingNotSyncronized();
+
+      synchronized(syncronisator) {
+        doItAtomic1():
+        doItAtomic2():
+      }
+
+      doSomethingNotSyncronized2();
+   }
+
+}

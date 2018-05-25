@@ -1,0 +1,5 @@
+use Encode;
+binmode(STDOUT, ":utf8");
+while (<>) {
+    print Encode::decode('UTF-8', $_);
+}

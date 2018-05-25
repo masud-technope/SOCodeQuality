@@ -1,0 +1,4 @@
+ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+URL url = classLoader.getResource("path/to/folder");
+File file = new File(url.toURI());
+// ...

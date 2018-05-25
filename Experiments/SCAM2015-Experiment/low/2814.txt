@@ -1,0 +1,26 @@
+File file = new File("foo.cf");
+            InputStream inputStream = null;
+            HashMap<String, String> defPropMap = new HashMap<String, String>();
+            try {
+                inputStream = new FileInputStream(file);
+                Scanner scanner = new Scanner(inputStream);
+                while (scanner.hasNextLine()) {
+                    String[] columns = scanner.nextLine().split("=");
+                    if(columns.length == 2)
+                        defPropMap.put(columns[0].trim(), columns[1].trim());
+                    else
+                        defPropMap.put(columns[0].trim(), null);
+                }
+
+            } catch (FileNotFoundException e) {
+                logger.warn("Caught FileNotFoundException", e);
+
+            }
+            finally{
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    logger.warn("Caught IOException", e);
+
+                }
+            }

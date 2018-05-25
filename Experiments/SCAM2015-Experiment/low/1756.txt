@@ -1,0 +1,5 @@
+// 1.
+g2.rotate(theta,125,125);
+
+// 2.
+super.paint(g);

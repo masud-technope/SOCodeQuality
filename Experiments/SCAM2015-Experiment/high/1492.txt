@@ -1,0 +1,5 @@
+Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+for (int i : a) {
+    Integer count = map.get(i);
+    map.put(i, count != null ? count+1 : 0);
+}

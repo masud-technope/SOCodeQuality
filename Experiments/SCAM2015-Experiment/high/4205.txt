@@ -1,0 +1,10 @@
+JSONObject rootJsonObj = new JSONObject(result);
+     JSONArray wArray = rootJsonObj.optJSONArray("weather");
+     for (int i = 0; i < wArray.length(); i++) {
+          JSONObject weatherJsonObj = wArray.optJSONObject(i);
+          String mainWeather = weatherJsonObj.optString("main");
+          String mainDescription = weatherJsonObj.optString("description");
+
+          Toast.makeText(getBaseContext(), mainWeather + " - "
+                      + mainDescription,Toast.LENGTH_SHORT).show();
+     }

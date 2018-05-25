@@ -1,0 +1,3 @@
+dp.addOval(0, 0, dp.getWidth(), dp.getHeight(), Color.GREEN);
+//dp.addOval(0, 0, dp.getWidth(), dp.getHeight(), Color.BLUE);
+dp.addOval(5, 5, dp.getWidth(), dp.getHeight(), Color.RED);//uncomment here to see 2nd circle better

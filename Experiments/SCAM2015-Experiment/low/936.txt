@@ -1,0 +1,3 @@
+SectionActivity act = SectionActivity.valueOf(string);
+Intent intent = new Intent(this, act.getActivity());
+startActivity(intent);

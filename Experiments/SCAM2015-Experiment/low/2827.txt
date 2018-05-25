@@ -1,0 +1,5 @@
+if(query.list() instanceOf User){
+        // can cast to user.
+ }else{
+        // can not cast to User.
+ }

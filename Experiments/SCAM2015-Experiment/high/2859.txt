@@ -1,0 +1,5 @@
+String z = "bababcada";
+char[]f = z.toCharArray();
+Arrays.sort(f);
+String r = new String(f);
+System.out.println(r);

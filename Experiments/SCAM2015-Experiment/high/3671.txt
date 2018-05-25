@@ -1,0 +1,9 @@
+int kTotal=0;
+while (<condition-1>)
+    if (<condition-2>) {
+        // calculate k here
+        kTotal += k;
+    }
+synchronized (c) {                        
+    c.setInt(c.getInt()+kTotal); 
+}

@@ -1,0 +1,3 @@
+long a=121;
+     byte b=(byte)(a );
+     System.out.println("the value of b is" +b);

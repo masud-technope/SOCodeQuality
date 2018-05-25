@@ -1,0 +1,4 @@
+String a = "Tom";
+String b = "Brady";
+String c = a;
+c += b;

@@ -1,0 +1,4 @@
+StringWriter strOut = new StringWriter();
+...
+String output = strOut.toString();
+System.out.println(output);

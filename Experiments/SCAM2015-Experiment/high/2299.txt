@@ -1,0 +1,25 @@
+private Location findFirst(E item) {
+    Location current;
+    int closestMatchArray1;
+    int closestMatchArray2;
+
+    Object[] firstItemInArray2 = new Object[numArrayInUse];
+    Object firstItem;
+
+    // Comparator<E> comparator = new CompareElement();
+    Comparator<Object> comparator = new Comparator<Object>() {
+        private final Comparator<E> delegate = new CompareElement();
+
+        @Override
+        @SuppressWarnings("unchecked")
+        public int compare(Object o1, Object o2) {
+            return delegate.compare((E) o1, (E) o2);
+        }
+    };
+
+    for (int i = 0; i < numArrayInUse; i++) {
+        firstItem = topArray[i];
+        firstItemInArray2[i] = firstItem;
+    }
+
+    closestMatchArray1 = Arrays.binarySearch(firstItemInArray2, item, comparator);

@@ -1,0 +1,9 @@
+for(Character c : s.toCharArray()){
+
+        try{
+            Integer.parseInt(c.toString());
+            System.out.println("Integer Identified");
+        }catch (NumberFormatException ex){
+            System.out.println("Not an integer");
+        }
+    }

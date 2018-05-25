@@ -1,0 +1,11 @@
+public class Item implements Comparable<Item>{
+      private String id;
+      private String count;
+      private String name;
+
+      Item() {}
+      ...    
+      public int compareTo(Item item1) {
+        return this.count.compareTo(item1.count);
+      }   
+    }

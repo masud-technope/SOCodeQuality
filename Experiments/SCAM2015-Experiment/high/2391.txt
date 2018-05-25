@@ -1,0 +1,5 @@
+Resource tmp = resource; // null here
+if (resource != null) { // resource not null here
+    resource = tmp = new Resource();
+}
+return tmp; // returns null

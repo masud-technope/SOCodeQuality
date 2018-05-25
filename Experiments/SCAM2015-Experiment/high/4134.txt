@@ -1,0 +1,13 @@
+// Open a dummy FileInputStream
+    File f = File.createTempFile("dummy", ".tmp");
+    f.deleteOnExit();
+    FileInputStream fis = new FileInputStream(f);
+
+    // Replace FileInputStream's descriptor with stdin
+    Field fd = FileInputStream.class.getDeclaredField("fd");
+    fd.setAccessible(true);
+    fd.set(fis, FileDescriptor.in);
+
+    System.out.println("Reading...");
+    fis.read();
+    System.out.println("Complete");

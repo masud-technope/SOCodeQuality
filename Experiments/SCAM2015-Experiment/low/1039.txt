@@ -1,0 +1,11 @@
+class BufferedEvent<T>{}
+
+abstract class AbstractEventBuffer<E extends BufferedEvent>{}
+
+class EventBuffer<E extends BufferedEvent> extends AbstractEventBuffer
+{
+    public static void main (String[] args)
+    {
+          EventBuffer<BufferedEvent> buffer = new EventBuffer<BufferedEvent>();
+    }
+}

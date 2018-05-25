@@ -1,0 +1,3 @@
+String fileName = ...;
+String webSites = collapse(filterWebsites(readFileAsString(fileName)));
+String emails = collapse(filterEmails(readFileAsString(fileName)));

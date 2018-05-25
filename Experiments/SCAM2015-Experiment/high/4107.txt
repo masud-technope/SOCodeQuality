@@ -1,0 +1,5 @@
+String str = "This is the difficult one Thats it";
+String term = "t";
+Pattern pattern = Pattern.compile("\\b"+term, Pattern.CASE_INSENSITIVE);
+Matcher matcher = pattern.matcher(str);
+System.out.println(matcher.find());

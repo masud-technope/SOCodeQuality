@@ -1,0 +1,12 @@
+if(condition1) { 
+    // here you can add logic that will be executed when condition1 is true, 
+    // regardless of condition2
+    if (condition2) {
+        //something...
+    } else {
+        // here you can add logic that will be executed when condition1 is true, 
+        // but condition2 is false
+    }
+    // here you can add logic that will be executed when condition1 is true, 
+    // regardless of condition2
+}

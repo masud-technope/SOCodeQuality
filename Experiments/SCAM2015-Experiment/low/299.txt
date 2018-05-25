@@ -1,0 +1,12 @@
+@Controller
+@RequestMapping(value="/modules/tips")
+public class TipsController{
+
+    @RequestMapping(value="{tipId}/{viewName}",method=RequestMethod.GET)
+    public ModelAndView get(
+        @PathVariable String tipId,
+        @PathVariable String viewName) {
+        Tip tip = findTip(tipId);
+        return new ModelAndView("modules/tips/" + viewName,"tip",tip);
+    }
+}

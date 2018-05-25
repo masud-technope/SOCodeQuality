@@ -1,0 +1,5 @@
+Map<String, Integer> map = new HashMap<String, Integer>();
+
+map.put("foo", 3);
+
+System.out.println(map.get("foo"));

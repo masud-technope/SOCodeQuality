@@ -1,0 +1,16 @@
+public class UserObject {
+    String name;
+    int age;
+    @Override
+    public String toString() {
+        return " Name="+name+" \n age="+age;
+    }
+
+    public static void main(String[] args) {
+        UserObject uo = new UserObject();
+        uo.name="AAA";
+        uo.age=18;
+        System.out.println(uo); //output will be "Name=AAA age=18" instead of "UserObject@12dacd1"
+
+    }
+}

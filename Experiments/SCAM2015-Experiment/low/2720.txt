@@ -1,0 +1,4 @@
+<option id="july" value="">july</option>
+<script>
+element = document.getElementById(july).value="july";
+</script>

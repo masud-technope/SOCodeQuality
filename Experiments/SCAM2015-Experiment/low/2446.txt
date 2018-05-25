@@ -1,0 +1,3 @@
+public static void someMethod(List<? extends Number> numberList, Number number) {
+    numberList.add(number);
+}

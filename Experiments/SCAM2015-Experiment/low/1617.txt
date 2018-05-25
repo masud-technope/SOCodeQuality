@@ -1,0 +1,23 @@
+public boolean chkInt(final int[] array){
+    int key = false;
+
+    for (Integer i : array){
+
+
+          try{
+
+                   Integer.parseInt(i);
+                   key = true;
+                   return key;
+
+             }catch(NumberFormatException ex){
+
+                   key = false;
+
+                   return key;
+
+              }
+
+
+     }
+}

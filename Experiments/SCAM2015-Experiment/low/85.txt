@@ -1,0 +1,3 @@
+double d = 50.539999;
+long cents = (long)(d * 100 + 0.5);
+double rounded = cents/100;

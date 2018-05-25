@@ -1,0 +1,5 @@
+public static void main(String args[]){
+  Printer printer = new HP();
+  printer.getSystemResource();
+  printer.print();
+}

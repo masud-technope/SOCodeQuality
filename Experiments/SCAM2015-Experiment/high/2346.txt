@@ -1,0 +1,5 @@
+@XmlRootElement
+class Customers {
+   @XmlElement(name="customer")
+   List<Customer> customers;
+}

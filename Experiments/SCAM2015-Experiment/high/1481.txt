@@ -1,0 +1,4 @@
+List<String> list = new ArrayList<String>() {}; // creates a generic sub-type
+final Class type = (Class) ((ParameterizedType) list.getClass()
+                            .getGenericSuperclass()).getActualTypeArguments()[0];
+System.out.println(type);

@@ -1,0 +1,12 @@
+// step 1
+// flowerInVase is greater than 7, so the first thing to do is call the function again! 
+// Note that the System.out.println is NOT yet reached because of the execution of the function!
+// call emptyVse(7 - 1), the *stack* has *remembered* to the current value of *floweInVase* => 7
+emptyVase(7); 
+// step 2
+emptyVase(6);
+// condition is *true* yet again, so the same rules as above apply
+// current *remembered* value of `floweInVase` is 6
+// step 3
+emptyVase(5);
+// and so on ... until `flowerInVase` is 0 ... now ...

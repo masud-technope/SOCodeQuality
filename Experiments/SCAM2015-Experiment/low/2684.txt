@@ -1,0 +1,4 @@
+public static void startChronometer(){
+        mChronometer.start();
+        showElapsedTime();
+    }

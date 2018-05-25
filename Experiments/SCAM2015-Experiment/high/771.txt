@@ -1,0 +1,5 @@
+try {
+  write update to file
+} catch (IOException) {
+  write update to alternate file
+}

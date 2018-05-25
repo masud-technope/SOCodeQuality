@@ -1,0 +1,12 @@
+public class Pair<J,K> {
+    private J key;
+    private K value;
+
+    public Pair(J key, K value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public J getKey() {return key;}
+    public K getValue() {return value;}
+}

@@ -1,0 +1,5 @@
+DateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
+java.util.Date date3 = new java.util.Date();
+date3.setHours(0);
+date3.setMinutes(0);
+date3.setSeconds(0);

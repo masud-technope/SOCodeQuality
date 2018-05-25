@@ -1,0 +1,5 @@
+proj.dir=.
+src.dir=${proj.dir}/src
+build.dir=${proj.dir}/bin
+dependenet_jar.dir=C:/Program Files/dependent_jar
+tools.path=${tools.dir}

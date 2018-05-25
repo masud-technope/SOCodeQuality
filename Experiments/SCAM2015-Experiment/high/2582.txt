@@ -1,0 +1,12 @@
+// suppose this line happens-before foo()/bar() calls
+MyObject obj = new MyObject();
+
+void foo()
+    while(true)
+        MyObject tmp1 = obj;
+        synchronized(tmp1)
+            MyObject tmp2 = obj;
+            if(tmp2==tmp1)
+                tmp2.doWork();
+                return;
+            // else retry

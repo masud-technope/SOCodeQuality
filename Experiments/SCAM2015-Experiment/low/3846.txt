@@ -1,0 +1,10 @@
+public static void main(String[] args){
+     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+     Date now = new Date();
+     long dayInMillis = 1000*60*60*24;
+     long nowInMillis = System.currentTimeMillis();
+     for(long tmp = dayInMillis;tmp<=dayInMillis*60;tmp +=dayInMillis){
+        now.setTime(nowInMillis+tmp);
+        System.out.println(" date: "+sdf.format(now));
+     }
+ }

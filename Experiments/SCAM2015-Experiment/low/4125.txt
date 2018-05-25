@@ -1,0 +1,11 @@
+template <class T>
+void removeAll(std::vector<T>& in, const std::vector<T>& removeWhat) {
+    std::set<T> st(removeWhat.begin(), removeWhat.end());
+    size_t newSize = 0;
+    for (size_t i = 0; i < in.size(); ++ i) {
+        if (0 == st.count(in[i])) {
+            in[newSize ++] = in[i];
+        }
+    }
+    in.resize(newSize);
+}

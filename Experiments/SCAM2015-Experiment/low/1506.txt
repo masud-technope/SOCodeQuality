@@ -1,0 +1,10 @@
+public enum body
+{
+    NO_LEG = 0,         // bit 1
+    LEG_ONE = 2,        // bit 2 
+    LEG_TWO = 4,        // bit 3 
+    NO_ARM = 8,          // bit 4 
+    ARM_ONE = 16,  // bit 5 
+    ARM_TWO = 32  // bit 6 
+
+}

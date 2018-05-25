@@ -1,0 +1,6 @@
+public static void main(String[] args) {
+    double d = 12.349678;
+    int r = (int) Math.round(d*100);
+    double f = r / 100.0;
+   System.out.println(f);
+ }

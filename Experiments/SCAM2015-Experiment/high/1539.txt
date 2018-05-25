@@ -1,0 +1,3 @@
+Stack stack = ...; //Existing stack
+Stack tempStack = new Stack(); 
+tempStack.addAll(stack);

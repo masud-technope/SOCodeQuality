@@ -1,0 +1,4 @@
+int temp()
+   {
+      return(true ? null : 0);  
+   }

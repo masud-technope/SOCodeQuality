@@ -1,0 +1,6 @@
+String foo = null;
+String bar = "Some string";
+...
+if (foo != null && foo.equals(bar)) {
+    // Do something here.
+}

@@ -1,0 +1,4 @@
+// Java 'Color' class takes 3 floats, from 0 to 1.
+float r = rand.nextFloat();
+float g = rand.nextFloat();
+float b = rand.nextFloat();

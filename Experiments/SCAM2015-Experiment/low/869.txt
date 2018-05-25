@@ -1,0 +1,25 @@
+private final **synchronized** void stop1(Throwable th) {
+SecurityManager security = System.getSecurityManager();
+if (security != null) {
+    checkAccess();
+    if ((this != Thread.currentThread()) ||
+    (!(th instanceof ThreadDeath))) {
+    security.checkPermission(SecurityConstants.STOP_THREAD_PERMISSION);
+    }
+}
+    // A zero status value corresponds to "NEW"
+if (threadStatus != 0) {
+    resume(); // Wake up thread if it was suspended; no-op otherwise
+    stop0(th);
+} else {
+
+        // Must do the null arg check that the VM would do with stop0
+    if (th == null) {
+    throw new NullPointerException();
+    }
+
+        // Remember this stop attempt for if/when start is used
+    stopBeforeStart = true;
+    throwableFromStop = th;
+    }
+}

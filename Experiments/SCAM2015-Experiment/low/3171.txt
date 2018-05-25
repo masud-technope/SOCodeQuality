@@ -1,0 +1,23 @@
+public interface CompleteListener{
+  public void onComplete(String result);
+}
+
+public class A implements CompleteListener{
+
+   public void onComplete(String result){
+      // do something
+   }
+}
+
+public class B extends AsyncTask {
+    CompleteListener listener;
+
+   public B (CompleteListener listener){
+       this.listener = listener;
+   }
+
+   onPostExecute(String result){
+      listener.onComplete(result);
+   }
+
+}

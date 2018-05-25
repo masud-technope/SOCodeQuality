@@ -1,0 +1,3 @@
+for (File sourceImageFile : new File("imgs").listFiles()) {
+    res(sourceImageFile);
+}

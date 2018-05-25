@@ -1,0 +1,13 @@
+public static String replaceBob(String str,int index){
+    char arr[] = str.toCharArray();
+    for(int i=index; i<arr.length; i++){
+        if( arr[i]=='\\' && i<arr.length && arr[i+1]=='n' ){
+            String temp = str.substring(0, i)+"bob";
+            String temp2 = str.substring(i+2,str.length());
+            str = temp + temp2;
+            str = replaceBob(str,i+2);
+            break;
+        }
+    }
+    return str;
+}

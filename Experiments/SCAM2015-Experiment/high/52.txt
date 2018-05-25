@@ -1,0 +1,7 @@
+public static void update( Map<Integer,A> map, A obj ) {
+  A existing = map.get( obj.id );
+  if ( existing == null )
+     map.put( obj );
+  else
+     existing.b = obj.b;
+}

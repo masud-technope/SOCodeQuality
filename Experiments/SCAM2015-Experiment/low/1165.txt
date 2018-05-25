@@ -1,0 +1,3 @@
+Calendar today  = Calendar.getInstance();
+Calendar lastWeekSunday =  (today.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) ? today.roll(-7): today.roll(Calendar.DAY_OF_YEAR, Calendar.SUNDAY - today.get(Calendar.DAY_OF_WEEK));
+Calendar lastWeekMonday = lastWeekSunday.roll( Calendar.DAY_OF_YEAR, -6 );

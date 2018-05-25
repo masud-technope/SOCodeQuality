@@ -1,0 +1,4 @@
+List addToGroup(Group group) {
+    Membership.link(this, group)
+    return groups()
+  }

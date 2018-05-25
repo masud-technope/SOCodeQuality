@@ -1,0 +1,4 @@
+int total = 0;
+for (Integer i : list) { // assuming list is of type List<Integer>
+    total = 10*total + i;
+}

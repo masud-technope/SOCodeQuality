@@ -1,0 +1,3 @@
+public void addWindow(WindowItem newItem) {
+   item.addWindow(newItem);
+}

@@ -1,0 +1,19 @@
+for i = 0 to 99:
+    for j = 0 to 99:
+        for k = 0 to 99:
+            loadAndDoSomethingWith (i, j, k)
+flushData()
+
+currentlyLoaded = -1
+float buffer[100]
+
+def loadAndDoSomethingWith (i, j, k):
+    if i * 100 + j != currentlyLoaded:
+        flushData()
+        currentlyLoaded = i * 100 + j
+        read buffer from file #currentlyLoaded
+    doSomethingWith (buffer, k)
+
+def flushData():
+    if currentlyLoaded != -1:
+        write buffer to file #currentlyLoaded

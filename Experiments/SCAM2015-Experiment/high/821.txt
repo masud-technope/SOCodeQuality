@@ -1,0 +1,5 @@
+duplicates=false;
+for (j=0;j<zipcodeList.length;j++)
+  for (k=j+1;k<zipcodeList.length;k++)
+    if (k!=j && zipcodeList[k] == zipcodeList[j])
+      duplicates=true;

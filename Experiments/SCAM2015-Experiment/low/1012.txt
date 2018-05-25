@@ -1,0 +1,16 @@
+public void actionPerformed(ActionEvent e) {
+    String commandStr = e.getActionCommand();
+    if( commandStr.equals(RENAME_COMMAND) ) {
+        MyObject obj = getSelectedObject();
+        if( obj != null ) 
+            obj->rename();
+    }
+}
+
+private MyObject getSelectedObject() {
+    TreePath[] selPaths = treeControl.getSelectionPaths();
+    if( selPaths.length != 1 ) 
+        return null;        
+    DefaultMutableTreeNode node = (DefaultMutableTreeNode)selPaths[0].getLastPathComponent();
+    return (MyObject)node.getUserObject();
+}

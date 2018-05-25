@@ -1,0 +1,4 @@
+MyCustomObj x = new MyCustomObj();
+x.name = "test";
+Thread t = new Thread(new MyRunnable(x));
+t.start();

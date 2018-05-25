@@ -1,0 +1,16 @@
+public class aiubMain {
+public static void main(String args[]) throws MalformedURLException{
+    //home frame = new home();
+    java.net.URL imgUrl2 = home.class.getResource("Campus.gif");
+
+Icon icon = new ImageIcon(imgUrl2);
+JLabel label = new JLabel(icon);
+
+JFrame f = new JFrame("Animation");
+f.getContentPane().add(label);
+f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+f.pack();
+f.setLocationRelativeTo(null);
+f.setVisible(true);
+}
+}

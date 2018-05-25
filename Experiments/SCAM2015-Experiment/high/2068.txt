@@ -1,0 +1,17 @@
+String buf =       
+             "SELECT GEN_ID ( <YOUR_ID_NAME*>, 0 ) " + //see description below
+             "FROM RDB$DATABASE";
+try
+{
+    Statement stm = conn.createStatement ();
+    ResultSet RS = stm.executeQuery ( buf );
+    buf = null;
+    if ( RS != null )
+    {
+        RS.next ();
+        buf = RS.getString ( 1 ).trim (); //That is it
+        RS.close ();
+    }
+}
+catch ( SQLException e )
+{}

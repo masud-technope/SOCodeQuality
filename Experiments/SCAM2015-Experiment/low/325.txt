@@ -1,0 +1,8 @@
+List triple = new ArrayList(3);    
+for (String word: inputFileWords) {
+  if (triple.size == 3) {
+      resultFile.println(StringUtils.join(" ", triple));
+      triple.remove(0);
+  }
+  triple.add(line);
+}

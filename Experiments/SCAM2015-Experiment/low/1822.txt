@@ -1,0 +1,6 @@
+@Entity
+@Table(name = "users")
+class User {
+    private String login;
+    ...
+}

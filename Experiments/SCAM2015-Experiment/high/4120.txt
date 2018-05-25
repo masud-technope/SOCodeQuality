@@ -1,0 +1,3 @@
+String s = "#remove#keep#remove#";
+String stripped = s.replaceAll("#.*?#", "");
+System.out.println(stripped);  // keep

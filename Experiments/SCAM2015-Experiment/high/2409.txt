@@ -1,0 +1,3 @@
+val aList = ('A' to 'Z').toList
+
+val aListIterator = scala.util.Random.shuffle((0 until aList.length).toList).toIterator

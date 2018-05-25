@@ -1,0 +1,4 @@
+Onclick(...){
+      Intent intent = New intent (this, acttwo.class);
+      StartActivityForResult(intent, 0); // Result to ensure about back track of proper activity
+}

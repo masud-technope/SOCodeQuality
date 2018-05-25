@@ -1,0 +1,11 @@
+public static String change(String s,String s1, String s2) {
+   int length = s.length();
+   int x1 = s1.length();
+   int x2 = s2.length();
+   int x12 = s.indexOf(s1);
+   int x22 = s.indexOf(s2);
+   String s3=s.substring(0, x12);
+   String s4 =s.substring(x12+3, x22);
+   s=s3+s2+s4+s1;
+   return s;
+}

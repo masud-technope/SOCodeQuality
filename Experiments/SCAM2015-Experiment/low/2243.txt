@@ -1,0 +1,113 @@
+package com.eiq.singleton;
+
+import java.io.Serializable;
+
+public class SingleTonDemo implements Cloneable, Serializable {
+
+    // order of declaring variables objCount and SingleTonDemo should be same.
+    private static int objCount = 0;
+    private static SingleTonDemo obj = new SingleTonDemo();
+
+//this value is not needed, to test whether the object value only, you can remove it, the code will work
+    int i = 10;
+
+    private SingleTonDemo() {
+
+        // logic to throw exception if we are trying to create object through reflection.
+        if (objCount == 0) {
+            synchronized (SingleTonDemo.class) {
+                if (objCount == 0)
+                    objCount++;
+            }
+        } else {
+            throw new RuntimeException(
+                    "Singleton class, Object creation is restricted");
+        }
+
+    }
+
+    public static SingleTonDemo getInstance() {
+        return obj;
+    }
+
+    // To avoid duplication
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException(
+                "Cannot Duplicate Single Ton Object");
+    }
+
+    // To avoid serialization and deserialization problems
+    public Object readResolve() {
+        return SingleTonDemo.getInstance();
+    }
+
+}
+
+In the above program will create only one object in all the cases like serialization, cloning, reflection and factory method etc.
+
+This is the testing code:
+
+package com.eiq.singleton;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.lang.reflect.Constructor;
+
+public class TestSingleTon {
+
+    private static final String FILE_PATH = "E:/suman/singleton.txt";
+
+    public static void main(String[] args) throws Exception {
+
+        System.out
+                .println("Creating through factory method of SingleTonDemo.getInstance()");
+        SingleTonDemo obj = SingleTonDemo.getInstance();
+        System.out.println(obj + "  obj  i=" + obj.i);
+
+        // Serializing the object
+        FileOutputStream fos = new FileOutputStream(FILE_PATH);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(obj);
+
+        System.out.println();
+        System.out.println("Object creation through deserialization mechanism");
+        // Returns the already created object if we trying to create object
+        // through Deserialization mechanism.
+        // Deserializing the object first time
+        FileInputStream fis1 = new FileInputStream(FILE_PATH);
+        ObjectInputStream ois1 = new ObjectInputStream(fis1);
+        SingleTonDemo deserializedObj1 = (SingleTonDemo) ois1.readObject();
+        System.out.println(deserializedObj1 + "  deserializedObj1  i="
+                + deserializedObj1.i);
+
+        // Deserializing the object second time, in both the case returns same
+        // object
+        FileInputStream fis2 = new FileInputStream(FILE_PATH);
+        ObjectInputStream ois2 = new ObjectInputStream(fis2);
+        SingleTonDemo deserializedObj2 = (SingleTonDemo) ois2.readObject();
+        System.out.println(deserializedObj2 + "  deserializedObj2  i="
+                + deserializedObj2.i);
+
+        // throws exception if we duplicate the object
+        // SingleTonDemo ob = (SingleTonDemo) obj.clone();
+
+        // Through Reflection
+        System.out.println();
+        System.out
+                .println("=====Throwing Exception if we are trying to create object through Reflection=======");
+        Class<SingleTonDemo> rObj = (Class<SingleTonDemo>) Class
+                .forName("com.eiq.singleton.SingleTonDemo");
+        Constructor<SingleTonDemo>[] constructors = (Constructor<SingleTonDemo>[]) rObj
+                .getDeclaredConstructors();
+
+        for (Constructor<SingleTonDemo> constructor : constructors) {
+            constructor.setAccessible(true);
+            SingleTonDemo reflObj1 = constructor.newInstance();
+            System.out.println(reflObj1 + "  reflObj1  i=" + reflObj1.i);
+        }
+
+    }
+}

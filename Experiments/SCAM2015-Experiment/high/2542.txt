@@ -1,0 +1,4 @@
+Set<Item> withoutDups = new HashSet<Item>(Arrays.asList(yourArray));
+//now you have it without duplicates and do whatevet you want with it:-)
+Item[] arrayWithoutDups = new Item[withoutDups.size()];
+withoutDups.toArray(arrayWithoutDups); // fill the array

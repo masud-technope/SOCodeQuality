@@ -1,0 +1,4 @@
+class ItemB extends Item
+{
+  ...
+}

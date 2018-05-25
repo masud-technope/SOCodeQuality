@@ -1,0 +1,43 @@
+public class Class1 {
+private String extref="MY";
+
+public String getExtref() {
+    return extref;
+}
+
+public String setExtref(String extref) {
+    return this.extref = extref;
+}
+
+public static void main(String[] args) {
+
+    Class1 obj=new Class1();
+    String value=obj.setExtref("AFF");
+    int returnedValue=getMethod(value);     
+    System.out.println(returnedValue);
+}
+
+/**
+ * @param value
+ * @return
+ */
+private static int getMethod(String value) {
+      HashMap<Integer, String> hashmap1 = new HashMap<Integer, String>();
+        hashmap1.put(1,"MY");
+        hashmap1.put(2,"AFF");
+
+        if (hashmap1.containsValue(value))
+        {
+            for (Map.Entry<Integer,String> e : hashmap1.entrySet()) {
+                Integer key = e.getKey();
+                Object value2 = e.getValue();
+                if ((value2.toString()).equalsIgnoreCase(value))
+                {
+                    return key;
+                }
+            }
+        }   
+        return 0;
+
+}
+}

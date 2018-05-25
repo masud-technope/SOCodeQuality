@@ -1,0 +1,33 @@
+public static void main(String[] args) {
+
+    LinkedList<Integer> myLL = new LinkedList<Integer>();
+
+    myLL.add(1231);
+    myLL.add(12);
+    myLL.add(12313);
+    myLL.add(123);
+    myLL.add(12313);
+    myLL.add(1);
+    myLL.add(1243242);
+    System.out.println(myLL);
+
+    myLL = deleteDups(myLL);
+    System.out.println(myLL);
+}
+
+private static LinkedList<Integer> deleteDups(LinkedList<Integer> myLL) {
+    // TODO Auto-generated method stub
+
+    HashSet<Integer> myHashSet = new HashSet<Integer>();
+    Iterator<Integer> itr;
+    itr = myLL.iterator();
+
+    while (itr.hasNext()) {
+        if (!myHashSet.add(itr.next())) {
+            itr.remove();
+        }
+
+    }
+
+    return myLL;
+}

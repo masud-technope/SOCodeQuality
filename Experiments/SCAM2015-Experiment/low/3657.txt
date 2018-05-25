@@ -1,0 +1,3 @@
+byte locationGen = (byte)(Math.random()*7+1);
+byte[] locations = {locationGen[0], (byte)(locationGen[0]+1), (byte)(locationGen[0]+2)};
+System.out.println(locations[0] + ":" + locations[1] + ":" +locations[2]);

@@ -1,0 +1,18 @@
+public class test {
+
+    public static void main(String args[]) {
+        int x=10;
+        System.out.println("X is: " + x);
+        StringBuilder xStringBuilder = new StringBuilder(Integer.toString(x));
+        add(xStringBuilder);
+        x=Integer.parseInt(xStringBuilder.toString());
+        System.out.println("X is: " + x);
+    }
+
+    private static void add(StringBuilder x) {
+        int val = Integer.parseInt(x.toString());
+        val++;
+        x.delete(0, x.length());
+        x.append(Integer.toString(val));
+    }
+}

@@ -1,0 +1,15 @@
+@Override
+public void run() 
+{
+    crntThrdCnt++;
+    this.runBatchInstance();
+    crntThrdCnt--;
+
+    if(crntThrdCnt == 0)
+    {
+        ProcessManager prcsMgr = new ProcessManager();
+        Batch batch = prcsMgr.getBatch(this.batchID);
+        batch.setEndTime(new Date());
+        prcsMgr.updateBatch(batch);
+    }
+}

@@ -1,0 +1,5 @@
+for(int i = 0; i < pixels.length; i++){
+        for(int i = 0; i < pixels[i].length; i++){
+               threshold += (double)pixels[i][j];
+        }
+}

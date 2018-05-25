@@ -1,0 +1,3 @@
+var btnAccept = GetElementWaitVisibleThrow(By.Id("<<ELEMENT HTMLID>>"));
+Actions action = new Actions(driver);
+action.MoveByOffset(btnAccept.Location.X + 5, btnAccept.Location.Y + 5).Click().Perform();

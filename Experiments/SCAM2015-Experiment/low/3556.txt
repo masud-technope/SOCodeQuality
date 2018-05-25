@@ -1,0 +1,4 @@
+Current thread is Thread[t2,5,main]10
+Current thread is Thread[t3,5,main]50
+Current thread is Thread[t1,5,main]250
+Current thread is Thread[t4,5,main]1250

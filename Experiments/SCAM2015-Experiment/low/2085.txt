@@ -1,0 +1,10 @@
+public class ArrayUtils
+    {
+        @SuppressWarnings("unchecked")
+        public static  E[] appendToArray(E[] array, E item)
+        {
+            E[] result = (E[]) Array.newInstance(array.getClass().getComponentType().getClass(), array.length+1);
+            result[array.length] = item;
+            return result;
+        }
+    }

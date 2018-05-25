@@ -1,0 +1,10 @@
+<?
+function encode_cookie_value($value)
+         {return strtr($value,
+                       array_combine(str_split($tmp=",; \t\r\n\013\014"),
+                                     array_map('rawurlencode', str_split($tmp))
+                                    )
+                      );
+         }
+setrawcookie('kk', encode_cookie_value('jk=jk?jk-/":jk;jk jk,jk'));
+?>

@@ -1,0 +1,19 @@
+public String getData(){
+        String c ;
+        c = null;
+        int a = cb1.getSelectedIndex();
+        int b = cb2.getSelectedIndex();
+        System.out.println("C: "+c+" A: "+a+" B: "+b);
+        if (a <= 4 && b != 2)
+        {
+           c=""+a; 
+        }
+        else if (a >= 5)
+        {
+           c=""+a+""+b; 
+        }
+        else
+        {
+           c="";
+        }
+    }

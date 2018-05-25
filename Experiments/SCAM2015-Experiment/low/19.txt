@@ -1,0 +1,4 @@
+<property environment="env" />
+<property file="${basedir}/online/${env.LOGNAME}.build.properties" />
+<property file="${basedir}/online/${env.USERNAME}.build.properties" />
+<property file="${basedir}/online/default.properties" />

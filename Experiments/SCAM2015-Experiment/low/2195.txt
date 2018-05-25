@@ -1,0 +1,16 @@
+/**
+ * Returns the content of a string or null if there is no actual content. The original string is trimmed so
+ * whitespace inside the string counts as content.
+ *
+ * @param string String to check
+ * @return the content or null if there is only whitespace, control characters or no string at all
+ */
+public static String getContent(String string) {
+    if (string != null) {
+        string = string.trim();
+        if (string.isEmpty() == false) {
+            return string;
+        }
+    }
+    return null;
+}

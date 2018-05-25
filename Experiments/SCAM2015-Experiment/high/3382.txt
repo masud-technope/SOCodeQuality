@@ -1,0 +1,6 @@
+boolean hasConsonants(String userInput) {
+    for (String consonant : consonants)
+        if (userInput.contains(consonant)
+            return true;
+    return false;
+}

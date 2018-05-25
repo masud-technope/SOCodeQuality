@@ -1,0 +1,9 @@
+public InetAddress intToInetAddress(Integer value) throws UnknownHostException
+  {
+    ByteBuffer buffer = ByteBuffer.allocate(32);
+    buffer.putInt(value);
+    buffer.position(0);
+    byte[] bytes = new byte[4];
+    buffer.get(bytes);
+    return InetAddress.getByAddress(bytes);
+  }

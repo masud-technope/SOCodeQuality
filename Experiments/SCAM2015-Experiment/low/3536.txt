@@ -1,0 +1,3 @@
+public bool isHeads;
+Constructor()
+{ isHeads=true;}

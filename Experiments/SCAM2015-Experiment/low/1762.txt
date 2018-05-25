@@ -1,0 +1,4 @@
+public static String doSomethingForResult(String input ,BaseClass bc){
+    bc.doSomething();
+    return bc.getResult();
+}

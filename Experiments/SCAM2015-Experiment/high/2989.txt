@@ -1,0 +1,7 @@
+$xml = new DomDocument();
+$xml->loadXml($yourHTMLHere);
+$xpath = new DOMXPath($xml);
+$node = $xpath
+    ->evaluate('//form[@name="PAResForm"]//input[@name="MD"]')
+    ->item(0);
+$yourValueIsHere = $node->getAttribute('value');

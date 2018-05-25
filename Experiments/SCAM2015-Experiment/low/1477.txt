@@ -1,0 +1,14 @@
+boolean boo = false;
+ someButton.setOnClickListener(new OnClickListener() {
+ @Override
+ public void onClick(View v) {
+ if(boo==false){
+    someButton.setEnabled(false);
+    someButton.setClickable(false);
+    someButton.setVisibility(View.GONE);
+    boo = true;
+ }
+
+
+    }
+});

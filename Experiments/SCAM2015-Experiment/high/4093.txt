@@ -1,0 +1,19 @@
+public class HelloWorld{
+
+ public static void main(String []args){
+
+    String s = "DemoString StringDemo DemoString";
+
+    String[] str = s.split(" ");
+
+    for(String ss : str)
+    {
+        int index = ss.indexOf("Demo"); //check if "Demo" is at the start of the string
+        if(index == 0)
+        {
+            ss = ss.replace("Demo","Demo2");
+        }
+        System.out.println(ss);
+    }
+ }
+}

@@ -1,0 +1,3 @@
+int byteLength = dis.readInt(); // now I know how many bytes to read
+byte[] theBytes = new byte[byteLength];
+dis.readFully(theBytes);

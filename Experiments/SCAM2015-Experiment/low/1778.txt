@@ -1,0 +1,6 @@
+public class NewCLass {
+         int newInt;  
+         public NewClass(int num1) {
+            this.newInt = num1;
+         }
+    }

@@ -1,0 +1,9 @@
+int character;
+StringBuffer buffer = new StringBuffer("");
+FileInputStream inputStream = new FileInputStream(new File("/home/jessy/file.txt"));
+
+while( (character = inputStream.read()) != -1)
+        buffer.append((char) character);
+
+inputStream.close();
+System.out.println(buffer);

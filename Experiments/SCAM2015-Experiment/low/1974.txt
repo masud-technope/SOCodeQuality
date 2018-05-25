@@ -1,0 +1,3 @@
+Map<String,String> map = new LinkedHashMap<String,String>();    
+map.put('1','linked');map.put('1','hash');    
+map.put('2','map');map.put('3','java');..

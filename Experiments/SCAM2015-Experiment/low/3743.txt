@@ -1,0 +1,15 @@
+public class TestExec {
+
+public static void main(String[] args) {
+
+    Request request1 = new RequestINT();
+    Response response1 = request1.execute();
+    System.out.println(response1.getResponse());
+
+    Request request2 = new RequestSTRING();
+    Response response2 = request2.execute();
+    System.out.println(response2.getResponse());
+
+}
+
+}

@@ -1,0 +1,16 @@
+public static void main(String[] args) throws Exception {
+    new Expression(new A(), "doSomething", null).getValue();
+    new Expression(new B(), "doSomething", null).getValue();
+}
+
+public static class A {
+    public void doSomething() {
+            System.out.println("I'm doing it already!");
+    }
+}
+
+public static class B {
+    public void doSomething() {
+            System.out.println("I'm doing it too!");
+    }
+}

@@ -1,0 +1,5 @@
+class DatabaseTableHandler<E extends BaseObject>{
+
+   public void add(List<E> object){}
+
+ }

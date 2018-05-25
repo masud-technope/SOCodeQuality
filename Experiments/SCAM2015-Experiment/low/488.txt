@@ -1,0 +1,3 @@
+JTextArea jTextArea=new JTextArea();
+JScrollPane jScrollPane=new JScrollPane();
+jScrollPane.setViewport(jTextArea);

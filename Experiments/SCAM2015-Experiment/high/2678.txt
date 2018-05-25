@@ -1,0 +1,6 @@
+class Bar<This>
+    This doA()
+
+class Foo extends Bar<Foo>
+
+Foo has a method "Foo doA()", inherited from Bar<Foo>

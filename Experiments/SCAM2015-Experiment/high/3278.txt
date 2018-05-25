@@ -1,0 +1,6 @@
+public class Main {
+    private static int three;
+    private static int four;
+    private static int five;
+    ...
+}

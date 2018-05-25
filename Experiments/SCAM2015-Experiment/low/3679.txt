@@ -1,0 +1,5 @@
+subham@subham-SVE15125CNB:~/Desktop$ javac Test.java 
+subham@subham-SVE15125CNB:~/Desktop$ java Test
+hello
+
+ The type of the variable is : java.lang.String

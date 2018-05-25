@@ -1,0 +1,10 @@
+JPanel panel = new JPanel();
+this.setContentPane(panel);
+panel.setLayout(null);
+String data[][] = {{"1.", "ABC"}, {"2.", "DEF"}, {"3.", "GHI" }};
+String col[] = {"Sr. No", "Name"};
+JTable table = new JTable(data,col);
+table.setBounds(100, 100, 100, 80);
+panel.add(table);
+setVisible(true);
+setSize(300,300);

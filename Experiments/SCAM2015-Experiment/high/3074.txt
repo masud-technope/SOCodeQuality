@@ -1,0 +1,8 @@
+public static void assertEqualsMapEpsilon(Map<Object,Double> expected, Map<Object,Double> actual, double epsilon) {
+    assertEquals(expected.size(), actual.size());
+    for(Map.Entry<Object,Double> value:expected.entrySet()){
+        Double actualValue = actual.get(value.getKey());
+        assertNotNull(actualValue);
+        assertEquals(value.getValue(), actualValue, epsilon);
+    }
+}

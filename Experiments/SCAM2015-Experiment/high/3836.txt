@@ -1,0 +1,6 @@
+String input = "34";
+if(input.matches("^\\d+(\\.\\d+)?")) {
+  //okay
+} else {
+  // not okay !
+}

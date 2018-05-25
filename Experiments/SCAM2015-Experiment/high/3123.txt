@@ -1,0 +1,6 @@
+try{
+  while ((currentInput=Input.readLine()) != null) {
+     if (currentInput.startsWith("Chat: "))
+       sendToAllClients(currentInput.substring(7));
+  }
+catch (IOException e) { //bad to swallow exception:  let's the method throw it or make something with it here}

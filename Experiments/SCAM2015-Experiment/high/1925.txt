@@ -1,0 +1,18 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+ <xsl:output omit-xml-declaration="yes" indent="yes"/>
+ <xsl:strip-space elements="*"/>
+
+ <xsl:template match="/*">
+  <top xmlns:abc="http://abc.ru">
+   <xsl:apply-templates/>
+  </top>
+ </xsl:template>
+
+ <xsl:template match="a[@href]">
+   <xsl:element name="abc:href" namespace="http://abc.ru">
+     <xsl:attribute name="var">
+       <xsl:apply-templates/>
+     </xsl:attribute>
+   </xsl:element>
+ </xsl:template>
+</xsl:stylesheet>

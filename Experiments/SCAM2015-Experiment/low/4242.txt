@@ -1,0 +1,8 @@
+public static Card[] getAll(){
+    Card[] brb = new Card[cards.size()];
+    int tempCount = 0;
+    for(Card c : cards){
+        brb[tempCount] = c;
+        tempCount++;
+    }
+    return brb;

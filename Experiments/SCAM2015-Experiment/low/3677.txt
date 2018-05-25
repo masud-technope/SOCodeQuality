@@ -1,0 +1,34 @@
+public static void main(String[] args) {
+    int N     = 100211020;
+    int digit = 0;
+
+    int m;
+    for (m = 9 ; m > 0 && m == digit; m--);
+
+    String sres;
+    String s   = N + "";
+    int length = s.length();
+    int i      = s.indexOf(digit + "");
+
+    if (i < 0)
+        sres = s;
+    else {
+        StringBuilder sb = new StringBuilder();
+        if (digit != 0) {
+            for (int j=0 ; j<i ; j++) sb.append(s.charAt(j));
+            sb.append(digit - 1);
+            for (int j=i + 1 ; j<length ; j++) sb.append(m);
+        } else {
+            if (s.charAt(0) != '1')
+                sb.append(mod10(s.charAt(0) - '0' - 1));
+            for (int j=1 ; j<length ; j++) sb.append(9);            
+        }
+        sres = sb.toString();
+    }
+    System.out.println(sres);
+}
+
+public static int mod10(int n) {
+    int res = n % 10;
+    return res < 0 ? res + 10 : res;
+}

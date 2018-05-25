@@ -1,0 +1,5 @@
+for(String i : wordBank) { //loops through the array with 'i' being current index
+    if(i.contains("abc")) { //checks if index contains filter String
+        System.out.println(i); //prints out index if filter String is present
+    }
+}

@@ -1,0 +1,5 @@
+String tmp = new String();
+ do{
+      linenumber++;
+      System.out.println(tmp=lnr.readLine());                        
+   }while (tmp != null);

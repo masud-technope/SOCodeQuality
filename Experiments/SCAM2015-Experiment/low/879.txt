@@ -1,0 +1,14 @@
+String addData[] = new String[6];
+ArrayList<String> data = new ArrayList<String>();    
+addData[0] = "a";
+addData[1] = "b";
+
+// 1. catenate all strings
+String str = "";
+for (String s : addData) {
+    str += (s != null)?s:"";
+}
+
+// 2. put it into 0 index in your arraylist     
+data.add(0, str);
+System.out.println(data.get(0));

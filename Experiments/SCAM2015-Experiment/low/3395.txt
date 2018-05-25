@@ -1,0 +1,7 @@
+function trim(s)
+{    
+    s.value = s.value.replace('/(^\s*)|(\s*$)/',''); 
+    s.value = s.value.replace('/[ ]{2,}/gi','');     
+    s.value = s.value.replace('/\n +/',"\n");           
+    return;
+}

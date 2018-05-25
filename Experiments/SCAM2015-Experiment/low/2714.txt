@@ -1,0 +1,12 @@
+var inFormOrLink = false;
+        $(document).on('click','a', function() { inFormOrLink = true; });
+        $(document).bind('submit','form', function() { inFormOrLink = true; });
+
+        $(window).on('beforeunload',document, function(eventObject) {
+            var returnValue = undefined;
+            if (inFormOrLink == false) {
+                //do your action
+
+            }
+
+        });

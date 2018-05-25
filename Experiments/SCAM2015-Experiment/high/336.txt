@@ -1,0 +1,10 @@
+xml_pp -s record_c to_compact.xml
+
+<root>
+  <address><street>abc</street><number>123</number></address>
+  <address><street>abc1</street><number>345</number></address>
+  <address><street>xyz</street><number>999</number></address>
+  <address><street>abc</street><number>123</number></address>
+  <address><street>abc1</street><number>345</number></address>
+  <address><street>xyz</street><number>999</number></address>
+</root>

@@ -1,0 +1,24 @@
+FileInputStream fis = null;
+try
+{
+    fis = new FileInputStream(file);
+
+    ... process ...
+
+
+}
+catch (IOException e)
+{
+    ... blah blah blah ...
+}
+finally
+{
+    try
+    {
+        if (fis != null)
+            fis.close();
+    }
+    catch (IOException e)
+    {
+    }
+}

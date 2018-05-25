@@ -1,0 +1,5 @@
+public void closeConnection {
+        try { rs.close(); } catch (Exception e) { // TODO Auto-generated catch block }
+        try { ps.close(); } catch (Exception e) { // TODO Auto-generated catch block }
+        try { conn.close(); } catch (Exception e) { // TODO Auto-generated catch block }
+    }

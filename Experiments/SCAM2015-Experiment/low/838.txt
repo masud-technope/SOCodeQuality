@@ -1,0 +1,11 @@
+import abc.def.*;
+
+public class checktest {
+
+public static void main(String a[]) {
+
+test t = new test();
+
+}
+
+}

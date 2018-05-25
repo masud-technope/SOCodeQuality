@@ -1,0 +1,28 @@
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    final Random myRandom = new Random();
+
+
+     Button buttonGenerate = (Button)findViewById(R.id.generateme);
+    final TextView textGenerateNumber = (TextView)findViewById(R.id.generatenumber);
+
+    buttonGenerate.setOnClickListener(new OnClickListener(){
+
+             @Override
+             public void onClick(View v) {
+                 ArrayList<Object> Arry1 = new ArrayList<Object>();
+                    for(int i=0;i<1;i++){
+                   ArrayList<Integer> Arry = new ArrayList<Integer>();
+                   for(int k=0;k<7;k++){
+                       textGenerateNumber.setText(myRandom.nextInt(10));
+                   }
+                       Arry1.add(Arry);
+                   }
+
+                       }
+                       });  
+                    }
+                 }

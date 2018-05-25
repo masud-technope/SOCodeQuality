@@ -1,0 +1,8 @@
+import _root_.org.codehaus.jettison.json.{JSONArray, JSONObject}
+@POST
+@Path("/wants-json-array")
+@Consumes(Array(MediaType.APPLICATION_JSON))
+def wantsJSONArray(array: JSONArray): Response =
+{
+    // here's your array
+}

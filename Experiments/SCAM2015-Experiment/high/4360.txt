@@ -1,0 +1,8 @@
+linesLeft = 0
+while in.hasNext():
+    line=in.nextLine()
+    if line.contains("(1)"):
+        linesLeft = 6
+    if linesLeft > 0:
+        println (line)
+        linesleft--

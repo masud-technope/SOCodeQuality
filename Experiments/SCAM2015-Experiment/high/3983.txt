@@ -1,0 +1,8 @@
+for(int i=0,d=0;d<(a+b);i++) {
+    if(i<a){
+        ch[d]=s1.charAt(i);d++;
+    }
+    if(i<b) {
+        ch[d]=s2.charAt(i);d++;
+    }
+}

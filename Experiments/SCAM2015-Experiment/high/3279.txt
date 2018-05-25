@@ -1,0 +1,5 @@
+public static void one(){
+    three = 3;
+    four = 4;
+    five = two();
+}

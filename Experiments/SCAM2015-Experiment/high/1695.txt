@@ -1,0 +1,5 @@
+public synchronized void setXYPosition(int x, int y) {
+  this.xpos = x;
+  this.ypos = y;
+  repaint();
+}

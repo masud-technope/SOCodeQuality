@@ -1,0 +1,4 @@
+String str ; 
+while((str = System.in.readLine()) != null){
+   //code
+}

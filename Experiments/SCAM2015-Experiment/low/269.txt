@@ -1,0 +1,21 @@
+public class Dog {
+
+    public String name;
+
+    public Dog(String name) {
+        this.name = name;
+    }
+
+    public static void main(String []args) {
+
+        Dog newDog = new Dog("Max");
+        newDog.test(newDog);
+        System.out.println(newDog.name);
+
+    }
+
+    public void test(Dog dog) {
+        dog = new Dog("Gotcha");
+    }
+
+}

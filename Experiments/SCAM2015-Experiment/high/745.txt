@@ -1,0 +1,9 @@
+0 aload_0
+ 1 aload_0
+ 2 getfield #2 <app/WithoutStaticMethods.value>
+ 5 iconst_2
+ 6 aload_0
+ 7 getfield #2 <app/WithoutStaticMethods.value>
+10 imul
+11 invokespecial #3 <app/WithoutStaticMethods.helper>
+14 ireturn

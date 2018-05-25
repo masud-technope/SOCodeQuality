@@ -1,0 +1,15 @@
+public static int getNthWeekDay (int n, int day, int month, int year) {
+    Calendar calendar = Calendar.getInstance();
+
+    calendar.set(Calendar.DAY_OF_WEEK, day);
+    calendar.set(Calendar.MONTH, month);
+    calendar.set(Calendar.WEEK_OF_MONTH,n);
+    calendar.set(Calendar.YEAR, year);
+    if (calendar.get(Calendar.DATE) > n * 7) {
+        calendar.set(Calendar.DAY_OF_WEEK,day);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.WEEK_OF_MONTH,day+1);
+
+    }
+    return calendar.get(Calendar.DATE);
+}

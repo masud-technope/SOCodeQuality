@@ -1,0 +1,27 @@
+public class Test {
+    private int variable;
+    private Test2 test2;
+
+    public Test(int variable, Test2 test2) {
+        this.variable = variable;
+        this.test2 = test2;
+        test2.printTest(this);
+    }
+
+    public int getVariable() {
+        return variable;
+    }
+
+    public static void main(String[] args) {
+        Test test = new Test(111111,new Test2());
+    }
+}
+class Test2{
+
+    Test2() {
+    }
+
+    public void printTest(Test test){
+        System.out.println(test.getVariable());
+    }
+}

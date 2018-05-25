@@ -1,0 +1,6 @@
+public static void p1(Integer curInt) {
+          Field field = curInt.getClass().getDeclaredField("value"); // Integer stores the real value in private field "value"
+          field.setAccessible(true);
+          field.set(curInt, 2);
+
+}

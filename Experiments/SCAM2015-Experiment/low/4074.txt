@@ -1,0 +1,27 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class TestClass
+{
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        System.out.println(TestClass.isLongString("188237574385834583453453635"));
+    }
+
+    public static boolean isLongString(final String longNumber)
+    {
+        boolean isLong = false;
+        try
+        {
+            Long.parseLong(longNumber);
+            isLong = true;
+        }
+        catch(Exception e)
+        {
+            // do nothing - return default false
+        }
+
+        return isLong;
+    }
+}

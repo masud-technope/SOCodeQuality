@@ -1,0 +1,9 @@
+jclass cls = env->FindClass("java/lang/Class");
+jmethodID mid = env->GetMethodID(cls, "getName", "()Ljava/lang/String;");
+
+cls = env->GetObjectClass(obj);
+
+jstring className_jstring = env->CallObjectMethod(cls, mid);
+const char * className = env->GetStringUTFChars(className_jstring, JNI_FALSE);
+
+printf("Class name: %s\n", className);

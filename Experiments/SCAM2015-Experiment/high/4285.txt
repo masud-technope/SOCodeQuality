@@ -1,0 +1,23 @@
+public <T extends Comparable<T>> void sortList(ArrayList<T> arr) {
+
+        ArrayList<T> arr2 = new ArrayList<T>(arr);
+
+        for (int i = 0; i < arr2.size(); i++) {
+
+            boolean done = false;
+            int insertIndex = 0;
+            int k = i;
+            T next = arr2.get(i);
+
+            while (k > 0 && insertIndex == 0) {
+
+                if (next.compareTo(arr2.get(k - 1)) > 0) {
+                    insertIndex = k;
+                    done = true;
+                }
+
+                k--;
+            }
+            arr.set(insertIndex, arr2.get(i));
+        }
+    }

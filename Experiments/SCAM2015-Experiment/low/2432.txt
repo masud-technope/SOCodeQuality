@@ -1,0 +1,7 @@
+{   
+int LowerLeftSide;
+if ((BRICK_WIDTH / 2) == 0) {
+     LowerLeftSide = ((getWidth()/2) - (BRICK_WIDTH*(BRICKS_IN_BASE/2)));
+} else {
+     LowerLeftSide = ((getWidth()/2) - (BRICK_WIDTH*(BRICKS_IN_BASE/2-1)));
+}

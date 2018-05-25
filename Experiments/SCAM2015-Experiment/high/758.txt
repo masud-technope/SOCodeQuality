@@ -1,0 +1,5 @@
+final String firebugPath = "C:\\FF_Profile\\firebug.xpi";
+   FirefoxProfile profile = new FirefoxProfile();       
+   profile.addExtension(new File(firebugPath));
+   // Add more if needed
+   WebDriver driver = new FirefoxDriver(profile);

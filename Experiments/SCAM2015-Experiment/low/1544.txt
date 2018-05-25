@@ -1,0 +1,13 @@
+EventSnapshot snapshotEvent = new EventSnapshot();
+EventSnapshot currentEvent = new EventSnapshot();
+do {
+    try {
+        ...              
+        currentEvent.setContent(in_stats); 
+        ...              
+        if(!snapshotEvent.equals(currentEvent))
+            snapshotEvent.setContent(in_stats);
+    } catch (Exception e) {
+        e.printStacktrace();
+    }
+} while(true);

@@ -1,0 +1,13 @@
+public class MySomeClass() extends SomeClass {
+  public Object doSomething() {
+    // your monkeypatched implementation goes here
+  }
+}
+
+public class OtherClass {
+  public void doEveryting(SomeClass sc) {
+    Object o = sc.doSomething();
+
+    // some more stuff here...
+  }
+}

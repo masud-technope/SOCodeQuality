@@ -1,0 +1,64 @@
+class NextPalin
+{
+public static void main( String[] args )
+{
+    try {
+        int[] a = {2, 23, 88, 234, 432, 464, 7887, 7657, 34567, 99874, 7779222, 2569981, 3346990, 229999, 2299999 };
+        for( int i=0; i<a.length; i++)
+        {
+            int add = findNextPalin(a[i]);
+            System.out.println( a[i] + "  +  "  + add +  "  = "  + (a[i]+add)  );
+        }
+    }
+    catch( Exception e ){}
+}
+
+static int findNextPalin( int a ) throws Exception
+{
+    if( a < 0 ) throw new Exception();
+    if( a < 10 ) return a;
+
+    int count = 0, reverse = 0, temp = a;
+    while( temp > 0 ){
+        reverse = reverse*10 + temp%10;
+        count++;
+        temp /= 10;
+    }
+
+    //compare 'half' value
+    int halfcount = count/2;
+    int base = (int)Math.pow(10, halfcount );
+    int reverseHalfValue = reverse % base;
+    int currentHalfValue = a % base;
+
+    if( reverseHalfValue == currentHalfValue ) return 0;
+    if( reverseHalfValue > currentHalfValue )  return  (reverseHalfValue - currentHalfValue);
+
+    if(  (((a-currentHalfValue)/base)%10) == 9 ){
+        //cases like 12945 or 1995
+        int newValue = a-currentHalfValue + base*10;
+        int diff = findNextPalin(newValue);
+        return base*10 - currentHalfValue + diff;
+    }
+    else{
+        return (base - currentHalfValue + reverseHalfValue );
+    }
+}
+}
+
+$ java NextPalin
+2  +  2  = 4
+23  +  9  = 32
+88  +  0  = 88
+234  +  8  = 242
+432  +  2  = 434
+464  +  0  = 464
+7887  +  0  = 7887
+7657  +  10  = 7667
+34567  +  76  = 34643
+99874  +  25  = 99899
+7779222  +  555  = 7779777
+2569981  +  9771  = 2579752
+3346990  +  443  = 3347433
+229999  +  9933  = 239932
+2299999  +  9033  = 2309032

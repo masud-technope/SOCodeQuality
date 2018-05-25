@@ -1,0 +1,3 @@
+System.out.println(TestConstants.SubGroup1.SubGroupConstant1);
+System.out.println(TestConstants.SubGroup2.SubGroupConstant1);
+System.out.println(TestConstants.RootLevelConstant1);

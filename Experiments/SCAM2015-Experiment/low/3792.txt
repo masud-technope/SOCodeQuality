@@ -1,0 +1,15 @@
+public class Simple {   
+
+private int i = 6;
+
+private static void method(Simple obj) {
+    System.out.println("Value i: " + i);  //compile Error ::Cannot make a static reference to the non-static field i
+}
+public void method() {
+    method(this);
+}
+public static void main(String[] args) {
+    new Simple().method();
+}
+
+}

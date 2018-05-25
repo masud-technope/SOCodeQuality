@@ -1,0 +1,14 @@
+class ThreeLevelMap<K1,K2,K3,V>
+{
+    private Map<K1,Map<K2,Map<K3,V>>> store = new HashMap<K,Map<K2,Map<K3,V>>>();
+    ...
+    public V put(K1 key1, K2 key2, K3 key3, V value) { ... }
+    public V get(K1 key1, K2 key2, K3 key3) { ... }
+
+    public static class TLMEntry<K1,K2,K3,V>
+    {
+    ...
+    }
+    public Collection<TLMEntry<K1,K2,K3,V>> get(K1 key1, K2 key2) { ... }
+    public Collection<TLMEntry<K1,K2,K3,V>> get(K1 key1) { ... }
+}

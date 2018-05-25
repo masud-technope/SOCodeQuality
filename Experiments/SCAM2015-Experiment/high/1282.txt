@@ -1,0 +1,12 @@
+final CountDownLatch latch = new CountDownLatch(1);
+    final Thread t = new Thread(new Runnable() {
+        public void run() {
+            System.out.println("qwerty");
+            latch.countDown();
+        }
+    });
+
+    t.start();
+    latch.await();
+
+    System.out.println("absolutely sure, qwerty as been printed");

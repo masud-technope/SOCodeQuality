@@ -1,0 +1,4 @@
+cd ..
+cd..
+javac mypack.pack1.myclass.java
+java mypack.pack1.myclass

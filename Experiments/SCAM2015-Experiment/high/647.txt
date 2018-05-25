@@ -1,0 +1,3 @@
+public static <T> TextTransformable<T> getTransformer(Class<T> type) {
+         ...
+   }

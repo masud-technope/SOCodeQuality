@@ -1,0 +1,6 @@
+public class Weird<K, V, E extends Throwable> {
+
+   public void someMethod(K k, V v) throws E {
+      return;
+   }
+}

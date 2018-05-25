@@ -1,0 +1,4 @@
+String bar = "A \"car\"";
+    Pattern string = Pattern.compile("\".*?\"");
+    Matcher matcher = string.matcher(bar);
+    String result = matcher.replaceAll("\"bicycle\"");

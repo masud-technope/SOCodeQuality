@@ -1,0 +1,15 @@
+public enum Constants {
+    ONE ("one"),
+    TWO ("two"),
+    THREE ("three");
+
+    private String stringRep;
+
+    Constants(String stringRep) {
+        this.stringRep = stringRep;
+    }
+
+    public String getStringRep() {
+        return this.stringRep;
+    }
+}

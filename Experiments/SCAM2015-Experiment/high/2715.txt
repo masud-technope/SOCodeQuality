@@ -1,0 +1,5 @@
+<select name="">
+    <c:forEach var="month" items="${selectableMonths}">
+        <option value="${month.number}" ${month.selected ? "selected='selected'" : ""}>${month.label}</option>
+    </c:forEach>        
+</select>

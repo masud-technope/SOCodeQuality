@@ -1,0 +1,4 @@
+java.lang.NullPointerException 
+java.lang.NullPointerException  
+at scjp.Scjp.a(Scjp.java:18)    
+at scjp.Scjp.main(Scjp.java:8)

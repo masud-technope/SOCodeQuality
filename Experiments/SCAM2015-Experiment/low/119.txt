@@ -1,0 +1,9 @@
+public class Scope<C extends Comparable<C>> implements Comparable<Scope<C>>, Serializable {
+    private C starts;
+    private C ends;
+    public Scope(final Scope original) {
+       starts = new C(original.starts);
+       ends = new C(original.ends);
+       // initialize all my other fields from "original"
+    }
+}

@@ -1,0 +1,12 @@
+public boolean isUserBanned(String username)
+    {//TODO check if user is banned already
+        try 
+        {
+            pstmnt = conn.prepareStatement("select username WHERE username = ? and banned = 1");
+            pstmnt.setString(1, username);
+            Resultset rs = pstmnt.executeQuery();
+            //logger.info("Banned User : " + username);
+            return rs.next();
+        } catch ( SQLException e ) { e.getMessage(); }
+        return false;
+    }

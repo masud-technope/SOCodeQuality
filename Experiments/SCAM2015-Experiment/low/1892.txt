@@ -1,0 +1,34 @@
+// Replica of the Oracle function MONTHS_BETWEEN where it calculates based on 31-day months
+    var MONTHS_BETWEEN = function(d1, d2) {
+        // Don't even try to calculate if it's the same day
+        if (d1.getTicks() === d2.getTicks()) return 0;
+
+        var totalDays = 0;
+        var earlyDte = (d1 < d2 ? d1 : d2); // Put the earlier date in here
+        var laterDate = (d1 > d2 ? d1 : d2); // Put the later date in here
+        // We'll need to compare dates using string manipulation because dates such as 
+        // February 31 will not parse correctly with the native date object
+        var earlyDteStr = [(earlyDte.getMonth() + 1), earlyDte.getDate(), earlyDte.getFullYear()];
+
+        // Go in day-by-day increments, treating every month as having 31 days
+        while (earlyDteStr[2] < laterDate.getFullYear() ||
+               earlyDteStr[2] == laterDate.getFullYear() && earlyDteStr[0] < (laterDate.getMonth() + 1) ||
+               earlyDteStr[2] == laterDate.getFullYear() && earlyDteStr[0] == (laterDate.getMonth() + 1) && earlyDteStr[1] < laterDate.getDate()) {
+            if (earlyDteStr[1] + 1 < 32) {
+                earlyDteStr[1] += 1; // Increment the day
+            } else {
+                // If we got to this clause, then we need to carry over a month
+                if (earlyDteStr[0] + 1 < 13) {
+                    earlyDteStr[0] += 1; // Increment the month
+                } else {
+                    // If we got to this clause, then we need to carry over a year
+                    earlyDteStr[2] += 1; // Increment the year
+                    earlyDteStr[0] = 1; // Reset the month
+                }
+                earlyDteStr[1] = 1; // Reset the day
+            }
+
+            totalDays += 1; // Add to our running sum of days for this iteration
+        }
+        return (totalDays / 31.0);
+    };

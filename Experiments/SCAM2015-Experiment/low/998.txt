@@ -1,0 +1,21 @@
+public static void main(String[] args) 
+{
+    int n = 10;
+    int k = 1;
+    boolean breakOuter = false;
+    for (int i = 1; i <= n; i++) 
+    {
+    for (int j = 1; j <= i; j++)
+    {
+        System.out.print(" " + k);
+        if (n==k)
+        {
+        breakOuter = true;
+        break;
+        }
+        k++;
+    }
+    if(breakOuter) break;
+    System.out.println("\n");
+    }
+}

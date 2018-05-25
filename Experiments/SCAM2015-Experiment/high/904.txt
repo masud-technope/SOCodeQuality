@@ -1,0 +1,15 @@
+public class Dummy
+{
+    private int credits;
+    private int contactHours;
+    private String name;
+
+    public Dummy()
+    {
+        name = "";
+        credits = 0;
+        contactHours = 0;
+    }
+
+    // More stuff here, e.g. property accessors
+}

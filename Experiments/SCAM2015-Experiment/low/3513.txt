@@ -1,0 +1,52 @@
+// This goes inside hosting fragment or activity
+listview.setOnItemClickListner( new OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView parent, View view, int position, long id) {
+           if(view.isSelected()){
+               view.setSelected(false);
+               // also maybe change bg color back to normal?
+           }
+
+           else {
+                // This one for always a different color
+                view.setBackgroundColor(adapter.getColor());
+
+                // This is for foreground color change instead of background
+                FrameLayout frameLayout = (FrameLayout) view.findViewById(R.id.my_frame_layout);
+
+                final Drawable drawable = new ColorDrawable( /*  your getColor() function  */ );
+                frameLayout.setForeground(drawable);
+
+                // This one for alwyas the same color for the row at position given by {@param position}
+                view.setBackgroundColor(adapter.getColor(position));
+                view.setSelected(true);
+           }
+      }
+});
+
+
+
+// All this goes inside your custom listview Adapter
+int[] colors = {
+      R.colors.red,
+      R.colors.blue,
+      ...
+}
+
+Random random = new Random();
+
+// If each time the selection will bring a different color, use this implementation
+public int getColor() {
+    return colors[random.nextInt(colors.length)]; 
+}
+
+// If each row should have different color, but always the same color for a row then use this one instead
+SparseIntArray spa = new SparseIntArray();
+public int getColor(int position) {
+     if(spa.get(position) == 0) {
+         // the color hasnt been created for that row yet
+         spa.put(position, colors[random.nextInt(colors.length)];
+     }
+
+     return spa.get(position);     
+}

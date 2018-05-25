@@ -1,0 +1,3 @@
+Human(int age){
+    age = this.age;
+}

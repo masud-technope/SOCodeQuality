@@ -1,0 +1,8 @@
+int annee, semaine, jour; //global variables
+
+public void Convertir(int Number) { //I guess number should be an Int too, unless it's possible to pass 567.28 days...
+    //Number = nombre; Useless since this is a parameter
+    annee = (int)(Number/365);
+    semaine = (int)((Number - annee * 365)/7);
+    jour = Number - annee * 365 - semaine * 7;
+}

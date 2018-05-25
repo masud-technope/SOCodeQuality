@@ -1,0 +1,8 @@
+StringBuilder sb = new StringBuilder();
+    int done = 0;
+    while( done < s.length() ){
+        int todo = done + 20 < s.length() ? 20 : s.length() - done;
+        sb.append( s.substring( done, done + todo ) ).append( '\n' );
+        done += todo;
+    }
+    String result = sb.toString();

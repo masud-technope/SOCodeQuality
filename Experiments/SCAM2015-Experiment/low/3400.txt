@@ -1,0 +1,12 @@
+private boolean mReconnectNeeded;
+
+public synchronized void reconnectIfNeeded() {
+    if (mReconnectNeeded) {
+        mReconnectNeeded = false;
+        // reconnect; if it fails, set the flag again
+    }
+}
+
+public synchronized void setReconnectNeeded() {
+    mReconnectNeeded = true;
+}

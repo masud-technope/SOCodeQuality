@@ -1,0 +1,115 @@
+import  java.io.BufferedInputStream;
+   import  java.io.IOException;
+   import  java.io.InputStream;
+   import  java.net.MalformedURLException;
+   import  java.io.EOFException;
+   import  java.net.URL;
+
+/**
+   <P>Append the source-code from a web-page into a <CODE>java.lang.Appendable</CODE>.</P>
+
+   <P>Demo: {@code java AppendWebPageSource}</P>
+ **/
+public class AppendWebPageSource  {
+   public static final void main(String[] igno_red)  {
+      String sHtml = AppendWebPageSource.get("http://usatoday.com", null);
+      System.out.println(sHtml);   
+
+      //Alternative:
+      AppendWebPageSource.append(System.out, "http://usatoday.com", null);
+   }
+   /**
+      <P>Get the source-code from a web page, with runtime-errors only.</P>
+
+      @return  {@link #append(Appendable, String, String) append}{@code ((new StringBuilder()), s_httpUrl, s_endingString)}
+    **/
+   public static final String get(String s_httpUrl, String s_endingString)  {
+      return  append((new StringBuilder()), s_httpUrl, s_endingString).toString();
+   }
+   /**
+      <P>Append the source-code from a web page, with runtime-errors only.</P>
+
+      @return  {@link #appendX(Appendable, String, String) appendX}{@code (ap_bl, s_httpUrl, s_endingString)}
+      @exception  RuntimeException  Whose {@link getCause()} contains the original {@link java.io.IOException} or {@code java.net.MalformedURLException}.
+    **/
+   public static final Appendable append(Appendable ap_bl, String s_httpUrl, String s_endingString)  {
+      try  {
+         return  appendX(ap_bl, s_httpUrl, s_endingString);
+      }  catch(IOException iox)  {
+         throw  new RuntimeException(iox);
+      }
+   }
+   /**
+      <P>Append the source-code from a web-page into a <CODE>java.lang.Appendable</CODE>.</P>
+
+      <P><I>I got this from {@code <A HREF="http://www.davidreilly.com/java/java_network_programming/">http://www.davidreilly.com/java/java_network_programming/</A>}, item 2.3.</I></P>
+
+      @param  ap_bl  May not be {@code null}.
+      @param  s_httpUrl  May not be {@code null}, and must be a valid url.
+      @param  s_endingString  If non-{@code null}, the web-page's source-code must end with this. May not be empty.
+      @see  #get(Appendable, String, String)
+      @see  #append(Appendable, String, String)
+    **/
+   public static final Appendable appendX(Appendable ap_bl, String s_httpUrl, String s_endingString)  throws MalformedURLException, IOException  {
+      if(s_httpUrl == null  ||  s_httpUrl.length() == 0)  {
+         throw  new IllegalArgumentException("s_httpUrl (\"" + s_httpUrl + "\") is null or empty.");
+      }
+      if(s_endingString != null  &&  s_endingString.length() == 0)  {
+         throw  new IllegalArgumentException("s_endingString is non-null and empty.");
+      }
+
+      // Create an URL instance
+      URL url = new URL(s_httpUrl);
+
+      // Get an input stream for reading
+      InputStream is = url.openStream();
+
+      // Create a buffered input stream for efficency
+      BufferedInputStream bis = new BufferedInputStream(is);
+
+      int ixEndStr = 0;
+
+      // Repeat until end of file
+      while(true)  {
+         int iChar = bis.read();
+
+         // Check for EOF
+         if (iChar == -1)  {
+            break;
+         }
+
+         char c = (char)iChar;
+
+         try  {
+            ap_bl.append(c);
+         }  catch(NullPointerException npx)  {
+            throw  new NullPointerException("ap_bl");
+         }
+
+         if(s_endingString != null)  {
+            //There is an ending string;
+            char[] ac = s_endingString.toCharArray();
+
+            if(c == ac[ixEndStr])  {
+               //The character just retrieved is equal to the
+               //next character in the ending string.
+
+               if(ixEndStr == (ac.length - 1))  {
+                  //The entire string has been found. Done.
+                  return ap_bl;
+               }
+
+               ixEndStr++;
+            }  else  {
+               ixEndStr = 0;
+            }
+         }
+      }
+
+      if(s_endingString != null)  {
+         //Should have exited at the "return" above.
+         throw  new EOFException("s_endingString " + (new String(s_endingString)) + " (is non-null, and was not found at the end of the web-page's source-code.");
+      }
+      return  ap_bl;
+   }
+}

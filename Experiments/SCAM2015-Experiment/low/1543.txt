@@ -1,0 +1,5 @@
+for (int i=1; i<6; i++)
+{
+  String new_variable_ = "" + i;
+  //use new_variable here.
+}

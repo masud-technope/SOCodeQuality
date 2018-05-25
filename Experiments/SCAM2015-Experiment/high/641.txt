@@ -1,0 +1,6 @@
+Pattern p = Pattern.compile("(\\w+)");
+Matcher m = p.matcher(chapter);
+while (m.find()) {
+  String word = m.group();
+  ...
+}

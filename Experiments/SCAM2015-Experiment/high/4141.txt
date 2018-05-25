@@ -1,0 +1,12 @@
+for i from 0 to size(a):
+    b = empty array
+    for j from i + 1 to size(a):
+        if a[j] > a[i]:
+            add a[j] to b
+    treeSet = new TreeSet
+    for k from 0 to size(b):
+        for each element 'e' in the treeSet in sorted order: // (1)
+            if e >= b[k] or a[i] + e + b[k] > t:
+                break
+            add (a[i], e, b[k]) to the answer // (2)
+        add b[k] to the treeSet // (3)

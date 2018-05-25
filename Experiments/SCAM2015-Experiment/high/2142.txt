@@ -1,0 +1,6 @@
+Map<Integer, String> m = new HashMap<Integer, String>();
+m.put(1, "thumb");
+// etc
+m.put(10, "shin");
+
+println("He played knick-knack on my" + m.get(n));

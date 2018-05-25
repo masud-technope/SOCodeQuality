@@ -1,0 +1,13 @@
+public class Person implements Comparable<Person> {         
+    private String firstName;  
+    private String lastName;         
+    private int age;         
+    private char gentle;         
+
+    @Override         
+    @CompaProperties({ @CompaProperty(property = "lastName"),              
+        @CompaProperty(property = "age",  order = Order.DSC) })           
+    public int compareTo(Person person) {                 
+        return Compamatic.doComparasion(this, person);         
+    }  
+}

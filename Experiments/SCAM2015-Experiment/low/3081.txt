@@ -1,0 +1,24 @@
+private static class Algorithm implements ItineraryAlgorithm {
+    public List<Integer> processItinerary(String[] towns) {
+
+        List<Integer> sequence = new ArrayList<>(towns.length*(towns.length+1));
+
+        for(int idx1 = 0; idx < towns.length; idx1++){
+            result.add(idx1);
+            for(int idx2 = idx1+1; idx2 < towns.length; idx2++){
+                sequence.add(idx2);
+                sequence.add(idx1);
+            }
+        }
+
+        List<Integer> segments = new ArrayList<>(result.length*2-2);
+        for(int i: sequence){
+            segments.add(i);
+            segments.add(i);
+        }
+        segments.remove(0);
+        segments.remove(segments.length-1);
+
+        return segments;
+    }
+}

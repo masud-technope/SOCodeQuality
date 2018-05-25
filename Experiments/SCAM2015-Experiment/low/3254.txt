@@ -1,0 +1,7 @@
+public static void printOnLines(int n, int s) {
+    for (int i = 1; i < n; i++) {
+        System.out.print(i + ",\t");
+        if (i % 3 == 0) System.out.println();
+    }
+    System.out.println(n);
+}

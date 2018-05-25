@@ -1,0 +1,24 @@
+public void aMethod(Object... object) {
+if(object==null)
+{
+    //whatever you want to do if no parameters are entered.
+    return;
+}
+for (Object o : object) {
+    if (o == null) {
+    continue; //what to do if null entered
+    }
+    if (o instanceof Integer) {
+    //whatever you want to do if it is an Integer
+    }
+    else if(o instanceof Double)
+    {
+    //whatever you want to do if it is a Double
+    }
+    else if(o instanceof Character)
+    {
+    //whatever you want to do if it is a Character
+    }
+    //and so on
+ }
+}

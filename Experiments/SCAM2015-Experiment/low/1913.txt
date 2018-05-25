@@ -1,0 +1,21 @@
+public String getDaySuffix(int inDay)
+{
+  String s = String.valueOf(inDay);
+
+  if (s.endsWith("1"))
+  {
+    return "st";
+  }
+  else if (s.endsWith("2"))
+  {
+    return "nd";
+  }
+  else if (s.endsWith("3"))
+  {
+    return "rd";
+  }
+  else
+  {
+    return "th";
+  }
+}

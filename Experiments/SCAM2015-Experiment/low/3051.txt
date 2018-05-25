@@ -1,0 +1,11 @@
+public static void main(String[] args)
+{
+  String search = "Total Toys";
+  String str = "This is something Total Toys 300,000.00 49,999.00 This is something";
+  int index = str.indexOf(search);
+  index += search.length();
+  String[] tokens = str.substring(index, str.length()).trim().split(" ");
+  String val1 = tokens[0];
+  String val2 = tokens[1];
+  System.out.println("Val1: " + val1 + ", Val2: " + val2);
+}

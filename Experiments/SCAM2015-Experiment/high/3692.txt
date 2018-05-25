@@ -1,0 +1,36 @@
+public static void main(String[] args) throws Exception
+{
+    List<String> list = new ArrayList<String>();
+    list.add("aa");
+    list.add("bb");
+    list.add("cc");
+    list.add("dd");
+    list.add("ee");
+    list.add("ff");
+    list.add("kk");
+    list.add("ff");
+
+    System.out.println(getWord("aabbccddeeff", list));
+}
+
+public static Map<String, Integer> getWord(String str1, List<String> list)
+{
+    Map<String, Integer> map = new HashMap<String, Integer>();
+    Integer count = 1;
+
+    for (String match : list)
+    {
+        if(str1.toLowerCase().contains(match))
+        {
+            if(map.containsKey(match))
+            {
+                count = map.get(match);
+                count++;
+
+            }
+            map.put(match, count);
+        }
+    }
+
+    return map;
+}

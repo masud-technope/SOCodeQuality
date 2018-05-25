@@ -1,0 +1,4 @@
+Scanner reader = new Scanner(System.in);
+System.out.println("Enter the first number");
+// get user input for a
+a = reader.nextInt();

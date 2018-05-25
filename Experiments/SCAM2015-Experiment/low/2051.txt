@@ -1,0 +1,5 @@
+JAXBContext jc = JAXBContext.newInstance(o.getClass());
+Marshaller m = jc.createMarshaller();
+StringWriter writer = new StringWriter();
+m.marshal( o, new PrintWriter(writer) );
+return writer.toString();

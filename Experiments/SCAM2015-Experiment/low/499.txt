@@ -1,0 +1,5 @@
+<dependency>
+<groupId>jstl</groupId>
+<artifactId>jstl</artifactId>
+<version>[version of JSTL you want to add][1]</version>
+</dependency>

@@ -1,0 +1,3 @@
+for (Long serviceId : test) {
+    Service service = dashboardViewModel.getService(serviceId);
+}

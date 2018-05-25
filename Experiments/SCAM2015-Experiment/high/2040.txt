@@ -1,0 +1,5 @@
+public static void main(String[] args) {
+    String input = "6\n0 1 1 0 0\n1 1 1 1 0\n0 0 0 1 0\n4\n1 1 0 1 0\n0 0 0 1 0\n1 1 0 1 0\n0 1 1 0 0";
+    String[] parts = input.split("\n(?=\\d+\\n)");
+    System.out.println(Arrays.toString(parts));
+}

@@ -1,0 +1,133 @@
+//--------------------------linklist class------------------------------------------------
+
+import java.util.Stack;
+
+public class Linklist {
+    Stack <Character> a = new Stack <Character>();
+    Node front; 
+    Node back;
+    Node Temp;
+
+    public void insert (char d){
+        Node newNode = new Node (d);
+    if (front == null){
+        front = newNode;
+        back = newNode;
+    }
+
+
+    else {
+        Temp = front;
+        while (Temp != null){
+
+            back= Temp;
+        Temp = Temp.next ;
+        }
+
+        back.next = newNode;
+    }
+
+
+    }
+
+
+
+
+
+    public void display(){
+        Node T=front;
+        System.out.print(T.data);
+        T=T.next;
+        while(T!=front)
+        {
+            System.out.print(T.data);
+            T=T.next;
+            if (T == null ){
+                break;
+            }
+        }
+    }
+
+
+    public void reverse(){
+    Linklist bb = new Linklist ();
+
+
+        Node temp = front;
+        while(temp != null ){
+            if (temp.data != '_'){
+ a.push(temp.data);
+
+            }
+
+
+            else{
+        //char x =  
+while (!a.isEmpty()){
+    char pop = a.pop();
+bb.insert(pop);
+
+
+            }
+bb.insert('_');
+            }
+            temp = temp.next;
+        }// while end
+
+        bb.display();
+
+    }
+
+
+}
+//-------------------------------------------------------------------------------------
+
+
+//------------------ test class
+public class Test {
+
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+
+        queueLinklist a = new queueLinklist ();
+a.insert('m');
+a.insert('y');
+a.insert('_');
+a.insert('n');
+a.insert('a');
+a.insert('m');
+a.insert('e');
+a.insert('_');
+a.insert('i');
+a.insert('s');
+a.insert('_');
+a.insert('s');
+a.insert('a');
+a.insert('m');
+a.insert('_');
+
+a.display();
+System.out.println(" ");
+    a.reverse();
+    a.reverse();
+    }
+
+}
+// ---------- node class
+
+public class Node {
+char data;
+Node next;
+
+Node (){
+    data= (Character) null ;
+    next = null;
+}
+
+Node (char d){
+    data = d;
+    next = null;
+}
+}

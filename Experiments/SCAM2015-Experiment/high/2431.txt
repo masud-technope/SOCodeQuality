@@ -1,0 +1,5 @@
+for (int i = 0; i < ar.length; i++) {
+    if (ar[i].contains("A")) {
+        System.out.println("found an element: " + ar[i] + " at index " + i);
+    }
+}

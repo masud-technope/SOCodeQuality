@@ -1,0 +1,8 @@
+private enum StudentToId implements Function<Student, Integer> {
+        INSTANCE;
+
+        @Override
+        public Integer apply(Student input) {
+            return input.getId();
+        }
+    }

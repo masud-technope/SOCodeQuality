@@ -1,0 +1,3 @@
+public List<Users> getUsers() {
+    return (List<Users>)sessionFactory.getCurrentSession().createQuery("from Users").list();
+}

@@ -1,0 +1,66 @@
+public static class Node {
+        int value;
+        Node next;
+        Node prev;
+
+        public Node(int value)
+        {
+            this.value = value;
+        }
+    }
+
+    public static class List {
+        Node[] list = new Node[32];
+        int size = 0;
+
+        public void put(int value) {
+            int index = value & 31;
+            for (Node n = list[index]; n != null; n = n.next) {
+                if (n.value == value) {
+                    return;
+                }
+            }
+
+            Node newNode = new Node(value);
+            Node n = list[index];
+            if (n != null) {
+                n.prev = newNode;
+                newNode.next = n;
+            }
+            list[index] = newNode;
+            size++;
+        }
+
+        public void addAll(int[] array) {
+            for (int x = 0; x < array.length; x++) {
+                put(array[x]);
+            }
+        }
+
+        public int[] toArray() {
+            int[] array = new int[size];
+            if (size != 0) {
+                main:
+                for (int b = 0, i = 0; b < list.length; b++) {
+                    Node n = list[b];
+                    for (; n != null; n = n.next) {
+                        // Place this value in to our array.
+                        array[i++] = n.value;
+                        // We break because our index is larger than our
+                        // available array size.
+                        if (i >= size) {
+                            break main;
+                        }   
+                    }
+                }
+            }
+            return array;
+        }
+    }
+
+    public static void main(String[] args) {
+        List list = new List();
+        int[] array = new int[] {77, 44, 22, 11, 66, 33, 55, 55, 99, 99, 33, 0, 0};
+        list.addAll(array);
+        System.out.println(Arrays.toString(list.toArray()));
+    }

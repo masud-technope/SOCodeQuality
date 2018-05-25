@@ -1,0 +1,9 @@
+@Override
+public String toString()
+{
+    //java
+    return ResourceBundle.getBundle().getString(id); 
+    //android?
+    App.getContext().getString(id);
+
+}

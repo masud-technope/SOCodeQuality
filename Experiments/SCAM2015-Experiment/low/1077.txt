@@ -1,0 +1,26 @@
+new Thread()
+{
+    @Override
+    public void run()
+    {
+        startTimer();
+    }
+    private void startTimer()
+    {
+        int seconds = 0;
+        while (true)
+        {
+            try
+            {
+                Thread.sleep(300000);
+                int c = folder.getMessageCount();    
+            }
+            catch (InterruptedException ex)
+            {
+            }
+            catch (MessagingException me)
+            {
+            }
+        }
+    }
+}.start();

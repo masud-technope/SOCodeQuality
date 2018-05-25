@@ -1,0 +1,4 @@
+public interface ResourceFactory {
+    public Resource createR1();
+    public Resource createR2();
+}

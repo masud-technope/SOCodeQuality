@@ -1,0 +1,4 @@
+Scanner s = new Scanner(System.in);
+// Start timer here
+String str = s.nextLine();
+//If a next line is read, reset timer.

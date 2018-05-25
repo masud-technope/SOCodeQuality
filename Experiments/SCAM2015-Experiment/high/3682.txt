@@ -1,0 +1,6 @@
+String str_date=month+"-"+day+"-"+yr;
+DateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");
+Date date = (Date)formatter.parse(str_date); 
+long output=date.getTime()/1000L;
+String str=Long.toString(output);
+long timestamp = Long.parseLong(str) * 1000;

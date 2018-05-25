@@ -1,0 +1,11 @@
+Connection conn= null;
+try {
+ conn= get the db conn;
+//do some DML/DDL
+}
+catch(SQLException ex) {
+
+}
+finally {
+conn.close();
+}

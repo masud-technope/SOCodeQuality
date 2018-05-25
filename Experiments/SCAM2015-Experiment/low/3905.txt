@@ -1,0 +1,4 @@
+String pass = usersMap.get(loginUser.getText());
+if(pass == loginPassword.getPassword()) {
+    // login code here
+}

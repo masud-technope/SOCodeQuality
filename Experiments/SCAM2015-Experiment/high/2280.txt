@@ -1,0 +1,5 @@
+_server = new Server();
+_connector = new ServerConnector(_server);  
+_server.setConnectors(new Connector[] { _connector });
+_server.start();
+int port = _connector.getLocalPort();

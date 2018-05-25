@@ -1,0 +1,6 @@
+session.beginTransaction();
+session.clear();
+
+Query query = session.createSQLQuery(" from CommissionSummary CS  where  to_date(CS.year || '-' || CS.month || '-01', 'YYYY-MM-DD') between :startDate and :endDate)"
+
+List result = query.list();

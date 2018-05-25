@@ -1,0 +1,3 @@
+for(Iterator i = bullets.iterator(); i.hasNext();){
+ i.next().x = 12;
+}

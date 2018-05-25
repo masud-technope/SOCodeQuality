@@ -1,0 +1,17 @@
+try{
+    InputVals iv = task.getInputVals();
+    Map<String, String> map = new HashMap<String, String>();
+    // copy all map values to a local var
+    map.putAll( iv.getAllValues() );
+    String a = map.get("value1");
+    String b = map.get("value2");
+    String x = funcxy.methodGetX();
+    String y = funcxy.methodGetY();
+    iv.setValue(xval, x);
+    iv.setValue(yval,y);
+
+    String []names = {"name1", "name2", "name3"}
+    for(int i = 0; i<names.length; i++ ){
+         iv.setValue("name"+i, names[i] );
+    }
+  }

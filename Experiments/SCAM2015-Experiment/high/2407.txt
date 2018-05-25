@@ -1,0 +1,4 @@
+@com.dp4j.TestPrivates
+void aMethod(){
+ Database.defPU = null;
+}

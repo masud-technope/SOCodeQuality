@@ -1,0 +1,5 @@
+List<Double> numbers = new ArrayList<Double>();
+    for(String a:args){
+        numbers.add(Double.valueOf(a));
+    }        
+    System.out.println(numbers);

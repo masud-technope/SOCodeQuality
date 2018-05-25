@@ -1,0 +1,4 @@
+JPanel firstCard = new JPanel();
+JPanel secondCard = new JPanel();
+deck.add(firstCard, "first");
+deck.add(secondCard, "second");

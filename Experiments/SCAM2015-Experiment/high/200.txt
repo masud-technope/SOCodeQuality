@@ -1,0 +1,7 @@
+primes n = 
+let sieve (p:xs) = p : sieve [x | x<-xs, x `mod` p /= 0] in 
+let primes = takeWhile (<n) $ sieve [2..] in 
+([0..n] \\ primes, primes)
+
+*Main> primes 20
+([0,1,4,6,8,9,10,12,14,15,16,18,20],[2,3,5,7,11,13,17,19])

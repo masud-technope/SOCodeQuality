@@ -1,0 +1,25 @@
+class Bicycle:
+
+    def __init__(self):
+        self.cadence = 0
+        self.speed  = 0 
+        self.gear  =1
+
+
+
+
+    def changeCadence(self, newValue):
+        self.cadence = newValue
+
+
+    def changeGear(self, newValue):
+        self.gear = newValue
+
+
+    # and same for other functions
+
+
+
+if __name__ == "__main__":
+    obj = Bicycle()
+    obj.changeCadence()

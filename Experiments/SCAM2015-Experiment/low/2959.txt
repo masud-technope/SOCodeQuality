@@ -1,0 +1,5 @@
+When the intern method is invoked, if the pool already contains a
+string equal to this <code>String</code> object as determined by
+the {@link #equals(Object)} method, then the string from the pool is
+returned. Otherwise, this <code>String</code> object is added to the
+pool and a reference to this <code>String</code> object is returned.

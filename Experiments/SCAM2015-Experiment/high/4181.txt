@@ -1,0 +1,25 @@
+class Test {
+    private boolean aCanTalk = true;
+
+    public synchronized waitA() {
+        while(!aCanTalk) {
+            wait();
+        }
+    }
+
+    public synchronized signalB() {
+        aCanTalk = false;
+        notifyAll();
+    }
+
+    public synchronized waitB() {
+        while(aCanTalk) {
+            wait();
+        }
+    }
+
+    public synchronized signalA() {
+        aCanTalk = true;
+        notifyAll();
+    }
+}

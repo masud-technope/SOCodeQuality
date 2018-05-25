@@ -1,0 +1,8 @@
+class Whatever { 
+  String val;
+  Whatever(String va1) { this.val = val; }
+  void printMe() { System.out.println(val.toString()); }
+  public static void main(String[] args) {
+    new Whatever("Hello").printMe();
+  }
+}

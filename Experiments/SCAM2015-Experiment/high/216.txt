@@ -1,0 +1,7 @@
+Document[] dtoDocuments = resultDto.getDocumentArray();
+
+    DocumentSummary[] domainDocuments = new DocumentSummary[dtoDocuments.length];
+
+    for (int count = 0; count < domainDocuments.length; count++) {
+            domainDocuments[count] = new DocumentSummary(dtoDocuments[count], dateFormat);
+    }

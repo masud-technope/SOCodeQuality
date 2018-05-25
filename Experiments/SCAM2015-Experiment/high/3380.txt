@@ -1,0 +1,3 @@
+public <K> void create(K o) {
+    Something<K> s = new Something<K>();
+}

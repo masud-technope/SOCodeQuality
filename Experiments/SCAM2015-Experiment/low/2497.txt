@@ -1,0 +1,8 @@
+WSRequestHolder wsreqHolder = WS.url("<SOME URL WHICH TAKES PARAMETER>");
+wsreqHolder.setQueryParameter("id", "100");
+F.Promise<WS.Response> promiseOfResult = wsreqHolder.get();
+
+WS.Response response = promiseOfResult.get(); //block here
+
+String jsonData =  response.getBody();
+return ok("Client:"+jsonData);

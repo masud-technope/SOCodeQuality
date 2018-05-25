@@ -1,0 +1,12 @@
+final Object t1Mutex = new Object();
+final Object t3Mutex = new Object();
+...
+synchronized(t3Mutex) {
+    //let thread3 sleep
+    while(condition) t3Mutex.wait();
+}
+...
+synchronized(t1Mutex) {
+   //do work, thread1
+   synchronized(t3Mutex) {t3Mutex.notify();}
+}

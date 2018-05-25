@@ -1,0 +1,25 @@
+public static <E> Collection<E> concat(Collection<E> ... es) {
+    List<E> ret = new ArrayList<E>();
+    for (Collection<E> e : es) ret.addAll(e);
+    return ret;
+}
+
+public static <E> Iterable<E> viewOf(final Collection<E> ... es) {
+    return new Iterable<E>() {
+        public Iterator<E> iterator() {
+            return concat(es).iterator();
+        }
+    };
+}
+
+Collection< Integer > foo = new ArrayList< Integer >();
+Collection< Integer > bar = new ArrayList< Integer >();
+
+// call as often as you like.
+for(Integer i : concat(foo, bar))
+
+// OR
+Iterable<Integer> view = viewOf(foo, bar);
+
+// call as often as you like.
+for(Integer i : view)

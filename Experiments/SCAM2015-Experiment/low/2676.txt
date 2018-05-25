@@ -1,0 +1,17 @@
+Try{
+String yourSQL="insert into Table1(Id,Col2,Col3) values(SEQ.nextval,?,?)";
+//IMPORTANT: here's where other threads don tell U, you need to list ALL cols 
+//mentioned in your query in the array
+myPrepStatement = <Connection>.prepareStatement(yourSQL, new String[]{"Id","Col2","Col3"});
+myPrepStatement.setInt(1, 123); 
+myPrepStatement.setInt(2, 123); 
+myPrepStatement.executeUpdate();
+ResultSet rs = getGeneratedKeys;
+if(rs.next()) {
+//In this exp, the autoKey val is in 1st col
+  int id=rs.getLong(1);
+  //now this's a real value of col Id
+  System.out.println(id);
+}
+} catch (SQLException e) {
+}

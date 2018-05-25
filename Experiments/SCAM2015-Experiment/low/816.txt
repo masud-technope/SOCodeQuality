@@ -1,0 +1,8 @@
+JTextPane pane = new JTextPane();
+pane.setContentType("text/html");
+
+String text = /*some html table or set of divs for formatting */
+
+pane.setText(text);
+
+myJFrame.add(pane);

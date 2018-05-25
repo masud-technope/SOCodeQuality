@@ -1,0 +1,5 @@
+String text = brTest.readLine();
+// Stop. text is the first line.
+System.out.println(text);
+String[] strArray = text.split(",");
+System.out.println(Arrays.toString(strArray));

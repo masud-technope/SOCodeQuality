@@ -1,0 +1,3 @@
+HelloWorld helloWorld = new HelloWorld();
+helloWorld.setMessage("HelloWorld");
+helloWorld.display();

@@ -1,0 +1,35 @@
+public class MyArtistSet implements ArtistSet {
+
+    public void complement() {
+        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+
+        // the last element in stackTraceElements is the least recent method invocation
+        // so we want the one near the top, probably index 1, but you might have to play
+        // with it to figure it out: could do something like this
+
+        boolean callCameFromHR = false;
+        boolean callCameFromTheatre = false;
+
+        for(int i = 0; i < 3; i++) {
+           if(stackTraceElements[i].getClassName().contains("Theatre")) {
+               callCameFromTheatre = true;
+           }
+           if(stackTraceElements[i].getClassName().contains("HRDepartment")) {
+               callCameFromHR = true;
+           }
+        }
+
+        if(callCameFromHR && callCameFromTheatre) {
+            // problem
+        }
+        else if(callCameFromHR) {
+            // respond one way
+        }
+        else if(callCameFromTheatre) {
+            // respond another way
+        }
+        else {
+            // it didn't come from either
+        }
+    }
+}

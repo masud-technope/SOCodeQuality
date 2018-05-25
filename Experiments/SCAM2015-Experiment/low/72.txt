@@ -1,0 +1,5 @@
+class Inner {
+  static Inner2 _i2 = new Inner2();
+}
+
+class Inner2 {}

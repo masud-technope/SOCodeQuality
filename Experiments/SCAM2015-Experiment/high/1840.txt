@@ -1,0 +1,3 @@
+public static APP getAPP(Context context) {
+        return (APP) context.getApplicationContext();
+    }

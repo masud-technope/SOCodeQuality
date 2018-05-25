@@ -1,0 +1,4 @@
+@RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody FooDTO index() {
+        // return fooDTO
+    }

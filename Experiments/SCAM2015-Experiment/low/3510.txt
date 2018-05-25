@@ -1,0 +1,3 @@
+public <T extends A> T setX() {
+    return (T) this;
+}

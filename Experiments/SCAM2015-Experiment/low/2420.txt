@@ -1,0 +1,4 @@
+public class ThreadExample extends Thread { /* Whatever */ }
+
+Thread t = new ThreadExample();
+t.start();

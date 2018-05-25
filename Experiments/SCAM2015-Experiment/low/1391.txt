@@ -1,0 +1,5 @@
+HashSet set = ...
+Iterator _i = set.iterator();
+while(_i.hasNext()) {
+   Object o = _i.next();
+}

@@ -1,0 +1,4 @@
+public class Player {
+    List<Item> inventory =  new ArrayLis<Item>();
+
+}

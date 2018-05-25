@@ -1,0 +1,3 @@
+if (new SimpleDateFormat("dd/MM/yyy").parse(yourSring).compareTo(new Date()) > 0) {
+   ...
+}

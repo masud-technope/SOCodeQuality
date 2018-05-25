@@ -1,0 +1,10 @@
+public class MyTest {
+   public static class TestClass {
+       public void doFoo() {}
+   }
+
+   @Test
+   public void myTest() {
+       doStuff(TestClass.class);
+   }
+}

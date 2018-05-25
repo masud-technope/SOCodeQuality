@@ -1,0 +1,13 @@
+import javax.inject.Inject;
+import org.jboss.logging.Logger;
+
+public class LogService {
+
+    @Inject
+    private Logger log;
+
+    public void logMessage() {
+        log.info("Hey sysadmins!");
+    }
+
+}

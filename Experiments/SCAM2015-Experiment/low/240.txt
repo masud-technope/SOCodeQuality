@@ -1,0 +1,27 @@
+String char_group = "abcdefghijklmnopqrstuvwxyz";
+String digit_group = "123456789";
+
+// first choose a len of pwd
+Random ran = new Random();
+int pwd_len = ran.nextInt(50); //50 is the max length of password,say
+// check that pwd_len is not less than 6
+// do the check here
+
+// finally create the password..
+StringBuffer pwd = new StringBuffer();
+Random RNG = new Random();
+for (int i = 0; i < pwd_len ; i++) {
+    int randomNum = RNG.nextInt(100);
+    char c = '';
+    // Here 25% is the ratio of mixing digits
+    // in the password, you can change 4 to any
+    // other value to change the depth of mix
+    // or you can even make it random. 
+    if (randomNum % 4 == 0) {
+        c = digit_group[randomNum  % digit_group.length];
+    } else {
+        c = char_group[randomNum  % char_group.length];
+    }
+    pwd.append(c);
+}
+return pwd.toString();

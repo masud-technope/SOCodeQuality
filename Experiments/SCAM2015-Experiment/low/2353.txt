@@ -1,0 +1,5 @@
+for(Object im:list){
+            Object[] a=(Object[]) im;
+            System.out.println("subject ="+a[0]+"total questions ="+a[1]);
+
+        }

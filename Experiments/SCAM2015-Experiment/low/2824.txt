@@ -1,0 +1,4 @@
+public interface IComparesWith<This> 
+{
+    int compare(This t);
+}

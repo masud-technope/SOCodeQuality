@@ -1,0 +1,29 @@
+import java.nio.ByteBuffer;
+
+/**
+ * Assumes ISO-8859-1 character encoding
+ */
+public class BufferCharSequence implements CharSequence {
+    final ByteBuffer bb;
+
+    public BufferCharSequence(ByteBuffer bb) {
+        this.bb = bb;
+    }
+
+    @Override
+    public int length() {
+        return bb.limit();
+    }
+
+    @Override
+    public char charAt(int index) {
+        return (char) (bb.get(index) & 0xFF);
+    }
+
+    @Override
+    public CharSequence subSequence(int start, int end) {
+        bb.limit(start + end);
+        bb.position(start);
+        return new BufferCharSequence(bb.slice());
+    }
+}

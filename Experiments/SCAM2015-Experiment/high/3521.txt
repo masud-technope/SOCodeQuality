@@ -1,0 +1,10 @@
+SimpleDateFormat format = new SimpleDateFormat("MMM dd,yyyy  hh:mm", Locale.ENGLISH);
+
+    Date theDate = format.parse("JAN 13,2014  09:15");
+
+    Calendar myCal = new GregorianCalendar();
+    myCal.setTime(theDate);
+
+    System.out.println("Day: " + myCal.get(Calendar.DAY_OF_MONTH));
+    System.out.println("Month: " + myCal.get(Calendar.MONTH) + 1);
+    System.out.println("Year: " + myCal.get(Calendar.YEAR));

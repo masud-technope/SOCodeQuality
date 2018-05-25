@@ -1,0 +1,8 @@
+for(int i=0;i<db.getColumns_number();i++){  
+       if(i!=0){
+          req+=", ";
+       }
+       req+= db.getField()+" "+db.getType()+"("+db.getSize()+")" +" "+db.getNullabilité();
+       //req+= ((i!=0)?", ":"") + db.getField()+" "+db.getType()+"("+db.getSize()+")" +" "+db.getNullabilité();
+       //req+= db.getField()+" "+db.getType()+"("+db.getSize()+")" +" "+db.getNullabilité() + ((i != (db.getColumns_number()-1))?",":"");
+ }

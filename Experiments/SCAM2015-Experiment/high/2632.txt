@@ -1,0 +1,8 @@
+private String[][] toDoubleIndexArray(List<List<String>> mergedList) {
+    String[][] result = new String[mergedList.size()][];
+    for (int i = 0; i< mergedList.size(); i++) {
+        List<String> currentList =  mergedList.get(i);
+        result[i] = currentList.toArray(new String[currentList.size()]);
+    }
+    return result;
+}

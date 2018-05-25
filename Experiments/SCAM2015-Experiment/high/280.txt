@@ -1,0 +1,40 @@
+JarFile jarFile = new JarFile(warFile);
+
+Enumeration entries = jarFile.entries();
+
+while (entries.hasMoreElements()) {
+    JarEntry jarEntry = (JarEntry) entries.nextElement();
+
+    if (jarEntry.getName().endsWith(".jar")) {
+        JarInputStream jarIS = new JarInputStream(jarFile
+                .getInputStream(jarEntry));
+
+        // iterate the entries, copying the contents of each nested file 
+        // to the OutputStream
+        JarEntry innerEntry = jarIS.getNextJarEntry();
+
+        OutputStream out = System.out;
+
+        while (innerEntry != null) {
+            copyStream(jarIS, out, innerEntry);
+            innerEntry = jarIS.getNextJarEntry();
+        }
+    }
+}
+
+...
+
+/**
+ * Read all the bytes for the current entry from the input to the output.
+ */
+private void copyStream(InputStream in, OutputStream out, JarEntry entry)
+        throws IOException {
+    byte[] buffer = new byte[1024 * 4];
+    long count = 0;
+    int n = 0;
+    long size = entry.getSize();
+    while (-1 != (n = in.read(buffer)) && count < size) {
+        out.write(buffer, 0, n);
+        count += n;
+    }
+}

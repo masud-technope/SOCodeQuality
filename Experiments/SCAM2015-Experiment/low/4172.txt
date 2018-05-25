@@ -1,0 +1,5 @@
+int x, y, z;
+    x = 2;
+    y = 3;
+    z = 4;
+    Point3d pointA = new Point3d(x, y, z);

@@ -1,0 +1,3 @@
+JComboBox CB = new JComboBox();
+           CB.setPreferredSize(new Dimension(int, int)); 
+           p.add(CB);// which p is a JPanel

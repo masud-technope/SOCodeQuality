@@ -1,0 +1,6 @@
+File exist: a.jpg   //These files are in my C drive
+File exist: a.png
+File exist: a.rtf
+File exist: a.txt
+File exist: a.mp3
+File exist: a.mp4

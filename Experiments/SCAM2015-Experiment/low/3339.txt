@@ -1,0 +1,5 @@
+double bill = Double.parseDouble(originalBill.getText().toString());
+billWithTip = bill * 1.10;
+DecimalFormat df = new DecimalFormat("#.##");
+// the #.## means that you want 2 decimals places
+billString = df.format(billWithTip);

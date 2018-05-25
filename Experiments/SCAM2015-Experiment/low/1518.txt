@@ -1,0 +1,22 @@
+public class MyClass{
+
+   private static MyClass unique_instance;
+
+   private MyClass(){
+
+         // Initialize the state of the object here
+    }
+
+   public static synchronized MyClass getInstance(){
+
+          if (unique_instance == null){
+
+                 unique_instance = new MyClass();
+
+           }
+
+          return unique_instance;
+
+      }
+
+    }

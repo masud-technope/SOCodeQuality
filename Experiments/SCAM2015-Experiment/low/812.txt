@@ -1,0 +1,20 @@
+//Location lat and lon
+double locLat = -23.548333;
+double locLon = -46.636111;
+
+//Destination lat and lon
+double dstLat = -22.902778;
+double dstLon = -43.206667;
+
+double arcoAB = 90 - (dstLat);
+double arcoAC = 90 - (locLat);
+
+double difLon = locLon - (dstLon);
+
+double cosA = Math.cos(Math.toRadians(arcoAC)) * Math.cos(Math.toRadians(arcoAB)) + Math.sin(Math.toRadians(arcoAC)) * Math.sin(Math.toRadians(arcoAB)) * Math.cos(Math.toRadians(difLon));
+double acosCosA = Math.toDegrees(Math.acos(cosA));
+
+double raio = 2 * Math.PI * 6371;
+double distance = (raio * acosCosA) / 360;
+
+return distance; //Distance in KM, convert to anything else (miles, meters..) if you need..

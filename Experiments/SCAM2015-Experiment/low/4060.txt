@@ -1,0 +1,23 @@
+public static void main(String[] args) {
+  String[] strings = { "string1", "string2", "string3", "string4" };
+  int[] ints = { 40, 32, 32, 34 };
+  System.out.println(Arrays.toString(getSortedStringArray(strings, ints)));
+}
+
+public static String[] getSortedStringArray(String[] strings, int[] order) {
+  Map<Integer, List<String>> map = new TreeMap<>();
+  for (int i = 0; i < strings.length; i++) {
+    if (!map.containsKey(order[i])) {
+      map.put(order[i], new LinkedList<String>());
+    }
+    map.get(order[i]).add(strings[i]);
+  }
+  String[] ret = new String[strings.length];
+  int i = 0;
+  for (Map.Entry<Integer, List<String>> mapEntry : map.entrySet()) {
+    for (String s : mapEntry.getValue()) {
+      ret[i++] = s;
+    }
+  }
+  return ret;
+}

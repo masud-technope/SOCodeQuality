@@ -1,0 +1,14 @@
+String Query = "
+SELECT
+    some_column,
+    another column
+  FROM
+      one_table a
+    JOIN
+      another_table b
+    ON    a.id = b.id
+      AND a.role_code = b.role_code
+  WHERE a.dept = 'sales'
+    AND b.sales_quote > 1000
+  Order BY 1, 2
+" ;

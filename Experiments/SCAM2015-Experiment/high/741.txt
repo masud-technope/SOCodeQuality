@@ -1,0 +1,12 @@
+ArrayList ftsedata = new ArrayList<data>();
+data data1 = new data();
+//set values for properties of data1 here from wherever you are getting them
+data1.price = 50;
+...
+ftsedata.add(data1);
+
+data data2 = new data();
+//set values for properties of data2 here from wherever you are getting them
+data2.price = 500;
+...
+ftsedata.add(data2);

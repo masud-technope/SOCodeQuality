@@ -1,0 +1,11 @@
+FTPFile[] files = client.list();
+int size = files.length;
+int i =0;
+String a []=new String[size];
+
+    for (FTPFile file : files) {
+          System.out.println(file.getName());
+
+           a[i] = file.getName();
+           i++;
+ }

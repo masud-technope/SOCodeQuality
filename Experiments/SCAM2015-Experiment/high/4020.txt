@@ -1,0 +1,17 @@
+String str1 = new String("nitesh");
+  String str2 = new String("nitesh");
+  String str3 = "nitesh";
+  String str4 = str3;
+  String str5 = str2;
+
+  TreeSet<Integer> set = new TreeSet<Integer>();
+
+  set.add(System.identityHashCode(str1));
+  set.add(System.identityHashCode(str2));
+  set.add(System.identityHashCode(str3));
+  set.add(System.identityHashCode(str4));
+  set.add(System.identityHashCode(str5));
+
+  System.out.println(set.size());
+
+  // => 3

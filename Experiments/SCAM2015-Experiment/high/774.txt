@@ -1,0 +1,3 @@
+colors.pie = #FF0000;
+colors.pie = #00FF00;
+colors.pie = #0000FF;

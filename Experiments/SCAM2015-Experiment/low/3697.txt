@@ -1,0 +1,6 @@
+Calendar calendar = new GregorianCalendar();
+Date trialTime = new Date();   
+calendar.setTime(trialTime); 
+//Or setGregorianChange(date);   
+System.out.println("Week number:" + 
+    calendar.get(Calendar.WEEK_OF_YEAR));

@@ -1,0 +1,11 @@
+public static void drawCross(int num){
+    if(num % 2 != 0){
+        for(int line = 0;line < num;line++){
+            for(int col = 0;col < num;col++){
+                if(line == num / 2 || col == num / 2) System.out.print("*");
+                else System.out.print(" ");
+            }
+            System.out.println("");
+        }
+    }
+}

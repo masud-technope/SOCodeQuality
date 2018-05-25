@@ -1,0 +1,23 @@
+public  void  initiateProcess (final int count) {
+           CountDownLatch start = new CountDownLatch(1);
+        CountDownLatch stop = new CountDownLatch(count);
+        for (int i = 0; i < count; i++)
+        {
+            new Thread(new WorkerThread(start, stop))
+                    .start();
+        }
+        System.out.println("Go");
+// This is where start latch is released. Now worked thread can complete its function.
+        start.countDown();
+        try
+        {
+
+
+ // Stop will wait until stop latch is countdowned to zero from count param. (see count param)
+            stop.await();
+        } catch (InterruptedException ex)
+        {
+            ex.printStackTrace();
+        }
+        System.out.println("Finished");
+    }

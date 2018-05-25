@@ -1,0 +1,4 @@
+public void call(Person person) {
+    Preconditions.checkArgument(person.getPhone() != null);
+    // cally things...
+}

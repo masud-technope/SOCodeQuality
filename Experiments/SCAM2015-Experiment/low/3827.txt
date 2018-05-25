@@ -1,0 +1,4 @@
+public static synchronized Singleton getInstance()
+    {
+        return mySingleton==null?mySingleton=new Singleton():mySingleton;
+    }

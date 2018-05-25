@@ -1,0 +1,4 @@
+int[] arr = {3, 4};
+//arr contains the values {3, 4}
+int[] arr2 = Arrays.copyOf(arr, 4);
+//arr2 contains the values {3, 4, 0, 0}

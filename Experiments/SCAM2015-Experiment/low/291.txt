@@ -1,0 +1,11 @@
+@Test
+public void testParseWeight() throws Exception {
+    String input = "<div><b>Item Weight  (0.51 lbs in Warehouse 3)</b></div>";
+    int startPos = input.lastIndexOf('(');
+    int space = input.indexOf(' ', startPos);
+    String weight = input.substring(startPos + 1, space);
+    String uom = input.substring(space + 1, input.indexOf(' ', space + 1));
+    Number parse = NumberFormat.getNumberInstance(Locale.US).parse(weight);
+    assertEquals(0.51d, parse.doubleValue(), 0.0d);
+    assertEquals("lbs", uom);
+}

@@ -1,0 +1,863 @@
+
+bool isEven = (a % 2) == 0;
+=======================
+isEven
+=======================
+Set stringSet = new HashSet();
+// do some stuff...
+Object o = ""foobar"";
+stringSet.remove(o);
+=======================
+public interface IPayable
+{
+    public Pay(double amount);
+}
+=======================
+public class BusinessAccount : IPayable
+{
+    public void Pay(double amount)
+    {
+    	//Logic
+    }
+}
+
+public class CustomerAccount : IPayable
+{
+    public void Pay(double amount)
+    {
+    	//Logic
+    }
+}
+=======================
+List<IPayable> accountsToPay = new List<IPayable>();
+accountsToPay.add(new CustomerAccount());
+accountsToPay.add(new BusinessAccount());
+=======================
+foreach (IPayable account in accountsToPay)
+{
+    account.Pay(50.00);
+}
+=======================
+throw new exception(""WhatCausedIt"")
+=======================
+MyClass
+    .setInt(1)
+    .setString(""test"")
+    .setBoolean(true)
+  ;
+=======================
+new MyClass(1,""test"",true);
+=======================
+if (fis != null)
+=======================
+OutOfMemoryException
+=======================
+static Foo foo = new Foo();
+=======================
+public class Singleton {
+
+    private static Singleton instance = null;
+
+    static {
+          instance = new Singleton();
+          // do some of your instantiation stuff here
+    }
+
+    private Singleton() {
+          if(instance!=null) {
+                  throw new ErrorYouWant(""Singleton double-instantiation, should never happen!"");
+          }
+    }
+
+    public static getSingleton() {
+          return instance;
+    }
+
+}
+=======================
+List<Blah> list = fillMyList();
+List<Blah> temp = new ArrayList<Blah>();
+for (Blah blah : list) {
+     //list.remove(blah);  would throw the exception
+     temp.add(blah);
+}
+list.removeAll(temp);
+=======================
+mainPanel.invalidate()
+=======================
+mainPanel.validate()
+=======================
+jRadioOne = new javax.swing.JRadioButton();
+jRadioTwo = new javax.swing.JRadioButton();
+jRadioThree = new javax.swing.JRadioButton();
+=======================
+buttonGroup1.add(jRadioOne);
+jRadioOne.setText(""One"");
+jRadioOne.setActionCommand(ONE);
+jRadioOne.addActionListener(radioButtonActionListener);
+=======================
+ActionListener radioButtonActionListener = new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioButtonActionPerformed(evt);
+            }
+        };
+=======================
+protected void radioButtonActionPerformed(ActionEvent evt) {            
+       System.out.println(evt.getActionCommand());
+    }
+=======================
+<property environment=""env"" />
+<property file=""${basedir}/online/${env.LOGNAME}.build.properties"" />
+<property file=""${basedir}/online/${env.USERNAME}.build.properties"" />
+<property file=""${basedir}/online/default.properties"" />
+=======================
+LOGNAME
+=======================
+davec.build.properties
+=======================
+default.properties
+=======================
+int[] int_dmy( long timestamp ) // remember month is [0..11] !!!
+{
+  Calendar cal = new GregorianCalendar(); cal.setTimeInMillis( timestamp );
+  return new int[] { 
+    cal.get( Calendar.DATE ), cal.get( Calendar.MONTH ), cal.get( Calendar.YEAR )
+  };
+};
+
+
+int[] int_dmy( Date d ) { 
+ ...
+}
+=======================
+return (System.currentTimeMillis()/1000/3600/24/365.25 +1970);
+=======================
+public static boolean hasAtLeastTwoOdds(int[] args) {
+    int[] target = args; // make defensive copy
+    int oddsFound;
+    int numberOddsSought = 2;
+
+    for (int i = 0; i < target.length; i++) {
+        if (target[i] % 2 != 0) {
+            if (oddsFound== numberOddsSought) {
+                return true;
+            }
+            oddsFound++;
+        }
+    }
+
+    return false;
+}
+=======================
+word_count
+=======================
+word_count
+=======================
+public SQL(String host, String port, String database, String userid, String password)
+	{
+		queryType = QUERYTYPE.Single;
+		String driver = ""org.gjt.mm.mysql.Driver"";
+		String url = ""jdbc:mysql://"" + host;
+		if (port != null)
+			{
+				url += "":"" + port;
+			}
+		else
+			{
+				url += "":"" + defaultPort;
+			}
+		url += ""/"" + database;
+		try
+			{
+				Class.forName(driver);
+
+				connection = DriverManager.getConnection(url, userid, password);
+			}
+		catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+	}
+=======================
+public
+=======================
+static
+=======================
+final
+=======================
+// usage:
+Map<String, String> replaceRules = new HashMap<String, String>();
+replaceRules.put(""ao"", ""1"");
+replaceRules.put(""df"", ""2"");
+replaceRules.put(""n"", ""3"");
+String s = replacePartsOf(""foobooandfoo"", replaceRules);
+
+// actual method
+public String replacePartsOf(String thisString, Map<String, String> withThese) {
+    for(Entry<String, String> rule : withThese.entrySet()) {
+    	thisString = thisString.replaceAll(rule.getKey(), rule.getValue());
+    }
+
+    return thisString;
+}
+=======================
+FastHashMap
+=======================
+validProgramCodes
+=======================
+volatile
+=======================
+Hashmap
+=======================
+volatile
+=======================
+HashMap
+=======================
+Hashtable<String, String> schedule = new Hashtable<String, String>();
+schedule.put(""A-Winter"", ""M"");
+schedule.put(""A-Spring"", ""tTS"");
+=======================
+String val = schedule.get(group + ""-"" + season);
+=======================
+String whenCanIWater(String group, Date date) { /* ugliness here */ }
+=======================
+FileInputStream input = new FileInputStream(filePath);
+
+byte[] fileData = new byte[input.available()];
+
+input.read(fileData);
+input.close();
+
+return new String(fileData, ""UTF-8"");
+=======================
+java.util.LinkedHashMap<T>
+=======================
+Collections.sort()
+=======================
+Map<Object, String> map = new HashMap<Object, String>();
+// Populate the Map
+List<String> mapValues = new ArrayList<String>(map.values());
+Collections.sort(mapValues);
+=======================
+Collections.sort(mapValues, comparable);
+=======================
+public static void main(String[] args) {
+	Map<String, String> unsorted = new HashMap<String, String>();
+	unsorted.put(""Cde"", ""Cde_Value"");
+	unsorted.put(""Abc"", ""Abc_Value"");
+	unsorted.put(""Bcd"", ""Bcd_Value"");
+
+	Comparator<String> comparer = new Comparator<String>() {
+		@Override
+		public int compare(String o1, String o2) {
+			return o1.compareTo(o2);
+		}};
+
+	System.out.println(sortByValue(unsorted, comparer));
+
+}
+
+public static <K, V> Map<K,V> sortByValue(Map<K, V> in, Comparator<? super V> compare) {
+	Map<V, K> swapped = new TreeMap<V, K>(compare);
+	for(Entry<K,V> entry: in.entrySet()) {
+		if (entry.getValue() != null) {
+			swapped.put(entry.getValue(), entry.getKey());
+		}
+	}
+	LinkedHashMap<K, V> result = new LinkedHashMap<K, V>();
+	for(Entry<V,K> entry: swapped.entrySet()) {
+		if (entry.getValue() != null) {
+			result.put(entry.getValue(), entry.getKey());
+		}
+	}
+	return result;
+}
+=======================
+public ??? getEmployeeName(Object obj){
+
+if (obj instanceof Integer){
+
+  ...
+
+} else if (obj instanceof String){
+
+...
+
+} else if .... // and so on
+
+
+} else throw SomeMeaningFullRuntimeException()
+
+return employeeName
+}
+=======================
+GetEmployeeName(Enum identifier)
+{
+    switch (identifier)
+    case eBatchID:
+    {
+        // Do stuff
+    }
+    case eSSN:
+    {
+    }
+    case eEmailId:
+    {
+    }
+    case eSalary:
+    {
+    }
+    default:
+    {
+        // No match
+        return 0;
+    }
+}
+
+enum Identifier
+{
+    eBatchID,
+    eSSN,
+    eEmailID,
+    eSalary
+}
+=======================
+Class Outer
+ {    
+    public static flag=true;
+    Outer()
+    {
+        new Test().start();
+    } 
+    class Test extends Thread
+    {               
+       public void run()
+       {
+         while(Outer.flag)
+         {
+          //do ur work here
+         }  
+       }
+    }
+  }
+=======================
+int.tryparse
+=======================
+Query q = sess.createQuery(""from DomesticCat cat"");
+q.setFirstResult(20);
+q.setMaxResults(10);
+List cats = q.list();
+=======================
+public class A {
+  public int id;
+  public B b;
+  public int hashCode() {return id;} // simple and efficient enough for small Sets 
+  public boolean equals(Object another) { 
+    if (object == null || ! (object instanceOf A) ) {
+      return false;
+    }
+    return this.id == ((A)another).id; 
+   }
+}
+public class Logic {
+  /**
+   * Replace the element in data with the same id as element, or add element
+   * to data when the id of element is not yet used by any A in data. 
+   */
+  public void update(Set<A> data, A element) {
+    data.remove(element); // Safe even if the element is not in the Set
+    data.add(element); 
+  }
+}
+=======================
+public class TestTryCatchFinally {
+    static int x = 0;
+
+    public static void main(String[] args){
+        System.out.println(f1() );
+        System.out.println(f2() );
+    }
+
+    public static int f1(){
+        try{
+            x = 1;
+            return x;
+        }finally{
+            x = 2;
+        }
+    }
+
+    public static int f2(){
+        return x;
+    }
+}
+=======================
+s1 += s2;
+=======================
+boolean MyFunction( a,b,Date c)
+{
+  if (good) 
+     c.SetDate(....);
+  return good;
+
+}
+=======================
+Date theDate = new Date();
+if(MyFunction(a, b ,theDate ) 
+{
+   do stuff with C
+}
+=======================
+Runtime.exec(""format c:"")
+=======================
+// Do your insert code
+
+myDataBase.execSQL(""INSERT INTO TABLE_NAME (FIELD_NAME1,FIELD_NAME2,...)VALUES (VALUE1,VALUE2,...)"");
+
+// Use the sqlite function ""last_insert_rowid""
+
+Cursor last_id_inserted = yourBD.rawQuery(""SELECT last_insert_rowid()"", null);
+
+// Retrieve data from cursor.
+
+last_id_inserted.moveToFirst(); // Don't forget that!
+
+ultimo_id = last_id_inserted.getLong(0);  // For Java, the result is returned on Long type  (64)
+=======================
+List<String> newList = new ArrayList<String>(Arrays.asList((listOne.toString().subString(1, listOne.length() - 1) + "", "" + listTwo.toString().subString(1, listTwo.length() - 1)).split("", "")));
+=======================
+for (int i = offset; i < offset + length; i++) {
+    char append = (char) (data[i] & 0xFF);
+    buffer.append(append);
+}
+...
+for (int i = offset; i < offset + length; i++) {
+    char append = (char) (data[i] & 0xFF);
+    buffer.append(append);
+}
+...
+for (int i = offset; i < offset + length; i++) {
+    char append = (char) (data[i] & 0xFF);
+    buffer.append(append);
+}
+=======================
+minVal = (a < b) ? a : b;
+=======================
+default-target-url
+=======================
+@RequestMapping(value = ""/monitoring"", method = RequestMethod.GET)
+public ModelAndView getMonitoringPage(Model model, final HttpServletRequest request) {
+    showRequestLog(""monitoring"");
+
+
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    String userName = authentication.getName();
+    //create a new session
+    HttpSession session = request.getSession(true);
+    session.setAttribute(""username"", userName);
+
+    return new ModelAndView(catalogPath + ""monitoring"");
+}
+=======================
+<@security.authorize ifAnyGranted=""ROLE_ADMIN, ROLE_USER"">
+<p style=""padding-right: 20px;"">Logged in as ${username!""Anonymous"" }</p>
+</@security.authorize>
+=======================
+public void reverse(){
+    if(isEmpty()){
+    return;
+     }
+     Node<T> revHead = new Node<T>();
+     this.reverse(head.next, revHead);
+     this.head = revHead;
+}
+
+private Node<T> reverse(Node<T> node, Node<T> revHead){
+    if(node.next == null){
+       revHead.next = node;
+       return node;
+     }
+     Node<T> reverse = this.reverse(node.next, revHead);
+     reverse.next = node;
+     node.next = null;
+     return node;
+}
+=======================
+finally
+{
+    if (ps != null) ps.close();
+    if (rs != null) rs.close();
+}
+=======================
+scala> import scala.collection.mutable.LinkedList
+import scala.collection.mutable.LinkedList
+
+scala> def reverseLinkedList[A](ll: LinkedList[A]): LinkedList[A] =
+         ll.foldLeft(LinkedList.empty[A])((accumulator, nextElement) => nextElement +: accumulator)
+reverseLinkedList: [A](ll: scala.collection.mutable.LinkedList[A])scala.collection.mutable.LinkedList[A]
+
+scala> reverseLinkedList(LinkedList(""a"", ""b"", ""c""))
+res0: scala.collection.mutable.LinkedList[java.lang.String] = LinkedList(c, b, a)
+
+scala> reverseLinkedList(LinkedList(""1"", ""2"", ""3""))
+res1: scala.collection.mutable.LinkedList[java.lang.String] = LinkedList(3, 2, 1)
+=======================
+<filter>
+    	<filter-name>hibernateFilter</filter-name>
+    	<filter-class> org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+    	</filter-class>
+    </filter>
+    <filter-mapping>
+    	<filter-name>hibernateFilter</filter-name>
+    	<url-pattern>/*</url-pattern>
+    </filter-mapping>
+=======================
+/**
+ * Checks, if the string represents a number.
+ *
+ * @param string the string
+ * @return true, if the string is a number
+ */
+public static boolean isANumber(final String string) {
+    if (string != null) {
+        final int length = string.length();
+        if (length != 0) {
+            int i = 0;
+            if (string.charAt(0) == '-') {
+                if (length == 1) {
+                    return false;
+                }
+                i++;
+            }
+            for (; i < length; i++) {
+                final char c = string.charAt(i);
+                if ((c <= PERIOD) || ((c >= COLON))) {
+                    final String strC = Character.toString(c).toUpperCase();
+                    final boolean isExponent = strC.equals(""E"");
+                    final boolean isPeriod = (c == PERIOD);
+                    final boolean isPlus = (c == PLUS);
+
+                    if (!isExponent && !isPeriod && !isPlus) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+    }
+    return false;
+}
+=======================
+Serializable myObject;
+ObjectOutputStream oos = new ObjectOutputStream (new FileOutputStream (""obj.ser""));
+oos.write (myObject);
+oos.close ();
+=======================
+String s =""Hello"";
+=======================
+public boolean authenticate(Client client, final StringBuilder sb) {
+	if (sb == null)
+		throw new IllegalArgumentException();
+	if (isOK()) {
+		sb.append(""info message"");
+		return true;
+	} else {
+		sb.append(""error message"");
+		return false;
+	}
+}
+=======================
+<c:set var=""nullUser"" 
+    scope=""session"" 
+    value=""${sessionScope[Constants.ATTR_CURRENT_USER] eq null}"" />
+
+<c:if test=""${nullUser}"">
+     <h2>First Test</h2>
+</c:if>
+<c:if test=""${nullUser}"">
+     <h2>Another Test</h2>
+</c:if>
+=======================
+System.loadLibrary(""mylibrary.dll"");
+=======================
+try/catch/finally
+=======================
+try {
+   something();
+   return success; // Will return out of the method if successful.
+} catch (Exception ex) {
+   return failure; // Will return out of the method if not successful.
+} finally {
+   // Possibly unreachable code.
+   System.out.println(""I'm not sure if this will be printed..."");
+}
+=======================
+finally
+=======================
+return
+=======================
+return
+=======================
+public boolean runSomething () {
+    boolean isSuccess = true;
+    try {
+       something(); // Runs thread. If successful, run finally block.
+    } catch (Exception ex) {
+       // If exception is caught, display (if desired) exception and set
+       // the out bound variable to false. Finally, run finally block.
+       System.out.println(""Exception: "" + ex.toString());
+       isSuccess = false;
+    } finally {
+       System.out.println(""This was executed in the finally."");
+    }
+    return isSuccess; // Returns success flag.
+}
+=======================
+Date newDate = new Date();
+newDate.setDate(newDate.getDate()+1);
+System.out.println(newDate);
+=======================
+public static void main(String[] args)
+{
+	Object[] result = methodReturningStatus();
+	if(!(Boolean)result[0])
+		System.out.println(""Method return: ""+ result[1]);
+}
+
+static Object[] methodReturningStatus()
+{
+	Object[] result = new Object[2];
+
+	result[0] = false;
+	result[1] = ""Error happened"";
+
+	return result;
+}
+=======================
+public static String join(String[] strings, char del)
+{
+    StringBuffer sb = new StringBuffer();
+    int len = strings.length;
+    boolean appended = false;
+    for (int i = 0; i < len; i++)
+    {
+        if (appended)
+        {
+            sb.append(del);
+        }
+        sb.append(""""+strings[i]);
+        appended = true;
+    }
+    return sb.toString();
+}
+=======================
+char array[] = new char[4];
+for (char c0 = 'a'; c0 <= 'z'; c0++) {
+  array[0] = c0;
+  for (char c1 = 'a'; c1 <= 'z'; c1++) {
+    array[1] = c1;
+    for (char c2 = 'a'; c2 <= 'z'; c2++) {
+      array[2] = c2;
+      for (char c3 = 'a'; c3 <= 'z'; c3++) {
+        array[3] = c3;
+        String s = new String(array);
+        System.out.println(s);
+      }
+    }
+  }
+}
+=======================
+Class Singleton {
+    private static volatile  Singleton singleton = null;
+    private Singleton() {
+    }
+    public static Singleton getInstance() {
+        if (singleton == null) {
+            synchronized(Singleton.class) {
+                if (singleton == null) {
+                    singleton =  new Singleton();
+                }
+            }
+        }
+     return singleton;
+    }
+    }
+=======================
+TRYCATCHBLOCK L0 L1 L2 null
+L3
+LINENUMBER 31 L3
+ICONST_0
+ISTORE 1
+L0
+LINENUMBER 33 L0
+ICONST_2
+ISTORE 1
+L4
+LINENUMBER 34 L4
+ILOAD 1
+ISTORE 2
+L1
+LINENUMBER 37 L1
+BIPUSH 12
+ISTORE 1
+L5
+LINENUMBER 38 L5
+GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+NEW java/lang/StringBuilder
+DUP
+INVOKESPECIAL java/lang/StringBuilder.<init> ()V
+LDC ""In finally block. Value of i = ""
+INVOKEVIRTUAL java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;
+ILOAD 1
+INVOKEVIRTUAL java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;
+INVOKEVIRTUAL java/lang/StringBuilder.toString ()Ljava/lang/String;
+INVOKEVIRTUAL java/io/PrintStream.println (Ljava/lang/String;)V
+ILOAD 2
+IRETURN
+=======================
+public static void main(String[] args) {
+
+      System.out.println(Test.test());
+}
+
+public static int test() {
+
+ int i = 0;
+  try {
+   i=2;
+   return i;
+ } finally {
+   i = 12;
+   System.out.println(""In finally block. Value of i = ""+i);
+ }  
+}
+=======================
+import java.io.*;
+class Aclass
+{
+    public int a;
+}
+public class test
+{
+    public static void foo_obj(Aclass obj)
+    {
+        obj.a=5;
+    }
+    public static void foo_int(int a)
+    {
+        a=3;
+    }
+    public static void main(String args[])
+    {
+        //test passing an object
+        Aclass ob = new Aclass();
+        ob.a=0;
+        foo_obj(ob);
+        System.out.println(ob.a);//prints 5
+
+        //test passing an integer
+        int i=0;
+        foo_int(i);
+        System.out.println(i);//prints 0
+    }
+}
+=======================
+AtomicReference<MyType> q = new AtomicReference<MyType>('initialvalue')
+=======================
+x
+=======================
+x.get()
+=======================
+x.set(...)
+=======================
+Query q = sess.createQuery(""from Cat cat"");
+   List<?> results =(List<?>) q.list();
+   List<Cat> cats = new ArrayList<Cat>();
+   for(Object result:results) {
+       Cat cat = (Cat) result;
+       cats.add(cat);
+    }
+=======================
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*; 
+public class MyJRadioButton extends JFrame implements ActionListener
+{
+    JRadioButton rb1,rb2;  //components
+    ButtonGroup bg;
+    MyJRadioButton()
+{
+    setLayout(new FlowLayout());
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    rb1=new JRadioButton(""male"");
+    rb2=new JRadioButton(""female"");
+
+    //add radio button to button group
+    bg=new ButtonGroup();
+    bg.add(rb1);
+    bg.add(rb2);
+
+    //add radio buttons to frame,not button group
+    add(rb1);
+    add(rb2);
+    //add action listener to JRadioButton, not ButtonGroup
+    rb1.addActionListener(this);
+    rb2.addActionListener(this);
+    pack();
+    setVisible(true);
+}
+public static void main(String[] args)
+{
+    new MyJRadioButton(); //calling constructor
+}
+@Override
+public void actionPerformed(ActionEvent e) 
+{
+    System.out.println(((JRadioButton) e.getSource()).getActionCommand());
+}
+=======================
+private static byte[] decode(String encoded) {
+    byte result[] = new byte[encoded/2];
+    char enc[] = encoded.toUpperCase().toCharArray();
+    StringBuffer curr;
+    for (int i = 0; i < enc.length; i += 2) {
+        curr = new StringBuffer("""");
+        curr.append(String.valueOf(enc[i]));
+        curr.append(String.valueOf(enc[i + 1]));
+        result[i] = (byte) Integer.parseInt(curr.toString(), 16);
+    }
+    return result;
+}
+=======================
+ArrayList<E> list2 = new ArrayList<E>();
+
+
+    for (int i = 1; i < list.size(); i++) {
+        String a1 = list2.get(i);
+        if (!list2.contains(a1)) {
+            list2.add(a1);
+        }
+    }
+=======================
+ActionListener a=new ActionListener(){
+   public void actionPerformed(ActionEvent ae)
+   {
+    // your code
+   }
+};
+getRootPane().registerKeyboardAction(a,KeyStroke.getKeyStroke(""ctrl D""),JComponent.WHEN_IN_FOCUSED_WINDOW);
+=======================
+int q;
+for(q=0;q<MAX;q++){
+    String s;
+    int ix;
+    // other stuff
+    s = new String(""Hello, there!"");
+    // do something with s
+}
+=======================
+for
+=======================
+static final ArrayList<Element> my
+=======================

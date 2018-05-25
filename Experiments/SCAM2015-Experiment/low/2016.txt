@@ -1,0 +1,31 @@
+import java.io.*;
+    class BufferedInputStream
+    {
+            public static void main(String arg[])throws IOException
+            {
+                FileInputStream fin=new FileInputStream("abc.txt");
+                BufferedInputStream bis=new BufferedInputStream(fin);
+                int size=bis.available();
+                while(true)
+                {
+                        int x=bis.read(fin);
+                        if(x==-1)
+                        {
+                                bis.mark(size);
+                                System.out.println((char)x);
+                        }
+                }
+                        bis.reset();
+                        while(true)
+                        {
+                                int x=bis.read();
+                                if(x==-1)
+                                {
+                                    break;
+                                    System.out.println((char)x);
+                                }
+                        }
+
+            }
+
+    }

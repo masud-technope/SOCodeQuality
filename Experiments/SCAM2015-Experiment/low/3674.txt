@@ -1,0 +1,4 @@
+public novel(String title)
+    {
+        this(title, "Unknow"); // calls the constructor with two parameters
+    }

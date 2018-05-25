@@ -1,0 +1,5 @@
+Map<String, String> map = new HashMap<String, String>();
+for (String pair : input.split(", *(?![^\\[\\]]*\\])")) {
+    String[] parts = pair.split("=");
+    map.put(parts[0], parts[1]);
+}

@@ -1,0 +1,5 @@
+window.getContentPane().registerKeyboardAction(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            onCancel();
+        }
+    }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);

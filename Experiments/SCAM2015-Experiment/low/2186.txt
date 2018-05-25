@@ -1,0 +1,25 @@
+public class LargestPrimeFactor {
+    static boolean isPrime(long n){
+        for(long i=2;i<=n/2;i++){
+            if(n%i==0){
+                return false;                                               
+            }
+        }
+        return true;    
+    }
+
+    static long LargestPrimeFact(long n){
+        long largestPrime=0;
+        for(long i=2;i<Math.sqrt(n)/2;i++){
+            if(n%i==0){
+                if(isPrime(i)){
+                    largestPrime=i;
+                }
+                }                                       
+            }
+        return largestPrime;
+    }
+    public static void main(String args[]) {
+        System.out.println (LargestPrimeFact(600851475143L));
+    }
+}

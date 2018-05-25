@@ -1,0 +1,10 @@
+public class mainClass 
+{
+    private static int sharedVariable = 0;
+
+
+    public static int getSharedVariable()
+    {
+          return sharedVariable;
+    }
+}

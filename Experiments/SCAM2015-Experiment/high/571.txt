@@ -1,0 +1,3 @@
+if(obj instanceof Throwable && !(obj instanceof RuntimeException) && !(obj instanceof Error)) {
+    // this is a checked Throwable - i.e. Throwable, but not RuntimeException or Error
+    }

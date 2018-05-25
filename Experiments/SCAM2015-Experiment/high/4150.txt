@@ -1,0 +1,11 @@
+int newIndex = 0;
+
+for (int i=0; i<array.length; i++) {
+    if ((int) array[i] >= 97 && (int) array[i] <= 122) {
+        newArray[newIndex] = array[i];
+        newIndex++;
+    }
+}
+
+System.out.println("The lower case chars are:" + Arrays.toString(newArray) + "; There are " newArray.length + " of them.);
+System.out.println((array.length-newArray.length) + " capital chars werde removed.")

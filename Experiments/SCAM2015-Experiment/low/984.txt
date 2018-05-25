@@ -1,0 +1,15 @@
+package com.example;
+
+public class Enumerations {
+
+    public enum enumA { A1, A2, A3 };
+    public enum enumB { B1, B2, B3 };
+    public enum enumC { C1, C2, C3 };
+
+    private void test() {
+        Enumerations.enumA[] enumerations = new Enumerations.enumA[3];
+        enumerations[0] = enumA.A1;
+        enumerations[1] = enumA.A2;
+        enumerations[2] = enumA.A3;
+    }
+}

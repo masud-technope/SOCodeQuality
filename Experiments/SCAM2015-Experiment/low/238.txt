@@ -1,0 +1,13 @@
+public long[] parseString(String input)
+{
+            //1. Split with comma separated
+            int nLength = input.Split(new char[] { ',' }).Length;
+            long[] arList = new long[nLength];
+
+            for (int i = 0; i < nLength; i++)
+            {
+                arList[i] = long.Parse(input.Split(new char[] { ',' })[i].ToString());
+            }
+
+            return arList;
+}

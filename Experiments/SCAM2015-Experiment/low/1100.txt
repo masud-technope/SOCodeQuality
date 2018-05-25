@@ -1,0 +1,6 @@
+while(node)
+{
+      previous = node
+      node = node.next
+      // Do what ever you want to do with the nodes
+}

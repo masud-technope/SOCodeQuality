@@ -1,0 +1,3 @@
+public Object getObject(Class clazz) {
+  return clazz.newInstance();
+}

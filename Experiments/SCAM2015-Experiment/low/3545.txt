@@ -1,0 +1,4 @@
+String[] nextLine;   
+  while((nextLine = brTest.readLine()) != null) {
+      ...
+  }

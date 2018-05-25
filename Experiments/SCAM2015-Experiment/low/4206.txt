@@ -1,0 +1,5 @@
+if(s1.equals(s2))
+  {
+  //then you want to write that s1 will be equal to zero...(if i have undersood correct...)
+String new = s1  ;
+   }

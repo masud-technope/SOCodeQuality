@@ -1,0 +1,9 @@
+for (Map.Entry<SubClass, String> entry: map.entrySet()) {
+    System.out.println(entry.getKey().name);
+    System.out.println(entry.getValue());
+
+    entry.getKey().name = "another";
+
+    System.out.println(entry.getKey().name);
+    System.out.println(entry.getValue());
+}

@@ -1,0 +1,4 @@
+syncrhonized(sharedObject){
+   //do stuff to change the condition
+   sharedObject.notifyAll();
+ }

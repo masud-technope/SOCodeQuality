@@ -1,0 +1,7 @@
+log4j.logger.com.class.with.package.BasicImplementation = off, logfiledata
+
+log4j.appender.logfiledata = ac.biu.nlp.nlp.log.BackupOlderFileAppender
+log4j.appender.logfiledata.append=false
+log4j.appender.logfiledata.layout = org.apache.log4j.PatternLayout
+log4j.appender.logfiledata.layout.ConversionPattern = %-5p %d{HH:mm:ss} [%t]: %m%n
+log4j.appender.logfiledata.File = logfiledata.log

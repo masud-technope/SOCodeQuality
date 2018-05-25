@@ -1,0 +1,72 @@
+public class NewClass extends JFrame    
+{
+
+     public NewClass()
+    {
+
+    Calendar cal=new GregorianCalendar();
+    JPanel   p1=new JPanel();
+    JPanel   p2=new JPanel();
+    JPanel   p3=new JPanel();
+    JPanel   p=new JPanel();
+
+    BorderLayout layout=new BorderLayout();
+    p1.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+    JLabel l1=new JLabel("Sunday");
+    JLabel l2=new JLabel("Monday");
+    JLabel l3=new JLabel("Tuesday");
+    JLabel l4=new JLabel("Wednsday");
+    JLabel l5=new JLabel("Thursday");
+    JLabel l6=new JLabel("Friday");
+    JLabel l7=new JLabel("Saturday");
+
+    p1.add(l1);
+    p1.add(l2);
+    p1.add(l3);
+    p1.add(l4);
+    p1.add(l5);
+    p1.add(l6);
+    p1.add(l7);
+
+    p1.setBorder(new LineBorder(Color.BLACK));
+
+    int x=cal.get(Calendar.MONTH)+1;
+    System.out.println(x);
+    int y=cal.get(Calendar.DAY_OF_WEEK);
+    System.out.println(y);
+
+    p2.setLayout(new GridLayout(5,7));
+    if(x==4||x==6||x==9||x==11)
+    {
+        int j=1;
+        for(int i=0;i<(7-(y-1));i++)
+        {
+            JLabel l=new JLabel(" ",JLabel.CENTER);
+            l.setBorder(new LineBorder(Color.BLACK));
+            p2.add(l);
+            j++;
+        }
+    for(int i=1;i<=30;i++)
+    {
+
+        JLabel l=new JLabel(""+i,JLabel.CENTER);
+        l.setBorder(new LineBorder(Color.BLACK));
+        p2.add(l);
+        j++;
+    } 
+    }
+
+
+    p.setLayout(layout);
+    p.add(p2,BorderLayout.CENTER);
+    p.add(p1,BorderLayout.NORTH);
+    add(p,BorderLayout.CENTER);
+
+    JLabel l8=new JLabel(""+(cal.get(Calendar.MONTH+1)+"/"+cal.get(Calendar.YEAR)));
+    l8.setHorizontalTextPosition(JLabel.CENTER);
+    p3.setLayout(new FlowLayout(FlowLayout.CENTER));
+    p3.add(l8);
+    add(p3,BorderLayout.NORTH);  
+    add(p,BorderLayout.CENTER);
+     }

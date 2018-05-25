@@ -1,0 +1,6 @@
+LinkedList<Integer> myList = new LinkedList<>();
+
+myList.add(238);
+myList.add(7);
+..        
+Collections.sort(myList);

@@ -1,0 +1,3 @@
+string selBoxID = "id of select box";
+string partialText = "option text to match";
+driver.FindElement(By.XPath("//select[@id='" + selBoxID + "']/option[contains(text(), '" + partialText + "')]")).Click();

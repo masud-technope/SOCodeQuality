@@ -1,0 +1,4 @@
+Map<String, Integer> ages = .....;
+String foo = Joiner.on(", ").withKeyValueSeparator(" is ").join(ages);
+// Outputs:
+// Bill is 25, Joe is 30, Betty is 35

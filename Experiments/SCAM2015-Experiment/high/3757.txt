@@ -1,0 +1,20 @@
+public void sendMessage(View view) {
+    Intent intent = new Intent(this, DisplayMessageActivity.class);
+    EditText editText=(EditText) findViewById(R.id.edit_message);
+    TextView textView = (TextView) findViewById(R.id.textView1);
+
+    String message =editText.getText().toString();
+    intent.putExtra(EXTRA_MESSAGE, message);
+    startActivity(intent);
+    //get text from edittext and convert it to string
+    String messageString=editText.getText().toString();
+
+    int myNumber = Integer.parseInt(messageString);
+    myNumber = myNumber*100; //this is where you multiply
+
+    messageString = Integer.toString(myNumber);
+
+    //set string from edittext to textview
+    textView.setText(messageString);
+
+}

@@ -1,0 +1,3 @@
+Action<String> myAction = new Action<String>();
+
+getGenericType(myAction);

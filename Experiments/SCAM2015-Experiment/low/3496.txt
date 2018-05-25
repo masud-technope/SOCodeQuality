@@ -1,0 +1,3 @@
+@Named
+@ViewScoped
+public class GrowlView implements Serializable

@@ -1,0 +1,9 @@
+if (data != null) {
+   if (data === "notfound") {
+     alert("user not found"); 
+   } else {
+      alert("user found" + data);
+   }
+} else {
+   alert("unexpected error when finding user. please try again"); 
+}

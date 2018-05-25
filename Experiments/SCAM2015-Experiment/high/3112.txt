@@ -1,0 +1,16 @@
+class a {
+            public int val1 =2;
+            public int val2 = 3;
+            public String s = "val1*val2";
+            public int val = 0;
+        }           
+        a a1 = new a();
+        StringTokenizer str = new StringTokenizer(a1.s,"*");
+        try {
+            a1.val = (int) a1.getClass().getField(str.nextToken()).get(a1) * (int)   
+                     a1.getClass().getField(str.nextToken()).get(a1);
+
+                      System.out.println("v=" +a1.val);
+        } catch (Exception e1) {
+
+        }

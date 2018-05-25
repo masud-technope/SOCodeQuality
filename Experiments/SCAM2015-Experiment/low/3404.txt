@@ -1,0 +1,25 @@
+import java.io.*;
+
+public class FileCheck {
+
+    static long sleepTime = 1000 * 1;
+    static String file_path = "/dev/ttyO1";
+
+    public static void main(String[] args) throws IOException {
+            BufferedReader input = new BufferedReader(new FileReader(file_path));
+            String currentLine = null;
+            while (true) {
+                if ((currentLine = input.readLine()) != null) {
+                    System.out.println(currentLine);
+                    continue;
+                }
+                try {
+                    Thread.sleep(sleepTime);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+            }
+            input.close();
+    }
+}

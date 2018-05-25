@@ -1,0 +1,5 @@
+List<Double> doubles = ...;
+List<Integer> integers = ...;
+
+Number firstDouble = doubles.get(0);
+Number firstInteger = integers.get(0);

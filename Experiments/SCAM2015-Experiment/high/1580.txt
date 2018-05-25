@@ -1,0 +1,61 @@
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+
+public class FixedSizeComponent extends JPanel {
+    private Dimension size;
+    private final JComponent content;
+
+    public FixedSizeComponent(JComponent content) {
+        super(new BorderLayout());
+        this.content = content;
+        super.add(content, BorderLayout.CENTER);
+    }
+
+    @Override
+    public void setSize(Dimension d) {
+        size = d;
+    }
+
+    @Override
+    public void setSize(int width, int height) {
+        size = new Dimension(width, height);
+    }
+
+    @Override
+    public Dimension getSize() {
+        if (size != null) return size;
+        return content.getSize();
+    }
+
+    @Override
+    public Dimension getSize(Dimension rv) {
+        if (size != null) {
+            if (rv == null) rv = new Dimension();
+            rv.height = size.height;
+            rv.width = size.width;
+            return rv;
+        }
+        return content.getSize(rv);
+    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        if (size != null) return size;
+        return content.getPreferredSize();
+    }
+
+    @Override
+    public Dimension getMaximumSize() {
+        if (size != null) return size;
+        return content.getMaximumSize();
+    }
+
+    @Override
+    public Dimension getMinimumSize() {
+        if (size != null) return size;
+        return content.getMinimumSize();
+    }
+}

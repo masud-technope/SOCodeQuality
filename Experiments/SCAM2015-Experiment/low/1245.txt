@@ -1,0 +1,6 @@
+public int compareTo(Object o)
+{
+    // add various if-else blocks
+    // OR
+    // call a separate method    
+}

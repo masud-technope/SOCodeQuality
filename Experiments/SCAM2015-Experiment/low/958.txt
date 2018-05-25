@@ -1,0 +1,3 @@
+[javac] warning: [path] bad path element "D:\local\lib\java\*": no such file or directory
+[javac] warning: [path] bad path element "C:\lib\java\*": no such file or directory
+[javac] warning: [path] bad path element "C:\lib\java\db\*": no such file or directory

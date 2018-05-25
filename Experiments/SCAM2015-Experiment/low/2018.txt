@@ -1,0 +1,16 @@
+ServerSocketChannel ssc = null;
+try {
+    ssc = ServerSocketChannel.open();
+    ssc.socket().bind(new InetSocketAddress(port));
+    ssc.configureBlocking(false);
+    while (true) {
+        SocketChannel sc = ssc.accept();
+        if (sc == null) {
+            // No connections came .
+        } else {
+            // You got a connection. Do something
+        }
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}

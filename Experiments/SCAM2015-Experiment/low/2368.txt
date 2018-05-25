@@ -1,0 +1,10 @@
+boolean quoted = false;
+    for(String q : str.split("\"")) {
+        if(quoted)
+            System.out.println(q.trim());
+        else
+            for(String s : q.split(","))
+                if(!s.trim().isEmpty())
+                    System.out.println(s.trim());
+        quoted = !quoted;
+    }

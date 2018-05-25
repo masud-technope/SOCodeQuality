@@ -1,0 +1,9 @@
+public static double average(double monTemp, double tuesTemp, double wedTemp, double thursTemp, double satTemp, double sunTemp, double friTemp) {
+      double average=monTemp+tuesTemp+wedTemp+thursTemp+friTemp+satTemp+sunTemp;
+      finalAverage=(average/7);
+
+      System.out.println(" You have chosen to see the average temperature for the week");
+      System.out.println(" The temperature for the week is " +finalAverage + "°C");
+
+      return average;
+}

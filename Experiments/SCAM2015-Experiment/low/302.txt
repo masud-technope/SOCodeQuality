@@ -1,0 +1,7 @@
+BigDecimal num = new BigDecimal(0.23);
+BigDecimal twenty = new BigDecimal(20);
+//Might want to use RoundingMode.UP instead,
+//depending on desired behavior for negative values of num.
+BigDecimal numTimesTwenty = num.multiply(twenty, new MathContext(0, RoundingMode.CEILING)); 
+BigDecimal numRoundedUpToNearestFiveCents
+  = numTimesTwenty.divide(twenty, new MathContext(2, RoundingMode.UNNECESSARY));

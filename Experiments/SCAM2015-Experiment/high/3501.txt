@@ -1,0 +1,6 @@
+Scanner scanner = new Scanner(System.in);
+System.out.println("Enter Identifier:");
+info[0] = scanner.nextLine();
+System.out.println("Enter Num:");
+info[1] = scanner.nextLine();
+...

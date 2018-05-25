@@ -1,0 +1,4 @@
+FileWriter writer = new FileWriter("C:/xyz.txt", true);
+BufferedWriter out = new BufferedWriter(writer);
+out.write("your text");
+out.close();

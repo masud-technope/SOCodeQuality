@@ -1,0 +1,89 @@
+/* File Signature.java created by Daniel Hicks on Mon Jun 11 2001. */
+import java.io.*;
+import java.util.*;
+public class Signature {
+    public static void main(String args[]) throws Exception {
+
+    ResourceBundle properties = ResourceBundle.getBundle("WebSignature");
+    String sigName = properties.getString("sig.file");
+    String protoName = properties.getString("proto.file");
+    String sayingsList = properties.getString("sayings.list");
+    long waitTime = Long.parseLong(properties.getString("delay.time"));
+    int lineLength = Integer.parseInt(properties.getString("line.length"));
+    long notFoundTime = Long.parseLong(properties.getString("file.not.found.time"));
+    int notFoundRetries = Integer.parseInt(properties.getString("file.not.found.retries"));
+
+    Vector proto = new Vector();
+
+    BufferedReader protoReader = new BufferedReader(new FileReader(protoName));
+    String protoLine = protoReader.readLine();
+    while (protoLine != null) {
+        proto.addElement(protoLine);
+        protoLine = protoReader.readLine();
+    }
+    protoReader.close();
+
+    Vector sayings = new Vector();
+
+    BufferedReader sayingsReader = new BufferedReader(new FileReader(sayingsList));
+    String sayingsLine = sayingsReader.readLine();
+    while (sayingsLine != null) {
+        sayings.addElement(sayingsLine);
+        sayingsLine = sayingsReader.readLine();
+    }
+    sayingsReader.close();
+
+    Random rand = new Random();
+
+    int retryCount = notFoundRetries;  // Require first cycle to work
+
+    while (true) {
+        int randVal = rand.nextInt();
+        randVal = Math.abs(randVal) % sayings.size();
+        try {
+        PrintWriter sigWriter = new PrintWriter(new FileWriter(sigName));
+        for (int i = 0; i < proto.size(); i++) {
+            sigWriter.println(proto.elementAt(i));
+        }
+        putSaying(sigWriter, (String) (sayings.elementAt(randVal)), lineLength);
+        sigWriter.close();
+        retryCount = 0;
+        }
+        // Catch I/O error due to AFS being offline.
+        catch (java.io.FileNotFoundException ex) {
+        retryCount++;
+        if (retryCount > notFoundRetries) {
+            throw ex;
+        }
+        // Sleep for a long time (eg, 30 minutes).
+        Thread.sleep(notFoundTime);
+        }
+        Thread.sleep(waitTime);
+    }
+    }
+
+    private static void putSaying(PrintWriter sigWriter, String saying, int lineLength) throws Exception {
+    saying = saying.trim();
+    java.text.BreakIterator lineIterator = java.text.BreakIterator.getLineInstance();
+    lineIterator.setText(saying);
+    int pos = 0;
+    int last = lineIterator.last();
+    while (pos < last) {
+        int newPos = pos + lineLength;
+        if (newPos >= last) {
+        newPos = last;
+        }
+        else {
+        newPos = lineIterator.preceding(newPos);
+        if (newPos <= pos) {
+            newPos = lineIterator.following(pos);
+        }
+        }
+        sigWriter.println(saying.substring(pos, newPos));
+        pos = newPos;
+        while ((pos < saying.length() - 1) && Character.isWhitespace(saying.charAt(pos))) {
+        pos++;
+        }
+    }
+    }
+}

@@ -1,0 +1,11 @@
+public int testEqualsIntern() {
+    int count = 0;
+    String str = EMPTY;
+
+    for(int i = 0; i < ITERATIONS; i++) {
+        if(str.equals(EMPTY)) {
+            count++;
+        }
+    }
+    return count;
+}

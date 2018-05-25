@@ -1,0 +1,41 @@
+....[Hottest Region 1]..............................................................................
+[0x7fb9e11acda0:0x7fb9e11acdc8] in org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop
+
+                                                                ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@19 (line 103)
+                  0x00007fb9e11acd82: movzbl 0x94(%rdx),%r11d   ;*getfield isDone
+                                                                ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@29 (line 105)
+                  0x00007fb9e11acd8a: mov    $0x2,%ebp
+                  0x00007fb9e11acd8f: test   %r11d,%r11d
+                  0x00007fb9e11acd92: jne    0x00007fb9e11acdcc  ;*ifeq
+                                                                 ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@32 (line 105)
+                  0x00007fb9e11acd94: nopl   0x0(%rax,%rax,1)
+                  0x00007fb9e11acd9c: xchg   %ax,%ax            ;*aload
+                                                                ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@13 (line 103)
+6.50%    3.37%    0x00007fb9e11acda0: mov    0xb0(%rdi),%r11d   ;*getfield i1
+                                                                ; - org.openjdk.jmh.infra.Blackhole::consume@2 (line 350)
+                                                                ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@19 (line 103)
+0.06%    0.05%    0x00007fb9e11acda7: mov    0xb4(%rdi),%r10d   ;*getfield i2
+                                                                ; - org.openjdk.jmh.infra.Blackhole::consume@15 (line 350)
+                                                                ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@19 (line 103)
+0.06%    0.09%    0x00007fb9e11acdae: cmp    $0x3e8,%r10d
+0.03%             0x00007fb9e11acdb5: je     0x00007fb9e11acdf1  ;*return
+                                                                ; - org.openjdk.jmh.infra.Blackhole::consume@38 (line 354)
+                                                                ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@19 (line 103)
+48.85%   44.47%    0x00007fb9e11acdb7: movzbl 0x94(%rdx),%ecx    ;*getfield isDone
+                                                                ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@29 (line 105)
+0.33%    0.62%    0x00007fb9e11acdbe: add    $0x1,%rbp          ; OopMap{r9=Oop rbx=Oop rdi=Oop rdx=Oop off=226}
+                                                                ;*ifeq
+                                                                ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@32 (line 105)
+0.03%    0.05%    0x00007fb9e11acdc2: test   %eax,0x16543238(%rip)        # 0x00007fb9f76f0000
+                                                                ;   {poll}
+42.31%   49.43%    0x00007fb9e11acdc8: test   %ecx,%ecx
+                   0x00007fb9e11acdca: je     0x00007fb9e11acda0  ;*aload_2
+                                                                ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@35 (line 106)
+                  0x00007fb9e11acdcc: mov    $0x7fb9f706fe40,%r10
+                  0x00007fb9e11acdd6: callq  *%r10              ;*invokestatic nanoTime
+                                                                ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@36 (line 106)
+                  0x00007fb9e11acdd9: mov    %rbp,0x10(%rbx)    ;*putfield operations
+                                                                ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@51 (line 108)
+                  0x00007fb9e11acddd: mov    %rax,0x28(%rbx)    ;*putfield stopTime
+                                                                ; - org.sample.generated.MyBenchmark_testEqualsIntern::testEqualsIntern_thrpt_jmhLoop@39 (line 106)
+....................................................................................................

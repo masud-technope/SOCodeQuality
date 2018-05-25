@@ -1,0 +1,10 @@
+public class AboutViewController extends Activity {
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // direct use object by class name
+        System.out.println(" app support url " + SplashScreen.appDetails.getSupportURL());
+    }
+
+}

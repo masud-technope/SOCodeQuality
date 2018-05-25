@@ -1,0 +1,9 @@
+public class MyRunnable extends Thread {
+    public void run() {
+        if(!isInterrupted()){
+            operationOne();
+            operationTwo();
+            operationThree();
+        }
+    }
+}

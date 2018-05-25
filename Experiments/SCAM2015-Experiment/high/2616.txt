@@ -1,0 +1,3 @@
+Intent intent = new Intent(UserpickActivity.this, CommunicationActivity.class);
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);              
+    startActivity(intent);

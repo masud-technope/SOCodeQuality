@@ -1,0 +1,4 @@
+String line = "LOCALHOST = https://192.168.56.1";
+Map<String, String> map = new HashMap<String, String>();
+String[] parts = line.split(" *= *");
+map.put(parts[0], parts[1]);

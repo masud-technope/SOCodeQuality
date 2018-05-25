@@ -1,0 +1,8 @@
+function revarray(a[1...n])
+  if a.length == 1 or a.length == 0
+    do nothing 
+  # return a
+  else
+     swap a[1] and a[n]
+     revarray(a[2...n-1])
+  # return a (The function will not return anything but the contents of a are changed)

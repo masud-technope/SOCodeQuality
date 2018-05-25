@@ -1,0 +1,23 @@
+private static BigDecimal truncateDecimal(final double x, final int numberofDecimals) {
+    return new BigDecimal(String.valueOf(x)).setScale(numberofDecimals, BigDecimal.ROUND_DOWN);
+}
+
+public static void main(String[] args) {
+    System.out.println(truncateDecimal(0, 2));
+    System.out.println(truncateDecimal(9.62, 2));
+    System.out.println(truncateDecimal(9.621, 2));
+    System.out.println(truncateDecimal(9.629, 2));
+    System.out.println(truncateDecimal(9.625, 2));
+    System.out.println(truncateDecimal(9.999, 2));
+    System.out.println(truncateDecimal(3.545555555, 2));
+
+    System.out.println(truncateDecimal(9.0, 2));
+    System.out.println(truncateDecimal(-9.62, 2));
+    System.out.println(truncateDecimal(-9.621, 2));
+    System.out.println(truncateDecimal(-9.629, 2));
+    System.out.println(truncateDecimal(-9.625, 2));
+    System.out.println(truncateDecimal(-9.999, 2));
+    System.out.println(truncateDecimal(-9.0, 2));
+    System.out.println(truncateDecimal(-3.545555555, 2));
+
+}

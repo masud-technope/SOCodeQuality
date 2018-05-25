@@ -1,0 +1,5 @@
+public static object methodCaller(String methodName)
+{
+    if(methodName.equals("getName"))
+        return className.getName();
+}

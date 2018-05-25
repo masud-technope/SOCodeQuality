@@ -1,0 +1,21 @@
+public Map<String,Integer> getWordsWithCount(String sentances)
+{
+    Map<String,Integer> wordsWithCount = new HashMap<String, Integer>();
+
+    String[] words = sentances.split(" ");
+    for (String word : words)
+    {
+        if(wordsWithCount.containsKey(word))
+        {
+            wordsWithCount.put(word, wordsWithCount.get(word)+1);
+        }
+        else
+        {
+            wordsWithCount.put(word, 1);
+        }
+
+    }
+
+    return wordsWithCount;
+
+}

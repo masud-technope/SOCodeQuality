@@ -1,0 +1,5 @@
+if(myArray[i] == 0)
+  {
+    completed = false;
+    break;
+  }

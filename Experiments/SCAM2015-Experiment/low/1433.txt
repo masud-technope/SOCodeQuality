@@ -1,0 +1,19 @@
+package Example;
+
+public class B
+{
+
+    /**
+     * @param args
+     */
+    public static void main(String[] args)
+    {
+        // TODO Auto-generated method stub
+        A myA = new A();
+
+        myA.setMyVar("Hello World!");
+
+        System.out.println(myA.getMyVar);
+    }
+
+}

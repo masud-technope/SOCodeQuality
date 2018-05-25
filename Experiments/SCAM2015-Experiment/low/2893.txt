@@ -1,0 +1,6 @@
+Map<String, GUID> first = new HashMap<String, GUID>();
+  first.put(key1, guid1);
+  first.put(key2, guid1);
+
+  Map<GUID, ValueType> second = new HashMap<GUID, ValueType>();
+  second.put(guid1, value1);

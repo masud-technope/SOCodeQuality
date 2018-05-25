@@ -1,0 +1,3 @@
+Declare sqlText VARCHAR(MAX)
+set sqlText = 'SELECT ....'
+EXEC(sqlText)

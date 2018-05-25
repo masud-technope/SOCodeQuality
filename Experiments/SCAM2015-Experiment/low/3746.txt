@@ -1,0 +1,20 @@
+package com.example.stackoverflow.oop;
+
+public class Executor {
+
+    public static void main(String[] args) throws Exception  {
+        String req = "helloworld";
+        String res = execute(req, String.class);
+        System.out.println( "Res:" + res );
+    }
+
+    public static <T,R> R execute(T req, Class<R> res) throws Exception {
+        System.out.println(req.toString());
+        Object object = res.newInstance();
+        return res.cast(object);
+    }
+
+}
+-------------------------------------------------------------------------
+helloworld
+Res:

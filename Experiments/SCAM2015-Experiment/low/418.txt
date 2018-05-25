@@ -1,0 +1,7 @@
+import cli.System.IO.Directory;
+public class IKVMTest {
+    public static void main(String[] args) {
+        for(String file : Directory.GetFiles(".")) // From .NET standard library
+            System.out.println(file);              // From Java standard library
+    }
+}

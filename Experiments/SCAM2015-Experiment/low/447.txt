@@ -1,0 +1,3 @@
+Char ch='0';
+String convertedChar= Character.toString(ch);  //Convert Char to String.
+Long finalLongValue=Long.parseLong(convertedChar);

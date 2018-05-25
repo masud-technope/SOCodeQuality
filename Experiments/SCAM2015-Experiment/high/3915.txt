@@ -1,0 +1,3 @@
+String text = "...";
+int numHashTags = text.length() - text.replaceAll("#(?!\\s)", "").length();
+int numAttr = text.length() - text.replaceAll("@(?!\\s)", "").length();

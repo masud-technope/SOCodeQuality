@@ -1,0 +1,13 @@
+int i=0,j=0,d=0;
+for (; i < a && j < b; ++i,++j) {
+    ch[d] = s1.charAt(i); ++d;
+    ch[d] = s2.charAt(j); ++d;
+}
+for (; i < a; ++i) {
+    ch[d] = s1.charAt(i);
+    ++d;
+}
+for (; j < b; ++j) {
+    ch[d] = s2.charAt(j);
+    ++d;
+}

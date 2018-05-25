@@ -1,0 +1,3 @@
+BigDecimal lat =  new BigDecimal(0.0077);
+ lat=lat.setScale(4,RoundingMode.HALF_EVEN);
+ System.out.println(lat);

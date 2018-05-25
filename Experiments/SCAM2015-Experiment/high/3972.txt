@@ -1,0 +1,3 @@
+Date today= LocalDate.now();
+Date futureDate = LocalDate.now().plusDays(1);
+long days = Period.between(today, futureDate).getDays();

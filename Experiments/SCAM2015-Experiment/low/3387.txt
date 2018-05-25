@@ -1,0 +1,15 @@
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+
+public abstract class Shape {
+    public abstract double getVolume();
+
+    public Shape min(Collection<? extends Shape> col) {
+        return Collections.min(col, new Comparator<Shape> () {
+            public int compare(Shape l, Shape r) {
+                return ((Double) l.getVolume()).compareTo(r.getVolume());
+            }
+        });
+    }
+}

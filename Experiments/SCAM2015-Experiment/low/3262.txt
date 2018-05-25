@@ -1,0 +1,6 @@
+if(Pattern.matches("[b-df-hj-np-tv-z]+",userInput)){  
+    ----code----
+}
+else{
+    ----other code----  
+}

@@ -1,0 +1,5 @@
+Matcher m = Pattern.compile("(\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2},\\d{3},)")
+            .matcher("2010-11-10 00:00:00,999, some string follows");
+if (m.find()) {
+    String first_part = m.group(1);
+}

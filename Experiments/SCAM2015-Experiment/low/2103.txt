@@ -1,0 +1,8 @@
+System.err.println("Someone is Restarting me...");
+setVisible(false);
+try {
+    Thread.sleep(600);
+} catch (InterruptedException e1) {
+    e1.printStackTrace();
+}
+setVisible(true);

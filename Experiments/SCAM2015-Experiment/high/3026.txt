@@ -1,0 +1,3 @@
+System.out.println(pay + bonus + " " + bonus + pay);
+                        |                     |
+                      (plus)                (concat)

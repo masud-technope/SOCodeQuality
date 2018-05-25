@@ -1,0 +1,12 @@
+static BigInteger binomial(final int N, final int K) {
+    BigInteger ret = BigInteger.ONE;
+    for (int k = 0; k < K; k++) {
+        ret = ret.multiply(BigInteger.valueOf(N-k))
+                 .divide(BigInteger.valueOf(k+1));
+    }
+    return ret;
+}
+
+//...
+System.out.println(binomial(133, 71));
+// prints "555687036928510235891585199545206017600"

@@ -1,0 +1,10 @@
+if(r1==null)
+    globalR = r1 = [something]    
+else if(r2==null)
+    globalR = r2 = [something]
+else if(r3==null)
+    globalR = r3 = [something]
+else if(r4==null)
+    globalR = r4 = [something]
+else if(r5==null)
+    globalR = r5 = [something]

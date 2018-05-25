@@ -1,0 +1,7 @@
+ArrayList arry = new ArrayList()<String>;
+if(arry!=null) {
+int last = arry.legth() -1  ;
+//no loop proudly
+arr[last];  
+return last ;
+}

@@ -1,0 +1,10 @@
+Man fred = null;
+try {
+  fred = new Man();
+} catch (Exception e) {
+  e.printStackTrace(); 
+}
+
+if (fred != null) {
+  System.out.println(fred.getName());
+}

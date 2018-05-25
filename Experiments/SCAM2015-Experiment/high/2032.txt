@@ -1,0 +1,11 @@
+public float getPercentFailing(float[] grades) {
+
+    int failed = 0;
+
+    for (int i = 0; i < grades.length; i++) {
+        if (grades[i] < 0.6) {
+            failed++;
+        }
+    }
+    return ((float) failed) / grades.length;
+}

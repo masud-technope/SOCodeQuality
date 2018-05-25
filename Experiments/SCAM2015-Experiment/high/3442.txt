@@ -1,0 +1,5 @@
+...
+byte[] bytes = bos.toByteArray();
+ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+DataInputStream dis = new DataInputStream(bis);
+short val = dis.readShort();

@@ -1,0 +1,9 @@
+String toPrint = "";
+if(lastName.length() > 0 && firstName.length() > 0){
+   toPrint = lastName + ", " - firstName;
+}else if(!lastName.length() > 0 && firstName.length() > 0){
+   toPrint = firstName;
+}else if(lastName.length() > 0 && !firstName.length() > 0){
+   toPrint = lastName;
+}
+System.out.println(toPrint)

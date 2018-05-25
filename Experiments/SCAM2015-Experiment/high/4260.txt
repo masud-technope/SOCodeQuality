@@ -1,0 +1,3 @@
+if (lhs.CompareTo(rhs) == CompareResult.LessThan ||
+    lhs.CompareTo(rhs) == CompareResult.Equals)
+    ...

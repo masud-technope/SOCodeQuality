@@ -1,0 +1,5 @@
+String [] str = new String[]{"1some", "2some", "20some", "21some", "3some", "some"};
+    List<String> list = Arrays.asList(str);
+
+    Collections.sort(list, String.CASE_INSENSITIVE_ORDER);
+    System.out.println(list);

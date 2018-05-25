@@ -1,0 +1,13 @@
+abstract class GameObject {
+    private Image image;
+
+    GameObject(String path) {
+        try {
+          image = ImageIO.read(new File(path));
+        } catch (IOException ex) {}
+    }
+
+    Rectangle2D getShape() {
+       return new Rectangle2D.Float(0, 0, (int)image.getWidth(), (int)image.getHeight());
+    }
+}

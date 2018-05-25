@@ -1,0 +1,3 @@
+for (String element : array) {
+    System.out.println("Element: " + element);
+}

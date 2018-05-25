@@ -1,0 +1,32 @@
+String id = filedda.getText();
+        String pass= filedda1.getText();
+        try {
+            File inputFile = new File("E:/yoo.txt");
+            File tempfile = new File("E:/mytempfile.txt");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempfile));
+
+            String CurrentLine;
+
+            while((CurrentLine = reader.readLine())!=null){
+                if(CurrentLine.contains(id+pass)){
+                    CurrentLine= CurrentLine.replace(id+pass, "");
+
+                }
+
+            }
+                writer.write(CurrentLine);
+                reader.close();
+                writer.close();
+
+
+                inputFile.delete();
+                tempfile.renameTo(inputFile);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }

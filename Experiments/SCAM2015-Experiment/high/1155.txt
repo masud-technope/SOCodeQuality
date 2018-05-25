@@ -1,0 +1,6 @@
+EnumMap<...> enumMapC = new EnumMap<...>();
+enumMapC.put(EnumC.VALUE, "SomeString");
+EnumMap<...> enumMapB = new EnumMap<...>();
+enumMapB.put(EnumB.VALUE, enumMapC);
+EnumMap<...> enumMapA = new EnumMap<...>();
+enumMapA.put(EnumA.VALUE, enumMapB);

@@ -1,0 +1,8 @@
+import static org.apache.commons.lang3.StringEscapeUtils.unescapeJava;
+
+public class Unescape {
+    public static void main(String[] args) {
+        System.out.println("some text\\nsome text");
+        System.out.println(unescapeJava("some text\\nsome text"));
+    }
+}

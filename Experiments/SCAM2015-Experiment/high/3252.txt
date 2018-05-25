@@ -1,0 +1,11 @@
+switch (choice)
+{
+    case "nameOfMethod1":
+        System.out.println("111");
+        break;
+    case "nameOfMethod2":
+        System.out.println("222");
+        break;
+    default:
+        break;
+}

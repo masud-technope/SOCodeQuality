@@ -1,0 +1,18 @@
+DELIMITER $$
+
+   DROP FUNCTION IF EXISTS `pathToNode` $$
+   CREATE FUNCTION `pathToNode` (ryhma_id INT) RETURNS TEXT CHARACTER SET utf8
+   READS SQL DATA
+   BEGIN
+
+    DECLARE path VARCHAR(255) CHARACTER SET utf8;
+
+   SET path = NULL;
+
+   ...
+
+   RETURN path;
+
+   END $$
+
+   DELIMITER ;

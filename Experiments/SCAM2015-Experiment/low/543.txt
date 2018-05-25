@@ -1,0 +1,17 @@
+private void debug (Object object)
+{
+    debug(object,true);
+}
+
+private void dedub(Object object, boolean debug)
+{
+    if (debug)
+    {
+        System.out.println(object);
+
+        // you can also write to a file but make sure the outputstream ISNT opened
+        // every time debug(Object object) is called
+
+        fileOutputStream.write(object.toString().getBytes());
+    }
+}

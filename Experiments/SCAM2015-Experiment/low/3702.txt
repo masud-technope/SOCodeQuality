@@ -1,0 +1,41 @@
+public int longestTwoDistinctCharacterSubString() {
+    String str = "abbaaacaccaade";
+
+    int longest = 0;
+    int startIndex = 0;
+    int currentConsecutiveCount = 1;
+
+    Character firstDistinctChar = null;
+    Character secondDistinctChar = null;
+
+    for (int i = 0; i < str.length(); i++) {
+        Character charAtPreviousIndex = (i > 0) ? str.charAt(i - 1) : null;
+        Character charAtCurrentIndex = str.charAt(i);
+
+        if ((firstDistinctChar != null && firstDistinctChar.equals(charAtCurrentIndex)) || 
+            (secondDistinctChar != null && secondDistinctChar.equals(charAtCurrentIndex))) {
+            // continue with function
+        } else if (firstDistinctChar == null) {
+            firstDistinctChar = charAtCurrentIndex;
+        } else if (secondDistinctChar == null) {
+            secondDistinctChar = charAtCurrentIndex;
+        } else {
+            int length = i - startIndex;
+            if (length > longest) {
+                longest = length;
+            }
+
+            firstDistinctChar = null;
+            secondDistinctChar = null;
+            startIndex = i - currentConsecutiveCount;
+        }
+
+        if (charAtCurrentIndex.equals(charAtPreviousIndex)) {
+            currentConsecutiveCount++;
+        } else {
+            currentConsecutiveCount = 1;
+        }
+    }
+
+    return longest;
+}

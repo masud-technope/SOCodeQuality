@@ -1,0 +1,8 @@
+double nbr = Double.valueOf(number);
+    int integer_Part = (int) nbr;
+    double float_Part = nbr - integer_Part;
+    int floating_point = (int) (Math.pow(10, decimal) * float_Part);
+    String final_nbr = String.valueOf(integer_Part) + "." + String.valueOf(floating_point);
+    return final_nbr;
+
+}`

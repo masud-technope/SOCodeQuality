@@ -1,0 +1,12 @@
+main
+   xMethod(5)
+      xMethod(4)
+          xMethod(3)
+             xMethod(2)
+                 xMethod(1)
+                     xMethod(0)
+                 print 1
+             print 2
+          print 3
+      print 4
+  print 5

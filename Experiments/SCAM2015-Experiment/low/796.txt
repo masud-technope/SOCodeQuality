@@ -1,0 +1,8 @@
+Color interpolate(Color colorA, Color colorB, float bAmount) {
+    Color colorOut;
+    float aAmount = 1.0 - bAmount;
+    colorOut.r =  colorA.r * aAmount + colorB.r * bAmount;
+    colorOut.g =  colorA.g * aAmount + colorB.g * bAmount;
+    colorOut.b =  colorA.b * aAmount + colorB.b * bAmount;
+    return colorOut;
+}

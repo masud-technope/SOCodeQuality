@@ -1,0 +1,47 @@
+public class StringConcat {
+
+public static void main(String[] args) {
+    int run = 100 * 1000 * 1000;
+    long startTime, total = 0;
+
+    final String a = "aafswerg";
+    final String b = "assdfsaf";
+    final String c = "aasfasfsaf";
+    final String d = "afafafdaa";
+    final String e = "afdassadf";
+
+    startTime = System.currentTimeMillis();
+    concat1(run, a, b, c, d, e);
+    total = System.currentTimeMillis() - startTime;
+    System.out.println(total);
+
+    startTime = System.currentTimeMillis();
+    concat2(run, a, b, c, d, e);
+    total = System.currentTimeMillis() - startTime;
+    System.out.println(total);
+
+    startTime = System.currentTimeMillis();
+    concat3(run, a, b, c, d, e);
+    total = System.currentTimeMillis() - startTime;
+    System.out.println(total);
+}
+
+private static void concat3(int run, String a, String b, String c, String d, String e) {
+    for (int i = 0; i < run; i++) {
+        String str = new StringBuilder(a.length() + b.length() + c.length() + d.length() + e.length()).append(a)
+                .append(b).append(c).append(d).append(e).toString();
+    }
+}
+
+private static void concat2(int run, String a, String b, String c, String d, String e) {
+    for (int i = 0; i < run; i++) {
+        String str = new StringBuilder(a).append(b).append(c).append(d).append(e).toString();
+    }
+}
+
+private static void concat1(int run, String a, String b, String c, String d, String e) {
+    for (int i = 0; i < run; i++) {
+        String str = a + b + c + d + e;
+    }
+}
+}

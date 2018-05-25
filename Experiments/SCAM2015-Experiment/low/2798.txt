@@ -1,0 +1,15 @@
+class Circle{
+    double radius;
+    public double getRadius(){
+    return radius;
+    }
+    public void setRadius(double r){
+    radius=r;
+    }
+    void CircleMeasurement(){
+        radius = r;
+    }
+....
+    r = in.nextInt;
+        Circle circle1 = new Circle();
+    circle1.setRadious(r);

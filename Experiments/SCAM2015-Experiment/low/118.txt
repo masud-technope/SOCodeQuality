@@ -1,0 +1,19 @@
+public class Trader {
+
+    /* prevent constructor so new cant be used outside the factory method */
+    private Trader() {
+    }
+
+    /* the factory method */
+    public static Trader createTrader(int whatKindOfTrader) {
+
+    	switch (whatKindOfTrader) {
+    	case 0:
+    		return new Trader1(); // extends Trader
+    	case 1:
+    	default:
+    		return new Trader2(); // extends Trader
+    	}
+    	return new Trader3(); // or throw exception
+    }
+}

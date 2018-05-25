@@ -1,0 +1,25 @@
+public class Student {
+
+private List<Pen> pens = new ArrayList<Pen>();
+
+// Constructor + methods
+}
+
+public class Pen {
+
+public enum Color {
+    RED, BLUE, GREEN, ORANGE;
+}
+
+private Color color;
+
+public Pen(Color color) {
+    this.color = color;
+}
+
+// Getters & setters
+public void write() {
+    // Write some thing using color
+}
+
+}

@@ -1,0 +1,7 @@
+String a = new String("asd"); //new object, will add to pool though
+String b = new String("asd"); //new object
+String c = "asd"; //will use the pool
+boolean b1 = (a == b); //false, different objects (same contents though)
+boolean b2 = (a.equals(b)); //true, same contents
+boolean b3 = (a == c); //false, different objects
+boolean b3 = (a.equals(c)); //true, same contents

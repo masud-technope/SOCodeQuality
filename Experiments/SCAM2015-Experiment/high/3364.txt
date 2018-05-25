@@ -1,0 +1,5 @@
+Matcher m = Pattern.compile("(.*?)(\\d+)$").matcher(yourString);
+if (m.matches()) {
+    String stringPart = m.group(1);
+    int intPart = Integer.parseInt(m.group(2));
+}

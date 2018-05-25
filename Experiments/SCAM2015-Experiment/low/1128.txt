@@ -1,0 +1,9 @@
+public static ArrayList<String> multipleReturnMethod(ArrayList<String> output) {
+
+ String a = "a";
+ String b = "b";
+
+ output.add(a);
+ output.add(b);
+ return output; //not really necessary
+}

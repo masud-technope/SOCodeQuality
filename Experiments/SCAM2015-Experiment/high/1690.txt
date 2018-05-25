@@ -1,0 +1,11 @@
+@RequestMapping(value = "/submit", method = RequestMethod.POST)
+public final String submit(@ModelAttribute("register") @Valid final Register register, final BindingResult binding, RedirectAttributes attr, HttpSession session) {
+
+if (binding.hasErrors()) {
+    attr.addFlashAttribute("org.springframework.validation.BindingResult.register", binding);
+    attr.addFlashAttribute("register", register);
+    return "redirect:/register/create";
+}
+
+return "redirect:/register/success";
+}

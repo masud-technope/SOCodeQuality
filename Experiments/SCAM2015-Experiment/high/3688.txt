@@ -1,0 +1,5 @@
+Original Map Initial Values : {11=11, 22=22, 33=33, 44=44, 55=55, 77=77}
+size : 6 
+mid : 2
+Top half map : {11=11, 22=22, 33=33}
+Original map after bottom half removed : {11=11, 22=22, 33=33}

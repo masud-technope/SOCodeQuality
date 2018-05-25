@@ -1,0 +1,4 @@
+public class Course
+{
+    public static String courseName; //Define variable as static here
+ }

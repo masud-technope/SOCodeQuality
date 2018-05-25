@@ -1,0 +1,8 @@
+package com.test; enum NewEnum { one, two; } enum Another { three, four; } public class TestMe { static Enum num = NewEnum.one;
+
+public static void main(String[] args) {
+    System.out.println(num.toString());
+    num = Another.three;
+    System.out.println(num.toString());
+
+}

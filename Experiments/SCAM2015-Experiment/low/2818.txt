@@ -1,0 +1,7 @@
+void fun(){
+    Map<Integer, Map<Integer, Integer>> mmap = new HashMap<Integer, Map<Integer, Integer>>();
+
+    Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+
+    mmap.put(5,map);
+}

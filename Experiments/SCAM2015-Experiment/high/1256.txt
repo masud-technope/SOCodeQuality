@@ -1,0 +1,9 @@
+try
+{
+    timer.cancel();
+}
+
+catch (IllegalStateException e)
+{
+    // Log error
+}

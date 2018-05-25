@@ -1,0 +1,11 @@
+int number = -1;
+do 
+{
+   String textinput = JOptionPane.showInputDialog("give me a number between 0 and 5");
+   if( textinput.match("0*[0-5]") {
+     number = Integer.parseInt(textinput);
+   }
+   else {
+     System.out.println("Error");
+   }
+} while (!(number >= 0 && number <= 5));

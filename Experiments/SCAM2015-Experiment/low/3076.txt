@@ -1,0 +1,12 @@
+TreeMap<String, Integer> Word = new TreeMap<String,Integer>();
+
+while (scanner.hasNext()) {
+    String NewWord = scanner.next().toLowerCase();
+
+    if (Word.containsKey(NewWord)) {
+        Word.put(NewWord,Word.get(NewWord)+1);
+    } else {
+        Word.put(NewWord,1);
+    }
+
+}

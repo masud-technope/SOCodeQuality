@@ -1,0 +1,3 @@
+String bs1="\\";
+String bs2="\\";
+String sReplaced = s.replace("<BSLASH>", bs1.concat(bs2));

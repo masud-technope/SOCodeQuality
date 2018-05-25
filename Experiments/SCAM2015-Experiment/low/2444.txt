@@ -1,0 +1,7 @@
+C:\JavaTools>javac TestClassLoaderAccess.java
+
+C:\JavaTools>java TestClassLoaderAccess
+java.net.URLClassLoader
+file:/C:/JavaTools/TestClassLoaderAccess.class
+
+C:\JavaTools>

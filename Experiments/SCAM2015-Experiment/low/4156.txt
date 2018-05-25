@@ -1,0 +1,10 @@
+{
+    double GETREKT(){
+        System.out.println("Enter the length: ");
+        rektlength = scan.next();
+        System.out.println("Enter the width: ");
+        rektwidth = scan.next();
+        double rektarea = rektlength * rektwidth;
+        System.out.println(rektarea);
+    }
+}

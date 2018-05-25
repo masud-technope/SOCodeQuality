@@ -1,0 +1,13 @@
+public java.util.Hashtable<rather.be.ahammer.thana.Nail> bornFree(
+ java.lang.String shiningKey,
+ why.does.the.sun.go.on.Shining shiningPath){
+
+ rather.be.ahammer.thana.Nail nailed =
+   new rather.be.ahammer.thana.Nail(shiningPath);
+
+ java.util.Hashtable<rather.be.ahammer.thana.Nail> nailedHash =
+   new java.util.Hashtable<rather.be.ahammer.thana.Nail>();
+ nailedHash.put(shiningKey, nailed);
+
+ return nailedHash;
+}

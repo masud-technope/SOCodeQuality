@@ -1,0 +1,17 @@
+public class Shape {
+    public void draw() {
+        if (this instanceof Square) {
+            // Draw a square
+        } else if (this instanceof Circle) {
+            // Draw a circle
+        }
+    }
+}
+
+public class Square extends Shape {
+    // ...
+}
+
+public class Circle extends Shape {
+    // ...
+}

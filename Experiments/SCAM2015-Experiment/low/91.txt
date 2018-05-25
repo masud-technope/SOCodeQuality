@@ -1,0 +1,27 @@
+import java.io.*;
+
+import java.net.*;
+
+public class ConvertURLToFileName{
+
+
+   public static void main(String[] args)throws IOException{
+   BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+   System.out.print("Please enter the URL : ");
+
+   String str = in.readLine();
+
+
+   try{
+
+     URL url = new URL(str);
+
+     System.out.println("File : "+ url.getFile());
+     System.out.println("Converting process Successfully");
+
+   }  
+   catch (MalformedURLException me){
+
+      System.out.println("Converting process error");
+
+ }

@@ -1,0 +1,20 @@
+use POSIX qw(mktime);
+use Time::localtime;
+
+sub monday_of_week {
+    my $year=shift;
+    my $week=shift;
+    my $p_date=shift;
+
+    my $seconds_1_jan=mktime(0,0,0,1,0,$year-1900,0,0,0);
+    my $t1=localtime($seconds_1_jan);
+    my $seconds_for_week;
+    if (@$t1[6] < 5) {
+#first of january is a thursday (or below)
+        $seconds_for_week=$seconds_1_jan+3600*24*(7*($week-1)-@$t1[6]+1);
+    } else {
+        $seconds_for_week=$seconds_1_jan+3600*24*(7*($week-1)-@$t1[6]+8);
+    }
+    my $wt=localtime($seconds_for_week);
+    $$p_date=sprintf("%02d/%02d/%04d",@$wt[3],@$wt[4]+1,@$wt[5]+1900);
+}

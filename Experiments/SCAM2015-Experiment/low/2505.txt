@@ -1,0 +1,3 @@
+Date date = new Date();
+DateFormat df = new SimpleDateFormat("hh:mm");
+String timeOfDay = df.format(date); // ex: "18:00"

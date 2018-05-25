@@ -1,0 +1,35 @@
+class FrogLeap
+{
+    internal int solution(int X, int[] A)
+    {
+        int result = -1;
+        long max = -1;
+        var B = new int[X + 1];
+
+        //initialize all entries in B array with -1
+        for (int i = 0; i <= X; i++)
+        {
+            B[i] = -1;
+        }
+
+        //Go through A and update B with the location where that value appeared
+        for (int i = 0; i < A.Length; i++)
+        {
+           if( B[A[i]] ==-1)//only update if still -1
+            B[A[i]] = i;
+        }
+
+        //start from 1 because 0 is not valid
+        for (int i = 1; i <= X; i++)
+        {
+            if (B[i] == -1)
+                return -1;
+            //The maxValue here is the earliest time we can jump over
+            if (max < B[i])
+                max = B[i];
+        }
+
+        result = (int)max;
+        return result;
+    }
+}

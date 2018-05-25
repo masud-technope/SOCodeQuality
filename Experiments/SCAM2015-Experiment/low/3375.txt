@@ -1,0 +1,3 @@
+car1 = "blue";
+car2 = "red";
+car3 = "green";

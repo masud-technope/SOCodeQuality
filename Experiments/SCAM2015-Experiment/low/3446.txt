@@ -1,0 +1,9 @@
+do {
+   if (!condition1)
+       break;
+   if (!condition2)
+       break;
+   if (!conditionN)
+       break;
+   // do something
+} while (false);

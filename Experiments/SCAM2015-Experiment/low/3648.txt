@@ -1,0 +1,3 @@
+String myString = "12 text var2 14 8v 1";
+myString = myString.replaceAll("([0-9]*[^0-9\\s]+[0-9]*\\s*)", "");
+System.out.println(myString);

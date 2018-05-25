@@ -1,0 +1,8 @@
+String text = "2011-12-30 17:10:00";
+Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(text);
+Date now = new Date();
+
+if (date.after(now))
+{
+    // do stuff
+}

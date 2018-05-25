@@ -1,0 +1,47 @@
+/**
+ * @(#)demo1.java
+ *
+ *
+ * @author 
+ * @version 1.00 2012/8/30
+ */
+
+import java.util.*;
+
+public class demo1 
+{
+    Scanner s=new Scanner(System.in);
+
+    String str;
+    int key;
+
+    void getdata()
+    {
+        System.out.println ("plase enter a string");
+        str=s.next();
+        System.out.println ("plase enter a key");
+        key=s.nextInt();
+    }
+
+    void display()
+    {
+        char a;
+        int j;
+        for ( int i = 0; i < str.length(); ++i )
+        {
+
+            char c = str.charAt( i );
+            j = (int) c + key;
+            a= (char) j;
+
+            System.out.print(a);  
+        }
+
+        public static void main(String[] args)
+        {
+            demo1 obj=new demo1();
+            obj.getdata();
+            obj.display();
+        }
+    }
+}

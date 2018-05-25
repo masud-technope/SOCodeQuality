@@ -1,0 +1,4 @@
+IntStream
+    .iterate(1, n -> n + 1)
+    .limit(10)
+    .forEach(System.out::println);

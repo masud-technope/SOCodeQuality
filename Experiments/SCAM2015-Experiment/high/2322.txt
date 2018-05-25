@@ -1,0 +1,3 @@
+Query query = em.createNativeQuery("SELECT name,age FROM jedi_table", Jedi.class);
+@SuppressWarnings("unchecked")
+List<Jedi> items = (List<Jedi>) query.getResultList();

@@ -1,0 +1,3 @@
+LinkedList<String> ll = new LinkedList<String>();
+List<Object> l = ll; // ERROR, but suppose this was possible
+l.add((Object) new Integer(5)); // now what? How is an int a String???

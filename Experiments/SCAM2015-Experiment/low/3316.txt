@@ -1,0 +1,3 @@
+static final String DATABASE_CREATE= "CREATE TABLE" + "LOGIN" +
+"(" + "ID" + " INTEGER PRIMARY KEY AUTOINCREMENT," + 
+      "USERNAME text,PASSWORD text);";

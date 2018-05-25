@@ -1,0 +1,12 @@
+int poissonRandom(double expectedValue) {
+  int n = 0; //counter of iteration
+  double limit; 
+  double x;  //pseudo random number
+  limit = exp(-expectedValue);
+  x = rand() / INT_MAX; 
+  while (x > limit) {
+    n++;
+    x *= rand() / INT_MAX;
+  }
+  return n;
+}

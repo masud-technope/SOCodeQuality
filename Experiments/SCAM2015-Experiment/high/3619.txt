@@ -1,0 +1,5 @@
+index = listView.getFirstVisiblePosition();
+ View v = listView.getChildAt(0);
+ top = v.getTop();
+ adapter.notifyDataSetChanged();
+ listView.setSelectionFromTop(index + numOfNewElements, top);

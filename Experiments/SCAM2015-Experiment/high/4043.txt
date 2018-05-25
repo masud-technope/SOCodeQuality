@@ -1,0 +1,7 @@
+StringBuilder list = new StringBuilder("");
+    for (String items : itemList) {
+        list.append(items).append(',');
+    }
+    if ( list.length() > 0 ) {
+        list.setLength(list.length() - 1 );
+    }

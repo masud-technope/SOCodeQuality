@@ -1,0 +1,6 @@
+public void drawFlower(int xPosition) {
+    drawStem(xPosition);
+    drawStamen(xPosition);
+    drawPetals(xPosition);
+    ...
+}

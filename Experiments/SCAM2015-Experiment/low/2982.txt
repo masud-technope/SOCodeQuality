@@ -1,0 +1,8 @@
+int totalAmount = 345; //for testing
+
+String message = "<html>"
+               +    "Total Amount Deposited:  " + totalAmount 
+               +    "<br> Enter Coin Value " 
+               +    "<br><span style='font-size:10'>(Enter 1 to stop)</span>"
+               + "</html>";     
+JOptionPane.showInputDialog(message);

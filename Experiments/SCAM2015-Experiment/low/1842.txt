@@ -1,0 +1,6 @@
+long start = System.currentTimeMillis();       // now
+    long stop = start + 60000;                     // 60 seconds later
+    long interval = 15000;                         // 15 second interval
+    for (long i = start; i < stop; i+=interval) {
+            System.out.println(new Date(i));
+    }

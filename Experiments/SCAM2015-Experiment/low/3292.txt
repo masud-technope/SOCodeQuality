@@ -1,0 +1,7 @@
+File f = new File("test.txt");
+            String [] str = f.getName().split("\\.");
+            if(str.length>1) {
+                System.out.println(str[1]);
+            }else {
+                System.out.println("No extension. File name is :" + str[0]);
+            }

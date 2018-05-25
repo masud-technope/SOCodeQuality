@@ -1,0 +1,11 @@
+// Assuming columns are: id, first_name, last_name, age
+sql = "insert into employee(id, first_name, last_name, age) values(?, ?, ?, ?)";
+
+PreparedStatement pstmt = conn.prepareStatement(sql);
+
+pstmt.setInt(1, id);
+pstmt.setString(2, fName);
+pstmt.setString(3, lName);
+pstmt.setInt(4, age);
+
+pstmt.executeUpdate();

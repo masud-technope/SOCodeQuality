@@ -1,0 +1,14 @@
+// create a script engine manager
+ScriptEngineManager factory = new ScriptEngineManager();
+// create a JavaScript engine
+ScriptEngine engine = factory.getEngineByName("JavaScript");
+
+// expose a, b, c, d
+engine.put("a", 1);
+engine.put("b", 8);
+engine.put("c", 2);
+engine.put("d", 3);
+
+// evaluate JavaScript code from String
+Number value = (Number) engine.eval("a + b / c * d");
+System.out.println(value);

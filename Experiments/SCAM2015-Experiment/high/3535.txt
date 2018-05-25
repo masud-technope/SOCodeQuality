@@ -1,0 +1,5 @@
+<com.google.android.maps.MapView
+  android:id="@+id/mymap"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:apiKey="AIzaSyBcTxeirTSzthVlMal5JDDC-SK-Mw7s_CE"/>

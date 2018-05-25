@@ -1,0 +1,4 @@
+public class ThisClassCannotBeInitialized {
+
+    static int ohGodWhy = 1 / 0;
+}

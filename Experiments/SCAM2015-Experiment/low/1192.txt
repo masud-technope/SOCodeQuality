@@ -1,0 +1,22 @@
+import javax.swing.*;
+import java.awt.Dimension;
+
+class MyFrame extends JFrame {
+  public MyFrame() {
+    setTitle("My Empty Frame");
+    setPreferredSize(new Dimension(300, 200)); // default size is 0,0
+    setLocation(10, 200); // default is 0,0 (top left corner)
+    pack();
+    setVisible(true); 
+  }
+
+  public static void main(String[] args) {
+    SwingUtilities.invokeLater(new Runnable() {
+
+        @Override
+        public void run() {
+            new MyFrame();
+        }
+    });
+  }
+}

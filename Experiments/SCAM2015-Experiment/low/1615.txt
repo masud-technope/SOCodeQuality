@@ -1,0 +1,8 @@
+String query = "INSERT INTO table (id, name, value) VALUES ";
+for (Record record : records)
+{
+query += "(" + record.id + ",'" + record.name + "'," + record.value + "),";
+query = query.substring(1, query.length() - 1);
+PreparedStatement ps = connection.prepareStatement(query);
+ps.executeUpdate();
+}

@@ -1,0 +1,35 @@
+public class ArrayLimitedQueue<E> extends ArrayDeque<E> {
+
+    private int limit;
+
+    public ArrayLimitedQueue(int limit) {
+        super(limit + 1);
+        this.limit = limit;
+    }
+
+    @Override
+    public boolean add(E o) {
+        boolean added = super.add(o);
+        while (added && size() > limit) {
+            super.remove();
+        }
+        return added;
+    }
+
+    @Override
+    public void addLast(E e) {
+        super.addLast(e);
+        while (size() > limit) {
+            super.removeLast();
+        }
+    }
+
+    @Override
+    public boolean offerLast(E e) {
+        boolean added = super.offerLast(e);
+        while (added && size() > limit) {
+            super.pollLast();
+        }
+        return added;
+    }
+}

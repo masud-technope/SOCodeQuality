@@ -1,0 +1,4 @@
+Iterator<E> it = list.iterator();
+while (it.hasNext()){
+    process(it.next(), it.previousIndex());
+}

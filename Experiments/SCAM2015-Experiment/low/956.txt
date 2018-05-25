@@ -1,0 +1,9 @@
+<property name="dependency.dir" value="${basedir}/dependencies"/>
+
+<property name="junit.jar" value="junit-4.8.2.jar"/>
+<property name="junit.url" value="http://search.maven.org/remotecontent?filepath=junit/junit/4.8.2/${junit.jar}"/>
+
+<target name="download.dependencies">
+    <mkdir dir="${dependency.dir}/>
+    <get url="${junit.url}" dest="${dependency.dir}/${junit.jar}"/>
+</target>

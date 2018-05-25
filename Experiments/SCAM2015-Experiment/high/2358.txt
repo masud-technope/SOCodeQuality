@@ -1,0 +1,4 @@
+if (some_condition) {
+  return true;
+}
+return false;

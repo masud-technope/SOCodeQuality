@@ -1,0 +1,3 @@
+public int hashCode(){
+   return row * 100000 + col;
+}

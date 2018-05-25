@@ -1,0 +1,14 @@
+int[] x = new int[100];
+        int i = 0;
+        int sum = 0;
+        int max = 1728;
+
+        while (sum < max && i < 100)
+        {
+            x[i] = i*2;
+            if ((x[i] + sum) < max)
+            {
+                sum += x[i];
+            }
+            i++;
+        }

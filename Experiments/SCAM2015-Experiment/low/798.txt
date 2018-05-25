@@ -1,0 +1,6 @@
+List<Object> yourElements = new ... // 10000000
+for(Object O : yourElements) {
+ if(myMap.get(O.key)==null) {
+    myMap.put(O.key,O);
+ }
+}

@@ -1,0 +1,12 @@
+import java.util.*;
+public class Tester
+{
+    public static void main(String args[])
+    {
+        String ss[] = {"Bill", "Mary", "Lee", "Agnes", "Alfred", "Thomas", "Alvin", "Bernard", "Ezra", "Herman"};
+        Arrays.sort(ss);
+        int length = ss.length;
+        for(int i = 0; i < length ; i++)
+            System.out.println(ss[i]+"\t"+ss[length-1-i]);
+    }
+}

@@ -1,0 +1,11 @@
+public void actionPerformed(ActionEvent e)
+  {
+    if(e.getSource () == button)
+    {
+      test = new JFrame();
+      test.setSize(300,300);
+      test.setVisible (true);
+      this.dispose();
+
+    }
+  }

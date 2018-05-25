@@ -1,0 +1,10 @@
+public TestClass()
+{
+    String csv = "145557;123456789012;Michael Robert;1000000;200000;;12/05/2011;;" ;
+    System.out.println(splitString(csv,2));
+}
+
+public String splitString(String s, int getValueAt)
+{
+    return s.split(";")[getValueAt];
+}

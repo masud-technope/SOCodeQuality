@@ -1,0 +1,8 @@
+RPSObject rock = new RPSObject("Rock");
+RPSObject paper = new RPSObject("Paper");
+RPSObject scissors = new RPSObject("Scissors");
+RPSSystem classicRPS = new RPSSystem(rock, paper, scissors);
+// new RPSSystem(Collection<RPSObject> objects) possible too
+classicRPS.defineBeatsRule(rock, scissors);
+classicRPS.defineBeatsRule(paper, rock);
+classicRPS.defineBeatsRule(scissors, paper);

@@ -1,0 +1,9 @@
+<%
+BufferedReader input = new BufferedReader(new FileReader("file.txt"));
+String line = "";
+while ((line = input.readLine()) != null) {
+   out.println(line);
+}
+output.flush();
+input.close();
+%>

@@ -1,0 +1,7 @@
+void print(collection c) 
+{ 
+    for (object tmp:c.iterator()) 
+    { 
+        System.out.println(tmp); 
+    } 
+}

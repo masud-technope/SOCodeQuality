@@ -1,0 +1,5 @@
+Interface X { ... }
+Class A { public int y=1; }
+Class B extends A implements X { public int x=2; }
+
+List<? super B> lb1 = la1;

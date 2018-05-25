@@ -1,0 +1,4 @@
+String[] words = string.split(" ");
+for(int i = 0; i < words.length; i++){
+    //iterate over words array using words[i] as your accessor. 
+}

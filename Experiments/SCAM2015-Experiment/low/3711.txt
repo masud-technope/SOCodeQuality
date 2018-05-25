@@ -1,0 +1,8 @@
+int integer = 1;
+    while(integer<=100){
+        System.out.print(" "+integer++);
+        if(integer%10==0){
+            System.out.println(" "+integer++);
+            //System.out.println();
+        }
+    }

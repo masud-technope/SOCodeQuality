@@ -1,0 +1,8 @@
+while (rs.next()) {
+        al = new ArrayList();
+
+        al.add(rs.getString("product_id"));
+        al.add(rs.getString("product_name"));
+        al.add(rs.getString("product_description"));
+        al.add(rs.getDouble("product_price"));
+    }

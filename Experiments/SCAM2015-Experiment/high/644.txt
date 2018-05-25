@@ -1,0 +1,6 @@
+public interface Transformer<T>{ 
+
+  public T fromText(String text); 
+
+  public String toText(T obj); 
+}

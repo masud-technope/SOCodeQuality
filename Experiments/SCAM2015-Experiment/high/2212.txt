@@ -1,0 +1,3 @@
+public int sumDigit(int n){
+    return (n%9 == 0 && n != 0) ? 9 : n%9;
+}

@@ -1,0 +1,6 @@
+public class Reality extends Abstraction {
+    int number = 1;
+    public Reality() {
+        this.printNumber();
+    }
+}

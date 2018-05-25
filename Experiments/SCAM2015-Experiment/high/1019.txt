@@ -1,0 +1,6 @@
+@Override
+public boolean add(T elem) {
+    if (contains(elem))
+        return true;
+    return super.add(elem);
+}

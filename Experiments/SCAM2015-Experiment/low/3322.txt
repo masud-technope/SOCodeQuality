@@ -1,0 +1,6 @@
+HashMap<String, Item> itemMap = new HashMap<String, Item>();
+
+for (Item item : itemList) 
+{
+   itemMap.put(item.getitemCode(), item);
+}

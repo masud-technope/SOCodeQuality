@@ -1,0 +1,4 @@
+Pizza(int size) { ... }        
+Pizza(int size, boolean cheese) { ... }    
+Pizza(int size, boolean cheese, boolean pepperoni) { ... }    
+Pizza(int size, boolean cheese, boolean pepperoni, boolean bacon) { ... }

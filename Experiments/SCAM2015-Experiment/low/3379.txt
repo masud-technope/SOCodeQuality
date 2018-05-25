@@ -1,0 +1,15 @@
+@Override
+public void onClick(View v) {
+    switch(v.getId()) {
+        case R.id.imageButton1:
+            Intent intent = 
+            new Intent(this, OtherActivity.class);
+            startActivity(intent);
+            break;
+        case R.id.imageButton2:
+            Intent intent = 
+            new Intent(this, OtherActivity2.class);
+            startActivity(intent);
+            break;
+     }
+}

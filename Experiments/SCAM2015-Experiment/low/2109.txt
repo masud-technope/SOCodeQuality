@@ -1,0 +1,3 @@
+function shuffle(str) {
+      return str.split("").sort(function () {return Math.random()-0.5}).join("");
+    }

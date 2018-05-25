@@ -1,0 +1,18 @@
+public abstract class RestCallback {
+
+    public void onUnauthorized() {
+        //Override this method is optional.
+    }
+
+    public abstract void onFinish(); //Override this method is obligatory.
+
+
+    public void onError() {
+        //Override this method is optional.
+    }
+
+    public void onBadParamsError() {
+        //Override this method is optional.
+    }
+
+}

@@ -1,0 +1,23 @@
+private void createPopUpForTree() {     
+    popUpMenuItemDelete  = new JMenuItem(DELETE_COMMAND, KeyEvent.VK_DELETE);
+    popUpMenuItemRename  = new JMenuItem(RENAME_COMMAND);
+    popUpMenuItemDelete.addActionListener(this);
+    popUpMenuItemRename.addActionListener(this);
+
+    treePopup = new JPopupMenu();                               
+    treePopup.add(popUpMenuItemDelete);
+    treePopup.add(popUpMenuItemRename);
+
+    MouseListener popupListener = new PopupListener();
+    treeControl.addMouseListener(popupListener);            
+}
+
+class PopupListener extends MouseAdapter {
+    public void mousePressed(MouseEvent e)  {maybeShowPopup(e);}
+    public void mouseReleased(MouseEvent e) {maybeShowPopup(e);}
+    private void maybeShowPopup(MouseEvent e) {
+        if (e.isPopupTrigger()) {                                   
+            treePopup.show(e.getComponent(), e.getX(), e.getY());
+        }
+    }
+}

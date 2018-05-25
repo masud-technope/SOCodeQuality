@@ -1,0 +1,3 @@
+@XmlTransient
+@ManyToMany(..)
+public Set<Program> getPrograms()...

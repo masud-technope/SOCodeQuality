@@ -1,0 +1,7 @@
+for(int i =0; i<ab.length;i++)
+{
+RadioButton radioButtonView = new RadioButton(this);
+radioButtonView.setText(ab[i]);
+radioButtonView.setID(i);
+radioGroup.addView(radioButtonView, p);
+}

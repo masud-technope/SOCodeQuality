@@ -1,0 +1,29 @@
+String readString = "aimtolerance = 1024;\r\n" + 
+"model = Araarrow;\r\n" + 
+"name = Bow and Arrows;\r\n" + 
+"range = 450;\r\n" + 
+"reloadtime = 3;\r\n" + 
+"soundhitclass = arrow;\r\n" + 
+"type = Ballistic;\r\n" + 
+"waterexplosionclass = small water explosion;\r\n" + 
+"weaponvelocity = 750;\r\n" + 
+"default = 213;\r\n" + 
+"fort = 0.25;\r\n" + 
+"factory = 0.25;\r\n" + 
+"stalwart = 0.25;\r\n" + 
+"mechanical = 0.5;\r\n" + 
+"naval = 0.5;\r\n";
+readString = readString.replaceAll(";", "");
+Properties properties = new Properties();
+
+System.out.println(properties);
+try {
+    properties.load(new StringReader(readString));
+} catch (IOException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+System.out.println(properties);
+
+String requiredPropertyValue = properties.getProperty("default");
+System.out.println("requiredPropertyValue : "+requiredPropertyValue);

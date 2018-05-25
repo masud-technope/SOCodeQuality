@@ -1,0 +1,8 @@
+// after: method returns a Collection reference
+private Collection getList()
+{
+  Collection list = new LinkedList();
+  list.add("Hello");
+  list.add("world");
+  return list;
+}

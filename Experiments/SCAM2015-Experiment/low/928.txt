@@ -1,0 +1,29 @@
+<project>
+  [...]
+
+  [...]
+  <profiles>
+    <profile>
+    <id>don't-run</id>
+<properties>
+    <run.it>false</run.it>
+  </properties>
+
+
+      [...]
+    </profile>
+
+
+    <profile>
+    <id>run-it</id>
+<properties>
+    <run.it>true</run.it>
+  </properties>
+
+      [...]
+    </profile>
+
+
+  </profiles>
+  [...]
+</project>

@@ -1,0 +1,21 @@
+static class WrongAgain
+{
+    void frob(final Object o)
+    {
+        System.out.println("frobo " + o);
+    }
+
+    void frob(final String s)
+    {
+        System.out.println("frobs " + s);
+    }
+
+}
+
+public static void main(final String[] args)
+{
+    final WrongAgain wa = new WrongAgain();
+    wa.frob("foo");
+    Object o = "foo";
+    wa.frob(o);
+}

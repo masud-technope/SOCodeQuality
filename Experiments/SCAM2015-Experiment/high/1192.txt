@@ -1,0 +1,7 @@
+func(a,b)
+case 0,0
+  return null;
+case a>b
+  return null;
+else
+  return {1,func(a-1,b-1)} & {0,func(a,b-1)};
