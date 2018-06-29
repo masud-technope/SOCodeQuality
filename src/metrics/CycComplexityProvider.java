@@ -37,7 +37,7 @@ public class CycComplexityProvider {
 	{
 		try{
 			String codeFolder=StaticData.EXP_HOME+"/low";
-			File outFile=new File(StaticData.EXP_HOME+"/metrics/low-ccomplexity.txt");
+			File outFile=new File(StaticData.EXP_HOME+"/metrics/low-ccomplexity2.txt");
 			File dir=new File(codeFolder);
 			if(dir.isDirectory()){
 				File[] codeFiles=dir.listFiles();

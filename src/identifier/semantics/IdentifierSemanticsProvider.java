@@ -29,7 +29,7 @@ public class IdentifierSemanticsProvider {
 
 	protected void loadStopWords() {
 		// loading stop words in the list
-		String stopFile = "./stopword/en.txt";
+		String stopFile = "./stopword/en.txt"; // where is the path
 		String[] lines = ContentLoader.getAllLines(stopFile);
 		for (String line : lines) {
 			this.stopwords.add(line.trim());
@@ -37,14 +37,14 @@ public class IdentifierSemanticsProvider {
 	}
 
 	protected HashSet<String> tokenizeCode(String code) {
-		// tokenize a code fragment
+		//tokenize a code fragment
 		HashSet<String> vocabulary = new HashSet<>();
-		String regex = "\\p{Punct}+|\\s+";
+		String regex = "\\p{Punct}+|\\s+";  //??
 		String[] tokens = code.split(regex);
 		for (String token : tokens) {
 			if(isKeyword(token))continue; //discarding the keywords
-			String[] identifierWords = StringUtils
-					.splitByCharacterTypeCamelCase(token);
+			String[] identifierWords = StringUtils.splitByCharacterTypeCamelCase(token);					
+					//.splitByCharacterTypeCamelCase(token);
 			for (String word : identifierWords) {
 				vocabulary.add(word);
 			}
@@ -82,8 +82,7 @@ public class IdentifierSemanticsProvider {
 		// collecting low semantic word ratio
 		try {
 			String codeFolder = StaticData.EXP_HOME + "/low";
-			File outFile = new File(StaticData.EXP_HOME
-					+ "/metrics/low-semantic.txt");
+			File outFile = new File(StaticData.EXP_HOME+ "/metrics/low-semantic.txt");
 			File dir = new File(codeFolder);
 			if (dir.isDirectory()) {
 				File[] codeFiles = dir.listFiles();

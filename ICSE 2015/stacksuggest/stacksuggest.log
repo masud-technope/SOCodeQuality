@@ -1,54 +1,31 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.25)  12 JUN 2014 16:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.12)  13 JUN 2018 16:17
 entering extended mode
-**C:/MyWorks/Thesis*Works/Crowdsource_Knowledge_Base/ICSE*ERA/stacksuggest/stac
-ksuggest.tex
-
-("C:/MyWorks/Thesis Works/Crowdsource_Knowledge_Base/ICSE ERA/stacksuggest/stac
-ksuggest.tex"
-LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
- lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
-ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
-an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
-ishmax, welsh, loaded.
-
-("C:\MyWorks\Thesis Works\Crowdsource_Knowledge_Base\ICSE ERA\stacksuggest\sig-
-alternate.cls" ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
-Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
-
+**./stacksuggest.tex
+(stacksuggest.tex
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 75 language(s) loaded.
+(sig-alternate.cls ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
+Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
-Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count79
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen102
 \Gin@req@width=\dimen103
@@ -68,49 +45,49 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
-Package: amsmath 2013/01/14 v2.14 AMS math features
+Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip41
 
 For additional information on amsmath, use the `?' option.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
-Package: amstext 2000/06/29 v2.01
+Package: amstext 2000/06/29 v2.01 AMS text
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
-File: amsgen.sty 1999/11/30 v2.0
+File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks16
 \ex@=\dimen106
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
-Package: amsbsy 1999/11/29 v1.2d
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen107
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
-Package: amsopn 1999/12/14 v2.01 operator names
+Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count80
-LaTeX Info: Redefining \frac on input line 210.
-\uproot@=\count81
-\leftroot@=\count82
-LaTeX Info: Redefining \overline on input line 306.
-\classnum@=\count83
-\DOTSCASE@=\count84
-LaTeX Info: Redefining \ldots on input line 378.
-LaTeX Info: Redefining \dots on input line 381.
-LaTeX Info: Redefining \cdots on input line 466.
+\inf@bad=\count79
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count80
+\leftroot@=\count81
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count82
+\DOTSCASE@=\count83
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
 \big@size=\dimen108
-LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
-\macc@depth=\count85
-\c@MaxMatrixCols=\count86
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count84
+\c@MaxMatrixCols=\count85
 \dotsspace@=\muskip10
-\c@parentequation=\count87
-\dspbrk@lvl=\count88
+\c@parentequation=\count86
+\dspbrk@lvl=\count87
 \tag@help=\toks17
-\row@=\count89
-\column@=\count90
-\maxfields@=\count91
+\row@=\count88
+\column@=\count89
+\maxfields@=\count90
 \andhelp@=\toks18
 \eqnshift@=\dimen109
 \alignsep@=\dimen110
@@ -122,8 +99,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \multlinegap=\skip42
 \multlinetaggap=\skip43
 \mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2665.
-LaTeX Info: Redefining \] on input line 2666.
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
 )
 Document Class 'sig-alternate' <23rd. May '12>. Modified by G.K.M. Tobin/Gerry 
 Murray
@@ -137,64 +114,64 @@ Questions on the style, SIGS policies, etc. to Adrienne Griscti griscti@acm.org
 \footheight=\dimen115
 \@maxsep=\dimen116
 \@dblmaxsep=\dimen117
-\aucount=\count92
-\originalaucount=\count93
+\aucount=\count91
+\originalaucount=\count92
 \auwidth=\dimen118
 \auskip=\dimen119
-\auskipcount=\count94
+\auskipcount=\count93
 \auskip=\dimen120
 \allauboxes=\dimen121
 \addauthors=\toks21
-\addauflag=\count95
+\addauflag=\count94
 \subtitletext=\toks22
-\savesection=\count96
-\sectioncntr=\count97
-\c@figure=\count98
-\c@table=\count99
+\savesection=\count95
+\sectioncntr=\count96
+\c@figure=\count97
+\c@table=\count98
 \titleboxnotes=\toks23
-\titleboxnoteflag=\count100
+\titleboxnoteflag=\count99
 Document Class: sig-alternate 2012/05/23 - V2.5 - based on acmproc.cls V1.3 <No
 v. 30 '99>
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\latexsym.sty"
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
-(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
 )
 \@acmtitlebox=\box28
-\titlenotecount=\count101
+\titlenotecount=\count100
 \tntoks=\toks24
 \tntokstwo=\toks25
 \tntoksthree=\toks26
 \tntoksfour=\toks27
 \tntoksfive=\toks28
-\catcount=\count102
+\catcount=\count101
 \copyrightnotice=\toks29
 \conf=\toks30
 \confinfo=\toks31
-\c@part=\count103
-\c@section=\count104
-\c@subsection=\count105
-\c@subsubsection=\count106
-\c@paragraph=\count107
+\c@part=\count102
+\c@section=\count103
+\c@subsection=\count104
+\c@subsubsection=\count105
+\c@paragraph=\count106
 
 Using 'Abbrev' bibliography style
 LaTeX Info: Redefining \cite on input line 1211.
 \bibindent=\dimen122
-\colcntr=\count108
+\colcntr=\count107
 \saveb@x=\box29
 \copyrtyr=\toks32
 \acmcopyr=\toks33
 \boilerplate=\toks34
 \copyrightetc=\toks35
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
-Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
-File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 )
-LaTeX Font Info:    Try loading font information for T1+aer on input line 100.
+LaTeX Font Info:    Try loading font information for T1+aer on input line 105.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aer.fd"
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
@@ -203,6 +180,10 @@ File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 Package: alltt 1997/06/16 v2.0g defines alltt environment
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
+\multirow@colwidth=\skip44
+\multirow@cntb=\count108
+\multirow@dima=\skip45
 \bigstrutjot=\dimen123
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
@@ -237,20 +218,20 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \lst@width=\dimen139
 \lst@newlines=\count117
 \lst@lineno=\count118
-\abovecaptionskip=\skip44
-\belowcaptionskip=\skip45
+\abovecaptionskip=\skip46
+\belowcaptionskip=\skip47
 \lst@maxwidth=\dimen140
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
-File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count119
 \lst@skipnumbers=\count120
 \lst@framebox=\box31
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
-File: listings.cfg 2013/08/26 1.5b listings configuration
+File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
-Package: listings 2013/08/26 1.5b (Carsten Heinz)
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
@@ -262,39 +243,41 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\cite\cite.sty"
 LaTeX Info: Redefining \cite on input line 302.
-LaTeX Info: Redefining \nocite on input line 373.
-Package: cite 2010/09/10  v 5.3
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
-Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks39
 \verbatim@line=\toks40
 \verbatim@in@stream=\read1
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\mh\mathtools.sty"
-Package: mathtools 2013/02/12 v1.13 mathematical typesetting tools
+("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mathtools.sty"
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
-Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count122
 \calc@Bcount=\count123
 \calc@Adimen=\dimen141
 \calc@Bdimen=\dimen142
-\calc@Askip=\skip46
-\calc@Bskip=\skip47
-LaTeX Info: Redefining \setlength on input line 76.
-LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Askip=\skip48
+\calc@Bskip=\skip49
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count124
-\calc@Cskip=\skip48
+\calc@Cskip=\skip50
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\mh\mhsetup.sty"
-Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+("C:\Program Files\MiKTeX 2.9\tex\latex\mathtools\mhsetup.sty"
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
 )
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \g_MT_multlinerow_int=\count125
 \l_MT_multwidth_dim=\dimen143
-\origjot=\skip49
+\origjot=\skip51
 \l_MT_shortvdotswithinadjustabove_dim=\dimen144
 \l_MT_shortvdotswithinadjustbelow_dim=\dimen145
 \l_MT_above_intertext_sep=\dimen146
@@ -307,37 +290,37 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
-Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
-Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+Package: colortbl 2018/05/02 v1.0c Color table columns (DPC)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
-Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \col@sep=\dimen150
 \extrarowheight=\dimen151
 \NC@list=\toks41
-\extratabsurround=\skip50
-\backup@length=\skip51
+\extratabsurround=\skip52
+\backup@length=\skip53
 )
 \everycr=\toks42
-\minrowclearance=\skip52
+\minrowclearance=\skip54
 )
 \rownum=\count126
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
-Package xcolor Info: Model `RGB' extended on input line 1353.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
 Package: natbib 2010/09/13 8.31b (PWD, AO)
@@ -346,21 +329,21 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 Package natbib Warning: The `cite' package should not be used
 (natbib)                with natbib. Use option `sort' instead.
 
-\bibhang=\skip53
-\bibsep=\skip54
+\bibhang=\skip55
+\bibsep=\skip56
 LaTeX Info: Redefining \cite on input line 694.
 LaTeX Info: Redefining \citenum on input line 708.
 LaTeX Info: Redefining \citeyear on input line 735.
 \c@NAT@ctr=\count127
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\mdwtools\syntax.sty"
 Package: syntax 1996/05/17 1.07 Syntax typesetting (MDW)
-\grammarparsep=\skip55
+\grammarparsep=\skip57
 \grammarindent=\dimen152
-\sdstartspace=\skip56
-\sdendspace=\skip57
-\sdmidskip=\skip58
-\sdtokskip=\skip59
-\sdfinalskip=\skip60
+\sdstartspace=\skip58
+\sdendspace=\skip59
+\sdmidskip=\skip60
+\sdtokskip=\skip61
+\sdfinalskip=\skip62
 \sdrulewidth=\dimen153
 \sdcirclediam=\dimen154
 \sdindent=\dimen155
@@ -369,14 +352,14 @@ Package: syntax 1996/05/17 1.07 Syntax typesetting (MDW)
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
-Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \c@ALC@unique=\count128
 \c@ALC@line=\count129
 \c@ALC@rem=\count130
 \c@ALC@depth=\count131
-\ALC@tlm=\skip61
-\algorithmicindent=\skip62
+\ALC@tlm=\skip63
+\algorithmicindent=\skip64
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\algorithms\algorithm.sty"
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
@@ -386,7 +369,7 @@ nment
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\labelindent=\skip63
+\labelindent=\skip65
 \enit@outerparindent=\dimen156
 \enit@toks=\toks44
 \enit@inbox=\box34
@@ -397,93 +380,43 @@ Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box35
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3names.sty"
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3bootstrap.sty"
-Package: l3bootstrap 2014/01/04 v4640 L3 Experimental bootstrap code
-)
-Package: l3names 2014/01/04 v4640 L3 Namespace for primitives
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\misc\etex.sty"
-Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
-\et@xins=\count134
-)
-Package: expl3 2014/01/07 v4646 L3 Experimental code bundle wrapper
+Package: expl3 2018-06-01 L3 programming layer (loader) 
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3basics.sty"
-Package: l3basics 2014/01/04 v4642 L3 Basic definitions
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3expan.sty"
-Package: l3expan 2014/01/04 v4642 L3 Argument expansion
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3tl.sty"
-Package: l3tl 2013/12/27 v4625 L3 Token lists
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3seq.sty"
-Package: l3seq 2013/12/14 v4623 L3 Sequences and stacks
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3int.sty"
-Package: l3int 2013/08/02 v4583 L3 Integers
-\c_max_int=\count135
-\l_tmpa_int=\count136
-\l_tmpb_int=\count137
-\g_tmpa_int=\count138
-\g_tmpb_int=\count139
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3quark.sty"
-Package: l3quark 2013/12/14 v4623 L3 Quarks
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3prg.sty"
-Package: l3prg 2014/01/04 v4642 L3 Control structures
-\g__prg_map_int=\count140
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3clist.sty"
-Package: l3clist 2013/07/28 v4581 L3 Comma separated lists
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3token.sty"
-Package: l3token 2013/08/25 v4587 L3 Experimental token manipulation
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3prop.sty"
-Package: l3prop 2013/12/14 v4623 L3 Property lists
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3msg.sty"
-Package: l3msg 2013/07/28 v4581 L3 Messages
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3file.sty"
-Package: l3file 2013/10/13 v4596 L3 File and I/O operations
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex"
+Package: expl3 2018-06-01 L3 programming layer (code)
+\c_max_int=\count134
+\l_tmpa_int=\count135
+\l_tmpb_int=\count136
+\g_tmpa_int=\count137
+\g_tmpb_int=\count138
+\g__kernel_prg_map_int=\count139
+\c_log_iow=\count140
 \l_iow_line_count_int=\count141
-\l__iow_target_count_int=\count142
-\l__iow_current_line_int=\count143
-\l__iow_current_word_int=\count144
-\l__iow_current_indentation_int=\count145
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3skip.sty"
-Package: l3skip 2013/07/28 v4581 L3 Dimensions and skips
+\l__iow_line_target_int=\count142
+\l__iow_one_indent_int=\count143
+\l__iow_indent_int=\count144
 \c_zero_dim=\dimen157
 \c_max_dim=\dimen158
 \l_tmpa_dim=\dimen159
 \l_tmpb_dim=\dimen160
 \g_tmpa_dim=\dimen161
 \g_tmpb_dim=\dimen162
-\c_zero_skip=\skip64
-\c_max_skip=\skip65
-\l_tmpa_skip=\skip66
-\l_tmpb_skip=\skip67
-\g_tmpa_skip=\skip68
-\g_tmpb_skip=\skip69
+\c_zero_skip=\skip66
+\c_max_skip=\skip67
+\l_tmpa_skip=\skip68
+\l_tmpb_skip=\skip69
+\g_tmpa_skip=\skip70
+\g_tmpb_skip=\skip71
 \c_zero_muskip=\muskip12
 \c_max_muskip=\muskip13
 \l_tmpa_muskip=\muskip14
 \l_tmpb_muskip=\muskip15
 \g_tmpa_muskip=\muskip16
 \g_tmpb_muskip=\muskip17
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3keys.sty"
-Package: l3keys 2013/12/08 v4614 L3 Experimental key-value interfaces
-\g__keyval_level_int=\count146
-\l_keys_choice_int=\count147
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3fp.sty"
-Package: l3fp 2014/01/04 v4642 L3 Floating points
+\l_keys_choice_int=\count145
+\l__intarray_loop_int=\count146
+\c__intarray_sp_dim=\dimen163
+\g__intarray_font_int=\count147
 \c__fp_leading_shift_int=\count148
 \c__fp_middle_shift_int=\count149
 \c__fp_trailing_shift_int=\count150
@@ -493,75 +426,121 @@ Package: l3fp 2014/01/04 v4642 L3 Floating points
 \c__fp_Bigg_leading_shift_int=\count154
 \c__fp_Bigg_middle_shift_int=\count155
 \c__fp_Bigg_trailing_shift_int=\count156
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3box.sty"
-Package: l3box 2013/07/28 v4581 L3 Experimental boxes
+\c__kernel_randint_max_int=\count157
+\g__fp_array_int=\count158
+\l__fp_array_loop_int=\count159
+\l__sort_length_int=\count160
+\l__sort_min_int=\count161
+\l__sort_top_int=\count162
+\l__sort_max_int=\count163
+\l__sort_true_max_int=\count164
+\l__sort_block_int=\count165
+\l__sort_begin_int=\count166
+\l__sort_end_int=\count167
+\l__sort_A_int=\count168
+\l__sort_B_int=\count169
+\l__sort_C_int=\count170
+\l__tl_analysis_normal_int=\count171
+\l__tl_analysis_index_int=\count172
+\l__tl_analysis_nesting_int=\count173
+\l__tl_analysis_type_int=\count174
+\l__regex_internal_a_int=\count175
+\l__regex_internal_b_int=\count176
+\l__regex_internal_c_int=\count177
+\l__regex_balance_int=\count178
+\l__regex_group_level_int=\count179
+\l__regex_mode_int=\count180
+\c__regex_cs_in_class_mode_int=\count181
+\c__regex_cs_mode_int=\count182
+\l__regex_catcodes_int=\count183
+\l__regex_default_catcodes_int=\count184
+\c__regex_catcode_D_int=\count185
+\c__regex_catcode_S_int=\count186
+\c__regex_catcode_L_int=\count187
+\c__regex_catcode_O_int=\count188
+\c__regex_catcode_A_int=\count189
+\c__regex_all_catcodes_int=\count190
+\l__regex_show_lines_int=\count191
+\l__regex_min_state_int=\count192
+\l__regex_max_state_int=\count193
+\l__regex_left_state_int=\count194
+\l__regex_right_state_int=\count195
+\l__regex_capturing_group_int=\count196
+\l__regex_min_pos_int=\count197
+\l__regex_max_pos_int=\count198
+\l__regex_curr_pos_int=\count199
+\l__regex_start_pos_int=\count266
+\l__regex_success_pos_int=\count267
+\l__regex_curr_char_int=\count268
+\l__regex_curr_catcode_int=\count269
+\l__regex_last_char_int=\count270
+\l__regex_case_changed_char_int=\count271
+\l__regex_curr_state_int=\count272
+\l__regex_step_int=\count273
+\l__regex_min_active_int=\count274
+\l__regex_max_active_int=\count275
+\l__regex_replacement_csnames_int=\count276
+\l__regex_match_count_int=\count277
+\l__regex_min_submatch_int=\count278
+\l__regex_submatch_int=\count279
+\l__regex_zeroth_submatch_int=\count280
+\g__regex_trace_regex_int=\count281
 \c_empty_box=\box36
 \l_tmpa_box=\box37
 \l_tmpb_box=\box38
 \g_tmpa_box=\box39
 \g_tmpb_box=\box40
+\l__box_top_dim=\dimen164
+\l__box_bottom_dim=\dimen165
+\l__box_left_dim=\dimen166
+\l__box_right_dim=\dimen167
+\l__box_top_new_dim=\dimen168
+\l__box_bottom_new_dim=\dimen169
+\l__box_left_new_dim=\dimen170
+\l__box_right_new_dim=\dimen171
+\l__box_internal_box=\box41
+\l__coffin_internal_box=\box42
+\l__coffin_internal_dim=\dimen172
+\l__coffin_offset_x_dim=\dimen173
+\l__coffin_offset_y_dim=\dimen174
+\l__coffin_x_dim=\dimen175
+\l__coffin_y_dim=\dimen176
+\l__coffin_x_prime_dim=\dimen177
+\l__coffin_y_prime_dim=\dimen178
+\c_empty_coffin=\box43
+\l__coffin_aligned_coffin=\box44
+\l__coffin_aligned_internal_coffin=\box45
+\l_tmpa_coffin=\box46
+\l_tmpb_coffin=\box47
+\l__coffin_display_coffin=\box48
+\l__coffin_display_coord_coffin=\box49
+\l__coffin_display_pole_coffin=\box50
+\l__coffin_display_offset_dim=\dimen179
+\l__coffin_display_x_dim=\dimen180
+\l__coffin_display_y_dim=\dimen181
+\g__file_internal_ior=\read2
+\l__coffin_bounding_shift_dim=\dimen182
+\l__coffin_left_corner_dim=\dimen183
+\l__coffin_right_corner_dim=\dimen184
+\l__coffin_bottom_corner_dim=\dimen185
+\l__coffin_top_corner_dim=\dimen186
+\l__coffin_scaled_total_height_dim=\dimen187
+\l__coffin_scaled_width_dim=\dimen188
+\l__seq_internal_a_int=\count282
+\l__seq_internal_b_int=\count283
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3coffins.sty"
-Package: l3coffins 2013/12/14 v4624 L3 Coffin code layer
-\l__coffin_internal_box=\box41
-\l__coffin_internal_dim=\dimen163
-\l__coffin_offset_x_dim=\dimen164
-\l__coffin_offset_y_dim=\dimen165
-\l__coffin_x_dim=\dimen166
-\l__coffin_y_dim=\dimen167
-\l__coffin_x_prime_dim=\dimen168
-\l__coffin_y_prime_dim=\dimen169
-\c_empty_coffin=\box42
-\l__coffin_aligned_coffin=\box43
-\l__coffin_aligned_internal_coffin=\box44
-\l_tmpa_coffin=\box45
-\l_tmpb_coffin=\box46
-\l__coffin_display_coffin=\box47
-\l__coffin_display_coord_coffin=\box48
-\l__coffin_display_pole_coffin=\box49
-\l__coffin_display_offset_dim=\dimen170
-\l__coffin_display_x_dim=\dimen171
-\l__coffin_display_y_dim=\dimen172
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3color.sty"
-Package: l3color 2012/08/29 v4156 L3 Experimental color support
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3luatex.sty"
-Package: l3luatex 2013/07/28 v4581 L3 Experimental LuaTeX-specific functions
-\g__cctab_allocate_int=\count157
-\g__cctab_stack_int=\count158
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3candidates.sty"
-Package: l3candidates 2014/01/06 v4643 L3 Experimental additions to l3kernel
-\l__box_top_dim=\dimen173
-\l__box_bottom_dim=\dimen174
-\l__box_left_dim=\dimen175
-\l__box_right_dim=\dimen176
-\l__box_top_new_dim=\dimen177
-\l__box_bottom_new_dim=\dimen178
-\l__box_left_new_dim=\dimen179
-\l__box_right_new_dim=\dimen180
-\l__box_internal_box=\box50
-\l__coffin_bounding_shift_dim=\dimen181
-\l__coffin_left_corner_dim=\dimen182
-\l__coffin_right_corner_dim=\dimen183
-\l__coffin_bottom_corner_dim=\dimen184
-\l__coffin_top_corner_dim=\dimen185
-\l__coffin_scaled_total_height_dim=\dimen186
-\l__coffin_scaled_width_dim=\dimen187
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
+File: l3pdfmode.def 2018-06-01 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count284
 ))
 \supbox=\box51
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
-File: lstlang1.sty 2013/08/26 1.5b listings language file
+File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-("C:\MyWorks\Thesis Works\Crowdsource_Knowledge_Base\ICSE ERA\stacksuggest\stac
-ksuggest.aux")
+(stacksuggest.aux)
+\openout1 = `stacksuggest.aux'.
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
 LaTeX Font Info:    ... okay on input line 129.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 129.
@@ -576,21 +555,73 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 129.
 LaTeX Font Info:    ... okay on input line 129.
  ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count159
-\scratchdimen=\dimen188
+\scratchcounter=\count285
+\scratchdimen=\dimen189
 \scratchbox=\box52
-\nofMPsegments=\count160
-\nofMParguments=\count161
+\nofMPsegments=\count286
+\nofMParguments=\count287
 \everyMPshowfont=\toks45
-\MPscratchCnt=\count162
-\MPscratchDim=\dimen189
-\MPnumerator=\count163
-\makeMPintoPDFobject=\count164
+\MPscratchCnt=\count288
+\MPscratchDim=\dimen190
+\MPnumerator=\count289
+\makeMPintoPDFobject=\count290
 \everyMPtoPDFconversion=\toks46
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-\c@lstlisting=\count165
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+\c@lstlisting=\count291
 LaTeX Font Info:    Try loading font information for U+msa on input line 205.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 205.
@@ -619,11 +650,11 @@ Overfull \hbox (5.704pt too wide) in paragraph at lines 233--234
 
  []
 
-<whole23.png, id=1, 1137.4997pt x 209.28188pt>
+<whole23.png, id=1, 1090.82532pt x 196.48407pt>
 File: whole23.png Graphic file (type png)
- <use whole23.png>
-Package pdftex.def Info: whole23.png used on input line 237.
-(pdftex.def)             Requested size: 505.89pt x 93.07744pt.
+<use whole23.png>
+Package pdftex.def Info: whole23.png  used on input line 237.
+(pdftex.def)             Requested size: 505.89pt x 91.12129pt.
 
 Overfull \hbox (1.89pt too wide) in paragraph at lines 237--238
  [][] 
@@ -632,23 +663,21 @@ Overfull \hbox (1.89pt too wide) in paragraph at lines 237--238
 
 Underfull \vbox (badness 3536) has occurred while \output is active []
 
- [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+ [1{C:/Users/Saikat Mondal/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
 <sysdiag.png, id=19, 489.32813pt x 216.05719pt>
 File: sysdiag.png Graphic file (type png)
- <use sysdiag.png>
-Package pdftex.def Info: sysdiag.png used on input line 261.
+<use sysdiag.png>
+Package pdftex.def Info: sysdiag.png  used on input line 261.
 (pdftex.def)             Requested size: 238.49121pt x 105.30519pt.
 
 Overfull \hbox (2.56392pt too wide) in paragraph at lines 257--267
 \T1/aer/m/n/9 pro-gram-ming so-lu-tions) from 55 pro-gram-ming prob-lems from
  []
 
-[2 <C:/MyWorks/Thesis Works/Crowdsource_Knowledge_Base/ICSE ERA/stacksuggest/wh
-ole23.png> <C:/MyWorks/Thesis Works/Crowdsource_Knowledge_Base/ICSE ERA/stacksu
-ggest/sysdiag.png>]
+[2 <./whole23.png> <./sysdiag.png>]
 Overfull \hbox (2.14777pt too wide) in paragraph at lines 308--310
 \T1/aer/m/n/9 as the most dom-i-nat-ing fea-tures (i.e., met-rics), whereas \T1
 /aer/m/it/9 weak-
@@ -658,34 +687,31 @@ Overfull \hbox (2.14777pt too wide) in paragraph at lines 308--310
 Underfull \vbox (badness 7796) has occurred while \output is active []
 
 
-("C:\MyWorks\Thesis Works\Crowdsource_Knowledge_Base\ICSE ERA\stacksuggest\stac
-ksuggest.bbl") [4]
-("C:\MyWorks\Thesis Works\Crowdsource_Knowledge_Base\ICSE ERA\stacksuggest\stac
-ksuggest.aux") ) 
+(stacksuggest.bbl) [4] (stacksuggest.aux) ) 
 Here is how much of TeX's memory you used:
- 11265 strings out of 493921
- 187009 string characters out of 3147255
- 276029 words of memory out of 3000000
- 14341 multiletter control sequences out of 15000+200000
- 59217 words of font info for 82 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 41i,18n,40p,10439b,334s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
-b8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on stacksuggest.pdf (4 pages, 299156 bytes).
+ 15119 strings out of 493305
+ 254766 string characters out of 3138848
+ 330096 words of memory out of 3000000
+ 18487 multiletter control sequences out of 15000+200000
+ 587915 words of font info for 92 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,18n,61p,1499b,333s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti
+7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/tim
+es/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on stacksuggest.pdf (4 pages, 298205 bytes).
 PDF statistics:
  84 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -20,7 +20,7 @@ public class ReadabilityProvider {
 	{
 		//collecting readability measures for code fragments
 		try{
-			String codeFolder=StaticData.EXP_HOME+"/high";
+			String codeFolder = StaticData.EXP_HOME+"/high";
 			File outFile=new File(StaticData.EXP_HOME+"/metrics/high-readability.txt");
 			File dir=new File(codeFolder);
 			if(dir.isDirectory()){

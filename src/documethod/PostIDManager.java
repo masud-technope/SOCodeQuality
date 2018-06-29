@@ -15,7 +15,7 @@ public class PostIDManager {
 	
 	protected void postIDFileMaker()
 	{
-		String questionFile=StaticData.SOPostData+"/questions.csv";
+		String questionFile=StaticData.SOPostData+"/questions.csv"; // Where is SOPostData
 		String questionf=StaticData.SOPostData+"/questions2.txt";
 		try {
 			FileWriter fwriter=new FileWriter(new File(questionf));
