@@ -1,0 +1,90 @@
+<p>Works Great with AndroidTeam's solution, however I found that I needed the ability to go back much like <code>FrgmentTransaction.addToBackStack(null)</code>  But merely adding this will only cause the Fragment to be replaced  without notifying the ViewPager. Combining the provided solution with this minor enhancement will allow you to return to the previous state by merely overriding the activity's <code>onBackPressed()</code> method. The biggest drawback is that it will only go back one at a time which may result in multiple back clicks</p>
+
+<pre><code>private ArrayList&lt;Fragment&gt; bFragments = new ArrayList&lt;Fragment&gt;();
+private ArrayList&lt;Integer&gt; bPosition = new ArrayList&lt;Integer&gt;();
+
+public void replaceFragmentsWithBackOut(ViewPager container, Fragment oldFragment, Fragment newFragment) {
+    startUpdate(container);
+
+    // remove old fragment
+
+    if (mCurTransaction == null) {
+         mCurTransaction = mFragmentManager.beginTransaction();
+     }
+    int position = getFragmentPosition(oldFragment);
+     while (mSavedState.size() &lt;= position) {
+         mSavedState.add(null);
+     }
+
+     //Add Fragment to Back List
+     bFragments.add(oldFragment);
+
+     //Add Pager Position to Back List
+     bPosition.add(position);
+
+     mSavedState.set(position, null);
+     mFragments.set(position, null);
+
+     mCurTransaction.remove(oldFragment);
+
+     // add new fragment
+
+     while (mFragments.size() &lt;= position) {
+         mFragments.add(null);
+     }
+     mFragments.set(position, newFragment);
+     mCurTransaction.add(container.getId(), newFragment);
+
+    finishUpdate(container);
+
+    // ensure getItem returns newFragemtn after calling handleGetItemInbalidated()
+    handleGetItemInvalidated(container, oldFragment, newFragment);
+
+    container.notifyItemChanged(oldFragment, newFragment);
+ }
+
+
+public boolean popBackImmediate(ViewPager container){
+    int bFragSize = bFragments.size();
+    int bPosSize = bPosition.size();
+
+    if(bFragSize&gt;0 &amp;&amp; bPosSize&gt;0){
+        if(bFragSize==bPosSize){
+            int last = bFragSize-1;
+            int position = bPosition.get(last);
+
+            //Returns Fragment Currently at this position
+            Fragment replacedFragment = mFragments.get(position);               
+            Fragment originalFragment = bFragments.get(last);
+
+            this.replaceFragments(container, replacedFragment, originalFragment);
+
+            bPosition.remove(last);
+            bFragments.remove(last);
+
+            return true;
+        }
+    }
+
+    return false;       
+}
+</code></pre>
+
+<p>Hope this helps someone.</p>
+
+<p>Also as far as <code>getFragmentPosition()</code> goes it's pretty much <code>getItem()</code> in reverse. You know which fragments go where, just make sure you return the correct position it will be in. Here's an example:</p>
+
+<pre><code>    @Override
+    protected int getFragmentPosition(Fragment fragment) {
+            if(fragment.equals(originalFragment1)){
+                return 0;
+            }
+            if(fragment.equals(replacementFragment1)){
+                return 0;
+            }
+            if(fragment.equals(Fragment2)){
+                return 1;
+            }
+        return -1;
+    }
+</code></pre>

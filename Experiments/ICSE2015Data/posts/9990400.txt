@@ -1,0 +1,14 @@
+<p>Actually I used part of @fiXedd asnwer and it worked for me:</p>
+
+<pre><code>  //Create Folder
+  File folder = new File(Environment.getExternalStorageDirectory().toString()+""/Aqeel/Images"");
+  folder.mkdirs();
+
+  //Save the path as a string value
+  String extStorageDirectory = folder.toString();
+
+  //Create New file and name it Image2.PNG
+  File file = new File(extStorageDirectory, ""Image2.PNG"");
+</code></pre>
+
+<p>Make sure that you are using mkdirs() not mkdir() to create the complete path</p>

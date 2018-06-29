@@ -1,0 +1,23 @@
+<h1>Avoid j.u.Date</h1>
+
+<p>The Java.util.Date and .Calendar and SimpleDateFormat in Java (and Android) are notoriously troublesome. Avoid them. They are so bad that Sun/Oracle gave up on them, supplanting them with the new java.time package in Java 8 (not in Android as of 2014). The new <a href=""http://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html"" rel=""nofollow""><code>java.time</code></a> was inspired by the <a href=""http://www.joda.org/joda-time/"" rel=""nofollow"">Joda-Time</a> library.</p>
+
+<h1>Joda-Time</h1>
+
+<p><a href=""http://www.joda.org/joda-time/"" rel=""nofollow"">Joda-Time</a> does work in Android.</p>
+
+<p>Search StackOverflow for ""Joda"" to find many examples and much discussion.</p>
+
+<p>A tidbit of source code using Joda-Time 2.4.</p>
+
+<p>Standard format.</p>
+
+<pre><code>String output = DateTime.now().toString(); 
+// Current date-time in user's default time zone with a String representation formatted to the ISO 8601 standard.
+</code></pre>
+
+<p>Localized format.</p>
+
+<pre><code>String output = DateTimeFormat.forStyle( ""FF"" ).print( DateTime.now() ); 
+// Full (long) format localized for this user's language and culture.
+</code></pre>

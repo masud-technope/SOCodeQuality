@@ -1,0 +1,7 @@
+<p>You can use /sdcard/ instead of Environment.getExternalStorageDirectory()</p>
+
+<pre><code>private static String DB_PATH = ""/sdcard/Android/data/com.myawesomeapp.app/"";
+
+File dbdir = new File(DB_PATH);
+dbdir.mkdirs();
+</code></pre>

@@ -1,0 +1,26 @@
+<p>a common way to achieve this is with the next code:</p>
+
+<pre><code>String url = ""http://www.stackoverflow.com"";
+Intent i = new Intent(Intent.ACTION_VIEW);
+i.setData(Uri.parse(url)); 
+startActivity(i); 
+</code></pre>
+
+<p>that could be changed to a short code version ...</p>
+
+<pre><code>Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(""http://www.stackoverflow.com""));      
+startActivity(intent); 
+</code></pre>
+
+<p>or</p>
+
+<pre><code>Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(""http://www.stackoverflow.com"")); 
+startActivity(intent);
+</code></pre>
+
+<p>or</p>
+
+<pre><code>startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(""http://www.stackoverflow.com"")));
+</code></pre>
+
+<p>=)</p>

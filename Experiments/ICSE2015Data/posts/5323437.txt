@@ -1,0 +1,13 @@
+<pre><code>DisplayMetrics metrics = new DisplayMetrics();
+getWindowManager().getDefaultDisplay().getMetrics(metrics);
+switch(metrics.densityDpi){
+     case DisplayMetrics.DENSITY_LOW:
+                break;
+     case DisplayMetrics.DENSITY_MEDIUM:
+                 break;
+     case DisplayMetrics.DENSITY_HIGH:
+                 break;
+}
+</code></pre>
+
+<p>This will work in API lavel 4 or higher.</p>

@@ -1,0 +1,3 @@
+<p>Isn't there a rather fundamental difference between <code>'selected'</code> and <code>'checked'</code>?</p>
+
+<p>Suspect you want to <code>setItemChecked()</code> from an <code>OnItemSelectedListener</code>...</p>

@@ -1,0 +1,16 @@
+<pre><code>android:editable=""false"" 
+android:inputType=""none"" 
+</code></pre>
+
+<p>in your xml
+ or</p>
+
+<pre><code>EditText mEdit = (EditText) findViewById(R.id.yourid);
+mEdit.setEnabled(false);
+</code></pre>
+
+<p>or </p>
+
+<pre><code>EditText mEdit = (EditText) findViewById(R.id.yourid);
+mEdit.setKeyListener(null);
+</code></pre>

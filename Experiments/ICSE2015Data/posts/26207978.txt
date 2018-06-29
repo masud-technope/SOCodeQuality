@@ -1,0 +1,30 @@
+<p>I have come up with a solution which depends on the display rotation and then decides the orientation of the device. From knowing the orientation we can lock the orientation and release it later when needed. This solution also can determine if the device in <strong>reverse landscape</strong> mode.</p>
+
+<pre><code>private void lockOrientation(){
+    switch (((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getRotation()) {
+
+
+        // Portrait
+        case Surface.ROTATION_0:
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            break;
+
+
+        //Landscape     
+        case Surface.ROTATION_90: 
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            break;
+
+
+        // Reversed landscape
+        case Surface.ROTATION_270:
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);             
+            break;
+    }
+}
+</code></pre>
+
+<p>Then later if we need to release the orientation we can call this method:</p>
+
+<pre><code>setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+</code></pre>

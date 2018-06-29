@@ -1,0 +1,42 @@
+<p>thnks...for parcelable help
+bt i found one more optional solution </p>
+
+<pre><code> public class getsetclass implements Serializable {
+        private int dt = 10;
+    //pass any object, drwabale 
+        public int getDt() {
+            return dt;
+        }
+
+        public void setDt(int dt) {
+            this.dt = dt;
+        }
+    }
+</code></pre>
+
+<p>In Activity One</p>
+
+<pre><code>getsetclass d = new getsetclass ();
+                d.setDt(50);
+                LinkedHashMap&lt;String, Object&gt; obj = new LinkedHashMap&lt;String, Object&gt;();
+                obj.put(""hashmapkey"", d);
+            Intent inew = new Intent(SgParceLableSampelActivity.this,
+                    ActivityNext.class);
+            Bundle b = new Bundle();
+            b.putSerializable(""bundleobj"", obj);
+            inew.putExtras(b);
+            startActivity(inew);
+</code></pre>
+
+<p>Get Data In Activity 2</p>
+
+<pre><code> try {  setContentView(R.layout.main);
+            Bundle bn = new Bundle();
+            bn = getIntent().getExtras();
+            HashMap&lt;String, Object&gt; getobj = new HashMap&lt;String, Object&gt;();
+            getobj = (HashMap&lt;String, Object&gt;) bn.getSerializable(""bundleobj"");
+            getsetclass  d = (getsetclass) getobj.get(""hashmapkey"");
+        } catch (Exception e) {
+            Log.e(""Err"", e.getMessage());
+        }
+</code></pre>

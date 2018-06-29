@@ -1,0 +1,14 @@
+<p>Just to combine Ralf and Ben's answers (including changes made in comments):</p>
+
+<pre><code>if (Build.VERSION.SDK_INT &gt;= 11) {
+    recreate();
+} else {
+    Intent intent = getIntent();
+    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+    finish();
+    overridePendingTransition(0, 0);
+
+    startActivity(intent);
+    overridePendingTransition(0, 0);
+}
+</code></pre>

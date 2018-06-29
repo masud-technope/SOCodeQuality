@@ -1,0 +1,9 @@
+<p>on button click listener just do </p>
+
+<pre><code>ScrollView sView = (ScrollView)findViewById(R.id.ScrollView01);
+
+sView.setVerticalScrollBarEnabled(false);
+sView.setHorizontalScrollBarEnabled(false);
+</code></pre>
+
+<p>so that scroll bar is not enabled on button click</p>

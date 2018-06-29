@@ -1,0 +1,105 @@
+<p>I had this issue and implemented lruCache. I believe you need API 12 and above or use the compatiblity v4 library. lurCache is fast memory, but it also has a budget, so if you're worried about that you can use a diskcache... It's all described in <em><a href=""http://developer.android.com/training/displaying-bitmaps/cache-bitmap.html"" rel=""nofollow"">Caching Bitmaps</a></em>.</p>
+
+<p>I'll now provide my implementation which is a <a href=""http://en.wikipedia.org/wiki/Singleton_pattern"" rel=""nofollow"">singleton</a> I call from anywhere like this:</p>
+
+<pre><code>//Where the first is a string and the other is a imageview to load.
+
+DownloadImageTask.getInstance().loadBitmap(avatarURL, iv_avatar);
+</code></pre>
+
+<p>Here's the ideal code to cache and then call the above in getView of an adapter when retrieving the web image:</p>
+
+<pre><code>public class DownloadImageTask {
+
+    private LruCache&lt;String, Bitmap&gt; mMemoryCache;
+
+    /* Create a singleton class to call this from multiple classes */
+
+    private static DownloadImageTask instance = null;
+
+    public static DownloadImageTask getInstance() {
+        if (instance == null) {
+            instance = new DownloadImageTask();
+        }
+        return instance;
+    }
+
+    //Lock the constructor from public instances
+    private DownloadImageTask() {
+
+        // Get max available VM memory, exceeding this amount will throw an
+        // OutOfMemory exception. Stored in kilobytes as LruCache takes an
+        // int in its constructor.
+        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
+
+        // Use 1/8th of the available memory for this memory cache.
+        final int cacheSize = maxMemory / 8;
+
+        mMemoryCache = new LruCache&lt;String, Bitmap&gt;(cacheSize) {
+            @Override
+            protected int sizeOf(String key, Bitmap bitmap) {
+                // The cache size will be measured in kilobytes rather than
+                // number of items.
+                return bitmap.getByteCount() / 1024;
+            }
+        };
+    }
+
+    public void loadBitmap(String avatarURL, ImageView imageView) {
+        final String imageKey = String.valueOf(avatarURL);
+
+        final Bitmap bitmap = getBitmapFromMemCache(imageKey);
+        if (bitmap != null) {
+            imageView.setImageBitmap(bitmap);
+        } else {
+            imageView.setImageResource(R.drawable.ic_launcher);
+
+            new DownloadImageTaskViaWeb(imageView).execute(avatarURL);
+        }
+    }
+
+    private void addBitmapToMemoryCache(String key, Bitmap bitmap) {
+        if (getBitmapFromMemCache(key) == null) {
+            mMemoryCache.put(key, bitmap);
+        }
+    }
+
+    private Bitmap getBitmapFromMemCache(String key) {
+        return mMemoryCache.get(key);
+    }
+
+    /* A background process that opens a http stream and decodes a web image. */
+
+    class DownloadImageTaskViaWeb extends AsyncTask&lt;String, Void, Bitmap&gt; {
+        ImageView bmImage;
+
+        public DownloadImageTaskViaWeb(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+
+            String urldisplay = urls[0];
+            Bitmap mIcon = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon = BitmapFactory.decodeStream(in);
+
+            } 
+            catch (Exception e) {
+                Log.e(""Error"", e.getMessage());
+                e.printStackTrace();
+            }
+
+            addBitmapToMemoryCache(String.valueOf(urldisplay), mIcon);
+
+            return mIcon;
+        }
+
+        /* After decoding we update the view on the main UI. */
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
+    }
+}
+</code></pre>

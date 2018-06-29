@@ -1,0 +1,24 @@
+<p>Find width and height of the screen:</p>
+
+<pre><code>width = getWindowManager().getDefaultDisplay().getWidth();
+height = getWindowManager().getDefaultDisplay().getHeight();
+</code></pre>
+
+<p>Using this, we can get the latest and above SDK 13.</p>
+
+<pre><code>// New width and height
+int version = android.os.Build.VERSION.SDK_INT;
+Log.i("""", "" name == ""+ version);
+Display display = getWindowManager().getDefaultDisplay();
+int width;
+if (version &gt;= 13) {
+    Point size = new Point();
+    display.getSize(size);
+    width = size.x;
+    Log.i(""width"", ""if =&gt;"" +width);
+}
+else {
+    width = display.getWidth();
+    Log.i(""width"", ""else =&gt;"" +width);
+}
+</code></pre>

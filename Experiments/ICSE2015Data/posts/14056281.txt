@@ -1,0 +1,14 @@
+<p>This is the code I use for the task:</p>
+
+<pre><code>// `activity` is an instance of Activity class.
+Display display = activity.getWindowManager().getDefaultDisplay();
+Point screen = new Point();
+if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB_MR2) {
+    display.getSize(screen);
+} else {            
+    screen.x = display.getWidth();
+    screen.y = display.getHeight();
+}
+</code></pre>
+
+<p>Seems clean enough and yet, takes care of the deprecation.</p>

@@ -1,0 +1,8 @@
+<p>This will help in adjusting the emulator according to the webpage:</p>
+
+<pre><code>WebView wb;
+//CALL THIS METHOD
+wb.setInitialScale(50);
+</code></pre>
+
+<p>You can set the intial scale in percentage as shown above.</p>

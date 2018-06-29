@@ -1,0 +1,86 @@
+<pre><code>    **Use like this in Your Activity**
+
+    btnsub.setOnClickListener(new View.OnClickListener() 
+    {
+        @Override
+        public void onClick(View v) 
+        {
+            new Thread(new Runnable() {
+
+                @Override
+                public void run() {
+                    // TODO Auto-generated method stub
+
+            //Initialize soap request + add parameters
+            SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME1);        
+
+            //Use this to add parameters
+
+
+            request.addProperty(""pincode"",txtpincode.getText().toString());
+            request.addProperty(""bg"",bloodgroup.getSelectedItem().toString());
+
+            //Declare the version of the SOAP request
+            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+
+            envelope.setOutputSoapObject(request);
+            envelope.dotNet = true;
+
+            try {
+
+                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+
+                //this is the actual part that will call the webservice
+                androidHttpTransport.call(SOAP_ACTION1, envelope);
+
+                // Get the SoapResult from the envelope body.
+                SoapObject result = (SoapObject)envelope.getResponse();
+                Log.e(""result data"", ""data""+result);
+                 SoapObject root = (SoapObject) result.getProperty(0);
+             //   SoapObject s_deals = (SoapObject) root.getProperty(0);
+                //SoapObject s_deals_1 = (SoapObject) s_deals.getProperty(0);
+                   //                    
+
+
+                System.out.println(""********Count : ""+  root.getPropertyCount());
+
+                value=new ArrayList&lt;Detailinfo&gt;();
+
+                for (int i = 0; i &lt; root.getPropertyCount(); i++) 
+                {
+                    SoapObject s_deals = (SoapObject) root.getProperty(i);
+                    Detailinfo info=new Detailinfo();
+
+                    info.setFirstName(     s_deals.getProperty(""Firstname"").toString());
+                    info.setLastName( s_deals.getProperty(""Lastname"").toString());
+                    info.setDOB( s_deals.getProperty(""DOB"").toString());
+                    info.setGender( s_deals.getProperty(""Gender"").toString());
+                    info.setAddress( s_deals.getProperty(""Address"").toString());
+                    info.setCity( s_deals.getProperty(""City"").toString());
+                    info.setState( s_deals.getProperty(""State"").toString());
+                    info.setPinecode( s_deals.getProperty(""Pinecode"").toString());
+                    info.setMobile( s_deals.getProperty(""Mobile"").toString());
+                    info.setEmail( s_deals.getProperty(""Email"").toString());
+                    info.setBloodgroup( s_deals.getProperty(""Bloodgroup"").toString());
+                    info.setAdddate( s_deals.getProperty(""Adddate"").toString());
+                    info.setWaight(s_deals.getProperty(""waight"").toString());
+                    value.add(info);
+
+                }    
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Intent inten=new Intent(getApplicationContext(),ComposeMail.class);
+            //intent.putParcelableArrayListExtra(""valuesList"", value);
+
+            startActivity(inten);
+
+
+
+                }
+            }).start();
+        }
+    });
+</code></pre>

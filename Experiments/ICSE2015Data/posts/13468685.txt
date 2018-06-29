@@ -1,0 +1,1 @@
+<p>You may try <code>Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK</code>. It will totally clears all previous activity(s) and start new activity. </p>

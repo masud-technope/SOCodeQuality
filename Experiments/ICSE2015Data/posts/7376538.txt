@@ -1,0 +1,22 @@
+<p>Here is what I did</p>
+
+<pre><code> &lt;LinearLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+    android:layout_width=""fill_parent"" style=""@style/measurementTableRowStyle""
+    android:focusable=""true"" android:layout_height=""fill_parent""&gt;
+    &lt;requestFocus&gt;&lt;/requestFocus&gt;
+    &lt;LinearLayout android:id=""@+id/linearLayout1""
+        android:orientation=""horizontal"" android:layout_width=""fill_parent""
+        android:layout_height=""wrap_content""&gt;
+        &lt;TextView android:id=""@+id/desc_text"" android:text=""Value : ""
+            style=""@style/attributeNameTextStyle"" android:layout_width=""wrap_content""
+            android:focusable=""true"" android:layout_height=""wrap_content""&gt;
+            &lt;requestFocus&gt;&lt;/requestFocus&gt;
+        &lt;/TextView&gt;
+
+        &lt;TextView style=""@style/attributeValueStyle"" android:id=""@+id/value_text""
+            android:text=""TextView"" android:layout_width=""wrap_content""
+            android:layout_height=""wrap_content""&gt;&lt;/TextView&gt;
+    &lt;/LinearLayout&gt;
+</code></pre>
+
+<p>The reason is in such cases you have to make all other views focus-able inside the scrollview by an explicit <code>android:focusable=""true""</code> and then <code>&lt;requestFocus&gt;&lt;/requestFocus&gt;</code>  . This should work everytime IMO</p>

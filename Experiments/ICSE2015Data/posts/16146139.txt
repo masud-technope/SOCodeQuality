@@ -1,0 +1,31 @@
+<p>A if statement has to be opened by:</p>
+
+<pre><code>    {
+</code></pre>
+
+<p>and closed by:</p>
+
+<pre><code>    }
+</code></pre>
+
+<p>Example:</p>
+
+<pre><code>    if(gender.equals(""Male"")) {
+        salutation =""Mr."";
+    }
+
+    if(gender.equals(""Female"")) {
+        salutation =""Ms."";
+    }
+</code></pre>
+
+<p>Or I think this is even possible:</p>
+
+<pre><code>    if(gender == ""Male"") {
+        salutation =""Mr."";
+    }
+
+    if(gender == ""Female"") {
+        salutation =""Ms."";
+    }
+</code></pre>

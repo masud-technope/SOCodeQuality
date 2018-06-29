@@ -1,0 +1,7 @@
+<p><strong>To Write :</strong></p>
+
+<pre><code>SharedPreferences preferences = getSharedPreferences(""AUTHENTICATION_FILE_NAME"", Context.MODE_WORLD_WRITEABLE);
+SharedPreferences.Editor editor = preferences.edit();
+editor.putString(""Authentication_Id"",userid.getText().toString());
+editor.putString(""Authentication_Password"",password.getText().toString());
+editor.putString(""Authentication_Status"

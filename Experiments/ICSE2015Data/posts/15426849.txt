@@ -1,0 +1,11 @@
+<p>I had go this way:</p>
+
+<pre><code>        scrollView.setOnTouchListener(new View.OnTouchListener() {
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            // TODO Auto-generated method stub
+            return isBlockedScrollView;
+        }
+    });
+</code></pre>

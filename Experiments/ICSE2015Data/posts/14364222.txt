@@ -1,0 +1,7 @@
+<p>Try something like this :
+You would get a handle to the textview from the sdk and then change it since they don't expose it publicly.</p>
+
+<pre><code>int id = searchView.getContext().getResources().getIdentifier(""android:id/search_src_text"", null, null);
+TextView textView = (TextView) searchView.findViewById(id);
+textView.setTextColor(Color.WHITE);
+</code></pre>

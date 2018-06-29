@@ -1,0 +1,11 @@
+<p>According to the Android Development Guide:</p>
+
+<pre><code>px = dp * (dpi / 160)
+</code></pre>
+
+<p>But often you'll want do perform this the other way around when you receive a design that's stated in pixels. So:</p>
+
+<pre><code>dp = px / (dpi / 160)
+</code></pre>
+
+<p>If you're on a 240dpi device this ratio is 1.5 (like stated before), so this means that a 60px icon equals 40dp in the application.</p>

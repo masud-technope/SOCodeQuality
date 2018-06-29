@@ -1,0 +1,19 @@
+<p>The following answer is a small improvement based upon qwertzguy's answer. </p>
+
+<pre><code>double density = getResources().getDisplayMetrics().density;
+if (density &gt;= 4.0) {
+   //""xxxhdpi"";
+}
+if (density &gt;= 3.0 &amp;&amp; density &lt; 4.0) {
+   //xxhdpi
+}
+if (density &gt;= 2.0) {
+   //xhdpi
+}
+if (density &gt;= 1.5 &amp;&amp; density &lt; 2.0) {
+   //hdpi
+}
+if (density &gt;= 1.0 &amp;&amp; density &lt; 1.5) {
+   //mdpi
+}
+</code></pre>

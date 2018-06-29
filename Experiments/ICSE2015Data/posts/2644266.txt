@@ -1,0 +1,28 @@
+<p>You need to use an <code>AlertDialog</code>. There's a good explanation on the Android Developer's site about <a href=""http://developer.android.com/guide/topics/ui/dialogs.html#CustomDialog"">custom dialogs</a>.</p>
+
+<p>In very short summary, you do this with code like copied below from the official website. That takes a custom layot file, inflates it, gives it some basic text and icon, then creates it. You'd show it then with <code>alertDialog.show()</code>.</p>
+
+<pre><code>AlertDialog.Builder builder;
+AlertDialog alertDialog;
+
+Context mContext = getApplicationContext();
+LayoutInflater inflater = (LayoutInflater)
+        mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
+View layout = inflater.inflate(R.layout.custom_dialog,
+        (ViewGroup) findViewById(R.id.layout_root));
+
+TextView text = (TextView) layout.findViewById(R.id.text);
+text.setText(""Hello, this is a custom dialog!"");
+ImageView image = (ImageView) layout.findViewById(R.id.image);
+image.setImageResource(R.drawable.android);
+
+builder = new AlertDialog.Builder(mContext);
+builder.setView(layout);
+alertDialog = builder.create();
+</code></pre>
+
+<hr>
+
+<p>Edit in response to shown code:</p>
+
+<p>I assume that TextView with the id <code>nr</code> is in the View you are inflating with <code>View view = inflater....</code>. If so, then you need to change just one bit: instead of <code>dialog.findView...</code> make it <code>view.findView...</code>. Then once you've done that, remember to use dialog.show(), or even builder.show() without bothering to do builder.create().</p>

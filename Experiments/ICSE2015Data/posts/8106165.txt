@@ -1,0 +1,39 @@
+<p>No one seemed to provide any examples of doing this solely using an adapter, so I thought I would post my code snippet for displaying ListViews where the ""curSelected"" item has a different background:</p>
+
+<pre><code>final ListView lv = (ListView)findViewById(R.id.lv);
+lv.setAdapter(new BaseAdapter()
+{
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
+        if (convertView == null)
+        {
+            convertView = new TextView(ListHighlightTestActivity.this);
+            convertView.setPadding(10, 10, 10, 10);
+            ((TextView)convertView).setTextColor(Color.WHITE);
+        }
+
+        convertView.setBackgroundColor((position == curSelected) ? 
+            Color.argb(0x80, 0x20, 0xa0, 0x40) : Color.argb(0, 0, 0, 0));
+        ((TextView)convertView).setText((String)getItem(position));
+
+        return convertView;
+    }
+
+    public long getItemId(int position)
+    {
+        return position;
+    }
+
+    public Object getItem(int position)
+    {
+        return ""item "" + position;
+    }
+
+    public int getCount()
+    {
+        return 20;
+    }
+});
+</code></pre>
+
+<p>This has always been a helpful approach for me for when appearance of list items needs to change dynamically.</p>

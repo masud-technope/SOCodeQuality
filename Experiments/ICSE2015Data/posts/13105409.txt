@@ -1,0 +1,43 @@
+<p>You can extend the gallery and use some flag to disable scrolling when you want:</p>
+
+<pre><code>public class MyGallery extends Gallery {
+
+public boolean canScroll;
+
+public MyGallery(Context context, AttributeSet attrs) {
+    canScroll = true;
+    super(context, attrs);
+}
+
+public void setCanScroll(boolean flag)
+{
+    canScroll = flag;
+}
+
+@Override
+public boolean onScroll(android.view.MotionEvent e1, android.view.MotionEvent e2, float distanceX, float distanceY) {
+    if (canScroll)
+        return super.onScroll(e1,e2,distancex,distancey);
+    else
+        return false;
+}
+
+@Override
+public boolean onSingleTapUp(MotionEvent e)
+{
+    if (canScroll)
+        return super.onSingleTapUp(ey);
+    else
+        return false;
+}
+
+@Override
+public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY)
+{
+    if (canScroll)
+        return super.onFling(e1,e2,velocityX,velocityY);
+    else
+        return false;
+}
+}
+</code></pre>

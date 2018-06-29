@@ -1,0 +1,30 @@
+<p>In case you are attempting to have your app behave differently depending on the orientation check out another question like this related to Android orientation that I answered <a href=""http://stackoverflow.com/questions/9566633/how-to-use-onconfigurationchanged-and-newconfig-orientation-configuration-o/15085272#15085272"">here</a>.</p>
+
+<p>It utilises <a href=""http://vapor-api.com"" rel=""nofollow"">Vapor API</a>, a new jQuery style framework I recently released for Android which is designed to simplify app dev.</p>
+
+<p>In the examples I show how you can listen out for global callbacks related to the orientation of a device, and have your app execute custom code depending on the current orientation of the user's device. For example:</p>
+
+<pre><code>$.hook(""orientationLandscape"").hookIn(
+     new $$hookee&lt;Activity&gt;(this){
+
+         @Override
+         public void call(String hookName, VaporBundle args){
+             // landscape code here
+         }
+
+     });
+
+$.hook(""orientationPortrait"").hookIn(
+     new $$hookee&lt;Activity&gt;(this){
+
+         @Override
+         public void call(String hookName, VaporBundle args){
+             // portrait code here
+         }
+
+     });
+</code></pre>
+
+<p>You can also combine things like hook listeners using <a href=""http://vapor-api.com/core/vaporx"" rel=""nofollow"">VaporX</a> too, which is basically jQuery style selectors for Android dev.</p>
+
+<p>Hope it helps someone!</p>

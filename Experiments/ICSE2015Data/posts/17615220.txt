@@ -1,0 +1,76 @@
+<p>Using <strong>pospi's</strong> suggestion and working with the 'tag' property like <strong>Richard</strong> did, i created a custom class that loads my custom fonts and applies them to the views according to their tags.</p>
+
+<p>So basicly, instead of setting the TypeFace in the attribute android:fontFamily you are using the android:tag attritube and set it to one of the defined enums.</p>
+
+<pre><code>public class Fonts {
+    private AssetManager mngr;
+
+    public Fonts(Context context) {
+        mngr = context.getAssets();
+    }
+    private enum AssetTypefaces {
+        RobotoLight,
+        RobotoThin,
+        RobotoCondensedBold,
+        RobotoCondensedLight,
+        RobotoCondensedRegular
+    }
+
+    private Typeface getTypeface(AssetTypefaces font) {
+        Typeface tf = null;
+        switch (font) {
+            case RobotoLight:
+                tf = Typeface.createFromAsset(mngr,""fonts/Roboto-Light.ttf"");
+                break;
+            case RobotoThin:
+                tf = Typeface.createFromAsset(mngr,""fonts/Roboto-Thin.ttf"");
+                break;
+            case RobotoCondensedBold:
+                tf = Typeface.createFromAsset(mngr,""fonts/RobotoCondensed-Bold.ttf"");
+                break;
+            case RobotoCondensedLight:
+                tf = Typeface.createFromAsset(mngr,""fonts/RobotoCondensed-Light.ttf"");
+                break;
+            case RobotoCondensedRegular:
+                tf = Typeface.createFromAsset(mngr,""fonts/RobotoCondensed-Regular.ttf"");
+                break;
+            default:
+                tf = Typeface.DEFAULT;
+                break;
+        }
+        return tf;
+    }
+    public void setupLayoutTypefaces(View v) {
+        try {
+            if (v instanceof ViewGroup) {
+                ViewGroup vg = (ViewGroup) v;
+                for (int i = 0; i &lt; vg.getChildCount(); i++) {
+                    View child = vg.getChildAt(i);
+                    setupLayoutTypefaces(child);
+                }
+            } else if (v instanceof TextView) {
+                if (v.getTag().toString().equals(AssetTypefaces.RobotoLight.toString())){
+                    ((TextView)v).setTypeface(getTypeface(AssetTypefaces.RobotoLight));
+                }else if (v.getTag().toString().equals(AssetTypefaces.RobotoCondensedRegular.toString())) {
+                    ((TextView)v).setTypeface(getTypeface(AssetTypefaces.RobotoCondensedRegular));
+                }else if (v.getTag().toString().equals(AssetTypefaces.RobotoCondensedBold.toString())) {
+                    ((TextView)v).setTypeface(getTypeface(AssetTypefaces.RobotoCondensedBold));
+                }else if (v.getTag().toString().equals(AssetTypefaces.RobotoCondensedLight.toString())) {
+                    ((TextView)v).setTypeface(getTypeface(AssetTypefaces.RobotoCondensedLight));
+                }else if (v.getTag().toString().equals(AssetTypefaces.RobotoThin.toString())) {
+                    ((TextView)v).setTypeface(getTypeface(AssetTypefaces.RobotoThin));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // ignore
+        }
+    }
+}
+</code></pre>
+
+<p>In your Activity or Fragment you just call</p>
+
+<pre><code>Fonts fonts = new Fonts(getActivity());
+fonts.setupLayoutTypefaces(mainLayout);
+</code></pre>

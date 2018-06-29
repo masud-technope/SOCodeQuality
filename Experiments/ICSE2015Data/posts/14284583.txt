@@ -1,0 +1,22 @@
+<p>For those who want to refer to Google's code of deciding which devices will use a Tablet UI can refer to below:</p>
+
+<pre><code>  // SystemUI (status bar) layout policy
+        int shortSizeDp = shortSize
+                * DisplayMetrics.DENSITY_DEFAULT
+                / DisplayMetrics.DENSITY_DEVICE;
+
+        if (shortSizeDp &lt; 600) {
+            // 0-599dp: ""phone"" UI with a separate status &amp; navigation bar
+            mHasSystemNavBar = false;
+            mNavigationBarCanMove = true;
+        } else if (shortSizeDp &lt; 720) {
+            // 600-719dp: ""phone"" UI with modifications for larger screens
+            mHasSystemNavBar = false;
+            mNavigationBarCanMove = false;
+        } else {
+            // 720dp: ""tablet"" UI with a single combined status &amp; navigation bar
+            mHasSystemNavBar = true;
+            mNavigationBarCanMove = false;
+        }
+        }
+</code></pre>

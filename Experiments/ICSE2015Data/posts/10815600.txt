@@ -1,0 +1,13 @@
+<p>These settings worked for me:</p>
+
+<blockquote>
+<pre><code>    wv.setInitialScale(1);
+    wv.getSettings().setLoadWithOverviewMode(true);
+    wv.getSettings().setUseWideViewPort(true);
+    wv.getSettings().setJavaScriptEnabled(true);
+</code></pre>
+</blockquote>
+
+<p><em>setInitialScale(1)</em> was missing in my attempts.</p>
+
+<p>Although documentation says that <em>0</em> will zoom all the way out if <em>setUseWideViewPort</em> is set to <em>true</em> but <em>0</em> did not work for me and I had to set <em>1</em>.</p>

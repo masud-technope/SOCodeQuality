@@ -1,0 +1,60 @@
+<p>I have a splash screen activity with a LinearLayout (match_parent) as a root view.
+This is the code in the onCreate of that activity. I use these measures in all other activities of the app.</p>
+
+<pre><code>int displayWidth = getRawDisplayWidthPreHoneycomb();
+    int rawDisplayHeight = getRawDisplayHeightPreHoneycomb();
+    int usableDisplayHeight = rawDisplayHeight - getStatusBarHeight();
+    pf.setScreenParameters(displayWidth, usableDisplayHeight);
+
+    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB) {
+        LinearLayout myView = (LinearLayout) findViewById(R.id.splash_view);
+        myView.addOnLayoutChangeListener(new OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                if (left == 0 &amp;&amp; top == 0 &amp;&amp; right == 0 &amp;&amp; bottom == 0) {
+                    return;
+                }
+                int displayWidth = Math.min(right, bottom);
+                int usableDisplayHeight = Math.max(right, bottom);
+                pf.setScreenParameters(displayWidth, usableDisplayHeight);
+            }
+        });
+    }
+
+private int getRawDisplayWidthPreHoneycomb() {
+    WindowManager windowManager = getWindowManager();
+    Display display = windowManager.getDefaultDisplay();
+    DisplayMetrics displayMetrics = new DisplayMetrics();
+    display.getMetrics(displayMetrics);
+
+    int widthPixels = displayMetrics.widthPixels;
+    int heightPixels = displayMetrics.heightPixels;
+
+    return Math.min(widthPixels, heightPixels);
+}
+
+private int getRawDisplayHeightPreHoneycomb() {
+    WindowManager w = getWindowManager();
+    Display d = w.getDefaultDisplay();
+    DisplayMetrics metrics = new DisplayMetrics();
+    d.getMetrics(metrics);
+
+    int widthPixels = metrics.widthPixels;
+    int heightPixels = metrics.heightPixels;
+
+    return Math.max(widthPixels, heightPixels);
+}
+
+public int getStatusBarHeight() {
+    int statusBarHeight = 0;
+
+    int resourceId = getResources().getIdentifier(""status_bar_height"", ""dimen"", ""android"");
+    if (resourceId &gt; 0) {
+        statusBarHeight = getResources().getDimensionPixelSize(resourceId);
+    }
+
+    return statusBarHeight;
+}
+</code></pre>
+
+<p>This results in a height and width of the usable display, excluding any type of bars (status bar, navigation bar), for all API versions and different type of devices (phones and tablets).</p>

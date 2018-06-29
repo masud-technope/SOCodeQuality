@@ -1,0 +1,21 @@
+<p>Source class : </p>
+
+<pre><code>    Intent myIntent = new Intent(this, NewActivity.class); 
+    myIntent.putExtra(""firstName"", ""Your First Name Here"");
+    myIntent.putExtra(""lastName"", ""Your Last Name Here"");
+    startActivity(myIntent)
+</code></pre>
+
+<p>Destination Class (NewActivity class) :</p>
+
+<pre><code>protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.view);    
+
+    Intent intent = getIntent();
+
+    String fName = intent.getStringExtra(""firstName"");
+    String lName = intent.getStringExtra(""lastName"");
+
+  }
+</code></pre>

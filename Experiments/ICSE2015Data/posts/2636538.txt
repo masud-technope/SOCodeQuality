@@ -1,0 +1,93 @@
+<p>This is a complete solution. I've just updated this example code with the information provided in the answer below by @mad. Also check the solution below from @Khobaib explaining how to deal with picasa images.</p>
+
+<h1>Single Picture Selection</h1>
+
+<p>With support for images from file explorers thanks to user mad.</p>
+
+<pre><code>public class BrowsePictureActivity extends Activity {
+
+    // this is the action code we use in our intent, 
+    // this way we know we're looking at the response from our own action
+    private static final int SELECT_PICTURE = 1;
+
+    private String selectedImagePath;
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+
+        ((Button) findViewById(R.id.Button01))
+                .setOnClickListener(new OnClickListener() {
+
+                    public void onClick(View arg0) {
+
+                        // in onCreate or any event where your want the user to
+                        // select a file
+                        Intent intent = new Intent();
+                        intent.setType(""image/*"");
+                        intent.setAction(Intent.ACTION_GET_CONTENT);
+                        startActivityForResult(Intent.createChooser(intent,
+                                ""Select Picture""), SELECT_PICTURE);
+                    }
+                });
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == SELECT_PICTURE) {
+                Uri selectedImageUri = data.getData();
+                selectedImagePath = getPath(selectedImageUri);
+            }
+        }
+    }
+
+    /**
+     * helper to retrieve the path of an image URI
+     */
+    public String getPath(Uri uri) {
+            // just some safety built in 
+            if( uri == null ) {
+                // TODO perform some logging or show user feedback
+                return null;
+            }
+            // try to retrieve the image from the media store first
+            // this will only work for images selected from gallery
+            String[] projection = { MediaStore.Images.Media.DATA };
+            Cursor cursor = managedQuery(uri, projection, null, null, null);
+            if( cursor != null ){
+                int column_index = cursor
+                .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                cursor.moveToFirst();
+                return cursor.getString(column_index);
+            }
+            // this is our fallback here
+            return uri.getPath();
+    }
+
+}
+</code></pre>
+
+<h1>Selecting Multiple Pictures</h1>
+
+<p>Since someone requested that information in a comment and it's better to have information gathered.</p>
+
+<p>Set an extra parameter <code>EXTRA_ALLOW_MULTIPLE</code> on the intent:</p>
+
+<pre><code>intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+</code></pre>
+
+<p>And in the Result handling check for that parameter:</p>
+
+<pre><code>if (Intent.ACTION_SEND_MULTIPLE.equals(action))
+        &amp;&amp; Intent.hasExtra(Intent.EXTRA_STREAM)) {
+    // retrieve a collection of selected images
+    ArrayList&lt;Parcelable&gt; list = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+    // iterate over these images
+    for (Parcelable parcel : list) {
+       Uri uri = (Uri) parcel;
+       // handle the images one by one here
+   }
+} 
+</code></pre>
+
+<p>Note that this is only supported by API level 18+.</p>

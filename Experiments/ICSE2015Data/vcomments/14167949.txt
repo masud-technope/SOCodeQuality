@@ -1,0 +1,3 @@
+Great answer.
+@newton_guima yes, it does work. Just remember to use supportRequestWindowFeature(Window.FEATURE_ACTION_BAR).
+@Cleric Thanks. I resolved my issue setting `android:theme=""@android:style/Theme.NoTitleBar""` into the Manifest and then `setTheme(R.style.MyTheme)` in main activity onCreate. This ensures (in Android 4+) avoiding the flash of the default holo `ActionBar` before the one I defined in my theme (I arrived here looking for a way to workaround this; I actually don't need any splash-screen).

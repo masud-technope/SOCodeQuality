@@ -1,0 +1,22 @@
+<p>In your code add this line</p>
+
+<pre><code>requestWindowFeature(Window.FEATURE_NO_TITLE);  
+</code></pre>
+
+<p>Or in XML use a theme</p>
+
+<pre><code>android:theme=""@android:style/Theme.NoTitleBar""
+</code></pre>
+
+<p>XML would be a better implementation as with the code version the title bar gets created and then removed which is a waste of resource</p>
+
+<blockquote>
+  <p>Ok good try but it is not working. I
+  get:
+  android.view.WindowManager$BadTokenException:
+  Unable to add window -- token null is
+  not for an application if I want to
+  shwo the dialog.</p>
+</blockquote>
+
+<p>Change the alert dialog type to system dialog ( e.g., TYPE_SYSTEM_OVERLAY ) and see if this resolves your issue</p>

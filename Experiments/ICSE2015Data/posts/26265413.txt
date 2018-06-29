@@ -1,0 +1,9 @@
+<p>I wanted to do something similar. But getting the text value from edit text and comparing it like <code>(str=="""")</code> wasn't working for me. So better option was:</p>
+
+<pre><code>EditText eText = (EditText) findViewById(R.id.etext);
+
+if (etext.getText().length() == 0)
+{//do what you want }
+</code></pre>
+
+<p>Worked like a charm.</p>

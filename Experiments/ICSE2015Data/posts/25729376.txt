@@ -1,0 +1,9 @@
+<p>You Can do this without using <code>AlertDialog</code> by defining new Class that extends from <code>Dialog</code> Class like this:</p>
+
+<pre><code>public class myDialog extends Dialog {
+    public myDialog(Context context) {
+        super(context);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+    }
+}
+</code></pre>

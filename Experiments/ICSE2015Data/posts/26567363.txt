@@ -1,0 +1,14 @@
+<p>String unlike int or other numeric variables are compared in Java differently than other languages.</p>
+
+<p>To compare Strings in Java (android) it is used the method .compareTo();</p>
+
+<p>so the code sould be like this:</p>
+
+<pre><code>if(gender.compareTo(""Male"")==0){
+   salutation =""Mr."";
+}
+if(gender.compareTo(""Female"")==0){
+   salutation =""Ms."";
+}
+</code></pre>
+"

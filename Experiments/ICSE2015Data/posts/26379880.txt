@@ -1,0 +1,21 @@
+<p>This is an old thread but since this basically came up first in current Google search here's a quick way to understand what <code>listView.getCheckedItemPositions()</code> does:</p>
+
+<p><strong>Unless the list Item wasn't 'toggled' at all in your ListView, it wont be added to the SparseBooleanArray that is returned by <code>listView.getCheckedItemPositions()</code></strong></p>
+
+<p>But then, you really don't want your users to click every list item to ""properly"" add it to the returned SparseBooleanArray right?</p>
+
+<p>Hence you need to combine the usage of <strong>valueAt()</strong> AND <strong>keyAt()</strong> of the SparseBooleanArray for this.</p>
+
+<pre><code>    SparseBooleanArray checkedArray = listView.getCheckedItemPositions();
+
+    ArrayList&lt;DataEntry&gt; entries = baseAdapter.getBackingArray(); //point this to the array of your custom adapter
+
+    if (checkedArray != null)
+    {
+        for(int i = 0; i &lt; checkedArray.size(); i++)
+        {
+            if(checkedArray.valueAt(i))    //valueAt() gets the boolean
+                entries.yourMethodAtIndex(checkedArray.keyAt(i)); //keyAt() gets the key
+        }
+    }
+</code></pre>

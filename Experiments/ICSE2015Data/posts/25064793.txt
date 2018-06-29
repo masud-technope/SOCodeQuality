@@ -1,0 +1,62 @@
+<p>Here is my workaround class for DatePickerDialog on cancel button as well as abandoning it by back button. Copy&amp;use in style of DatePickerDialog (Because the listener is stateful, we must create new instance when use, otherwise more code is required to make it it works)</p>
+
+<p>Use:</p>
+
+<pre><code>new FixedDatePickerDialog(this,
+            new FixedOnDateSetListener() {
+
+                @Override
+                public void onDateSet(DatePicker view, int year,
+                        int monthOfYear, int dayOfMonth) {
+                    if (isOkSelected()) {
+                        // when DONE button is clicked
+                    }
+                }
+
+            }, year, month, day).show();
+</code></pre>
+
+<p>Class:</p>
+
+<pre><code>public class FixedDatePickerDialog extends DatePickerDialog {
+private final FixedOnDateSetListener fixedCallback;
+public FixedDatePickerDialog(Context context,
+        FixedOnDateSetListener callBack, int year, int monthOfYear,
+        int dayOfMonth) {
+    super(context, callBack, year, monthOfYear, dayOfMonth);
+    fixedCallback = callBack;
+    this.setButton(DialogInterface.BUTTON_NEGATIVE,
+            context.getString(R.string.cancel), this);
+    this.setButton(DialogInterface.BUTTON_POSITIVE,
+            context.getString(R.string.done), this);
+}
+
+@Override
+public void onClick(DialogInterface dialog, int which) {
+    if (which == BUTTON_POSITIVE) {
+        fixedCallback.setOkSelected(true);
+    } else {
+        fixedCallback.setOkSelected(false);
+    }
+    super.onClick(dialog, which);
+}
+
+public abstract static class FixedOnDateSetListener implements
+        OnDateSetListener {
+    private boolean okSelected = false;
+
+    @Override
+    abstract public void onDateSet(DatePicker view, int year,
+            int monthOfYear, int dayOfMonth);
+
+    public void setOkSelected(boolean okSelected) {
+        this.okSelected = okSelected;
+    }
+
+    public boolean isOkSelected() {
+        return okSelected;
+    }
+}
+</code></pre>
+
+<p>}</p>

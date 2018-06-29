@@ -1,0 +1,11 @@
+<p>This should work:    </p>
+
+<pre><code>if(gender.equals(""Male"")){
+ salutation =""Mr."";
+}
+else if(gender.equals(""Female"")){
+ salutation =""Ms."";
+}
+</code></pre>
+
+<p>Remember, not to use <code>;</code> after <code>if</code> statement.</p>

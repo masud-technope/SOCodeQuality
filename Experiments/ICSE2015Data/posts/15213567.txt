@@ -1,0 +1,139 @@
+<p>For those who are interested, here's a C# Xamarin.Android port of Micah's lovely solution:</p>
+
+<pre><code>public delegate void EllipsizeEvent(bool ellipsized);
+
+public class EllipsizingTextView : TextView
+{
+    private const string Ellipsis = ""..."";
+
+    public event EllipsizeEvent EllipsizeStateChanged;
+
+    private bool isEllipsized;
+    private bool isStale;
+    private bool programmaticChange;
+    private string fullText;
+    private int maxLines = -1;
+    private float lineSpacingMultiplier = 1.0f;
+    private float lineAdditionalVerticalPadding;
+
+    public EllipsizingTextView(Context context) : base(context) 
+    {
+    }
+
+    public EllipsizingTextView(Context context, IAttributeSet attrs) : base(context, attrs) 
+    {
+    }
+
+    public EllipsizingTextView(Context context, IAttributeSet attrs, int defStyle) : base(context, attrs, defStyle) 
+    {
+    }
+
+    public EllipsizingTextView(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+    {
+    }
+
+    public bool IsEllipsized 
+    {
+        get { return isEllipsized; }
+    }
+
+    public override void SetMaxLines(int maxLines) {
+        base.SetMaxLines(maxLines);
+        this.maxLines = maxLines;
+        isStale = true;
+    }
+
+    public int GetMaxLines() 
+    {
+        return maxLines;
+    }
+
+    public override void SetLineSpacing(float add, float mult) 
+    {
+        lineAdditionalVerticalPadding = add;
+        lineSpacingMultiplier = mult;
+        base.SetLineSpacing(add, mult);
+    }
+
+    protected override void OnTextChanged(ICharSequence text, int start, int before, int after) 
+    {
+        base.OnTextChanged(text, start, before, after);
+        if (!programmaticChange) 
+        {
+            fullText = text.ToString();
+            isStale = true;
+        }
+    }
+
+    protected override void OnDraw(Canvas canvas) 
+    {
+        if (isStale) 
+        {
+            base.Ellipsize = null;
+            ResetText();
+        }
+        base.OnDraw(canvas);
+    }
+
+    private void ResetText() 
+    {
+        int maxLines = GetMaxLines();
+        string workingText = fullText;
+        bool ellipsized = false;
+        if (maxLines != -1) 
+        {
+            Layout layout = CreateWorkingLayout(workingText);
+            if (layout.LineCount &gt; maxLines) 
+            {
+                workingText = fullText.Substring(0, layout.GetLineEnd(maxLines - 1)).Trim();
+                while (CreateWorkingLayout(workingText + Ellipsis).LineCount &gt; maxLines) 
+                {
+                    int lastSpace = workingText.LastIndexOf(' ');
+                    if (lastSpace == -1) 
+                    {
+                        break;
+                    }
+                    workingText = workingText.Substring(0, lastSpace);
+                }
+                workingText = workingText + Ellipsis;
+                ellipsized = true;
+            }
+        }
+        if (workingText != Text) 
+        {
+            programmaticChange = true;
+            try 
+            {
+                Text = workingText;
+            } 
+            finally 
+            {
+                programmaticChange = false;
+            }
+        }
+        isStale = false;
+        if (ellipsized != isEllipsized) 
+        {
+            isEllipsized = ellipsized;
+            if (EllipsizeStateChanged != null)
+                EllipsizeStateChanged(ellipsized);
+        }
+    }
+
+    private Layout CreateWorkingLayout(string workingText) 
+    {
+        return new StaticLayout(workingText, Paint, Width - PaddingLeft - PaddingRight, Layout.Alignment.AlignNormal, lineSpacingMultiplier, lineAdditionalVerticalPadding, false);
+    }
+
+    public override TextUtils.TruncateAt Ellipsize
+    {
+        get 
+        { 
+            return base.Ellipsize;
+        }
+        set 
+        { 
+        }
+    }
+}
+</code></pre>

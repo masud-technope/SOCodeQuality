@@ -1,0 +1,8 @@
+<p>Try with this HTML5 tips</p>
+
+<p><a href=""http://www.html5rocks.com/en/mobile/mobifying.html"">http://www.html5rocks.com/en/mobile/mobifying.html</a></p>
+
+<p>And with this  if your Android Version is 2.1 or greater</p>
+
+<pre><code>  WebView.getSettings().setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
+</code></pre>

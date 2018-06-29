@@ -1,0 +1,4 @@
+Works for me too, but how to implement back button to show the first fragment?
+Great explanation but could you post full source code of this, specifically FirstPageFragment and SecondPageFragment classes.
+I works for me as well, but I haven't been able to reverse the action, it's to say, and I think what @user1159819 means, once you are in NextFragment, you might want to go back to FirstFragment, I don't see how to do it with this implementation.
+You can see [my answer](http://stackoverflow.com/a/18612147/1088643). It replaces fragments and return back to first one.

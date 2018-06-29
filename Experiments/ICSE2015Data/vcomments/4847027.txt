@@ -1,0 +1,4 @@
+Note that the metrics (width, height) change depending on the rotation of the device.
+Metrics will return the size of the display, but HoneyComb and up, your activity will have less space than what's returned due to the system bar.
+@Guy it depends on your implementation. You can hide the status bar: 		
+Also exists this way: getContext().getResources().getDisplayMetrics().widthPixels.

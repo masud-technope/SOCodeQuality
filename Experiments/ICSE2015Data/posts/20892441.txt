@@ -1,0 +1,9 @@
+<p>I stumbled over the same problem today and I guess the real solution to this question is this </p>
+
+<pre><code>&lt;LinearLayout android:id=""@+id/container""
+android:animateLayoutChanges=""true""
+...
+ /&gt;
+</code></pre>
+
+<p>You will have to set this property for all topmost layouts, which are involved in the shift. If you now set the visibility of one layout to GONE, the other will take the space as the disappearing one is releasing it. There will be a default animation which is some kind of ""fading out"", but I think you can change this - but the last one I have not tested, for now.</p>

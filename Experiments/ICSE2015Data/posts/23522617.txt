@@ -1,0 +1,30 @@
+<p>I wanted to do something similar. I finally had to find the <code>TextView</code> among the <code>SearchView</code> children:</p>
+
+<pre><code>for (TextView textView : findChildrenByClass(searchView, TextView.class)) {
+    textView.setTextColor(Color.WHITE);
+}
+</code></pre>
+
+<p>If you want the util method:</p>
+
+<pre><code>public static &lt;V extends View&gt; Collection&lt;V&gt; findChildrenByClass(ViewGroup viewGroup, Class&lt;V&gt; clazz) {
+
+    return gatherChildrenByClass(viewGroup, clazz, new ArrayList&lt;V&gt;());
+}
+
+private static &lt;V extends View&gt; Collection&lt;V&gt; gatherChildrenByClass(ViewGroup viewGroup, Class&lt;V&gt; clazz, Collection&lt;V&gt; childrenFound) {
+
+    for (int i = 0; i &lt; viewGroup.getChildCount(); i++)
+    {
+        final View child = viewGroup.getChildAt(i);
+        if (clazz.isAssignableFrom(child.getClass())) {
+            childrenFound.add((V)child);
+        }
+        if (child instanceof ViewGroup) {
+            gatherChildrenByClass((ViewGroup) child, clazz, childrenFound);
+        }
+    }
+
+    return childrenFound;
+}
+</code></pre>

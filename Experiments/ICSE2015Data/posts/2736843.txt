@@ -1,0 +1,27 @@
+<p>You could also write the object's data into temporary Strings and ints, and pass them to the activity. Of course that way, you get the data transported, but not the object itself. But if you just want to display them, and not use the object in another method or something like that, it should be enough. I did it the same way to just display data from one object in another activity.</p>
+
+<pre><code>String fName_temp   = yourObject.getFname();
+String lName_temp   = yourObject.getLname();
+String age_temp     = yourObject.getAge();
+String address_temp = yourObject.getAddress();
+
+Intent i = new Intent(this, ToClass.class);
+    i.putExtra(""fname"", fName_temp);
+    i.putExtra(""lname"", lName_temp);
+    i.putExtra(""age"", age_temp);
+    i.putExtra(""address"", address_temp);
+startActivity(i);   
+</code></pre>
+
+<p>You could also pass them in directly instead of the temp ivars, but this way it's clearer, in my opinion. Additionally, you can set the temp ivars to null so that they get cleaned by the GarbageCollector sooner.</p>
+
+<p>good luck!</p>
+
+<p>On a side note: override toString() instead of writing your own print method.</p>
+
+<p><strong>edit:</strong></p>
+
+<p>As mentioned in the comments below, this is how you get your data back in other activity:</p>
+
+<pre><code>String fName = getIntent().getExtras().getInt(""fname"");
+</code></pre>

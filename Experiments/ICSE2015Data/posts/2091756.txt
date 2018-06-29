@@ -1,0 +1,29 @@
+<p>Try to do the following:</p>
+
+<p>Create simple ""helper"" class(factory for your Intents), like this:</p>
+
+<pre><code>import android.content.Intent;
+public class IntentManager {
+public static final Intent createYourSpecialIntent(Intent src) {
+  return new Intent(""YourSpecialIntent"").addCategory(""YourSpecialCategory"").putExtras(src);
+}
+}
+</code></pre>
+
+<p>This will be the factory for all your Intents. Everytime you need a new Intent, create static factory method in IntentManager. To create new Intent you should just say like that:</p>
+
+<pre><code>IntentHelper.createYourSpecialIntent(getIntent());
+</code></pre>
+
+<p>in your activity. when when you want to ""save"" some data in ""session"" just use following:</p>
+
+<pre><code>IntentHelper.createYourSpecialIntent(getIntent()).putExtra(""YOUR_FIELD_NAME"",fieldValueToSave);
+</code></pre>
+
+<p>and send this Intent. In target Activity your field will be available as:</p>
+
+<pre><code>getIntent().getStringExtra(""YOUR_FIELD_NAME"");
+</code></pre>
+
+<p>So now we can use Intent like same old session(like in servlets or jsp.).
+Hope this helps.</p>

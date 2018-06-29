@@ -1,0 +1,6 @@
+<p>Use this one, it's right. :D</p>
+
+<pre><code>AutoCompleteTextView searchText = (AutoCompleteTextView) searchView.findViewById(R.id.abs__search_src_text);
+searchText.setHintTextColor(getResources().getColor(color.black));
+searchText.setTextColor(getResources().getColor(color.black));
+</code></pre>

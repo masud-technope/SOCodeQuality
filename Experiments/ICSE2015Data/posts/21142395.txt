@@ -1,0 +1,133 @@
+<p>Since <strong>no answer here mentions a perfect, fail-proof ID that is both PERSISTENT through system updates and exists in ALL devices</strong> (mainly due to the fact that there isn't an individual solution from Google), I decided to post a method that is the next best thing by combining two of the available identifiers, and a check to chose between them at run-time.</p>
+
+<p>Before code, 3 facts:</p>
+
+<ol>
+<li><p><code>TelephonyManager.getDeviceId()</code> (a.k.a.IMEI) will not work well or at all for non-GSM, 3G, LTE, etc. devices, but <strong>will always return a unique ID when related hardware is present</strong>, even when no SIM is inserted or even when no SIM slot exists (some OEM's have done this).</p></li>
+<li><p>Since Gingerbread (Android 2.3) <code>android.os.Build.SERIAL</code> <strong>must exist on any device that doesn't provide IMEI</strong>, i.e., doesn't have the aforementioned hardware present, as per Android policy.</p></li>
+<li><p>Due to fact (2.), <strong>at least one of these two unique identifiers will ALWAYS be present</strong>, and SERIAL <strong>can</strong> be present at the same time that IMEI is.</p></li>
+</ol>
+
+<p>Note: Fact (1.) and (2.) are <a href=""http://android-developers.blogspot.pt/2011/03/identifying-app-installations.html"" rel=""nofollow"">based on Google statements</a></p>
+
+<p><strong>SOLUTION</strong></p>
+
+<p>With the facts above, one can always have a unique identifier by checking if there is IMEI-bound hardware, and fall back to SERIAL when it isn't, as one cannot check if the existing SERIAL is valid. The following static class presents 2 methods for checking such presence and using either IMEI or SERIAL:</p>
+
+<pre><code>import java.lang.reflect.Method;
+
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
+import android.util.Log;
+
+public class IDManagement {
+
+    public static String getCleartextID_SIMCHECK (Context mContext){
+        String ret = """";
+
+        TelephonyManager telMgr = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+
+        if(isSIMAvailable(mContext,telMgr)){
+            Log.i(""DEVICE UNIQUE IDENTIFIER"",telMgr.getDeviceId());
+            return telMgr.getDeviceId();
+
+        }
+        else{
+            Log.i(""DEVICE UNIQUE IDENTIFIER"", Settings.Secure.ANDROID_ID);
+
+//          return Settings.Secure.ANDROID_ID;
+            return android.os.Build.SERIAL;
+        }
+    }
+
+
+    public static String getCleartextID_HARDCHECK (Context mContext){
+        String ret = """";
+
+        TelephonyManager telMgr = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+        if(telMgr != null &amp;&amp; hasTelephony(mContext)){           
+            Log.i(""DEVICE UNIQUE IDENTIFIER"",telMgr.getDeviceId() + """");
+
+            return telMgr.getDeviceId();    
+        }
+        else{
+            Log.i(""DEVICE UNIQUE IDENTIFIER"", Settings.Secure.ANDROID_ID);
+
+//          return Settings.Secure.ANDROID_ID;
+            return android.os.Build.SERIAL;
+        }
+    }
+
+
+    public static boolean isSIMAvailable(Context mContext, 
+            TelephonyManager telMgr){
+
+        int simState = telMgr.getSimState();
+
+        switch (simState) {
+        case TelephonyManager.SIM_STATE_ABSENT:
+            return false;
+        case TelephonyManager.SIM_STATE_NETWORK_LOCKED:
+            return false;
+        case TelephonyManager.SIM_STATE_PIN_REQUIRED:
+            return false;
+        case TelephonyManager.SIM_STATE_PUK_REQUIRED:
+            return false;
+        case TelephonyManager.SIM_STATE_READY:
+            return true;
+        case TelephonyManager.SIM_STATE_UNKNOWN:
+            return false;
+        default:
+            return false;
+        }
+    }
+
+    static public boolean hasTelephony(Context mContext)
+    {
+        TelephonyManager tm = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+        if (tm == null)
+            return false;
+
+        //devices below are phones only
+        if (Build.VERSION.SDK_INT &lt; 5)
+            return true;
+
+        PackageManager pm = mContext.getPackageManager();
+
+        if (pm == null)
+            return false;
+
+        boolean retval = false;
+        try
+        {
+            Class&lt;?&gt; [] parameters = new Class[1];
+            parameters[0] = String.class;
+            Method method = pm.getClass().getMethod(""hasSystemFeature"", parameters);
+            Object [] parm = new Object[1];
+            parm[0] = ""android.hardware.telephony"";
+            Object retValue = method.invoke(pm, parm);
+            if (retValue instanceof Boolean)
+                retval = ((Boolean) retValue).booleanValue();
+            else
+                retval = false;
+        }
+        catch (Exception e)
+        {
+            retval = false;
+        }
+
+        return retval;
+    }
+
+
+}
+</code></pre>
+
+<p>I would advice on using <code>getCleartextID_HARDCHECK</code>. If the reflection doesn't stick in your environment, use the <code>getCleartextID_SIMCHECK</code> method instead, but take in consideration it should be adapted to your specific SIM-presence needs.</p>
+
+<p><strong>P.S.</strong>: Do please note that OEM's have <strong>managed to bug out SERIAL against Google policy</strong> (multiple devices with same SERIAL), and Google as stated there is at least one known case in a big OEM (not disclosed and I don't know which brand it is either, I'm guessing Samsung).</p>
+
+<p><strong>Disclaimer</strong>: This answers the original question of getting a unique device ID, but the OP introduced ambiguity by stating he needs a unique ID for an APP. Even if for such scenarios Android_ID would be better, it WILL NOT WORK after, say, a Titanium Backup of an app through 2 different ROM installs (can even be the same ROM). My solution maintains persistence that is independent of a flash or factory reset, and will only fail when IMEI or SERIAL tampering occurs through hacks/hardware mods.</p>

@@ -1,0 +1,9 @@
+// create a File object for the parent directory
+File wallpaperDirectory = new File(""/sdcard/Wallpaper/"");
+// have the object build the directory structure, if needed.
+wallpaperDirectory.mkdirs();
+// create a File object for the output file
+File outputFile = new File(wallpaperDirectory, filename);
+// now attach the OutputStream to the file object, instead of a String representation
+FileOutputStream fos = new FileOutputStream(outputFile);
+

@@ -1,0 +1,13 @@
+<p>Of everything I have seen so far shortest and cleanest way should be:</p>
+
+<pre><code>public final static boolean isConnected( Context context )
+{   
+   final ConnectivityManager connectivityManager = 
+         (ConnectivityManager) context.getSystemService( Context.CONNECTIVITY_SERVICE );  
+   final NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();    
+   return networkInfo != null &amp;&amp; networkInfo.isConnected();
+}
+</code></pre>
+
+<p>PS: This does not ping any host, it just checks the connectionstatus, so if your router has no internet connection and your device is connected to it this method would return <strong>true</strong> although you have no internet.<br />
+For an actual test I would recommend execuding a HttpHead request <em>(e.g. to www.google.com)</em> and check the status, if its <strong>200 OK</strong> everything is fine and your device has an internet connection.</p>

@@ -1,0 +1,5 @@
+Display display = getActivity().getWindowManager().getDefaultDisplay(); 
+int screenWidth = display.getWidth();
+int screenHeight = display.getHeight();
+Log.d(""Tag"", ""Getting Width >> "" + screenWidth);
+Log.d(""Tag"", ""Getting Height >> "" + screenHeight);

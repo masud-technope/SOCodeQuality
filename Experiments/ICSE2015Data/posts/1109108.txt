@@ -1,0 +1,9 @@
+<p>You can force Android to hide the virtual keyboard using the <a href=""http://developer.android.com/reference/android/view/inputmethod/InputMethodManager.html"">InputMethodManager</a>, calling <a href=""http://developer.android.com/reference/android/view/inputmethod/InputMethodManager.html#hideSoftInputFromWindow%28android.os.IBinder,%20int%29""><code>hideSoftInputFromWindow</code></a>, passing in the token of the window containing your edit field.</p>
+
+<pre><code>EditText myEditText = (EditText) findViewById(R.id.myEditText);  
+InputMethodManager imm = (InputMethodManager)getSystemService(
+      Context.INPUT_METHOD_SERVICE);
+imm.hideSoftInputFromWindow(myEditText.getWindowToken(), 0);
+</code></pre>
+
+<p>This will force the keyboard to be hidden in all situations. In some cases you will want to pass in <code>InputMethodManager.HIDE_IMPLICIT_ONLY</code> as the second parameter to ensure you only hide the keyboard when the user didn't explicitly force it to appear (by holding down menu).</p>

@@ -1,0 +1,25 @@
+<p>Above answers work for different scenario's but  <strong>If you want to hide the keyboard inside a view and struggling to get the right context try this:</strong></p>
+
+<pre><code>setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideSoftKeyBoardOnTabClicked(v);
+     }
+}
+
+private void hideSoftKeyBoardOnTabClicked(View v) {
+        if (v != null &amp;&amp; context!=null) {
+            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(v.getApplicationWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+</code></pre>
+
+<p>and to get the context fetch it from constructor:) </p>
+
+<pre><code>public View/RelativeLayout/so and so (Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        this.context = context;
+        init();
+    }
+</code></pre>

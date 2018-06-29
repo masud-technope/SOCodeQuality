@@ -1,0 +1,22 @@
+<p>You can use android BUNDLE to do this.</p>
+
+<p>Create a Bundle from your class like:</p>
+
+<pre><code>public Bundle toBundle() {
+    Bundle b = new Bundle();
+    b.putString(""SomeKey"", ""SomeValue"");
+
+    return b;
+}
+</code></pre>
+
+<p>Then pass this bundle with INTENT.
+Now you can recreate your class object by passing bundle like</p>
+
+<pre><code>public CustomClass(Context _context, Bundle b) {
+    context = _context;
+    classMember = b.getString(""SomeKey"");
+}
+</code></pre>
+
+<p>Declare this in your Custom class and use.</p>

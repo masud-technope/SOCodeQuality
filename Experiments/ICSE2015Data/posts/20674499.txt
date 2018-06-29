@@ -1,0 +1,32 @@
+<p>You can also go this way</p>
+
+<p>In xml :</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;WebView  
+xmlns:android=""http://schemas.android.com/apk/res/android""
+android:id=""@+id/webView1""
+android:layout_width=""fill_parent""
+android:layout_height=""fill_parent"" /&gt;
+</code></pre>
+
+<p>In java code :</p>
+
+<pre><code>public class WebViewActivity extends Activity {
+
+private WebView webView;
+
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.webview);
+
+    webView = (WebView) findViewById(R.id.webView1);
+    webView.getSettings().setJavaScriptEnabled(true);
+    webView.loadUrl(""http://www.google.com"");
+
+ }
+
+}
+</code></pre>
+
+<p>In Manifest dont forget to add internet permission...  </p>

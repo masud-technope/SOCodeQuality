@@ -1,0 +1,8 @@
+<p>For a uri you could use</p>
+
+<pre><code>                android:inputType=""textUri""
+                android:lines=""1""
+                android:maxLength=""128""
+</code></pre>
+
+<p>Otherwise android:inputType=""textPersonName"" as mentioned above works for other EditText such user name, etc.</p>

@@ -1,0 +1,15 @@
+<p>Another way to filter on system apps (works with the example above):</p>
+
+<pre><code>/**
+ * Return whether the given PackgeInfo represents a system package or not.
+ * User-installed packages (Market or otherwise) should not be denoted as
+ * system packages.
+ * 
+ * @param pkgInfo
+ * @return
+ */
+private boolean isSystemPackage(PackageInfo pkgInfo) {
+    return ((pkgInfo.applicationInfo.flags &amp; ApplicationInfo.FLAG_SYSTEM) != 0) ? true
+            : false;
+}
+</code></pre>

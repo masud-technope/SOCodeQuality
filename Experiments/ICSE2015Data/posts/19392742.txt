@@ -1,0 +1,12 @@
+<p>This is a common problem on Android that has been solved in many ways by many people.  In my opinion the best solution I've seen is the relatively new library called <a href=""http://square.github.io/picasso/"">Picasso</a>.  Here are the highlights:</p>
+
+<ul>
+<li>Open source, but headed up by <code>Jake Wharton</code> of <a href=""http://actionbarsherlock.com/"">ActionBarSherlock</a> fame.</li>
+<li>Asynchronously load images from network or app resources with one line of code</li>
+<li>Automatic <code>ListView</code> detection</li>
+<li>Automatic disk and memory caching</li>
+<li>Can do custom transformations</li>
+<li>Lots of configurable options</li>
+<li>Super simple API</li>
+<li>Frequently updated</li>
+</ul>

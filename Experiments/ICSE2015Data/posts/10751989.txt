@@ -1,0 +1,28 @@
+<p>This is a method, where you don't have to override the EditText class. You just catch and replace the newlines with empty strings.</p>
+
+<pre><code>myEditTextObject.addTextChangedListener(new TextWatcher() {
+
+
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        public void beforeTextChanged(CharSequence s, int start, int count,
+                int after) {
+
+        }
+
+        public void afterTextChanged(Editable s) {
+            for(int i = s.length(); i &gt;= 0; i--){
+
+                if(s.subSequence(i-1, i).toString().equals(""\n""))
+                     s.replace(i-1, i, """");
+
+            }
+
+
+        }
+    });
+</code></pre>
+
+<p>This solution was created in collaboration with Mobile Identity: <a href=""http://www.mobile-identity.com/"" rel=""nofollow"">http://www.mobile-identity.com/</a></p>

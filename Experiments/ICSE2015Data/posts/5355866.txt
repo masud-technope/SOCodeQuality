@@ -1,0 +1,10 @@
+<p>If you have jetty (server or client) libs on your classpath you can use the jetty util classes (see <a href=""http://download.eclipse.org/jetty/stable-7/apidocs/org/eclipse/jetty/util/package-summary.html"">javadoc</a>), e.g.:</p>
+
+<pre><code>import org.eclipse.jetty.util.*;
+URL url = new URL(""www.example.com/index.php?foo=bar&amp;bla=blub"");
+MultiMap&lt;String&gt; params = new MultiMap&lt;String&gt;();
+UrlEncoded.decodeTo(url.getQuery(), params, ""UTF-8"");
+
+assert params.getString(""foo"").equals(""bar"");
+assert params.getString(""bla"").equals(""blub"");
+</code></pre>

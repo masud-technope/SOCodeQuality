@@ -1,0 +1,51 @@
+<p>While calling an activity </p>
+
+<pre><code>Intent intent = new Intent(fromClass.this,toClass.class).putExtra(""myCustomerObj"",customerObj);
+</code></pre>
+
+<p>In toClass.java receive the activity by </p>
+
+<pre><code>Customer customerObjInToClass = getIntent().getExtras().getParcelable(""myCustomerObj"");
+</code></pre>
+
+<p>make sure that customer class implements parcelable</p>
+
+<pre><code>public class Customer implements Parcelable {
+
+    private String firstName, lastName, Address;
+    int Age;
+
+    /* all your getter and setter methods */
+
+    public Customer(Parcel in ) {
+        readFromParcel( in );
+    }
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public LeadData createFromParcel(Parcel in ) {
+            return new Customer( in );
+        }
+
+        public Customer[] newArray(int size) {
+            return new Customer[size];
+        }
+    };
+
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeString(firstName);
+        dest.writeString(lastName);
+        dest.writeString(Address);
+        dest.writeInt(Age);
+    }
+
+    private void readFromParcel(Parcel in ) {
+
+        firstName = in .readString();
+        lastName = in .readString();
+        Address = in .readString();
+        Age = in .readInt();
+    }
+</code></pre>

@@ -1,0 +1,12 @@
+<p>To get and show the user's current location, you could also use <code>MyLocationOverlay</code>. Suppose you have a <code>mapView</code> field in your activity. All you would need to do to show the user location is the following:</p>
+
+<pre><code>myLocationOverlay = new MyLocationOverlay(this, mapView);
+myLocationOverlay.enableMyLocation();
+mapView.getOverlays().add(myLocationOverlay);
+</code></pre>
+
+<p>This gets the current location from either the GPS or the network. If both fail, <code>enableMyLocation()</code> will return <code>false</code>.</p>
+
+<p>As for the locations of things around the area, an <code>ItemizedOverlay</code> should do the trick.</p>
+
+<p>I hope I haven't misunderstood your question. Good luck.</p>

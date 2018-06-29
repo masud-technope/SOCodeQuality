@@ -1,0 +1,9 @@
+<p>A short code version...</p>
+
+<pre><code> if (!strUrl.startsWith(""http://"") &amp;&amp; !strUrl.startsWith(""https://"")){
+     strUrl= ""http://"" + strUrl;
+ }
+
+
+ startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(strUrl)));
+</code></pre>

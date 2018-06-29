@@ -1,0 +1,3 @@
+<p>This will work on a device but not the emulator per <a href=""http://stackoverflow.com/a/599119/50776"">Lemmy's answer</a>.</p>
+
+<p><code>startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(""http://www.youtube.com/watch?v=cxLG2wtE7TM"")));</code></p>

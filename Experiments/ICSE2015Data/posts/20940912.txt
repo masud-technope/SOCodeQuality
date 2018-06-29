@@ -1,0 +1,30 @@
+<p>The problem with using a selector for an ImageView is that you can only set it as the view's background - as long as your image is opaque, you will not see the selector's effect behind it.</p>
+
+<p>The trick is to wrap your ImageView in a FrameLayout with the attribute <a href=""http://developer.android.com/reference/android/widget/FrameLayout.html#attr_android%3aforeground""><code>android:foreground</code></a> which allows us to define an <em>overlay</em> for its content. If we set <a href=""http://developer.android.com/reference/android/widget/FrameLayout.html#attr_android%3aforeground""><code>android:foreground</code></a>to a selector (e.g.<code>?android:attr/selectableItemBackground</code> for API level 11+) and attach the <code>OnClickListener</code> to the FrameLayout instead of the ImageView, the image will be overlaid with our selector's drawable - the click effect we desire!</p>
+
+<p>Behold:</p>
+
+<pre><code>&lt;FrameLayout
+    android:id=""@+id/imageButton""
+    android:layout_width=""match_parent""
+    android:layout_height=""match_parent""
+    android:foreground=""?android:attr/selectableItemBackground"" &gt;
+
+    &lt;ImageView
+        android:layout_width=""match_parent""
+        android:layout_height=""match_parent""
+        android:src=""@drawable/yourImageFile"" /&gt;
+
+&lt;/FrameLayout&gt;
+</code></pre>
+
+<p>(Note this should be placed within your parent layout.)</p>
+
+<pre><code>final View imageButton = findViewById(R.id.imageButton);
+imageButton.setOnClickListener(new OnClickListener(){
+    @Override
+    public void onClick(View view) {
+        // do whatever we wish!
+    }
+});
+</code></pre>

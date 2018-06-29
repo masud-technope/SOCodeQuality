@@ -1,0 +1,11 @@
+<p>I just ran into this issue a couple minutes ago. I solved it by doing a better job at managing my listview adapter. I thought it was an issue with the hundreds of 50x50px images I was using, turns out I was trying to inflate my custom view each time the row was being shown. Simply by testing to see if the row had been inflated I eliminated this error, and I am using hundreds of bitmaps. This is actually for a Spinner, but the base adapter works all the same for a ListView. This simple fix also greatly improved the performance of the adapter.  </p>
+
+<pre><code>@Override
+public View getView(final int position, View convertView, final ViewGroup parent) {
+
+    if(convertView == null){
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        convertView = inflater.inflate(R.layout.spinner_row, null);
+    }
+...
+</code></pre>

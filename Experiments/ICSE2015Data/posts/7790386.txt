@@ -1,0 +1,10 @@
+<p>If you use <code>this.requestWindowFeature(Window.FEATURE_NO_TITLE)</code> user will still be able to see the title bar just for a moment during launch animation when activity starts through <code>onCreate</code>. If you use <code>@android:style/Theme.Black.NoTitleBar</code> as shown below then title bar won't be shown during launch animation.</p>
+
+<pre><code>&lt;activity 
+    android:name="".MainActivity"" 
+    android:label=""My App""
+    android:theme=""@android:style/Theme.Black.NoTitleBar""
+    android:screenOrientation=""portrait""&gt;
+</code></pre>
+
+<p>above example will obviously override your existing application theme, if you have existing theme then add <code>&lt;item name=""android:windowNoTitle""&gt;true&lt;/item&gt;</code> to it. </p>

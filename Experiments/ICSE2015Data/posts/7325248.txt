@@ -1,0 +1,4 @@
+<p>In your current Activity, create a new Intent:</p>
+
+<pre><code>Intent i = new Intent(getApplicationContext(), NewActivity.class);
+i.putExtra(""new_variable_name"

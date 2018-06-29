@@ -1,0 +1,41 @@
+<p>If you use getResources().getConfiguration().orientation on some devices you will get it wrong. We used that approach initially in <a href=""http://apphance.com"">http://apphance.com</a>. Thanks to remote logging of Apphance we could see it on different devices and we saw that fragmentation plays its role here. 
+I saw weird cases: for example alternating portrait and square(?!) on HTC Desire HD:</p>
+
+<pre><code>CONDITION[17:37:10.345] screen: rotation: 270 orientation: square
+CONDITION[17:37:12.774] screen: rotation: 0 orientation: portrait
+CONDITION[17:37:15.898] screen: rotation: 90
+CONDITION[17:37:21.451] screen: rotation: 0
+CONDITION[17:38:42.120] screen: rotation: 270 orientation: square
+</code></pre>
+
+<p>or not changing orientation at all:</p>
+
+<pre><code>CONDITION[11:34:41.134] screen: rotation: 0
+CONDITION[11:35:04.533] screen: rotation: 90
+CONDITION[11:35:06.312] screen: rotation: 0
+CONDITION[11:35:07.938] screen: rotation: 90
+CONDITION[11:35:09.336] screen: rotation: 0
+</code></pre>
+
+<p>On the other hand, width() and height() is always correct (it is used by window manager, so it should better be). I'd say the best idea is to do the width/height checking ALWAYS. If you think about a moment, this is exactly what you want - to know if width is smaller than height (portrait), the opposite (landscape) or if they are the same (square).</p>
+
+<p>Then it comes down to this simple code:</p>
+
+
+
+<pre class=""lang-java prettyprint-override""><code>public int getScreenOrientation()
+{
+    Display getOrient = getWindowManager().getDefaultDisplay();
+    int orientation = Configuration.ORIENTATION_UNDEFINED;
+    if(getOrient.getWidth()==getOrient.getHeight()){
+        orientation = Configuration.ORIENTATION_SQUARE;
+    } else{ 
+        if(getOrient.getWidth() &lt; getOrient.getHeight()){
+            orientation = Configuration.ORIENTATION_PORTRAIT;
+        }else { 
+             orientation = Configuration.ORIENTATION_LANDSCAPE;
+        }
+    }
+    return orientation;
+}
+</code></pre>

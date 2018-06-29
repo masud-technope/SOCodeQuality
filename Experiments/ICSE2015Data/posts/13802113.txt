@@ -1,0 +1,37 @@
+<p>This should help on your activity ...</p>
+
+<pre><code>void printSecreenInfo(){
+
+    Display display = getWindowManager().getDefaultDisplay();
+    DisplayMetrics metrics = new DisplayMetrics();
+    display.getMetrics(metrics);
+
+    Log.i(TAG, ""density :"" +  metrics.density);
+
+    // density interms of dpi
+    Log.i(TAG, ""D density :"" +  metrics.densityDpi);
+
+    // horizontal pixel resolution
+    Log.i(TAG, ""width pix :"" +  metrics.widthPixels);
+
+     // actual horizontal dpi
+    Log.i(TAG, ""xdpi :"" +  metrics.xdpi);
+
+    // actual vertical dpi
+    Log.i(TAG, ""ydpi :"" +  metrics.ydpi);
+
+}
+</code></pre>
+
+<p>OUTPUT : </p>
+
+<pre><code>I/test( 1044): density :1.0
+
+I/test( 1044): D density :160
+
+I/test( 1044): width pix :800
+
+I/test( 1044): xdpi :160.0
+
+I/test( 1044): ydpi :160.42105
+</code></pre>

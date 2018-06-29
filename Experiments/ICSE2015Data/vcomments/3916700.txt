@@ -1,0 +1,4 @@
+Thanks for your reply, you are right, it works. but I have different issue. I am not loading an image, loading the webpage in the webview, So how to find out the webpage width (PIC_WIDTH).
+What is PIC_WIDTH here ?
+PIC_WIDTH was a constant that I knew beforehand, since I was just displaying a single image from the assets folder. As I said above, I don't know how you can get the width of the actual webpage.
+Only this solution works fine on Android 4.4.

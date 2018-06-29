@@ -1,0 +1,30 @@
+<p>I found the following to work nicely for me.  It doesn't loop and accounts for both height and width.  Note that it is important to specify the PX unit when calling setTextSize on the view.   Thanks to the tip in a previous post for this! </p>
+
+<pre><code>Paint paint = adjustTextSize(getPaint(), numChars, maxWidth, maxHeight);
+setTextSize(TypedValue.COMPLEX_UNIT_PX,paint.getTextSize());
+</code></pre>
+
+<p>Here is the routine I use, passing in the getPaint() from the view.  A 10 character string with a 'wide' character is used to estimate the width independent from the actual string.</p>
+
+<pre><code>private static final String text10=""OOOOOOOOOO"";
+public static Paint adjustTextSize(Paint paint, int numCharacters, int widthPixels, int heightPixels) {
+    float width = paint.measureText(text10)*numCharacters/text10.length();
+    float newSize = (int)((widthPixels/width)*paint.getTextSize());
+    paint.setTextSize(newSize);
+
+    // remeasure with font size near our desired result
+    width = paint.measureText(text10)*numCharacters/text10.length();
+    newSize = (int)((widthPixels/width)*paint.getTextSize());
+    paint.setTextSize(newSize);
+
+    // Check height constraints
+    FontMetricsInt metrics = paint.getFontMetricsInt();
+    float textHeight = metrics.descent-metrics.ascent;
+    if (textHeight &gt; heightPixels) {
+        newSize = (int)(newSize * (heightPixels/textHeight));
+        paint.setTextSize(newSize);
+    }
+
+    return paint;
+}
+</code></pre>

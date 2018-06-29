@@ -1,0 +1,27 @@
+<p>I have resolved the same issue in the following manner.</p>
+
+<pre><code>Bitmap b = null;
+        Drawable d;
+        ImageView i = new ImageView(mContext);
+        try 
+        {
+            b = Bitmap.createBitmap(320,424,Bitmap.Config.RGB_565);
+            b.eraseColor(0xFFFFFFFF);
+            Rect r = new Rect(0, 0,320 , 424);
+            Canvas c = new Canvas(b);
+            Paint p = new Paint();
+            p.setColor(0xFFC0C0C0);
+            c.drawRect(r, p);
+            d = mContext.getResources().getDrawable(mImageIds[position]);
+            d.setBounds(r);
+            d.draw(c);
+
+         /*   BitmapFactory.Options o2 = new BitmapFactory.Options();
+            o2.inTempStorage = new byte[128*1024];
+            b = BitmapFactory.decodeStream(mContext.getResources().openRawResource(mImageIds[position]), null, o2);
+            o2.inSampleSize=16;
+            o2.inPurgeable = true;*/
+        }
+        catch (Exception e){}
+        i.setImageBitmap(b);
+</code></pre>

@@ -1,0 +1,39 @@
+<p>I got the same problem for spinner, with an empty selection, and I found a better solution. Have a look at this simple code.</p>
+
+<pre><code>Spinner lCreditOrDebit = (Spinner)lCardPayView.findViewById(R.id.CARD_TYPE);
+spinneradapter lAdapter = 
+  new spinneradapter(
+    BillPayScreen.this, 
+    ndroid.R.layout.simple_spinner_item,getResources().getStringArray(R.array.creditordebit));
+lAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+lCreditOrDebit.setAdapter(lAdapter);
+</code></pre>
+
+<p>Here spinneradapter is a small customization for arrayadapter. It looks like this:</p>
+
+<pre><code>import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+
+public class spinneradapter extends ArrayAdapter&lt;String&gt;{
+    private Context m_cContext;
+    public spinneradapter(Context context,int textViewResourceId, String[] objects) {
+        super(context, textViewResourceId, objects);
+        this.m_cContext = context;
+    }
+
+    boolean firsttime = true;
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if(firsttime){
+            firsttime = false;
+            //Just return some empty view
+            return new ImageView(m_cContext);
+        }
+        //Let the array adapter take care of it this time.
+        return super.getView(position, convertView, parent);
+    }
+}
+</code></pre>

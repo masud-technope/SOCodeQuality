@@ -1,0 +1,15 @@
+<pre><code>float density = context.getResources().getDisplayMetrics().density;
+float px = someDpValue * density;
+float dp = somePxValue / density;
+</code></pre>
+
+<p><code>density</code> equals</p>
+
+<ul>
+<li><code>.75</code> on <code>ldpi</code> (<code>120</code> dpi) </li>
+<li><code>1.0</code> on <code>mdpi</code> (<code>160</code> dpi; baseline)</li>
+<li><code>1.5</code> on <code>hdpi</code> (<code>240</code> dpi)</li>
+<li><code>2.0</code> on <code>xhdpi</code> (<code>320</code> dpi) </li>
+<li><code>3.0</code> on <code>xxhdpi</code> (<code>480</code> dpi) </li>
+<li><code>4.0</code> on <code>xxxhdpi</code> (<code>640</code> dpi) </li>
+</ul>

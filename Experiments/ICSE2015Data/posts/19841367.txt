@@ -1,0 +1,17 @@
+<p>Follow the methods below :: </p>
+
+<pre><code>    public static int getWidthScreen(Context context) {
+        return getDisplayMetrics(context).widthPixels;
+    }
+
+    public static int getHeightScreen(Context context) {
+        return getDisplayMetrics(context).heightPixels;
+    }
+
+    private static DisplayMetrics getDisplayMetrics(Context context) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics;
+    }
+</code></pre>

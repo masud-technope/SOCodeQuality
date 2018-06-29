@@ -1,0 +1,6 @@
+<p>For a servlet or a JSP page you can get querystring key/value pairs by using request.getParameter(""paramname"")</p>
+
+<pre><code>String name = request.getParameter(""name"");
+</code></pre>
+
+<p>There are other ways of doing it but that's the way I do it in all the servlets and jsp pages that I create.</p>

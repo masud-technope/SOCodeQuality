@@ -1,0 +1,5 @@
+<p>I wrote a blog post about this.</p>
+
+<p>I created a component called <code>ResizableButton</code> based on Kirill Grouchnikov's <a href=""http://www.pushing-pixels.org/2010/12/16/meet-the-green-goblin-part-4.html"">blog post</a> about custom components used in the new android market app. I placed the src code <a href=""http://android-argentina.blogspot.com/2011/01/resizablebutton.html"">here</a>.</p>
+
+<p>On the other hand, <a href=""http://twitter.com/mosabua"">mosabua</a> read my post and told me he was going to open source his implementation which was faster than mine. I hope he release it soon enough :)</p>

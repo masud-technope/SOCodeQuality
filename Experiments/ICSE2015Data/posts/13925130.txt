@@ -1,0 +1,99 @@
+<p>As of November 13th 2012, repacing fragments in a ViewPager seems to have become a lot easier. Google released Android 4.2 with support for nested fragments, and it's also supported in the new <a href=""http://developer.android.com/tools/extras/support-library.html"">Android Support Library v11</a> so this will work all the way back to 1.6</p>
+
+<p>It's very similiar to the normal way of replacing a fragment except you use getChildFragmentManager. It seems to work except the <a href=""http://stackoverflow.com/questions/13706228/nested-fragments-and-the-back-stack"">nested fragment backstack isn't popped</a> when the user clicks the back button. As per the solution in that linked question, you need to manually call the popBackStackImmediate() on the child manager of the fragment. So you need to override onBackPressed() of the ViewPager activity where you'll get the current fragment of the ViewPager and call getChildFragmentManager().popBackStackImmediate() on it.</p>
+
+<p>Getting the Fragment currently being displayed is a bit hacky as well, I used this <a href=""http://stackoverflow.com/a/7393477/467509"">dirty ""android:switcher:VIEWPAGER_ID:INDEX"" solution</a> but you can also keep track of all fragments of the ViewPager yourself as explained in the second solution <a href=""http://tamsler.blogspot.nl/2011/11/android-viewpager-and-fragments-part-ii.html"">on this page</a>.</p>
+
+<p>So here's my code for a ViewPager with 4 ListViews with a detail view shown in the ViewPager when the user clicks a row, and with the back button working. I tried to include just the relevant code for the sake of brevity so leave a comment if you want the full app uploaded to GitHub.</p>
+
+<p>HomeActivity.java</p>
+
+<pre><code> public class HomeActivity extends SherlockFragmentActivity {
+FragmentAdapter mAdapter;
+ViewPager mPager;
+TabPageIndicator mIndicator;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
+    mAdapter = new FragmentAdapter(getSupportFragmentManager());
+    mPager = (ViewPager)findViewById(R.id.pager);
+    mPager.setAdapter(mAdapter);
+    mIndicator = (TabPageIndicator)findViewById(R.id.indicator);
+    mIndicator.setViewPager(mPager);
+}
+
+// This the important bit to make sure the back button works when you're nesting fragments. Very hacky, all it takes is some Google engineer to change that ViewPager view tag to break this in a future Android update.
+@Override
+public void onBackPressed() {
+    Fragment fragment = (Fragment) getSupportFragmentManager().findFragmentByTag(""android:switcher:"" + R.id.pager + "":""+mPager.getCurrentItem());
+    if (fragment != null) // could be null if not instantiated yet
+    {
+        if (fragment.getView() != null) {
+            // Pop the backstack on the ChildManager if there is any. If not, close this activity as normal.
+            if (!fragment.getChildFragmentManager().popBackStackImmediate()) {
+                finish();
+            }
+        }
+    }
+}
+
+class FragmentAdapter extends FragmentPagerAdapter {        
+    public FragmentAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        switch (position) {
+        case 0:
+            return ListProductsFragment.newInstance();
+        case 1:
+            return ListActiveSubstancesFragment.newInstance();
+        case 2:
+            return ListProductFunctionsFragment.newInstance();
+        case 3:
+            return ListCropsFragment.newInstance();
+        default:
+            return null;
+        }
+    }
+
+    @Override
+    public int getCount() {
+        return 4;
+    }
+
+ }
+}
+</code></pre>
+
+<p>ListProductsFragment.java</p>
+
+<pre><code>public class ListProductsFragment extends SherlockFragment {
+private ListView list;
+
+public static ListProductsFragment newInstance() {
+    ListProductsFragment f = new ListProductsFragment();
+    return f;
+}
+
+@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    View V = inflater.inflate(R.layout.list, container, false);
+    list = (ListView)V.findViewById(android.R.id.list);
+    list.setOnItemClickListener(new OnItemClickListener() {
+        public void onItemClick(AdapterView&lt;?&gt; parent, View view,
+            int position, long id) {
+          // This is important bit
+          Fragment productDetailFragment = FragmentProductDetail.newInstance();
+          FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+          transaction.addToBackStack(null);
+          transaction.replace(R.id.products_list_linear, productDetailFragment).commit();
+        }
+      });       
+    return V;
+}
+}
+</code></pre>

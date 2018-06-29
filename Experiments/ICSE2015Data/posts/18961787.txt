@@ -1,0 +1,34 @@
+<p>This isn't exactly the answer, but it's a solution that is similar. It may help people who were in the same boat as I was.</p>
+
+<p>My image, an application logo, had a transparent background, and I was applying an XML gradient as the image background. I added the necessary padding/margins to the imageView in XML, then added this as my background:</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+</code></pre>
+
+
+
+<p></p>
+
+<pre><code>&lt;item&gt;
+
+    &lt;shape&gt;
+
+        &lt;gradient
+            android:type=""linear""
+            android:startColor=""@color/app_color_light_background""
+            android:endColor=""@color/app_color_disabled""
+            android:angle=""90""
+        /&gt;
+
+        &lt;!-- Round the top corners. --&gt;
+        &lt;corners
+            android:topLeftRadius=""@dimen/radius_small""
+            android:topRightRadius=""@dimen/radius_small""
+        /&gt;
+
+    &lt;/shape&gt;
+
+&lt;/item&gt;
+</code></pre>
+
+<p></p>

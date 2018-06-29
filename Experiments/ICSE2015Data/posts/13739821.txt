@@ -1,0 +1,1 @@
+<p>Arrays in Java are not <em>dynamic</em>, you can use an <code>ArrayList</code> instead.</p>

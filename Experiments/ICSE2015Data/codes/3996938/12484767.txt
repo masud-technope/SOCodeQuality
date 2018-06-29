@@ -1,0 +1,23 @@
+@Override
+        public View getView(final int position, View convertView, ViewGroup parent) 
+        {
+
+            CheckedTextView retView = (CheckedTextView) convertView;
+...
+            retView.setOnClickListener(new View.OnClickListener() 
+            {
+                public void onClick(View v)
+                {
+                    CheckedTextView chkVw = (CheckedTextView) v; 
+//                  chkVw.toggle();
+//                  chkVw.setChecked(!chkVw.isChecked());
+                    mLstVwWordingSets.setItemChecked(position + 1, !chkVw.isChecked());
+                }
+            });
+       }
+SparseBooleanArray checkedItemsArray = mLstVwWordingSets.getCheckedItemPositions();
+        for (int i = 1; i <  mLstVwWordingSets.getCount(); i++)         //skip the header view
+        {
+            if (checkedItemsArray.get(i, false))
+                Log.d(_TAG, ""checked item: "" + i);
+        }

@@ -1,0 +1,10 @@
+<p>thanks for your help but I am afraid it still doesnt work. 
+if i add the line you suggested, it underlines ""getItemAtPosition"" and says: 
+--The method getItemAtPosition(int) is undefined for the type View--</p>
+
+<p>He suggests to cast the view to a AdapterView, so it looks the following:</p>
+
+<pre><code>String s = ((TextView) ((AdapterView&lt;ListAdapter&gt;) view).getItemAtPosition(info.position)).getText();
+</code></pre>
+
+<p>When i run this and make a long click on the item, i recieve an ""ClassCastException""</p>

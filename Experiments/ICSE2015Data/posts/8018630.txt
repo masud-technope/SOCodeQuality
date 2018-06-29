@@ -1,0 +1,8 @@
+<p>You can request a soft keyboard right after creating the dialog (test onlatest SDK - r20)</p>
+
+<pre><code>// create dialog
+final AlertDialog dialog = ...; 
+
+// request keyboard   
+dialog.getWindow().setSoftInputMode (WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+</code></pre>

@@ -1,0 +1,21 @@
+<p>Try this i am 100% sure this will work fine:-
+//just put conversion address here for delete whole conversion by address(don't forgot to add read,write permission in mainfest)
+Here is Code:</p>
+
+<p>String address=""put address only"";</p>
+
+<pre><code>Cursor c = getApplicationContext().getContentResolver().query(Uri.parse(""content://sms/""), new String[] { ""_id"", ""thread_id"", ""address"", ""person"",
+                                                                      ""date"", ""body"" }, null, null, null);
+
+    try {
+        while (c.moveToNext()) {
+            int id = c.getInt(0);
+            String address = c.getString(2);
+            if(address.equals(address)){
+            getApplicationContext().getContentResolver().delete(Uri.parse(""content://sms/"" + id), null, null);}
+        }
+
+    }catch(Exception e){
+
+    }
+</code></pre>

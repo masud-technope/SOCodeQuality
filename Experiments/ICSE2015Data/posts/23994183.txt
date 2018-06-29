@@ -1,0 +1,17 @@
+<p>1.to get the drawable from the resources </p>
+
+<pre><code>Bitmap icon = BitmapFactory.decodeResource(mContext.getResources(),
+            R.drawable.index);
+</code></pre>
+
+<p>2.get the image from the url</p>
+
+<pre><code>String urlString =  ""http://your image url"";
+URL url  = new URL(urlString);
+ImageView imageView = (ImageView)findViewById(R.id.userImage);
+if (imageView != null) {
+Bitmap bmIcon =
+    BitmapFactory.decodeStream(url_url.openConnection().getInputStream());
+imageView.setImageBitmap(bmIcon);
+}
+</code></pre>

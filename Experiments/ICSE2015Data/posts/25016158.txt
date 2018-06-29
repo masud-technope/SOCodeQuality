@@ -1,0 +1,9 @@
+<p>Before launching your new Activity, simply add the following code:</p>
+
+<pre><code>finishAffinity();
+</code></pre>
+
+<p>Or if you want it to work in previous versions of Android:</p>
+
+<pre><code>ActivityCompat.finishAffinity(this);
+</code></pre>

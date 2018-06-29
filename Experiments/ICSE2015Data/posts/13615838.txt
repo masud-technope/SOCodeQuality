@@ -1,0 +1,16 @@
+<p>On Android, I tried using @diyism answer but I encountered the space character issue raised by @rpetrich, for example:
+I fill out a form where <code>username = ""us+us""</code> and <code>password = ""pw pw""</code> causing a URL string to look like:</p>
+
+<pre><code>http://somewhere?username=us%2Bus&amp;password=pw+pw
+</code></pre>
+
+<p>However, @diyism code returns <code>""us+us""</code> and <code>""pw+pw""</code>, i.e. it doesn't detect the space character. If the URL was rewritten with <code>%20</code> the space character gets identified:</p>
+
+<pre><code>http://somewhere?username=us%2Bus&amp;password=pw%20pw
+</code></pre>
+
+<p>This leads to the following fix:</p>
+
+<pre><code>Uri uri = Uri.parse(url_string.replace(""+"", ""%20""));
+uri.getQueryParameter(""para1"");
+</code></pre>

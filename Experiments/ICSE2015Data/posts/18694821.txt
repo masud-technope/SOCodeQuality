@@ -1,0 +1,16 @@
+<p>For who is searching for <em>usable screen dimension</em> without <strong>Status Bar</strong> and <strong>Action Bar</strong> (also thanks to Swapnil's answer):</p>
+
+<pre><code>DisplayMetrics dm = getResources().getDisplayMetrics();
+float screen_w = dm.widthPixels;
+float screen_h = dm.heightPixels;
+
+int resId = getResources().getIdentifier(""status_bar_height"", ""dimen"", ""android"");
+if (resId &gt; 0) {
+    screen_h -= getResources().getDimensionPixelSize(resId);
+}
+
+TypedValue typedValue = new TypedValue();
+if(getTheme().resolveAttribute(android.R.attr.actionBarSize, typedValue, true)){
+    screen_h -= getResources().getDimensionPixelSize(typedValue.resourceId);
+}
+</code></pre>

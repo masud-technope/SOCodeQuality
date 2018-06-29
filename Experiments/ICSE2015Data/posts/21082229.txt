@@ -1,0 +1,15 @@
+<p>Unique device ID of Android OS Device as String.</p>
+
+<pre><code>String deviceId;
+    final TelephonyManager mTelephony = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        if (mTelephony.getDeviceId() != null){
+            deviceId = mTelephony.getDeviceId(); 
+         }
+        else{
+            deviceId = Secure.getString(getApplicationContext().getContentResolver(),   Secure.ANDROID_ID); 
+         }
+</code></pre>
+
+<p>but I strngly recommend this method suggested by Google::</p>
+
+<p><a href=""http://android-developers.blogspot.mx/2011/03/identifying-app-installations.html"" rel=""nofollow"">Identifying App Installations</a></p>

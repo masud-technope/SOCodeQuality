@@ -1,0 +1,14 @@
+<p>Need to say, that if you are not in <code>Activity</code>, but in <code>View</code> (or have variable of <code>View</code> type in your scope), there is not need to use <code>WINDOW_SERVICE</code>. Then you can use at least two ways.</p>
+
+<p>First:</p>
+
+<pre><code>DisplayMetrics dm = yourView.getContext().getResources().getDisplayMetrics();
+</code></pre>
+
+<p>Second:</p>
+
+<pre><code>DisplayMetrics dm = new DisplayMetrics();
+yourView.getDisplay().getMetrics(dm);
+</code></pre>
+
+<p>All this methods we call here is not deprecated.</p>

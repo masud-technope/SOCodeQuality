@@ -1,0 +1,15 @@
+<p>I would wrap the getSize code like this:</p>
+
+<pre><code>@SuppressLint(""NewApi"")
+public static Point getScreenSize(Activity a) {
+    Point size = new Point();
+    Display d = a.getWindowManager().getDefaultDisplay();
+    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB) {
+        d.getSize(size);
+    } else {
+        size.x = d.getWidth();
+        size.y = d.getHeight();
+    }
+    return size;
+}
+</code></pre>

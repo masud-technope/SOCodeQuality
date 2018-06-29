@@ -1,0 +1,10 @@
+<p>This would give the current date and time:</p>
+
+<pre><code>public String getCurrDate()
+{
+    String dt;
+    Date cal = Calendar.getInstance().getTime();
+    dt = cal.toLocaleString();
+    return dt;
+}
+</code></pre>

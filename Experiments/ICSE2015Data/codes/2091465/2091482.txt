@@ -1,0 +1,3 @@
+Intent intent = new Intent(getBaseContext(), SignoutActivity.class);
+intent.putExtra(""EXTRA_SESSION_ID"", sessionId);
+startActivity(intent)

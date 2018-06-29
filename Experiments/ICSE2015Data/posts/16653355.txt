@@ -1,0 +1,13 @@
+<p>Tried all here in desperation, combining all methods,  and of course the keyboard will not close in Android 4.0.3 (it did work in Honeicomb AFAIR).</p>
+
+<p>Then suddenly I found an apparently winning combination:</p>
+
+<pre><code>textField.setRawInputType(InputType.TYPE_CLASS_TEXT |InputType.TYPE_TEXT_VARIATION_NORMAL);
+</code></pre>
+
+<p>combined with your usual recipes</p>
+
+<pre><code>blahblaj.hideSoftInputFromWindow ...
+</code></pre>
+
+<p>hope this stops somebody from committing suicide .. I was close to it. Of course, I have no idea why it works.</p>

@@ -1,0 +1,64 @@
+<p>To replace a fragment inside a ViewPager you can move source codes of ViewPager, PagerAdapter and FragmentStatePagerAdapter classes into your project and add following code.</p>
+
+<p>into ViewPager:</p>
+
+<pre><code>public void notifyItemChanged(Object oldItem, Object newItem) {
+    if (mItems != null) {
+            for (ItemInfo itemInfo : mItems) {
+                        if (itemInfo.object.equals(oldItem)) {
+                                itemInfo.object = newItem;
+                        }
+                    }
+       }
+       invalidate();
+    }
+</code></pre>
+
+<p>into FragmentStatePagerAdapter:</p>
+
+<pre><code>public void replaceFragmetns(ViewPager container, Fragment oldFragment, Fragment newFragment) {
+       startUpdate(container);
+
+       // remove old fragment
+
+       if (mCurTransaction == null) {
+            mCurTransaction = mFragmentManager.beginTransaction();
+        }
+       int position = getFragmentPosition(oldFragment);
+        while (mSavedState.size() &lt;= position) {
+            mSavedState.add(null);
+        }
+        mSavedState.set(position, null);
+        mFragments.set(position, null);
+
+        mCurTransaction.remove(oldFragment);
+
+        // add new fragment
+
+        while (mFragments.size() &lt;= position) {
+            mFragments.add(null);
+        }
+        mFragments.set(position, newFragment);
+        mCurTransaction.add(container.getId(), newFragment);
+
+       finishUpdate(container);
+
+       // ensure getItem returns newFragemtn after calling handleGetItemInbalidated()
+       handleGetItemInbalidated(container, oldFragment, newFragment);
+
+       container.notifyItemChanged(oldFragment, newFragment);
+    }
+
+protected abstract void handleGetItemInbalidated(View container, Fragment oldFragment, Fragment newFragment);
+protected abstract int  getFragmentPosition(Fragment fragment);
+</code></pre>
+
+<p>handleGetItemInbalidated() ensures that after next call of getItem() it return newFragment
+getFragmentPosition() returns position of the fragment in your adapter.</p>
+
+<p>Now, to replace fragments call </p>
+
+<pre><code>mAdapter.replaceFragmetns(mViewPager, oldFragment, newFragment);
+</code></pre>
+
+<p>If you interested in an example project ask me for the sources.</p>

@@ -1,0 +1,111 @@
+<p>There are couple of ways by which you can  access variables or object in other classes or Activity.</p>
+
+<p>A. Database </p>
+
+<p>B. shared preferences.</p>
+
+<p>C. Object serialization.</p>
+
+<p>D. A class which can hold common data can be named as Common Utilities it depends on you.</p>
+
+<p>E. Passing data through Intents and Parcelable Interface.</p>
+
+<p>It depend upon your project needs.</p>
+
+<p>A. <strong>Database</strong></p>
+
+<p>SQLite is an Open Source Database which is embedded into Android. SQLite supports standard relational database features like SQL syntax, transactions and prepared statements. </p>
+
+<p>Tutorials -- <a href=""http://www.vogella.com/articles/AndroidSQLite/article.html"" rel=""nofollow"">http://www.vogella.com/articles/AndroidSQLite/article.html</a></p>
+
+<p>B. <strong>Shared Preferences</strong></p>
+
+<p>Suppose you want to store username. So there will be now two thing a <strong>Key</strong> Username, <strong>Value</strong> Value.</p>
+
+<p><strong>How to store</strong></p>
+
+<pre><code> // Create object of SharedPreferences.
+ SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+ //now get Editor
+ SharedPreferences.Editor editor = sharedPref.edit();
+ //put your value
+ editor.putString(""userName"", ""stackoverlow"");
+
+ //commits your edits
+ editor.commit();
+</code></pre>
+
+<p><em>Using putString(),putBoolean(),putInt(),putFloat(),putLong() you can save your desired dtatype.</em></p>
+
+<p><strong>How to fetch</strong></p>
+
+<pre><code>SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+String userName = sharedPref.getString(""userName"", ""Not Available"");
+</code></pre>
+
+<p><a href=""http://developer.android.com/reference/android/content/SharedPreferences.html"" rel=""nofollow"">http://developer.android.com/reference/android/content/SharedPreferences.html</a></p>
+
+<p>C. <strong>Object Serialization</strong></p>
+
+<p>Object serlization is used if we want to save an object state to send it over network or you can use it for your purpose also.</p>
+
+<p>Use java beans and store in it as one of his fields and use getters and setter for that</p>
+
+<p>JavaBeans are Java classes that have properties. Think of
+properties as private instance variables. Since they're private, the only way
+they can be accessed from outside of their class is through methods in the class. The
+methods that change a property's value are called setter methods, and the methods
+that retrieve a property's value are called getter methods. </p>
+
+<pre><code>public class VariableStorage implements Serializable  {
+
+    private String inString ;
+
+    public String getInString() {
+        return inString;
+    }
+
+    public void setInString(String inString) {
+        this.inString = inString;
+    }
+
+
+}
+</code></pre>
+
+<p>Set the variable in you mail method by using</p>
+
+<pre><code>VariableStorage variableStorage = new VariableStorage();
+variableStorage.setInString(inString);
+</code></pre>
+
+<p>Then use object Serialzation to serialize this object and in your other class deserialize this object.</p>
+
+<p>In serialization an object can be represented as a sequence of bytes that includes the object's data as well as information about the object's type and the types of data stored in the object.</p>
+
+<p>After a serialized object has been written into a file, it can be read from the file and deserialized that is, the type information and bytes that represent the object and its data can be used to recreate the object in memory.</p>
+
+<p>If you want tutorial for this refer this link</p>
+
+<p><a href=""http://javawithswaranga.blogspot.in/2011/08/serialization-in-java.html"" rel=""nofollow"">http://javawithswaranga.blogspot.in/2011/08/serialization-in-java.html</a></p>
+
+<p><a href=""http://stackoverflow.com/questions/15999934/get-variable-in-other-classes/16000005#16000005"">Get variable in other classes</a></p>
+
+<p>D. <strong>CommonUtilities</strong></p>
+
+<p>You can make a class by your self which can contain common data which you frequently need in your project.</p>
+
+<p><strong>Sample</strong></p>
+
+<pre><code>public class CommonUtilities {
+
+    public static String className = ""CommonUtilities"";
+
+}
+</code></pre>
+
+<p>E. <strong>Passing Data through Intents</strong></p>
+
+<p>Please refer this tutorial for this option of passing data.</p>
+
+<p><a href=""http://shri.blog.kraya.co.uk/2010/04/26/android-parcel-data-to-pass-between-activities-using-parcelable-classes/"" rel=""nofollow"">http://shri.blog.kraya.co.uk/2010/04/26/android-parcel-data-to-pass-between-activities-using-parcelable-classes/</a></p>

@@ -1,0 +1,16 @@
+<p>I have found nice example at <a href=""http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html"" rel=""nofollow"">docs.oracle.com</a> how to get file extension that return file type extension in lower case or null if there isn't file extension:</p>
+
+<pre><code>    /*
+     * Get the extension of a file.
+     */
+    public static String getExtension(File f) {
+        String ext = null;
+        String s = f.getName();
+        int i = s.lastIndexOf('.');
+
+        if (i &gt; 0 &amp;&amp; i &lt; s.length() - 1) {
+            ext = s.substring(i + 1).toLowerCase();
+        }
+        return ext;
+    }
+</code></pre>

@@ -1,0 +1,17 @@
+<p>The other answers that use ConnectivityManager are wrong because having a network connection doesn't mean you have internet access. For example, you might be at a coffee shop with a WiFi captive portal. To actually check yor internet you have to try to connect to an actual server. Normally when you'd want to this you have a specific server in mind that you want to connect to, so go ahead and check if you can connect to that server. Here's a simple method for checking connectivity to a server.</p>
+
+<pre><code>private boolean isOnTheInternet() {
+    try {
+        URLConnection urlConnection = new URL(""http://yourserver"").openConnection();
+        urlConnection.setConnectTimeout(400);
+        urlConnection.connect();
+        return true;
+    } catch (Exception e) {
+        return false;
+    }
+}
+</code></pre>
+
+<p>The reason for setting the ConnectTimeout is that otherwise it defaults to the TCP timeout which can be many seconds long. </p>
+
+<p>Note also that Android won't let you run this on your main thread. </p>

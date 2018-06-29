@@ -1,0 +1,19 @@
+<p>This worked for me!</p>
+
+<pre><code>public Bitmap readAssetsBitmap(String filename) throws IOException {
+        try {
+            BitmapFactory.Options options = new BitmapFactory.Options(); 
+            options.inPurgeable = true;
+            Bitmap bitmap = BitmapFactory.decodeStream(assets.open(filename), null, options);
+            if(bitmap == null) {
+                throw new IOException(""File cannot be opened: It's value is null"");
+            }
+            else {
+                return bitmap;
+            }
+        } catch (IOException e) {
+            throw new IOException(""File cannot be opened: "" + e.getMessage());
+        }
+
+    }
+</code></pre>

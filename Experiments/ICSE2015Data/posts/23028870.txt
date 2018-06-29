@@ -1,0 +1,7 @@
+<p>I had still error with null pointer and finally it helped when I called first getWindow().requestFeature() and then super.onCreate() </p>
+
+<pre><code>public void onCreate(Bundle savedInstanceState) {
+getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+super.onCreate(savedInstanceState);
+getActionBar().show();
+</code></pre>

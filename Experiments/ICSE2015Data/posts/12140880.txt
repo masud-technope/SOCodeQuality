@@ -1,0 +1,125 @@
+<p>Inspired by the previous posters I wanted to share my solution. It works with a scale factor which is applied to the previous font size to make it fit the available space. In addition to prevent unexpected behaviour of TextViews onDraw method, it simply draws the text on its own.</p>
+
+<pre><code>public class FontFitTextView extends TextView {
+
+    // How much of the available space should be used in percent.
+    private static final float MARGINHEIGHT = 0.8f;
+    private static final float MARGINWIDTH = 0.8f;
+
+    private Paint paint;
+    private int viewWidth;
+    private int viewHeight;
+    private float textHeight;
+    private float textWidth;
+
+    public FontFitTextView(Context c) {
+        this(c, null);
+    }
+
+    public FontFitTextView(Context c, AttributeSet attrs) {
+        super(c, attrs);
+        initComponent();
+    }
+
+    // Default constructor override
+    public FontFitTextView(Context c, AttributeSet attrs, int defStyle) {
+        super(c, attrs, defStyle);
+        initComponent();
+    }
+
+    private void initComponent() {
+        paint = new Paint();
+        paint.setTextSize(30);
+        paint.setTextAlign(Align.CENTER);
+        paint.setAntiAlias(true);
+    }
+
+    public void setFontColor(int c) {
+        paint.setColor(c);
+    }
+
+    private void calcTextSize(String s, Canvas c) {
+
+        float availableHeight = viewHeight;
+        float availableWidth = viewWidth;
+
+        // This value scales the old font up or down to match the available
+        // space.
+        float scale = 1.0f;
+
+        // Rectangle for measuring the text dimensions
+        Rect rect = new Rect();
+        float oldFontSize = paint.getTextSize();
+
+        // Calculate the space used with old font size
+        paint.getTextBounds(s, 0, s.length(), rect);
+        textWidth = rect.width();
+        textHeight = rect.height();
+
+        // find scale-value to fit the text horizontally
+        float scaleWidth = 1f;
+        if (textWidth &gt; 0.0f) {
+            scaleWidth = (availableWidth) / textWidth * MARGINWIDTH;
+        }
+
+        // find scale-value to fit the text vertically
+        float scaleHeight = 1f;
+        if (textHeight &gt; 0.0f) {
+            scaleHeight = (availableHeight) / textHeight * MARGINHEIGHT;
+        }
+
+        // We are always limited by the smaller one
+        if (scaleWidth &lt; scaleHeight) {
+            scale = scaleWidth;
+        } else {
+            scale = scaleHeight;
+        }
+
+        // We apply the scale to the old font size to make it bigger or smaller
+        float newFontSize = (oldFontSize * scale);
+        paint.setTextSize(newFontSize);
+    }
+
+    /**
+     * Calculates the origin on the Y-Axis (width) for the text in this view.
+     * 
+     * @return
+     */
+    private float calcStartDrawingPosX() {
+        float left = getMeasuredWidth();
+        float centerY = left - (viewWidth / 2);
+        return centerY;
+    }
+
+    /**
+     * Calculates the origin on the Y-Axis (height) for the text in this view.
+     * 
+     * @return
+     */
+    private float calcStartDrawingPosY() {
+        float bottom = getMeasuredHeight();
+        // The paint only centers horizontally, origin on the Y-Axis stays at
+        // the bottom, thus we have to lift the origin additionally by the
+        // height of the font.
+        float centerX = bottom - (viewHeight / 2) + (textHeight / 2);
+        return centerX;
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        String text = getText().toString();
+        if (text.length() &gt; 0) {
+            calcTextSize(text, canvas);
+            canvas.drawText(text, calcStartDrawingPosX(),
+                    calcStartDrawingPosY(), paint);
+        }
+    };
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        viewWidth = w;
+        viewHeight = h;
+        super.onSizeChanged(w, h, oldw, oldh);
+    }
+}
+</code></pre>

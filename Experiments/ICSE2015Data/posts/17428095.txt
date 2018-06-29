@@ -1,0 +1,10 @@
+<p>This is how it works for me:</p>
+
+<pre><code> DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+       int  h = displaymetrics.heightPixels;
+       float  d = displaymetrics.density;
+       int heightInPixels=(int) (h/d);
+</code></pre>
+
+<p>You can do the same for the width.</p>

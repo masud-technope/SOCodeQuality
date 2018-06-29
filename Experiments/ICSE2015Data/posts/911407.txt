@@ -1,0 +1,10 @@
+<p>I think an <a href=""http://developer.android.com/reference/android/text/InputFilter.html""><code>InputFilter</code></a> that rejects all changes is a good solution:</p>
+
+<pre><code>editText.setFilters(new InputFilter[] {
+    new InputFilter() {
+    	public CharSequence filter(CharSequence src, int start,
+    		int end, Spanned dst, int dstart, int dend) {
+    		return src.length() &lt; 1 ? dst.subSequence(dstart, dend) : """";
+    	}
+    }
+});</code></pre>

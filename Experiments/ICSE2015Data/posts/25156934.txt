@@ -1,0 +1,12 @@
+<p>if edittext is empty than use  setError method </p>
+
+<pre><code>EditText txtUserName = (EditText) findViewById(R.id.txtUsername);
+String strUserName = usernameEditText.getText().toString();
+
+ if(TextUtils.isEmpty(strUserName) {
+    txtUserName.setError(""Your message"");
+    return;
+ }
+</code></pre>
+
+<p><img src=""http://i.stack.imgur.com/qdhpK.jpg"" alt=""enter image description here""></p>

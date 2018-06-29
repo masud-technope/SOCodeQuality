@@ -1,0 +1,16 @@
+<p>I use this method, that uses <code>trim()</code> to avoid blank spaces :</p>
+
+<pre><code>EditText myEditText = (EditText) findViewById(R.id.editUsername);
+if ("""".equals(myEditText.getText().toString().trim()) {
+    Toast.makeText(this, ""You did not enter a value!"", Toast.LENGTH_LONG).show();
+    return;
+}
+</code></pre>
+
+<p>an example if you have several EditText´s</p>
+
+<pre><code>if (("""".equals(edtUser.getText().toString().trim()) || """".equals(edtPassword.getText().toString().trim()))){
+        Toast.makeText(this, ""a value is missing!"", Toast.LENGTH_LONG).show();
+        return;
+}
+</code></pre>

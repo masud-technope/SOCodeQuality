@@ -1,0 +1,16 @@
+<p>to convert Pixels to dp use the <a href=""http://developer.android.com/reference/android/util/TypedValue.html"" rel=""nofollow"">TypedValue</a> . </p>
+
+<p>As the documentation mentioned : Container for a dynamically typed data value . </p>
+
+<p>and use the <a href=""http://developer.android.com/reference/android/util/TypedValue.html#applyDimension%28int,%20float,%20android.util.DisplayMetrics%29"" rel=""nofollow"">applyDimension</a> method : </p>
+
+<pre><code>public static float applyDimension (int unit, float value, DisplayMetrics metrics) 
+</code></pre>
+
+<p>which Converts an unpacked complex data value holding a dimension to its final floating point value like the following : </p>
+
+<pre><code>Resources resource = getResources();
+float dp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 69, resource.getDisplayMetrics());
+</code></pre>
+
+<p>Hope that Helps .</p>

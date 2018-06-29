@@ -1,0 +1,5 @@
+How would I do it using the AlertDialog.Builder? final AlertDialog.Builder alert = new AlertDialog.Builder(Main.this);
+Doesn't work for me - Nexus S. Tried before and after the show().
+@Stephen you can get the dialog from the builder by using `final AlertDialog dialog = builder.create()` and then `show`on the dialog instead of the builder.
+**I RETRACT MY COMMENT ABOVE** I found out that if you can't get the focus right, take a look at your XML! If you see the tag *<requestFocus></requestFocus>* in there - remove it. It seems like the tag will give focus to the EditText, and then your listener will not be fired as the EditText already has focus.
+How do you not do this if the device has a hardware keyboard? Seems like this is annoying for those users.

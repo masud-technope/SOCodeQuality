@@ -1,0 +1,8 @@
+<p>I too used the solution gyller suggests that involves ""initiating"" the listview</p>
+
+<p><code>ListView lv = getListView();
+ for (int i = 0; i &lt; lv.getCount(); i++) {
+     lv.setItemChecked(i, false);
+ }</code></p>
+
+<p>before calling getCheckItemPositions(), and it stopped producing erroneous results!</p>

@@ -1,0 +1,23 @@
+<p>I had the same problem. Immediately after editText VISABILITY change from GONE to VISIBLE, I had to set the focus and display the soft keyboard. I achieved this using the following code:</p>
+
+<pre><code>        (new Handler()).postDelayed(new Runnable() {
+
+            public void run() {
+//              ((EditText) findViewById(R.id.et_find)).requestFocus();
+//              
+                EditText yourEditText= (EditText) findViewById(R.id.et_find);
+//              InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//              imm.showSoftInput(yourEditText, InputMethodManager.SHOW_IMPLICIT);
+
+                yourEditText.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN , 0, 0, 0));
+                yourEditText.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP , 0, 0, 0));                       
+
+            }
+        }, 200);
+</code></pre>
+
+<p>It works for me with 100ms delay, but failed without any delay or with only a delay of 1ms. </p>
+
+<p>Commented part of code shows another approach, which works only on some devices. I tested on OS versions 2.2 (emulator), 2.2.1 (real device) and 1.6 (emulator).</p>
+
+<p>This approach saved me a lot of pain.</p>

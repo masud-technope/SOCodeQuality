@@ -1,0 +1,125 @@
+<p>I found the EndCallListener the most functional example, to get the behaviour described (finish(), call, restart)  I added a few  SharedPreferences so the Listener had a reference to manage this behaviour. </p>
+
+<p>My OnClick, initialise and EndCallListener only respond to calls from app.  Other calls ignored.</p>
+
+<pre><code>import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
+import android.util.Log;
+
+public class EndCallListener extends PhoneStateListener {
+
+private String TAG =""EndCallListener"";
+private int     LAUNCHED = -1;
+
+SharedPreferences prefs = PreferenceManager
+                            .getDefaultSharedPreferences(
+                                myActivity.mApp.getBaseContext());
+
+SharedPreferences.Editor _ed = prefs.edit();
+
+@Override
+    public void onCallStateChanged(int state, String incomingNumber) {
+    String _prefKey = myActivity.mApp                          
+                      .getResources().getString(R.string.last_phone_call_state_key),
+    _bPartyNumber = myActivity.mApp                           
+                      .getResources().getString(R.string.last_phone_call_bparty_key);
+
+    int mLastCallState = prefs.getInt(_prefKey, LAUNCHED);
+
+    //Save current call sate for next call
+    _ed.putInt(_prefKey,state);
+    _ed.commit();
+
+        if(TelephonyManager.CALL_STATE_RINGING == state) {
+            Log.i(TAG, "" &gt;&gt; RINGING, number: "" + incomingNumber);
+        }
+        if(TelephonyManager.CALL_STATE_IDLE == state &amp;&amp; mLastCallState != LAUNCHED ) {
+            //when this state occurs, and your flag is set, restart your app
+
+            if (incomingNumber.equals(_bPartyNumber) == true) {
+                //Call relates to last app initiated call
+            Intent  _startMyActivity =  
+               myActivity.mApp                               
+               .getPackageManager()                                  
+               .getLaunchIntentForPackage(
+                 myActivity.mApp.getResources()
+                 .getString(R.string.figjam_package_path));
+
+_startMyActivity.setAction(                                     
+        myActivity.mApp.getResources()
+        .getString(R.string.main_show_phone_call_list));
+
+                myActivity.mApp
+                        .startActivity(_startMyActivity);
+                Log.i(TAG, ""IDLE &gt;&gt; Starting MyActivity with intent"");
+            }
+            else
+                Log.i(TAG, ""IDLE after calling ""+incomingNumber);
+
+        }
+
+    }
+}
+</code></pre>
+
+<p>add these to strings.xml</p>
+
+<pre><code>&lt;string name=""main_show_phone_call_list""&gt;android.intent.action.SHOW_PHONE_CALL_LIST&lt;/string&gt;
+&lt;string name=""last_phone_call_state_key""&gt;activityLpcsKey&lt;/string&gt;
+&lt;string name=""last_phone_call_bparty_key""&gt;activityLpbpKey&lt;/string&gt;
+</code></pre>
+
+<p>and something like this in your Manifest if you need to return to the look and feel before the call</p>
+
+<pre><code>  &lt;activity android:label=""@string/app_name"" android:name=""com.myPackage.myActivity"" 
+      android:windowSoftInputMode=""stateHidden""
+        android:configChanges=""keyboardHidden"" &gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name=""android.intent.action.MAIN"" /&gt;
+            &lt;action android:name=""android.intent.action.SHOW_PHONE_CALL_LIST"" /&gt;
+            &lt;category android:name=""android.intent.category.LAUNCHER"" /&gt;
+        &lt;/intent-filter&gt;
+  &lt;/activity&gt;
+</code></pre>
+
+<p>and put these in your 'myActivity'</p>
+
+<pre><code>public static Activity mApp=null; //Before onCreate()
+  ...
+onCreate( ... ) {
+  ...
+if (mApp == null) mApp = this; //Links your resources to other classes
+  ...
+    //Test if we've been called to show phone call list
+    Intent _outcome = getIntent();
+    String _phoneCallAction = mApp.getResources().getString(R.string.main_show_phone_call_list);
+    String _reqAction = _outcome.getAction();//Can be null when no intent involved
+
+         //Decide if we return to the Phone Call List view
+         if (_reqAction != null &amp;&amp;_reqAction.equals(_phoneCallAction) == true) {
+                         //DO something to return to look and feel
+         }
+
+  ...
+        myListView.setOnItemClickListener(new OnItemClickListener() { //Act on item when selected
+             @Override
+             public void onItemClick(AdapterView&lt;?&gt; a, View v, int position, long id) {
+
+                 myListView.moveToPosition(position);
+                 String _bPartyNumber = ""tel:""+myListView.getString(myListView.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)); 
+
+                 //Provide an initial state for the listener to access.
+                 initialiseCallStatePreferences(_bPartyNumber);
+
+                 //Setup the listener so we can restart myActivity
+                    EndCallListener _callListener = new EndCallListener();
+                    TelephonyManager _TM = (TelephonyManager)mApp.getSystemService(Context.TELEPHONY_SERVICE);
+
+                    _TM.listen(_callListener, PhoneStateListener.LISTEN_CALL_STATE);
+
+                         Intent _makeCall = new Intent(Intent.ACTION_CALL, Uri.parse(_bPartyNumber));
+
+                 _makeCall.setComponent(new ComponentName(""com.android.phone"

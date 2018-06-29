@@ -1,0 +1,59 @@
+<p>In one of my application i need to take picture either from <code>Camera/Gallery</code>. If user click image from Camera(may be 2MP, 5MP or 8MP), image size varies from <code>kB</code>s to <code>MB</code>s. If image size is less(or up to 1-2MB) above code working fine but if i have image of size above 4MB or 5MB then <code>OOM</code> comes in frame :(</p>
+
+<p>then i have worked to solve this issue &amp; finally i've made the below improvement to Fedor's(All Credit to Fedor for making such a nice solution) code :)</p>
+
+<pre><code>private Bitmap decodeFile(String fPath) {
+    // Decode image size
+    BitmapFactory.Options opts = new BitmapFactory.Options();
+    /*
+     * If set to true, the decoder will return null (no bitmap), but the
+     * out... fields will still be set, allowing the caller to query the
+     * bitmap without having to allocate the memory for its pixels.
+     */
+    opts.inJustDecodeBounds = true;
+    opts.inDither = false; // Disable Dithering mode
+    opts.inPurgeable = true; // Tell to gc that whether it needs free
+                                // memory, the Bitmap can be cleared
+    opts.inInputShareable = true; // Which kind of reference will be used to
+                                    // recover the Bitmap data after being
+                                    // clear, when it will be used in the
+                                    // future
+
+    BitmapFactory.decodeFile(fPath, opts);
+
+    // The new size we want to scale to
+    final int REQUIRED_SIZE = 70;
+
+    // Find the correct scale value. 
+    int scale = 1;
+
+    if (opts.outHeight &gt; REQUIRED_SIZE || opts.outWidth &gt; REQUIRED_SIZE) {
+
+        // Calculate ratios of height and width to requested height and width
+        final int heightRatio = Math.round((float) opts.outHeight
+                / (float) REQUIRED_SIZE);
+        final int widthRatio = Math.round((float) opts.outWidth
+                / (float) REQUIRED_SIZE);
+
+        // Choose the smallest ratio as inSampleSize value, this will guarantee
+        // a final image with both dimensions larger than or equal to the
+        // requested height and width.
+        scale = heightRatio &lt; widthRatio ? heightRatio : widthRatio;//
+    }
+
+    // Decode bitmap with inSampleSize set
+    opts.inJustDecodeBounds = false;
+
+    opts.inSampleSize = scale;
+
+    Bitmap bm = BitmapFactory.decodeFile(fPath, opts).copy(
+            Bitmap.Config.RGB_565, false);
+
+    return bm;
+
+}
+</code></pre>
+
+<p>I hope this will help the buddies facing the same problem!</p>
+
+<p>for more please refer <a href=""http://developer.android.com/training/displaying-bitmaps/load-bitmap.html""><em>this</em></a></p>

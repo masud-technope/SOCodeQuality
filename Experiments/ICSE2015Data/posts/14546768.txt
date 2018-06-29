@@ -1,0 +1,14 @@
+<p>Best approach:</p>
+
+<pre><code>public static boolean isOnline() {
+    try {
+    InetAddress.getByName(""google.com"").isReachable(3);
+
+    return true;
+    } catch (UnknownHostException e){
+    return false;
+    } catch (IOException e){
+    return false;
+    }
+    }
+</code></pre>

@@ -1,0 +1,10 @@
+<p>Its better to use the _id and thread_id to delete a message.</p>
+
+<p>Thread_id is something assigned to the messages coming from same user.
+So, if you use only thread_id, all the messages from the sender will get deleted.</p>
+
+<p>If u use the combination of _id, thread_id, then it will delete the exact message you are looking to delete.</p>
+
+<pre><code>Uri thread = Uri.parse( ""content://sms"");
+int deleted = contentResolver.delete( thread, ""thread_id=? and _id=?"", new String[]{String.valueOf(thread_id), String.valueOf(id)} );
+</code></pre>

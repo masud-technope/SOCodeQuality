@@ -1,0 +1,24 @@
+<p>I often has this problem when my apps handle orientation change.</p>
+
+<p>In that case I use the following kind of code:</p>
+
+<pre><code>@Override
+protected void onCreate(Bundle savedInstanceState) {
+    ...
+    // to avoid the scrollview to scroll to this element automatically
+    mEditTextSearch.setFocusable(false);
+    // Get the saved scroll position
+    final int scrolly = savedInstanceState.getInt(""scrolly"");
+    mScrollView.post(new Runnable() {
+        @Override
+        public void run() {
+            mScrollView.scrollTo(0, scrolly);
+            // Restore the initial state of the EditText
+            mEditTextSearch.setFocusable(true);
+            mEditTextSearch.setFocusableInTouchMode(true);
+            mEditTextSearch.setClickable(true);
+        }
+    });
+    ...
+}
+</code></pre>

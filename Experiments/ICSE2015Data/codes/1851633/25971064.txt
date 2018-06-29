@@ -1,0 +1,50 @@
+public void add_btn() {
+
+    lin_btn.setWeightSum(3f);
+    for (int j = 0; j < 3; j++) {
+        LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(
+                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        params1.setMargins(10, 0, 0, 10);
+        params1.weight = 1.0f;
+
+        LinearLayout ll;
+        ll = new LinearLayout(this);
+        ll.setGravity(Gravity.CENTER_VERTICAL);
+        ll.setOrientation(LinearLayout.HORIZONTAL);
+        ll.setLayoutParams(params1);
+
+        final Button btn;
+        btn = new Button(DynamicActivity.this);
+
+        btn.setText(""A""+(j+1));
+        btn.setTextSize(15);
+        btn.setId(j);
+        btn.setPadding(10, 8, 10, 10);
+
+        ll.addView(btn);
+
+        lin_btn.addView(ll);
+
+
+        btn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(v.getId()==0)
+                {
+                    txt_text.setText(""Hii"");
+                }else if(v.getId()==1)
+                {
+                    txt_text.setText(""hello"");
+                }else if(v.getId()==2)
+                {
+                    txt_text.setText(""how r u"");
+                }
+
+
+
+            }
+        });
+    }
+
+}

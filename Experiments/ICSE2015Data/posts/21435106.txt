@@ -1,0 +1,42 @@
+<p>I improved upon the answer by Teo Inke. It no longer rotates the image unless it is actually necessary. It is also easier to read, and should run faster.</p>
+
+<pre><code>// Load Image
+Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+
+// Rotate Image if Needed
+try
+{
+    // Determine Orientation
+    ExifInterface exif = new ExifInterface(filePath);
+    int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+
+    // Determine Rotation
+    int rotation = 0;
+    if      (orientation == 6)      rotation = 90;
+    else if (orientation == 3)      rotation = 180;
+    else if (orientation == 8)      rotation = 270;
+
+    // Rotate Image if Necessary
+    if (rotation != 0)
+    {
+        // Create Matrix
+        Matrix matrix = new Matrix();
+        matrix.postRotate(rotation);
+
+        // Rotate Bitmap
+        Bitmap rotated = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true); 
+
+        // Pretend none of this ever happened!
+        bitmap.recycle();
+        bitmap = rotated;
+        rotated = null;
+     }
+}
+catch (Exception e)
+{
+    // TODO: Log Error Messages Here
+}
+
+// TODO: Use Result Here
+xxx.setBitmap(bitmap);
+</code></pre>

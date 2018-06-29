@@ -1,0 +1,6 @@
+<p><code>showSoftInput</code> was not working for me at all.</p>
+
+<p>I figured I needed to set the input mode: (here in the Activity component in the manifest)</p>
+
+<pre><code>android:windowSoftInputMode=""stateVisible"" 
+</code></pre>

@@ -1,0 +1,24 @@
+<p>So, as an example...</p>
+
+<p>First you need to create an ExifInterface:</p>
+
+<pre><code>ExifInterface exif = new ExifInterface(filename);
+</code></pre>
+
+<p>You can then grab the orientation of the image:</p>
+
+<pre><code>orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+</code></pre>
+
+<p>Here's what the orientation values mean:
+<a href=""http://sylvana.net/jpegcrop/exif_orientation.html"">http://sylvana.net/jpegcrop/exif_orientation.html</a></p>
+
+<p>So, the most important values are 3, 6 and 8.
+If the orientation is 6, for example, you can rotate the image like this:</p>
+
+<pre><code>Matrix matrix = new Matrix();
+matrix.postRotate(90);
+rotatedBitmap = Bitmap.createBitmap(sourceBitmap, 0, 0, sourceBitmap.getWidth(), sourceBitmap.getHeight(), matrix, true);
+</code></pre>
+
+<p>That's just a quick example, though. I'm sure there are other ways of performing the actual rotation. But you will find those on StackOverflow as well.</p>

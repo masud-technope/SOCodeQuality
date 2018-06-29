@@ -1,0 +1,12 @@
+<p>To get al installed apps you can use Package Manager..</p>
+
+<pre><code>    List&lt;PackageInfo&gt; apps = getPackageManager().getInstalledPackages(0);
+</code></pre>
+
+<p>To run you can use package name</p>
+
+<pre><code>Intent LaunchApp = getPackageManager().getLaunchIntentForPackage(â€œpackage nameâ€?)
+startActivity( LaunchApp );
+</code></pre>
+
+<p>For more detail you can read this blog <a href=""http://codebucket.co.in/android-get-list-of-all-installed-apps/"" rel=""nofollow"">http://codebucket.co.in/android-get-list-of-all-installed-apps/</a></p>

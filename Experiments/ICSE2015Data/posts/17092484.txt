@@ -1,0 +1,25 @@
+<p>One important use case on mobile devices to it ensure an actual connection exists. This is a common problem when a mobile user enters a Wifi network with a ""Captive Portal"", in which they need to sign in. I use this blocking function in the background to ensure a connection exists.</p>
+
+<pre><code>/*
+ * Not Thread safe. Blocking thread. Returns true if it
+ * can connect to URL, false and exception is logged.
+ */
+public boolean checkConnectionHttps(String url){
+    boolean responded = false;
+    HttpGet requestTest = new HttpGet(url);
+    HttpParams params = new BasicHttpParams();
+    HttpConnectionParams.setConnectionTimeout(params, 3000);
+    HttpConnectionParams.setSoTimeout(params, 5000);
+    DefaultHttpClient client = new DefaultHttpClient(params);
+    try {
+        client.execute(requestTest);
+        responded = true;
+    } catch (ClientProtocolException e) {
+        Log.w(MainActivity.TAG,""Unable to connect to "" + url + "" "" + e.toString());
+    } catch (IOException e) {
+        Log.w(MainActivity.TAG,""Unable to connect to "" + url + "" "" + e.toString());
+        e.printStackTrace();
+    }
+    return responded;
+}
+</code></pre>

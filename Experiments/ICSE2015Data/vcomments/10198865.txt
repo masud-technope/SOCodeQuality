@@ -1,0 +1,1 @@
+Thanks, have been looking for ages for something like this. Used in for the HorizontalScrollView instead, which (obviously) works as well. Only getScrollY() has to be replaced by getScrollX()

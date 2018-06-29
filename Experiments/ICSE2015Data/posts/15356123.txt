@@ -1,0 +1,17 @@
+<p><strong>dismissDropDown()</strong> works well in an adapter:</p>
+
+<pre><code>        SimpleCursorAdapter autoCompleteAdapter = new SimpleCursorAdapter(this,
+                    android.R.layout.select_dialog_item, null,
+                    new String[] { ContactsContract.Contacts.DISPLAY_NAME },
+                    new int[] { android.R.id.text1 }, 0);
+        mSearchView.setAdapter(autoCompleteAdapter); 
+        autoCompleteAdapter.setFilterQueryProvider(new FilterQueryProvider() {
+            @Override
+            public Cursor runQuery(CharSequence constraint) {
+               mSearchView.dismissDropDown();
+               // return your query code
+            }
+        });
+</code></pre>
+
+<p>Hope it will be helpful. </p>

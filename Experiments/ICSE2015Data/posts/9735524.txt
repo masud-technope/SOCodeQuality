@@ -1,0 +1,18 @@
+<p>May be you can try something like this</p>
+
+<p>Suppose in our application, we have a number of activities(say ten) and we need to exit directly from this activity. What we can do is, create an intent and go to the root activity and set flag in the intent as</p>
+
+<pre><code>intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+</code></pre>
+
+<p>also, add some extra like boolean to the intent</p>
+
+<pre><code>intent.putExtra(""EXIT"", true);
+</code></pre>
+
+<p>Then in root activity, check the value of the <code>boolean</code> and according to that call finish(), in the <code>onCreate()</code> of the root activity</p>
+
+<pre><code>if (getIntent().getBooleanExtra(""EXIT"", false)) {
+ finish();
+}
+</code></pre>

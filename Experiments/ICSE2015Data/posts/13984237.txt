@@ -1,0 +1,27 @@
+<pre><code> // get image path from gallery
+
+    protected void onActivityResult(int requestCode, int resultcode, Intent intent)
+   {
+  super.onActivityResult(requestCode, resultcode, intent);
+
+  if (requestCode == 1)
+  {
+      if (intent != null &amp;&amp; resultcode == RESULT_OK)
+      {             
+
+            Uri selectedImage = intent.getData();
+
+            String[] filePathColumn = {MediaStore.Images.Media.DATA};
+            Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+            cursor.moveToFirst();
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            filePath = cursor.getString(columnIndex);
+
+            //display image using BitmapFactory
+
+            cursor.close(); bmp = BitmapFactory.decodeFile(filepath); 
+            iv.setBackgroundResource(0);
+            iv.setImageBitmap(bmp);
+    }
+}
+</code></pre>

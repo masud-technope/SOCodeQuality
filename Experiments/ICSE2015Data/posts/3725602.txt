@@ -1,0 +1,12 @@
+<pre><code>    Intent intent = new Intent(""android.intent.action.MAIN"");
+    intent.setComponent(ComponentName.unflattenFromString(""com.google.android.maps.mytracks/com.google.android.apps.mytracks.MyTracks""));
+    intent.addCategory(""android.intent.category.LAUNCHER"");
+    startActivity(intent);
+</code></pre>
+
+<p><strong>EDIT :</strong> </p>
+
+<p>as suggested in comments, add one line before <code>startActivity(intent);</code></p>
+
+<pre><code>intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+</code></pre>

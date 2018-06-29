@@ -1,0 +1,76 @@
+<p>Several points to begin with:</p>
+
+<ol>
+<li>You cannot disable the scrolling of a ScrollView. You would need to extend to ScrollView and override the <code>onTouchEvent</code> method to return <code>false</code> when some condition is matched.</li>
+<li>The Gallery component scrolls horizontally regardless of whether it is in a ScrollView or not - a ScrollView provides only vertical scrolling (you need a HorizontalScrollView for horizontal scrolling)</li>
+<li>You seem to say you have a problem with the image stretching itself -- this has nothing to do with the ScrollView, you can change how an ImageView scales with the <code>android:scaleType</code> property (XML) or the <code>setScaleType</code> method - for instance <code>ScaleType.CENTER</code> will not stretch your image and will center it at it's original size </li>
+</ol>
+
+<p>You could modify <code>ScrollView</code> as follows to disable scrolling</p>
+
+<pre><code>class LockableScrollView extends ScrollView {
+
+    ...
+
+    // true if we can scroll (not locked)
+    // false if we cannot scroll (locked)
+    private boolean mScrollable = true;
+
+    public void setScrollingEnabled(boolean enabled) {
+        mScrollable = enabled;
+    }
+
+    public boolean isScrollable() {
+        return mScrollable;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                // if we can scroll pass the event to the superclass
+                if (mScrollable) return super.onTouchEvent(ev);
+                // only continue to handle the touch event if scrolling enabled
+                return mScrollable; // mScrollable is always false at this point
+            default:
+                return super.onTouchEvent(ev);
+        }
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        // Don't do anything with intercepted touch events if 
+        // we are not scrollable
+        if (!mScrollable) return false;
+        else return super.onInterceptTouchEvent(ev);
+    }
+
+}
+</code></pre>
+
+<p>You would then use </p>
+
+<pre><code>&lt;com.mypackagename.LockableScrollView 
+    android:id=""@+id/QuranGalleryScrollView"" 
+    android:layout_height=""fill_parent"" 
+    android:layout_width=""fill_parent""&gt;
+
+    &lt;Gallery android:id=""@+id/Gallery"" 
+        android:layout_width=""fill_parent"" 
+        android:layout_height=""fill_parent""
+        android:scrollbars=""horizontal""&gt;
+    &lt;/Gallery&gt;
+
+&lt;/com.mypackagename.LockableScrollView&gt;
+</code></pre>
+
+<p>in your XML file (just changed the <code>ScrollView</code> to your special <code>LockableScrollView</code>).</p>
+
+<p>Then call</p>
+
+<pre><code>((LockableScrollView)findViewById(R.id.QuranGalleryScrollView)).setIsScrollable(false);
+</code></pre>
+
+<p>to disable scrolling of the view.</p>
+
+<p>I think that you have more than just the issue of disabling scrolling though to achieve your desired result (the gallery will remain scrollable with the above code for instance) - I'd recommend doing some more research on each of the three components (Gallery, ScrollView, ImageView) to see what properties each one has and how it behaves.</p>

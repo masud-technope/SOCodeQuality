@@ -1,0 +1,30 @@
+public Bitmap loadBitmap(String URL, BitmapFactory.Options options) {
+                Bitmap bitmap = null;
+                InputStream in = null;
+                options.inSampleSize=4;
+                try {
+                    in = OpenHttpConnection(URL);
+                    Log.e(""In====>"", in+"""");
+                    bitmap = BitmapFactory.decodeStream(in, null, options);
+                    Log.e(""URL====>"", bitmap+"""");
+
+                    in.close();
+                } catch (IOException e1) {
+                }
+                return bitmap;
+            }
+try {
+                    BitmapFactory.Options bmOptions;
+                    bmOptions = new BitmapFactory.Options();
+                    bmOptions.inSampleSize = 1;
+                    if(studentImage != null){
+                        galleryThumbnail= loadBitmap(IMAGE_URL+studentImage, bmOptions);    
+                    }
+
+                    galleryThumbnail=getResizedBitmap(galleryThumbnail, imgEditStudentPhoto.getHeight(), imgEditStudentPhoto.getWidth());
+                    Log.e(""Image_Url==>"",IMAGE_URL+studentImage+"""");
+
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }

@@ -1,0 +1,23 @@
+<p>This should be a simple solution:</p>
+
+<pre><code>public void correctWidth(TextView textView, int desiredWidth)
+{
+    Paint paint = new Paint();
+    Rect bounds = new Rect();
+
+    paint.setTypeface(textView.getTypeface());
+    float textSize = textView.getTextSize();
+    paint.setTextSize(textSize);
+    String text = textView.getText().toString();
+    paint.getTextBounds(text, 0, text.length(), bounds);
+
+    while (bounds.width() &gt; desiredWidth)
+    {
+        textSize--;
+        paint.setTextSize(textSize);
+        paint.getTextBounds(text, 0, text.length(), bounds);
+    }
+
+    textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+}
+</code></pre>

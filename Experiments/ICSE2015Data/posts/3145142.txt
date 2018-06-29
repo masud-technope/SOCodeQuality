@@ -1,0 +1,15 @@
+<p>You could always just use <a href=""http://developer.android.com/reference/android/location/LocationManager.html#getLastKnownLocation%28java.lang.String%29"">LocationManager.getLastKnownLocation()</a> but like it says it could be out of date.</p>
+
+<p>And a simple way to get a general location could be registering for the network (usually pretty fast).</p>
+
+<pre><code>LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+locationManager.requestLocationUpdates(
+     LocationManager.NETWORK_PROVIDER, 1000, 1000, this);
+</code></pre>
+
+<p>and then doing</p>
+
+<pre><code>locationManager.removeUpdates(this);
+</code></pre>
+
+<p>in the onLocationChanged() method of the listener.</p>

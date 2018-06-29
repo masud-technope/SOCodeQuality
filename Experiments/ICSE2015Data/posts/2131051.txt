@@ -1,0 +1,18 @@
+<p>If you create a <a href=""http://developer.android.com/reference/java/io/File.html"">File</a> object that wraps the top-level directory you can call it's <a href=""http://developer.android.com/reference/java/io/File.html#mkdirs%28%29"">mkdirs()</a> method to build all the needed directories. Something like:</p>
+
+<pre><code>// create a File object for the parent directory
+File wallpaperDirectory = new File(""/sdcard/Wallpaper/"");
+// have the object build the directory structure, if needed.
+wallpaperDirectory.mkdirs();
+// create a File object for the output file
+File outputFile = new File(wallpaperDirectory, filename);
+// now attach the OutputStream to the file object, instead of a String representation
+FileOutputStream fos = new FileOutputStream(outputFile);
+</code></pre>
+
+<p><strong>Note:</strong> It might be wise to use <a href=""http://developer.android.com/reference/android/os/Environment.html#getExternalStorageDirectory%28%29"">Environment.getExternalStorageDirectory()</a> for getting the ""SD Card"" directory as this might change if a phone comes along which has something other than an SD Card (such as built-in flash, a'la the iPhone). Either way you should keep in mind that you need to check to make sure it's actually there as the SD Card may be removed.</p>
+
+<p><strong>UPDATE:</strong> Since API Level 4 (1.6) you'll also have to request the permission. Something like this (in the manifest) should work:</p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.WRITE_EXTERNAL_STORAGE"" /&gt;
+</code></pre>

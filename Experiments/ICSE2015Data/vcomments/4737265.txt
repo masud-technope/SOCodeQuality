@@ -1,0 +1,15 @@
+This wasn't working for me until I realized that you must set the following attribute on your activity: android:windowSoftInputMode="adjustResize".
+Seems to be doing the trick. Also, if you don't know the root view's ID, here's how you can get the view: `((ViewGroup) findViewById(android.R.id.content)).getChildAt(0)`
+Your answer to this post helped me greatly but however, since listener gets called everytime(I don't know why) I can't do anything with the layout. For example, I inserted a Toast when Keyboard is showing then the Toast keeps on popping up which means listener is getting called all the time. Is there anyway to stop this? Is this because I implemented listener on the activity not like the way you created it?
+Hi, if your original answer is based on this answer from 2010 { http://stackoverflow.com/questions/3409737/android-soft-keyboard-how-to-manipulate-views-on-keyboard-on-off/3422453#3422453 } then a credit is due. If not, then great minds think alike :)
+increased if (heightDiff > 200) to 200... 100 didnt work for me.
+tested it on QVGA (wildfire etc) devices, works as well.
+If you try this using the **actual** root view (`android.R.id.content`) you will be able to more confidently say that the `System` rather than your application is the entity changing it's height. Would be much safer for the Android team to give us a break and let us know at least basic things about the SoftKeyboard input.
+Beware that `heightDiff` will always include the height of the action bar. In the new answer that has been ignored by testing if that height is greater than some constant, but 100 pixels is not sufficient for xxhdpi devices such as the Nexus 4. Consider converting that value to DPs if you really want to use this hacky work-around.
+At the time this answer was written there was no such thing as an ActionBar.
+@Reuben I have a dialog with EditText need to do the same trick, but when I hide the soft keyboard with the key on it, can't get the global layout event(because the dialog size is not change? ), how could I detect this keyboard hide event? I know the position of the dialog on the screen will change, is it possible to catch that?
+Note that this has nothing really to do with the soft keyboard. Hiding and showing of the system bar equivalent on a Kindle Fire will cause changes in heights as well. I would not be surprised if this caused problems on other vendor-specific scenarios, such as Samsung's multi-window mode. It also makes gross assumptions regarding the size of soft keyboards, which can and do vary (and cannot readily be determined ahead of time by the app). Hence, this reports about UI changes that may or may not be caused by the soft keyboard.
+it is only working for specific types of screen resolution.
+I suggest you use dp and not pixels. I personally use >100dp.
+Notice: not working with WindowManager.LayoutParams.FLAG_FULLSCREEN and with a full screen theme.
+Use (height > 200) for keyboard open even and (height < 200) for keyboard close event.

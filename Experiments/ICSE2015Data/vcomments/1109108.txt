@@ -1,0 +1,16 @@
+Thanks this seems to work great if using 0 as the second parameter. But if I use InputMethodManager.HIDE_IMPLICIT_ONLY the keyboard is never hidden (although i'm not holding down menu). Any hints?
+Cool. Just to clarify, this only dismisses it if present, but won't *prevent* it from popping up, right?
+Of course you will need to set this back.  Please verify how to undo this change.
+did not work for me in 2.3. On one screen I did not have to do anything explicit to not get the keyboard to show up but on another having to do  do it. Joe's comment on this thread actually does the trick. 
+@RetoMeier Can you update this with what versions it works for, and if you can confirm which ones it doesn't?
+Works for me on Android 4.1, but only if you use 0 and not HIDE_IMPLICIT_ONLY. Also it *doesn't* prevent the keyboard from popping up again. I use it with an `EditText` + send button, and when you run it, the `EditText` retains focus and the keyboard is hidden. Then when you tap the `EditText` the keyboard is shown again. Perfect!
+This approach assumes that the specific EditText is not null.  But suppose your user presses the Home button on the device, which invokes the onStop() method.  Then any reference to an EditText can throw a NullPointerException.
+didn't work for me (Samsung Galaxy Ace 2.3.3, HTC Desire HD 2.3.5).
+Does not work for me on 4.1. Everything is so random with Android.
+It does not work if u do not know exactly field owns focus.
+@Merlin: Does not work on a Samsung Galaxy S3. But then again, a lot of other things does not work either.
+S3 here. This works when the keyboard is left open after its job is done, like when you close a dialog. When the focus is still in an EditText, use Garnet's solution.
+It may be helpfully to call editText.clearFocus() before hiding the softInput.
+Calling `editText.clearFocus()` then `InputMethodManager.HIDE_IMPLICIT_ONLY` even works on `4.1`.
+what also can help, is to wrap this code into runnable and postDelayed to getCurrentFocus() View.
+tip: instead of getting your textview, which can be a problem if you don't know which one is focused, you can get the windows token using this: getWindow().getDecorView().getRootView().getWindowToken().

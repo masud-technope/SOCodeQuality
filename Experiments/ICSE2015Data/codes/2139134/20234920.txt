@@ -1,0 +1,76 @@
+package com.hmkcode.android;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends Activity implements OnClickListener {
+
+Button btnPassObject;
+EditText etName, etAge;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    btnPassObject = (Button) findViewById(R.id.btnPassObject);
+    etName = (EditText) findViewById(R.id.etName);
+    etAge = (EditText) findViewById(R.id.etAge);
+
+    btnPassObject.setOnClickListener(this);
+}
+
+@Override
+public void onClick(View view) {
+
+    // 1. create an intent pass class name or intnet action name 
+    Intent intent = new Intent(""com.hmkcode.android.ANOTHER_ACTIVITY"");
+
+    // 2. create person object
+    Person person = new Person();
+    person.setName(etName.getText().toString());
+    person.setAge(Integer.parseInt(etAge.getText().toString()));
+
+    // 3. put person in intent data
+    intent.putExtra(""person"", person);
+
+    // 4. start the activity
+    startActivity(intent);
+}
+
+}
+package com.hmkcode.android;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class AnotherActivity extends Activity {
+
+TextView tvPerson;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    // TODO Auto-generated method stub
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_another);
+
+    // 1. get passed intent 
+    Intent intent = getIntent();
+
+    // 2. get person object from intent
+    Person person = (Person) intent.getSerializableExtra(""person"");
+
+    // 3. get reference to person textView 
+    tvPerson = (TextView) findViewById(R.id.tvPerson);
+
+    // 4. display name & age on textView 
+    tvPerson.setText(person.toString());
+
+}
+}

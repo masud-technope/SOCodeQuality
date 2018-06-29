@@ -1,0 +1,32 @@
+<p>Another way to do it, is through your adapter in a thread in your getView() method :</p>
+
+<pre><code>                        Thread pics_thread = new Thread(new Runnable(){
+
+                            @Override
+                            public void run() {
+
+                            Bitmap bitmap = getPicture(url);
+
+                            if(bitmap!=null){
+
+                                runOnUiThread(new Runnable(){
+
+                                        @Override
+                                        public void run() {
+
+                                        holder.imageview.setImageBitmap(bitmap)
+                                        adapter.notifyDataSetChanged();
+
+                                        }
+
+                                });
+
+                            }
+
+
+                        });
+
+                        pics_thread.start();
+</code></pre>
+
+<p>of course, you should always cache your images to avoid extra operations, you could put your images in a HashMap array, check if the image exists in the array, if not, proceed with the thread or else load the image from you HashMap array. Also always check that you are not leaking memory, bitmaps and drawables are often heavy on memory. It is up to you to optimize your code.</p>

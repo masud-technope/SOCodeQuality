@@ -1,0 +1,15 @@
+<p>None of the answers above worked for me, but I did come up with a horribly ugly workaround that solved the problem. I added a very small, 1x1 pixel image to my project as a resource, and loaded it into my ImageView before calling into garbage collection. I think it might be that the ImageView was not releasing the Bitmap, so GC never picked it up. It's ugly, but it seems to be working for now.</p>
+
+<pre><code>if (bitmap != null)
+{
+  bitmap.recycle();
+  bitmap = null;
+}
+if (imageView != null)
+{
+  imageView.setImageResource(R.drawable.tiny); // This is my 1x1 png.
+}
+System.gc();
+
+imageView.setImageBitmap(...); // Do whatever you need to do to load the image you want.
+</code></pre>

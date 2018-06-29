@@ -1,0 +1,165 @@
+<p>I have seen a lot of questions about OOM exceptions and caching lately. The developer guide has <a href=""http://developer.android.com/training/displaying-bitmaps/cache-bitmap.html"" rel=""nofollow"">a really good article</a> on this, but some tends to fail on implementing it in a suitable way. </p>
+
+<p>Because of this I wrote an example application that demonstrates caching in an Android environment. This implementation has not yet gotten an OOM.</p>
+
+<p>Look at the end of this answer for a link to the source code.</p>
+
+<h2>Requirements:</h2>
+
+<ul>
+<li>Android API 2.1 or higher (I simply could not manage to get the available memory for an application in API 1.6 - that is the only piece of code that doesn't work in API 1.6)</li>
+<li><a href=""http://developer.android.com/tools/extras/support-library.html"" rel=""nofollow"">Android support package</a></li>
+</ul>
+
+<p><img src=""http://i.stack.imgur.com/cjk99.png"" alt=""Screenshot""></p>
+
+<h2>Features:</h2>
+
+<ul>
+<li><em>Retains the cache if there is an orientation change</em>, using a singleton</li>
+<li>Use <em>one eighth</em> of the assigned application memory to the cache (modify if you want) </li>
+<li>Large bitmaps <em>gets scaled</em> (you can define the maximum pixels that you want to allow)</li>
+<li>Controls <em>that there is an internet connection available</em> before downloading the bitmaps</li>
+<li>Makes sure that you are only instantiating <em>one task</em> per row</li>
+<li>If <em>you are flinging</em> the <code>ListView</code> away, it simply won't download the bitmaps between</li>
+</ul>
+
+<h2>This does not include:</h2>
+
+<ul>
+<li>Disk caching. This should be easy to implement anyway - just point to a different task that grabs the bitmaps from the disk</li>
+</ul>
+
+<h2>Sample code:</h2>
+
+<p>The images that are being downloaded are images (75x75) from Flickr. However, put whatever image urls you want to be processed, and the application will scale it down if it exceeds the maximum. In this application the urls are simply in a <code>String</code> array.</p>
+
+<p>The <a href=""http://developer.android.com/reference/android/util/LruCache.html"" rel=""nofollow""><code>LruCache</code></a> has a good way to deal with bitmaps. However, in this application I put an instance of an <code>LruCache</code> inside another cache class that I created in order to get the application more feasible.</p>
+
+<p>Cache.java's critical stuff (the <code>loadBitmap()</code> method is the most important):</p>
+
+<pre><code>public Cache(int size, int maxWidth, int maxHeight) {
+    // Into the constructor you add the maximum pixels
+    // that you want to allow in order to not scale images.
+    mMaxWidth = maxWidth;
+    mMaxHeight = maxHeight;
+
+    mBitmapCache = new LruCache&lt;String, Bitmap&gt;(size) {
+        protected int sizeOf(String key, Bitmap b) {
+            // Assuming that one pixel contains four bytes.
+            return b.getHeight() * b.getWidth() * 4;
+        }
+    };
+
+    mCurrentTasks = new ArrayList&lt;String&gt;();    
+}
+
+/**
+ * Gets a bitmap from cache. 
+ * If it is not in cache, this method will:
+ * 
+ * 1: check if the bitmap url is currently being processed in the
+ * BitmapLoaderTask and cancel if it is already in a task (a control to see
+ * if it's inside the currentTasks list).
+ * 
+ * 2: check if an internet connection is available and continue if so.
+ * 
+ * 3: download the bitmap, scale the bitmap if necessary and put it into
+ * the memory cache.
+ * 
+ * 4: Remove the bitmap url from the currentTasks list.
+ * 
+ * 5: Notify the ListAdapter.
+ * 
+ * @param mainActivity - Reference to activity object, in order to
+ * call notifyDataSetChanged() on the ListAdapter.
+ * @param imageKey - The bitmap url (will be the key).
+ * @param imageView - The ImageView that should get an
+ * available bitmap or a placeholder image.
+ * @param isScrolling - If set to true, we skip executing more tasks since
+ * the user probably has flinged away the view.
+ */
+public void loadBitmap(MainActivity mainActivity, 
+        String imageKey, ImageView imageView,
+        boolean isScrolling) {
+    final Bitmap bitmap = getBitmapFromCache(imageKey); 
+
+    if (bitmap != null) {
+        imageView.setImageBitmap(bitmap);
+    } else {
+        imageView.setImageResource(R.drawable.ic_launcher);
+        if (!isScrolling &amp;&amp; !mCurrentTasks.contains(imageKey) &amp;&amp; 
+                mainActivity.internetIsAvailable()) {
+            BitmapLoaderTask task = new BitmapLoaderTask(imageKey,
+                    mainActivity.getAdapter());
+            task.execute();
+        }
+    } 
+}
+</code></pre>
+
+<p>You shouldn't need to edit anything in the Cache.java file unless you want to implement disk caching.</p>
+
+<p>MainActivity.java's critical stuff:</p>
+
+<pre><code>public void onScrollStateChanged(AbsListView view, int scrollState) {
+    if (view.getId() == android.R.id.list) {
+        // Set scrolling to true only if the user has flinged the       
+        // ListView away, hence we skip downloading a series
+        // of unnecessary bitmaps that the user probably
+        // just want to skip anyways. If we scroll slowly it
+        // will still download bitmaps - that means
+        // that the application won't wait for the user
+        // to lift its finger off the screen in order to
+        // download.
+        if (scrollState == SCROLL_STATE_FLING) {
+            mIsScrolling = true;
+        } else {
+            mIsScrolling = false;
+            mListAdapter.notifyDataSetChanged();
+        }
+    } 
+}
+
+// Inside ListAdapter...
+@Override
+public View getView(final int position, View convertView, ViewGroup parent) {           
+    View row = convertView;
+    final ViewHolder holder;
+
+    if (row == null) {
+        LayoutInflater inflater = getLayoutInflater();
+        row = inflater.inflate(R.layout.main_listview_row, parent, false);  
+        holder = new ViewHolder(row);
+        row.setTag(holder);
+    } else {
+        holder = (ViewHolder) row.getTag();
+    }   
+
+    final Row rowObject = getItem(position);
+
+    // Look at the loadBitmap() method description...
+    holder.mTextView.setText(rowObject.mText);      
+    mCache.loadBitmap(MainActivity.this,
+            rowObject.mBitmapUrl, holder.mImageView,
+            mIsScrolling);  
+
+    return row;
+}
+</code></pre>
+
+<p><code>getView()</code> gets called very often. It's normally not a good idea to download images there if we haven't implemented a check that ensure us that we won't start an infinite amount of threads per row. Cache.java checks whether the <code>rowObject.mBitmapUrl</code> already is in a task and if it is, it won't start another. Therefore, we are most likely not exceeding the work queue restriction from the <code>AsyncTask</code> pool.</p>
+
+<h2>Download:</h2>
+
+<p>You can download the source code from <a href=""https://www.dropbox.com/s/pvr9zyl811tfeem/ListViewImageCache.zip"" rel=""nofollow"">https://www.dropbox.com/s/pvr9zyl811tfeem/ListViewImageCache.zip</a>.</p>
+
+<hr>
+
+<h2>Last words:</h2>
+
+<p>I have tested this for a few weeks now, I haven't gotten a single OOM exception yet. I have tested this on the emulator, on my Nexus One and on my Nexus S. I have tested image urls that contain images that were in HD quality. The only bottleneck is that it takes more time to download.</p>
+
+<p>There is only one possible scenario where I can imagine that the OOM will appear, and that is if we download many, really big images, and before they get scaled and put into cache, will simultaneously take up more memory and cause an OOM. But that isn't even an ideal situation anyway and it most likely won't be possible to solve in a more feasible way.</p>
+
+<p>Report errors in the comments! :-)</p>

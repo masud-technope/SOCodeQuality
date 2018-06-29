@@ -1,0 +1,11 @@
+<p>Try using <a href=""http://developer.android.com/reference/java/text/NumberFormat.html#getCurrencyInstance%28%29"" rel=""nofollow"">NumberFormat.getCurrencyInstance()</a> to format your string before you put it into a TextView.</p>
+
+<p>Something like:</p>
+
+<pre><code>NumberFormat currency = NumberFormat.getCurrencyInstance();
+myTextView.setText(currency.format(dollars));
+</code></pre>
+
+<p><strong>Edit</strong> - There is no inputType for currency that I could find in the docs. I imagine this is because there are some currencies that don't follow the same rule for decimal places, such as the Japanese Yen.</p>
+
+<p>As LeffelMania mentioned, you can correct user input by using the above code with a <code>TextWatcher</code> that is set on your <code>EditText</code>.</p>

@@ -1,0 +1,12 @@
+<p>To detect whether or not the device is a tablet use the following code:</p>
+
+<pre><code>public boolean isTablet(Context context) {
+    boolean xlarge = ((context.getResources().getConfiguration().screenLayout &amp; Configuration.SCREENLAYOUT_SIZE_MASK) == 4);
+    boolean large = ((context.getResources().getConfiguration().screenLayout &amp; Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE);
+    return (xlarge || large);
+}
+</code></pre>
+
+<p>LARGE and XLARGE Screen Sizes are determined by the manufacturer based on the distance from the eye they are to be used at (thus the idea of a tablet).  </p>
+
+<p>More info : <a href=""http://groups.google.com/group/android-developers/browse_thread/thread/d6323d81f226f93f"">http://groups.google.com/group/android-developers/browse_thread/thread/d6323d81f226f93f</a></p>

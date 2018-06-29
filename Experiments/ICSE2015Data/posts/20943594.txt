@@ -1,0 +1,57 @@
+<p>The Answers above are quite good, but they are all in Java, and almost all of them check for a connectivity. In my case I needed to have connectivity with a specific type of connection and I am developing on MonoForAndroid. Moreover, I do not pass a reference to my activities Context in the Hardware layer, I use the Application Context. So here is my solution, in case somebody comes here with similar requirements. I have not done full testing though, will update the answer once I am done with my testing</p>
+
+<pre><code>using Android.App;
+using Android.Content;
+using Android.Net;
+
+namespace Leopard.Mobile.Hal.Android
+{
+    public class AndroidNetworkHelper
+    {
+        public static AndroidNetworkStatus GetWifiConnectivityStatus()
+        {
+            return GetConnectivityStatus(ConnectivityType.Wifi);
+        }
+
+        public static AndroidNetworkStatus GetMobileConnectivityStatus()
+        {
+            return GetConnectivityStatus(ConnectivityType.Mobile);
+        }
+
+        #region Implementation
+
+        private static AndroidNetworkStatus GetConnectivityStatus(ConnectivityType connectivityType)
+        {
+            var connectivityManager = (ConnectivityManager)Application.Context.GetSystemService(Context.ConnectivityService);
+            var wifiNetworkInfo = connectivityManager.GetNetworkInfo(connectivityType);
+            var result = GetNetworkStatus(wifiNetworkInfo);
+            return result;
+        }
+
+        private static AndroidNetworkStatus GetNetworkStatus(NetworkInfo wifiNetworkInfo)
+        {
+            var result = AndroidNetworkStatus.Unknown;
+            if (wifiNetworkInfo != null)
+            {
+                if (wifiNetworkInfo.IsAvailable &amp;&amp; wifiNetworkInfo.IsConnected)
+                {
+                    result = AndroidNetworkStatus.Connected;
+                }
+                else
+                {
+                    result = AndroidNetworkStatus.Disconnected;
+                }
+            }
+            return result;
+        } 
+
+        #endregion
+    }
+
+    public enum AndroidNetworkStatus
+    {
+        Connected,
+        Disconnected,
+        Unknown
+    }
+</code></pre>

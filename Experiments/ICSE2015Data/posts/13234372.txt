@@ -1,0 +1,10 @@
+<p>As @haserman says:</p>
+
+<pre><code>TelephonyManager tManager = (TelephonyManager)myActivity.getSystemService(Context.TELEPHONY_SERVICE);
+String uid = tManager.getDeviceId();
+</code></pre>
+
+<p>But it's necessary including the permission in the manifest file:</p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.READ_PHONE_STATE""/&gt;
+</code></pre>

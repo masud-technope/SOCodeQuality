@@ -1,0 +1,4 @@
+<p>Sometimes even <code>onSaveInstanceState(bundle)</code> and <code>onRestoreInstanceState(bundle)</code> can be pain in the head if you have more complex activity class with a bunch of variables and instances. Therefore to skip this hard job of saving every variable in <code>onSaveInstanceState(bundle)</code> and restoring it on <code>onRestoreInstanceState(bundle)</code> you can simply add this to your manifest inside your activity tag.</p>
+
+<pre><code>&lt;activity android:configChanges=""keyboardHidden|orientation"" /&gt;
+</code></pre>

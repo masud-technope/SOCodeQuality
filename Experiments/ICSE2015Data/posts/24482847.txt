@@ -1,0 +1,7 @@
+<p>I used <code>TextUtils</code> for this:</p>
+
+<pre><code>if (TextUtils.isEmpty(UsernameInfo.getText())) {
+    validationError = true;
+    validationErrorMessage.append(getResources().getString(R.string.error_blank_username));
+}
+</code></pre>

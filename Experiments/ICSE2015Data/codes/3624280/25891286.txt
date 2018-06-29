@@ -1,0 +1,1 @@
+PreferenceManager.getDefaultSharedPreferences(this).edit().putString(""VarName"

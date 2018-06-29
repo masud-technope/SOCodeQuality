@@ -1,0 +1,21 @@
+<p>I have a spinner on my main.xml and its id is <code>@+id/spinner1</code></p>
+
+<p>this is what i write in my OnCreate function :</p>
+
+<pre><code>spinner1 = (Spinner)this.findViewById(R.id.spinner1);
+final String[] groupes = new String[] {""A"", ""B"", ""C"", ""D"", ""E"", ""F"", ""G"", ""H""};
+ArrayAdapter&lt;CharSequence&gt; featuresAdapter = new ArrayAdapter&lt;CharSequence&gt;(this, android.R.layout.simple_spinner_item, new ArrayList&lt;CharSequence&gt;());
+featuresAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+spinner1.setAdapter(featuresAdapter);
+for (String s : groupes) featuresAdapter.add(s);
+
+spinner1.setOnItemSelectedListener(new OnItemSelectedListener() {
+     public void onItemSelected(AdapterView&lt;?&gt; arg0, View arg1, int position, long id) {
+         // Here go your instructions when the user chose something
+         Toast.makeText(getBaseContext(), groupes[position], 0).show();
+     }
+     public void onNothingSelected(AdapterView&lt;?&gt; arg0) { }
+});
+</code></pre>
+
+<p>It doesn't need any implementation in the class.</p>

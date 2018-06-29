@@ -1,0 +1,25 @@
+<p>If there are multiple launchers in a one package above code has a problem. Eg: on LG Optimus Facebook for LG, MySpace for LG, Twitter for LG contains in a one package name SNS and if you use above SNS will repeat. After hours of research I came with below code. Seems to work well.</p>
+
+<pre><code>private List&lt;String&gt; getInstalledComponentList()
+            throws NameNotFoundException {
+        final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+        mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        List&lt;ResolveInfo&gt; ril = getPackageManager().queryIntentActivities(mainIntent, 0);
+        List&lt;String&gt; componentList = new ArrayList&lt;String&gt;();
+        String name = null;
+
+        for (ResolveInfo ri : ril) {
+            if (ri.activityInfo != null) {
+                Resources res = getPackageManager().getResourcesForApplication(ri.activityInfo.applicationInfo);
+                if (ri.activityInfo.labelRes != 0) {
+                    name = res.getString(ri.activityInfo.labelRes);
+                } else {
+                    name = ri.activityInfo.applicationInfo.loadLabel(
+                            getPackageManager()).toString();
+                }
+                componentList.add(name);
+            }
+        }
+        return componentList;
+    }
+</code></pre>

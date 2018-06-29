@@ -1,0 +1,22 @@
+<p>Although I am upvoting Manish's answer as the fastest and most targeted method, I have also seen naive solutions which just recursively iterate through a view hierarchy and update all elements' typefaces in turn. Something like this:</p>
+
+<pre><code>public static void applyFonts(final View v, Typeface fontToSet)
+{
+    try {
+        if (v instanceof ViewGroup) {
+            ViewGroup vg = (ViewGroup) v;
+            for (int i = 0; i &lt; vg.getChildCount(); i++) {
+                View child = vg.getChildAt(i);
+                applyFonts(child, fontToSet);
+            }
+        } else if (v instanceof TextView) {
+            ((TextView)v).setTypeface(fontToSet);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        // ignore
+    }
+}
+</code></pre>
+
+<p>You would need to call this function on your views both after inflating layout and in your Activity's <code>onContentChanged()</code> methods.</p>

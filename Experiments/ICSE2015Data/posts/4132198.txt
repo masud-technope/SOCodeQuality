@@ -1,0 +1,8 @@
+<p>Try this,</p>
+
+<pre><code>       WebView webview = new WebView(this); 
+
+       String htmlString = ""&lt;html&gt; &lt;body&gt; &lt;embed src=\""youtube link\""; type=application/x-shockwave-flash width=""+widthOfDevice+"" height=""+heightOfDevice+""&gt; &lt;/embed&gt; &lt;/body&gt; &lt;/html&gt;"";
+
+       webview.loadData(htmlString ,""text/html"", ""UTF-8"");
+</code></pre>

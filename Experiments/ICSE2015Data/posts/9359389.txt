@@ -1,0 +1,48 @@
+<p>You can Find the List of installed apps in Android Device by using below code, ""packageInfo"" Contains Installed Application Information
+in Device. we can retrive Intent for the application installed from
+the packageinfo object and by using startactivity(intent), can start
+application. it is up to you how you organize the UI either Listview
+or Gridview. so on click event based on position, you can retrive intent
+object and start activity intent.</p>
+
+<pre><code>final PackageManager pm = getPackageManager();
+
+List&lt;ApplicationInfo&gt; packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+
+
+for (ApplicationInfo packageInfo : packages) 
+
+{
+ if(pm.getLaunchIntentForPackage(packageInfo.packageName)!= null &amp;&amp;   
+
+                   !pm.getLaunchIntentForPackage(packageInfo.packageName).equals(""""))
+
+
+{
+
+    System.out.println(""Package Name :"" + packageInfo.packageName);
+
+    System.out.println(""Launch Intent For Package :""   +  
+                  pm.getLaunchIntentForPackage(packageInfo.packageName));
+
+    System.out.println(""Application Label :""   + pm.getApplicationLabel(packageInfo));
+
+    System.out.println(""Application Label :""   + 
+                           pm.getApplicationIcon(packageInfo.packageName).toString());
+
+    System.out.println(""i : ""+i);
+
+    /*if(i==2)
+
+    {
+         startActivity(pm.getLaunchIntentForPackage(packageInfo.packageName));
+
+     break;
+
+    }*/
+
+    i++;
+
+}
+}
+</code></pre>

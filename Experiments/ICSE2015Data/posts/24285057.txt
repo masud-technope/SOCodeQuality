@@ -1,0 +1,32 @@
+<p>You can save the Values </p>
+
+<pre><code>SharedPreferences sharedPreferences = PreferenceManager
+            .getDefaultSharedPreferences(getApplicationContext());
+
+    Editor editor = sharedPreferences.edit();
+    Log.i(TAG, ""id "" + id + "" name "" + name + "" email "" + email);
+    editor.putInt(""id"", 12);
+    editor.putString(""name"",YourName);
+    editor.putString(""email"", xxx@xx.com);
+
+    editor.commit();
+</code></pre>
+
+<p>You can REmove Particular  Like that</p>
+
+<pre><code> PreferenceManager.getDefaultSharedPreferences(this).edit().remove(""name"").commit();
+PreferenceManager.getDefaultSharedPreferences(this).edit().remove(""id"").commit();
+</code></pre>
+
+<p>You can Remove All values</p>
+
+<pre><code>PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().clear().commit();
+</code></pre>
+
+<p>You can retrive Values</p>
+
+<pre><code>SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+preferences.getString(""id"", """");
+preferences.getString(""name"", """");
+preferences.getString(""email"", """");
+</code></pre>

@@ -1,0 +1,9 @@
+<p>You can use length() from EditText.</p>
+
+<pre><code>public boolean isEditTextEmpty(EditText mInput){
+   if(mInput.length() == 0)
+      return true;
+   else
+      return false;
+}
+</code></pre>

@@ -1,0 +1,8 @@
+<p>You have to use HTML in your webView in this case. I solved this using following code</p>
+
+<pre><code>webView.loadDataWithBaseURL(null,
+                ""&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body style = \""text-align:center\""&gt;&lt;img src= ""
+                        + \""http://www.koenvangorp.be/photos/2005_09_16-moon_2000.jpg\""
+                        + "" alt=\""pageNo\"" width=\""100%\""&gt;&lt;/body&gt;&lt;/html&gt;"",
+                ""text/html"", ""UTF-8"", null);
+</code></pre>

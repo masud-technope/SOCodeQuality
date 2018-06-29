@@ -1,0 +1,19 @@
+<p>try this.</p>
+
+<pre><code>        String g1 = ""Male"";
+        String g2 = ""Female"";
+        String gender = ""Male"";
+        String salutation = """";
+        if (gender.equalsIgnoreCase(g1))
+
+            salutation = ""Mr."";
+        else if (gender.equalsIgnoreCase(g2))
+
+            salutation = ""Ms."";
+        System.out.println(""Welcome "" + salutation);
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>Welcome Mr.
+</code></pre>

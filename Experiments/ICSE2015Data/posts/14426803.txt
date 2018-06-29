@@ -1,0 +1,76 @@
+<p>Here is yet another fix to the, IMHO, missing OnEndScroll event bug in the ScrollView.</p>
+
+<p>Its inspired by <a href=""http://stackoverflow.com/users/289641/hambonious"">hambonious</a> answer.
+Simply drop this class into your project (change package to match your own) and use the below xml</p>
+
+<pre><code>package com.thecrag.components.ui;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.ScrollView;
+
+public class ResponsiveScrollView extends ScrollView {
+
+    public interface OnEndScrollListener {
+        public void onEndScroll();
+    }
+
+    private boolean mIsFling;
+    private OnEndScrollListener mOnEndScrollListener;
+
+    public ResponsiveScrollView(Context context) {
+        this(context, null, 0);
+    }
+
+    public ResponsiveScrollView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public ResponsiveScrollView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
+
+    @Override
+    public void fling(int velocityY) {
+        super.fling(velocityY);
+        mIsFling = true;
+    }
+
+    @Override
+    protected void onScrollChanged(int x, int y, int oldX, int oldY) {
+        super.onScrollChanged(x, y, oldX, oldY);
+        if (mIsFling) {
+            if (Math.abs(y - oldY) &lt; 2 || y &gt;= getMeasuredHeight() || y == 0) {
+                if (mOnEndScrollListener != null) {
+                    mOnEndScrollListener.onEndScroll();
+                }
+                mIsFling = false;
+            }
+        }
+    }
+
+    public OnEndScrollListener getOnEndScrollListener() {
+        return mOnEndScrollListener;
+    }
+
+    public void setOnEndScrollListener(OnEndScrollListener mOnEndScrollListener) {
+        this.mOnEndScrollListener = mOnEndScrollListener;
+    }
+
+}
+</code></pre>
+
+<p>again changing the package name to match your project</p>
+
+<pre><code>&lt;com.thecrag.components.ui.ResponsiveScrollView
+        android:id=""@+id/welcome_scroller""
+        android:layout_width=""wrap_content""
+        android:layout_height=""wrap_content""
+        android:layout_above=""@+id/welcome_scroll_command_help_container""
+        android:layout_alignParentLeft=""true""
+        android:layout_alignParentRight=""true""
+        android:layout_below=""@+id/welcome_header_text_thecrag""
+        android:layout_margin=""6dp""&gt;
+    ....
+&lt;/com.thecrag.components.ui.ResponsiveScrollView&gt;
+</code></pre>

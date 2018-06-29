@@ -1,0 +1,15 @@
+<p>As explained by Chris in his <a href=""http://stackoverflow.com/questions/3611457/android-temporarily-disable-orientation-changes-in-an-activity/3611554#3611554"">self-answer</a>, calling</p>
+
+<pre><code>setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+</code></pre>
+
+<p>and then</p>
+
+<pre><code>setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+</code></pre>
+
+<p>really works like charm... on real devices !</p>
+
+<p>Don't think that it's broken when testing on the emulator, the ctrl+F11 shortcut ALWAYS change the screen orientation, without emulating sensors moves.</p>
+
+<p>EDIT: this was not the best possible answer. As explained in the comments, there are issues with this method. <a href=""http://stackoverflow.com/questions/3821423/background-task-progress-dialog-orientation-change-is-there-any-100-working/3821998#3821998"">The real answer is here</a>.</p>

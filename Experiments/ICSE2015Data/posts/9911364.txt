@@ -1,0 +1,15 @@
+<p>You can override onViewCreated() which is called right after all views had been inflated. It's the right place to fill in your Fragment's member <code>View</code> variables. Here's an example:</p>
+
+<pre><code>class GalleryFragment extends Fragment {
+    private Gallery gallery;
+
+    (...)
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        view.findViewById(R.id.gallery);
+        gallery.setAdapter(adapter);
+        super.onViewCreated(view, savedInstanceState);
+    }
+}
+</code></pre>

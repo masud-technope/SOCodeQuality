@@ -1,0 +1,4 @@
+<p>As you can see in the <a href=""http://developer.android.com/reference/android/view/View.html#setVisibility%28int%29"" rel=""nofollow"">documentation</a>, you cannot set the visibility to false. In your case you should probably use:</p>
+
+<pre><code>scrollview.setVisibility(Visibility.GONE);
+</code></pre>

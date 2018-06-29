@@ -1,0 +1,7 @@
+<p>Android's design does not favor exiting an application by choice, but rather manages it by the OS. You can bring up the Home application by its corresponding Intent:</p>
+
+<pre><code>Intent intent = new Intent(Intent.ACTION_MAIN);
+intent.addCategory(Intent.CATEGORY_HOME);
+intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+startActivity(intent);
+</code></pre>

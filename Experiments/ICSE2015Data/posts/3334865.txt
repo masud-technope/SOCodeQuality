@@ -1,0 +1,13 @@
+<p>When i have large bitmaps and i want to decode them resized i use the following</p>
+
+<pre><code>BitmapFactory.Options options = new BitmapFactory.Options();
+InputStream is = null;
+is = new FileInputStream(path_to_file);
+BitmapFactory.decodeStream(is,null,options);
+is.close();
+is = new FileInputStream(path_to_file);
+// here w and h are the desired width and height
+options.inSampleSize = Math.max(options.outWidth/w, options.outHeight/h);
+// bitmap is the resized bitmap
+Bitmap bitmap = BitmapFactory.decodeStream(is,null,options);
+</code></pre>

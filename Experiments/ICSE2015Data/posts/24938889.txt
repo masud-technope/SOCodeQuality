@@ -1,0 +1,16 @@
+<p>Quite a lot of answers!</p>
+
+<p>I followed this example which a few people have kinda suggested too: <a href=""http://www.techrepublic.com/article/pro-tip-round-corners-on-an-android-imageview-with-this-hack/"" rel=""nofollow"">http://www.techrepublic.com/article/pro-tip-round-corners-on-an-android-imageview-with-this-hack/</a></p>
+
+<p>However, what I needed was a coloured circle, behind a transparent image. For anyone who is interested in doing the same...</p>
+
+<p>1) Set the FrameLayout to the width and height - in my case the size of the image (50dp). <br />
+2) Place the ImageView that has the src = ""@drawable/..."", above the ImageView that has the image. Give it an id, in my case I called it iconShape<br />
+3) Drawable mask.xml should have a solid colour of #ffffffff
+4) If you want to dynamically change the circle colour in your code, do</p>
+
+<pre><code>ImageView iv2 = (ImageView) v.findViewById(R.id.iconShape);
+Drawable shape = getResources().getDrawable(R.drawable.mask);
+shape.setColorFilter(Color.BLUE, Mode.MULTIPLY);
+iv2.setImageDrawable(shape);
+</code></pre>

@@ -1,0 +1,6 @@
+If I do this, the soft-keyboard is shown when the activity appears (it's good) but when my focus leave the EditText and go to a Button for example, the keyboard stays (that's bad).
+Doesn't work for me with an EditText in a dialog which already has focus. Not sure why.
+@AbdellahBenhammou, perhaps doing a requestFocus call onn your edit text before showing the soft input might solve your issue. It did for me.
+@AbdellahBenhammou, do this in your DialogFragment's onCreate(): getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE).
+Complete n00b question: What happens on devices with physical keyboards, is the soft keyboard shown as well?
+not working (android 4.2).

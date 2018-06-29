@@ -1,0 +1,11 @@
+ScrollView scroll = (ScrollView)findViewById(R.id.scrollView1);
+scroll.setOnTouchListener(new OnTouchListener() {
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        if (myEditText.hasFocus()) {
+            myEditText.clearFocus();
+        }
+        return false;
+    }
+});

@@ -1,0 +1,17 @@
+<p>Friends, </p>
+
+<p>I found a lot of import and great informations from you. But, the only way works for me was this way:</p>
+
+<pre><code>webView = (WebView) findViewById(R.id.noticiasWebView);
+webView.setInitialScale(1);
+webView.getSettings().setJavaScriptEnabled(true);
+webView.getSettings().setLoadWithOverviewMode(true);
+webView.getSettings().setUseWideViewPort(true);
+webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+webView.setScrollbarFadingEnabled(false);
+webView.loadUrl(""http://www.resource.com.br/"");
+</code></pre>
+
+<p>I am working on Android 2.1 because of the kind of devices from the company. But I fixed my problem using the part of informations from each one.</p>
+
+<p>Thanks you!</p>

@@ -1,0 +1,71 @@
+<p>There is another solution that does not need modifying the source code of <code>ViewPager</code> and <code>FragmentStatePagerAdapter</code>, and it works with the <code>FragmentPagerAdapter</code> base class that was used by the author.</p>
+
+<p>I'd like to start by answering the author's question about which ID he should use; it is the ID of the container, i.e. the ID of the view pager itself. However, as you probably noticed yourself, using that ID in your code causes nothing to happen. I will explain why:</p>
+
+<p>First of all, to make <code>ViewPager</code> repopulate the pages, you need to call <code>notifyDataSetChanged()</code> that resides in the base class of your adapter.</p>
+
+<p>Second, <code>ViewPager</code> uses the <code>getItemPosition()</code> abstract method to check which pages should be destroyed and which should be kept. The default implementation of this function always returns <code>POSITION_UNCHANGED</code>, which causes <code>ViewPager</code> to keep all current pages, and consequently not attaching your new page. Thus, to make fragment replacement work, <code>getItemPosition()</code> needs to be overridden in your adapter and must return <code>POSITION_NONE</code> when called with an old, to be hidden, fragment as argument.</p>
+
+<p>This also means that your adapter always needs to be aware of which fragment that should be displayed in position 0, <code>FirstPageFragment</code> or <code>NextFragment</code>. One way of doing this is supplying a listener when creating <code>FirstPageFragment</code>, which will be called when it is time to switch fragments. I think this is a good thing though, to let your fragment adapter handle all fragment switches and calls to <code>ViewPager</code> and <code>FragmentManager</code>.</p>
+
+<p>Third, <code>FragmentPagerAdapter</code> caches the used fragments by a name which is derived from the position, so if there was a fragment at position 0, it will not be replaced even though the class is new. There are two solutions, but the simplest is to use the <code>remove()</code> function of <code>FragmentTransaction</code>, which will remove its tag as well.</p>
+
+<p>That was a lot of text, here is code that should work in your case:</p>
+
+<pre><code>public class MyAdapter extends FragmentPagerAdapter
+{
+    static final int NUM_ITEMS = 2;
+    private final FragmentManager mFragmentManager;
+    private Fragment mFragmentAtPos0;
+
+    public MyAdapter(FragmentManager fm)
+    {
+        super(fm);
+        mFragmentManager = fm;
+    }
+
+    @Override
+    public Fragment getItem(int position)
+    {
+        if (position == 0)
+        {
+            if (mFragmentAtPos0 == null)
+            {
+                mFragmentAtPos0 = FirstPageFragment.newInstance(new FirstPageFragmentListener()
+                {
+                    public void onSwitchToNextFragment()
+                    {
+                        mFragmentManager.beginTransaction().remove(mFragmentAtPos0).commit();
+                        mFragmentAtPos0 = NextFragment.newInstance();
+                        notifyDataSetChanged();
+                    }
+                });
+            }
+            return mFragmentAtPos0;
+        }
+        else
+            return SecondPageFragment.newInstance();
+    }
+
+    @Override
+    public int getCount()
+    {
+        return NUM_ITEMS;
+    }
+
+    @Override
+    public int getItemPosition(Object object)
+    {
+        if (object instanceof FirstPageFragment &amp;&amp; mFragmentAtPos0 instanceof NextFragment)
+            return POSITION_NONE;
+        return POSITION_UNCHANGED;
+    }
+}
+
+public interface FirstPageFragmentListener
+{
+    void onSwitchToNextFragment();
+}
+</code></pre>
+
+<p>Hope this helps anyone!</p>

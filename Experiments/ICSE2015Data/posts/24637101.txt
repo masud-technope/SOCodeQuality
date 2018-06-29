@@ -1,0 +1,169 @@
+<p>Here is the code I use which doesn't have any issues decoding large images in memory on Android.  I have been able to decode images larger then 20MB as long as my input parameters are around 1024x1024. You can save the returned bitmap to another file.  Below this method is another method which I also use to scale images to a new bitmap.  Feel free to use this code as you wish.</p>
+
+<pre><code>/*****************************************************************************
+ * public decode - decode the image into a Bitmap
+ * 
+ * @param xyDimension
+ *            - The max XY Dimension before the image is scaled down - XY =
+ *            1080x1080 and Image = 2000x2000 image will be scaled down to a
+ *            value equal or less then set value.
+ * @param bitmapConfig
+ *            - Bitmap.Config Valid values = ( Bitmap.Config.ARGB_4444,
+ *            Bitmap.Config.RGB_565, Bitmap.Config.ARGB_8888 )
+ * 
+ * @return Bitmap - Image - a value of ""null"" if there is an issue decoding
+ *         image dimension
+ * 
+ * @throws FileNotFoundException
+ *             - If the image has been removed while this operation is
+ *             taking place
+ */
+public Bitmap decode( int xyDimension, Bitmap.Config bitmapConfig ) throws FileNotFoundException
+{
+    // The Bitmap to return given a Uri to a file
+    Bitmap bitmap = null;
+    File file = null;
+    FileInputStream fis = null;
+    InputStream in = null;
+
+    // Try to decode the Uri
+    try
+    {
+        // Initialize scale to no real scaling factor
+        double scale = 1;
+
+        // Get FileInputStream to get a FileDescriptor
+        file = new File( this.imageUri.getPath() );
+
+        fis = new FileInputStream( file );
+        FileDescriptor fd = fis.getFD();
+
+        // Get a BitmapFactory Options object
+        BitmapFactory.Options o = new BitmapFactory.Options();
+
+        // Decode only the image size
+        o.inJustDecodeBounds = true;
+        o.inPreferredConfig = bitmapConfig;
+
+        // Decode to get Width &amp; Height of image only
+        BitmapFactory.decodeFileDescriptor( fd, null, o );
+        BitmapFactory.decodeStream( null );
+
+        if( o.outHeight &gt; xyDimension || o.outWidth &gt; xyDimension )
+        {
+            // Change the scale if the image is larger then desired image
+            // max size
+            scale = Math.pow( 2, (int) Math.round( Math.log( xyDimension / (double) Math.max( o.outHeight, o.outWidth ) ) / Math.log( 0.5 ) ) );
+        }
+
+        // Decode with inSampleSize scale will either be 1 or calculated value
+        o.inJustDecodeBounds = false;
+        o.inSampleSize = (int) scale;
+
+        // Decode the Uri for real with the inSampleSize
+        in = new BufferedInputStream( fis );
+        bitmap = BitmapFactory.decodeStream( in, null, o );
+    }
+    catch( OutOfMemoryError e )
+    {
+        Log.e( DEBUG_TAG, ""decode : OutOfMemoryError"" );
+        e.printStackTrace();
+    }
+    catch( NullPointerException e )
+    {
+        Log.e( DEBUG_TAG, ""decode : NullPointerException"" );
+        e.printStackTrace();
+    }
+    catch( RuntimeException e )
+    {
+        Log.e( DEBUG_TAG, ""decode : RuntimeException"" );
+        e.printStackTrace();
+    }
+    catch( FileNotFoundException e )
+    {
+        Log.e( DEBUG_TAG, ""decode : FileNotFoundException"" );
+        e.printStackTrace();
+    }
+    catch( IOException e )
+    {
+        Log.e( DEBUG_TAG, ""decode : IOException"" );
+        e.printStackTrace();
+    }
+
+    // Save memory
+    file = null;
+    fis = null;
+    in = null;
+
+    return bitmap;
+
+} // decode
+</code></pre>
+
+<p>NOTE: Methods have nothing to do with each other except createScaledBitmap calls decode method above. Note width and height can change from original image.</p>
+
+<pre><code>/*****************************************************************************
+ * public createScaledBitmap - Creates a new bitmap, scaled from an existing
+ * bitmap.
+ * 
+ * @param dstWidth
+ *            - Scale the width to this dimension
+ * @param dstHeight
+ *            - Scale the height to this dimension
+ * @param xyDimension
+ *            - The max XY Dimension before the original image is scaled
+ *            down - XY = 1080x1080 and Image = 2000x2000 image will be
+ *            scaled down to a value equal or less then set value.
+ * @param bitmapConfig
+ *            - Bitmap.Config Valid values = ( Bitmap.Config.ARGB_4444,
+ *            Bitmap.Config.RGB_565, Bitmap.Config.ARGB_8888 )
+ * 
+ * @return Bitmap - Image scaled - a value of ""null"" if there is an issue
+ * 
+ */
+public Bitmap createScaledBitmap( int dstWidth, int dstHeight, int xyDimension, Bitmap.Config bitmapConfig )
+{
+    Bitmap scaledBitmap = null;
+
+    try
+    {
+        Bitmap bitmap = this.decode( xyDimension, bitmapConfig );
+
+        // Create an empty Bitmap which will contain the new scaled bitmap
+        // This scaled bitmap should be the size we want to scale the
+        // original bitmap too
+        scaledBitmap = Bitmap.createBitmap( dstWidth, dstHeight, bitmapConfig );
+
+        float ratioX = dstWidth / (float) bitmap.getWidth();
+        float ratioY = dstHeight / (float) bitmap.getHeight();
+        float middleX = dstWidth / 2.0f;
+        float middleY = dstHeight / 2.0f;
+
+        // Used to for scaling the image
+        Matrix scaleMatrix = new Matrix();
+        scaleMatrix.setScale( ratioX, ratioY, middleX, middleY );
+
+        // Used to do the work of scaling
+        Canvas canvas = new Canvas( scaledBitmap );
+        canvas.setMatrix( scaleMatrix );
+        canvas.drawBitmap( bitmap, middleX - bitmap.getWidth() / 2, middleY - bitmap.getHeight() / 2, new Paint( Paint.FILTER_BITMAP_FLAG ) );
+    }
+    catch( IllegalArgumentException e )
+    {
+        Log.e( DEBUG_TAG, ""createScaledBitmap : IllegalArgumentException"" );
+        e.printStackTrace();
+    }
+    catch( NullPointerException e )
+    {
+        Log.e( DEBUG_TAG, ""createScaledBitmap : NullPointerException"" );
+        e.printStackTrace();
+    }
+    catch( FileNotFoundException e )
+    {
+        Log.e( DEBUG_TAG, ""createScaledBitmap : FileNotFoundException"" );
+        e.printStackTrace();
+    }
+
+    return scaledBitmap;
+} // End createScaledBitmap
+</code></pre>

@@ -1,0 +1,42 @@
+<p>Thanks for the help on this thread. However, you missed one thing...you need to handle the ACTION_CANCEL as well. If you don't then you might not properly restore the alpha value of the ImageView in the event that a parent view in the view hierarchy intercepts a touch event (think a ScrollView wrapping you ImageView).</p>
+
+<p>Here is a complete class that is based off the above class but takes care of the ACTION_CANCEL as well. It uses an ImageViewCompat helper class to abstract the differences in the pre-post JellyBean API.</p>
+
+<pre><code>public class ChangeAlphaOnPressedTouchListener implements OnTouchListener {
+
+    private final float pressedAlpha;
+
+    public ChangeAlphaOnPressedTouchListener(float pressedAlpha) {
+        this.pressedAlpha = pressedAlpha;
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        ImageView iv = (ImageView) v;
+        switch (event.getAction()) {
+        case MotionEvent.ACTION_DOWN:
+            ImageViewCompat.setAlpha(iv, pressedAlpha);
+            break;
+
+        case MotionEvent.ACTION_MOVE:
+            if (isInsideViewBounds(v, event)) {
+                ImageViewCompat.setAlpha(iv, pressedAlpha);
+            } else {
+                ImageViewCompat.setAlpha(iv, 1f);
+            }
+            break;
+        case MotionEvent.ACTION_UP:
+            ImageViewCompat.setAlpha(iv, 1f);
+            break;
+        case MotionEvent.ACTION_CANCEL:
+            ImageViewCompat.setAlpha(iv, 1f);
+        }
+        return false;
+    }
+
+    private static boolean isInsideViewBounds(View v, MotionEvent event) {
+        return event.getX() &gt; 0 &amp;&amp; event.getX() &lt; v.getWidth() &amp;&amp; event.getY() &gt; 0
+                &amp;&amp; event.getY() &lt; v.getHeight();
+    }
+}
+</code></pre>

@@ -1,0 +1,23 @@
+<p>If you want to support pre Honeycomb (highly likely), you will need to put in backward compatibility prior to API 13. Something like:</p>
+
+<pre><code>int Measuredwidth = 0;
+int Measuredheight = 0;
+Point size = new Point();
+WindowManager w = getWindowManager();
+
+if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB_MR2)
+{
+    w.getDefaultDisplay().getSize(size);
+
+    Measuredwidth = size.x;
+    Measuredheight = size.y;
+}
+else
+{
+    Display d = w.getDefaultDisplay();
+    Measuredwidth = d.getWidth();
+    Measuredheight = d.getHeight();
+}
+</code></pre>
+
+<p>Of course the deprecated methods will eventually be taken out of the the most recent SDKs, but while we still rely on most of our users having Android 2.1, 2.2 and 2.3, this is what we are left with.</p>

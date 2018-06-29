@@ -1,0 +1,13 @@
+<p>This works for me:</p>
+
+<pre><code>public static String getExtension(String fileName) {
+    String encoded;
+    try { encoded = URLEncoder.encode(fileName, ""UTF-8"").replace(""+"", ""%20""); }
+    catch(UnsupportedEncodingException e) { encoded = fileName; }
+    return MimeTypeMap.getFileExtensionFromUrl(encoded).toLowerCase();
+}
+</code></pre>
+
+<p>When the file is <code>/mnt/sdcard/boomerang/2013-06-18_12:08:53.txt</code>, <code>""txt""</code> is returned.</p>
+
+<p>Note the <code>URLEncoder.encode</code> and <code>.repalce</code> calls should fix any reliability issues you might see when <code>MimeTypeMap.getFileExtensionFromUrl</code> is called by itself.  For example, without the encoding and replace calls, file names such as <code>""Test Image!.jpg""</code> return empty strings.  Also make sure the file name is lowercased.  It <code>MimeTypeMap</code> does not seem to have entries for <code>.PNG</code> or <code>.JPG</code>.</p>

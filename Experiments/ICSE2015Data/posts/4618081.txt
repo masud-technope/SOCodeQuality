@@ -1,0 +1,1 @@
+<p>Use an <code>ImageButton</code> instead of an <code>ImageView</code>. The ""clickable effect"" comes from the background; <code>ImageView</code> has a transparent background by default.</p>

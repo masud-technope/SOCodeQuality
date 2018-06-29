@@ -1,0 +1,8 @@
+<p>When user click on the logout button then write the following code:</p>
+
+<pre class=""lang-java prettyprint-override""><code>Intent intent = new Intent(this, LoginActivity.class);
+intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+startActivity(intent);
+</code></pre>
+
+<p>And also when after login if you call new activity do not use finish();</p>

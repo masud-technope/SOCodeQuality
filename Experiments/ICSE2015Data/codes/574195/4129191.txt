@@ -1,0 +1,11 @@
+WebViewClient
+wvClient = new WebViewClient() {
+@Override
+public boolean shouldOverrideUrlLoading(WebView view, String url) {
+  if (url.startsWith(""youtube:"")) {
+    String youtubeUrl = ""http://www.youtube.com/watch?v=""
+    + url.Replace(""youtube:"", """");
+  startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(youtubeUrl)));
+}
+return false;
+}

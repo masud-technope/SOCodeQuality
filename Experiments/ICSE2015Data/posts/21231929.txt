@@ -1,0 +1,4 @@
+<p>Found this simple solution just set </p>
+
+<pre><code>ScrollView.requestDisallowInterceptTouchEvent(true);
+</code></pre>

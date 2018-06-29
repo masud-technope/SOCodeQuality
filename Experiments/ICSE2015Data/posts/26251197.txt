@@ -1,0 +1,15 @@
+<p>For me the following works.
+I used a code from a link: <a href=""http://stackoverflow.com/questions/18786726/change-text-color-of-search-hint-in-actionbar-using-support-library"">Change text color of search hint in actionbar using support library</a>.</p>
+
+<pre><code>    searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+
+    EditText txtSearch = ((EditText)searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text));
+    txtSearch.setHint(getResources().getString(R.string.search_hint));
+    txtSearch.setHintTextColor(Color.LTGRAY);
+    txtSearch.setTextColor(Color.WHITE);
+</code></pre>
+
+<p><a href=""http://stackoverflow.com/questions/17791388/changing-action-bar-searchview-hint-text-color"">Changing action bar searchview hint text color</a> advices another solution. It works but sets only hint text and color.</p>
+
+<pre><code>    searchView.setQueryHint(Html.fromHtml(""&lt;font color = #ffffff&gt;"" + getResources().getString(R.string.search_hint) + ""&lt;/font&gt;""));
+</code></pre>

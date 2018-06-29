@@ -1,0 +1,4 @@
+<p>To get <code>getActiveNetworkInfo()</code> to work you need to add the following to the manifest.</p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.ACCESS_NETWORK_STATE"" /&gt;
+</code></pre>

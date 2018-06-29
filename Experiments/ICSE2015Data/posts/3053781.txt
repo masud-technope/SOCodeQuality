@@ -1,0 +1,10 @@
+<p>use like this</p>
+
+<pre><code>Dialog dialog = new Dialog(this);
+dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); 
+</code></pre>
+
+<p>this will remove any title bar from dialog window.</p>
+
+<p>thanks,
+-alok</p>

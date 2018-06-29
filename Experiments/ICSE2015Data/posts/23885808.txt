@@ -1,0 +1,27 @@
+<p>Rounded image Using imageLoader <a href=""https://github.com/nostra13/Android-Universal-Image-Loader"" rel=""nofollow"">here</a></p>
+
+<p>Create a Options;</p>
+
+<pre><code> DisplayImageOptions options = new DisplayImageOptions.Builder()
+       // this will make circle, pass the width of image 
+.displayer(new.RoundedBitmapDisplayer(getResources().getDimensionPixelSize(R.dimen.image_dimen_menu))) 
+.cacheOnDisc(true)
+ .build();
+</code></pre>
+
+<p>imageLoader.displayImage(url_for_image,ImageView,options);</p>
+
+<p>Or U can user Picasso Library from squre.</p>
+
+<pre><code>Picasso.with(mContext)
+.load(com.app.utility.Constants.BASE_URL+b.image)
+.placeholder(R.drawable.profile)
+.error(R.drawable.profile)
+.transform(new RoundedTransformation(50, 4))
+.resizeDimen(R.dimen.list_detail_image_size, R.dimen.list_detail_image_size)
+.centerCrop()
+.into(v.im_user);
+</code></pre>
+
+<p>you can download RoundedTrasformation file here
+<a href=""https://www.dropbox.com/s/lp3d43hra3gbhul/RoundedTransformation.java"" rel=""nofollow"">here</a></p>

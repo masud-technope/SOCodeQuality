@@ -1,0 +1,14 @@
+<pre><code>    String[] arr_fav =
+    { ""1"", ""2"", ""3"" };
+
+    List&lt;String&gt; myList = Arrays.asList(arr_fav);
+
+            String currentId = String.valueOf(current_id);
+    for (int i = 0; i &lt; arr_fav.length; i++)
+    {
+        if (arr_fav[i].equals(currentId))
+        {
+            myList.remove(i);
+        }
+    }
+</code></pre>

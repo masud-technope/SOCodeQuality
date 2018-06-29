@@ -1,0 +1,39 @@
+<p>Consider using singleton to hold your session info accessible to all the Activities.
+This approach has several advantages compared to extras and static variables:</p>
+
+<p>1) Allow you to extend Info class, adding new user info settings You need. You could make new class inheriting it or just edit Info class without need to change extras handling in all the places.
+2) Easy usage, no need to get extras in every activity.</p>
+
+<pre><code>public class Info {
+
+private static Info instance;
+private int id;
+private String name;
+
+//private constructor is to disallow instances creation outside create() or getInstance() methods
+private Info() {
+
+}
+
+//method You use to get the same info from any Activity
+//returns existing Info instance,  or null if not created yet
+public static Info getInstance() {
+   return instance;
+}
+
+//creates new Info instance or returns existing one if exists
+public static synchronized Info create(int id, String name) {
+
+   if (null == instance) {
+     instance = new Info();
+     instance.id = id;
+     instance.name = name;
+   }
+
+   return instance;
+
+}
+
+
+}
+</code></pre>

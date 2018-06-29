@@ -1,0 +1,16 @@
+<pre><code>DecimalFormat form = new DecimalFormat(""#.##"", new DecimalFormatSymbols(Locale.US));
+    EditText et; 
+    et.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+
+        if (actionId == EditorInfo.IME_ACTION_DONE) {
+            double a = Double.parseDouble(et.getText().toString());
+            et.setText(form.format(a));
+        }
+        return false;
+    }
+});
+</code></pre>
+
+<p>What this does is when you exit editing phase it formats the field to the right format. At them moment it has only 2 decimal charachters. I think this is pretty easy way to do this.</p>

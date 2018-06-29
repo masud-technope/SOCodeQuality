@@ -1,0 +1,16 @@
+<p>Its so great to have more then one way to code.
+Here is my example.</p>
+
+<pre><code>ConnectivityManager icheck = getSystemService(Context.CONNECTIVITY_SERVICE);
+
+TextView tv = findViewById(R.id.textView1);
+
+boolean wifi = icheck.getActiveNetworkInfo() != null;
+        if(wifi) {
+        tv.setText(""Internet is on."");  
+        } else {
+             tv.setText(""Internet is off."");    
+        }
+</code></pre>
+
+<p>Good luck.</p>

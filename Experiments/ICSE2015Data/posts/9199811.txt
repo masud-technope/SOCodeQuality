@@ -1,0 +1,16 @@
+<p>Maybe this will help someone...</p>
+
+<p>From PictureDrawable to Bitmap, use: </p>
+
+<pre><code>private Bitmap pictureDrawableToBitmap(PictureDrawable pictureDrawable){ 
+    Bitmap bmp = Bitmap.createBitmap(pictureDrawable.getIntrinsicWidth(), pictureDrawable.getIntrinsicHeight(), Config.ARGB_8888); 
+    Canvas canvas = new Canvas(bmp); 
+    canvas.drawPicture(pictureDrawable.getPicture()); 
+    return bmp; 
+}
+</code></pre>
+
+<p>... implemented as such: </p>
+
+<pre><code>Bitmap bmp = pictureDrawableToBitmap((PictureDrawable) drawable);
+</code></pre>

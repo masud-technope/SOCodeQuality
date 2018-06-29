@@ -1,0 +1,42 @@
+<p>My fix to this most horrific bug, (worth noting that this is pre API11 only where they modified the fling method not to be stupid).</p>
+
+<p>The old fling method finds the next focus that it will get to.. which isn't really that helpful. Other versions of this class don't really work as they stop focus working when the user genuinely traverses the form from the keyboard.</p>
+
+<pre><code>public class NonFocusingScrollView extends ScrollView {
+
+    private boolean mBlockRequestFocusOnFling = false;
+
+    public NonFocusingScrollView(Context context) {
+        super(context);
+    }
+
+    public NonFocusingScrollView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public NonFocusingScrollView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
+
+    @Override
+    public ArrayList&lt;View&gt; getFocusables(int direction) {
+        if(mBlockRequestFocusOnFling)
+            return new ArrayList&lt;View&gt;();
+        return super.getFocusables(direction);
+    }
+
+    @Override
+    public void requestChildFocus(View child, View focused) {
+        if(!mBlockRequestFocusOnFling)
+        super.requestChildFocus(child, focused);
+    }
+
+
+    @Override
+    public void fling(int velocityY) {
+        mBlockRequestFocusOnFling = true;
+        super.fling(velocityY);
+        mBlockRequestFocusOnFling = false;
+    }
+}
+</code></pre>

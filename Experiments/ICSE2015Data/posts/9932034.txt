@@ -1,0 +1,15 @@
+<p>I found none of the above solutions to work. As an <em>alternative</em> you can:</p>
+
+<pre><code>getListView().setOnItemLongClickListener(new OnItemLongClickListener() 
+{
+
+   public boolean onItemLongClick(AdapterView&lt;?&gt; arg0, View v,int position, long id) 
+   {
+
+    Cursor c = (Cursor) arg0.getItemAtPosition(position);
+    String tableValue = c.getString(1);
+
+        return true;
+   }
+});
+</code></pre>

@@ -1,0 +1,6 @@
+<p>You just have to send extras while calling your intent</p>
+
+<p>like this:</p>
+
+<pre><code>Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
+intent.putExtra(""Variable Name"

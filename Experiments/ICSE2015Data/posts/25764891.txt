@@ -1,0 +1,29 @@
+<p>Why this answer - Because above solution will show your keyboard but it will not vanish if you click anywhere other that <code>EditText</code>. So you need to do something to make the keybaord disappear when <code>EditText</code> loses focus.</p>
+
+<p>You can achieve this by doing the following steps:</p>
+
+<ol>
+<li><p>Make the parent view(content view of your activity) clickable and focusable by adding the following attributes</p>
+
+<pre><code>    android:clickable=""true"" 
+    android:focusableInTouchMode=""true"" 
+</code></pre></li>
+<li><p>Implement a hideKeyboard() method</p>
+
+<pre><code>    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(),InputMethodManager.HIDE_IMPLICIT_ONLY );
+    }
+</code></pre></li>
+<li><p>Lastly, set the onFocusChangeListener of your edittext.</p>
+
+<pre><code>    edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
+            if (!hasFocus) {
+                hideKeyboard(v);
+            }
+        }
+    });
+</code></pre></li>
+</ol>

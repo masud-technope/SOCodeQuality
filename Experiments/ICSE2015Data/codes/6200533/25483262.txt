@@ -1,0 +1,5 @@
+TextView textSign = (TextView) findViewById(R.id.txt_sign);
+FontHelper.setSomeCustomFont(textSign);
+textSign.setTypeface(textSign.getTypeface(), Typeface.ITALIC);
+textSign.setText(Html.fromHtml(getString(R.string.txt_sign)))
+

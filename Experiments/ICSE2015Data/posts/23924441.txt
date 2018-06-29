@@ -1,0 +1,4 @@
+<p>Android provides a non straight foward solution: <code>BitmapDrawable</code>. To get the Bitmap , we'll have to provide the resource id <code>R.drawable.flower_pic</code> to the  a <code>BitmapDrawable</code> and then cast it to a <code>Bitmap</code>. </p>
+
+<pre><code>Bitmap bm = ((BitmapDrawable) getResources().getDrawable(R.drawable.flower_pic)).getBitmap();
+</code></pre>

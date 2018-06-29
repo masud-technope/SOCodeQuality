@@ -1,0 +1,27 @@
+<p>This simple solution worked for me when I needed to prevent the user from entering empty strings into an EditText.  You can of course add more characters:</p>
+
+<pre><code>InputFilter textFilter = new InputFilter() {
+
+@Override
+
+public CharSequence filter(CharSequence c, int arg1, int arg2,
+
+    Spanned arg3, int arg4, int arg5) {
+
+    StringBuilder sbText = new StringBuilder(c);
+
+    String text = sbText.toString();
+
+    if (text.contains("" "")) {    
+        return """";   
+    }    
+    return c;   
+    }   
+};
+
+private void setTextFilter(EditText editText) {
+
+    editText.setFilters(new InputFilter[]{textFilter});
+
+}
+</code></pre>

@@ -1,0 +1,4 @@
+<pre><code>Intent i = new Intent();
+i.putExtra(""name_of_extra"", myParcelableObject);
+startACtivity(i);
+</code></pre>

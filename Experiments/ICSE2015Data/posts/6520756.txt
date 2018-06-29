@@ -1,0 +1,13 @@
+<p>Try with the following code to get width and height of screen</p>
+
+<pre><code>int widthOfscreen =0;
+int heightOfScreen = 0;
+DisplayMetrics dm = new DisplayMetrics();
+        try {
+            ((Activity) context).getWindowManager().getDefaultDisplay()
+                    .getMetrics(dm);
+        } catch (Exception ex) {
+        }
+         widthOfscreen  = dm.widthPixels;
+heightOfScreen  = dm.heightPixels;
+</code></pre>

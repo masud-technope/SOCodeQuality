@@ -1,0 +1,13 @@
+<p>kcoppock is right, you need to use valueAt(), the working code should be</p>
+
+<pre><code>SparseBooleanArray checkedItems = categorySelector.getCheckedItemPositions();
+if (checkedItems != null) {
+    for (int i=0; i&lt;checkedItems.size(); i++) {
+        if (checkedItems.valueAt(i)) {
+            String item = categorySelector.getAdapter().getItem(
+                                  checkedItems.keyAt(i)).toString();
+            Log.i(TAG,item + "" was selected"");
+        }
+    }
+}
+</code></pre>

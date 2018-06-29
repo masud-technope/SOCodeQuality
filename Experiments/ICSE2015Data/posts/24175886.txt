@@ -1,0 +1,12 @@
+<p>I suggest using <a href=""http://androidannotations.org/"" rel=""nofollow"">Android Annotations</a>. That will allow you to simply run any method in a background thread:</p>
+
+<pre><code>// normal method
+private void normal() {
+    doSomething(); // do something in background
+}
+
+@Background
+protected void doSomething() 
+    // run your networking code here
+}
+</code></pre>

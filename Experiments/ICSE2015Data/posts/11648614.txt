@@ -1,0 +1,15 @@
+<p>From the source code of android's 2.2 Email App</p>
+
+<pre><code>&lt;selector xmlns:android=""http://schemas.android.com/apk/res/android""&gt;
+    &lt;item android:state_window_focused=""false"" android:state_selected=""true""
+        android:drawable=""@android:color/transparent"" /&gt;
+    &lt;item android:state_selected=""true""
+        android:drawable=""@android:color/transparent"" /&gt;
+    &lt;item android:state_pressed=""true"" android:state_selected=""false""
+        android:drawable=""@android:color/transparent"" /&gt;
+    &lt;item android:state_selected=""false""
+        android:drawable=""@color/message_item_read"" /&gt;
+&lt;/selector&gt;
+</code></pre>
+
+<p>Nothing more to say...</p>

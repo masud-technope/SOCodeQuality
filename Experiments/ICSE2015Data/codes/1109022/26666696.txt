@@ -1,0 +1,11 @@
+/**
+ * hide soft keyboard in a activity
+ * @param activity
+ */
+public static void hideKeyboard (Activity activity){
+    activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+    if (activity.getCurrentFocus() != null) {
+        InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+    }
+}

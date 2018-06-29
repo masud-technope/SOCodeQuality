@@ -1,0 +1,1 @@
+<p>In your code if you use <code>requestWindowFeature(Window.FEATURE_NO_TITLE);</code>  be sure that it goes before <code>dialog.setContentView();</code> otherwise it causes the application to crash.</p>

@@ -1,0 +1,40 @@
+<p>Ok, I just found a VERY ugly solution :</p>
+
+<pre><code>public static Animation expand(final View v, Runnable onEnd) {
+    try {
+        Method m = v.getClass().getDeclaredMethod(""onMeasure"", int.class, int.class);
+        m.setAccessible(true);
+        m.invoke(
+            v,
+            MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
+            MeasureSpec.makeMeasureSpec(((View)v.getParent()).getMeasuredHeight(), MeasureSpec.AT_MOST)
+        );
+    } catch (Exception e){
+        Log.e(""test"", """", e);
+    }
+    final int initialHeight = v.getMeasuredHeight();
+    Log.d(""test"", ""initialHeight=""+initialHeight);
+
+    v.getLayoutParams().height = 0;
+    v.setVisibility(View.VISIBLE);
+    Animation a = new Animation()
+    {
+        @Override
+        protected void applyTransformation(float interpolatedTime, Transformation t) {
+            final int newHeight = (int)(initialHeight * interpolatedTime);
+            v.getLayoutParams().height = newHeight;
+            v.requestLayout();
+        }
+
+        @Override
+        public boolean willChangeBounds() {
+            return true;
+        }
+    };
+    a.setDuration(5000);
+    v.startAnimation(a);
+    return a;
+}
+</code></pre>
+
+<p>Feel free to propose a better solution !</p>

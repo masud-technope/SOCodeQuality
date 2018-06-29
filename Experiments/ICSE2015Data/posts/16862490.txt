@@ -1,0 +1,27 @@
+<p>The only solution I have found for this scenario is to create 2 layouts.  One is editable and one is not.  You may have to create more than 2 layouts based on various conditions.  Store the conditions in SharedPreferences or other means and load the relevant layout based on conditions after restarting the Activity.  Here's an example:</p>
+
+<p>in onCreate() of the activity:</p>
+
+<pre><code>    configuration = new Configuration(this.getSharedPreferences(Configuration.SHARED_PREFERENCES_FILE_NAME, Context.MODE_PRIVATE));
+    manualSettingsMode = configuration.isManualSettingsMode();
+    if(manualSettingsMode){
+        setContentView(R.layout.editableconfigurationsettings);
+    }else {
+        setContentView(R.layout.configurationsettings);
+    }
+</code></pre>
+
+<p>The activity can be restarted based on testing for condition and calling functions as:</p>
+
+<pre><code>private void setManualEditing(){
+    configuration.set_isManualSettingsMode(true);
+    this.recreate();
+}
+
+private void setAutoEditing(){
+    configuration.set_isManualSettingsMode(false);
+    this.recreate();
+}
+</code></pre>
+
+<p>Hope this helps.  There really has to be a better solution, but this is what I've been doing.  Ideally, one would be able to do this on individual fields and not have to reload the activity / layouts. -bobby</p>

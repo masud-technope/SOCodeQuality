@@ -1,0 +1,18 @@
+<p>There is one more way of doing it:</p>
+
+<pre><code>public int getOrientation()
+{
+    if(getResources().getDisplayMetrics().widthPixels&gt;getResources().getDisplayMetrics().heightPixels)
+    { 
+        Toast t = Toast.makeText(this,""LANDSCAPE"",Toast.LENGTH_SHORT);
+        t.show();
+        return 1;
+    }
+    else
+    {
+        Toast t = Toast.makeText(this,""PORTRAIT"",Toast.LENGTH_SHORT);
+        t.show();
+        return 2;
+    }       
+}
+</code></pre>

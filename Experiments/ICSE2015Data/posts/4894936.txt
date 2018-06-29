@@ -1,0 +1,16 @@
+<p>I would get the file name as a String, split it into an array with ""."" as the delimiter, and then get the last index of the array, which would be the file extension. For example:</p>
+
+<pre><code>public class main {
+    public static void main(String[] args) {
+        String filename = ""image.jpg"";
+        String filenameArray[] = filename.split(""\\."");
+        String extension = filenameArray[filenameArray.length-1];
+        System.out.println(extension);
+    }
+}
+</code></pre>
+
+<p>Which outputs:</p>
+
+<pre><code>jpg
+</code></pre>

@@ -1,0 +1,35 @@
+<p>to prevent words in edittext.
+create a class that u could use anytime.</p>
+
+<p>public class Wordfilter implements InputFilter
+{</p>
+
+<pre><code>@Override
+public CharSequence filter(CharSequence source, int start, int end,Spanned dest, int dstart, int dend) {
+    // TODO Auto-generated method stub
+
+    boolean append = false;
+    String text = source.toString().substring(start, end);
+    StringBuilder str = new StringBuilder(dest.toString());
+
+    if(dstart == str.length())
+    {
+        append = true;
+        str.append(text);
+    }
+    else
+        str.replace(dstart, dend, text);
+
+    if(str.toString().contains(""aaaaaaaaaaaa/*the word here*/aaaaaaaa""))
+    {
+        if(append==true)
+            return """";
+        else
+            return dest.subSequence(dstart, dend);
+    }
+
+    return null;
+}
+</code></pre>
+
+<p>}</p>

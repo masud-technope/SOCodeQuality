@@ -1,0 +1,74 @@
+<p>I found simple solution, which works fine even if you want add new fragments in the middle or replace current fragment. In my solution you should override <code>getItemId()</code> which should return unique id for each fragment. Not position as by default. </p>
+
+<p>There is it:</p>
+
+<pre><code>public class DynamicPagerAdapter extends FragmentPagerAdapter {
+
+private ArrayList&lt;Page&gt; mPages = new ArrayList&lt;Page&gt;();
+private ArrayList&lt;Fragment&gt; mFragments = new ArrayList&lt;Fragment&gt;();
+
+public DynamicPagerAdapter(FragmentManager fm) {
+    super(fm);
+}
+
+public void replacePage(int position, Page page) {
+    mPages.set(position, page);
+    notifyDataSetChanged();
+}
+
+public void setPages(ArrayList&lt;Page&gt; pages) {
+    mPages = pages;
+    notifyDataSetChanged();
+}
+
+@Override
+public Fragment getItem(int position) {
+    if (mPages.get(position).mPageType == PageType.FIRST) {
+        return FirstFragment.newInstance(mPages.get(position));
+    } else {
+        return SecondFragment.newInstance(mPages.get(position));
+    }
+}
+
+@Override
+public int getCount() {
+    return mPages.size();
+}
+
+@Override
+public long getItemId(int position) {
+    // return unique id
+    return mPages.get(position).getId();
+}
+
+@Override
+public Object instantiateItem(ViewGroup container, int position) {
+    Fragment fragment = (Fragment) super.instantiateItem(container, position);
+    while (mFragments.size() &lt;= position) {
+        mFragments.add(null);
+    }
+    mFragments.set(position, fragment);
+    return fragment;
+}
+
+@Override
+public void destroyItem(ViewGroup container, int position, Object object) {
+    super.destroyItem(container, position, object);
+    mFragments.set(position, null);
+}
+
+@Override
+public int getItemPosition(Object object) {
+    PagerFragment pagerFragment = (PagerFragment) object;
+    Page page = pagerFragment.getPage();
+    int position = mFragments.indexOf(pagerFragment);
+    if (page.equals(mPages.get(position))) {
+        return POSITION_UNCHANGED;
+    } else {
+        return POSITION_NONE;
+    }
+}
+}
+</code></pre>
+
+<p>Notice: In this example <code>FirstFragment</code> and <code>SecondFragment</code> extends abstract class PageFragment, which has method <code>getPage()</code>.</p>

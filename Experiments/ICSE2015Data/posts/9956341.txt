@@ -1,0 +1,20 @@
+<p>Meanwhile I do in general no more use </p>
+
+<pre><code>Bundle savedInstanceState &amp; Co
+</code></pre>
+
+<p>the live cycle is for most activities too complicated and not necessary.
+And google states itself, it is NOT even reliable.</p>
+
+<p>My way is to save any changes immediately in the preferences</p>
+
+<pre><code> SharedPreferences p;
+ p.edit().put(..).commit()
+</code></pre>
+
+<p>in some way SharedPreferences work similar like Bundles.
+And naturally and at first such values have to be red from preferences.</p>
+
+<p>In the case of complex data you may use Sqlite instead of using preferences.</p>
+
+<p>When applying this concept, the activity just continues to use the last saved state, regardless whether it was an initial open with reboots in between or a reopen due to the back stack.</p>

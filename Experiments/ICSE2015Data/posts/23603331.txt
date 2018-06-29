@@ -1,0 +1,13 @@
+<p>here is the code which worked for me please try this is the simple method which takes time and date from system call the method  Datetime() where ever you needed</p>
+
+<pre><code>public static String Datetime()
+                {
+                Calendar c = Calendar .getInstance();
+                System.out.println(""Current time =&gt; ""+c.getTime());
+                SimpleDateFormat df = new SimpleDateFormat(""yyyy-MM-dd HH:mms"");
+                  formattedDate = df.format(c.getTime());
+                  return formattedDate;
+
+
+                }
+</code></pre>

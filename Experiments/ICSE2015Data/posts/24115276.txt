@@ -1,0 +1,14 @@
+<p>I am sure this code  will surely resolve your issues...This is working fine for me...\</p>
+
+<pre><code>try {
+            File mountFile = new File(""/proc/mounts"");
+            usbFoundCount=0;
+            sdcardFoundCount=0;
+            if(mountFile.exists())
+             {
+                Scanner usbscanner = new Scanner(mountFile);
+                while (usbscanner.hasNext()) {
+                    String line = usbscanner.nextLine();
+                    if (line.startsWith(""/dev/fuse /storage/usbcard1"")) {
+                        usbFoundCount=1;
+                        Log.i(""-----USB--------"

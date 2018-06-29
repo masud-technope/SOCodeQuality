@@ -1,0 +1,16 @@
+<p>If you can use the dimensions XML it's very simple!</p>
+
+<p>In your XML:</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;resources&gt;
+    &lt;dimen name=""thumbnail_height""&gt;120dp&lt;/dimen&gt;
+    ...
+    ...
+&lt;/resources&gt;
+</code></pre>
+
+<p>Then in your Java:</p>
+
+<pre><code>getResources().getDimensionPixelSize(R.dimen.thumbnail_height);
+</code></pre>

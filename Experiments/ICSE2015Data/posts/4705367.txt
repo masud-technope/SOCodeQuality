@@ -1,0 +1,1 @@
+<p>In addition to the accepted answer, it is also possible to use e.g.: <code>android:inputType=""textCapCharacters""</code> as an attribute of <code>&lt;EditText&gt;</code> in order to only accept upper case characters (and numbers).</p>

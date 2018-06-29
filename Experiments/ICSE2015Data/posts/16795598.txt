@@ -1,0 +1,6 @@
+<p>The issue is not on the java code, but on the manifest code.</p>
+
+<p>In your AndroidManifest.xml add an attribute to the Activity:</p>
+
+<pre><code>        &lt;activity android:name="".MyActivity"" android:windowSoftInputMode=""adjustPan""&gt; &lt;/activity&gt;
+</code></pre>

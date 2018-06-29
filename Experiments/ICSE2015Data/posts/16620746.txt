@@ -1,0 +1,16 @@
+<pre><code>public static void hideSoftKeyboard(Activity activity) {
+    InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+    inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+}
+</code></pre>
+
+<p>after that call on onTouchListener:</p>
+
+<pre><code>findViewById(android.R.id.content).setOnTouchListener(new OnTouchListener() {
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        Utils.hideSoftKeyboard(activity);
+        return false;
+    }
+});
+</code></pre>

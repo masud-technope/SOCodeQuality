@@ -1,0 +1,5 @@
+<p>I found this did the trick.</p>
+
+<pre><code>Rect dim = new Rect();
+getWindowVisibleDisplayFrame(dim);
+</code></pre>

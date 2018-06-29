@@ -1,0 +1,64 @@
+<p>I have spent more than two days working through all of the solutions posted in the thread and have found them lacking in one way or another.  My exact requirement is to have a button that will with 100% reliability show or hide the on screen keyboard.  When the keyboard is in its hidden state is should not re-appear, no matter what input fields the user clicks on.  When it is in its visible state the keyboard should not disappear no matter what buttons the user clicks.  This needs to work on Android 2.2+ all the way up to the latest devices.</p>
+
+<p>You can see a working implementation of this in my app <a href=""https://play.google.com/store/apps/details?id=au.com.lukesleeman.rpn&amp;hl=en"">clean RPN</a>.</p>
+
+<p>After testing many of the suggested answers on a number of different phones (including froyo and gingerbread devices) it became apparent that android apps can reliably:</p>
+
+<ol>
+<li>Temporarily hide the keyboard.  It will re-appear again when a user
+focuses a new text field.</li>
+<li>Show the keyboard when an activity starts
+and set a flag on the activity indicating that they keyboard should
+always be visible.  This flag can only be set when an activity is
+initialising.</li>
+<li>Mark an activity to never show or allow the use of the
+keyboard.  This flag can only be set when an activity is
+initialising.</li>
+</ol>
+
+<p>For me, temporarily hiding the keyboard is not enough.  On some devices it will re-appear as soon as a new text field is focused.  As my app uses multiple text fields on one page, focusing a new text field will cause the hidden keyboard to pop back up again.</p>
+
+<p>Unfortunately item 2 and 3 on the list only work reliability when an activity is being started.  Once the activity has become visible you cannot permanently hide or show the keyboard.  The trick is to actually restart your activity when the user presses the keyboard toggle button.  In my app when the user presses on the toggle keyboard button, the following code runs:</p>
+
+<pre><code>private void toggleKeyboard(){
+
+    if(keypadPager.getVisibility() == View.VISIBLE){
+        Intent i = new Intent(this, MainActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        Bundle state = new Bundle();
+        onSaveInstanceState(state);
+        state.putBoolean(SHOW_KEYBOARD, true);
+        i.putExtras(state);
+
+        startActivity(i);
+    }
+    else{
+        Intent i = new Intent(this, MainActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        Bundle state = new Bundle();
+        onSaveInstanceState(state);
+        state.putBoolean(SHOW_KEYBOARD, false);
+        i.putExtras(state);
+
+        startActivity(i);
+    }
+}
+</code></pre>
+
+<p>This causes the current activity to have its state saved into a Bundle, and then the activity is started, passing through an boolean which indicates if the keyboard should be shown or hidden.</p>
+
+<p>Inside the onCreate method the following code is run:</p>
+
+<pre><code>if(bundle.getBoolean(SHOW_KEYBOARD)){
+    ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(newEquationText,0);
+    getWindow().setSoftInputMode(LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+}
+else{
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM,
+            WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+}
+</code></pre>
+
+<p>If the soft keyboard should be shown, then the InputMethodManager is told to show the keyboard and the window is instructed to make the soft input always visible. If the soft keyboard should be hidden then the WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM is set.</p>
+
+<p>This approach works reliably on all devices I have tested on - from a 4 year old HTC phone running android 2.2 up to a nexus 7 running 4.2.2.  The only disadvantage with this approach is you need to be careful with handling the back button.  As my app essentially only has one screen (its a calculator) I can override onBackPressed() and return to the devices home screen.</p>

@@ -1,0 +1,16 @@
+<p>Instead of using isRootAvailable() you can use isAccessGiven(). Direct from RootTools <a href=""https://code.google.com/p/roottools/wiki/Usage"">wiki</a>:</p>
+
+<pre><code>if (RootTools.isAccessGiven()) {
+    // your app has been granted root access
+}
+</code></pre>
+
+<blockquote>
+  <p>RootTools.isAccessGiven() not only checks that a device is rooted, it
+  also calls su for your app, requests permission, and returns true if
+  your app was successfully granted root permissions. This can be used
+  as the first check in your app to make sure that you will be granted
+  access when you need it.</p>
+</blockquote>
+
+<p><a href=""https://code.google.com/p/roottools/"">https://code.google.com/p/roottools/</a></p>

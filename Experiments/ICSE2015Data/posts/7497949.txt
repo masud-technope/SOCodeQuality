@@ -1,0 +1,22 @@
+<p>Hey i also need 2 different fonts in my app for different widgeds!
+I use this way:</p>
+
+<p>In my Application class i create an static method:</p>
+
+<pre><code>public static Typeface getTypeface(Context context, String typeface) {
+    if (mFont == null) {
+        mFont = Typeface.createFromAsset(context.getAssets(), typeface);
+    }
+    return mFont;
+}
+</code></pre>
+
+<p>The String typeface represents the xyz.ttf in the asset folder. (i created an Constants Class)
+Now you can use this everywhere in your app:</p>
+
+<pre><code>mTextView = (TextView) findViewById(R.id.text_view);
+mTextView.setTypeface(MyApplication.getTypeface(this, Constants.TYPEFACE_XY));
+</code></pre>
+
+<p>The only problem is, you need this for every widget where you want to use the Font!
+But i think this is the best way.</p>

@@ -1,0 +1,4 @@
+<p>Don't make any hard code. Best way is you have to resize your views while on Get Focus on EditText with KeyBord Show.
+You can do this adding resize property on activity into Manifest file using below code.</p>
+
+<p><code>android:windowSoftInputMode=""adjustResize""</code></p>

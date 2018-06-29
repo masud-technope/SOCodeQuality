@@ -1,0 +1,35 @@
+<p>Here is the way I use to find the external card. Use mount cmd return then parse the vfat part.</p>
+
+<pre><code>String s = """";
+try {
+Process process = new ProcessBuilder().command(""mount"")
+        .redirectErrorStream(true).start();
+
+process.waitFor();
+
+InputStream is = process.getInputStream();
+byte[] buffer = new byte[1024];
+while (is.read(buffer) != -1) {
+    s = s + new String(buffer);
+}
+is.close();
+} catch (Exception e) {
+e.printStackTrace();
+}
+
+//用行分隔mount列表
+String[] lines = s.split(""\n"");
+for(int i=0; i&lt;lines.length; i++) {
+//如果行内有挂载路径且为vfat类型，说明�?�能是内置或者外置sd的挂载点
+if(-1 != lines[i].indexOf(path[0]) &amp;&amp; -1 != lines[i].indexOf(""vfat"")) {
+    //�?用空格分隔
+    String[] blocks = lines[i].split(""\\s"");
+    for(int j=0; j&lt;blocks.length; j++) {
+        //判断是�?�是挂载为vfat类型
+        if(-1 != blocks[j].indexOf(path[0])) {
+            //Test if it is the external sd card.
+        }
+    }
+}
+}
+</code></pre>

@@ -1,0 +1,42 @@
+<p>My approach is determine scrolling state by a timestamp changed each time the onScrollChanged() is called.
+It's very easy to determine when is start and end of scrolling.
+You can also change threshold ( I use 100ms ) to fix sensitivity.</p>
+
+<pre><code>public class CustomScrollView extends ScrollView {
+    private long lastScrollUpdate = -1;
+
+    private class ScrollStateHandler implements Runnable {
+
+        @Override
+        public void run() {
+            long currentTime = System.currentTimeMillis();
+            if ((currentTime - lastScrollUpdate) &gt; 100) {
+                lastScrollUpdate = -1;
+                onScrollEnd();
+            } else {
+                postDelayed(this, 100);
+            }
+        }
+    }
+
+    @Override
+    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+        super.onScrollChanged(l, t, oldl, oldt);
+        if (lastScrollUpdate == -1) {
+            onScrollStart();
+            postDelayed(new ScrollStateHandler(), 100);
+        }
+
+        lastScrollUpdate = System.currentTimeMillis();
+    }
+
+    private void onScrollStart() {
+        // do something
+    }
+
+    private void onScrollEnd() {
+        // do something
+    }
+
+}
+</code></pre>

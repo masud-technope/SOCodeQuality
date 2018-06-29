@@ -1,0 +1,39 @@
+<p>Maybe like ListPreference: Modify getSummary to get what you want:</p>
+
+<pre><code>package your.package.preference;
+
+import android.content.Context;
+import android.util.AttributeSet;
+
+public class EditTextPreference extends android.preference.EditTextPreference{
+        public EditTextPreference(Context context, AttributeSet attrs, int defStyle) {
+            super(context, attrs, defStyle);
+        }
+
+        public EditTextPreference(Context context, AttributeSet attrs) {
+            super(context, attrs);
+        }
+
+        public EditTextPreference(Context context) {
+            super(context);
+        }
+
+        @Override
+        public CharSequence getSummary() {
+            String summary = super.getSummary().toString();
+            return String.format(summary, getText());
+        }
+    }
+</code></pre>
+
+<p>And use this in your xml:</p>
+
+<pre><code>&lt;your.package.EditTextPreference
+                android:key=""pref_alpha""
+                android:summary=""Actual value: %s""
+                android:title=""Title""
+                android:defaultValue=""default""
+                /&gt;
+</code></pre>
+
+<p>So you are able to write a summary with %s for actual value.</p>

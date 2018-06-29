@@ -1,0 +1,4 @@
+<p>The best modern library for such a task for my opinion is <a href=""http://square.github.io/picasso/"" rel=""nofollow"">Picasso</a> by Square. It allows to load an image to an ImageView by URL with one-liner:</p>
+
+<pre><code>Picasso.with(context).load(""http://i.imgur.com/DvpvklR.png"").into(imageView);
+</code></pre>

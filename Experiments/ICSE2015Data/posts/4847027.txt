@@ -1,0 +1,15 @@
+<p>One way is:</p>
+
+<pre><code>Display display = getWindowManager().getDefaultDisplay(); 
+int width = display.getWidth();
+int height = display.getHeight();
+</code></pre>
+
+<p>It is deprecated, and you should try the following code instead. The first two lines of code gives you the DisplayMetrics objecs. This objects contains the fields like heightPixels,widthPixels.</p>
+
+<pre><code>DisplayMetrics metrics = new DisplayMetrics();
+getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+metrics.heightPixels;
+metrics.widthPixels;
+</code></pre>

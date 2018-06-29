@@ -1,0 +1,78 @@
+<p>This was my solution, my <code>ImageView</code> grows from <code>100%</code> to <code>200%</code> and return to his original size, using two animation files inside <code>res/anim/</code> folder</p>
+
+<p><strong>anim_grow.xml</strong></p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;set xmlns:android=""http://schemas.android.com/apk/res/android""
+ android:interpolator=""@android:anim/accelerate_interpolator""&gt;
+ &lt;scale
+  android:fromXScale=""1.0""
+  android:toXScale=""2.0""
+  android:fromYScale=""1.0""
+  android:toYScale=""2.0""
+  android:duration=""3000""
+  android:pivotX=""50%""
+  android:pivotY=""50%""
+  android:startOffset=""2000"" /&gt;
+&lt;/set&gt;
+</code></pre>
+
+<p><strong>anim_shrink.xml</strong></p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;set xmlns:android=""http://schemas.android.com/apk/res/android""
+ android:interpolator=""@android:anim/accelerate_interpolator""&gt;
+ &lt;scale
+  android:fromXScale=""2.0""
+  android:toXScale=""1.0""
+  android:fromYScale=""2.0""
+  android:toYScale=""1.0""
+  android:duration=""3000""
+  android:pivotX=""50%""
+  android:pivotY=""50%""
+  android:startOffset=""2000"" /&gt;
+&lt;/set&gt;
+</code></pre>
+
+<p>Send an <code>ImageView</code> to my method <code>setAnimationGrowShrink()</code></p>
+
+<pre><code>ImageView img1 = (ImageView)findViewById(R.id.image1);
+setAnimationGrowShrink(img1);
+</code></pre>
+
+<p><code>setAnimationGrowShrink()</code> method:</p>
+
+<pre><code>private void setAnimationGrowShrink(final ImageView imgV){
+    final Animation animationEnlarge = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_grow);
+    final Animation animationShrink = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_shrink);
+
+    imgV.startAnimation(animationEnlarge);
+
+    animationEnlarge.setAnimationListener(new AnimationListener() {         
+        @Override
+        public void onAnimationStart(Animation animation) {}
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {}
+
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            imgV.startAnimation(animationShrink);
+        }
+    });
+
+    animationShrink.setAnimationListener(new AnimationListener() {          
+        @Override
+        public void onAnimationStart(Animation animation) {}
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {}
+
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            imgV.startAnimation(animationEnlarge);
+        }
+    });
+
+}
+</code></pre>

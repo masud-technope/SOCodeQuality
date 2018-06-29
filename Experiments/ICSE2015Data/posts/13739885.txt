@@ -1,0 +1,6 @@
+<p>Use an <code>ArrayList</code> instead of an array.  It supports features like deleting any element, dynamic size, and many more.</p>
+
+<pre><code>ArrayList&lt;String&gt; arr_fav_list = new ArrayList&lt;String&gt;();
+arr_fav_list.addAll(arr_fav);
+arr_fav_list.remove(1);
+</code></pre>

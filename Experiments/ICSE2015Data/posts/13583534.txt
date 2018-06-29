@@ -1,0 +1,5 @@
+<p><code>android:windowSoftInputMode=""stateAlwaysVisible""</code> -> in manifest File.  </p>
+
+<p><code>edittext.requestFocus();</code>  -> in code.</p>
+
+<p>This will open soft keyboard on which edit-text has request focus as activity appears. </p>

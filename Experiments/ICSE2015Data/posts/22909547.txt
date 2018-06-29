@@ -1,0 +1,22 @@
+<p>Further to @Kevins answer, I've recently found while using his system, that the Nexus 7.1 was returning <code>false</code> for all three methods - No <code>which</code> command, no <code>test-keys</code> and <code>SuperSU</code> was not installed in <code>/system/app</code>.</p>
+
+<p>I added this:</p>
+
+<pre><code>public static boolean checkRootMethod4(Context context) {
+    return isPackageInstalled(""eu.chainfire.supersu"", context);     
+}
+
+private static boolean isPackageInstalled(String packagename, Context context) {
+    PackageManager pm = context.getPackageManager();
+    try {
+        pm.getPackageInfo(packagename, PackageManager.GET_ACTIVITIES);
+        return true;
+    } catch (NameNotFoundException e) {
+        return false;
+    }
+}
+</code></pre>
+
+<p>This is slightly <em>less</em> useful in some situations (if you need guaranteed root access) as it's completely possible for SuperSU to be installed on devices which don't have SU access.</p>
+
+<p>However, since it's possible to have SuperSU installed and working but <strong>not</strong> in the <code>/system/app</code> directory, this extra case will root (haha) out such cases.</p>

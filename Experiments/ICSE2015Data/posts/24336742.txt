@@ -1,0 +1,16 @@
+<p>Here is my solution:</p>
+
+<pre><code>public static File getRemovableStorage() {
+    String value = System.getenv(""SECONDARY_STORAGE"");
+    if (!TextUtils.isEmpty(value)) {
+        String[] paths = value.split("":"");
+        for (String path : paths) {
+            File file = new File(path);
+            if (file.isDirectory()) {
+                return file;
+            }
+        }
+    }
+    return null; // Most likely, a removable micro sdcard doesn't exist
+}
+</code></pre>

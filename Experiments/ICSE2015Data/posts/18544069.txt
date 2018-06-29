@@ -1,0 +1,65 @@
+<p>All the solutions here require setting a IMAGE_MAX_SIZE. This limits devices with more powerful hardware and if the image size is too low it looks ugly on the HD screen.</p>
+
+<p>I came out with a solution that works with my Samsung Galaxy S3 and several other devices including less powerful ones, with better image quality when a more powerful device is used.</p>
+
+<p>The gist of it is to calculate the maximum memory allocated for the app on a particular device, then set the scale to be lowest possible without exceeding this memory. Here's the code:</p>
+
+<pre><code>public static Bitmap decodeFile(File f)
+{
+    Bitmap b = null;
+    try
+    {
+        // Decode image size
+        BitmapFactory.Options o = new BitmapFactory.Options();
+        o.inJustDecodeBounds = true;
+
+        FileInputStream fis = new FileInputStream(f);
+        try
+        {
+            BitmapFactory.decodeStream(fis, null, o);
+        }
+        finally
+        {
+            fis.close();
+        }
+
+        // In Samsung Galaxy S3, typically max memory is 64mb
+        // Camera max resolution is 3264 x 2448, times 4 to get Bitmap memory of 30.5mb for one bitmap
+        // If we use scale of 2, resolution will be halved, 1632 x 1224 and x 4 to get Bitmap memory of 7.62mb
+        // We try use 25% memory which equals to 16mb maximum for one bitmap
+        long maxMemory = Runtime.getRuntime().maxMemory();
+        int maxMemoryForImage = (int) (maxMemory / 100 * 25);
+
+        // Refer to
+        // http://developer.android.com/training/displaying-bitmaps/cache-bitmap.html
+        // A full screen GridView filled with images on a device with
+        // 800x480 resolution would use around 1.5MB (800*480*4 bytes)
+        // When bitmap option's inSampleSize doubled, pixel height and
+        // weight both reduce in half
+        int scale = 1;
+        while ((o.outWidth / scale) * (o.outHeight / scale) * 4 &gt; maxMemoryForImage)
+        scale *= 2;
+
+        // Decode with inSampleSize
+        BitmapFactory.Options o2 = new BitmapFactory.Options();
+        o2.inSampleSize = scale;
+        fis = new FileInputStream(f);
+        try
+        {
+            b = BitmapFactory.decodeStream(fis, null, o2);
+        }
+        finally
+        {
+            fis.close();
+        }
+    }
+    catch (IOException e)
+    {
+    }
+    return b;
+}
+</code></pre>
+
+<p>I set the maximum memory used by this bitmap to be 25% of maximum allocated memory, you may need to adjust this to your needs and make sure this bitmap is cleaned up and don't stay in memory when you've finished using it. Typically I use this code to perform image rotation (source and destination bitmap) so my app needs to load 2 bitmaps in memory at the same time, and 25% gives me a good buffer without running out of memory when performing image rotation.</p>
+
+<p>Hope this helps someone out there..</p>

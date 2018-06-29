@@ -1,0 +1,49 @@
+<p>As all the answers seemed too complicated for me just for round corners I thought and came to another solution which I think is worth to share, just with XML in case you have some space around the image:</p>
+
+<p>Create a bordered shape with transparent content like this:</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;shape xmlns:android=""http://schemas.android.com/apk/res/android""
+    android:shape=""rectangle""&gt;
+    &lt;corners 
+        android:radius=""30dp"" /&gt;
+    &lt;stroke 
+        android:color=""#ffffffff""
+        android:width=""10dp"" /&gt;
+&lt;/shape&gt; 
+</code></pre>
+
+<p>Then in a RelativeLayout you can first place your image and then in the same location above the shape with another ImageView. The cover-shape should be larger in size by the amount of the border width. Be careful to take a larger corner radius as the outer radius is defined but the inner radius is what covers your image. </p>
+
+<p>Hope it helps somebody, too.</p>
+
+<p><strong>Edit</strong> as per CQM request the relative layout example:</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;RelativeLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+    android:layout_width=""match_parent""
+    android:layout_height=""match_parent"" &gt;
+
+    &lt;ImageView
+        android:id=""@+id/imageToShow""
+        android:layout_width=""wrap_content""
+        android:layout_height=""wrap_content""
+        android:layout_alignBottom=""@+id/imgCorners""
+        android:layout_alignLeft=""@+id/imgCorners""
+        android:layout_alignRight=""@+id/imgCorners""
+        android:layout_alignTop=""@+id/imgCorners""
+        android:background=""#ffffff""
+        android:contentDescription=""@string/desc""
+        android:padding=""5dp""
+        android:scaleType=""centerCrop"" /&gt;
+
+    &lt;ImageView
+        android:id=""@+id/imgCorners""
+        android:layout_width=""wrap_content""
+        android:layout_height=""wrap_content""
+        android:adjustViewBounds=""true""
+        android:contentDescription=""@string/desc""
+        android:src=""@drawable/corners_white"" /&gt;
+
+&lt;/RelativeLayout&gt;
+</code></pre>

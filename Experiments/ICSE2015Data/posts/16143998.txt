@@ -1,0 +1,1 @@
+<p>Actually every code runs well here, but your probleme probably come from your <code>gender</code> variable. Did you try to do a simple <code>System.out.println(gender);</code> before the comparaison ?</p>

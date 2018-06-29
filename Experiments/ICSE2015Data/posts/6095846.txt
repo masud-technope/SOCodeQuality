@@ -1,0 +1,30 @@
+<p>You could also do something like the below and use endswith.</p>
+
+<pre><code>public void walkdir(File dir) {
+    String txtPattern = "".txt"";
+    String jpgPattern = "".jpg"";
+    String mp3Pattern = "".mp3"";
+
+    File listFile[] = dir.listFiles();
+
+    if (listFile != null) {
+        for (int i = 0; i &lt; listFile.length; i++) {
+
+            if (listFile[i].isDirectory()) {
+                walkdir(listFile[i]);
+            } else {
+              if (listFile[i].getName().endsWith(txtPattern)){
+                                  //put in txt folder
+                              }else if (listFile[i].getName().endsWith(jpgPattern)){
+                                  // put in jpg folder
+                              }else if (istFile[i].getName().endsWith(mp3Pattern)) {
+                                  // put in  mp3 folder
+              }
+            }
+        }
+    }
+
+}
+</code></pre>
+
+<p>Sorry, haven't checked the work but it should do it for you.</p>

@@ -1,0 +1,9 @@
+<pre><code>private void hideSoftKeyboard() {
+    View view = getView();
+    if (view != null) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getActivity()
+                .getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+}
+</code></pre>

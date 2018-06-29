@@ -1,0 +1,2 @@
+<pre><code>Intent intent = new Intent(YourCurrentActivity.this, YourActivityName.class);
+intent.putExtra(""NAme"

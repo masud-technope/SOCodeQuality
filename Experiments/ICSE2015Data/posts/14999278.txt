@@ -1,0 +1,6 @@
+<p><code>editor.putString(""text"", mSaved.getText().toString());</code>
+Here, <strong>mSaved</strong> can be any textview or edittext from where we can extract a string. you can simply specify a string. . Here text will be the key which hold the value obtained from the mSaved(TextView or Edittext).    </p>
+
+<p><code>SharedPreferences prefs = this.getSharedPreferences(
+      ""com.example.app"", Context.MODE_PRIVATE);</code>
+Also there is no need to save the preference file using the package name i.e., ""com.example.app"". You can mention your own prefered name.  Hope this helps!!</p>

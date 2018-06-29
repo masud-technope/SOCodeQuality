@@ -1,0 +1,14 @@
+<p>Here is a method that test all the cases</p>
+
+<pre><code>    String getExtension(String fileName){
+        final String emptyExtension = """";
+        if(fileName == null){
+            return emptyExtension;
+        }
+        int index = fileName.lastIndexOf(""."");
+        if(index == -1){
+            return emptyExtension;
+        }
+        return fileName.substring(index + 1);
+    }
+</code></pre>

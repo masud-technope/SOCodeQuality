@@ -1,0 +1,6 @@
+<p>Use build in Time class!</p>
+
+<pre><code>Time time = new Time();
+time.set(0, 0, 17, 4, 5, 1999);
+Log.i(""DateTime"", time.format(""%d.%m.%Y %H:%M:%S""));
+</code></pre>

@@ -1,0 +1,7 @@
+<p>The shortest way to find out file extension is using <code>lastIndexOf('.')</code> assuming file name contains extension. Check the following code</p>
+
+<pre><code>String fileName = ""test.jpg"";
+int i = fileName.lastIndexOf('.');
+String fileExtension = fileName.substring(i+1);
+Log.v(""FILE EXTENSION: "",fileExtension);
+</code></pre>

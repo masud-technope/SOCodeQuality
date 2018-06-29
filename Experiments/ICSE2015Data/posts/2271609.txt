@@ -1,0 +1,26 @@
+<p>The obvious choices for displaying the time are the <a href=""http://developer.android.com/intl/fr/reference/android/widget/AnalogClock.html""><code>AnalogClock</code> View</a> and the <a href=""http://developer.android.com/intl/fr/reference/android/widget/DigitalClock.html""><code>DigitalClock</code> View</a>.</p>
+
+<p>For example, the following layout:</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;LinearLayout
+    xmlns:android=""http://schemas.android.com/apk/res/android""
+    android:layout_width=""fill_parent""
+    android:layout_height=""fill_parent"" 
+    android:orientation=""vertical""&gt;
+
+    &lt;AnalogClock
+        android:layout_width=""fill_parent"" 
+        android:layout_height=""wrap_content""/&gt;
+
+    &lt;DigitalClock 
+        android:layout_width=""fill_parent"" 
+        android:layout_height=""wrap_content"" 
+        android:gravity=""center"" 
+        android:textSize=""20sp""/&gt;
+&lt;/LinearLayout&gt;
+</code></pre>
+
+<p>Looks like this:</p>
+
+<p><img src=""http://content.screencast.com/users/davweb/folders/Snagit/media/5d8976bd-4833-4a3f-a3a5-74cbed922891/02.16.2010-09.09.17.png"" alt=""screenshot""></p>

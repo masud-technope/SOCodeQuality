@@ -1,0 +1,7 @@
+<p>Use my code .. I am able to play youtube video using this code ... you just need to provide  youtube video id in the ""videoId"" variable ....</p>
+
+<pre><code>String videoId = ""Fee5vbFLYM4"";
+Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(""vnd.youtube:""+videoId)); 
+intent.putExtra(""VIDEO_ID"", videoId); 
+startActivity(intent); 
+</code></pre>

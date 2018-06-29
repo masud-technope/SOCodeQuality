@@ -1,0 +1,57 @@
+<p>In case anyone wants a quick workaround, here's the code I used: </p>
+
+<pre><code>public void showCustomDatePicker () {
+
+final DatePicker mDatePicker = (DatePicker) getLayoutInflater().
+        inflate(R.layout.date_picker_view, null);
+//Set an initial date for the picker
+final Calendar c = Calendar.getInstance();
+int year = c.get(Calendar.YEAR);
+int month = c.get(Calendar.MONTH);
+int day = c.get(Calendar.DAY_OF_MONTH);
+//Set the date now
+mDatePicker.updateDate(year, month, day);
+
+//create the dialog
+AlertDialog.Builder mBuilder = new Builder(this);
+//set the title
+mBuilder.setTitle(getString(R.string.date_picker_title))
+    //set our date picker
+    .setView(mDatePicker)
+    //set the buttons 
+.setPositiveButton(android.R.string.ok, new OnClickListener() {
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        //whatever method you choose to handle the date changes
+            //the important thing to know is how to retrieve the data from the picker
+        handleOnDateSet(mDatePicker.getYear(), 
+                mDatePicker.getMonth(), 
+                mDatePicker.getDayOfMonth());
+    }
+})
+.setNegativeButton(android.R.string.cancel, new OnClickListener() {
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        dialog.dismiss();
+    }
+})
+//create the dialog and show it.
+.create().show();
+</code></pre>
+
+<p>}</p>
+
+<p>Where layout.date_picker_view is a simple layout resource with a DatePicker as it's only element: </p>
+
+<pre><code>&lt;!xml version=""1.0"" encoding=""utf-8""&gt;
+&lt;DatePicker xmlns:android=""http://schemas.android.com/apk/res/android""
+android:id=""@+id/date_picker""
+android:layout_width=""fill_parent""   
+android:spinnersShown=""true"" 
+android:calendarViewShown=""false""
+android:layout_height=""fill_parent""/&gt;
+</code></pre>
+
+<p>Here's the <a href=""http://suspendedthoughts.com/2013/07/12/working-with-date-pickers/"" rel=""nofollow"">full tutorial</a> in case you are interested.</p>

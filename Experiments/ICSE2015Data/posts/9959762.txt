@@ -1,0 +1,106 @@
+<p><a href=""http://stackoverflow.com/a/3407871/445348"">olivierg's answer</a> worked for me and is the best solution if creating a custom Dialog class is the route you want to go.  However, it bothered me that I couldn't use the AlertDialog class. I wanted to be able to use the default system AlertDialog style. Creating a custom dialog class would not have this style.</p>
+
+<p>So I found a solution (hack) that will work without having to create a custom class, you can use the existing builders.</p>
+
+<p>The AlertDialog puts a View above your content view as a placeholder for the title. If you find the view and set the height to 0, the space goes away.</p>
+
+<p>I have tested this on 2.3 and 3.0 so far, it is possible it doesn't work on every version yet.</p>
+
+<p>Here are two helper methods for doing it:</p>
+
+<pre><code>/**
+ * Show a Dialog with the extra title/top padding collapsed.
+ * 
+ * @param customView The custom view that you added to the dialog
+ * @param dialog The dialog to display without top spacing
+     * @param show Whether or not to call dialog.show() at the end.
+ */
+public static void showDialogWithNoTopSpace(final View customView, final Dialog dialog, boolean show) {
+    // Now we setup a listener to detect as soon as the dialog has shown.
+    customView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+
+        @Override
+        public void onGlobalLayout() {
+            // Check if your view has been laid out yet
+            if (customView.getHeight() &gt; 0) {
+                // If it has been, we will search the view hierarchy for the view that is responsible for the extra space. 
+                LinearLayout dialogLayout = findDialogLinearLayout(customView);
+                if (dialogLayout == null) {
+                    // Could find it. Unexpected.
+
+                } else {
+                    // Found it, now remove the height of the title area
+                    View child = dialogLayout.getChildAt(0);
+                    if (child != customView) {
+                        // remove height
+                        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) child.getLayoutParams();
+                        lp.height = 0;
+                        child.setLayoutParams(lp);
+
+                    } else {
+                        // Could find it. Unexpected.
+                    }
+                }
+
+                // Done with the listener
+                customView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            }
+         }
+
+    });
+
+    // Show the dialog
+    if (show)
+             dialog.show();
+}
+
+/**
+ * Searches parents for a LinearLayout
+ * 
+ * @param view to search the search from
+ * @return the first parent view that is a LinearLayout or null if none was found
+ */
+public static LinearLayout findDialogLinearLayout(View view) {
+    ViewParent parent = (ViewParent) view.getParent();
+    if (parent != null) {
+        if (parent instanceof LinearLayout) {
+            // Found it
+            return (LinearLayout) parent;
+
+        } else if (parent instanceof View) {
+            // Keep looking
+            return findDialogLinearLayout((View) parent);
+
+        }
+    }
+
+    // Couldn't find it
+    return null;
+}
+</code></pre>
+
+<p>Here is an example of how it is used:</p>
+
+<pre><code>    Dialog dialog = new AlertDialog.Builder(this)
+        .setView(yourCustomView)
+        .create();
+
+    showDialogWithNoTopSpace(yourCustomView, dialog, true);
+</code></pre>
+
+<p>If you are using this with a DialogFragment, override the DialogFragment's <code>onCreateDialog</code> method. Then create and return your dialog like the first example above. The only change is that you should pass false as the 3rd parameter (show) so that it doesn't call show() on the dialog.  The DialogFragment will handle that later.</p>
+
+<p>Example:</p>
+
+<pre><code>@Override
+public Dialog onCreateDialog(Bundle savedInstanceState) {
+    Dialog dialog = new AlertDialog.Builder(getContext())
+        .setView(yourCustomView)
+        .create();
+
+    showDialogWithNoTopSpace(yourCustomView, dialog, false);
+    return dialog;
+}
+</code></pre>
+
+<p>As I test this further I'll be sure to update with any additional tweaks needed.</p>

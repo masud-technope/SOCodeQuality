@@ -1,0 +1,14 @@
+<p>Do network action on others thread</p>
+
+<pre><code>new Thread(new runnable(){
+    @Override
+    public void run() {
+        //do network action in this function
+    }
+}).start();
+</code></pre>
+
+<p>and add this to AndroidManifest.xml    </p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.INTERNET""/&gt;
+</code></pre>

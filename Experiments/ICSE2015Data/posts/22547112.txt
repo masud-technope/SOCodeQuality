@@ -1,0 +1,12 @@
+<p>Good news!  In KitKat there's now a public API for interacting with these secondary shared storage devices.</p>
+
+<p>The new <code>Context.getExternalFilesDirs()</code> and <code>Context.getExternalCacheDirs()</code> methods can return multiple paths, including both primary and secondary devices.  You can then iterate over them and check <code>Environment.getStorageState()</code> and <code>File.getFreeSpace()</code> to determine the best place to store your files.  These methods are also available on <code>ContextCompat</code> in the support-v4 library.</p>
+
+<p>Also note that if you're only interested in using the directories returned by <code>Context</code>, you no longer need the <code>READ_</code> or <code>WRITE_EXTERNAL_STORAGE</code> permissions.  Going forward, you'll always have read/write access to these directories with no additional permissions required.</p>
+
+<p>Apps can also continue working on older devices by end-of-lifing their permission request like this:</p>
+
+<pre><code>&lt;uses-permission
+    android:name=""android.permission.WRITE_EXTERNAL_STORAGE""
+    android:maxSdkVersion=""18"" /&gt;
+</code></pre>

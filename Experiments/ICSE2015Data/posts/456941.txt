@@ -1,0 +1,10 @@
+<p>Use the standard Java DateFormat class.</p>
+
+<p>For example to display the current date and time do the following:</p>
+
+<pre><code>Date date = new Date(location.getTime());
+DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
+mTimeText.setText(""Time: "" + dateFormat.format(date));
+</code></pre>
+
+<p>You can initialise a Date object with your own values, however you should be aware that the constructors have been deprecated and you should really be using a Java Calendar object.</p>

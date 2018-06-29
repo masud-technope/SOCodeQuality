@@ -1,0 +1,16 @@
+<pre><code>Button myButton = new Button(this);
+myButton.setId(123);
+myButton.setText(""Push Me"");
+
+
+LinearLayout ll = (LinearLayout)findViewById(R.id.buttonlayout);
+LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+ll.addView(myButton, lp);
+ myButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Toast.makeText(DynamicLayout.this,
+                        ""Button clicked index = "" + id_, Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
+</code></pre>

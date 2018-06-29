@@ -1,0 +1,38 @@
+<p>There is a very simple workaround, if your application does not use the action bar. Note by the way, that some apps rely on this functionality to work, because cancelling out of the date picker has a special meaning (e.g. it clears the date field to an empty string, which for some apps is a valid and meaningful type of input) and using boolean flags to prevent the date from being set twice on OK will not help you in this case.</p>
+
+<p>Re. the actual fix, you do not have to create new buttons or your own dialog.  The point is to be compatible with both, the older versions of Android, the buggy ones (4.<em>) and any future ones, though the latter is impossible to be sure about, of course.
+Note that in Android 2.</em>, the onStop() for android.app.Dialog does nothing at all, and in 4.* it does mActionBar.setShowHideAnimationEnabled(false) which is important only if your app has an action bar.  The onStop() in DatePickerDialog, which inherits from Dialog, only contributes mDatePicker.clearFocus() (as of the latest fix to Android sources 4.3), which does not seem essential.</p>
+
+<p>Therefore replacing onStop() with a method that does nothing should in many instances fix your app and ensure that it will remain so for the foreseeable future. Thus simply extend DatePickerDialog class with your own and override onStop() whit a dummy method.  You will also have to provide one or two constructors, as per your requirements.
+Note also that one should not be tempted to try to overdo this fix by e.g. attempting to do something with the activity bar directly, as this would limit your compatibility to the latest versions of Android only.  Also note that it would be nice to be able to call the super for DatePicker's onStop() because the bug is only in the onStop() in DatePickerDialog itself, but not in DatePickerDialog's super class.  However, this would require you to call super.super.onStop() from your custom class, which Java will not let you do, as it goes against the encapsulation philosophy :)
+Below is my little class that I used to verride DatePickerDialog.
+I hope this comment would be useful for somebody.
+Wojtek Jarosz</p>
+
+<p>public class myDatePickerDialog extends DatePickerDialog {</p>
+
+<pre><code>public myDatePickerDialog(Context context, OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
+    super(context, callBack, year, monthOfYear, dayOfMonth);
+}
+
+@Override
+protected void onStop() {
+    // Replacing tryNotifyDateSet() with nothing - this is a workaround for Android bug https://android-review.googlesource.com/#/c/61270/A
+
+    // Would also like to clear focus, but we cannot get at the private members, so we do nothing.  It seems to do no harm...
+    // mDatePicker.clearFocus();
+
+    // Now we would like to call super on onStop(), but actually what we would mean is super.super, because
+    // it is super.onStop() that we are trying NOT to run, because it is buggy.  However, doing such a thing
+    // in Java is not allowed, as it goes against the philosophy of encapsulation (the Creators never thought
+    // that we might have to patch parent classes from the bottom up :)
+    // However, we do not lose much by doing nothing at all, because in Android 2.* onStop() in androd.app.Dialog actually
+    // does nothing and in 4.* it does:
+    //      if (mActionBar != null) mActionBar.setShowHideAnimationEnabled(false); 
+    // which is not essential for us here because we use no action bar... QED
+    // So we do nothing and we intend to keep this workaround forever because of users with older devices, who might
+    // run Android 4.1 - 4.3 for some time to come, even if the bug is fixed in later versions of Android.
+}
+</code></pre>
+
+<p>}</p>

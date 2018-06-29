@@ -1,0 +1,4 @@
+<p>Just add this in your styles.xml</p>
+
+<pre><code>&lt;item name=""android:windowNoTitle""&gt;true&lt;/item&gt;
+</code></pre>

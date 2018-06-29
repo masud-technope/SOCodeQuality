@@ -1,0 +1,3 @@
+yes sorry, forgot that you had five. You could make a function that did the same thing and call it five times - or you could loop over the five EditText's.
+Sorry to be pedantic, but you do not write functions in java they are called methods.
+if EditText.setInputType(InputType.TYPE_CLASS_NUMBER); number this is not working.

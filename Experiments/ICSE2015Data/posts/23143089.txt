@@ -1,0 +1,6 @@
+<p>Funny trick. Works 100% :)</p>
+
+<pre><code>tv.setThreshold(Integer.MAX_VALUE);
+tv.setText(station.getName());
+tv.setThreshold(1);
+</code></pre>

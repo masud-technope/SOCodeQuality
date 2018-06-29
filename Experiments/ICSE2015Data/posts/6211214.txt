@@ -1,0 +1,20 @@
+<p>""As of Android 1.6, incoming SMS message broadcasts (<code>android.provider.Telephony.SMS_RECEIVED</code>) are delivered as an ""ordered broadcast"" — meaning that you can tell the system which components should receive the broadcast first.""</p>
+
+<p>This means that you can intercept incoming message and abort broadcasting of it further on.</p>
+
+<p>In your <code>AndroidManifest.xml</code> file, make sure to have priority set to highest:</p>
+
+<pre><code>&lt;receiver android:name="".receiver.SMSReceiver"" android:enabled=""true""&gt;
+    &lt;intent-filter android:priority=""1000""&gt;
+        &lt;action android:name=""android.provider.Telephony.SMS_RECEIVED"" /&gt;
+    &lt;/intent-filter&gt;
+&lt;/receiver&gt;
+</code></pre>
+
+<p>In your <code>BroadcastReceiver</code>, in <code>onReceive()</code> method, before performing anything with your message, simply call <code>abortBroadcast();</code></p>
+
+<p>EDIT: As of KitKat, this doesn't work anymore apparently.</p>
+
+<p>EDIT2: More info on how to do it on KitKat here:</p>
+
+<p><a href=""http://stackoverflow.com/questions/25988574/delete-sms-from-android-on-4-4-4-affected-rows-0zero-after-deleted"">Delete SMS from android on 4.4.4 (Affected rows = 0(Zero), after deleted)</a></p>

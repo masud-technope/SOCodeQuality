@@ -1,0 +1,27 @@
+<p><strong>Simple and best way for GeoLocation.</strong></p>
+
+<pre><code>LocationManager lm = null;
+boolean network_enabled;
+
+
+if (lm == null)
+                lm = (LocationManager) Kikit.this.getSystemService(Context.LOCATION_SERVICE);
+
+            network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+
+            dialog = ProgressDialog.show(Kikit.this, """", ""Fetching location..."", true);
+
+
+            final Handler handler = new Handler();
+            timer = new Timer();
+            TimerTask doAsynchronousTask = new TimerTask() {
+
+                @Override
+                public void run() {
+                    handler.post(new Runnable() {
+
+                        @Override
+                        public void run() 
+                        {
+
+                            Log.e(""counter value"

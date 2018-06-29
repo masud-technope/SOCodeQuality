@@ -1,0 +1,4 @@
+<p>very simple  </p>
+
+<pre><code>Bitmap tempBMP = BitmapFactory.decodeResource(getResources(),R.drawable.image);
+</code></pre>

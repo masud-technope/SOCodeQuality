@@ -1,0 +1,42 @@
+<p>My option is to extend ListPreference and it's clean:</p>
+
+<pre><code>public class ListPreferenceShowSummary extends ListPreference {
+
+    private final static String TAG = ListPreferenceShowSummary.class.getName();
+
+    public ListPreferenceShowSummary(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+
+    public ListPreferenceShowSummary(Context context) {
+        super(context);
+        init();
+    }
+
+    private void init() {
+
+        setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+
+            @Override
+            public boolean onPreferenceChange(Preference arg0, Object arg1) {
+                arg0.setSummary(getEntry());
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public CharSequence getSummary() {
+        return super.getEntry();
+    }
+}
+</code></pre>
+
+<p>Then you add in your settings.xml:</p>
+
+<pre><code>&lt;yourpackage.ListPreferenceShowSummary
+    android:key=""key"" android:title=""title""
+    android:entries=""@array/entries"" android:entryValues=""@array/values""
+    android:defaultValue=""first value""/&gt;
+</code></pre>

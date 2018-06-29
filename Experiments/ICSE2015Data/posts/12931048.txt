@@ -1,0 +1,5 @@
+<p>If you base your app theme on the holo theme you will get a white instead of a black text in your SearchView</p>
+
+<p><code>&lt;style name=""Theme.MyTheme"" parent=""android:Theme.Holo""&gt;</code></p>
+
+<p>I did not find any other way to change the textcolor of the searchview without using dirty hacks.</p>

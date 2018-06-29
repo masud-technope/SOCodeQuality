@@ -1,0 +1,9 @@
+<p>use below code before setcontentview :-</p>
+
+<pre><code>dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); 
+dialog.setContentView(R.layout.custom_dialog);
+</code></pre>
+
+<h1>Note: you must have the two lines of code, in that order.</h1>
+
+<p><strong>Note</strong> the line requestWindowFeature must be <strong>BEFORE</strong> the setContentView line.</p>

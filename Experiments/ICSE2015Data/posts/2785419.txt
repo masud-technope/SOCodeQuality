@@ -1,0 +1,1 @@
+<p><code>onSaveInstanceState</code> is called when the system needs memory and kills an application. It is not called when the user just closes the application. So I think application state should also be saved in <code>onPause</code> It should be saved to some persistent storage like <code>Preferences</code> or <code>Sqlite</code></p>

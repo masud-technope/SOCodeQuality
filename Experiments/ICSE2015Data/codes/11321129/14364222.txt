@@ -1,0 +1,3 @@
+int id = searchView.getContext().getResources().getIdentifier(""android:id/search_src_text"", null, null);
+TextView textView = (TextView) searchView.findViewById(id);
+textView.setTextColor(Color.WHITE);

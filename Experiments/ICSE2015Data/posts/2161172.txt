@@ -1,0 +1,10 @@
+<p>There are a few attributes you should check: android:lines, android:minLines, android:maxLines. To display a maximum of 4 lines and ellipsize it, you just need android:maxLines and android:ellipsize:</p>
+
+<pre><code>&lt;TextView
+    android:layout_width=""fill_parent""
+    android:layout_height=""wrap_content""
+    android:maxLines=""4""
+    android:ellipsize=""marquee""
+    android:text=""Hai!""
+    /&gt;
+</code></pre>

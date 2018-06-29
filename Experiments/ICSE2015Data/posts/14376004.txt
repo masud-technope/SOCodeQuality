@@ -1,0 +1,18 @@
+<p>i think using getRotationv() doesn't help because 
+<a href=""http://developer.android.com/reference/android/view/Display.html#getRotation%28%29"" rel=""nofollow"">http://developer.android.com/reference/android/view/Display.html#getRotation%28%29</a>
+ getRotation() Returns the rotation of the screen from its ""natural"" orientation.</p>
+
+<p>so unless you know the ""natural"" orientation, rotation is meaningless.</p>
+
+<p>i found an easier way, </p>
+
+<pre><code>  Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+  Point size = new Point();
+  display.getSize(size);
+  int width = size.x;
+  int height = size.y;
+  if(width&gt;height)
+    // its landscape
+</code></pre>
+
+<p>please tell me if there is a problem with this someone?</p>

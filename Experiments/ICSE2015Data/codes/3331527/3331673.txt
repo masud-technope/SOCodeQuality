@@ -1,0 +1,3 @@
+inSampleSize
+BitmapFactory.decodeFile(file, options)
+Bitmap.createScaledBitmap()

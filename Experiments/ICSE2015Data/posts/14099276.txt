@@ -1,0 +1,32 @@
+<p>Yes it is possible using fallowing method.</p>
+
+<pre><code>public static EditText setHintEditText(EditText argEditText,String argHintMessage,boolean argIsRequire) {
+    try{
+    if(argIsRequire)
+    {argHintMessage=""   ""+argHintMessage;
+        //String text = ""&lt;font color=#8c8c8c&gt;""+argHintMessage+""&lt;/font&gt; &lt;font color=#cc0029&gt;*&lt;/font&gt;"";
+        String text = ""&lt;font color=#8c8c8c&gt;""+argHintMessage+""&lt;/font&gt;"";
+        argEditText.setHint(Html.fromHtml(text));
+    }else{
+    argEditText.setHint(argHintMessage);
+    }
+    }catch(Exception e){
+        e.printStackTrace();
+    }
+    return argEditText;
+}
+</code></pre>
+
+<p>Calling of this method look like this..</p>
+
+<pre><code>metLoginUserName=(EditText)this.findViewById(R.id.etLoginUserName);
+    metLoginPassword=(EditText)this.findViewById(R.id.etLoginPassword);
+
+    /**Set the hint in username and password edittext*/
+    metLoginUserName=HotSpotStaticMethod.setHintEditText(metLoginUserName, getString(R.string.hint_username),true);
+    metLoginPassword=HotSpotStaticMethod.setHintEditText(metLoginPassword, getString(R.string.hint_password),true);
+</code></pre>
+
+<p>using it i have successfully add red color * mark in hint using this method.
+You should change this method according to your requirement.
+I hope its helpful to you ....:)</p>

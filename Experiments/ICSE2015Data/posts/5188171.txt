@@ -1,0 +1,78 @@
+<p>Props to George Walters II above, I just took his answer and extended it a bit to support rounding individual corners differently.  This could be optimized a bit further (some of the target rects overlap), but not a whole lot.</p>
+
+<p>I know this thread is a bit old, but its one of the top results for queries on Google for how to round corners of ImageViews on Android.</p>
+
+<pre><code>/**
+ * Use this method to scale a bitmap and give it specific rounded corners.
+ * @param context Context object used to ascertain display density.
+ * @param bitmap The original bitmap that will be scaled and have rounded corners applied to it.
+ * @param upperLeft Corner radius for upper left.
+ * @param upperRight Corner radius for upper right.
+ * @param lowerRight Corner radius for lower right.
+ * @param lowerLeft Corner radius for lower left.
+ * @param endWidth Width to which to scale original bitmap.
+ * @param endHeight Height to which to scale original bitmap.
+ * @return Scaled bitmap with rounded corners.
+ */
+public static Bitmap getRoundedCornerBitmap(Context context, Bitmap bitmap, float upperLeft,
+        float upperRight, float lowerRight, float lowerLeft, int endWidth,
+        int endHeight) {
+    float densityMultiplier = context.getResources().getDisplayMetrics().density;
+
+    // scale incoming bitmap to appropriate px size given arguments and display dpi
+    bitmap = Bitmap.createScaledBitmap(bitmap, 
+            Math.round(endWidth * densityMultiplier),
+            Math.round(endHeight * densityMultiplier), true);
+
+    // create empty bitmap for drawing
+    Bitmap output = Bitmap.createBitmap(
+            Math.round(endWidth * densityMultiplier),
+            Math.round(endHeight * densityMultiplier), Config.ARGB_8888);
+
+    // get canvas for empty bitmap
+    Canvas canvas = new Canvas(output);
+    int width = canvas.getWidth();
+    int height = canvas.getHeight();
+
+    // scale the rounded corners appropriately given dpi
+    upperLeft *= densityMultiplier;
+    upperRight *= densityMultiplier;
+    lowerRight *= densityMultiplier;
+    lowerLeft *= densityMultiplier;
+
+    Paint paint = new Paint();
+    paint.setAntiAlias(true);
+    paint.setColor(Color.WHITE);
+
+    // fill the canvas with transparency
+    canvas.drawARGB(0, 0, 0, 0);
+
+    // draw the rounded corners around the image rect. clockwise, starting in upper left.
+    canvas.drawCircle(upperLeft, upperLeft, upperLeft, paint);
+    canvas.drawCircle(width - upperRight, upperRight, upperRight, paint);
+    canvas.drawCircle(width - lowerRight, height - lowerRight, lowerRight, paint);
+    canvas.drawCircle(lowerLeft, height - lowerLeft, lowerLeft, paint);
+
+    // fill in all the gaps between circles. clockwise, starting at top.
+    RectF rectT = new RectF(upperLeft, 0, width - upperRight, height / 2);
+    RectF rectR = new RectF(width / 2, upperRight, width, height - lowerRight);
+    RectF rectB = new RectF(lowerLeft, height / 2, width - lowerRight, height);
+    RectF rectL = new RectF(0, upperLeft, width / 2, height - lowerLeft);
+
+    canvas.drawRect(rectT, paint);
+    canvas.drawRect(rectR, paint);
+    canvas.drawRect(rectB, paint);
+    canvas.drawRect(rectL, paint);
+
+    // set up the rect for the image
+    Rect imageRect = new Rect(0, 0, width, height);
+
+    // set up paint object such that it only paints on Color.WHITE
+    paint.setXfermode(new AvoidXfermode(Color.WHITE, 255, AvoidXfermode.Mode.TARGET));
+
+    // draw resized bitmap onto imageRect in canvas, using paint as configured above
+    canvas.drawBitmap(bitmap, imageRect, imageRect, paint);
+
+    return output;
+}
+</code></pre>

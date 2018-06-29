@@ -1,0 +1,7 @@
+<p>If you subclass InputFilter you can create your own InputFilter that would filter out any non-alpha-numeric characters.  </p>
+
+<p>The InputFilter Interface has one method, <code>filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend)</code>, and it provides you with all the information you need to know about which characters were entered into the EditText it is assigned to.</p>
+
+<p>Once you have created your own InputFilter, you can assign it to the EditText by calling setFilters(...).</p>
+
+<p><a href=""http://developer.android.com/reference/android/text/InputFilter.html#filter(java.lang.CharSequence"" rel=""nofollow"">http://developer.android.com/reference/android/text/InputFilter.html#filter(java.lang.CharSequence</a>, int, int, android.text.Spanned, int, int)</p>

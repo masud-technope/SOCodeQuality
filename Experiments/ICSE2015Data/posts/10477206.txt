@@ -1,0 +1,8 @@
+<pre><code>DisplayMetrics metrics = new DisplayMetrics();
+getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+int height = metrics.heightPixels;
+int width = metrics.widthPixels;
+</code></pre>
+
+<p>i guess the code which you wrote is deprecated.</p>

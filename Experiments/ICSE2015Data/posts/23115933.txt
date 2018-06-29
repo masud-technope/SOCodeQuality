@@ -1,0 +1,13 @@
+<p>My problem was that I needed persistence only during the application lifetime (i.e. a single execution including starting other sub-activities within the same app and rotating the device etc). I tried various combinations of the above answers but did not get what I wanted in all situations. In the end what worked for me was to obtain a reference to the savedInstanceState during onCreate:</p>
+
+<pre><code>mySavedInstanceState=savedInstanceState;
+</code></pre>
+
+<p>and use that to obtain the contents of my variable when I needed it, along the lines of:</p>
+
+<pre><code>if (mySavedInstanceState !=null) {
+   boolean myVariable = mySavedInstanceState.getBoolean(""MyVariable"");
+}
+</code></pre>
+
+<p>I use <code>onSaveInstanceState</code>and <code>onRestoreInstanceState</code> as suggested above but I guess i could also or alternatively use my method to save the variable when it changes (e.g. using <code>putBoolean</code>)</p>

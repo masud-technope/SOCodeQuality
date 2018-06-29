@@ -1,0 +1,4 @@
+<p><code>view</code> is the list item, so you can do</p>
+
+<pre><code>String s =(String) ((TextView) view.findViewById(R.id.myNr)).getText();
+</code></pre>

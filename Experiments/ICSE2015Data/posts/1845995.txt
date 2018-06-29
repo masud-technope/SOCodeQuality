@@ -1,0 +1,5 @@
+<p>Please try this below code in <code>oncreate</code>()</p>
+
+<pre><code>EditText edtView=(EditText)findViewById(R.id.editTextConvertValue);
+edtView.setInputType(0);
+</code></pre>

@@ -1,0 +1,5 @@
+This is awesome. And should be much higher on the list. The asynctask allows this to load without freezing up the UI!
+This should be the TOP answer!
+AsyncTasks uses a serial executor, meaning each image will load one at a time and not do parallel thread loading.
+Source link doesn't work any more.
+The input stream is not closed in your example. Best done in the finally block of your try/catch.

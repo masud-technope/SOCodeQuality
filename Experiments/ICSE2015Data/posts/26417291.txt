@@ -1,0 +1,38 @@
+<p>This may be old but I got this working by implenting a custom class </p>
+
+<pre><code>public class DismissKeyboardListener implements OnClickListener {
+
+    Activity mAct;
+
+    public DismissKeyboardListener(Activity act) {
+        this.mAct = act;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if ( v instanceof ViewGroup ) {
+            hideSoftKeyboard( this.mAct );
+        }
+    }       
+}
+
+public void hideSoftKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager)
+        getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+}
+</code></pre>
+
+<p>the best practice here is to create a Helper class and every container Relative / Linear Layouts should implement this. </p>
+
+<p>**** Take note only the main Container should implement this class (For optimization) ****</p>
+
+<p>and implement it like this :</p>
+
+<pre><code>Parent.setOnClickListener( new DismissKeyboardListener(this) ); 
+</code></pre>
+
+<p>the keyword this is for Activity. so if you are on fragment you use like getActivity();</p>
+
+<p>---thumbs up if it help you... 
+--- cheers Ralph ---</p>

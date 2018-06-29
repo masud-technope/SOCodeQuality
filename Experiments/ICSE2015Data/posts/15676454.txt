@@ -1,0 +1,20 @@
+<h3>Programmatialy:</h3>
+
+<p>You can do programmatically using <code>setTypeface()</code>: </p>
+
+<pre><code>textView.setTypeface(null, Typeface.NORMAL);      // for Normal Text
+textView.setTypeface(null, Typeface.BOLD);        // for Bold only
+textView.setTypeface(null, Typeface.ITALIC);      // for Italic
+textView.setTypeface(null, Typeface.BOLD_ITALIC); // for Bold and Italic
+</code></pre>
+
+<h3>XML:</h3>
+
+<p>You can set Directly in XML file in <code>&lt;TextView /&gt;</code> like: </p>
+
+<pre><code>android:textStyle=""normal""
+android:textStyle=""normal|bold""
+android:textStyle=""normal|italic""
+android:textStyle=""bold""
+android:textStyle=""bold|italic""
+</code></pre>

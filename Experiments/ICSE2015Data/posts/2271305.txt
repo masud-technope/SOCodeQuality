@@ -1,0 +1,10 @@
+<p>Okay, not that hard as there are several methods to do this. I assume you want to put the current date &amp; time into a <code>TextView</code>.</p>
+
+<pre><code>String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+
+// textView is the TextView view that should display it
+textView.setText(currentDateTimeString);
+</code></pre>
+
+<p>There is more to read in the documentation that can easily be found <a href=""http://developer.android.com/reference/java/text/DateFormat.html#getDateTimeInstance%28%29"">here</a>
+. There you'll find more information on how to change the format used for conversion.</p>

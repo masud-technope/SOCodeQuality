@@ -1,0 +1,77 @@
+<p>I tried exiting application using following code snippet, this it worked for me. Hope this helps you. 
+i did small demo with 2 activities </p>
+
+<p>first activity</p>
+
+<pre><code>public class MainActivity extends Activity implements OnClickListener{
+    private Button secondActivityBtn;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editer;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        secondActivityBtn=(Button) findViewById(R.id.SecondActivityBtn);
+        secondActivityBtn.setOnClickListener(this);
+
+        pref = this.getSharedPreferences(""MyPrefsFile"", MODE_PRIVATE);
+        editer = pref.edit();
+
+        if(pref.getInt(""exitApp"", 0) == 1){
+            editer.putInt(""exitApp"", 0);
+            editer.commit();
+            finish();
+        }
+    }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+        case R.id.SecondActivityBtn:
+            Intent intent= new Intent(MainActivity.this, YourAnyActivity.class);
+            startActivity(intent);
+            break;
+        default:
+            break;
+        }
+    }
+}
+</code></pre>
+
+<p>your any other activity</p>
+
+<pre><code>public class YourAnyActivity extends Activity implements OnClickListener {
+    private Button exitAppBtn;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editer;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_any);
+
+        exitAppBtn = (Button) findViewById(R.id.exitAppBtn);
+        exitAppBtn.setOnClickListener(this);
+
+        pref = this.getSharedPreferences(""MyPrefsFile"", MODE_PRIVATE);
+        editer = pref.edit();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+        case R.id.exitAppBtn:
+            Intent main_intent = new Intent(YourAnyActivity.this,
+                    MainActivity.class);
+            main_intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(main_intent);
+            editer.putInt(""exitApp"",1);
+            editer.commit();
+            break;
+        default:
+            break;
+        }
+    }
+}
+</code></pre>

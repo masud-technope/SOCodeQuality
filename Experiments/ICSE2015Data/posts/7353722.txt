@@ -1,0 +1,7 @@
+<p>To display images and videos try this:</p>
+
+<pre><code>    Intent intent = new Intent();
+    intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+    startActivityForResult(intent, 1);
+    startActivityForResult(Intent.createChooser(intent,""Wybierz plik""), SELECT_FILE);
+</code></pre>

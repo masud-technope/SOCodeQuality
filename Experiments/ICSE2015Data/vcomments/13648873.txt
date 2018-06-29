@@ -1,0 +1,2 @@
+I think you solution will give invalid folder name if original one contains capital letters like /mnt/SdCard.
+I've tested on some Motorola, Samsung and LG devices and it worked perfect.

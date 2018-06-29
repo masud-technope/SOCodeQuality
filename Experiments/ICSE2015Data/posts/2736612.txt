@@ -1,0 +1,10 @@
+<p>One option could be letting your custom class implement <code>Serializable</code> interface and then you can pass object instances in intent extra using <code>putExtra(Serializable..)</code> variant of the <code>Intent#putExtra()</code> method.</p>
+
+<p>PSEUDO code:  </p>
+
+<pre><code>//to pass :
+   intent.putExtra(""MyClass"", obj);  
+
+// to retrieve object in second Activity
+getIntent().getSerializableExtra(""MyClass"");
+</code></pre>

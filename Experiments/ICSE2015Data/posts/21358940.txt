@@ -1,0 +1,15 @@
+<p>Create two styles:</p>
+
+<pre><code>&lt;style name=""AppThemeNoBar"" parent=""Theme.AppCompat.Light""&gt;
+     &lt;item name=""android:windowNoTitle""&gt;true&lt;/item&gt;
+&lt;/style&gt;
+
+&lt;style name=""AppThemeBar"" parent=""Theme.AppCompat.Light""&gt;
+    &lt;item name=""android:windowNoTitle""&gt;false&lt;/item&gt;
+&lt;/style&gt;
+</code></pre>
+
+<p>Set AppThemeNoBar as application theme and AppThemeBar to the activity where you want to show the ActionBar.﻿
+Using two styles you wont see the Action bar while views are loading. </p>
+
+<p>Check this link <a href=""https://plus.google.com/105092052613467789971/posts/gs8EKC35YjL"">Android: hide action bar while view load</a></p>

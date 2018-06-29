@@ -1,0 +1,1 @@
+<p>It happens if you do not choose the correct resource for showing your different items. It works fine if you choose the built-in resource android.R.layout.simple_list_item_multiple_choice. The method <code>getCheckedItemPositions</code> is coupled in some way to the built-in resource.</p>

@@ -1,0 +1,23 @@
+<p>Since applications aren't allowed to change many of the phone settings, you can open a settings activity just like another application.</p>
+
+<p>Look at you LogCat output after you actually modified the setting manually:</p>
+
+<pre><code>INFO/ActivityManager(1306): Starting activity: Intent { act=android.intent.action.MAIN cmp=com.android.settings/.DevelopmentSettings } from pid 1924
+</code></pre>
+
+<p>Then use this to display the settings page from your app:</p>
+
+<pre><code>String SettingsPage = ""com.android.settings/.DevelopmentSettings"";
+
+try
+{
+Intent intent = new Intent(Intent.ACTION_MAIN);             
+intent.setComponent(ComponentName.unflattenFromString(SettingsPage));             
+intent.addCategory(Intent.CATEGORY_LAUNCHER );             
+startActivity(intent); 
+}
+catch (ActivityNotFoundException e)
+{
+ log it
+}
+</code></pre>

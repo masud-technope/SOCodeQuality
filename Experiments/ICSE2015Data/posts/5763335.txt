@@ -1,0 +1,4 @@
+<p>Does this help?</p>
+
+<pre><code>((ScrollView)findViewById(R.id.QuranGalleryScrollView)).setOnTouchListener(null);
+</code></pre>

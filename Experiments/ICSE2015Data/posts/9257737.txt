@@ -1,0 +1,6 @@
+<p>the easiest way is this. Inside your ListArrayAdapter just do this</p>
+
+<pre><code>if(your condition here) rowView.setBackgroundColor(Color.parseColor(""#20FFFFFF""));
+</code></pre>
+
+<p>don't over complicate yourselves...</p>

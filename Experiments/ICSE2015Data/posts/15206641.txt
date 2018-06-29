@@ -1,0 +1,17 @@
+<p>I got this working with a slight variant on Fernando Camarago's solution.  In my onCreate method I attach a single onTouchListener to the root view but send the view rather than activity as an argument.</p>
+
+<pre><code>        findViewById(android.R.id.content).setOnTouchListener(new OnTouchListener() {           
+        public boolean onTouch(View v, MotionEvent event) {
+            Utils.hideSoftKeyboard(v);
+            return false;
+        }
+    });
+</code></pre>
+
+<p>In a separate Utils class is...</p>
+
+<pre><code>    public static void hideSoftKeyboard(View v) {
+    InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE); 
+    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+}
+</code></pre>

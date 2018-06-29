@@ -1,0 +1,26 @@
+<p>Try something like this</p>
+
+<pre><code>int[] intAry = new int[5]; 
+
+// populate array with 0 to 4  
+
+for (int i=0; i &lt; intAry.length; i++) {  
+
+  intAry[i] = i;  
+
+}  
+
+List&lt;Integer&gt; aList  = Arrays.asList(intAry); // change the array to a list of integers  
+
+aList.remove(3); // remove the item 3 (4th index)  
+
+aList.toArray(intAry); // convert list back to array  
+
+System.out.println(""size of array="" + intAry.size()); // output array size should be 4  
+
+for (int i=0; i &lt; intAry.length; i++) {  
+
+  System.out.print(intAry[i] + "" ""); // should output ""0 1 2 4 ""  
+
+}  
+</code></pre>

@@ -1,0 +1,1 @@
+<p>Add this is your xml: <code>android:autoLink=""phone""</code></p>

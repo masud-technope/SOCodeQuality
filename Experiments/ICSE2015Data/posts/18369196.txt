@@ -1,0 +1,22 @@
+<p>Why not just disable the button if EditText is empty?  IMHO This looks more professional:</p>
+
+<pre><code>        final EditText txtFrecuencia = (EditText) findViewById(R.id.txtFrecuencia);  
+        final ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleStartStop);
+        txtFrecuencia.addTextChangedListener(new TextWatcher() {
+        @Override
+        public void afterTextChanged(Editable s) {
+            toggle.setEnabled(txtFrecuencia.length() &gt; 0);
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count,
+                int after) {
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before,
+                int count) {
+
+        }
+       });
+</code></pre>

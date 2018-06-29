@@ -1,0 +1,29 @@
+<blockquote>
+  <p><code>Environment.getExternalStorageState()</code> returns path to internal SD mount point like ""/mnt/sdcard""</p>
+</blockquote>
+
+<p>No, <code>Environment.getExternalStorageDirectory()</code> refers to whatever the device manufacturer considered to be ""external storage"". On some devices, this is removable media, like an SD card. On some devices, this is a portion of on-device flash. Here, ""external storage"" means ""the stuff accessible via USB Mass Storage mode when mounted on a host machine"", at least for Android 1.x and 2.x.</p>
+
+<blockquote>
+  <p>But the question is about external SD. How to get a path like ""/mnt/sdcard/external_sd"" (it may differ from device to device)?</p>
+</blockquote>
+
+<p>Android has no concept of ""external SD"", aside from external storage, as described above.</p>
+
+<p>If a device manufacturer has elected to have external storage be on-board flash and also has an SD card, you will need to contact that manufacturer to determine whether or not you can use the SD card (not guaranteed) and what the rules are for using it, such as what path to use for it.</p>
+
+<hr>
+
+<p><strong>UPDATE</strong></p>
+
+<p>Two recent things of note:</p>
+
+<p>First, on Android 4.4+, you do not have write access to removable media (e.g., ""external SD""), except for any locations on that media that might be returned by <code>getExternalFilesDirs()</code> and <code>getExternalCacheDirs()</code>. See <a href=""http://www.doubleencore.com/2014/03/android-external-storage/"">Dave Smith's excellent analysis</a> of this, particularly if you want the low-level details.</p>
+
+<p>Second, lest anyone quibble on whether or not removable media access is otherwise part of the Android SDK, here is <a href=""https://groups.google.com/d/msg/android-platform/14VUiIgwUjY/2rZvrNV64QsJ"">Dianne Hackborn's assessment</a>:</p>
+
+<blockquote>
+  <p>...keep in mind: until Android 4.4, the official Android platform has not supported SD cards at <em>all</em> except for two special cases: the old school storage layout where external storage is an SD card (which is still supported by the platform today), and a small feature added to Android 3.0 where it would scan additional SD cards and add them to the media provider and give apps read-only access to their files (which is also still supported in the platform today).</p>
+  
+  <p>Android 4.4 is the first release of the platform that has actually allowed applications to use SD cards for storage.  Any access to them prior to that was through private, unsupported APIs.  We now have a quite rich API in the platform that allows applications to make use of SD cards in a supported way, in better ways than they have been able to before: they can make free use of their app-specific storage area without requiring any permissions in the app, and can access any other files on the SD card as long as they go through the file picker, again without needing any special permissions.</p>
+</blockquote>

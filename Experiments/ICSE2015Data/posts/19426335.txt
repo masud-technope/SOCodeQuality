@@ -1,0 +1,38 @@
+<p>Actualy if you want to have the <strong>real display dpi</strong> the answer is somewhere in between
+if you query for display metrics:</p>
+
+<pre><code>DisplayMetrics dm = new DisplayMetrics();
+getWindowManager().getDefaultDisplay().getMetrics(dm);
+int dpiClassification = dm.densityDpi;
+float xDpi = dm.xdpi;
+float yDpi = dm.ydpi;
+</code></pre>
+
+<p>densityDpi * 160 will give you the values/suggestion which density you should use</p>
+
+<pre><code>0.75 - ldpi - 120 dpi
+1.0 - mdpi - 160 dpi
+1.5 - hdpi - 240 dpi
+2.0 - xhdpi - 320 dpi
+3.0 - xxhdpi - 480 dpi
+4.0 - xxxhdpi - 640 dpi
+</code></pre>
+
+<p>as specified in previous posts</p>
+
+<p>but <code>dm.xdpi</code> won't give you always the <strong>REAL dpi</strong> of given display:
+Example:</p>
+
+<pre><code>Device: Sony ericsson xperia mini pro (SK17i)
+Density: 1.0 (e.g. suggests you use 160dpi resources)
+xdpi: 193.5238
+Real device ppi is arround 193ppi
+
+
+Device: samsung GT-I8160 (Samsung ace 2)
+Density 1.5 (e.g. suggests you use 240dpi resources)
+xdpi 160.42105
+Real device ppi is arround 246ppi
+</code></pre>
+
+<p>so maybe real dpi of the display should be Density*xdpi .. but i'm not sure if this is the correct way to do!</p>

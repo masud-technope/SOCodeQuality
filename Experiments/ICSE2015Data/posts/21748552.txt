@@ -1,0 +1,19 @@
+<p>You may easily override the onKey() event in activity and fragments to hide the keyboard.</p>
+
+<pre><code>@Override
+public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        if (keyCode == event.KEYCODE_ENTER) {
+
+            intiateLoginProcess();
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getWindow().getCurrentFocus()
+                    .getWindowToken(), 0);
+
+            return true;
+        }
+    }
+    return false;
+}
+</code></pre>

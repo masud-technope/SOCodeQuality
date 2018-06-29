@@ -1,0 +1,92 @@
+<p>Create a custom ScrollView (create a class and have it extend HorizontalScrollView) and make a getter setter for scrollable. Then override computeScrollDeltaToGetChildRectOnScreen.</p>
+
+<p>How it works: Every time android has an edit text or something in focus that is off screen it calls method computeScrollDeltaToGetChildRectOnScreen to bring it into view. If you Override it and return 0 when it is disabled than it will not scroll...</p>
+
+<p>So you will have A custom scroll view like this:</p>
+
+<pre><code>    public class TrackableHorizontalScrollView extends HorizontalScrollView {
+
+
+    // true if we can scroll (not locked)
+    // false if we cannot scroll (locked)
+    private boolean mScrollable = true;
+
+    public TrackableHorizontalScrollView(Context context) {
+        super(context);
+    }
+
+    public TrackableHorizontalScrollView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public TrackableHorizontalScrollView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
+
+    public void setScrollingEnabled(boolean enabled) {
+        mScrollable = enabled;
+    }
+
+    public boolean isScrollable() {
+        return mScrollable;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                // if we can scroll pass the event to the superclass
+                if (mScrollable) return super.onTouchEvent(ev);
+                // only continue to handle the touch event if scrolling enabled
+                return mScrollable; // mScrollable is always false at this point
+            default:
+                return super.onTouchEvent(ev);
+        }
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        // Don't do anything with intercepted touch events if
+        // we are not scrollable
+        if (!mScrollable) return false;
+        else return super.onInterceptTouchEvent(ev);
+    }
+
+    @Override
+    public void scrollTo(int x, int y){
+        if (!mScrollable) return;
+        super.scrollTo(x, y);
+    }
+
+
+    //Custom smooth scroll method since norm is final and cannot be overridden
+    public final void smooothScrollToIfEnabled(int x, int y){
+         if (!mScrollable) return;
+         smoothScrollTo(x, y);
+    }
+
+    @Override
+    protected int computeScrollDeltaToGetChildRectOnScreen(android.graphics.Rect rect){
+        if (!mScrollable) return 0;
+        return super.computeScrollDeltaToGetChildRectOnScreen(rect);
+    }
+
+
+}
+</code></pre>
+
+<p>You can use this inside your XML like this:</p>
+
+<pre><code>&lt;com.your.package.ui.widget.TrackableHorizontalScrollView
+            android:id=""@+id/wi_et_credit_scroller""
+            android:layout_toRightOf=""@id/wi_et_credit_iv""
+            android:layout_width=""fill_parent""
+            android:scrollbars=""none""
+            android:layout_height=""wrap_content""
+            android:paddingRight=""5dp""
+            android:layout_gravity=""center_vertical""&gt;
+
+&lt;!--Whatever you have inside the scrollview--&gt;
+
+&lt;/com.your.package.ui.widget.TrackableHorizontalScrollView&gt;
+</code></pre>

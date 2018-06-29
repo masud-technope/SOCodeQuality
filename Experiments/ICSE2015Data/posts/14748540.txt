@@ -1,0 +1,29 @@
+<p>I usually do what <a href=""http://stackoverflow.com/a/6290970/2046119"">SBJ</a> proposes, but the other way around. I simply find it easier to understand my code by checking for positive results instead of double negatives. 
+You might be asking for how to check for empty EdiTexts, but what you really want to know is if it has any content and not that it is not empty. </p>
+
+<p>Like so:</p>
+
+<pre><code>private boolean hasContent(EditText et) {
+    // Always assume false until proven otherwise
+    boolean bHasContent = false; 
+
+    if (et.getText().toString().trim().length() &gt; 0) {
+        // Got content
+        bHasContent = true;
+    }
+    return bHasContent;
+}
+</code></pre>
+
+<p>As <a href=""http://stackoverflow.com/a/6290970/2046119"">SBJ</a> I prefer to return ""has no content"" (or <code>false</code>) as default to avoid exceptions because I borked my content-check. That way you will be absolutely certain that a <code>true</code> has been ""approved"" by your checks.</p>
+
+<p>I also think the <code>if</code> calling it looks a bit cleaner as well:</p>
+
+<pre><code>if (hasContent(myEditText)) {
+// Act upon content
+} else {
+// Got no content!
+}
+</code></pre>
+
+<p>It is very much dependent on preference, but i find this easier to read. :)</p>

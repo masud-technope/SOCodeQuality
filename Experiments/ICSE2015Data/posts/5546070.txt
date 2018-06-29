@@ -1,0 +1,36 @@
+<p>To answer my own question in case someone had the same problem:</p>
+
+<p>One characteristics of AutoCompleteTextView is that if you change its text programmatically, it will drop down the selection list if the following two conditions are met: 1. It has focus; 2. The list is longer than 30-something items. </p>
+
+<p>This behavior is actually, IMHO, a design flaw. When the program sets text to an AutoCompleteTextView, it would mean that the text is already correct, there is no point to popup the filtered list for user to further choose from. </p>
+
+<pre><code>actv.setText(""Tim Hortons""); 
+actv.setSelection(0, actv.getText().length()); 
+actv.requestFocus(); 
+actv.dismissDropDown();    // doesn't help 
+</code></pre>
+
+<p>In the above code, requestFocus() forces the ACTV to get the focus, and this causes the drop-down to pop up. I tried not to reqeuest focus, instead, I called clearFocus() after setting text. But the behavior is very .... unnatural. dissmissDropdown() doesn't help because .... I don't know, it just doesn't help. So, after much strugle, I came up with this work-around:</p>
+
+<ol>
+<li>When initializing the widget, I remembered the adapter in a class field.</li>
+<li><p>Change the above code to:</p>
+
+<pre><code>mAdapter = (ArrayAdapter&lt;String&gt;)actv.getAdapter(); // mAdapter is a class field        
+actv.setText(""Tim Hortons""); 
+actv.setSelection(0, actv.getText().length()); 
+actv.setAdapter((ArrayAdapter&lt;String&gt;)null); // turn off the adapter
+actv.requestFocus();
+Handler handler = new Handler() {
+public void handleMessage(Message msg) {
+    ((AutoCompleteTextView)msg.obj).setAdapter(mAdapter);
+    };
+Message msg = mHandler.obtainMessage();
+msg.obj = actv;
+handler.sendMessageDelayed(msg, 200);   // turn it back on after 200ms
+</code></pre></li>
+</ol>
+
+<p>Here the trick is set the ACTV's adapter to null. Because there is no adapter, of course the system will not pop up the drop-down. But the message will reset the adapter back to the ACTV after the programmed delay of 200ms, and the ACTV will work normally as usual.</p>
+
+<p>This works for me!</p>

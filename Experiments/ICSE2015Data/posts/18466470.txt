@@ -1,0 +1,19 @@
+<p>For accessing the height of the status bar for Android devices, we prefer a programmatic way to get it:</p>
+
+<h3>Sample code</h3>
+
+<pre><code>    int resId = getResources().getIdentifier(""status_bar_height"",
+                                             ""dimen"",
+                                             ""android"");
+    if (resId &gt; 0) {
+        result = getResources().getDimensionPixelSize(resId);
+    }
+</code></pre>
+
+<p>The variable <code>result</code> gives the height in the pixel.</p>
+
+<h3>For quick access</h3>
+
+<p><img src=""http://i.stack.imgur.com/1HxlM.png"" alt=""Enter image description here""></p>
+
+<p>For more information about height of <code>Title bar</code>, <code>Navigation bar</code> and <code>Content View</code>, kindly look on <em><a href=""http://www.emirweb.com/ScreenDeviceStatistics.php"">Android Device Screen Sizes</a></em>.</p>

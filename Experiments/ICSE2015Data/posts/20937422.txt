@@ -1,0 +1,3 @@
+<p>You should not do any time-consuming task on the main thread (UI thread), like any network operation, file I/O, or SQLite database operations. So for this kind of operation, you should create a worker thread, but the problem is that you can not directly perform any UI related operation from your worker thread. For that, you have to use <code>Handler</code> and pass the <code>Message</code>. </p>
+
+<p>To simplify all these things, Android provides various ways, like <code>AsyncTask</code>, <code>AsyncTaskLoader</code>, <code>CursorLoader</code> or <code>IntentService</code>. So you can use any of these according to your requirements.</p>

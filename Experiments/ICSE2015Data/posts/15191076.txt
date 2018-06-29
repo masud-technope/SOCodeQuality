@@ -1,0 +1,59 @@
+<p>Until the bug will be fixed I suggest not to use DatePickerDialog or TimePickerDialog. Use custom made AlertDialog with TimePicker/DatePicker widget;</p>
+
+<p>Change TimePickerDialog with;</p>
+
+<pre><code>    final TimePicker timePicker = new TimePicker(this);
+    timePicker.setIs24HourView(true);
+    timePicker.setCurrentHour(20);
+    timePicker.setCurrentMinute(15);
+
+    new AlertDialog.Builder(this)
+            .setTitle(""Test"")
+            .setPositiveButton(android.R.string.ok, new OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.d(""Picker"", timePicker.getCurrentHour() + "":""
+                            + timePicker.getCurrentMinute());
+                }
+            })
+            .setNegativeButton(android.R.string.cancel,
+                    new OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog,
+                                int which) {
+                            Log.d(""Picker"", ""Cancelled!"");
+                        }
+                    }).setView(timePicker).show();
+</code></pre>
+
+<p>Change DatePickerDialog with;</p>
+
+<pre><code>    final DatePicker datePicker = new DatePicker(this);
+    datePicker.init(2012, 10, 5, null);
+    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB) {
+        datePicker.setCalendarViewShown(false);
+    }
+
+    new AlertDialog.Builder(this)
+            .setTitle(""Test"")
+            .setPositiveButton(android.R.string.ok, new OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Log.d(""Picker"", datePicker.getYear() + "" ""
+                            + (datePicker.getMonth() + 1) + "" ""
+                            + datePicker.getDayOfMonth());
+                }
+            })
+            .setNegativeButton(android.R.string.cancel,
+                    new OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog,
+                                int which) {
+                            Log.d(""Picker"", ""Cancelled!"");
+                        }
+                    }).setView(datePicker).show();
+</code></pre>

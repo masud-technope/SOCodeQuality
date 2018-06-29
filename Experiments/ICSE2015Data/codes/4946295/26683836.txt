@@ -1,0 +1,33 @@
+private void setAnimationGrowShrink(final ImageView imgV){
+    final Animation animationEnlarge = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_grow);
+    final Animation animationShrink = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_shrink);
+
+    imgV.startAnimation(animationEnlarge);
+
+    animationEnlarge.setAnimationListener(new AnimationListener() {         
+        @Override
+        public void onAnimationStart(Animation animation) {}
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {}
+
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            imgV.startAnimation(animationShrink);
+        }
+    });
+
+    animationShrink.setAnimationListener(new AnimationListener() {          
+        @Override
+        public void onAnimationStart(Animation animation) {}
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {}
+
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            imgV.startAnimation(animationEnlarge);
+        }
+    });
+
+}

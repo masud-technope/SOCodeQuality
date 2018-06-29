@@ -1,0 +1,17 @@
+<p>From <a href=""http://stackoverflow.com/questions/7054945/how-to-get-full-date-with-correct-format"">How to get full date with correct format?</a>:</p>
+
+<p>Please, use</p>
+
+<pre><code>android.text.format.DateFormat.getDateFormat(Context context)
+android.text.format.DateFormat.getTimeFormat(Context context)
+</code></pre>
+
+<p>to get valid time and date formats in sense of current user settings (12/24 time format, for example).</p>
+
+<pre><code>import android.text.format.DateFormat;
+
+private void some() {
+    final Calendar t = Calendar.getInstance();
+    textView.setText(DateFormat.getTimeFormat(this/*Context*/).format(t.getTime()));
+}
+</code></pre>

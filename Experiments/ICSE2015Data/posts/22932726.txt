@@ -1,0 +1,9 @@
+<p>Just like the solutions other have written (that work fine), I would like to answer the same thing, but with a tip that I think most would prefer to use.</p>
+
+<p>In case you wish the app you start to open in a new task, indepandant of your own, instead of staying on the same stack, you can use this code:</p>
+
+<pre><code>final Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY|Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+startActivity(intent);
+</code></pre>

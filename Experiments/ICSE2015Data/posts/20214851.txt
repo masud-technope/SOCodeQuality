@@ -1,0 +1,8 @@
+<p>For logout button on last screen of app, use this code on logout button listener to finish all open previous activities, and your problem is solved.    </p>
+
+<pre><code>{
+Intent intent = new Intent(this, loginScreen.class);
+ntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+startActivity(intent);
+}
+</code></pre>

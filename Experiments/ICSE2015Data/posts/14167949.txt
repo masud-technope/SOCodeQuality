@@ -1,0 +1,69 @@
+<p>Setting <code>android:windowActionBar=""false""</code> truly disables the ActionBar but then, as you say, <code>getActionBar();</code> returns null.
+This is solved by:</p>
+
+<pre><code>public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+    getActionBar().hide();
+
+    setContentView(R.layout.splash); // be sure you call this AFTER requestFeature
+</code></pre>
+
+<p>This creates the ActionBar and immediately hides it before it had the chance to be displayed.</p>
+
+<p>But now there is another problem. After putting <code>windowActionBar=""false""</code> in the theme, the Activity draws its normal Window Title instead of an ActionBar.<br>
+If we try to avoid this by using some of the <code>*.NoTitleBar</code> stock themes or we try to put <code>&lt;item name=""android:windowNoTitle""&gt;true&lt;/item&gt;</code> in our own theme, it won't work.<br>
+The reason is that the ActionBar <em>depends</em> on the Window Title to display itself - that is the ActionBar is a transformed Window Title.<br>
+So the trick which can help us out is to add one more thing to our Activity theme xml:</p>
+
+<pre><code>&lt;item name=""android:windowActionBar""&gt;false&lt;/item&gt;
+&lt;item name=""android:windowTitleSize""&gt;0dp&lt;/item&gt;
+</code></pre>
+
+<p>This will make the Window Title with zero height, thus practically invisible .</p>
+
+<p>In your case, after you are done with displaying the splash screen you can simply call </p>
+
+<pre><code>setContentView(R.layout.main);
+getActionBar().show();
+</code></pre>
+
+<p>and you are done. The Activity will start with no ActionBar flickering, nor Window Title showing.</p>
+
+<p><strong>ADDON:</strong>
+If you show and hide the ActionBar multiple times maybe you have noticed that the <em>first</em> showing is <em>not</em> animated. From then on showing and hiding are animated. If you want to have animation on the first showing too you can use this:</p>
+
+<pre><code>protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    requestWindowFeature(Window.FEATURE_ACTION_BAR);
+
+    // delaying the hiding of the ActionBar
+    Handler h = new Handler();
+    h.post(new Runnable() {     
+        @Override
+        public void run() {
+            getActionBar().hide();
+        }
+    });
+</code></pre>
+
+<p>The same thing can be achieved with:</p>
+
+<pre><code>protected void onPostResume() {
+    super.onPostResume();
+    getActionBar().hide();
+</code></pre>
+
+<p>but it may need some extra logic to check if this is the first showing of the Activity.</p>
+
+<p>The idea is to delay a little the hiding of the ActionBar. In a way we let the ActionBar be shown, but then hide it immediately. Thus we go beyond the first non-animated showing and next showing will be considered second, thus it will be animated.</p>
+
+<p>As you may have guessed there is a chance that the ActionBar <em>could</em> be seen before it has been hidden by the delayed operation. This is actually the case. Most of the time nothing is seen but yet, once in a while, you can see the ActionBar flicker for a split second.</p>
+
+<p>In any case this is not a pretty solution, so I welcome any suggestions.</p>
+
+<p><strong>Addition</strong> for v7 support actionbar user, the code will be:</p>
+
+<pre><code>getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+getSupportActionBar().hide();
+</code></pre>

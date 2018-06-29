@@ -1,0 +1,31 @@
+<p>thomas88wp answer, <a href=""http://stackoverflow.com/a/6486348/528746"">http://stackoverflow.com/a/6486348/528746</a> worked for me.
+But I had two problems:
+1. When scrolling, I wanted to hide the keyboard<br/>
+2. I had lots of EditText views and didn't want to write it for each one of them<br/>
+(I do getActivity() since I'm writing this inside a Fragment and not an activity)</p>
+
+<pre><code>    ScrollView scroll = (ScrollView)view.findViewById(R.id.layout_scroll);
+    scroll.setOnTouchListener(new OnTouchListener() {
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            // Check if the view with focus is EditText
+            if (getActivity().getCurrentFocus() instanceof EditText)
+            {
+                EditText ed = (EditText)getActivity().getCurrentFocus();
+                if (ed.hasFocus()) {
+
+                    // Hide the keyboard
+                    InputMethodManager inputManager = (InputMethodManager)
+                            getActivity().getSystemService(Context.INPUT_METHOD_SERVICE); 
+                    inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                    // Clear the focus
+                    ed.clearFocus();
+                }
+            }
+            return false;
+        }
+
+    });
+</code></pre>

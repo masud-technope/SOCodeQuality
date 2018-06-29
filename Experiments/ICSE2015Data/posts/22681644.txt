@@ -1,0 +1,33 @@
+<p>There can be several services with the same class name. </p>
+
+<p>I've just created two apps. The package name of the first app is <code>com.example.mock</code>. I created a subpackage called <code>lorem</code> in the app and a service called <code>Mock2Service</code>. So its fully qualified name is <code>com.example.mock.lorem.Mock2Service</code>.</p>
+
+<p>Then I created the second app and a service called <code>Mock2Service</code>. The package name of the second app is <code>com.example.mock.lorem</code>. The fully qualified name of the service is <code>com.example.mock.lorem.Mock2Service</code>, too.</p>
+
+<p>Here is my logcat output.</p>
+
+<pre><code>03-27 12:02:19.985: D/TAG(32155): Mock-01: com.example.mock.lorem.Mock2Service
+03-27 12:02:33.755: D/TAG(32277): Mock-02: com.example.mock.lorem.Mock2Service
+</code></pre>
+
+<p>A better idea is to compare <code>ComponentName</code> instances because <code>equals()</code> of <code>ComponentName</code> compares both package names and class names. And there can't be two apps with the same package name installed on a device.</p>
+
+<p>The equals() method of <code>ComponentName</code>.</p>
+
+<pre><code>@Override
+public boolean equals(Object obj) {
+    try {
+        if (obj != null) {
+            ComponentName other = (ComponentName)obj;
+            // Note: no null checks, because mPackage and mClass can
+            // never be null.
+            return mPackage.equals(other.mPackage)
+                    &amp;&amp; mClass.equals(other.mClass);
+        }
+    } catch (ClassCastException e) {
+    }
+    return false;
+}
+</code></pre>
+
+<p><a href=""http://developer.android.com/reference/android/content/ComponentName.html"" rel=""nofollow"">ComponentName</a></p>

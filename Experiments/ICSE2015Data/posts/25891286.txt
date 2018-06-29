@@ -1,0 +1,3 @@
+<p><strong>to save</strong> </p>
+
+<pre><code>PreferenceManager.getDefaultSharedPreferences(this).edit().putString(""VarName"

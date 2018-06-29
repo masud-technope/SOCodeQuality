@@ -1,0 +1,35 @@
+<p>There are some great answers here, but my code can detect when scrolling stops without having to extend ScrollView class.
+every view instance can call getViewTreeObserver(). when Holding this instance of ViewTreeObserver you can add a OnScrollChangedListener using the function addOnScrollChangedListener().</p>
+
+<p>declare the following:</p>
+
+<pre><code>private ScrollView scrollListener;
+private volatile long milesec;
+
+private Handler scrollStopDetector;
+private Thread scrollcalled = new Thread() {
+
+    @Override
+    public void run() { 
+        if (System.currentTimeMillis() - milesec &gt; 200) {
+            //scroll stopped - put your code here
+        }
+    }
+}; 
+</code></pre>
+
+<p>and in your onCreate (or another place) add:</p>
+
+<pre><code>    scrollListener = (ScrollView) findViewById(R.id.scroll);
+
+    scrollListener.getViewTreeObserver().addOnScrollChangedListener(new OnScrollChangedListener() {
+
+        @Override
+        public void onScrollChanged() {
+            milesec = System.currentTimeMillis();
+            scrollStopDetector.postDelayed(scrollcalled, 200);
+        }
+    });
+</code></pre>
+
+<p>you might want to take longer or slower time between this checks, but when scrolling this listner gets called really fast so it will work very fast. </p>

@@ -1,0 +1,28 @@
+<p>I use it like this:</p>
+
+<pre><code>public class DateUtils {
+    static DateUtils instance;
+    private final DateFormat dateFormat;
+    private final DateFormat timeFormat;
+
+    private DateUtils() {
+        dateFormat = android.text.format.DateFormat.getDateFormat(MainApplication.context);
+        timeFormat = android.text.format.DateFormat.getTimeFormat(MainApplication.context);
+    }
+
+    public static DateUtils getInstance() {
+        if (instance == null) {
+            instance = new DateUtils();
+        }
+        return instance;
+    }
+
+    public synchronized static String formatDateTime(long timestamp) {
+        long milliseconds = timestamp * 1000;
+        Date dateTime = new Date(milliseconds);
+        String date = getInstance().dateFormat.format(dateTime);
+        String time = getInstance().timeFormat.format(dateTime);
+        return date + "" "" + time;
+    }
+}
+</code></pre>

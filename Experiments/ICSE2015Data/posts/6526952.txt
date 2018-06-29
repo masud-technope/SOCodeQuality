@@ -1,0 +1,8 @@
+<pre><code>WindowManager w = getWindowManager();
+Display d = w.getDefaultDisplay();
+DisplayMetrics metrics = new DisplayMetrics();
+d.getMetrics(metrics);
+
+Log.d(""WIDTH: "", String.valueOf(d.getWidth()));
+Log.d(""HEIGHT: "", String.valueOf(d.getHeight()));
+</code></pre>

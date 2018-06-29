@@ -1,0 +1,32 @@
+<p>I created version in which you don't need to specify layout height, hence it's a lot easier and cleaner to use. The solution is to get the height in the first frame of the animation (it's available at that moment, at least during my tests). This way you can provide a View with an arbitrary height and bottom margin.</p>
+
+<p>There's also one little hack in the constructor - the bottom margin is set to -10000 so that the view stays hidden before the transformation (prevents flicker).</p>
+
+<pre><code>public class ExpandAnimation extends Animation {
+
+
+    private View mAnimatedView;
+    private ViewGroup.MarginLayoutParams mViewLayoutParams;
+    private int mMarginStart, mMarginEnd;
+
+    public ExpandAnimation(View view) {
+        mAnimatedView = view;
+        mViewLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+        mMarginEnd = mViewLayoutParams.bottomMargin;
+        mMarginStart = -10000; //hide before viewing by settings very high negative bottom margin (hack, but works nicely)
+        mViewLayoutParams.bottomMargin = mMarginStart;
+        mAnimatedView.setLayoutParams(mViewLayoutParams);
+    }
+
+    @Override
+    protected void applyTransformation(float interpolatedTime, Transformation t) {
+        super.applyTransformation(interpolatedTime, t);
+            //view height is already known when the animation starts
+            if(interpolatedTime==0){
+                mMarginStart = -mAnimatedView.getHeight();
+            }
+            mViewLayoutParams.bottomMargin = (int)((mMarginEnd-mMarginStart) * interpolatedTime)+mMarginStart;
+            mAnimatedView.setLayoutParams(mViewLayoutParams);
+    }
+}
+</code></pre>

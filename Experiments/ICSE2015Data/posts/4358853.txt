@@ -1,0 +1,25 @@
+<p>You could also use this LoadingImageView view to load an image from a url:</p>
+
+<p><a href=""http://blog.blundell-apps.com/imageview-with-loading-spinner/"">http://blog.blundell-apps.com/imageview-with-loading-spinner/</a></p>
+
+<p>Once you have added the class file from that link you can instantiate a url image view:</p>
+
+<p>in xml:</p>
+
+<pre><code>&lt;com.blundell.tut.LoaderImageView
+  android:id=""@+id/loaderImageView""
+  android:layout_width=""wrap_content""
+  android:layout_height=""wrap_content""
+  image=""http://developer.android.com/images/dialog_buttons.png""
+ /&gt;
+</code></pre>
+
+<p>In code:</p>
+
+<pre><code>final LoaderImageView image = new LoaderImageView(this, ""http://developer.android.com/images/dialog_buttons.png"");
+</code></pre>
+
+<p>And update it using:</p>
+
+<pre><code>image.setImageDrawable(""http://java.sogeti.nl/JavaBlog/wp-content/uploads/2009/04/android_icon_256.png"");
+</code></pre>

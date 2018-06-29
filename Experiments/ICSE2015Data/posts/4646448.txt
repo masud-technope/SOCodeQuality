@@ -1,0 +1,6 @@
+<p>To filter on sytem based apps :</p>
+
+<pre><code>private boolean isSystemPackage(ResolveInfo ri) {
+    return (ri.activityInfo.applicationInfo.flags &amp; ApplicationInfo.FLAG_SYSTEM) != 0;
+}
+</code></pre>

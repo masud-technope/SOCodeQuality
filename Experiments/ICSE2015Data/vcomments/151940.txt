@@ -1,0 +1,8 @@
+Any chance this works on the phone, but not in the emulator? I cannot seem to get a non-null savedInstanceState.
+I have an ArrayList of points how to save all points in this array list and then restore them?
+CAREFUL: you need to call  super.onSaveInstanceState(savedInstanceState) before adding your values to the Bundle, or they will get wiped out on that call (Droid X Android 2.2).
+Im having some trouble with this on a stock X8. OnSaveInstanceState is NEVER called. Not when going back to home screen, nor when pressing back button to get to the previous activity and neither in the case of quitting the app. On destroyed is called, but not onSaveInstance state.
+@Deco - as long as your objects implement Parcelable.
+Careful: the official documentation states, that you should save important information within the onPause-Method because the onsaveinstance-method is not part of the android lifecycle. http://developer.android.com/reference/android/app/Activity.html.
+@Andy it's for when the user is in the middle of some activity (e.g. writing in a form) and the activity is destroyed (e.g. because of device orientation change). This method allows you to restore the form state so the user doesn't start over from scratch.
+That fact effectively makes `onSaveInstanceState` almost useless except just for case of screen orientation changes. In almost all other cases, you can never rely on it and will need to manually save your UI state somewhere else. Or preventing your app from being killed by overriding BACK button behavior. I don't understand why they even implemented it like this in the first place. Totally unintuitive. And you can't have that Bundle the system give you to save things into except in this very particular method.

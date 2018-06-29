@@ -1,0 +1,4 @@
+This will work, but only for `TextView`. It will require custom subclasses for every widget class that inherits from `TextView` where the same capability is desired.
+This will work, but pre-ICS it will allocate memory for the fonts for each view you instantiate: http://code.google.com/p/android/issues/detail?id=9904.
+A way to fix this is to create a globally-accessible static hashmap of all instantiated fonts:
+http://code.google.com/p/android/issues/detail?id=9904#c7.

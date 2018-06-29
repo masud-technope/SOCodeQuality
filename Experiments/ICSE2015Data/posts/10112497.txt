@@ -1,0 +1,7 @@
+<p>If the <code>setBackgroundColor</code> is added for onItemClick event, it will not work unless you can put it after the click event.</p>
+
+<p>Try to add debug code in the adapter's <code>getView</code> method, you will find that getView will be called again whenever you click on the screen.  So, after you set the background color, the system will redraw the screen with original setting.  Don't know why it waste resource to rebuild the screen whenever it's being click, there already have other way that we can notify the system to redraw the screen when needed.</p>
+
+<p>Maybe you can add some control flag to determine the background color for individual row, then modify the getView method to set the color according to this control flag.  So, the background color will be changed when it redraw the screen.</p>
+
+<p>I'm also looking for an official solution on it.</p>

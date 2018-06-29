@@ -1,0 +1,3 @@
+<p>The <code>onSaveInstanceState(bundle)</code> and <code>onRestoreInstanceState(bundle)</code> methods are useful for data persistence merely while rotating the screen (orientation change).<br>
+They are not even good while switching between applications (since the <code>onSaveInstanceState()</code> method is called but <code>onCreate(bundle)</code> and <code>onRestoreInstanceState(bundle)</code> is not invoked again.<br>
+For more persistence use shared preferences. <a href=""http://www.eigo.co.uk/Managing-State-in-an-Android-Activity.aspx"">read this article</a>  </p>

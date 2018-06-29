@@ -1,0 +1,17 @@
+	Calendar c = Calendar.getInstance();
+
+            int seconds = c.get(Calendar.SECOND);
+            int minutes = c.get(Calendar.MINUTE);
+            int hour = c.get(Calendar.HOUR);
+            String time = hour+"":""+minutes+"":""+seconds;
+
+
+            int day = c.get(Calendar.DAY_OF_MONTH);
+            int month = c.get(Calendar.MONTH);
+            int year = c.get(Calendar.YEAR);
+            String date = day+""/""+month+""/""+year;
+
+            //assuming that you need date and time in separate textview named txt_date and txt_time.
+
+            txt_date.setText(date);
+            txt_time.setText(time);

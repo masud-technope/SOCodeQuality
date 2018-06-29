@@ -1,0 +1,18 @@
+<pre><code>if (Build.VERSION.SDK_INT &gt;= 11) {
+        Point size = new Point();
+        try {
+            this.getWindowManager().getDefaultDisplay().getRealSize(size);
+            screenWidth = size.x;
+            screenHeight = size.y;
+        } catch (NoSuchMethodError e) {
+             screenHeight = this.getWindowManager().getDefaultDisplay().getHeight();
+             screenWidth=this.getWindowManager().getDefaultDisplay().getWidth();
+        }
+
+    } else {
+        DisplayMetrics metrics = new DisplayMetrics();
+        this.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        screenWidth = metrics.widthPixels;
+        screenHeight = metrics.heightPixels;
+    }
+</code></pre>

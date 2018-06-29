@@ -1,0 +1,7 @@
+Shows an error -The type RetreiveFeedTask must implement the inherited abstract method AsyncTask<String,Void,RssFeed>.doInBackground.
+shows an error-The type RetreiveFeedTask must implement the inherited abstract method AsyncTask<String,Void,RssFeed>.doInBackground(String...) when using the abstract method it shows another error - Cannot instantiate the type RetreiveFeedTask.
+Here produce an error -  This method must return a result of type RssFeed - How can i solve it?
+Add `return` before `new RetreiveFeedTas().
+I think it is worth noting here that the code snippet above is supposed to be a subclass (inner class), preferably private. That way when the AsyncTask finishes, you can still manipulate the innards of your class.
+Stay away from AsyncTasks. Google rewrote the internal model for AsyncTasks and executing the same AsyncTask multiple times will block. Use a Runnable instead. Furthermore, the exception listed above doesn't get generated under OS 2.3 but it shows up under 4.1 for certain things like HttpGet.
+Yes, it must be subclassed.  That is, you are not creating it in its own separate class file.

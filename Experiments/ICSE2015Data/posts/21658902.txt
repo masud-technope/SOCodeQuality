@@ -1,0 +1,9 @@
+<p>Crete a class like bean class and implements <code>Serializable</code> interface then we can pass it through the <code>intent</code> method <em>e.g.</em>:</p>
+
+<pre><code>intent.putExtra(""class"",BeanClass);
+</code></pre>
+
+<p>then get it from other activity <em>e.g.</em>: </p>
+
+<pre><code>BeanClass cb=intent.getSerializableExtra(""class"");
+</code></pre>

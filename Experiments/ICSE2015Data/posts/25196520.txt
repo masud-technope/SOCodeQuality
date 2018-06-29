@@ -1,0 +1,9 @@
+<p>Just simply use this:</p>
+
+<pre><code>String primary_sd = System.getenv(""EXTERNAL_STORAGE"");
+if(primary_sd != null)
+    Log.i(""EXTERNAL_STORAGE"", primary_sd);
+String secondary_sd = System.getenv(""SECONDARY_STORAGE"");
+if(secondary_sd != null)
+    Log.i(""SECONDARY_STORAGE"", secondary_sd)
+</code></pre>

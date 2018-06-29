@@ -1,0 +1,35 @@
+<p>XML file:    </p>
+
+<pre><code>&lt;Spinner android:id=""@+id/locationSpinner""
+    android:layout_width=""fill_parent""
+    android:layout_height=""wrap_content""
+    android:prompt=""@string/select_location"" /&gt;
+</code></pre>
+
+<p>Activity:</p>
+
+<pre><code>private Spinner featuresSelection;
+private ArrayAdapter&lt;CharSequence&gt; featuresAdapter;
+private List&lt;CharSequence&gt; featuresList;
+</code></pre>
+
+<p>onCreate:</p>
+
+<pre><code>featuresList = new ArrayList&lt;CharSequence&gt;();
+featuresAdapter = new ArrayAdapter&lt;CharSequence&gt;(this,
+  android.R.layout.simple_spinner_item, featuresList);
+featuresAdapter.setDropDownViewResource(
+  android.R.layout.simple_spinner_dropdown_item);
+featuresSelection = ((Spinner) yourActivity.this
+  .findViewById(R.id.locationSpinner));
+featuresSelection.setAdapter(featuresAdapter);
+featuresSelection.setOnItemSelectedListener(
+  new MyOnItemSelectedListener());
+</code></pre>
+
+<p>Some function (add things to the adapter programmatically)></p>
+
+<pre><code>featuresAdapter.add(""some string"");
+</code></pre>
+
+<p>Now you have an empty spinner and you can write code to not open the dialog if empty. Or they can press back. But you also populate it with a function or another list during run time.</p>

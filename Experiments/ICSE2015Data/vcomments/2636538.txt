@@ -1,0 +1,4 @@
+@rohith - look at my answer
+answered without reading the question. -1
+Getting a single picture doesn't seem to be working on the newest Android version 4.4 (KitKat) anymore. The _data column from the query returns a null value.
+This code is working perfectly preKitkat, but from then there are document providers. In my answer I write about what to do in kitkat.

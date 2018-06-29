@@ -1,0 +1,15 @@
+<p>Use <a href=""http://developer.android.com/reference/android/view/View.OnFocusChangeListener.html"">OnFocusChangeListener</a>.</p>
+
+<p>For example:</p>
+
+<pre><code>editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (!hasFocus) {
+            hideKeyboard();
+        }
+    }
+});
+</code></pre>
+
+<p><strong>Update</strong>: you also may override <code>onTouchEvent()</code> in your activity and check coordinates of the touch. If coordinates are outside of EditText, then hide the keyboard.</p>

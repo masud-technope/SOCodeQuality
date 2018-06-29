@@ -1,0 +1,52 @@
+<p>If all the other answers here don't work for you as you would like them to, there's another way of manually controlling the keyboard.</p>
+
+<p>Create a function with that will manage some of the <code>EditText</code>'s properties:</p>
+
+<pre><code>public void setEditTextFocus(boolean isFocused)
+{
+    searchEditText.setCursorVisible(isFocused);
+    searchEditText.setFocusable(isFocused);
+    searchEditText.setFocusableInTouchMode(isFocused);
+
+    if (isFocused)
+    {
+        searchEditText.requestFocus();
+    }
+}
+</code></pre>
+
+<p>Then, make sure that onFocus of the <code>EditText</code> you open/close the keyboard:</p>
+
+<pre><code>        searchEditText.setOnFocusChangeListener(new OnFocusChangeListener()
+        {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus)
+            {
+                if (v == searchEditText)
+                {
+                    if (hasFocus)
+                    {
+                        //open keyboard
+                        ((InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(searchEditText,
+                                InputMethodManager.SHOW_FORCED);
+
+                    }
+                    else
+                    { //close keyboard
+                        ((InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(
+                                searchEditText.getWindowToken(), 0);
+                    }
+                }
+            }
+        });
+</code></pre>
+
+<p>now, whenever you want to open the keyboard manually call: </p>
+
+<pre><code>setEditTextFocus(true);
+</code></pre>
+
+<p>And for closing call:</p>
+
+<pre><code>setEditTextFocus(false);
+</code></pre>

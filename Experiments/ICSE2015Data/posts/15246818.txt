@@ -1,0 +1,22 @@
+<pre><code>ArrayList&lt;Integer&gt; ar_CheckedList = new ArrayList&lt;Integer&gt;();
+</code></pre>
+
+<p>for each holer of check box i am using to store it in array</p>
+
+<pre><code>holder.chk_Allow.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if(isChecked)
+                        ar_CheckedList.add(position);
+                }
+            });
+</code></pre>
+
+<p>on click of button</p>
+
+<pre><code>for (int i = 0; i &lt;  ar_CheckedList.size(); i++)
+ {
+        HashMap&lt;String, String&gt; temp=(HashMap&lt;String, String&gt;) contactList.get(ar_CheckedList.get(i));
+        str_Phone_No=temp.get(TAG_CONTACT_MOBILE);
+        send(str_Phone_No);
+ }
+</code></pre>

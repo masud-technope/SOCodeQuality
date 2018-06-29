@@ -1,0 +1,2 @@
+Should this line: `return super.onKeyDown(keyCode, event);` be in onKeyDown or am I imagining?
+Thanks for your answer. (I upped the other answer too). Tip: you can avoid subclassing by just editText.setOnKeyListener(...) and return (keyCode == KeyEvent.KEYCODE_ENTER).

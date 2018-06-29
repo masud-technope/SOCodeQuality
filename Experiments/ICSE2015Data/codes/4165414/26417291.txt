@@ -1,0 +1,22 @@
+public class DismissKeyboardListener implements OnClickListener {
+
+    Activity mAct;
+
+    public DismissKeyboardListener(Activity act) {
+        this.mAct = act;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if ( v instanceof ViewGroup ) {
+            hideSoftKeyboard( this.mAct );
+        }
+    }       
+}
+
+public void hideSoftKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager)
+        getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+}
+

@@ -1,0 +1,24 @@
+<p>Instead of assuming the difference coding I did something like this, as I dint had menu options in my application.</p>
+
+<pre><code>       final View root= findViewById(R.id.myrootview);  
+       root.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+        @Override
+        public void onGlobalLayout() {
+            int heightDiff = root.getRootView().getHeight() - root.getHeight();
+
+            Rect rectgle= new Rect();
+            Window window= getWindow();
+            window.getDecorView().getWindowVisibleDisplayFrame(rectgle);
+            int contentViewTop= 
+                window.findViewById(Window.ID_ANDROID_CONTENT).getTop();
+
+            if(heightDiff &lt;= contentViewTop){
+                //Soft KeyBoard Hidden
+            }else{
+                //Soft KeyBoard Shown
+            }
+
+
+         }
+    });
+</code></pre>

@@ -1,0 +1,57 @@
+<p>I have found a combination of existing rotation/orientation values are needed to cover the four possibilities; there's the portrait/landscape values and the natural orientation of the device.  Let's say the devices' natural orientation will have a rotation value of 0 degrees when the screen is in it's ""natural"" portrait or landscape orientation.  Similarly, there will be a rotation value of 90 degrees when it's in landscape or portrait (notice it's opposite of the orientation @ 0 degrees).  So the rotation values that are not 0 or 90 degrees will imply ""Reverse"" orientation.  Ok, here's some code:</p>
+
+<pre><code>public enum eScreenOrientation 
+{
+PORTRAIT (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT),
+LANDSCAPE (ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE),
+PORTRAIT_REVERSE (ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT),
+LANDSCAPE_REVERSE (ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE),
+UNSPECIFIED_ORIENTATION (ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+
+    public final int activityInfoValue;
+
+    eScreenOrientation ( int orientation )
+    {
+        activityInfoValue = orientation;
+    }
+}
+
+
+
+public eScreenOrientation currentScreenOrientation ( )
+{
+    final int rotation = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getRotation();
+
+    final int orientation = getResources().getConfiguration().orientation;
+    switch ( orientation ) 
+    {
+    case Configuration.ORIENTATION_PORTRAIT:
+        if ( rotation == Surface.ROTATION_0 || rotation == Surface.ROTATION_90 )
+            return eScreenOrientation.PORTRAIT;
+        else
+            return eScreenOrientation.PORTRAIT_REVERSE;
+    case Configuration.ORIENTATION_LANDSCAPE:
+        if ( rotation == Surface.ROTATION_0 || rotation == Surface.ROTATION_90 )
+            return eScreenOrientation.LANDSCAPE;
+        else
+            return eScreenOrientation.LANDSCAPE_REVERSE;
+    default:
+        return eScreenOrientation.UNSPECIFIED_ORIENTATION;
+    }
+}
+
+public void lockScreenOrientation ( )
+    throws UnsupportedDisplayException
+{
+    eScreenOrientation currentOrientation = currentScreenOrientation( );
+    if ( currentOrientation == eScreenOrientation.UNSPECIFIED_ORIENTATION )
+        throw new UnsupportedDisplayException(""Unable to lock screen - unspecified orientation"");
+    else
+        setRequestedOrientation( currentOrientation.activityInfoValue );
+}
+
+public void unlockScreenOrientation (  )
+{
+    setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED );
+}
+</code></pre>

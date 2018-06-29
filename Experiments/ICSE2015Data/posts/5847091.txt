@@ -1,0 +1,16 @@
+<p>I have recently found a thread <a href=""http://stackoverflow.com/questions/541966/android-how-do-i-do-a-lazy-load-of-images-in-listview"">here</a>, as I have to do a similar thing for a listview with images, but the principle is simple, as you can read in the first sample class shown there (by jleedev).
+You get the Input stream of the image (from web)</p>
+
+<pre><code>private InputStream fetch(String urlString) throws MalformedURLException, IOException {
+    DefaultHttpClient httpClient = new DefaultHttpClient();
+    HttpGet request = new HttpGet(urlString);
+    HttpResponse response = httpClient.execute(request);
+    return response.getEntity().getContent();
+}
+</code></pre>
+
+<p>Then you store the image as Drawable and you can pass it to the ImageView (via setImageDrawable). Again from the upper code snippet take a look at the entire thread. </p>
+
+<pre><code>InputStream is = fetch(urlString);
+Drawable drawable = Drawable.createFromStream(is, ""src"");
+</code></pre>

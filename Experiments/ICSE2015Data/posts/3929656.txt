@@ -1,0 +1,10 @@
+<p>Ok, I got it to work like this:</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;selector xmlns:android=""http://schemas.android.com/apk/res/android""&gt;
+    &lt;item android:state_pressed=""false"" android:drawable=""@color/BackgroundColor"" /&gt;
+    &lt;item android:drawable=""@color/transparent"" /&gt;
+&lt;/selector&gt;
+</code></pre>
+
+<p>YMMV!</p>

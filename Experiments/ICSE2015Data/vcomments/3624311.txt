@@ -1,0 +1,1 @@
++1, but use getPreferences(MODE_PRIVATE); instead of getPreferences(0); for readability.

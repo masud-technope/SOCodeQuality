@@ -1,0 +1,19 @@
+<p>So hopefully this helps someone out.</p>
+
+<p>The new answer that Reuben Scratton gave is great and really efficient, but it really only works if you set your windowSoftInputMode to adjustResize. If you set it to adjustPan, it's still not possible to detect whether or not the keyboard is visible using his code snippet. To work around this, I made this tiny modification to the code above.</p>
+
+<pre><code>final View activityRootView = findViewById(R.id.activityRoot);
+activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+@Override
+public void onGlobalLayout() {
+    Rect r = new Rect();
+    //r will be populated with the coordinates of your view that area still visible.
+    activityRootView.getWindowVisibleDisplayFrame(r);
+
+    int heightDiff = activityRootView.getRootView().getHeight() - (r.bottom - r.top);
+    if (heightDiff &gt; 100) { // if more than 100 pixels, its probably a keyboard...
+        ... do something here
+    }
+ }
+}); 
+</code></pre>

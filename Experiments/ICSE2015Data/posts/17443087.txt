@@ -1,0 +1,7 @@
+<hr>
+
+<p>Property in XML</p>
+
+<pre><code>android:lines=""5""
+android:inputType=""textPersonName""
+</code></pre>

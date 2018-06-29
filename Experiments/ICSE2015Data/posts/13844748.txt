@@ -1,0 +1,55 @@
+<p>Improving on the solution above by Timmmm to add some extra scaling at the end to ensure that the image fits within the bounds:</p>
+
+<pre><code>public static Bitmap loadBitmap(String path, int orientation, final int targetWidth, final int targetHeight) {
+    Bitmap bitmap = null;
+    try {
+        // First decode with inJustDecodeBounds=true to check dimensions
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(path, options);
+
+        // Adjust extents
+        int sourceWidth, sourceHeight;
+        if (orientation == 90 || orientation == 270) {
+            sourceWidth = options.outHeight;
+            sourceHeight = options.outWidth;
+        } else {
+            sourceWidth = options.outWidth;
+            sourceHeight = options.outHeight;
+        }
+
+        // Calculate the maximum required scaling ratio if required and load the bitmap
+        if (sourceWidth &gt; targetWidth || sourceHeight &gt; targetHeight) {
+            float widthRatio = (float)sourceWidth / (float)targetWidth;
+            float heightRatio = (float)sourceHeight / (float)targetHeight;
+            float maxRatio = Math.max(widthRatio, heightRatio);
+            options.inJustDecodeBounds = false;
+            options.inSampleSize = (int)maxRatio;
+            bitmap = BitmapFactory.decodeFile(path, options);
+        } else {
+            bitmap = BitmapFactory.decodeFile(path);
+        }
+
+        // Rotate the bitmap if required
+        if (orientation &gt; 0) {
+            Matrix matrix = new Matrix();
+            matrix.postRotate(orientation);
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }
+
+        // Re-scale the bitmap if necessary
+        sourceWidth = bitmap.getWidth();
+        sourceHeight = bitmap.getHeight();
+        if (sourceWidth != targetWidth || sourceHeight != targetHeight) {
+            float widthRatio = (float)sourceWidth / (float)targetWidth;
+            float heightRatio = (float)sourceHeight / (float)targetHeight;
+            float maxRatio = Math.max(widthRatio, heightRatio);
+            sourceWidth = (int)((float)sourceWidth / maxRatio);
+            sourceHeight = (int)((float)sourceHeight / maxRatio);
+            bitmap = Bitmap.createScaledBitmap(bitmap, sourceWidth, sourceHeight, true);
+        }
+    } catch (Exception e) {
+    }
+    return bitmap;
+}
+</code></pre>

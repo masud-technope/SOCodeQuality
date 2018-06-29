@@ -1,0 +1,18 @@
+<p>I try all solutions inside this topic on this time. But all of them not correct work on devices with one external (removable) and one internal (not-removable) cards. Path of external card not possible get from 'mount' command, from 'proc/mounts' file etc.</p>
+
+<p>And I create my own solution (on Paulo Luan's):</p>
+
+<pre><code>  String sSDpath = null;
+  File   fileCur = null;
+  for( String sPathCur : Arrays.asList( ""ext_card"", ""external_sd"", ""ext_sd"", ""external"", ""extSdCard"",  ""externalSdCard"")) // external sdcard
+   {
+     fileCur = new File( ""/mnt/"", sPathCur);
+     if( fileCur.isDirectory() &amp;&amp; fileCur.canWrite())
+       {
+         sSDpath = fileCur.getAbsolutePath();
+         break;
+       }
+   }
+  fileCur = null;
+  if( sSDpath == null)  sSDpath = Environment.getExternalStorageDirectory().getAbsolutePath();
+</code></pre>

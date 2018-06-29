@@ -1,0 +1,9 @@
+Thanks for this code, it worked very well. One wrinkle for other users: you will need to explicitly call setMaxLines(int) rather than just setting the property in XML.
+Actually, it should be very trivial to map out these variables to XML attributes via attrs.xml.
+i found a problem if workingText is Chinese. because Chinese doesn't have SPACE, so this code works not perfectly， i have modified some code below, hope will help.
+Adding the following into the constructor will allow you to set the maxlines via XML:
+TypedArray a = context.obtainStyledAttributes(attrs, new int[] { android.R.attr.maxLines }); setMaxLines(a.getInt(0, 2));
+This screws up all the non-string attributes that the TextViews CharSequence holds. For example give the TextView a Spannable with bold text, and the bold is not shown.
+I created an Android library with this component and changed it to be able to show as many lines of text as possible and ellipsize the last one; see https://github.com/triposo/barone
+You can see it in action in any of our travel guides, when displaying Suggestions: https://play.google.com/store/apps/details?id=com.triposo.droidguide.world&feature=search_result
+Doesn't work on API8.

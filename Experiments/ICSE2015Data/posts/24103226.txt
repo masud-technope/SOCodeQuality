@@ -1,0 +1,7 @@
+<p>You can use this code in your java file</p>
+
+<p>add this line before you set or load your view</p>
+
+<pre><code>requestWindowFeature(Window.FEATURE_NO_TITLE); 
+setContentView(R.layout.activity_main);
+</code></pre>

@@ -1,0 +1,24 @@
+<p>its because gallery correct displaying rotated images but not ImageView
+look at here:</p>
+
+<pre><code>                    myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(),optionss);
+                    ExifInterface exif = new ExifInterface(selectedImagePath);
+                    int rotation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+                    int rotationInDegrees = exifToDegrees(rotation);
+                    deg = rotationInDegrees;
+                    Matrix matrix = new Matrix();
+                    if (rotation != 0f) {
+                        matrix.preRotate(rotationInDegrees);
+                        myBitmap = Bitmap.createBitmap(myBitmap, 0, 0, myBitmap.getWidth(), myBitmap.getHeight(), matrix, true);
+                    }
+</code></pre>
+
+<p>and you need this:</p>
+
+<pre><code>private static int exifToDegrees(int exifOrientation) {        
+    if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) { return 90; } 
+    else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {  return 180; } 
+    else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {  return 270; }            
+    return 0;    
+} 
+</code></pre>

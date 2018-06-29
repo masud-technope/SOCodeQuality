@@ -1,0 +1,7 @@
+<p>first finish your application using method <code>finish();</code></p>
+
+<p>and then add below lines in onDestroy for Removing Force close</p>
+
+<pre><code>android.os.Process.killProcess(android.os.Process.myPid());
+super.onDestroy();
+</code></pre>

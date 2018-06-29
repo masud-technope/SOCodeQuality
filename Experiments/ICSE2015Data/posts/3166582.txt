@@ -1,0 +1,13 @@
+<p>You can get info on the display from the <a href=""http://developer.android.com/reference/android/util/DisplayMetrics.html"">DisplayMetrics</a> struct:</p>
+
+<pre><code>DisplayMetrics metrics = getResources().getDisplayMetrics();
+</code></pre>
+
+<p>Though Android doesn't use a direct pixel mapping, it uses a handful of quantized Density Independent Pixel values then scales to the actual screen size. So the <code>metrics.densityDpi</code> property will be one of the <code>DENSITY_???</code> constants (120, 160, 213, 240, 320, 480 or 640 dpi).</p>
+
+<p>If you need the <em>actual</em> lcd pixel density (perhaps for an OpenGL app) you can get it from the <code>metrics.xdpi</code> and <code>metrics.ydpi</code> properties for horizontal and vertical density respectively.</p>
+
+<p>If you are targeting API Levels earlier than 4. The <code>metrics.density</code> property is a floating point scaling factor from the reference density (160dpi). The same value now provided by <code>metrics.densityDpi</code> can be calculated</p>
+
+<pre><code>int densityDpi = (int)(metrics.density * 160f);
+</code></pre>

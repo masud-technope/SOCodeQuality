@@ -1,0 +1,46 @@
+<p>The way I managed this situation was using a flag and overriding the onCancel and onDismiss methods. </p>
+
+<p>onCancel gets called only when the user touches outside the dialog or the back button.
+onDismiss always gets called</p>
+
+<p>Setting a flag in the onCancel method can help filter in the onDismiss method the user's intent: cancel action or done action. Below some code that shows the idea.</p>
+
+<pre><code>public class DatePickerDialogFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+
+    private boolean cancelDialog = false;
+    private int year;
+    private int month;
+    private int day;
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        DatePickerDialog dpd = new DatePickerDialog(getActivity(), this, year, month, day);
+        return dpd;
+    }
+
+    public void setDatePickerDate(int year, int month, int day) {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+    }
+
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        super.onCancel(dialog);
+        cancelDialog = true;
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        super.onDismiss(dialog);
+        if (!cancelDialog) {
+          #put the code you want to execute if the user clicks the done button
+        }
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        setDatePickerDate(year, monthOfYear, dayOfMonth);
+    }
+}
+</code></pre>

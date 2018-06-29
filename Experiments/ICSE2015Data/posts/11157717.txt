@@ -1,0 +1,43 @@
+<p>thanks to <a href=""http://stackoverflow.com/a/4636284/579646"">Vinay's code</a> here is my code for when you can't have a listview inside a scrollview yet you need something like that</p>
+
+<pre><code>LayoutInflater li = LayoutInflater.from(this);
+
+                RelativeLayout parent = (RelativeLayout) this.findViewById(R.id.relativeLayoutCliente);
+
+                int recent = 0;
+
+                for(Contatto contatto : contatti)
+                {
+                    View inflated_layout = li.inflate(R.layout.header_listview_contatti, layout, false);
+
+
+                    inflated_layout.setId(contatto.getId());
+                    ((TextView)inflated_layout.findViewById(R.id.textViewDescrizione)).setText(contatto.getDescrizione());
+                    ((TextView)inflated_layout.findViewById(R.id.textViewIndirizzo)).setText(contatto.getIndirizzo());
+                    ((TextView)inflated_layout.findViewById(R.id.textViewTelefono)).setText(contatto.getTelefono());
+                    ((TextView)inflated_layout.findViewById(R.id.textViewMobile)).setText(contatto.getMobile());
+                    ((TextView)inflated_layout.findViewById(R.id.textViewFax)).setText(contatto.getFax());
+                    ((TextView)inflated_layout.findViewById(R.id.textViewEmail)).setText(contatto.getEmail());
+
+
+
+                    RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+
+                    if (recent == 0)
+                    {
+                        relativeParams.addRule(RelativeLayout.BELOW, R.id.headerListViewContatti);
+                    }
+                    else
+                    {
+                        relativeParams.addRule(RelativeLayout.BELOW, recent);
+                    }
+                    recent = inflated_layout.getId();
+
+                    inflated_layout.setLayoutParams(relativeParams);
+                    //inflated_layout.setLayoutParams( new RelativeLayout.LayoutParams(source));
+
+                    parent.addView(inflated_layout);
+                }
+</code></pre>
+
+<p>the relativeLayout stays inside a ScrollView so it all becomes scrollable :)</p>

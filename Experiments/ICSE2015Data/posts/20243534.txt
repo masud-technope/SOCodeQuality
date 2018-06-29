@@ -1,0 +1,113 @@
+<p>The one for TimePicker based on the solution by <strong>David Cesarino , ""TL;DR: 1-2-3 dead easy steps for a global solution""</strong></p>
+
+<p>TimePickerDialog does not provide the functionality like DatePickerDialog.getDatePicker.
+So, <strong>OnTimeSetListener</strong> listener has to be provided.
+Just to keep the similarity with DatePicker workaround solution, I have maintained the old mListener concept. You can change it if you need to.</p>
+
+<p>Calling and Listener is same as original solution.
+Just include</p>
+
+<pre><code>import android.app.TimePickerDialog;
+import android.app.TimePickerDialog.OnTimeSetListener;
+</code></pre>
+
+<p>extend parent class,  </p>
+
+<pre><code>... implements OnDateSetListener, OnTimeSetListener
+</code></pre>
+
+<p>Implement</p>
+
+<pre><code> @Override
+ public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+ ...
+ }
+</code></pre>
+
+<p>example calling</p>
+
+<pre><code>    Calendar cal = Calendar.getInstance();
+    int hour = cal.get(Calendar.HOUR_OF_DAY);
+    int minute = cal.get(Calendar.MINUTE);
+
+
+    Bundle b = new Bundle();
+    b.putInt(TimePickerDialogFragment.HOUR, hour);
+    b.putInt(TimePickerDialogFragment.MINUTE, minute);
+
+    DialogFragment picker = new TimePickerDialogFragment();
+    picker.setArguments(b);
+    picker.show(getSupportFragmentManager(), ""frag_time_picker"");
+</code></pre>
+
+<p>(Updated to handle cancel)</p>
+
+<pre><code>public class TimePickerDialogFragment extends DialogFragment {
+
+    public static final String HOUR = ""Hour"";
+    public static final String MINUTE = ""Minute"";
+
+    private boolean isCancelled = false; //Added to handle cancel
+    private TimePickerDialog.OnTimeSetListener mListener;
+
+    //Added to handle parent listener
+    private TimePickerDialog.OnTimeSetListener mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            if (!isCancelled)
+            {
+                mListener.onTimeSet(view,hourOfDay,minute);
+            }
+        }
+    };
+    //
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.mListener = (TimePickerDialog.OnTimeSetListener) activity;
+    }
+
+    @Override
+    public void onDetach() {
+        this.mListener = null;
+        super.onDetach();
+    }
+
+    @TargetApi(11)
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        Bundle b = getArguments();
+        int h = b.getInt(HOUR);
+        int m = b.getInt(MINUTE);
+
+        final TimePickerDialog picker = new TimePickerDialog(getActivity(), getConstructorListener(), h, m,DateFormat.is24HourFormat(getActivity()));
+
+        //final TimePicker timePicker = new TimePicker(getBaseContext());
+        if (hasJellyBeanAndAbove()) {
+            picker.setButton(DialogInterface.BUTTON_POSITIVE,
+                    getActivity().getString(android.R.string.ok),
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            isCancelled = false; //Cancel flag, used in mTimeSetListener
+                        }
+                    });
+            picker.setButton(DialogInterface.BUTTON_NEGATIVE,
+                    getActivity().getString(android.R.string.cancel),
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            isCancelled = true; //Cancel flag, used in mTimeSetListener
+                        }
+                    });
+        }
+        return picker;
+    }
+    private boolean hasJellyBeanAndAbove() {
+        return Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.JELLY_BEAN;
+    }
+
+    private TimePickerDialog.OnTimeSetListener getConstructorListener() {
+        return hasJellyBeanAndAbove() ? mTimeSetListener : mListener; //instead of null, mTimeSetListener is returned.
+    }
+}
+</code></pre>

@@ -1,0 +1,24 @@
+<p>Another way of solving this problem is by not relying on the correct return value from the display but relying on the Android resources resolving.</p>
+
+<p>Create the file <code>layouts.xml</code> in the folders <code>res/values-land</code> and <code>res/values-port</code> with the following content:</p>
+
+<p><strong>res/values-land/layouts.xml:</strong></p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;resources&gt;
+    &lt;bool name=""is_landscape""&gt;true&lt;/bool&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p><strong>res/values-port/layouts.xml:</strong></p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;resources&gt;
+    &lt;bool name=""is_landscape""&gt;false&lt;/bool&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p>In your source code you can now access the current orientation as follows:</p>
+
+<pre><code>context.getResources().getBoolean(R.bool.is_landscape)
+</code></pre>

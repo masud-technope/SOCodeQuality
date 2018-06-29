@@ -1,0 +1,6 @@
+<p>I'm testing this and it seems to work:</p>
+
+<pre><code>EditText editText = new EditText(context);
+editText.setSingleLine(false);
+editText.setInputType(android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_SUBJECT);
+</code></pre>

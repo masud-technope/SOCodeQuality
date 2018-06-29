@@ -1,0 +1,16 @@
+<p>In your first Activity:</p>
+
+<pre><code>intent.putExtra(""myTag"", yourObject);
+</code></pre>
+
+<p>And in your second one:</p>
+
+<pre><code>myCustomObject myObject = (myCustomObject) getIntent().getSerializableExtra(""myTag"");
+</code></pre>
+
+<p>Don't forget to make your custom object Serializable: </p>
+
+<pre><code>public class myCustomObject implements Serializable {
+...
+}
+</code></pre>

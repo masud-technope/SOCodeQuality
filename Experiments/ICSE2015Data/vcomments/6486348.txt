@@ -1,0 +1,1 @@
+If this still doesnt work, try this solution http://stackoverflow.com/questions/8100831/stop-scrollview-from-setting-focus-on-edittext

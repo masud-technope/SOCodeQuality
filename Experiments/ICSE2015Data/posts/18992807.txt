@@ -1,0 +1,36 @@
+<p>It has been forever in terms of computer but this question is still unbelievably relevant!</p>
+
+<p>So I've taken the above answers and have combined and refined them a bit...</p>
+
+<pre><code>public interface OnKeyboardVisibilityListener {
+
+    void onVisibilityChanged(boolean visible);
+}
+
+public final void setKeyboardListener(final OnKeyboardVisibilityListener listener) {
+    final View activityRootView = ((ViewGroup) getActivity().findViewById(android.R.id.content)).getChildAt(0);
+    activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+
+        private boolean wasOpened;
+
+    private final Rect r = new Rect();
+
+        @Override
+        public void onGlobalLayout() {
+            activityRootView.getWindowVisibleDisplayFrame(r);
+
+            int heightDiff = activityRootView.getRootView().getHeight() - (r.bottom - r.top);
+            boolean isOpen = heightDiff &gt; 100;
+            if (isOpen == wasOpened) {
+                logDebug(""Ignoring global layout change..."");
+                return;
+            }
+
+            wasOpened = isOpen;
+            listener.onVisibilityChanged(isOpen);
+        }
+    });
+}
+</code></pre>
+
+<p>Works for me :)</p>

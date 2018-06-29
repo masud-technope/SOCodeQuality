@@ -1,0 +1,7 @@
+<p>I had the same problem. There's one trick that I'm using to deal with this problem:</p>
+
+<pre><code>public void onClick(View v) {
+    button.requestFocusFromTouch(); //prevents from loosing focus and scrolling view down
+    ....
+}
+</code></pre>

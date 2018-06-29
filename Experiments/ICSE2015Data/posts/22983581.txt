@@ -1,0 +1,37 @@
+<p>Some Activities actually you don't want to open again when back button pressed such Splash Screen Activity, Welcome Screen Activity, Confirmation Windows. Actually you don't need this in activity stack. you can do this using=> open manifest.xml file and add a attribute </p>
+
+<blockquote>
+  <p>android:noHistory=""true""</p>
+</blockquote>
+
+<p>to these activities.</p>
+
+<pre><code>&lt;activity
+    android:name=""com.example.shoppingapp.AddNewItems""
+    android:label="""" 
+    android:noHistory=""true""&gt;
+&lt;/activity&gt;
+</code></pre>
+
+<p>OR </p>
+
+<p>Sometimes you want close the entire application in certain back button press. Here best practice is open up the home window instead of exiting application. For that you need to override onBackPressed() method. usually this method open up the top activity in the stack.</p>
+
+<pre><code>@override
+public void onBackPressed(){
+Intent a = new Intent(Intent.ACTION_MAIN);
+a.addCategory(Intent.CATEGORY_HOME);
+a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+startActivity(a);
+
+}
+</code></pre>
+
+<p>OR</p>
+
+<p>in back button pressed you want to exit that activity and also you also don't want to add this in activity stack. call finish() method inside onBackPressed() method. it will not make  close the entire application. it will go for the previous activity in the stack.</p>
+
+<pre><code>public void onBakPressed() {
+  finish();
+}
+</code></pre>

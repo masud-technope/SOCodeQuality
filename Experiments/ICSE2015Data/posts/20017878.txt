@@ -1,0 +1,24 @@
+<p>In order to manage also the reverse orientation modes, I have used that code to fix the activity orientation:</p>
+
+<pre><code>int rotation = getWindowManager().getDefaultDisplay().getRotation();
+
+    switch(rotation) {
+    case Surface.ROTATION_180:
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);
+        break;
+    case Surface.ROTATION_270:
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);         
+        break;
+    case  Surface.ROTATION_0:
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        break;
+    case Surface.ROTATION_90:
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        break;
+    }
+</code></pre>
+
+<p>And to allow again the orientation:</p>
+
+<pre><code>setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+</code></pre>

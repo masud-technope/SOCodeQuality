@@ -1,0 +1,5 @@
+<p>Actually I add to the xml layout file anything that could be used! Then from the source code of the specific Activity I get the object by its id and I ""play"" with the visibility method.</p>
+
+<p>Here is an example:</p>
+
+<p><code>((Spinner)findViewById(R.id.email_spinner)).setVisibility(View.GONE);</code></p>

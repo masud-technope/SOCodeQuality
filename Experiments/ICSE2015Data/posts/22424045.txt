@@ -1,0 +1,7 @@
+<p><strong>Use this function to delete specific message thread or modify according your needs:</strong></p>
+
+<pre><code>public void delete_thread(String thread) 
+{ 
+  Cursor c = getApplicationContext().getContentResolver().query(
+  Uri.parse(""content://sms/""),new String[] { 
+  ""_id"", ""thread_id"", ""address"", ""person"", ""date"

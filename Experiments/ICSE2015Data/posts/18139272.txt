@@ -1,0 +1,6 @@
+<p>You can change it to a Text View and use this:</p>
+
+<pre><code>android:style=""@android:style/Widget.DeviceDefault.Light.Spinner""
+</code></pre>
+
+<p>and then define the <code>android:text</code> property.</p>

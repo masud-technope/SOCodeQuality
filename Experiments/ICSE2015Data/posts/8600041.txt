@@ -1,0 +1,18 @@
+<p>For dynamically scaling using XML there is an attribute called ""android:layout_weight"" </p>
+
+<p>The below example, modified from synic's response on <a href=""http://stackoverflow.com/questions/2581481/assign-width-to-half-available-screen-width-declaratively"">this thread</a>, shows a button that takes up 75% of the screen (weight = .25) and a text view taking up the remaining 25% of the screen (weight = .75).</p>
+
+<pre><code>&lt;LinearLayout android:layout_width=""fill_parent""
+    android:layout_height=""wrap_content""
+    android:orientation=""horizontal""&gt;
+
+    &lt;Button android:layout_width=""fill_parent""
+        android:layout_height=""wrap_content""
+        android:layout_weight="".25""
+        android:text=""somebutton""&gt;
+
+    &lt;TextView android:layout_width=""fill_parent""
+        android:layout_height=""Wrap_content""
+        android:layout_weight="".75""&gt;
+&lt;/LinearLayout&gt;
+</code></pre>

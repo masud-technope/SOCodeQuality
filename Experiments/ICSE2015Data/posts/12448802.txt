@@ -1,0 +1,8 @@
+<p>I just want to add a note to the answer by @Snicolas. The following steps can be used to check stop service with/without calling <code>onDestroy()</code>.</p>
+
+<ol>
+<li><p><code>onDestroy()</code> called: Go to Settings -> Application -> Running Services -> Select and stop your service.</p></li>
+<li><p><code>onDestroy()</code> not Called: Go to Settings -> Application -> Manage Applications -> Select and ""Force Stop"" your application in which your service is running. However, as your application is stopped here, so definitely the service instances will also be stopped.</p></li>
+</ol>
+
+<p>Finally, I would like to mention that the approach mentioned there using a static variable in singleton class is working for me.</p>

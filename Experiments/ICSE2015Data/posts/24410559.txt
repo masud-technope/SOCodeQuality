@@ -1,0 +1,125 @@
+<p>Replacing fragments in a viewpager is quite involved but is very possible and can look super slick. First, you need to let the viewpager itself handle the removing and adding of the fragments. What is happening is when you replace the fragment inside of SearchFragment, your viewpager retains its fragment views. So you end up with a blank page because the SearchFragment gets removed when you try to replace it.</p>
+
+<p>The solution is to create a listener inside of your viewpager that will handle changes made outside of it so first add this code to the bottom of your adapter.</p>
+
+<pre><code>public interface nextFragmentListener {
+    public void fragment0Changed(String newFragmentIdentification);
+}
+</code></pre>
+
+<p>Then you need to create a private class in your viewpager that becomes a listener for when you want to change your fragment. For example you could add something like this. Notice that it implements the interface that was just created. So whenever you call this method, it will run the code inside of the class below.</p>
+
+<pre><code>private final class fragmentChangeListener implements nextFragmentListener {
+
+
+    @Override
+    public void fragment0Changed(String fragment) {
+        //I will explain the purpose of fragment0 in a moment
+        fragment0 = fragment;
+        manager.beginTransaction().remove(fragAt0).commit();
+
+        switch (fragment){
+            case ""searchFragment"":
+                fragAt0 = SearchFragment.newInstance(listener);
+                break;
+            case ""searchResultFragment"":
+                fragAt0 = Fragment_Table.newInstance(listener);
+                break;
+        }
+
+        notifyDataSetChanged();
+    }
+</code></pre>
+
+<p>There are two main things to point out here: </p>
+
+<ol>
+<li>fragAt0 is a ""flexible"" fragment. It can take on whatever fragment type you give it. This allows it to become your best friend in changing the fragment at position 0 to the fragment you desire.</li>
+<li><p>Notice the listeners that are placed in the 'newInstance(listener)constructor.  These are how you will callfragment0Changed(String newFragmentIdentification)`. The following code shows how you create the listener inside of your fragment.</p>
+
+<p>static nextFragmentListener listenerSearch;</p>
+
+<pre><code>    public static Fragment_Journals newInstance(nextFragmentListener listener){
+            listenerSearch = listener;
+            return new Fragment_Journals();
+        }
+</code></pre></li>
+</ol>
+
+<p>You could call the change inside of your <code>onPostExecute</code></p>
+
+<pre><code>private class SearchAsyncTask extends AsyncTask&lt;Void, Void, Void&gt;{
+
+    protected Void doInBackground(Void... params){
+        .
+        .//some more operation
+        .
+    }
+    protected void onPostExecute(Void param){
+
+        listenerSearch.fragment0Changed(""searchResultFragment"");
+    }
+
+}
+</code></pre>
+
+<p>This would trigger the code inside of your viewpager to switch your fragment at position zero fragAt0 to become a new searchResultFragment. There are two more small pieces you would need to add to the viewpager before it became functional.</p>
+
+<p>One would be in the getItem override method of the viewpager.</p>
+
+<pre><code>@Override
+public Fragment getItem(int index) {
+
+    switch (index) {
+    case 0:
+        //this is where it will ""remember"" which fragment you have just selected. the key is to set a static String fragment at the top of your page that will hold the position that you had just selected.  
+
+        if(fragAt0 == null){
+
+            switch(fragment0){
+            case ""searchFragment"":
+                fragAt0 = FragmentSearch.newInstance(listener);
+                break;
+            case ""searchResultsFragment"":
+                fragAt0 = FragmentSearchResults.newInstance(listener);
+                break;
+            }
+        }
+        return fragAt0;
+    case 1:
+        // Games fragment activity
+        return new CreateFragment();
+
+    }
+</code></pre>
+
+<p>Now without this final piece you would still get a blank page. Kind of lame, but it is an essential part of the viewPager. You must override the getItemPosition method of the viewpager. Ordinarily this method will return POSITION_UNCHANGED which tells the viewpager to keep everything the same and so getItem will never get called to place the new fragment on the page. Here's an example of something you could do</p>
+
+<pre><code>public int getItemPosition(Object object)
+{
+    //object is the current fragment displayed at position 0.  
+    if(object instanceof SearchFragment &amp;&amp; fragAt0 instanceof SearchResultFragment){
+        return POSITION_NONE;
+    //this condition is for when you press back
+    }else if{(object instanceof SearchResultFragment &amp;&amp; fragAt0 instanceof SearchFragment){
+        return POSITION_NONE;
+    }
+        return POSITION_UNCHANGED
+}
+</code></pre>
+
+<p>Like I said, the code gets very involved, but you basically have to create a custom adapter for your situation. The things I mentioned will make it possible to change the fragment. It will likely take a long time to soak everything in so I would be patient, but it will all make sense. It is totally worth taking the time because it can make a really slick looking application.</p>
+
+<p>Here's the nugget for handling the back button. You put this inside your MainActivity</p>
+
+<pre><code> public void onBackPressed() {
+    if(mViewPager.getCurrentItem() == 0) {
+        if(pagerAdapter.getItem(0) instanceof FragmentSearchResults){
+            ((Fragment_Table) pagerAdapter.getItem(0)).backPressed();
+        }else if (pagerAdapter.getItem(0) instanceof FragmentSearch) {
+            finish();
+        }
+    }
+</code></pre>
+
+<p>You will need to create a method called backPressed() inside of FragmentSearchResults that calls fragment0changed. This in tandem with the code I showed before will handle pressing the back button. Good luck with your code to change the viewpager. It takes a lot of work, and as far as I have found, there aren't any quick adaptations. Like I said, you are basically creating a custom viewpager adapter, and letting it handle all of the necessary changes using listeners</p>

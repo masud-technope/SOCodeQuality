@@ -1,0 +1,1 @@
+<p>if your object class implements <strong><code>Serializable</code></strong>, you don't need to do anything else, you can pass a serializable object. <br> that's what i use.</p>

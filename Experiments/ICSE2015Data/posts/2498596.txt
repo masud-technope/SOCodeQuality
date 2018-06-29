@@ -1,0 +1,28 @@
+<p>This is regarding the question asked by Starter.</p>
+
+<p>The problem with your code is that you are not passing the number properly.</p>
+
+<p>The code should be:</p>
+
+<pre><code>private OnClickListener next = new OnClickListener() {
+
+     public void onClick(View v) {
+        EditText num=(EditText)findViewById(R.id.EditText01); 
+        String number = ""tel:"" + num.getText().toString().trim();
+        Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse(number)); 
+        startActivity(callIntent);
+    }
+};
+</code></pre>
+
+<p>Do not forget to add the permission in manifest file. </p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.CALL_PHONE""&gt;&lt;/uses-permission&gt;
+</code></pre>
+
+<p>or </p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.CALL_PRIVILEGED""&gt;&lt;/uses-permission&gt;
+</code></pre>
+
+<p>for emergency number in case <code>DIAL</code> is used. </p>

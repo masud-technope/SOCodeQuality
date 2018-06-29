@@ -1,0 +1,19 @@
+<pre><code>public class AndroidScreenActivity extends Activity {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        String str_ScreenSize = ""The Android Screen is: ""
+                                   + dm.widthPixels
+                                   + "" x ""
+                                   + dm.heightPixels;
+
+        TextView mScreenSize = (TextView) findViewById(R.id.strScreenSize);
+        mScreenSize.setText(str_ScreenSize);
+    }
+}
+</code></pre>

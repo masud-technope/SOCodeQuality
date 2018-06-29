@@ -1,0 +1,41 @@
+<p>The following code is pillaged from the Google's 4.1 source code for SearchView. Seems to work, fine on lesser versions of Android as well.</p>
+
+<pre><code>    private Runnable mShowImeRunnable = new Runnable() {
+    public void run() {
+        InputMethodManager imm = (InputMethodManager) getContext()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        if (imm != null) {
+            imm.showSoftInput(editText,0);
+        }
+    }
+};
+
+private void setImeVisibility(final boolean visible) {
+    if (visible) {
+        post(mShowImeRunnable);
+    } else {
+        removeCallbacks(mShowImeRunnable);
+        InputMethodManager imm = (InputMethodManager) getContext()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        if (imm != null) {
+            imm.hideSoftInputFromWindow(getWindowToken(), 0);
+        }
+    }
+}
+</code></pre>
+
+<p>Then in addition, the following code needs to be added as the Control/Activity is created. (In my case it's a composite control, rather than an activity).</p>
+
+<pre><code>        this.editText
+            .setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        setImeVisibility(true);
+                    } else {
+                        setImeVisibility(false);
+                    }
+                }
+            });
+</code></pre>

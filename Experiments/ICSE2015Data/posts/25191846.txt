@@ -1,0 +1,29 @@
+<p>Ignoring the span stuff that other people have dealt with, to properly handle dictionary suggestions I found the following code works. </p>
+
+<p>The source grows as the suggestion grows so we have to look at how many characters it's actually expecting us to replace before we return anything. </p>
+
+<p>If we don't have any invalid characters, return null so that the default replacement occurs. </p>
+
+<p>Otherwise we need to extract out the valid characters from the substring that's ACTUALLY going to be placed into the EditText.</p>
+
+<pre><code>InputFilter filter = new InputFilter() { 
+    public CharSequence filter(CharSequence source, int start, int end, 
+    Spanned dest, int dstart, int dend) { 
+
+        boolean includesInvalidCharacter = false;
+        StringBuilder stringBuilder = new StringBuilder();
+
+        int destLength = dend - dstart + 1;
+        int adjustStart = source.length() - destLength;
+        for(int i=start ; i&lt;end ; i++) {
+            char sourceChar = source.charAt(i);
+            if(Character.isLetterOrDigit(sourceChar)) {
+                if(i &gt;= adjustStart)
+                     stringBuilder.append(sourceChar);
+            } else
+                includesInvalidCharacter = true;
+        }
+        return includesInvalidCharacter ? stringBuilder : null;
+    } 
+}; 
+</code></pre>

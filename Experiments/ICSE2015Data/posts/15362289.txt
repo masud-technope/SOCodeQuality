@@ -1,0 +1,11 @@
+<p>I don't know if this question is still actual, but in my case, when I switched from Dialog to DialogFragment,</p>
+
+<pre><code>requestWindowFeature(Window.FEATURE_NO_TITLE);
+</code></pre>
+
+<p>was not an option, but I could use</p>
+
+<pre><code>setStyle(STYLE_NO_TITLE, 0);
+</code></pre>
+
+<p>instead with the same result.</p>

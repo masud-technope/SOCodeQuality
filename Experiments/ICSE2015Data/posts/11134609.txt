@@ -1,0 +1,11 @@
+<p>Yes you can do with <code>setOnFocusChangeListener</code> it  will help you.</p>
+
+<pre><code>editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (hasFocus) {
+            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+    }
+});
+</code></pre>

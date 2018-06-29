@@ -1,0 +1,61 @@
+<p>I don't like the other solution and I created my own.
+With this solution you can't enter more than MAX_BEFORE_POINT digit before the point and the decimals can't be more than MAX_DECIMAL.</p>
+
+<p>You just can't type the digit in excess, no other effects!
+In additional if you write ""."" it types ""0.""</p>
+
+<ol>
+<li><p>Set the EditText in the layout to:</p>
+
+<p>android:inputType=""numberDecimal""</p></li>
+<li><p>Add the Listener in your onCreate. If you want modify the number of digits before and after the point edit the call to PerfectDecimal(str, NUMBER_BEFORE_POINT, NUMBER_DECIMALS), here is set to 3 and 2 </p>
+
+<pre><code>EditText targetEditText = (EditText)findViewById(R.id.targetEditTextLayoutId);
+
+targetEditText.addTextChangedListener(new TextWatcher() {
+  public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {}
+
+  public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {}
+
+  public void afterTextChanged(Editable arg0) {
+    String str = targetEditText.getText().toString();
+    if (str.isEmpty()) return;
+    String str2 = PerfectDecimal(str, 3, 2);
+
+    if (!str2.equals(str)) {
+        targetEditText.setText(str2);
+        int pos = targetEditText.getText().length();
+        targetEditText.setSelection(pos);
+    }
+  }
+});
+</code></pre></li>
+<li><p>Include this Funcion: </p>
+
+<pre><code>public String PerfectDecimal(String str, int MAX_BEFORE_POINT, int MAX_DECIMAL){
+  if(str.charAt(0) == '.') str = ""0""+str;
+  int max = str.length();
+
+  String rFinal = """";
+  boolean after = false;
+  int i = 0, up = 0, decimal = 0; char t;
+  while(i &lt; max){
+    t = str.charAt(i);
+    if(t != '.' &amp;&amp; after == false){
+        up++;
+        if(up &gt; MAX_BEFORE_POINT) return rFinal;
+    }else if(t == '.'){
+        after = true;
+    }else{
+        decimal++;
+        if(decimal &gt; MAX_DECIMAL)
+            return rFinal;
+    }
+    rFinal = rFinal + t;
+    i++;
+  }return rFinal;
+}
+</code></pre></li>
+</ol>
+
+<p>And it's done!</p>

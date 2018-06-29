@@ -1,0 +1,7 @@
+public static boolean isTablet(Context context) {
+    String user_agent = new WebView(context).getSettings().getUserAgentString();
+    boolean mobile = user_agent.contains(""Mobile"");
+    return ((context.getResources().getConfiguration().screenLayout
+        & Configuration.SCREENLAYOUT_SIZE_MASK)
+        >= Configuration.SCREENLAYOUT_SIZE_LARGE)&&(!mobile);
+}

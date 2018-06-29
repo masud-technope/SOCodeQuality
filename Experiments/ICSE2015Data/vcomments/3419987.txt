@@ -1,0 +1,2 @@
+This doesn't work on the main activity started by the launcher. Your activity will end up hidden because of some of the flags set on the intent. Otherwise it works nicely.
++1 Works fine, for me even with the main Activity. However, you should call `overridePendingTransition(0, 0);` after `finish()` and `startActivity()`, respectively, not where you called it.

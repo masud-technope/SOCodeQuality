@@ -1,0 +1,41 @@
+<p>There is no default API to set hint on Spinner. To add it we need a small workaround with out that not safety reflection implementation</p>
+
+<pre><code>List&lt;Object&gt; objects = new ArrayList&lt;Object&gt;();
+objects.add(firstItem);
+objects.add(secondItem);
+// add hint as last item
+objects.add(hint);
+
+HintAdapter adapter = new HintAdapter(context, objects, android.R.layout.simple_spinner_item);
+adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+Spinner spinnerFilmType = (Spinner) findViewById(R.id.spinner);
+spinner.setAdapter(adapter);
+
+// show hint
+spinner.setSelection(adapter.getCount());
+</code></pre>
+
+<p>Adapter source: </p>
+
+<pre><code>public class HintAdapter
+        extends ArrayAdapter&lt;Objects&gt; {
+
+    public HintAdapter(Context theContext, List&lt;Object&gt; objects) {
+        super(theContext, R.id.text1, R.id.text1, objects);
+    }
+
+    public HintAdapter(Context theContext, List&lt;Object&gt; objects, int theLayoutResId) {
+        super(theContext, theLayoutResId, R.id.text1, objects);
+    }
+
+    @Override
+    public int getCount() {
+        // don't display last item. It is used as hint.
+        int count = super.getCount();
+        return count &gt; 0 ? count - 1 : count;
+    }
+}
+</code></pre>
+
+<p><a href=""http://yakivmospan.wordpress.com/2014/03/31/spinner-hint/"">Original source</a></p>

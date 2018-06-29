@@ -1,0 +1,39 @@
+<p>After several hours I've been spent to solve such problem I've implemented this code:</p>
+
+<p>[UPDATE: the final version listing] </p>
+
+<pre><code>public class MyPreferencesActivity extends PreferenceActivity {
+    ...
+    ListPreference m_updateList;
+    ...
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.preferences);
+
+        m_updateList = (ListPreference) findPreference(getString(R.string.pref_update_interval_key));
+        String currentValue = m_updateList.getValue();
+        if (currentValue == null) {
+            m_updateList.setValue((String)m_updateList.getEntryValues()[DEFAULT_UPDATE_TIME_INDEX]);
+            currentValue = m_updateList.getValue();
+        }
+        updateListSummary(currentValue);    
+
+        m_updateList.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                updateListSummary(newValue.toString());
+                return true;
+            }       
+        });     
+    }
+
+    private void updateListSummary(String newValue) {
+        int index = m_updateList.findIndexOfValue(newValue);
+        CharSequence entry = m_updateList.getEntries()[index];
+        m_updateList.setSummary(entry);
+    }
+}
+</code></pre>
+
+<p>That was the only solution that worked for me fine. Before I've tried to subclass from ListPreferences and to implement android:summary=""bla bla bla %s"". Neither worked.</p>

@@ -1,0 +1,14 @@
+<p>I have tried like the following. Take a button and give the click event to it. By changing the button background, it seems to be a spinner.</p>
+
+<p>Declare as global variables alertdialog and default value..</p>
+
+<pre><code>AlertDialog d;
+static int default_value = 0;
+final Button btn = (Button) findViewById(R.id.button1);
+btn .setOnClickListener(new View.OnClickListener() {
+
+@Override
+public void onClick(View v)
+{
+    //c.show();
+    final CharSequence str[] = {""Android"

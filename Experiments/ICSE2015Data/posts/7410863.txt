@@ -1,0 +1,6 @@
+<p>Yes, I agreed with the above comments. And indeed, it does seem like the right (or at least the easiest?) thing to do is to specify (in XML) an initial layout height of ""0px"" -- and then you can  pass in another argument for ""toHeight"" (i.e. the ""final height"") to the constructor of your custom Animation sub-class, e.g. in the example above, it would look something like so:</p>
+
+<pre><code>    public DropDownAnim( View v, int toHeight ) { ... }
+</code></pre>
+
+<p>Anyways, hope that helps! :) </p>

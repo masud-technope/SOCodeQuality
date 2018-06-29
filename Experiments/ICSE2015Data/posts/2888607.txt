@@ -1,0 +1,17 @@
+<p>There are ways to make this a more generic solution, if that suits your needs.</p>
+
+<p>For example, if you want to generically have all list preferences show their choice as summary, you could have this for your <code>onSharedPreferenceChanged</code> implementation:</p>
+
+<pre><code>public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+    Preference pref = findPreference(key);
+
+    if (pref instanceof ListPreference) {
+        ListPreference listPref = (ListPreference) pref;
+        pref.setSummary(listPref.getEntry());
+    }
+}
+</code></pre>
+
+<p>This is easily extensible to other preference classes.</p>
+
+<p>And by using the <code>getPreferenceCount</code> and <code>getPreference</code> functionality in <code>PreferenceScreen</code> and <code>PreferenceCategory</code>, you could easily write a generic function to walk the preference tree setting the summaries of all preferences of the types you desire to their <code>toString</code> representation</p>

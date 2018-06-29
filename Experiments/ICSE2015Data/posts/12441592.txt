@@ -1,0 +1,31 @@
+<p>I started with Chase's solution, but had to adapt two things before it was working as expected on my device (Galaxy Nexus, Android 4.1):</p>
+
+<ol>
+<li><p>using a copy of TextPaint for measuring layout
+The documentation for <a href=""http://developer.android.com/reference/android/widget/TextView.html#getPaint%28%29"">TextView.getPaint()</a> states that it should be used read-only, so I made a copy in both places where we use the paint object for measuring:</p>
+
+<pre><code>// 1. in resizeText()
+if (mAddEllipsis &amp;&amp; targetTextSize == mMinTextSize &amp;&amp; textHeight &gt; height) {
+  // Draw using a static layout
+  // modified: use a copy of TextPaint for measuring
+  TextPaint paint = new TextPaint(textPaint);
+
+// 2. in getTextHeight()
+private int getTextHeight(CharSequence source, TextPaint originalPaint, int width, float textSize) {
+  // modified: make a copy of the original TextPaint object for measuring
+  // (apparently the object gets modified while measuring, see also the
+  // docs for TextView.getPaint() (which states to access it read-only)
+  TextPaint paint = new TextPaint(originalPaint);
+  // Update the text paint object
+  paint.setTextSize(textSize);
+  ...
+</code></pre></li>
+<li><p>adding a unit to setting the text size</p>
+
+<pre><code>// modified: setting text size via this.setTextSize (instead of textPaint.setTextSize(targetTextSize))
+setTextSize(TypedValue.COMPLEX_UNIT_PX, targetTextSize);
+setLineSpacing(mSpacingAdd, mSpacingMult);
+</code></pre></li>
+</ol>
+
+<p>With these two modifications the solution is working perfectly for me, thanks Chase! I don't know whether it is due to Android 4.x that the original solution was not working. In case you want to see it in action or test whether it really works on your device, you can have a look at my flashcard app <a href=""http://www.flashcardstogo.info/"">Flashcards ToGo</a> where I use this solution to scale the text of a flashcard. The text can have arbitrary length, and the flashcards are displayed in different activities, sometimes smaller sometimes bigger, plus in landscape + portrait mode, and I haven't found any corner case where the solution would not work properly...</p>

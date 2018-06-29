@@ -1,0 +1,8 @@
+<p>If you're attempting to start a SERVICE rather than activity, this worked for me:</p>
+
+<pre><code>Intent intent = new Intent();
+intent.setClassName(""com.example.otherapplication"", ""com.example.otherapplication.ServiceName"");
+context.startService(intent);
+</code></pre>
+
+<p>If you use the intent.setComponent(...) method as mentioned in other answers, you may get an ""Implicit intents with startService are not safe"" warning.</p>

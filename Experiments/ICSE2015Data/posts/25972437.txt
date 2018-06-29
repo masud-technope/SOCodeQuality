@@ -1,0 +1,97 @@
+<p>It is possible to customize searchview by using appcompat v7 library.I used appcompat v7 library and defined custom style for it.
+In drawable folder put bottom_border.xml file which looks like this:</p>
+
+<pre><code> &lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+ &lt;layer-list xmlns:android=""http://schemas.android.com/apk/res/android"" &gt;
+ &lt;item&gt;
+  &lt;shape &gt;
+      &lt;solid android:color=""@color/blue_color"" /&gt;
+  &lt;/shape&gt;
+ &lt;/item&gt;
+ &lt;item android:bottom=""0.8dp""
+   android:left=""0.8dp""
+   android:right=""0.8dp""&gt;
+  &lt;shape &gt;
+      &lt;solid android:color=""@color/background_color"" /&gt;
+  &lt;/shape&gt;
+ &lt;/item&gt;
+
+ &lt;!-- draw another block to cut-off the left and right bars --&gt;
+ &lt;item android:bottom=""2.0dp""&gt;
+  &lt;shape &gt;
+      &lt;solid android:color=""@color/main_accent"" /&gt;
+  &lt;/shape&gt;
+  &lt;/item&gt;
+ &lt;/layer-list&gt;
+</code></pre>
+
+<p>In values folder styles_myactionbartheme.xml: </p>
+
+<pre><code> &lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+ &lt;resources&gt;
+  &lt;style name=""AppnewTheme"" parent=""Theme.AppCompat.Light""&gt;
+    &lt;item name=""android:windowBackground""&gt;@color/background&lt;/item&gt;
+    &lt;item name=""android:actionBarStyle""&gt;@style/ActionBar&lt;/item&gt;
+    &lt;item name=""android:actionBarWidgetTheme""&gt;@style/ActionBarWidget&lt;/item&gt;
+  &lt;/style&gt; 
+  &lt;!-- Actionbar Theme --&gt;
+  &lt;style name=""ActionBar"" parent=""Widget.AppCompat.Light.ActionBar.Solid.Inverse""&gt;
+    &lt;item name=""android:background""&gt;@color/main_accent&lt;/item&gt;
+    &lt;!-- &lt;item name=""android:icon""&gt;@drawable/abc_ic_ab_back_holo_light&lt;/item&gt; --&gt;
+  &lt;/style&gt; 
+  &lt;style name=""ActionBarWidget"" parent=""Theme.AppCompat.Light""&gt;
+    &lt;!-- SearchView customization--&gt;
+     &lt;!-- Changing the small search icon when the view is expanded --&gt;
+    &lt;!-- &lt;item name=""searchViewSearchIcon""&gt;@drawable/ic_action_search&lt;/item&gt; --&gt;
+     &lt;!-- Changing the cross icon to erase typed text --&gt;
+   &lt;!--   &lt;item name=""searchViewCloseIcon""&gt;@drawable/ic_action_remove&lt;/item&gt; --&gt;
+     &lt;!-- Styling the background of the text field, i.e. blue bracket --&gt;
+    &lt;item name=""searchViewTextField""&gt;@drawable/bottom_border&lt;/item&gt;
+     &lt;!-- Styling the text view that displays the typed text query --&gt;
+    &lt;item name=""searchViewAutoCompleteTextView""&gt;@style/AutoCompleteTextView&lt;/item&gt;        
+  &lt;/style&gt;
+
+    &lt;style name=""AutoCompleteTextView"" parent=""Widget.AppCompat.Light.AutoCompleteTextView""&gt;
+     &lt;item name=""android:textColor""&gt;@color/text_color&lt;/item&gt;
+   &lt;!--   &lt;item name=""android:textCursorDrawable""&gt;@null&lt;/item&gt; --&gt;
+    &lt;!-- &lt;item name=""android:textColorHighlight""&gt;@color/search_view_selected_text&lt;/item&gt; --&gt;
+  &lt;/style&gt;
+ &lt;/resources&gt;
+</code></pre>
+
+<p>I defined custommenu.xml  file for displaying menu:</p>
+
+<pre><code> &lt;menu xmlns:android=""http://schemas.android.com/apk/res/android""
+   xmlns:com.example.actionbartheme=""http://schemas.android.com/apk/res-auto"" &gt;  
+
+  &lt;item android:id=""@+id/search""
+      android:title=""@string/search_title""
+      android:icon=""@drawable/search_buttonn""
+      com.example.actionbartheme:showAsAction=""ifRoom|collapseActionView""
+        com.example.actionbartheme:actionViewClass=""android.support.v7.widget.SearchView""/&gt;        
+  &lt;/menu&gt;
+</code></pre>
+
+<p>Your activity should extend ActionBarActivity instead of Activity.
+ Here is onCreateOptionsMenu method.</p>
+
+<pre><code>  @Override
+  public boolean onCreateOptionsMenu(Menu menu) 
+  {
+    // Inflate the menu; this adds items to the action bar if it is present.
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.custommenu, menu);
+  }
+</code></pre>
+
+<p>In manifest file:</p>
+
+<pre><code>  &lt;application
+      android:allowBackup=""true""
+      android:icon=""@drawable/ic_launcher""
+      android:label=""@string/app_name""
+      android:theme=""@style/AppnewTheme"" &gt;
+</code></pre>
+
+<p>For more information see this url:<br>
+Here <a href=""http://www.jayway.com/2014/06/02/android-theming-the-actionbar/"" rel=""nofollow"">http://www.jayway.com/2014/06/02/android-theming-the-actionbar/</a></p>

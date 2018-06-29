@@ -1,0 +1,3 @@
+Intent intent = new Intent();
+intent.setClassName(""com.example.otherapplication"", ""com.example.otherapplication.ServiceName"");
+context.startService(intent);

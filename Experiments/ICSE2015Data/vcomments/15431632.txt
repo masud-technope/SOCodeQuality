@@ -1,0 +1,1 @@
+By simply reading your code, I don't think this will work. Remember, the question was about automatically adjusting the text view's font size to fit into the view. You set a fixed font size.

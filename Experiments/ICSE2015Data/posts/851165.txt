@@ -1,0 +1,33 @@
+<p>So, I had a play, and it <em>is</em> possible to delete a received SMS.
+Unfortunately it's not all plain sailing :(</p>
+
+<p>I have a receiver that picks up on incoming SMS messages.  Now the way the Android SMS incoming routing works is that the piece of code responsible for decoding the messages sends a Broadcast (it uses the <code>sendBroadcast()</code> method - which unfortunately is NOT the version that lets you simply call <code>abortBroadcast()</code>) whenever a message arrives.</p>
+
+<p>My receiver may or may not be called before the Systems SMS receiver, and in any case the received broadcast has no property that could reflect the <code>_id</code> column in the SMS table.</p>
+
+<p>However, not being one to be stopped that easily I post myself (via a Handler) a delayed message with the SmsMessage as the attached object.  (I suppose you could post yourself a Runnable too...)</p>
+
+<pre><code>handler.sendMessageDelayed(handler.obtainMessage(MSG_DELETE_SMS, msg), 2500);
+</code></pre>
+
+<p>The delay is there to ensure that by the time the message arrives all of the Broadcast receivers will have finished their stuff and the message will be safely ensconced in the SMS table.</p>
+
+<p>When the message (or Runnable) is received here is what I do:</p>
+
+<pre><code>case MSG_DELETE_SMS:
+    Uri deleteUri = Uri.parse(""content://sms"");
+    SmsMessage msg = (SmsMessage)message.obj;
+
+    getContentResolver().delete(deleteUri, ""address=? and date=?"", new String[] {msg.getOriginatingAddress(), String.valueOf(msg.getTimestampMillis())});
+</code></pre>
+
+<p>I use the originating address and timestamp field to ensure a very high probability of deleting ONLY the message I am interested in.  If I wanted to be even more paranoid I could include the <code>msg.getMessageBody()</code> content as part of the query.</p>
+
+<p>Yes, the message IS deleted (hooray!).
+Unfortunately the notification bar is not updated :(</p>
+
+<p>When you open up the notification area you'll see the message sitting there for you... but when you tap on it to open it up - it's gone!</p>
+
+<p>To me, this isn't quite good enough - I want all trace of the message to disappear - I don't want the user to think there is a TXT when there isn't (that would only cause bug reports).</p>
+
+<p>Internally in the OS the phone calls <code>MessagingNotification.updateNewMessageIndicator(Context)</code>, but I that class has been hidden from the API, and I did not want to replicate all of that code just for the sake of making the indicator accurate.</p>

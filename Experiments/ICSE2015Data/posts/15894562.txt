@@ -1,0 +1,5 @@
+<p>This is a late reply, as suggested above Async task will will and after googling a bit i found one more way for this problem.</p>
+
+<p><code>my_image_view.setImageDrawable(Drawable.createFromStream((InputStream)new URL(&lt;String_url&gt;).getContent(), ""src""));</code></p>
+
+<p>I tried this myself and i have not face any issue yet.</p>

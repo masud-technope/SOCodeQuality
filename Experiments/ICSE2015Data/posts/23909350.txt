@@ -1,0 +1,11 @@
+<pre><code>act.post(new Runnable() 
+{
+  @Override
+  public void run()
+  {
+    act.dismissDropDown();
+  }
+});
+</code></pre>
+
+<p>Works just fine!</p>

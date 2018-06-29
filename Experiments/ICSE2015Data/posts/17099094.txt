@@ -1,0 +1,7 @@
+<p>There is one hacky way that should work on any activity, including the main one.</p>
+
+<pre><code>setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+</code></pre>
+
+<p>When orientation changes, Android generally will recreate your activity (unless you override it). This method is useful for 180 degree rotations, when Android doesn't recreate your activity. </p>

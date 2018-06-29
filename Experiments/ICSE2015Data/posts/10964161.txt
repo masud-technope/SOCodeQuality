@@ -1,0 +1,16 @@
+<p>If anyone is getting:</p>
+
+<blockquote>
+  <blockquote>
+    <p>Cannot make a static reference to the non-static method getSystemService(String) from the type Activity</p>
+  </blockquote>
+</blockquote>
+
+<p>Try adding <strong>context</strong> to getSystemService call.</p>
+
+<p>So</p>
+
+<pre><code>InputMethodManager imm = 
+(InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+</code></pre>

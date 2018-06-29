@@ -1,0 +1,2 @@
+<pre><code>imageView.setImageBitmap(BitmapFactory.decodeStream(imageUrl.openStream()));//try/catch IOException and MalformedURLException outside
+</code></pre>

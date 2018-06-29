@@ -1,0 +1,8 @@
+<p>I had this same issue and solved it by avoiding the BitmapFactory.decodeStream or decodeFile functions and instead used BitmapFactory.decodeFileDescriptor</p>
+
+<p>decodeFileDescriptor looks like it calls different native methods than the decodeStream/decodeFile.</p>
+
+<p>Anyway what worked was this (note that I added some options as some had above, but that's not what made the difference. What is critical is the call to <strong>Bitmap.decodeFileDescriptor</strong> instead of <strong>decodeStream</strong> or <strong>decodeFile</strong>):</p>
+
+<pre><code>private void showImage(String path)   {
+    Log.i(""showImage"

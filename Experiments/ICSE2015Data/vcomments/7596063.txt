@@ -1,0 +1,3 @@
+Works so far. Any reason why this isn't the best answer?
+because getLaunchIntentForPackage(""app package name"") may cause exception.
+Not to be a stickler, but there's no reason to allocate a new Intent on the first line given you use the result of the `getLaunchIntentForPackage` call.

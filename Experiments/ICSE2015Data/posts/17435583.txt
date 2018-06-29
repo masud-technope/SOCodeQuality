@@ -1,0 +1,34 @@
+<p>Take it easy guys... :)</p>
+
+<p>I think the most suitable solution is holding a key-value pair in <code>SharedPreferences</code> about if the service is running or not.</p>
+
+<p>Logic is very straight; at any desired position in your service class; put a boolean value which will act as a flag for you about whether the service is running or not. Then read this value whereever you want in your application.</p>
+
+<p>A sample code which I am using in my app is below:</p>
+
+<p>In my Service class (A service for Audio Stream), I execute the following code when the service is up;</p>
+
+<pre><code>private void updatePlayerStatus(boolean isRadioPlaying)
+{
+        SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.str_shared_file_name), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean(getString(R.string.str_shared_file_radio_status_key), isRadioPlaying);
+        editor.commit();
+}
+</code></pre>
+
+<p>Then in any activity of my application, I am checking the status of the service with the help of following code;</p>
+
+<pre><code>private boolean isRadioRunning() {
+        SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.str_shared_file_name), Context.MODE_PRIVATE);
+
+        return sharedPref.getBoolean(getString(R.string.str_shared_file_radio_status_key), false);
+}
+</code></pre>
+
+<p>No special permissions, no loops... Easy way, clean solution :)</p>
+
+<p>If you need extra information, please refer the link below:
+<a href=""http://developer.android.com/training/basics/data-storage/shared-preferences.html"" rel=""nofollow"">http://developer.android.com/training/basics/data-storage/shared-preferences.html</a></p>
+
+<p>Hope this helps.</p>

@@ -1,0 +1,8 @@
+<p>I wanted to also point out an alternative solution that works nicely if you are creating new instances of an EditView. You can override the method getDefaultEditable() as suggested by the docs to return false. E.g.</p>
+
+<pre><code>EditText view = new EditText(DiscountCalculator.this) {
+    public boolean getDefaultEditable() {
+        return false;
+    }
+};
+</code></pre>

@@ -1,0 +1,45 @@
+<p>Here's my relatively simple solution to this problem.  The keys to this solution are to use <code>FragmentStatePagerAdapter</code> instead of <code>FragmentPagerAdapter</code> as the former will remove unused fragments for you while the later still retains their instances.  The second is the use of <code>POSITION_NONE</code> in getItem().  I've used a simple List to keep track of my fragments.  My requirement was to replace the entire list of fragments at once with a new list, but the below could be easily modified to replace individual fragments:</p>
+
+<pre><code>public class MyFragmentAdapter extends FragmentStatePagerAdapter {
+    private List&lt;Fragment&gt; fragmentList = new ArrayList&lt;Fragment&gt;();
+    private List&lt;String&gt; tabTitleList = new ArrayList&lt;String&gt;();
+
+    public MyFragmentAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
+    public void addFragments(List&lt;Fragment&gt; fragments, List&lt;String&gt; titles) {
+        fragmentList.clear();
+        tabTitleList.clear();
+        fragmentList.addAll(fragments);
+        tabTitleList.addAll(titles);
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+        if (fragmentList.contains(object)) {
+            return POSITION_UNCHANGED;
+        }
+        return POSITION_NONE;
+    }
+
+    @Override
+    public Fragment getItem(int item) {
+        if (item &gt;= fragmentList.size()) {
+            return null;
+        }
+        return fragmentList.get(item);
+    }
+
+    @Override
+    public int getCount() {
+        return fragmentList.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return tabTitleList.get(position);
+    }
+}
+</code></pre>

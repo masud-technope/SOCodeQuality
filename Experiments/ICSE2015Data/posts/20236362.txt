@@ -1,0 +1,30 @@
+<p>On some devices (for example samsung galaxy sII )internal memory card mabe be in vfat. In this case  use refer last code, we obtain path internal memory card (/mnt/sdcad) but no external card. Code refer below solve this problem.</p>
+
+<pre><code>static String getExternalStorage(){
+         String exts =  Environment.getExternalStorageDirectory().getPath();
+         try {
+            FileReader fr = new FileReader(new File(""/proc/mounts""));       
+            BufferedReader br = new BufferedReader(fr);
+            String sdCard=null;
+            String line;
+            while((line = br.readLine())!=null){
+                if(line.contains(""secure"") || line.contains(""asec"")) continue;
+            if(line.contains(""fat"")){
+                String[] pars = line.split(""\\s"");
+                if(pars.length&lt;2) continue;
+                if(pars[1].equals(exts)) continue;
+                sdCard =pars[1]; 
+                break;
+            }
+        }
+        fr.close();
+        br.close();
+        return sdCard;  
+
+     } catch (Exception e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    return null;
+}
+</code></pre>

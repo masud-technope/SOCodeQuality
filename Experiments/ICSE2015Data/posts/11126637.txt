@@ -1,0 +1,50 @@
+<p>I like pospi's suggestion. Why not go all-out any use the 'tag' property of a view (which you can specify in XML - 'android:tag') to specify any additional styling that you can't do in XML. I like JSON so I'd use a JSON string to specify a key/value set. This class does the work - just call <code>Style.setContentView(this, [resource id])</code> in your activity.</p>
+
+<pre><code>public class Style {
+
+  /**
+   * Style a single view.
+   */
+  public static void apply(View v) {
+    if (v.getTag() != null) {
+      try {
+        JSONObject json = new JSONObject((String)v.getTag());
+        if (json.has(""typeface"") &amp;&amp; v instanceof TextView) {
+          ((TextView)v).setTypeface(Typeface.createFromAsset(v.getContext().getAssets(),
+                                                             json.getString(""typeface"")));
+        }
+      }
+      catch (JSONException e) {
+        // Some views have a tag without it being explicitly set!
+      }
+    }
+  }
+
+  /**
+   * Style the passed view hierarchy.
+   */
+  public static View applyTree(View v) {
+    apply(v);
+    if (v instanceof ViewGroup) {
+      ViewGroup g = (ViewGroup)v;
+      for (int i = 0; i &lt; g.getChildCount(); i++) {
+        applyTree(g.getChildAt(i));
+      }
+    }
+    return v;
+  }
+
+  /**
+   * Inflate, style, and set the content view for the passed activity.
+   */
+  public static void setContentView(Activity activity, int resource) {
+    activity.setContentView(applyTree(activity.getLayoutInflater().inflate(resource, null)));
+  }
+}
+</code></pre>
+
+<p>Obviously you'd want to handle more than just the typeface to make using JSON worthwhile. </p>
+
+<p>A benefit of the 'tag' property is that you can set it on a base style which you use as a theme and thus have it apply to all of your views automatically. <strong>EDIT:</strong> Doing this results in a crash during inflation on Android 4.0.3. You can still use a style and apply it to text views individually.</p>
+
+<p>One thing you'll see in the code - some views have a tag without one being explicitly set - bizarrely it's the string 'Αποκοπή' - which is 'cut' in greek, according to google translate! What the hell...?</p>

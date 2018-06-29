@@ -1,0 +1,29 @@
+<p>Here is my simple way to solve that:</p>
+
+<pre><code>    ImageView iv = (ImageView) findViewById(R.id.imageView);
+    iv.setOnClickListener(new OnClickListener() {
+
+        @Override
+        public void onClick(View arg0) {
+            // TODO Auto-generated method stub
+            //Agrega porcentajes de cada fraccion de grafica pastel
+
+            Animation animFadein = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
+
+            iv.startAnimation(animFadein); 
+        });
+</code></pre>
+
+<p>in res/anim/fade_in.xml</p>
+
+<pre><code> &lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+     &lt;set xmlns:android=""http://schemas.android.com/apk/res/android""
+             android:fillAfter=""true"" &gt;
+
+&lt;alpha
+    android:duration=""100""
+    android:fromAlpha=""0.0""
+    android:interpolator=""@android:anim/accelerate_interpolator""
+    android:toAlpha=""1.0"" /&gt;
+ &lt;/set&gt;
+</code></pre>

@@ -1,0 +1,8 @@
+<p>The easiest way to do this would be to pass the session id to the signout activity in the intent you're using to start the activity:</p>
+
+<pre><code>Intent intent = new Intent(getBaseContext(), SignoutActivity.class);
+intent.putExtra(""EXTRA_SESSION_ID"", sessionId);
+startActivity(intent)
+</code></pre>
+
+<p>The <a href=""http://developer.android.com/guide/topics/intents/intents-filters.html"">docs</a> for Intents has more information (look at the section titled ""Extras"").</p>

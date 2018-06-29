@@ -1,0 +1,10 @@
+<p>from so searching, here I found an answer that works for me</p>
+
+<pre><code>// Show soft-keyboard:
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+
+// Hide soft-keyboard:
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+</code></pre>

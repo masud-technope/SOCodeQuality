@@ -1,0 +1,12 @@
+<pre><code>webview.setInitialScale(1);
+webview.getSettings().setLoadWithOverviewMode(true);
+webview.getSettings().setUseWideViewPort(true);
+webview.getSettings().setJavaScriptEnabled(true);
+</code></pre>
+
+<p>will work, but remember to remove something like:</p>
+
+<pre><code>&lt;meta name=""viewport"" content=""user-scalable=no""/&gt;
+</code></pre>
+
+<p>if existed in the html file or change user-scalable=yes, otherwise it won't.</p>

@@ -1,0 +1,4 @@
+<p>Also update the manifest file as to delete an sms you need write permissions.</p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.WRITE_SMS""/&gt;
+</code></pre>

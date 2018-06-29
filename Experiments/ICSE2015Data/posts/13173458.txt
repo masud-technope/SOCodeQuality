@@ -1,0 +1,11 @@
+<p>These work for me and fit the WebView to screen width:</p>
+
+<pre><code>// get from xml, with all size set ""fill_parent""  
+webView = (WebView) findViewById(R.id.webview_in_layout);  
+// fit the width of screen
+webView.getSettings().setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN); 
+// remove a weird white line on the right size
+webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);  
+</code></pre>
+
+<p>Thanks above advises and <a href=""http://stackoverflow.com/questions/9564023/white-line-in-eclipse-web-view"">White line in eclipse Web view</a></p>

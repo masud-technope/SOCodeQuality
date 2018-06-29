@@ -1,0 +1,3 @@
+String s = ""<b>Bolded text</b>, <i>italic text</i>, even <u>underlined</u>!""
+TextView tv = (TextView)findViewById(R.id.THE_TEXTVIEW_ID);
+tv.setText(Html.fromHtml(s));

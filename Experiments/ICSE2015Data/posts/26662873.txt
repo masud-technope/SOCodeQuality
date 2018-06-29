@@ -1,0 +1,22 @@
+<p>You are facing this Exception because you are using a network operation on main thread,
+You need to run internet activities on a thread separate from main (UI) thread, you can do that by wrapping your code in the following block:Simply use your code in the ""run"" method, this error will be gone, no one is suggested this approach.</p>
+
+<pre><code> runOnUiThread(new Runnable(){
+            public void run() {
+                //use your code here
+               try{
+                URL url = new URL(urlToRssFeed);
+                SAXParserFactory factory = SAXParserFactory.newInstance();
+                SAXParser parser = factory.newSAXParser();
+                XMLReader xmlreader = parser.getXMLReader();
+                RssHandler theRSSHandler = new RssHandler();
+                xmlreader.setContentHandler(theRSSHandler);
+                InputSource is = new InputSource(url.openStream());
+                xmlreader.parse(is);
+                return theRSSHandler.getFeed();
+                }catch(Exception e){
+                e.printStackTrace();
+                }
+            }
+        });
+</code></pre>

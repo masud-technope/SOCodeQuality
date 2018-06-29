@@ -1,0 +1,20 @@
+<pre><code>public boolean bIsNetworkAvailable()
+{
+    String sMethodName = ""public boolean bIsNetworkAvailable()""
+    bool bResult = false;   
+    try{
+        ConnectivityManager ConnectivityManager = null;
+        ConnectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo NetworkInfo = null;
+        NetworkInfo = connectivityManager.getActiveNetworkInfo();
+
+        bResult = activeNetworkInfo != null &amp;&amp; activeNetworkInfo.isConnected();
+
+    } catch(Exception ex)
+    {
+        //Common.Exception(_sClassName, sMethodName, ex); //This method is one you should have that displays exceptions in your log
+    }
+    return bResult; 
+}
+</code></pre>

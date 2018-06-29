@@ -1,0 +1,5 @@
+<p>If you want to get the date and time in a specific pattern you can use</p>
+
+<pre><code>Date d = new Date();
+CharSequence s = DateFormat.format(""yyyy-MM-dd hh:mm:ss"", d.getTime());
+</code></pre>

@@ -1,0 +1,15 @@
+public int getScreenOrientation()
+{
+    Display getOrient = getWindowManager().getDefaultDisplay();
+    int orientation = Configuration.ORIENTATION_UNDEFINED;
+    if(getOrient.getWidth()==getOrient.getHeight()){
+        orientation = Configuration.ORIENTATION_SQUARE;
+    } else{ 
+        if(getOrient.getWidth() < getOrient.getHeight()){
+            orientation = Configuration.ORIENTATION_PORTRAIT;
+        }else { 
+             orientation = Configuration.ORIENTATION_LANDSCAPE;
+        }
+    }
+    return orientation;
+}

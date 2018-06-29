@@ -1,0 +1,12 @@
+<p>The best way to do this is with this single line of code:</p>
+
+<pre><code>textView.setKeyListener(null);
+</code></pre>
+
+<p>The docs say for this method:</p>
+
+<blockquote>
+  <p>Sets the key listener to be used with
+  this TextView. This can be null to
+  disallow user input.</p>
+</blockquote>

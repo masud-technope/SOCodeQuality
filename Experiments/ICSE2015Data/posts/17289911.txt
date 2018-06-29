@@ -1,0 +1,20 @@
+<p>Thanks for the clues provided by you guys, especially @SmartLemon, I got the solution. In case someone else need it, I put my final solution here( to find the first listed external SD card ):</p>
+
+<pre><code>public File getExternalSDCardDirectory()
+{
+    File innerDir = Environment.getExternalStorageDirectory();
+    File rootDir = innerDir.getParentFile();
+    File firstExtSdCard = innerDir ;
+    File[] files = rootDir.listFiles();
+    for (File file : files) {
+        if (file.compareTo(innerDir) != 0) {
+            firstExtSdCard = file;
+            break;
+        }
+    }
+    //Log.i(""2"", firstExtSdCard.getAbsolutePath().toString());
+    return firstExtSdCard;
+}
+</code></pre>
+
+<p>If no external SD card there, then it returns the on board storage. I will use it if the sdcard is not exist, you may need to change it. </p>

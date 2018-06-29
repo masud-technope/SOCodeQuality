@@ -1,0 +1,38 @@
+<p>I did this in a more ""brute force"" way that doesn't require changes to the layout xml or Activities. </p>
+
+<p>Tested on Android version 2.1 through 4.4. </p>
+
+<pre class=""lang-java prettyprint-override""><code>private void setDefaultFont() {
+
+    try {
+        final Typeface bold = Typeface.createFromAsset(getAssets(), DEFAULT_BOLD_FONT_FILENAME);
+        final Typeface italic = Typeface.createFromAsset(getAssets(), DEFAULT_ITALIC_FONT_FILENAME);
+        final Typeface boldItalic = Typeface.createFromAsset(getAssets(), DEFAULT_BOLD_ITALIC_FONT_FILENAME);
+        final Typeface regular = Typeface.createFromAsset(getAssets(),DEFAULT_NORMAL_FONT_FILENAME);
+
+        Field DEFAULT = Typeface.class.getDeclaredField(""DEFAULT"");
+        DEFAULT.setAccessible(true);
+        DEFAULT.set(null, regular);
+
+        Field DEFAULT_BOLD = Typeface.class.getDeclaredField(""DEFAULT_BOLD"");
+        DEFAULT_BOLD.setAccessible(true);
+        DEFAULT_BOLD.set(null, bold);
+
+        Field sDefaults = Typeface.class.getDeclaredField(""sDefaults"");
+        sDefaults.setAccessible(true);
+        sDefaults.set(null, new Typeface[]{
+                regular, bold, italic, boldItalic
+        });
+
+    } catch (NoSuchFieldException e) {
+        logFontError(e);
+    } catch (IllegalAccessException e) {
+        logFontError(e);
+    } catch (Throwable e) {
+        //cannot crash app if there is a failure with overriding the default font!
+        logFontError(e);
+    }
+}
+</code></pre>
+
+<p>For a more complete example, see <a href=""http://github.com/perchrh/FontOverrideExample"" rel=""nofollow"">http://github.com/perchrh/FontOverrideExample</a></p>

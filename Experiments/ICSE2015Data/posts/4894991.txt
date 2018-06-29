@@ -1,0 +1,14 @@
+<p>Haven't had a chance to run this (so might not work 100%) but it should be what you're looking for:</p>
+
+<pre><code>File files[] = Environment.getExternalStorageDirectory().listFiles();   
+for (File f : files)
+ {
+  String fullPath = f.getAbsolutePath();
+  int dot = fullPath.lastIndexOf(""."");
+  String ext = fullPath.substring(dot + 1);
+  if(ext.equals(""txt""))
+  {
+    //do something with f here
+  } 
+ }  
+</code></pre>

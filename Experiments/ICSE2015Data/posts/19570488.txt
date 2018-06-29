@@ -1,0 +1,19 @@
+<pre><code>public class Network {
+
+Context context;
+
+public Network(Context context){
+    this.context = context;
+}
+
+public boolean isOnline() {
+    ConnectivityManager cm =
+            (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+    NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+    return activeNetwork != null &amp;&amp;
+                          activeNetwork.isConnectedOrConnecting();
+}
+
+}
+</code></pre>

@@ -1,0 +1,22 @@
+<pre><code>public static String getDensity(Context context) {
+    String r;
+    DisplayMetrics metrics = new DisplayMetrics();
+
+    if (!(context instanceof Activity)) {
+        r = ""hdpi"";
+    } else {
+        Activity activity = (Activity) context;
+        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        if (metrics.densityDpi &lt;= DisplayMetrics.DENSITY_LOW) {
+            r = ""ldpi"";
+        } else if (metrics.densityDpi &lt;= DisplayMetrics.DENSITY_MEDIUM) {
+            r = ""mdpi"";
+        } else {
+            r = ""hdpi"";
+        }
+    }
+
+    return r;
+}
+</code></pre>

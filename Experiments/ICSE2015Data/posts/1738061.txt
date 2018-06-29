@@ -1,0 +1,11 @@
+<p>Hey Guys I found another way to set an ItemLongClickListener. Therefore i also found a way to get the Text i am displaying. </p>
+
+<pre><code>ListView lv = getListView();
+lv.setOnItemLongClickListener(new OnItemLongClickListener(){
+@Override
+public boolean onItemLongClick(AdapterView&lt;?&gt; arg0, View arg1,int row, long arg3) {
+   String[] tmp = (String[]) arg0.getItemAtPosition(row);
+   //tmp[0] ist the Text of the first TextView displayed by the  clicked ListItem 
+   return true;
+   }});
+</code></pre>

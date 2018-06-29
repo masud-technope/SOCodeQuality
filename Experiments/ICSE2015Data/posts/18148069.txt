@@ -1,0 +1,5 @@
+<p>use this</p>
+
+<pre><code>this.getWindow().setSoftInputMode(
+            WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+</code></pre>

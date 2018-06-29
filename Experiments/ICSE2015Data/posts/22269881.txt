@@ -1,0 +1,32 @@
+<p>The easiest way i think is putting a new xml file, in this case lets call it ""example.xml"" in the drawable folder, and put the follow code:</p>
+
+<pre><code>&lt;selector xmlns:android=""http://schemas.android.com/apk/res/android""&gt;
+    &lt;item android:drawable=""@color/blue""
+          android:state_pressed=""true"" /&gt;
+
+&lt;/selector&gt;
+</code></pre>
+
+<p>but before that you have to set the colors in the colors.xml file, in the values folder, like that: </p>
+
+<pre><code>&lt;resources&gt;
+    &lt;color name=""blue""&gt;#0000FF&lt;/color&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p>that made, you just set the Button / ImageButton to use the new layout, like that: </p>
+
+<pre><code>&lt;ImageView
+        android:layout_width=""wrap_content""
+        android:layout_height=""wrap_content""
+        android:background=""@drawable/example""
+        /&gt;
+</code></pre>
+
+<p>than when you click that image, it will change to the color setted in: </p>
+
+<pre><code>&lt;item android:drawable=""@color/blue""
+          android:state_pressed=""true"" /&gt;
+</code></pre>
+
+<p>giving the feedback that you want ...</p>

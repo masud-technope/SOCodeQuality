@@ -1,0 +1,17 @@
+<p>Why not calculate the size of the screen diagonal and use that to make the decision whether the device is a phone or tablet?</p>
+
+<pre><code>private boolean isTablet()
+{
+    Display display = getWindowManager().getDefaultDisplay();
+    DisplayMetrics displayMetrics = new DisplayMetrics();
+    display.getMetrics(displayMetrics);
+
+    int width = displayMetrics.widthPixels / displayMetrics.densityDpi;
+    int height = displayMetrics.heightPixels / displayMetrics.densityDpi;
+
+    double screenDiagonal = Math.sqrt( width * width + height * height );
+    return (screenDiagonal &gt;= 9.0 );
+}
+</code></pre>
+
+<p>Of course one can argue whether the threshold should be 9 inches or less.</p>

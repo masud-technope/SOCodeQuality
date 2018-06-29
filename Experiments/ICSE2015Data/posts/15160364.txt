@@ -1,0 +1,19 @@
+<p>I had this problem, and this works for me. </p>
+
+<pre><code>@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.customer_menu, menu);
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView       = (SearchView) menu.findItem(R.id.menu_customer_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+        searchView.setOnQueryTextListener(this);
+
+        //Applies white color on searchview text
+        int id = searchView.getContext().getResources().getIdentifier(""android:id/search_src_text"", null, null);
+        TextView textView = (TextView) searchView.findViewById(id);
+        textView.setTextColor(Color.WHITE);
+
+        return true;
+}
+</code></pre>

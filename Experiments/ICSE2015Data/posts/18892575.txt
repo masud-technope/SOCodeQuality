@@ -1,0 +1,1 @@
+<p>use <code>ActivityInfo.SCREEN_ORIENTATION_USER</code> if you want to rotate screen only if its enabled on device.</p>

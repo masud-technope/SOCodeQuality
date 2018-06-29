@@ -1,0 +1,7 @@
+<p>It's possible to do with <strong>just one image file</strong> using the ColorFilter method. However, ColorFilter expects to work with ImageViews and not Buttons, so you have to transform your buttons into ImageViews. This isn't a problem if you're using images as your buttons anyway, but it's more annoying if you had text... Anyway, assuming you find a way around the problem with text, here's the code to use:</p>
+
+<pre><code>ImageView button = (ImageView) findViewById(R.id.button);
+button.setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
+</code></pre>
+
+<p>That applies a red overlay to the button (the color code is the hex code for fully opaque red - first two digits are transparency, then it's RR GG BB.).</p>

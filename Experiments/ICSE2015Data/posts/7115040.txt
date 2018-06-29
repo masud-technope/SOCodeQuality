@@ -1,0 +1,11 @@
+<p>Here's how I solved this issue:</p>
+
+<pre><code>Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(""vnd.youtube://"" + video_id);
+startActivity(intent);
+</code></pre>
+
+<p>Now that I've done some more research, it looks like I only needed 'vnd.youtube:VIDEO_ID' instead of two slashes after the colon (':' vs. '://'):</p>
+
+<p><a href=""http://it-ride.blogspot.com/2010/04/android-youtube-intent.html"">http://it-ride.blogspot.com/2010/04/android-youtube-intent.html</a></p>
+
+<p>I tried most of the suggestions here and they didn't really work very well with all of the supposed ""direct"" methods raising exceptions.  I would assume that, with my method, if the YouTube app is NOT installed, the OS has a default fallback position of something other than crashing the app.  The app is theoretically only going on devices with the YouTube app on them anyway, so this should be a non-issue.</p>

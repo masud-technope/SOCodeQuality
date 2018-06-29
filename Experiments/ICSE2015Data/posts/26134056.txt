@@ -1,0 +1,10 @@
+<p>In conjunction with <a href=""http://stackoverflow.com/questions/11495842/how-surfaceholder-callbacks-are-related-to-activity-lifecycle"">strange SurfaceView lifecycle behaviour with the Camera</a>. I have found that recreate() does not behave well with the lifecycle of SurfaceViews. surfaceDestroyed isn't ever called during the recreation cycle. It is called after onResume (strange), at which point my SurfaceView is destroyed.</p>
+
+<p>The original way of recreating an activity works fine.</p>
+
+<pre><code>Intent intent = getIntent();
+finish();
+startActivity(intent);
+</code></pre>
+
+<p>I can't figure out exactly why this is, but it is just an observation that can hopefully guide others in the future because it fixed my problems i was having with SurfaceViews</p>

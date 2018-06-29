@@ -1,0 +1,7 @@
+<p>You can also enable/disable the drop-down like so:</p>
+
+<pre><code>// disable
+actv.setDropDownHeight(0);
+// enable
+actv.setDropDownHeight(LayoutParams.WRAP_CONTENT);
+</code></pre>

@@ -1,0 +1,43 @@
+<p>Resize the bitmap using the following code</p>
+
+<pre><code>    public static Bitmap decodeFile(File file, int reqWidth, int reqHeight){
+
+    // First decode with inJustDecodeBounds=true to check dimensions
+    final BitmapFactory.Options options = new BitmapFactory.Options();
+    options.inJustDecodeBounds = true;        
+    BitmapFactory.decodeFile(file.getPath(), options);
+
+    // Calculate inSampleSize
+    options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+
+    // Decode bitmap with inSampleSize set
+    options.inJustDecodeBounds = false;
+    return BitmapFactory.decodeFile(file.getPath(), options);
+   }
+
+    private static int calculateInSampleSize(
+    BitmapFactory.Options options, int reqWidth, int reqHeight) {
+    // Raw height and width of image
+    final int height = options.outHeight;
+    final int width = options.outWidth;
+    int inSampleSize = 1;
+
+    if (height &gt; reqHeight || width &gt; reqWidth) {
+
+        // Calculate ratios of height and width to requested height and width
+        final int heightRatio = Math.round((float) height / (float) reqHeight);
+        final int widthRatio = Math.round((float) width / (float) reqWidth);
+
+        // Choose the smallest ratio as inSampleSize value, this will guarantee
+        // a final image with both dimensions larger than or equal to the
+        // requested height and width.
+        inSampleSize = heightRatio &lt; widthRatio ? heightRatio : widthRatio;
+     }
+
+     return inSampleSize;
+   }    
+</code></pre>
+
+<p>The same is also explained in the following tip/trick</p>
+
+<p><a href=""http://www.codeproject.com/Tips/625810/Android-Image-Operations-Using-BitmapFactory"" rel=""nofollow"">http://www.codeproject.com/Tips/625810/Android-Image-Operations-Using-BitmapFactory</a></p>

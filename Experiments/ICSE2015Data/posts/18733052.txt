@@ -1,0 +1,10 @@
+<p><strong>Disablend ScrollView</strong> </p>
+
+<pre><code>ScrollView sw = (ScrollView) findViewById(R.id.scrollView1);
+sw.setOnTouchListener(new OnTouchListener() {
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        return true;
+    }
+});
+</code></pre>

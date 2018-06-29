@@ -1,0 +1,11 @@
+<p>Romainguy has the correct answer, but it was a bit unclear to me so I'll explain exactly what needs to be done.  </p>
+
+<p>You have to create a different state drawable for each color you want to use. </p>
+
+<p>For example: <code>list_selector_read.xml</code> and <code>list_selector_unread.xml</code>. </p>
+
+<p>All you need to do is set everything to transparent except the <code>android:state_window_focused=""false""</code> item.  </p>
+
+<p>Then when you are drawing your list you call                <code>setBackgroundResource(R.drawable.list_selector_unread/read)</code> for each row.  </p>
+
+<p>You don't set a listSelector on the ListView at all. That will maintain the default selector for your particular flavor of Android.</p>

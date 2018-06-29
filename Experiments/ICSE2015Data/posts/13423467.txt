@@ -1,0 +1,37 @@
+<p>I've used this (or very similar) code to add several TextViews to a LinearLayout:</p>
+
+<pre><code>// Quick &amp; dirty pre-made list of text labels...
+String names[] = {""alpha"", ""beta"", ""gamma"", ""delta"", ""epsilon""};
+int namesLength = 5;
+
+// Create a LayoutParams...
+LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+    LinearLayout.LayoutParams.WRAP_CONTENT, 
+    LinearLayout.LayoutParams.FILL_PARENT);
+
+// Get existing UI containers...
+LinearLayout nameButtons = (LinearLayout) view.findViewById(R.id.name_buttons);
+TextView label = (TextView) view.findViewById(R.id.master_label);
+
+TextView tv;
+
+for (int i = 0; i &lt; namesLength; i++) {
+    // Grab the name for this ""button""
+    final String name = names[i];
+
+    tv = new TextView(context);
+    tv.setText(name);
+
+    // TextViews CAN have OnClickListeners
+    tv.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            label.setText(""Clicked button for "" + name); 
+        }
+    });
+
+    nameButtons.addView(tv, params);
+}
+</code></pre>
+
+<p>The main difference between this and dicklaw795's code is it doesn't set() and re-get() the ID for each TextView--I found it unnecessary, although I may need it to later identify each button in a common handler routine (e.g. one called by onClick() for each TextView).</p>

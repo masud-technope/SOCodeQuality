@@ -1,0 +1,9 @@
+<p>I think this has come up in the past. AFAIK, you can't <em>easily</em> detect that. My suggestion is that you take a look at <a href=""http://codesearch.google.com/codesearch#uX1GffpyOZk/core/java/android/widget/ScrollView.java""><code>ScrollView.java</code></a> (that's how we do things in Android land <kbd>:)</kbd>) and figure out how you can extend the class to provide the functionality you are looking for. This is what I would try first:</p>
+
+<pre><code> @Override
+ protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+     if (mScroller.isFinished()) {
+         // do something, for example call a listener
+     }
+ }
+</code></pre>

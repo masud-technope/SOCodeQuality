@@ -1,0 +1,27 @@
+<p>refer to my code, hope helpful for you:</p>
+
+<pre><code>    Runtime runtime = Runtime.getRuntime();
+    Process proc = runtime.exec(""mount"");
+    InputStream is = proc.getInputStream();
+    InputStreamReader isr = new InputStreamReader(is);
+    String line;
+    String mount = new String();
+    BufferedReader br = new BufferedReader(isr);
+    while ((line = br.readLine()) != null) {
+        if (line.contains(""secure"")) continue;
+        if (line.contains(""asec"")) continue;
+
+        if (line.contains(""fat"")) {//TF card
+            String columns[] = line.split("" "");
+            if (columns != null &amp;&amp; columns.length &gt; 1) {
+                mount = mount.concat(""*"" + columns[1] + ""\n"");
+            }
+        } else if (line.contains(""fuse"")) {//internal storage
+            String columns[] = line.split("" "");
+            if (columns != null &amp;&amp; columns.length &gt; 1) {
+                mount = mount.concat(columns[1] + ""\n"");
+            }
+        }
+    }
+    txtView.setText(mount);
+</code></pre>

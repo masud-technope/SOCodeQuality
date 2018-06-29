@@ -1,0 +1,20 @@
+<p>I used code like this:</p>
+
+<pre><code>  String filePath=Environment.getExternalStorageDirectory()+""/test_image.jpg"";
+  BitmapFactory.Options options=new BitmapFactory.Options();
+  InputStream is=new FileInputStream(filePath);
+  BitmapFactory.decodeStream(is, null, options);
+  is.close();
+  is=new FileInputStream(filePath);
+  // here w and h are the desired width and height
+  options.inSampleSize=Math.max(options.outWidth/460, options.outHeight/288); //Max 460 x 288 is my desired...
+  // bmp is the resized bitmap
+  Bitmap bmp=BitmapFactory.decodeStream(is, null, options);
+  is.close();
+  Log.d(Constants.TAG, ""Scaled bitmap bytes, ""+bmp.getRowBytes()+"", width:""+bmp.getWidth()+"", height:""+bmp.getHeight());
+</code></pre>
+
+<p>I tried original image is 1230 x 1230, and got bitmap says is 330 x 330.<br>
+And if tried 2590 x 3849, I'll got OutOfMemoryError.</p>
+
+<p>I traced it, it still throw OutOfMemoryError on line ""BitmapFactory.decodeStream(is, null, options);"", if original bitmap too large...</p>

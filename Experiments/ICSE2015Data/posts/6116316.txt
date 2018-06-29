@@ -1,0 +1,12 @@
+<p>It's a <a href=""http://code.google.com/p/android/issues/detail?id=8488"" rel=""nofollow"">known bug</a>, it's not because of large files. Since Android Caches the Drawables, it's going out of memory after using few images. But I've found an alternate way for it, by skipping the android default cache system.</p>
+
+<p><strong>Solution</strong>:
+Move the images to ""assets"" folder and use the following function to get BitmapDrawable:</p>
+
+<pre><code>public static Drawable getAssetImage(Context context, String filename) throws IOException {
+    AssetManager assets = context.getResources().getAssets();
+    InputStream buffer = new BufferedInputStream((assets.open(""drawable/"" + filename + "".png"")));
+    Bitmap bitmap = BitmapFactory.decodeStream(buffer);
+    return new BitmapDrawable(context.getResources(), bitmap);
+}
+</code></pre>

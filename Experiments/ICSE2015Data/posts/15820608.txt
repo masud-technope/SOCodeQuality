@@ -1,0 +1,26 @@
+<p>The default implementations of LayoutInflater do not support specifying the font typeface from xml. I have however seen it done in xml by providing a custom factory for the LayoutInflater that will parse such attributes from the xml tag.</p>
+
+<p>The basic structure would like this.</p>
+
+<pre><code>public class TypefaceInflaterFactory implements LayoutInflater.Factory {
+
+    @Override
+    public View onCreateView(String name, Context context, AttributeSet attrs) {
+        // CUSTOM CODE TO CREATE VIEW WITH TYPEFACE HERE
+        // RETURNING NULL HERE WILL TELL THE INFLATER TO USE THE
+        // DEFAULT MECHANISMS FOR INFLATING THE VIEW FROM THE XML
+    }
+
+}
+
+public class BaseActivity extends Activity {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        LayoutInflater.from(this).setFactory(new TypefaceInflaterFactory());
+    }
+}
+</code></pre>
+
+<p><a href=""http://sergiandreplace.com/blog/2012/11/15/dealing-with-fonts-and-inflaters-in-android/"" rel=""nofollow"">This article</a> provides a more in depth explanation of these mechanisms and how the author attempts to provide xml layout support for typefaces in this way. The code for the author's implementation can be found <a href=""http://kcy.me/ce6b"" rel=""nofollow"">here</a>.</p>

@@ -1,0 +1,1 @@
+I suggest changing `String pair[] = param.split(""="");` into `String pair[] = param.split(""="", 2);` to split the key=value pair only on the first occurrence. I believe it is allowed to have unencoded equals signs in the value.

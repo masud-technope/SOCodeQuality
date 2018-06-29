@@ -1,0 +1,36 @@
+<p>The accepted answer above is great if you are loading the image based on a button click, however if you are doing it in a new activity it freezes up the UI for a second or two. Looking around I found that a simple asynctask eliminated this problem. </p>
+
+<p>To use an asynctask add this class at the end of your activity:</p>
+
+<pre><code>private class DownloadImageTask extends AsyncTask&lt;String, Void, Bitmap&gt; {
+ImageView bmImage;
+
+public DownloadImageTask(ImageView bmImage) {
+    this.bmImage = bmImage;
+}
+
+protected Bitmap doInBackground(String... urls) {
+    String urldisplay = urls[0];
+    Bitmap mIcon11 = null;
+    try {
+        InputStream in = new java.net.URL(urldisplay).openStream();
+        mIcon11 = BitmapFactory.decodeStream(in);
+    } catch (Exception e) {
+        Log.e(""Error"", e.getMessage());
+        e.printStackTrace();
+    }
+    return mIcon11;
+}
+
+protected void onPostExecute(Bitmap result) {
+ }   bmImage.setImageBitmap(result);
+}
+</code></pre>
+
+<p>And call from your onCreate() method using:</p>
+
+<pre><code>new DownloadImageTask((ImageView) findViewById(R.id.imageView1))
+        .execute(MY_URL_STRING);
+</code></pre>
+
+<p>The result is a quickly loaded activity and an imageview that shows up a split second later depending on the user's network speed.</p>

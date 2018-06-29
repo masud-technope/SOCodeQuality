@@ -1,0 +1,3 @@
+If a two questions warrant identical answers then they are 99% of the time duplicates, so flag as dupes instead of posting the same answer on both. Thanks.
+That may be so, however I am just letting you know that exact duplicate answers are **flagged** by the community. You should tailor your answers and address the specifics of the OP's problem. Copy and paste answers are at risk from attracting downvotes.
+Just wanted to let you know, the Fox Digital Copy (Beta) app uses your code nearly verbatim, including the Root and ExecShell classes, as well as the checkRootMethod1/2/3 methods. Found it highly amusing.

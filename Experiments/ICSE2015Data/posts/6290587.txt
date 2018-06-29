@@ -1,0 +1,9 @@
+<p>I did something like this once;</p>
+
+<pre><code>EditText usernameEditText = (EditText) findViewById(R.id.editUsername);
+sUsername = usernameEditText.getText().toString();
+if (sUsername.matches("""")) {
+    Toast.makeText(this, ""You did not enter a username"", Toast.LENGTH_SHORT).show();
+    return;
+}
+</code></pre>

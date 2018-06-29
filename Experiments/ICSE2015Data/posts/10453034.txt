@@ -1,0 +1,19 @@
+<p>A fully way to specify the current orientation of the phone:</p>
+
+<pre><code>    public String getRotation(Context context){
+    final int rotation = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getOrientation();
+           switch (rotation) {
+            case Surface.ROTATION_0:
+                return ""portrait"";
+            case Surface.ROTATION_90:
+                return ""landscape"";
+            case Surface.ROTATION_180:
+                return ""reverse portrait"";
+            default:
+                return ""reverse landscape"";
+            }
+        }
+</code></pre>
+
+<p>Chear
+Binh Nguyen</p>

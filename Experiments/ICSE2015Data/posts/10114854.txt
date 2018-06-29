@@ -1,0 +1,99 @@
+<p>Above code made a little cleaner. InputStreams have finally close wrapping to ensure they get closed as well:</p>
+
+<p>*Note
+<br>Input: InputStream is, int w, int h 
+<br>
+Output: Bitmap</p>
+
+<pre><code>    try
+    {
+
+        final int inWidth;
+        final int inHeight;
+
+        final File tempFile = new File(temp, System.currentTimeMillis() + is.toString() + "".temp"");
+
+        {
+
+            final FileOutputStream tempOut = new FileOutputStream(tempFile);
+
+            StreamUtil.copyTo(is, tempOut);
+
+            tempOut.close();
+
+        }
+
+
+
+        {
+
+            final InputStream in = new FileInputStream(tempFile);
+            final BitmapFactory.Options options = new BitmapFactory.Options();
+
+            try {
+
+                // decode image size (decode metadata only, not the whole image)
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeStream(in, null, options);
+
+            }
+            finally {
+                in.close();
+            }
+
+            // save width and height
+            inWidth = options.outWidth;
+            inHeight = options.outHeight;
+
+        }
+
+        final Bitmap roughBitmap;
+
+        {
+
+            // decode full image pre-resized
+            final InputStream in = new FileInputStream(tempFile);
+
+            try {
+
+                final BitmapFactory.Options options = new BitmapFactory.Options();
+                // calc rought re-size (this is no exact resize)
+                options.inSampleSize = Math.max(inWidth/w, inHeight/h);
+                // decode full image
+                roughBitmap = BitmapFactory.decodeStream(in, null, options);
+
+            }
+            finally {
+                in.close();
+            }
+
+            tempFile.delete();
+
+        }
+
+        float[] values = new float[9];
+
+        {
+
+            // calc exact destination size
+            Matrix m = new Matrix();
+            RectF inRect = new RectF(0, 0, roughBitmap.getWidth(), roughBitmap.getHeight());
+            RectF outRect = new RectF(0, 0, w, h);
+            m.setRectToRect(inRect, outRect, Matrix.ScaleToFit.CENTER);
+            m.getValues(values);
+
+        }
+
+        // resize bitmap
+        final Bitmap resizedBitmap = Bitmap.createScaledBitmap(roughBitmap, (int) (roughBitmap.getWidth() * values[0]), (int) (roughBitmap.getHeight() * values[4]), true);
+
+        return resizedBitmap;
+
+    }
+    catch (IOException e) {
+
+        logger.error(""Error:"" , e);
+        throw new ResourceException(""could not create bitmap"");
+
+    }
+</code></pre>

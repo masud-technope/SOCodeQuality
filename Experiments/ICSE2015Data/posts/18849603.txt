@@ -1,0 +1,15 @@
+<p>For me it was this</p>
+
+<pre><code>&lt;uses-sdk
+        android:minSdkVersion=""8""
+        android:targetSdkVersion=""10"" /&gt;
+</code></pre>
+
+<p>The device I was testing my App on was 4.1.2 which is SDK Version 16!</p>
+
+<p>So I removed <code>android:targetSdkVersion=""10""</code> and it started to work.</p>
+
+<p>Edit: rather than remove it, just make the sure the target version is the same as your Android Target Library. If you are unsure what your target library is, right click your Project > Build Path > Android and it should be the one that is ticked.</p>
+
+<p>Also, as others have mentioned, include the correct permissions to access the internet.
+<code>&lt;uses-permission android:name=""android.permission.INTERNET""/&gt;</code> </p>

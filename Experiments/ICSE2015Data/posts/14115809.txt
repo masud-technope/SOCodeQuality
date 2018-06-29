@@ -1,0 +1,41 @@
+<p>I don't like the <code>this.requestWindowFeature(Window.FEATURE_NO_TITLE);</code> because the title bar appears briefly, then disappears. </p>
+
+<p>I also don't like the <code>android:theme=""@android:style/Theme.NoTitleBar""</code> because I lost all of the 3.0+ Holo changes that the users of the new devices have gotten used to.  So I came across this solution.</p>
+
+<p>In your <strong>res/values</strong> folder make a file called <strong>styles.xml</strong> (If it doesn't already exist).  In that file place the following code:</p>
+
+<pre><code>&lt;resources xmlns:android=""http://schemas.android.com/apk/res/android""&gt;
+    &lt;style name=""Theme.Default"" parent=""@android:style/Theme""&gt;&lt;/style&gt;
+    &lt;style name=""Theme.NoTitle"" parent=""@android:style/Theme.NoTitleBar""&gt;&lt;/style&gt;
+    &lt;style name=""Theme.FullScreen"" parent=""@android:style/Theme.NoTitleBar.Fullscreen""&gt;&lt;/style&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p>Next create a <strong>res/values-v11</strong> with another <strong>styles.xml</strong> file (Once again this may already exist). In that file place the following code:</p>
+
+<pre><code>&lt;resources xmlns:android=""http://schemas.android.com/apk/res/android""&gt;
+    &lt;style name=""Theme.Default"" parent=""@android:style/Theme.Holo""&gt;&lt;/style&gt;
+    &lt;style name=""Theme.NoTitle"" parent=""@android:style/Theme.Holo.NoActionBar""&gt;&lt;/style&gt;
+    &lt;style name=""Theme.FullScreen"" parent=""@android:style/Theme.Holo.NoActionBar.Fullscreen""&gt;&lt;/style&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p>And if you are targeting 4.0+, create a <strong>res/values-v14</strong> folder with yet another <strong>styles.xml</strong> file (Yes it may already be there).  In that file place the following code:</p>
+
+<pre><code>&lt;resources xmlns:android=""http://schemas.android.com/apk/res/android""&gt;
+    &lt;style name=""Theme.Default"" parent=""@android:style/Theme.Holo.Light""&gt;&lt;/style&gt;
+    &lt;style name=""Theme.NoTitle"" parent=""@android:style/Theme.Holo.Light.NoActionBar""&gt;&lt;/style&gt;
+    &lt;style name=""Theme.FullScreen"" parent=""@android:style/Theme.Holo.Light.NoActionBar.Fullscreen""&gt;&lt;/style&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p>Finally, with all of these files created, open your <strong>AndroidManifiest.xml</strong> file you can add the code:</p>
+
+<pre><code>android:theme=""@style/Theme.NoTitle""
+</code></pre>
+
+<p>to the activity tag of the activity you want no title for or the application tag if you want it to apply to the entire application.</p>
+
+<p>Now your users will get the themes associated with their device version with the screen layout you desire.</p>
+
+<p>P.S.  Changing the value to <code>android:theme=""@style/Theme.FullScreen""</code> will have the same effect, but also remove Notification bar.</p>

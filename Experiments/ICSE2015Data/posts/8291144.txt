@@ -1,0 +1,8 @@
+<p>Adding to Joseph Earl response above, I also had to override the <code>onInterceptTouchEvent()</code> method.</p>
+
+<pre><code>@Override
+public boolean onInterceptTouchEvent(MotionEvent ev) {
+    if (!mScrollable) return false;
+    else return super.onInterceptTouchEvent(ev);
+}
+</code></pre>

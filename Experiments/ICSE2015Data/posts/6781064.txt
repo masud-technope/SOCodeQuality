@@ -1,0 +1,9 @@
+<p>Replying to old question, just to inform you guys that package have changed, heres the update</p>
+
+<pre><code>Intent videoClient = new Intent(Intent.ACTION_VIEW);
+videoClient.setData(""VALID YOUTUBE LINK WITH HTTP"");
+videoClient.setClassName(""com.google.android.youtube"", ""com.google.android.youtube.WatchActivity"");
+startActivity(videoClient);
+</code></pre>
+
+<p>This works very well, but when you call normal Intent with ACTION_VIEW with valid youtube URL user gets the Activity selector anyways.</p>

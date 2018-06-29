@@ -1,0 +1,36 @@
+<p>use these code for every image in select from SdCard or drewable to convert bitmap object.</p>
+
+<pre><code>Resources res = getResources();
+WindowManager window = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+Display display = window.getDefaultDisplay();
+@SuppressWarnings(""deprecation"")
+int width = display.getWidth();
+@SuppressWarnings(""deprecation"")
+int height = display.getHeight();
+try {
+        if (bitmap != null) {
+            bitmap.recycle();
+            bitmap = null;
+            System.gc();
+        }
+bitmap = Bitmap.createScaledBitmap(BitmapFactory
+                .decodeFile(ImageData_Path.get(img_pos).getPath()),
+                width, height, true);
+} catch (OutOfMemoryError e) {
+        if (bitmap != null) {
+            bitmap.recycle();
+            bitmap = null;
+            System.gc();
+        }
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = Config.RGB_565;
+        options.inSampleSize = 1;
+        options.inPurgeable = true;
+        bitmapBitmap.createScaledBitmap(BitmapFactory.decodeFile(ImageData_Path.get(img_pos)
+.getPath().toString(), options), width, height,true);
+}
+return bitmap;
+}
+</code></pre>
+
+<p>use your image path instend of <strong>ImageData_Path.get(img_pos).getPath()</strong> .</p>

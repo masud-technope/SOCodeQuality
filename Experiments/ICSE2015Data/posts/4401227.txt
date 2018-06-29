@@ -1,0 +1,16 @@
+<p>found this on another forum.  works like a champ.</p>
+
+<pre><code>InputFilter filter = new InputFilter() { 
+        public CharSequence filter(CharSequence source, int start, int end, 
+Spanned dest, int dstart, int dend) { 
+                for (int i = start; i &lt; end; i++) { 
+                        if (!Character.isLetterOrDigit(source.charAt(i))) { 
+                                return """"; 
+                        } 
+                } 
+                return null; 
+        } 
+}; 
+
+edit.setFilters(new InputFilter[]{filter}); 
+</code></pre>

@@ -1,0 +1,22 @@
+<p>I use following from inside an activity:</p>
+
+<pre><code>private boolean isMyServiceRunning(Class&lt;?&gt; serviceClass) {
+    ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+    for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+        if (serviceClass.getName().equals(service.service.getClassName())) {
+            return true;
+        }
+    }
+    return false;
+}
+</code></pre>
+
+<p>And call it using:</p>
+
+<pre><code>isMyServiceRunning(MyService.class)
+</code></pre>
+
+<p>This works reliably because it is based on the information about running services provided by the Android operating system through 
+<a href=""http://developer.android.com/reference/android/app/ActivityManager.html#getRunningServices%28int%29"">ActivityManager#getRunningServices</a>.</p>
+
+<p>All the approaches using onDestroy or onSometing events or Binders or static variables will not work reliably because as a developer you never know, when Android decides to kill you process or which of the mentioned callbacks are called or not. Please note the ""killable"" column in the <a href=""http://developer.android.com/reference/android/app/Activity.html#ActivityLifecycle"">lifecycle events table</a> in Android documentation.</p>

@@ -1,0 +1,21 @@
+<p>Here is the method I use:</p>
+
+<pre><code>public static boolean isNetworkAvailable(Context context) 
+{
+    return ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo() != null;
+}
+</code></pre>
+
+<p>Here is how to use the method:</p>
+
+<pre><code>if (isNetworkAvailable(context))
+{
+    // code here
+}
+else
+{
+    // code
+}
+</code></pre>
+
+<p>Regards,</p>

@@ -1,0 +1,48 @@
+<p>I achieved this with the help of <code>TextWatcher</code> by the following way</p>
+
+<pre><code>final EditText et = (EditText) findViewById(R.id.EditText1);
+et.addTextChangedListener(new TextWatcher() {
+    public void onTextChanged(CharSequence arg0, int arg1, int arg2,int arg3) {             
+
+    }
+    public void beforeTextChanged(CharSequence arg0, int arg1,int arg2, int arg3) {             
+
+    }
+
+    public void afterTextChanged(Editable arg0) {
+        if (arg0.length() &gt; 0) {
+            String str = et.getText().toString();
+            et.setOnKeyListener(new OnKeyListener() {
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    if (keyCode == KeyEvent.KEYCODE_DEL) {
+                        count--;
+                        InputFilter[] fArray = new InputFilter[1];
+                        fArray[0] = new InputFilter.LengthFilter(100);
+                        et.setFilters(fArray);
+                        //change the edittext's maximum length to 100. 
+                        //If we didn't change this the edittext's maximum length will
+                        //be number of digits we previously entered.
+                    }
+                    return false;
+                }
+            });
+            char t = str.charAt(arg0.length() - 1);
+            if (t == '.') {
+                count = 0;
+            }
+            if (count &gt;= 0) {
+                if (count == 2) {                        
+                    InputFilter[] fArray = new InputFilter[1];
+                    fArray[0] = new InputFilter.LengthFilter(arg0.length());
+                    et.setFilters(fArray);
+                    //prevent the edittext from accessing digits 
+                    //by setting maximum length as total number of digits we typed till now.
+                }
+                count++;
+            }
+        }
+    }
+});
+</code></pre>
+
+<p>This solution will not allow the user to enter more than two digit after decimal point. Also you can enter any number of digits before decimal point. See this blog <a href=""http://v4all123.blogspot.com/2013/05/set-limit-for-fraction-in-decimal.html"" rel=""nofollow"">post</a> to set filter for multiple EditText. I hope this will help. Thank you.</p>

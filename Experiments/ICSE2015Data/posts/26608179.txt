@@ -1,0 +1,44 @@
+<p>Just completing the Vijay's post...</p>
+
+<hr>
+
+<p><strong>Manifest</strong></p>
+
+<pre><code>uses-permission android:name=""android.permission.WRITE_EXTERNAL_STORAGE""
+</code></pre>
+
+<hr>
+
+<p><strong>Function</strong></p>
+
+<pre><code>public static boolean createDirIfNotExists(String path) {
+    boolean ret = true;
+
+    File file = new File(Environment.getExternalStorageDirectory(), path);
+    if (!file.exists()) {
+        if (!file.mkdirs()) {
+            Log.e(""TravellerLog :: "", ""Problem creating Image folder"");
+            ret = false;
+        }
+    }
+    return ret;
+}
+</code></pre>
+
+<hr>
+
+<p><strong>Usage</strong></p>
+
+<pre><code>createDirIfNotExists(""mydir/""); //Create a directory sdcard/mydir
+createDirIfNotExists(""mydir/myfile"") //Create a directory and a file in sdcard/mydir/myfile.txt
+</code></pre>
+
+<p><strong>You could check for errors</strong></p>
+
+<pre><code>if(createDirIfNotExists(""mydir/"")){
+     //Directory Created Success
+}
+else{
+    //Error
+}
+</code></pre>

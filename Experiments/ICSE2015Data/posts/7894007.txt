@@ -1,0 +1,54 @@
+<p>The original question concerns Dialogs and my EditText is on a regular view. Anyhow, I suspect this should work for most of you too. So here's what works for me (the above suggested highest rated method did nothing for me). Here's a custom EditView that does this (subclassing is not necessary, but I found it convenient for my purposes as I wanted to also grab the focus when the view becomes visible).</p>
+
+<p>This is actually largely the same as the tidbecks answer. I actually didn't notice his answer at all as it had zero up votes. Then I was about to just comment his post, but it would have been too long, so I ended doing this post anyways. tidbeck points out that he's unsure how it works with devices having keyboards. I can confirm that the behaviour seems to be exactly the same in either case. That being such that on portrait mode the software keyboard gets popped up and on landscape it doesn't. Having the physical keyboard slid out or not makes no difference on my phone.</p>
+
+<p>Because, I personally found the behaviour a bit awkward I opted for using: <code>InputMethodManager.SHOW_FORCED</code>. This works as I wanted it to work. The keyboard becomes visible regardless of the orientation, however, at least on my device it doesn't pop up if the hardware keyboard has been slid out.</p>
+
+<pre><code>import android.app.Service;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+
+public class BringOutTheSoftInputOnFocusEditTextView extends EditText {
+
+    protected InputMethodManager inputMethodManager;
+
+    public BringOutTheSoftInputOnFocusEditTextView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init();
+    }
+
+    public BringOutTheSoftInputOnFocusEditTextView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+
+    public BringOutTheSoftInputOnFocusEditTextView(Context context) {
+        super(context);
+        init();
+    }
+
+    private void init() {
+        this.inputMethodManager = (InputMethodManager)getContext().getSystemService(Service.INPUT_METHOD_SERVICE);
+        this.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    BringOutTheSoftInputOnFocusEditTextView.this.inputMethodManager.showSoftInput(BringOutTheSoftInputOnFocusEditTextView.this, InputMethodManager.SHOW_FORCED);
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onVisibilityChanged(View changedView, int visibility) {
+        super.onVisibilityChanged(changedView, visibility);
+        if (visibility == View.VISIBLE) {
+            BringOutTheSoftInputOnFocusEditTextView.this.requestFocus();
+        }
+    }
+
+}
+</code></pre>

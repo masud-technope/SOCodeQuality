@@ -1,0 +1,3 @@
+Yes, you would have to make the session ID available to every activity where you want to allow the user to signout.  Alternatively, you could store it in the Application object, but then you'd have to manage the state of the session (check if it's valid before using, etc).
+That is only half an answer! Now how to read the extra info in the new Activity?
+Leander - see user914425's answer below for more complete response. http://stackoverflow.com/a/7325248/800505

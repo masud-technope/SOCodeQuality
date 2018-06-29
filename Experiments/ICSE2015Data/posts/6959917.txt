@@ -1,0 +1,7 @@
+<p>Set the title to empty string using builder.</p>
+
+<pre><code>    Builder builder = new AlertDialog.Builder(context);
+    builder.setTitle("""");
+...
+    builder.show();
+</code></pre>

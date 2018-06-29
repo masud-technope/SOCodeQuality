@@ -1,0 +1,17 @@
+<p>Use the below code, it will give the best provider available:</p>
+
+<pre><code>    String locCtx = Context.LOCATION_SERVICE; 
+
+    LocationManager locationMgr = (LocationManager) ctx.getSystemService(locCtx);
+
+    Criteria criteria  = new Criteria();
+    criteria.setAccuracy(Criteria.ACCURACY_FINE);
+    criteria.setAltitudeRequired(false);
+    criteria.setBearingRequired(false);
+    criteria.setCostAllowed(true);
+    criteria.setPowerRequirement(Criteria.POWER_LOW);
+
+    String provider = locationMgr.getBestProvider(criteria, true);
+
+    System.out.println(""Best Available provider::::""+provider);
+</code></pre>

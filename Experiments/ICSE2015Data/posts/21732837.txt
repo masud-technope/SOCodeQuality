@@ -1,0 +1,5 @@
+<p>There is a default util in android SDK:
+<a href=""http://developer.android.com/reference/android/util/TypedValue.html"">http://developer.android.com/reference/android/util/TypedValue.html</a></p>
+
+<pre><code>float resultPix = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,1,getResources().getDisplayMetrics())
+</code></pre>

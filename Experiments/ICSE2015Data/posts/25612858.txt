@@ -1,0 +1,14 @@
+<p>You can try to use the support library function called of <a href=""http://developer.android.com/reference/android/support/v4/content/ContextCompat.html#getExternalFilesDirs(android.content.Context,%20java.lang.String)"" rel=""nofollow""><strong>ContextCompat.getExternalFilesDirs()</strong></a> :</p>
+
+<pre><code>      final File[] appsDir=ContextCompat.getExternalFilesDirs(getActivity(),null);
+      final ArrayList&lt;File&gt; extRootPaths=new ArrayList&lt;&gt;();
+      for(final File file : appsDir)
+        extRootPaths.add(file.getParentFile().getParentFile().getParentFile().getParentFile());
+</code></pre>
+
+<p>The first one is the primary external storage, and the rest are supposed to be real SD-cards paths.</p>
+
+<p>The reason for the multiple "".getParentFile()"" is to go up another folder, since the original path is </p>
+
+<pre><code>.../Android/data/YOUR_APP_PACKAGE_NAME/files/
+</code></pre>

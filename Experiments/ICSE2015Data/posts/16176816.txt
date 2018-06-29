@@ -1,0 +1,24 @@
+<p>Your class should implements Serializable or Parcelable.</p>
+
+<pre><code>public class MY_CLASS implements Serializable
+</code></pre>
+
+<p>Once done you can send an object on putExtra</p>
+
+<pre><code>intent.putExtra(""KEY"", MY_CLASS_instance);
+
+startActivity(intent);
+</code></pre>
+
+<p>To get extras you only have to do</p>
+
+<pre><code>Intent intent = getIntent();
+MY_CLASS class = (MY_CLASS) intent.getExtras().getSerializable(""KEY"");
+</code></pre>
+
+<p>If your class implements Parcelable use next</p>
+
+<pre><code>MY_CLASS class = (MY_CLASS) intent.getExtras().getParcelable(""KEY"");
+</code></pre>
+
+<p>I hope it helps :D</p>

@@ -1,0 +1,7 @@
+//Create File object for Parent Directory
+File wallpaperDir = new File(Environment.getExternalStorageDirectory().getAbsoluteFile() +File.separator + ""wallpaper"");
+if (!wallpaperDir.exists()) {
+wallpaperDir.mkdir();
+}
+File out = new File(wallpaperDir, wallpaperfile);
+FileOutputStream outputStream = new FileOutputStream(out);

@@ -1,0 +1,13 @@
+<p>There is <a href=""http://android-developers.blogspot.com/2011/03/identifying-app-installations.html"">an excellent post on the Android Developer's Blog discussing this</a>.</p>
+
+<p>It recommends against using <code>TelephonyManager.getDeviceId()</code> as it doesn't work on Android devices which aren't phones such as tablets, it requires the <code>READ_PHONE_STATE</code> permission and it doesn't work reliably on all phones.</p>
+
+<p>Instead you could use one of the following:</p>
+
+<ul>
+<li>Mac Address</li>
+<li>Serial Number</li>
+<li>ANDROID_ID</li>
+</ul>
+
+<p>The post discusses the pros and cons of each and it's worth reading so you can work out which would be the best for your use.</p>

@@ -1,0 +1,14 @@
+Context mContext = getApplicationContext();
+LayoutInflater inflater = (LayoutInflater)
+        mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
+View layout = inflater.inflate(R.layout.custom_dialog,
+        (ViewGroup) findViewById(R.id.layout_root));
+
+TextView text = (TextView) layout.findViewById(R.id.text);
+text.setText(""Hello, this is a custom dialog!"");
+ImageView image = (ImageView) layout.findViewById(R.id.image);
+image.setImageResource(R.drawable.android);
+
+builder = new AlertDialog.Builder(mContext);
+builder.setView(layout);
+alertDialog = builder.create();

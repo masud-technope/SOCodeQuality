@@ -1,0 +1,4 @@
+<pre><code>System.exit(0);
+</code></pre>
+
+<p>Is probably what you are looking for. It will close the entire application and take you to the home Screen.</p>

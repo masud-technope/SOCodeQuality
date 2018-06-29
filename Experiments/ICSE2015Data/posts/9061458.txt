@@ -1,0 +1,9 @@
+<p>An alternative is to use a scale animation with the following scaling factors for expanding:</p>
+
+<pre><code>ScaleAnimation anim = new ScaleAnimation(1, 1, 0, 1);
+</code></pre>
+
+<p>and for collapsing:</p>
+
+<pre><code>ScaleAnimation anim = new ScaleAnimation(1, 1, 1, 0);
+</code></pre>

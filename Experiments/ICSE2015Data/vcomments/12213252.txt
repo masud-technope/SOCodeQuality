@@ -1,0 +1,1 @@
+Note that plugins and such are disabled in WebView, and that the INTERNET permissions would be required. ([reference](http://developer.android.com/reference/android/webkit/WebView.html))

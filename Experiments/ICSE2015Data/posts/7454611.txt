@@ -1,0 +1,20 @@
+<p>Use a class with static fields:</p>
+
+<pre><code>public class Globals {
+    public static Customer customer = new Customer();
+}
+</code></pre>
+
+<p>Inside the activities you can use:</p>
+
+<p>Activity From:</p>
+
+<pre><code>Globals.customer = myCustomerFromActivity;
+</code></pre>
+
+<p>Activity Target:</p>
+
+<pre><code>myCustomerTo = Globals.customer;
+</code></pre>
+
+<p>Its a easy way to pass information for activities.</p>

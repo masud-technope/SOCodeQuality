@@ -1,0 +1,13 @@
+<p>Another version of thomas88wp's code:</p>
+
+<pre><code>ScrollView scroll = (ScrollView)getActivity().findViewById(R.id.scrollView_addNewBill);
+    scroll.setOnTouchListener(new OnTouchListener() {
+        @Override
+        public boolean onTouch(View arg0, MotionEvent arg1) {        
+            View focussedView = getCurrentFocus(); 
+            if( focussedView != null ) focussedView.clearFocus();
+                
+            return false;
+    }
+});
+</code></pre>

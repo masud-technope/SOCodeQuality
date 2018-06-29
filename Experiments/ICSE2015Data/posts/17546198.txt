@@ -1,0 +1,9 @@
+<p>If you're using Spring 3.1 or greater (yikes, was hoping that support went back further), you can use the <code>UriComponents</code> and <code>UriComponentsBuilder</code>:</p>
+
+<pre><code>UriComponents components = UriComponentsBuilder.fromUri(uri).build();
+List&lt;String&gt; myParam = components.getQueryParams().get(""myParam"");
+</code></pre>
+
+<p><code>components.getQueryParams()</code> returns a <code>MultiValueMap&lt;String, String&gt;</code></p>
+
+<p><a href=""http://static.springsource.org/spring/docs/3.1.x/javadoc-api/org/springframework/web/util/UriComponentsBuilder.html"">Here's some more documentation</a>.</p>

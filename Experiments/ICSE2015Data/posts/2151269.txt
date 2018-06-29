@@ -1,0 +1,6 @@
+<p>The InputMethodManager has information about the soft keyboard.  You get it from an activity via:</p>
+
+<pre><code>((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
+</code></pre>
+
+<p>You might play around with that to see what it can tell you.  You can use it to show or hide the soft input...</p>

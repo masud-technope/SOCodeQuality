@@ -1,0 +1,11 @@
+<p>use  <strong>style=""?android:borderlessButtonStyle""</strong> in the xml file. 
+It will show android default click effect. </p>
+
+<pre><code>&lt;ImageView
+    android:id=""@+id/imageView1""
+    android:layout_width=""wrap_content""
+    android:layout_height=""wrap_content""
+    android:src=""@drawable/ic_launcher"" 
+    style=""?android:borderlessButtonStyle""
+    /&gt;
+</code></pre>

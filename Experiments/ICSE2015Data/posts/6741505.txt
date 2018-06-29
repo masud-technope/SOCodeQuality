@@ -1,0 +1,8 @@
+<p>Try this:</p>
+
+<pre><code>LinearLayout ll = (LinearLayout)findViewById(R.id.layout);
+
+Button btn = new Button(this);
+btn.setText(""Manual Add"");
+btn.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+</code></pre>

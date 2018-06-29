@@ -1,0 +1,13 @@
+Note that 10 may not be the best value for inSampleSize though, the documentation suggests using powers of 2.
+I'm facing the same problem as Chrispix, but I don't think the solution here really solves the problem, but rather sidesteps it.  Changing the sample size reduces the amount of memory used (at the cost of image quality, which is probably okay for an image preview), but it will not prevent the exception if a large enough image stream is decoded, of if multiple image streams are decoded.
+If I find a better solution (and there may not be one) I'll post an answer here.
+You only need an appropriate size to match the screen in pixel density, for zooming in and such you can take a sample of the image at a higher density.
+instead of scale++ you should use scale *= 2.
+Terrific.Its working very good.Thanks Fedor.
+Can anyone explain what the REQUIRED_SIZE corresponds to? Is that pixels of one side, dips? Thanks!
+REQUIRED_SIZE is the new size you want to scale to.
+Since you're doing powers of 2, instead of scale *=2, you should do scale >> 2. For divide, you can do scale << 2.
+Great answer! But how do you get `REQUIRED_SIZE` dynamically at runtime (catering for different size displays)? This must be done once the View is being drawn but before the Bitmap is expanded.
+this solution helped me but the image quality is terrible. I am using a viewfilpper to display the images any suggestions?
+I usually set `options.inPreferredConfig = Bitmap.Config.ALPHA_8;`. With this setting, each pixcel will be save by 1 byte instead of 4 bytes as default.
+@Dopyiii FYI *=2 is equivalent to >> 1, not >> 2.

@@ -1,0 +1,18 @@
+<p>The best solution I found was :</p>
+
+<pre><code>@Override  
+        public void onCreateContextMenu(ContextMenu menu, View view,ContextMenuInfo menuInfo) {  
+        super.onCreateContextMenu(menu, view, menuInfo);  
+        AdapterView.AdapterContextMenuInfo info =     (AdapterView.AdapterContextMenuInfo)menuInfo;
+
+        ViewGroup vg = (ViewGroup) view;
+        View children = vg.getChildAt(info.position);
+        TextView child = (TextView) children.findViewById(R.id.text1);
+
+        String s= child.getText().toString();
+            menu.setHeaderTitle(s);  
+            menu.add(0, view.getId(), 0, ""Serve"");  
+            menu.add(0, view.getId(), 0, ""View"");  
+
+        }  
+</code></pre>

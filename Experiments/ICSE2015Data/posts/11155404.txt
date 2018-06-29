@@ -1,0 +1,11 @@
+<p>For showing keyboard use:</p>
+
+<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+</code></pre>
+
+<p>For hiding keyboard use:</p>
+
+<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.hideSoftInputFromWindow(view.getWindowToken(),0); 
+</code></pre>

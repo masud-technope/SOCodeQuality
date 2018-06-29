@@ -1,0 +1,6 @@
+<p>try this:</p>
+
+<pre><code>    ArrayList&lt;String&gt; rm = new ArrayList&lt;String&gt;();
+    rm .addAll(arr_fav);
+    rm .remove(1);
+</code></pre>

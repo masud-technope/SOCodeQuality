@@ -1,0 +1,5 @@
+<p>You should extend <code>ImageView</code> and draw your own rounded rectangle. </p>
+
+<p>If you want a frame around the image you could also superimpose the rounded frame on top of the image view in the layout.</p>
+
+<p>[edit]Superimpose the frame on to op the original image, by using a <code>FrameLayout</code> for example. The first element of the <code>FrameLayout</code> will be the image you want to diplay rounded. Then add another <code>ImageView</code> with the frame. The second <code>ImageView</code> will be displayed on top of the original <code>ImageView</code> and thus Android will draw it's contents above the orignal <code>ImageView</code>.</p>

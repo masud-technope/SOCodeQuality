@@ -1,0 +1,145 @@
+<p><em>I am using parcelable to send data from one activity to another acivity. Here is my code thats works fine for in my project.</em></p>
+
+<pre><code>public class Channel implements Serializable, Parcelable {
+
+/**  */
+private static final long serialVersionUID = 4861597073026532544L;
+
+private String cid;
+private String uniqueID;
+private String name;
+private String logo;
+private String thumb;
+
+
+/**
+ * @return the cid
+ */
+public String getCid() {
+    return cid;
+}
+
+/**
+ * @param cid
+ *            the cid to set
+ */
+public void setCid(String cid) {
+    this.cid = cid;
+}
+
+/**
+ * @return the uniqueID
+ */
+public String getUniqueID() {
+    return uniqueID;
+}
+
+/**
+ * @param uniqueID
+ *            the uniqueID to set
+ */
+public void setUniqueID(String uniqueID) {
+    this.uniqueID = uniqueID;
+}
+
+/**
+ * @return the name
+ */
+public String getName() {
+    return name;
+}
+
+/**
+ * @param name
+ *            the name to set
+ */
+public void setName(String name) {
+    this.name = name;
+}
+
+/**
+ * @return the logo
+ */
+public String getLogo() {
+    return logo;
+}
+
+/**
+ * @param logo
+ *            the logo to set
+ */
+public void setLogo(String logo) {
+    this.logo = logo;
+}
+
+/**
+ * @return the thumb
+ */
+public String getThumb() {
+    return thumb;
+}
+
+/**
+ * @param thumb
+ *            the thumb to set
+ */
+public void setThumb(String thumb) {
+    this.thumb = thumb;
+}
+
+
+public Channel(Parcel in) {
+    super();
+    readFromParcel(in);
+}
+
+public static final Parcelable.Creator&lt;Channel&gt; CREATOR = new Parcelable.Creator&lt;Channel&gt;() {
+    public Channel createFromParcel(Parcel in) {
+        return new Channel(in);
+    }
+
+    public Channel[] newArray(int size) {
+
+        return new Channel[size];
+    }
+
+};
+
+public void readFromParcel(Parcel in) {
+    String[] result = new String[5];
+    in.readStringArray(result);
+
+    this.cid = result[0];
+    this.uniqueID = result[1];
+    this.name = result[2];
+    this.logo = result[3];
+    this.thumb = result[4];
+
+
+}
+
+public int describeContents() {
+    return 0;
+}
+
+public void writeToParcel(Parcel dest, int flags) {
+    dest.writeStringArray(new String[] { this.cid, this.uniqueID,
+            this.name, this.logo, this.thumb});
+
+}}
+</code></pre>
+
+<p><em>In activityA use like this.</em></p>
+
+<pre><code>Bundle bundle = new Bundle();
+bundle.putParcelableArrayList(""channel"",(ArrayList&lt;Channel&gt;) channels);
+Intent intent = new Intent(ActivityA.this,ActivityB.class);
+intent.putExtras(bundle);
+startActivity(intent);
+</code></pre>
+
+<p><em>In ActivityB use like this to get data.</em></p>
+
+<pre><code>Bundle getBundle = this.getIntent().getExtras();
+List&lt;Channel&gt; channelsList = getBundle.getParcelableArrayList(""channel"");
+</code></pre>

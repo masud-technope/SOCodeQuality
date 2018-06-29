@@ -1,0 +1,9 @@
+<p>If you remove the last line, you'll create new <code>act</code> Activity, but your old instance will still be alive.</p>
+
+<p>Do you need to restart the Activity like when the orientation is changed (i.e. your state is saved and passed to <code>onCreate(Bundle)</code>)?</p>
+
+<p>If you don't, one possible workaround would be to use one extra, dummy Activity, which would be started from the first Activity, and which job is to start new instance of it. Or just delay the call to <code>act.finish()</code>, after the new one is started.</p>
+
+<p>If you need to save most of the state, you are getting in pretty deep waters, because it's non-trivial to pass all the properties of your state, especially without leaking your old Context/Activity, by passing it to the new instance.</p>
+
+<p>Please, specify what are you trying to do.</p>

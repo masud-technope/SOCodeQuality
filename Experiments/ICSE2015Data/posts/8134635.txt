@@ -1,0 +1,9 @@
+<p>Try this code</p>
+
+<pre><code> Button btn=new Button(this);
+btn.setId(btn);
+btn.setBackgroundResource(R.drawable.image);
+btn.setMinimumHeight(150);
+btn.setMinimumWidth(150);
+Relativelayout.addView(btn); 
+</code></pre>

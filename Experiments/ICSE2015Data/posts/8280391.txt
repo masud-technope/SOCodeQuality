@@ -1,0 +1,8 @@
+<p>I think this code may work after orientation change has take effect</p>
+
+<pre><code>Display getOrient = getWindowManager().getDefaultDisplay();
+
+int orientation = getOrient.getOrientation();
+</code></pre>
+
+<p>override Activity.onConfigurationChanged(Configuration newConfig) function and use newConfig,orientation if you want to get notified about the new orientation before calling setContentView.</p>

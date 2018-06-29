@@ -1,0 +1,18 @@
+<p>I think <code>android.os.NetworkOnMainThreadException</code>
+Workaround is....</p>
+
+<p>Add:</p>
+
+<pre><code>StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+
+StrictMode.setThreadPolicy(policy); 
+</code></pre>
+
+<p>In your class,</p>
+
+<p>and</p>
+
+<p>ADD this permission in android manifest.xml file:    </p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.INTERNET""/&gt;
+</code></pre>

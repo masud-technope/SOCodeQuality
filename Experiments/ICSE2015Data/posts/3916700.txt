@@ -1,0 +1,17 @@
+<p>You have to calculate the scale that you need to use manually, rather than setting to 30.</p>
+
+<pre><code>private int getScale(){
+    Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay(); 
+    int width = display.getWidth(); 
+    Double val = new Double(width)/new Double(PIC_WIDTH);
+    val = val * 100d;
+    return val.intValue();
+}
+</code></pre>
+
+<p>Then use</p>
+
+<pre><code>WebView web = new WebView(this);
+web.setPadding(0, 0, 0, 0);
+web.setInitialScale(getScale());
+</code></pre>

@@ -1,0 +1,13 @@
+<pre><code>&lt;EditText 
+  android:id=""@+id/Msg""
+  android:layout_width=""fill_parent""
+  android:layout_height=""wrap_content""              
+  android:layout_marginTop=""5dip""
+  android:lines=""5""
+  android:selectAllOnFocus=""true""               
+  android:hint=""Skriv meddelande...\n(max 100tkn)""/&gt;
+
+
+EditText et = (EditText)findViewById(R.id.Msg);
+String strTmp = et.getText().toString();
+strTmp = strTmp.replaceAll(""\\n"

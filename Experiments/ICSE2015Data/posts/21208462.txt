@@ -1,0 +1,12 @@
+<pre><code>public static void closeInput(final View caller) {  
+    caller.postDelayed(new Runnable() {
+        @Override
+        public void run() {
+            InputMethodManager imm = (InputMethodManager) caller.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(caller.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }, 100);
+}
+</code></pre>
+
+<p>This method generally works, but there is one condition: you can't have <code>android:windowSoftInputMode=""any_of_these""</code> set</p>

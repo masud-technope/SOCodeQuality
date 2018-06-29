@@ -1,0 +1,12 @@
+<pre><code>File sdcard = Environment.getExternalStorageDirectory();
+File f=new File(sdcard+""/dor"");
+f.mkdir();
+</code></pre>
+
+<p>this will create a folder named dor in your sdcard.
+then to fetch file for eg- filename.json which is manually inserted in <em>dor</em> folder. Like:</p>
+
+<pre><code> File file1 = new File(sdcard,""/dor/fitness.json"");
+ .......
+ .....
+</code></pre>

@@ -1,0 +1,3 @@
+Don't forget the permission. ;)
+As Gp2mv3 has noted, don't forget to add the READ_PHONE_STATE permission to the AndroidManifest.xml.
+@moonlightcheese Can you add code to come back to our app from call app?

@@ -1,0 +1,7 @@
+<pre><code>WebView browser = (WebView) findViewById(R.id.webview);
+browser.getSettings().setLoadWithOverviewMode(true);
+browser.getSettings().setUseWideViewPort(true);
+browser.getSettings().setMinimumFontSize(40);
+</code></pre>
+
+<p>This works great for me since the text size has been set to really small by .setLoadWithOverViewMode and .setUseWideViewPort. </p>

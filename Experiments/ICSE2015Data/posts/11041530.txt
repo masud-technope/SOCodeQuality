@@ -1,0 +1,11 @@
+<p>My assumption is that when you define 'Mobile/Phone' you wish to know whether you can make a phone call on the device which cannot be done on something that would be defined as a 'Tablet'. The way to verify this is below. If you wish to know something based on sensors, screen size, etc then this is really a different question. </p>
+
+<p>Also, while using screen resolution, or the resource managements large vs xlarge, may have been a valid approach in the past new 'Mobile' devices are now coming with such large screens and high resolutions that they are blurring this line while if you really wish to know phone call vs no phone call capability the below is 'best'.</p>
+
+<pre><code>TelephonyManager manager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        if(manager.getPhoneType() == TelephonyManager.PHONE_TYPE_NONE){
+            return ""Tablet"";
+        }else{
+            return ""Mobile"";
+        }
+</code></pre>

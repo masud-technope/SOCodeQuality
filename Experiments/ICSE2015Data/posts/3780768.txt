@@ -1,0 +1,15 @@
+<p>You can use this (i didnt try this yet, but hope this works)</p>
+
+<pre><code>if(startService(someIntent) != null) { 
+    Toast.makeText(getBaseContext(), ""Service is already running"", Toast.LENGTH_SHORT).show();
+}else {
+    Toast.makeText(getBaseContext(), ""There is no service running, starting service.."", Toast.LENGTH_SHORT).show();
+}
+</code></pre>
+
+<p>the startService method return a ComponentName object, if there is an already running service, if not null will returned.</p>
+
+<p><a href=""http://developer.android.com/reference/android/content/Context.html#startService%28android.content.Intent%29"" rel=""nofollow"">http://developer.android.com/reference/android/content/Context.html#startService%28android.content.Intent%29</a></p>
+
+<p>This is not like checking i think, because its starting the service, so you can add <code>stopService(someIntent);</code> 
+under the code </p>

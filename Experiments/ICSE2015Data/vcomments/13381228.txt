@@ -1,0 +1,7 @@
+v.measure(MeasureSpec.makeMeasureSpec(LayoutParams.MATCH_PARENT, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(LayoutParams.WRAP_CONTENT, MeasureSpec.EXACTLY));     In some cases(my - ListView) this mismatch leads to wrong targtetHeight value.
+@Tom Esterez  This does work,but not very smoothly. Is there any additional work to make it smoothly?
+@OferR I don't see any improvement when using View.GONE for the children. The animation is still very slow!
+@acntwww You can get a smoothly animation multiplying the duration by some factor, like 4. 'a.setDuration(((int)(initialHeight / v.getContext().getResources().getDisplayMetrics().density)) * 4)'
+What is Transformation t I'm not finding that type anywhere.
+Although it work, but not smoothly. Tweaking the duration doesn't fix the smoothness.
+@Alioo, import android.view.animation.Transformation.

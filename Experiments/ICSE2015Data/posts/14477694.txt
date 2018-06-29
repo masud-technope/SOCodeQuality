@@ -1,0 +1,16 @@
+<p>Simple code to change all in layout of item (custom listview extends baseadapter):</p>
+
+<pre><code>lv.setOnItemClickListener(new OnItemClickListener() {
+
+        @Override
+        public void onItemClick(AdapterView&lt;?&gt; arg0, View arg1, int arg2,
+                long arg3) {
+
+            RelativeLayout layout=(RelativeLayout) arg1.findViewById(R.id.rel_cell_left);
+            layout.setBackgroundColor(Color.YELLOW);
+
+
+
+        }
+    });
+</code></pre>

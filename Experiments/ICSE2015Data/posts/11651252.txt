@@ -1,0 +1,29 @@
+<p>Even though this has been answered multiple times.</p>
+
+<p>If restarting an activity from a fragment, I would do it like so:</p>
+
+<pre><code>new Handler().post(new Runnable() {
+
+         @Override
+         public void run()
+         {
+            Intent intent = getActivity().getIntent();
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            getActivity().overridePendingTransition(0, 0);
+            getActivity().finish();
+
+            getActivity().overridePendingTransition(0, 0);
+            startActivity(intent);
+        }
+    });
+</code></pre>
+
+<p>So you might be thinking this is a little overkill?
+But the <code>Handler</code> posting allows you to call this in a lifecycle method. I've used this in <code>onRestart</code>/<code>onResume</code> methods when checking if the state has changed between the user coming back to the app. (installed something). </p>
+
+<p>Without the <code>Handler</code> if you call it in an odd place it will just kill the activity and not restart it.</p>
+
+<p>Feel free to ask any questions.</p>
+
+<p>Cheers,
+Chris</p>

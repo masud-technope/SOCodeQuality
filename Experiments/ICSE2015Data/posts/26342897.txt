@@ -1,0 +1,55 @@
+<p>This pure xml solution was good enough in my case. <a href=""http://www.techrepublic.com/article/pro-tip-round-corners-on-an-android-imageview-with-this-hack/"" rel=""nofollow"">http://www.techrepublic.com/article/pro-tip-round-corners-on-an-android-imageview-with-this-hack/</a></p>
+
+<p><strong>EDIT</strong></p>
+
+<p>Here's the answer in a nutshell:</p>
+
+<p>In the /res/drawable folder, create a frame.xml file. In it, we define a simple rectangle with rounded corners and a <strong>transparent</strong> center.</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+    &lt;shape xmlns:android=""http://schemas.android.com/apk/res/android"" android:shape=""rectangle""&gt;
+         &lt;solid android:color=""#00ffffff"" /&gt;
+         &lt;padding android:left=""6dp""
+            android:top=""6dp""
+            android:right=""6dp""
+            android:bottom=""6dp"" /&gt;
+         &lt;corners android:radius=""12dp"" /&gt;
+         &lt;stroke android:width=""6dp"" android:color=""#ffffffff"" /&gt;
+    &lt;/shape&gt;
+</code></pre>
+
+<p>In your layout file you add a LinearLayout that contains a standard ImageView, as well as a nested FrameLayout. The FrameLayout uses padding and the custom drawable to give the illusion of rounded corners.</p>
+
+<pre><code>&lt;LinearLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+    android:layout_width=""match_parent""
+    android:layout_height=""match_parent""
+    android:orientation=""vertical""
+    android:layout_gravity=""center""
+    android:gravity=""center"" 
+    android:background=""#ffffffff""&gt;
+
+    &lt;ImageView
+        android:layout_width=""wrap_content""
+        android:layout_height=""wrap_content""
+        android:padding=""6dp""
+        android:src=""@drawable/tr""/&gt;
+
+    &lt;FrameLayout 
+        android:layout_width=""wrap_content""
+        android:layout_height=""wrap_content""&gt;
+
+        &lt;ImageView
+            android:layout_width=""match_parent""
+            android:layout_height=""match_parent""
+            android:padding=""6dp""
+            android:src=""@drawable/tr""/&gt;
+
+        &lt;ImageView 
+             android:src=""@drawable/frame""
+             android:layout_width=""match_parent""
+             android:layout_height=""match_parent"" /&gt;
+
+    &lt;/FrameLayout&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>

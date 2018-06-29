@@ -1,0 +1,2 @@
+settings.setLayoutAlgorithm(LayoutAlgorithm.NARROW_COLUMNS);
+settings.setUseWideViewPort(false)

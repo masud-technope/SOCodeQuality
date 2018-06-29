@@ -1,0 +1,3 @@
+<p>I found the answer. To do this, in an Activity you can call <code>setRequestedOrientation(int)</code> with one of the values specified here: <a href=""http://developer.android.com/reference/android/R.attr.html#screenOrientation"">http://developer.android.com/reference/android/R.attr.html#screenOrientation</a></p>
+
+<p>Before I kicked off my thread I called <code>setRequestedOrientation(OFF)</code> (OFF = nosensor) and when the thread was done I called <code>setRequestedOrientation(ON)</code> (ON = sensor). Works like a charm.</p>

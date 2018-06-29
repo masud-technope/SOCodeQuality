@@ -1,0 +1,28 @@
+<p>Solved it in my case with this code using help of this post:</p>
+
+<pre><code>            Bitmap myBitmap = getBitmap(imgFile.getAbsolutePath());
+
+            try {
+                ExifInterface exif = new ExifInterface(imgFile.getAbsolutePath());
+                int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+                Log.d(""EXIF"", ""Exif: "" + orientation);
+                Matrix matrix = new Matrix();
+                if (orientation == 6) {
+                    matrix.postRotate(90);
+                }
+                else if (orientation == 3) {
+                    matrix.postRotate(180);
+                }
+                else if (orientation == 8) {
+                    matrix.postRotate(270);
+                }
+                myBitmap = Bitmap.createBitmap(myBitmap, 0, 0, myBitmap.getWidth(), myBitmap.getHeight(), matrix, true); // rotating bitmap
+            }
+            catch (Exception e) {
+
+            }
+            ImageView img = (ImageView) findViewById(R.id.imgTakingPic);
+            img.setImageBitmap(myBitmap);
+</code></pre>
+
+<p>Hope it saves someone's time!</p>

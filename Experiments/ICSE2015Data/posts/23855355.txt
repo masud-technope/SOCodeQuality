@@ -1,0 +1,8 @@
+<p>Just use this optimized code in your activity:</p>
+
+<pre><code>if(this.getCurrentFocus() != null)
+{
+InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+}
+</code></pre>

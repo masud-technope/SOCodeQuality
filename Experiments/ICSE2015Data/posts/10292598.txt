@@ -1,0 +1,8 @@
+<p>Use this method which returns <strong>true</strong> when the device is a tablet</p>
+
+<pre><code>public boolean isTablet(Context context) {  
+        return (context.getResources().getConfiguration().screenLayout   
+                &amp; Configuration.SCREENLAYOUT_SIZE_MASK)    
+                &gt;= Configuration.SCREENLAYOUT_SIZE_LARGE; 
+    }
+</code></pre>

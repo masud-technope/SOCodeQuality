@@ -1,0 +1,17 @@
+<pre><code>private boolean isEmpty(EditText etText) {
+    if (etText.getText().toString().trim().length() &gt; 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
+</code></pre>
+
+<p><strong>OR As Per <a href=""http://stackoverflow.com/users/181714/audrius"">audrius</a></strong> </p>
+
+<pre><code>  private boolean isEmpty(EditText etText) {
+        return etText.getText().toString().trim().length() == 0;
+    }
+</code></pre>
+
+<p>If function return <strong><code>false</code></strong> means edittext is <code>not empty</code> and return <strong><code>true</code></strong> means edittext is <code>empty</code>... </p>

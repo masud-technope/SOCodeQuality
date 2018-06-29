@@ -1,0 +1,3 @@
+<p><code>onDestroy</code> isn't always called in the service so this is useless! </p>
+
+<p>For example: Just run the app again with one change from Eclipse. The application is forcefully exited using SIG: 9.</p>

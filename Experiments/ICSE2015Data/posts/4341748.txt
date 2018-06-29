@@ -1,0 +1,5 @@
+<pre><code>editText.setFocusable(false);
+editText.setClickable(false);
+</code></pre>
+
+<p>this ensure the <code>EditText</code> control can't be selected and focused, so it can't be edited.</p>

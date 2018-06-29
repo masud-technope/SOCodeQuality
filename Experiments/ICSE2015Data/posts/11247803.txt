@@ -1,0 +1,16 @@
+<p>Got this problem to, and finaly, I build myself a short solution. 
+You just have to ellipsize manually the line you want, your maxLine attribute will cut your text.</p>
+
+<p>This example cut your text for 3 lines max</p>
+
+<pre><code>        final TextView title = (TextView)findViewById(R.id.text);
+        title.setText(""A really long text"");
+        ViewTreeObserver vto = title.getViewTreeObserver();
+        vto.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+
+            @Override
+            public void onGlobalLayout() {
+                ViewTreeObserver obs = title.getViewTreeObserver();
+                obs.removeGlobalOnLayoutListener(this);
+                if(title.getLineCount() &gt; 3){
+                    Log.d("""

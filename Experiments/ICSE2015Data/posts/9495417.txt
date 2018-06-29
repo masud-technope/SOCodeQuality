@@ -1,0 +1,4 @@
+<p>in XML use a theme</p>
+
+<pre><code>android:theme=""@android:style/Theme.NoTitleBar""
+</code></pre>

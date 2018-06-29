@@ -1,0 +1,6 @@
+<pre><code>Intent intent = new Intent(this, classObject);
+intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
+startActivity(intent);
+</code></pre>
+
+<p>This Will work for all Android versions. Where <code>IntentCompat</code> the class added in Android Support library. </p>

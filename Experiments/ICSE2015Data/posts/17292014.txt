@@ -1,0 +1,37 @@
+<p>Here's yet another solution, just for kicks.  It's probably not very efficient, but it does cope with both height and width of the text, and with marked-up text.</p>
+
+<pre><code>@Override
+protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec)
+{
+    if ((MeasureSpec.getMode(widthMeasureSpec) != MeasureSpec.UNSPECIFIED)
+            &amp;&amp; (MeasureSpec.getMode(heightMeasureSpec) != MeasureSpec.UNSPECIFIED)) {
+
+        final float desiredWidth = MeasureSpec.getSize(widthMeasureSpec);
+        final float desiredHeight = MeasureSpec.getSize(heightMeasureSpec);
+
+        float textSize = getTextSize();
+        float lastScale = Float.NEGATIVE_INFINITY;
+        while (textSize &gt; MINIMUM_AUTO_TEXT_SIZE_PX) {
+            // Measure how big the textview would like to be with the current text size.
+            super.onMeasure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
+
+            // Calculate how much we'd need to scale it to fit the desired size, and
+            // apply that scaling to the text size as an estimate of what we need.
+            final float widthScale = desiredWidth / getMeasuredWidth();
+            final float heightScale = desiredHeight / getMeasuredHeight();
+            final float scale = Math.min(widthScale, heightScale);
+
+            // If we don't need to shrink the text, or we don't seem to be converging, we're done.
+            if ((scale &gt;= 1f) || (scale &lt;= lastScale)) {
+                break;
+            }
+
+            // Shrink the text size and keep trying.
+            textSize = Math.max((float) Math.floor(scale * textSize), MINIMUM_AUTO_TEXT_SIZE_PX);
+            setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+            lastScale = scale;
+        }
+    }
+    super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+}
+</code></pre>

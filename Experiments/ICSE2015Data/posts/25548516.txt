@@ -1,0 +1,13 @@
+<p>The best way to implement this is as follows:    </p>
+
+<pre><code>public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+rootView = inflater.inflate(R.layout.testclassfragment, container, false);
+        ImageView imageView = (ImageView) rootView.findViewById(R.id.my_image);
+        return rootView
+}
+</code></pre>
+
+<p>In this way, the rootView can be used for each control defined in the xml layout and the code is much cleaner in this way.</p>
+
+<p>Hope this helps :)</p>

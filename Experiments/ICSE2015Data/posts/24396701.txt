@@ -1,0 +1,7 @@
+<p>Just to spell out something explicitly:</p>
+
+<p>The main thread is basically the UI thread.</p>
+
+<p>So saying that you cannot do networking operations in the main thread means you cannot do networking operations in the UI thread, which means <em>you cannot do networking operations in a <code>*runOnUiThread(new Runnable() { ... }*</code> block</em> inside some other thread, either.</p>
+
+<p>(I just had a long head-scratching moment trying to figure out why I was getting that error somewhere other than my main thread.  This was why; this thread helped; and hopefully this comment will help someone else.)</p>

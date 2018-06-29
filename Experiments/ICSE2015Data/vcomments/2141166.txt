@@ -1,0 +1,6 @@
+How would this be implemented where mData is an object (e.g. JSONObject) and not an int?
+Why can't just pass the object without all this? We want to pass an object that is already in memory.
+@tecnotron its beacuse apps are in different processes, and have separate memory address spaces, you cant just send pointer (reference) to memory block in your process and expect it to be available in another process.
+What do i do if i cant make the object's class serializible or Parceable?
+@Amel can you give an example?
+@ceklock the reason behind this is as follows: When the activity goes behind and later killed from the memory, and then when user opens it from the recents menu, it has to create the Activity where it left off. It has to be the same UI. The Object is not in the memory in this case. But the intent is.

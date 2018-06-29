@@ -1,0 +1,9 @@
+<p><strong>No.</strong>  I'd love for someone to correct me, but I accepted the load/resize approach you tried as a compromise.</p>
+
+<p>Here are the steps for anyone browsing:</p>
+
+<ol>
+<li>Calculate the maximum possible <code>inSampleSize</code> that still yields an image larger than your target.</li>
+<li>Load the image using <code>BitmapFactory.decodeFile(file, options)</code>, passing inSampleSize as an option.</li>
+<li>Resize to the desired dimensions using <code>Bitmap.createScaledBitmap()</code>.</li>
+</ol>

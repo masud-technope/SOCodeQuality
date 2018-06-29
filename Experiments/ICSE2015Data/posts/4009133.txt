@@ -1,0 +1,18 @@
+<p>@Eddie.  Just a minor edit to <a href=""http://stackoverflow.com/a/2001824/194894"">your solution</a> - if the device is in airplane mode (or presumably in other situations where there's no available network), <code>cm.getActiveNetworkInfo()</code> will be <code>null</code>, so you need to add a <code>null</code> check.</p>
+
+<p>Modified solution below:</p>
+
+<pre><code>public boolean isOnline() {
+    ConnectivityManager cm =
+        (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+    return netInfo != null &amp;&amp; netInfo.isConnectedOrConnecting();
+}
+</code></pre>
+
+<p>Also add the following permission to the <code>AndroidManifest.xml</code>:</p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.ACCESS_NETWORK_STATE"" /&gt;
+</code></pre>
+
+<p>One other small point, if you absolutely need a network connection at the given point in time, then it might be better to use <code>netInfo.isConnected()</code> rather than <code>netInfo.isConnectedOrConnecting</code>.  I guess this is up to the indivudal use-case however.</p>

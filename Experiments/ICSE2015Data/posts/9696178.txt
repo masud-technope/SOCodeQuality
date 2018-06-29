@@ -1,0 +1,8 @@
+<pre><code>Calendar c = Calendar.getInstance();
+int month=c.get(Calendar.MONTH)+1;
+String sDate = c.get(Calendar.YEAR) + ""-"" + month+ ""-"" + c.get(Calendar.DAY_OF_MONTH) +
+""T"" + c.get(Calendar.HOUR_OF_DAY)+"":""+c.get(Calendar.MINUTE)+"":""+c.get(Calendar.SECOND);
+</code></pre>
+
+<p>This will give date time format like
+2010-05-24T18:13:00</p>

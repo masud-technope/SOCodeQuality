@@ -1,0 +1,53 @@
+<p>I've made some improvements to ZeroG's answer. Mainly cancellation of excess task calls and implementing the whole thing as a private OnTouchListener, so all the scroll detection code would be in one place.</p>
+
+<p>Paste the following code into your own ScrollView implementation:</p>
+
+<pre><code>private class ScrollFinishHandler implements OnTouchListener
+{
+        private static final int SCROLL_TASK_INTERVAL = 100;
+
+        private Runnable    mScrollerTask;
+        private int         mInitialPosition = 0;
+
+        public ScrollFinishHandler()
+        {
+            mScrollerTask = new Runnable() {
+
+                public void run() {
+
+                    int newPosition = getScrollY();
+                    if(mInitialPosition - newPosition == 0)
+                    {//has stopped
+
+                       onScrollStopped(); // Implement this on your main ScrollView class
+                    }else{
+                        mInitialPosition = getScrollY();
+                        ExpandingLinearLayout.this.postDelayed(mScrollerTask, SCROLL_TASK_INTERVAL);
+                    }
+                }
+            };
+        }
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) 
+        {
+            if (event.getAction() == MotionEvent.ACTION_UP) 
+            {
+
+                startScrollerTask();
+            }
+            else
+            {
+                stopScrollerTask();
+            }
+
+            return false;
+        }
+
+}
+</code></pre>
+
+<p>And then in your ScrollView implementation:</p>
+
+<pre><code>setOnTouchListener( new ScrollFinishHandler() );
+</code></pre>

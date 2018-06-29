@@ -1,0 +1,16 @@
+<p>After struggling with that problem for quite some time, I've found a solution that seems to work without being too ugly. First, make sure that whatever ViewGroup (directly) contains your EditText has DescendantFocusability set to ""Before Descendants,"" Focusable set to ""true"" and FocusableInTouchMode set to ""true."" This will not be the ScrollView itself, but the layout inside where you have your various views. Next add an onTouchListener to your ScrollView that removes focus from the EditText whenever it is touched, like so:</p>
+
+<pre><code>ScrollView scroll = (ScrollView)findViewById(R.id.scrollView1);
+scroll.setOnTouchListener(new OnTouchListener() {
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        if (myEditText.hasFocus()) {
+            myEditText.clearFocus();
+        }
+        return false;
+    }
+});
+</code></pre>
+
+<p>Tell me if that doesn't fix it. What should happen is that the Layout gets focus instead of the EditText, so no scrolling should happen.</p>

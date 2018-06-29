@@ -1,0 +1,9 @@
+<p><strong>Use SimpleDateFormat</strong></p>
+
+<p>Like this:</p>
+
+<pre><code>event.putExtra(""starttime"", ""12/18/2012"");
+
+SimpleDateFormat format = new SimpleDateFormat(""MM/dd/yyyy"");
+Date date = format.parse(bundle.getString(""starttime""));
+</code></pre>

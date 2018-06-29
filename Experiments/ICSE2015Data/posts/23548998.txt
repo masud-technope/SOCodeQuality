@@ -1,0 +1,4 @@
+<p>You can use <a href=""https://commons.apache.org/proper/commons-io/javadocs/api-1.4/org/apache/commons/io/FilenameUtils.html"" rel=""nofollow"">FilenameUtils</a> from <em>Apache Commons</em>:</p>
+
+<pre><code>String extension = FilenameUtils.getExtension(mFile.getName());
+</code></pre>

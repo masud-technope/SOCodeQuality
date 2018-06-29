@@ -1,0 +1,1 @@
+<p>@Dmitri Novikov, <code>FLAG_ACTIVITY_CLEAR_TOP</code> clears any active instance on top of the new one. So, it may end the old instance before it completes the process.</p>

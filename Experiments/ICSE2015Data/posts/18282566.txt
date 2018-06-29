@@ -1,0 +1,6 @@
+<p>This is not an answer for the OP, as he wanted the display dimensions in real pixels. I wanted the dimensions in ""device-independent-pixels"", and putting together answers from here <a href=""http://stackoverflow.com/a/17880012/253938"">http://stackoverflow.com/a/17880012/253938</a> and here <a href=""http://stackoverflow.com/a/6656774/253938"">http://stackoverflow.com/a/6656774/253938</a> I came up with this:</p>
+
+<pre><code>    DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
+    int dpHeight = (int)(displayMetrics.heightPixels / displayMetrics.density + 0.5);
+    int dpWidth = (int)(displayMetrics.widthPixels / displayMetrics.density + 0.5);
+</code></pre>

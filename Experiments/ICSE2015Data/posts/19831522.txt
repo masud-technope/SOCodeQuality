@@ -1,0 +1,29 @@
+<p>In order to retrieve all the <a href=""http://developer.android.com/guide/topics/data/data-storage.html#filesExternal"">External Storages</a> (whether they are <strong><em>SD cards</em></strong> or <strong><em>internal non-removable storages</em></strong>), you can use the following code:</p>
+
+<pre><code>final String state = Environment.getExternalStorageState();
+
+if ( Environment.MEDIA_MOUNTED.equals(state) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state) ) {  // we can read the External Storage...           
+    //Retrieve the primary External Storage:
+    final File primaryExternalStorage = Environment.getExternalStorageDirectory();
+
+    //Retrieve the External Storages root directory:
+    final String externalStorageRootDir;
+    if ( (externalStorageRootDir = primaryExternalStorage.getParent()) == null ) {  // no parent...
+        Log.d(TAG, ""External Storage: "" + primaryExternalStorage + ""\n"");
+    }
+    else {
+        final File externalStorageRoot = new File( externalStorageRootDir );
+        final File[] files = externalStorageRoot.listFiles();
+
+        for ( final File file : files ) {
+            if ( file.isDirectory() &amp;&amp; file.canRead() &amp;&amp; (file.listFiles().length &gt; 0) ) {  // it is a real directory (not a USB drive)...
+                Log.d(TAG, ""External Storage: "" + file.getAbsolutePath() + ""\n"");
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>Alternatively, you might use <strong>System.getenv(""EXTERNAL_STORAGE"")</strong> to retrieve the primary External Storage directory (e.g. <em>""/storage/sdcard0""</em>) and <strong>System.getenv(""SECONDARY_STORAGE"")</strong> to retieve the list of all the secondary directories (e.g. <em>""/storage/extSdCard:/storage/UsbDriveA:/storage/UsbDriveB""</em>). Remember that, also in this case, you might want to filter the list of secondary directories in order to exclude the USB drives.</p>
+
+<p>In any case, please note that using hard-coded paths is always a bad approach (expecially when every manufacturer may change it as pleased).</p>

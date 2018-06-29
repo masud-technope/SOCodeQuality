@@ -1,0 +1,6 @@
+if(gender.equals(""Male"")){
+ salutation =""Mr."";
+}
+else if(gender.equals(""Female"")){
+ salutation =""Ms."";
+}

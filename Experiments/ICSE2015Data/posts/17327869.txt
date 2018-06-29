@@ -1,0 +1,13 @@
+<p>If you don't want the overhead of WindowManagers, Points, or Displays, you can grab the height and width attributes of the topmost View item in your XML, provided its height and width are set to match_parent. (This is true so long as your layout takes up the entire screen.)</p>
+
+<p>For example, if your XML starts with something like this:</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;RelativeLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+    xmlns:tools=""http://schemas.android.com/tools""
+    android:id=""@+id/entireLayout""
+    android:layout_width=""match_parent""
+    android:layout_height=""match_parent"" &gt;
+</code></pre>
+
+<p>Then <code>findViewById(R.id.entireLayout).getWidth()</code> will return the screen's width and <code>findViewById(R.id.entireLayout).getHeight()</code> will return the screen's height.</p>

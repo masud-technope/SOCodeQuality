@@ -1,0 +1,16 @@
+<p>Use one of this method to select the last received SMS and delete it, here in this case i am getting the top most sms and going to delete using thread and id value of sms, </p>
+
+<pre><code>         try
+        {
+        Uri uri = Uri.parse(""content://sms/inbox"");         
+        Cursor c =v.getContext().getContentResolver().query(uri, null, null ,null,null); 
+        int i=c.getCount();
+
+        if(c.moveToFirst()) 
+        {}
+        }
+        catch(CursorIndexOutOfBoundsException ee)
+            {
+             Toast.makeText(v.getContext(), ""Error :""+ ee.getMessage() ,Toast.LENGTH_LONG).show();
+            }
+</code></pre>

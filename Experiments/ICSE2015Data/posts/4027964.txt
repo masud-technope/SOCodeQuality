@@ -1,0 +1,17 @@
+<pre><code>mAgendaListView.setOnItemClickListener(new OnItemClickListener() {
+public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+//view.setBackgroundColor(Color.RED);
+
+for(int i=0; i&lt;parent.getChildCount(); i++)
+{
+     if(i == position)
+     {
+               parent.getChildAt(i).setBackgroundColor(Color.BLUE);
+     }
+     else
+     {
+               parent.getChildAt(i).setBackgroundColor(Color.BLACK);
+     }
+
+ }
+</code></pre>

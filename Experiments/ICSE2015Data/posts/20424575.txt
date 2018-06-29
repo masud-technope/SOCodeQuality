@@ -1,0 +1,9 @@
+<p>The idea is, if you need to hide your keyboard and check soft input state at the same time, use the following solution:</p>
+
+<pre><code>public boolean hideSoftInput() {
+    InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+    return imm.hideSoftInputFromWindow(mViewPager.getWindowToken(), 0);
+}
+</code></pre>
+
+<p>This method returns true if keyboard was shown before hiding.</p>

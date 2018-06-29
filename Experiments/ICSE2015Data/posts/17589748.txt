@@ -1,0 +1,39 @@
+<p>I've also came across this problem. I wanted to be able to reuse the code in many EditTexts. This is my solution:</p>
+
+<p>Usage :</p>
+
+<pre><code>CurrencyFormat watcher = new CurrencyFormat();
+priceEditText.addTextChangedListener(watcher);
+</code></pre>
+
+<p>Class:</p>
+
+<pre><code>public static class CurrencyFormat implements TextWatcher {
+
+    public void onTextChanged(CharSequence arg0, int start, int arg2,int arg3) {}
+
+    public void beforeTextChanged(CharSequence arg0, int start,int arg2, int arg3) {}
+
+    public void afterTextChanged(Editable arg0) {
+        int length = arg0.length();
+        if(length&gt;0){
+            if(nrOfDecimal(arg0.toString())&gt;2)
+                    arg0.delete(length-1, length);
+        }
+
+    }
+
+
+    private int nrOfDecimal(String nr){
+        int len = nr.length();
+        int pos = len;
+        for(int i=0 ; i&lt;len; i++){
+            if(nr.charAt(i)=='.'){
+                pos=i+1;
+                    break;
+            }
+        }
+        return len-pos;
+    }
+}
+</code></pre>

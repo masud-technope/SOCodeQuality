@@ -1,0 +1,17 @@
+<p>I used a slight variant of Reuban's answer, which proved to be more helpful in certain circumstances, especially with high resolution devices. </p>
+
+<pre><code>final View activityRootView = findViewById(R.id.activityRoot);
+activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(
+        new OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                int heightView = activityRootView.getHeight();
+                int widthView = activityRootView.getWidth();
+                if (1.0 * widthView / heightView &gt; 3) {
+                    //Make changes for Keyboard not visible
+                } else {
+                    //Make changes for keyboard visible
+                }
+            }
+        });
+</code></pre>

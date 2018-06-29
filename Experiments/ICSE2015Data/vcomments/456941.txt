@@ -1,0 +1,6 @@
+This is the android.text.format.DateFormat rather than java.text.DateFormat.
+It's pretty typical of Android IME to have two classes that both claim to give you a result that is set to the default Locale but one doesn't. So yes, don't forget to use the android.text.format version of DateFormat (that doesn't even derive the java.util one LOL).
+@Harsha - to get around that issue, I chain my use of DateFormat so I only have to reference the Android class and therefore there aren't any ambiguous classes.
+You can use Android's format() method and have (IMHO) cleaner code and one less Object to instantiate.
+This formatter only includes the date, not the time as the original question stated. Use DateUtils from the same package instead, see http://stackoverflow.com/questions/2983920/display-date-and-time-in-user-locale.
+Please note this line: `DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());` The returned dateFormat is of type `java.text.DateFormat` (and NOT `android.text.format.DateFormat`)

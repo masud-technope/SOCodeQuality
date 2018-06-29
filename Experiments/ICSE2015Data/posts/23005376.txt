@@ -1,0 +1,66 @@
+<p>I know this question has lot of Answer but I found the simplest and easiest way to do.</p>
+
+<p><strong><a href=""http://yakivmospan.wordpress.com/2014/03/31/spinner-hint/"">This solution</a> is independent of API level ,it will work for all API level</strong>.</p>
+
+<p>Idea is  to set the last item of spinner as default one..ie </p>
+
+<pre><code>spinner.setSelection(lastIndex);//index starts from 0.so if spinner has 5 item the lastIndex is 4
+</code></pre>
+
+<p>Item at last index should be your Title of spinner like ""Select Country""</p>
+
+<p>And while populating the spinner decrease the count of item by one.i.e
+//Count starts from 1 to total item.</p>
+
+<pre><code>    @Override
+public int getCount() {
+// don't display last item. It is used as hint.
+int count = super.getCount();
+return count &gt; 0 ? count - 1 : count;
+}
+</code></pre>
+
+<p>So your code flow will be like this</p>
+
+<pre><code>List&lt;Sting&gt; objects = new ArrayList&lt;String&gt;();
+objects.add(""India"");
+objects.add(""Pakistan"");
+objects.add(""China"");
+// add hint as last item
+objects.add(""Select Country"");
+
+HintAdapter adapter = new HintAdapter(context, objects, android.R.layout.simple_spinner_item);
+adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+ Spinner spinnerFilmType = (Spinner) findViewById(R.id.spinner);
+spinner.setAdapter(adapter);
+
+// show hint
+spinner.setSelection(adapter.getCount());
+</code></pre>
+
+<p>HintAdapter.java</p>
+
+<pre><code> public class HintAdapter   extends ArrayAdapter&lt;Objects&gt; {
+
+public HintAdapter(Context theContext, List&lt;Object&gt; objects) {
+    super(theContext, R.id.text1, R.id.text1, objects);
+}
+
+public HintAdapter(Context theContext, List&lt;Object&gt; objects, int theLayoutResId) {
+    super(theContext, theLayoutResId, R.id.text1, objects);
+}
+
+@Override
+public int getCount() {
+    // don't display last item. It is used as hint.
+    int count = super.getCount();
+    return count &gt; 0 ? count - 1 : count;
+}
+}
+</code></pre>
+
+<p>Spinner Title
+<img src=""http://i.stack.imgur.com/g0vuV.png"" alt=""Spinner Title"">
+Spinner Item
+<img src=""http://i.stack.imgur.com/0PBNJ.png"" alt=""Spinner Items""></p>

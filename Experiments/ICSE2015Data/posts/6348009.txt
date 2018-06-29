@@ -1,0 +1,6 @@
+<p>Two additional ideas, if you want to check if a device is root capable from your app:</p>
+
+<ol>
+<li>Check for the existing of the 'su' binary: run ""which su"" from <code>Runtime.getRuntime().exec()</code></li>
+<li>Look for the SuperUser.apk in <code>/system/app/Superuser.apk</code> location</li>
+</ol>

@@ -1,0 +1,6 @@
+searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+    EditText txtSearch = ((EditText)searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text));
+    txtSearch.setHint(getResources().getString(R.string.search_hint));
+    txtSearch.setHintTextColor(Color.LTGRAY);
+    txtSearch.setTextColor(Color.WHITE);
+searchView.setQueryHint(Html.fromHtml(""<font color = #ffffff>"" + getResources().getString(R.string.search_hint) + ""</font>""));

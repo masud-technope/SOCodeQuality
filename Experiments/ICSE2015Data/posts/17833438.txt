@@ -1,0 +1,12 @@
+<pre><code>          BitmapFactory.Options options = new Options();
+        options.inSampleSize = 32;
+        //img = BitmapFactory.decodeFile(imageids[position], options);
+
+        Bitmap theImage = BitmapFactory.decodeStream(imageStream,null, options);
+        Bitmap img=theImage.copy(Bitmap.Config.RGB_565,true);
+        theImage.recycle();
+        theImage = null;
+        System.gc();
+        //ivlogdp.setImageBitmap(img);
+        Runtime.getRuntime().gc();
+</code></pre>

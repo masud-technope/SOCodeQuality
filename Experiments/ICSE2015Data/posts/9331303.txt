@@ -1,0 +1,5 @@
+<p>I was facing the same problem, unable to create directory on Galaxy S but was able to create it successfully on Nexus and Samsung Droid. How I fixed it was by adding following line of code:</p>
+
+<pre><code>File dir = new File(Environment.getExternalStorageDirectory().getPath()+""/""+getPackageName()+""/"");
+dir.mkdirs();
+</code></pre>

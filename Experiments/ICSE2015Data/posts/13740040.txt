@@ -1,0 +1,29 @@
+<p>For simple arrays like this you can't do this in this way </p>
+
+<p>here is the full sample code for this </p>
+
+<pre><code>int current_id = 2;
+        String[] arr_fav = { ""1"", ""2"", ""3"" };
+        for (int i = 0; i &lt; arr_fav.length; i++) {
+            if (current_id == Integer.parseInt(arr_fav[i])) {
+                String[] arr_fav_tem = new String[arr_fav.length - 1];
+                arr_fav[1] = null;
+                int counter = 0;
+                for (int j = 0; j &lt; arr_fav.length; j++) {
+                    if (arr_fav[j] != null) {
+
+                        arr_fav_tem[counter] = arr_fav[j];
+                        counter++;
+                    }
+
+                }
+
+                arr_fav = arr_fav_tem;
+
+            }
+        }
+
+        for (int i = 0; i &lt; arr_fav.length; i++) {
+            System.out.println(arr_fav[i]);
+        }
+</code></pre>

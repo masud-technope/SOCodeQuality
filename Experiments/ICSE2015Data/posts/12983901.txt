@@ -1,0 +1,36 @@
+<p>This is a classic 'gotcha' of Android development. There are two issues here:</p>
+
+<ul>
+<li>There is a subtle Android Framework bug which greatly complicates application stack management during development, at least on legacy versions (not entirely sure if/when/how it was fixed). I'll discuss this bug below.</li>
+<li>The 'normal' or intended way to manage this issue is, itself, rather complicated with the duality of onPause/onResume and onSaveInstanceState/onRestoreInstanceState</li>
+</ul>
+
+<p>Browsing across all these threads, I suspect that much of the time developers are talking about these two different issues simultaneously ... hence all the confusion and reports of ""this doesn't work for me"".</p>
+
+<p>First, to clarify the 'intended' behavior: onSaveInstance and onRestoreInstance are fragile and only for transient state. The intended usage (afaict) is to handle Activity recreation when the phone is rotated (orientation change). In other words, the intended usage is when your Activity is still logically 'on top', but still must be reinstantiated by the system. The saved Bundle is not persisted outside of the process/memory/gc, so you cannot really rely on this if your activity goes to the background. Yes, perhaps your Activity's memory will survive its trip to the background and escape GC, but this is not reliable (nor is it predictable).</p>
+
+<p>So if you have a scenario where there is meaningful 'user progress' or state that should be persisted between 'launches' of your application, the guidance is to use onPause and onResume. You must choose and prepare a persistent store yourself.</p>
+
+<p>BUT - there is a very confusing bug which complicates all of this. Details are here:</p>
+
+<p><a href=""http://code.google.com/p/android/issues/detail?id=2373"">http://code.google.com/p/android/issues/detail?id=2373</a></p>
+
+<p><a href=""http://code.google.com/p/android/issues/detail?id=5277"">http://code.google.com/p/android/issues/detail?id=5277</a></p>
+
+<p>Basically, if your application is launched with the SingleTask flag, and then later on you launch it from the home screen or launcher menu, then that subsequent invocation will create a NEW task ... you'll effectively have two different instances of your app inhabiting the same stack ... which gets very strange very fast. This seems to happen when you launch your app during development (i.e. from Eclipse or Intellij), so developers run into this a lot. But also through some of the app store update mechanisms (so it impacts your users as well).</p>
+
+<p>I battled through these threads for hours before I realized that my main issue was this bug, not the intended framework behavior. A great writeup and <del>workaround</del> (UPDATE: see below) seems to be from user @kaciula in this answer:</p>
+
+<p><a href=""http://stackoverflow.com/questions/3042420/home-key-press-behaviour/4782423#4782423"">Home key press behaviour</a></p>
+
+<p><strong>UPDATE June 2013</strong>: Months later, I have finally found the 'correct' solution. You don't need to manage any stateful startedApp flags yourself,  you can detect this from the framework and bail appropriately. I use this near the beginning of my LauncherActivity.onCreate:</p>
+
+<pre><code>if (!isTaskRoot()) {
+    Intent intent = getIntent();
+    String action = intent.getAction();
+    if (intent.hasCategory(Intent.CATEGORY_LAUNCHER) &amp;&amp; action != null &amp;&amp; action.equals(Intent.ACTION_MAIN)) {
+        finish();
+        return;
+    }
+}
+</code></pre>
