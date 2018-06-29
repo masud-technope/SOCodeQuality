@@ -1,0 +1,35 @@
+<p>I improved on the solution that uses a regex by Pinhassi so it also handles the edge cases correctly. Before checking if the input is correct, first the final string is constructed as described by the android docs.</p>
+
+<pre><code>public class DecimalDigitsInputFilter implements InputFilter {
+
+    private Pattern mPattern;
+
+    private static final Pattern mFormatPattern = Pattern.compile(""\\d+\\.\\d+"");
+
+    public DecimalDigitsInputFilter(int digitsBeforeDecimal, int digitsAfterDecimal) {
+        mPattern = Pattern.compile(
+            ""^\\d{0,"" + digitsBeforeDecimal + ""}([\\.,](\\d{0,"" + digitsAfterDecimal +
+                ""})?)?$"");
+    }
+
+    @Override
+    public CharSequence filter(CharSequence source, int start, int end, Spanned dest, 
+                               int dstart, int dend) {
+
+        String newString =
+            dest.toString().substring(0, dstart) + source.toString().substring(start, end) 
+            + dest.toString().substring(dend, dest.toString().length());
+
+        Matcher matcher = mPattern.matcher(newString);
+        if (!matcher.matches()) {
+            return """";
+        }
+        return null;
+    }
+}
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>editText.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,2)});
+</code></pre>

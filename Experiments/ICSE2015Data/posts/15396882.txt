@@ -1,0 +1,7 @@
+<p>For my case, I was using the a SearchView in the actionbar. After a user performs a search, the keyboard would pop open again.</p>
+
+<p>Using the InputMethodManager did not close the keyboard. I had to clearFocus and set the focusable of the search view to false:</p>
+
+<pre><code>        mSearchView.clearFocus();
+        mSearchView.setFocusable(false);
+</code></pre>

@@ -1,0 +1,21 @@
+<p>Method for show / hide soft keyboard</p>
+
+<pre><code>InputMethodManager inputMethodManager = (InputMethodManager) currentActivity.getSystemService(Context.INPUT_METHOD_SERVICE);
+    if (isShow) {
+        if (currentActivity.getCurrentFocus() == null) {
+            inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        } else {
+            inputMethodManager.showSoftInput(currentActivity.getCurrentFocus(), InputMethodManager.SHOW_FORCED);    
+        }
+
+    } else {
+        if (currentActivity.getCurrentFocus() == null) {
+            inputMethodManager.toggleSoftInput(InputMethodManager.HIDE_NOT_ALWAYS, 0);
+        } else {
+            inputMethodManager.hideSoftInputFromInputMethod(currentActivity.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);    
+        }
+
+    }
+</code></pre>
+
+<p>I hope they have been useful</p>

@@ -1,0 +1,13 @@
+<p>I can recommend a different way that works like a charm: Android Query.</p>
+
+<p>You can download that <a href=""http://en.wikipedia.org/wiki/JAR_%28file_format%29"" rel=""nofollow"">JAR</a> file from <a href=""http://code.google.com/p/android-query/downloads/list"" rel=""nofollow"">here</a></p>
+
+<pre><code>AQuery androidAQuery = new AQuery(this);
+</code></pre>
+
+<p>As an example:</p>
+
+<pre><code>androidAQuery.id(YOUR IMAGEVIEW).image(YOUR IMAGE TO LOAD, true, true, getDeviceWidth(), ANY DEFAULT IMAGE YOU WANT TO SHOW);
+</code></pre>
+
+<p>It's very fast and accurate, and using this you can find many more features like animation when loading, getting a bitmap (if needed), etc.</p>

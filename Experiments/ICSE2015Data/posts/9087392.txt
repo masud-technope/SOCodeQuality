@@ -1,0 +1,12 @@
+<p>I found that a combination of @Reuben_Scratton's method along with @Yogesh's method seems to work best. Combining their methods would yield something like this:</p>
+
+<pre><code>final View activityRootView = findViewById(R.id.activityRoot);
+activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+  @Override
+  public void onGlobalLayout() {
+    if (getResources().getConfiguration().keyboardHidden == Configuration.KEYBOARDHIDDEN_NO) { // Check if keyboard is not hidden
+       // ... do something here
+    }
+  }
+});
+</code></pre>

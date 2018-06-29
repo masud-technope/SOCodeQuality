@@ -1,0 +1,30 @@
+<p>This will help you...</p>
+
+<p>Define imageview and load image into it .....</p>
+
+<pre><code>Imageview i = (ImageView) vv.findViewById(R.id.img_country);
+i.setImageBitmap(DownloadFullFromUrl(url));
+</code></pre>
+
+<p>Then Define this method : </p>
+
+<pre><code>    public Bitmap DownloadFullFromUrl(String imageFullURL) {
+    Bitmap bm = null;
+    try {
+        URL url = new URL(imageFullURL);
+        URLConnection ucon = url.openConnection();
+        InputStream is = ucon.getInputStream();
+        BufferedInputStream bis = new BufferedInputStream(is);
+        ByteArrayBuffer baf = new ByteArrayBuffer(50);
+        int current = 0;
+        while ((current = bis.read()) != -1) {
+            baf.append((byte) current);
+        }
+        bm = BitmapFactory.decodeByteArray(baf.toByteArray(), 0,
+                baf.toByteArray().length);
+    } catch (IOException e) {
+        Log.d(""ImageManager"", ""Error: "" + e);
+    }
+    return bm;
+}
+</code></pre>

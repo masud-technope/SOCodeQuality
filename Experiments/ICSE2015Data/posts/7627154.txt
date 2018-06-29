@@ -1,0 +1,5 @@
+<p>Try this:</p>
+
+<pre><code>DisplayMetrics dm = context.getResources().getDisplayMetrics();
+int densityDpi = dm.densityDpi;
+</code></pre>

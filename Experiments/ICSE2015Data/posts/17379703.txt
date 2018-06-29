@@ -1,0 +1,46 @@
+<p>Good way to share data between Activities is to make class with <strong>static fields and methods</strong>.
+In my exaple I want to share ArrayLists between activities.</p>
+
+<pre><code>public class Values {
+private static Map&lt;String, ArrayList&lt;String&gt;&gt; xValues;
+
+public static init(){
+    if(xValues == null)
+        xValues = new HashMap&lt;String, ArrayList&lt;String&gt;&gt;();
+}
+
+public static ArrayList&lt;String&gt; getStringList(String key){
+    return xValues.get(key);
+}
+
+public static void putStringList(ArrayList&lt;String&gt; value, String key){
+    xValues.put(key, value);
+}
+</code></pre>
+
+<p>}</p>
+
+<p>And then in Main class you only once initialize. Then you simply use in other classes its static methods:</p>
+
+<p><strong>In main</strong> 
+(do not create any Object, because You will use static methods and fields):</p>
+
+<pre><code>Values.init();
+</code></pre>
+
+<p><strong>In any activity or even any class to put new ArrayList</strong> </p>
+
+<pre><code>ArrayList&lt;String&gt; list = new ArrayList&lt;String&gt;();
+list.add(""Text"");
+Values.putStringList(list, ""mylist"");
+</code></pre>
+
+<p><strong>In any activity or even any class to get</strong></p>
+
+<pre><code>for(String s:Values.getStringList(""mylist""))
+Log.d(""My list"",s);
+</code></pre>
+
+<p>Will result with Log entry: My list: Text.</p>
+
+<p>Conclusion: Good way is to use Java possibilities: static method and fields can be accessed within all our activities in package.</p>

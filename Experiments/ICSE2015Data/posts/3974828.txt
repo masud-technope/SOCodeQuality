@@ -1,0 +1,10 @@
+<p>I did my theme switcher like this:</p>
+
+<pre><code>Intent intent = getIntent();
+finish();
+startActivity(intent);
+</code></pre>
+
+<p>Basically, I'm calling <code>finish()</code> first, and I'm using the exact same intent this activity was started with. That seems to do the trick?</p>
+
+<p>UPDATE: As pointed out by Ralf below, <a href=""http://developer.android.com/reference/android/app/Activity.html#recreate%28%29""><code>Activity.recreate()</code></a> is the way to go in API 11 and beyond. This is preferable if you're in an API11+ environment. You can still check the current version and call the code snippet above if you're in API 10 or below. (Please don't forget to upvote Ralf's answer!)</p>

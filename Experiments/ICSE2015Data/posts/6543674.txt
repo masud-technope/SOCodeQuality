@@ -1,0 +1,57 @@
+<pre><code>package com.ImageConvertingDemo;
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.EditText;
+import android.widget.ImageView;
+
+public class MyActivity extends Activity {
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        EditText tv = (EditText)findViewById(R.id.EditText01);
+        ImageView iv = (ImageView)findViewById(R.id.ImageView01);
+        FileInputStream in;
+        BufferedInputStream buf;
+            try 
+            {
+                in = new FileInputStream(""/sdcard/smooth.png"");
+                buf = new BufferedInputStream(in,1070);
+                System.out.println(""1..................""+buf);
+                byte[] bMapArray= new byte[buf.available()];
+                tv.setText(bMapArray.toString());
+                buf.read(bMapArray);
+                Bitmap bMap = BitmapFactory.decodeByteArray(bMapArray, 0, bMapArray.length);
+
+                /*for (int i = 0; i &lt; bMapArray.length; i++) 
+                {
+                System.out.print(""bytearray""+bMapArray[i]);
+                }*/
+                iv.setImageBitmap(bMap);
+                //tv.setText(bMapArray.toString());
+                //tv.setText(buf.toString());
+                if (in != null) 
+                {
+                    in.close();
+                }
+                if (buf != null) 
+                {
+                    buf.close();
+                }
+
+            } 
+            catch (Exception e) 
+            {
+                Log.e(""Error reading file"", e.toString());
+            }
+    }
+}
+</code></pre>

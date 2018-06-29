@@ -1,0 +1,5 @@
+<p>Just in case it helps; I do this to get the Bitmap:</p>
+
+<pre><code>InputStream is = context.getContentResolver().openInputStream(imageUri);
+Bitmap bitmap = BitmapFactory.decodeStream(is);
+</code></pre>

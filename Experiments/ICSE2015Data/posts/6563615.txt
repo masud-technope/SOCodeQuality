@@ -1,0 +1,6 @@
+<p>The RootTools library offers simple methods to check for root:</p>
+
+<pre><code>RootTools.isRootAvailable()
+</code></pre>
+
+<p><a href=""http://code.google.com/p/roottools/"">http://code.google.com/p/roottools/</a></p>

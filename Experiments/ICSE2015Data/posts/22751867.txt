@@ -1,0 +1,44 @@
+<p>There are two issue when using a ListView inside a ScrollView.</p>
+
+<p>1- ListView must fully expand to its children height. this ListView resolve this:</p>
+
+<pre><code>public class ListViewExpanded extends ListView
+{
+    public ListViewExpanded(Context context, AttributeSet attrs)
+    {
+        super(context, attrs);
+        setDividerHeight(0);
+    }
+
+    @Override
+    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
+    {
+        super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE &gt;&gt; 2, MeasureSpec.AT_MOST));
+    }
+}
+</code></pre>
+
+<p>Divider height must be 0, use padding in rows instead.</p>
+
+<p>2- The ListView consumes touch events so ScrollView can't be scrolled as usual. This ScrollView resolve this issue:</p>
+
+<pre><code>public class ScrollViewInterceptor extends ScrollView
+{
+    float startY;
+
+    public ScrollViewInterceptor(Context context, AttributeSet attrs)
+    {
+        super(context, attrs);
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent e)
+    {
+        onTouchEvent(e);
+        if (e.getAction() == MotionEvent.ACTION_DOWN) startY = e.getY();
+        return (e.getAction() == MotionEvent.ACTION_MOVE) &amp;&amp; (Math.abs(startY - e.getY()) &gt; 50);
+    }
+}
+</code></pre>
+
+<p>This is the best way I found to do the trick!</p>

@@ -1,0 +1,102 @@
+<p>The methods below scales AND rotates the bitmap according to the orientation:</p>
+
+<pre><code>public Bitmap scaleAndRotateImage(String path, int orientation, final int targetWidth, final int targetHeight)
+{
+    Bitmap bitmap = null;
+
+    try
+    {
+        // Check the dimensions of the Image
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(path, options);
+
+        // Adjust the Width and Height
+        int sourceWidth, sourceHeight;
+        if (orientation == 90 || orientation == 270)
+        {
+            sourceWidth = options.outHeight;
+            sourceHeight = options.outWidth;
+        }
+        else
+        {
+            sourceWidth = options.outWidth;
+            sourceHeight = options.outHeight;
+        }
+
+        // Calculate the maximum required scaling ratio if required and load the bitmap
+        if (sourceWidth &gt; targetWidth || sourceHeight &gt; targetHeight)
+        {
+            float widthRatio = (float)sourceWidth / (float)targetWidth;
+            float heightRatio = (float)sourceHeight / (float)targetHeight;
+            float maxRatio = Math.max(widthRatio, heightRatio);
+            options.inJustDecodeBounds = false;
+            options.inSampleSize = (int)maxRatio;
+            bitmap = BitmapFactory.decodeFile(path, options);
+        }
+        else
+        {
+            bitmap = BitmapFactory.decodeFile(path);
+        }
+
+        // We need to rotate the bitmap (if required)
+        int orientationInDegrees = exifToDegrees(orientation);
+        if (orientation &gt; 0)
+        {
+            Matrix matrix = new Matrix();
+            if (orientation != 0f)
+            {
+                matrix.preRotate(orientationInDegrees);
+            };
+
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }
+
+        // Re-scale the bitmap if necessary
+        sourceWidth = bitmap.getWidth();
+        sourceHeight = bitmap.getHeight();
+
+        if (sourceWidth != targetWidth || sourceHeight != targetHeight)
+        {
+            float widthRatio = (float)sourceWidth / (float)targetWidth;
+            float heightRatio = (float)sourceHeight / (float)targetHeight;
+            float maxRatio = Math.max(widthRatio, heightRatio);
+            sourceWidth = (int)((float)sourceWidth / maxRatio);
+            sourceHeight = (int)((float)sourceHeight / maxRatio);
+            bitmap = Bitmap.createScaledBitmap(bitmap, sourceWidth, sourceHeight, true);
+        }
+    }
+    catch (Exception e)
+    {
+        Logger.d(""Could not rotate the image"");
+        Logger.d(e.getMessage());
+    }
+    return bitmap;
+}
+</code></pre>
+
+<p>Example:</p>
+
+<pre><code>public void getPictureFromDevice(Uri Uri,ImageView imageView)
+{
+    try
+    {
+        ExifInterface exifInterface = new ExifInterface(Uri.getPath());
+        int orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+
+        Bitmap bitmap = scaleAndRotateImage(Uri.getPath(), orientation, imageView.getWidth(), imageView.getHeight());
+        imageView.setImageBitmap(bitmap);
+    }
+    catch (OutOfMemoryError outOfMemoryError)
+    {
+        Logger.d(outOfMemoryError.getLocalizedMessage());
+        Logger.d(""Failed to load image from filePath (out of memory)"");
+        Logger.d(Uri.toString());
+    }
+    catch (Exception e)
+    {
+        Logger.d(""Failed to load image from filePath"");
+        Logger.d(Uri.toString());
+    }
+}
+</code></pre>

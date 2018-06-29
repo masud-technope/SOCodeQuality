@@ -1,0 +1,26 @@
+<p>I used a little time to figure this out... I ran it some CastExceptions, but figured out that you can replace you LinearLayout in the layout.xml with the name of the class.</p>
+
+<p>Like this:</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""UTF-8""?&gt;
+&lt;LinearLayout android:layout_width=""fill_parent"" android:layout_height=""fill_parent""
+    xmlns:android=""http://schemas.android.com/apk/res/android"" android:id=""@+id/llMaster""&gt;
+
+&lt;com.ourshoppingnote.RelativeLayoutThatDetectsSoftKeyboard android:background=""@drawable/metal_background""
+    android:layout_width=""fill_parent"" android:layout_height=""fill_parent""
+    android:id=""@+id/rlMaster"" &gt;
+    &lt;LinearLayout android:layout_width=""fill_parent""
+        android:layout_height=""1dip"" android:background=""@drawable/line""&gt;&lt;/LinearLayout&gt;
+
+          ....
+
+&lt;/com.ourshoppingnote.RelativeLayoutThatDetectsSoftKeyboard&gt;    
+
+
+&lt;/LinearLayout&gt;
+</code></pre>
+
+<p>That way you do not run into any cast issues.</p>
+
+<p>... and if you don't want to do this on every page, I recommend that you use ""MasterPage in Android"". See the link here:
+<a href=""http://jnastase.alner.net/archive/2011/01/08/ldquomaster-pagesrdquo-in-android.aspx"" rel=""nofollow"">http://jnastase.alner.net/archive/2011/01/08/ldquomaster-pagesrdquo-in-android.aspx</a></p>

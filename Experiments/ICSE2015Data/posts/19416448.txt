@@ -1,0 +1,13 @@
+<p>Within an activity, you can call:</p>
+
+<pre><code>int width = this.getResources().getDisplayMetrics().widthPixels;
+int height = this.getResources().getDisplayMetrics().heightPixels;
+</code></pre>
+
+<p>When you're in a View, then you need to get the Context first:</p>
+
+<pre><code>int width = getApplicationContext().getResources().getDisplayMetrics().widthPixels;
+int height = getApplicationContext().getResources().getDisplayMetrics().heightPixels;
+</code></pre>
+
+<p>This will work in all Android version, available since API 1, and never deprecated.</p>

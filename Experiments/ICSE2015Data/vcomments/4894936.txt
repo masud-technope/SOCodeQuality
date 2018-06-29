@@ -1,0 +1,2 @@
+Assuming an extension exists, I would rather use filename.substring(filename.lastIndexOf('.') + 1) to get the extension. Using regular expression for something simple like this is overkill (and it's slower).
+The point I am trying to get across is to not use regular expression for a simple task like this, not error checking.

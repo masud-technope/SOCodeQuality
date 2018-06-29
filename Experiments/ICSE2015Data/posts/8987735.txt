@@ -1,0 +1,10 @@
+<p>Simply, when you go from the login screen, not when finishing the login screen.</p>
+
+<p>And then in all forward activities, use this for logout:</p>
+
+<pre><code>final Intent intent = new Intent(getBaseContext(), LoginScreen.class);
+intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+context.startActivity(intent);
+</code></pre>
+
+<p>It works perfectly.</p>

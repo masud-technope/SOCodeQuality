@@ -1,0 +1,13 @@
+<pre><code>public boolean check(){
+     ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+    for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) 
+            {
+                if (""com.example.yourpackagename.YourserviceName""
+                        .equals(service.service.getClassName())) 
+                {
+                    return true;
+                }
+            }
+         return false;
+    }
+</code></pre>

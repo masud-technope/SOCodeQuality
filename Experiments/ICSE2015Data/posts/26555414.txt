@@ -1,0 +1,38 @@
+<pre><code>    public static boolean isRootAvailable(){
+            Process p = null;
+            try{
+               p = Runtime.getRuntime().exec(new String[] {""su""});
+               writeCommandToConsole(p,""exit 0"");
+               int result = p.waitFor();
+               if(result != 0)
+                   throw new Exception(""Root check result with exit command "" + result);
+               return true;
+            } catch (IOException e) {
+                Log.e(LOG_TAG, ""Su executable is not available "", e);
+            } catch (Exception e) {
+                Log.e(LOG_TAG, ""Root is unavailable "", e);
+            }finally {
+                if(p != null)
+                    p.destroy();
+            }
+            return false;
+        }
+ private static String writeCommandToConsole(Process proc, String command, boolean ignoreError) throws Exception{
+            byte[] tmpArray = new byte[1024];
+            proc.getOutputStream().write((command + ""\n"").getBytes());
+            proc.getOutputStream().flush();
+            int bytesRead = 0;
+            if(proc.getErrorStream().available() &gt; 0){
+                if((bytesRead = proc.getErrorStream().read(tmpArray)) &gt; 1){
+                    Log.e(LOG_TAG,new String(tmpArray,0,bytesRead));
+                    if(!ignoreError)
+                        throw new Exception(new String(tmpArray,0,bytesRead));
+                }
+            }
+            if(proc.getInputStream().available() &gt; 0){
+                bytesRead = proc.getInputStream().read(tmpArray);
+                Log.i(LOG_TAG, new String(tmpArray,0,bytesRead));
+            }
+            return new String(tmpArray);
+        }
+</code></pre>

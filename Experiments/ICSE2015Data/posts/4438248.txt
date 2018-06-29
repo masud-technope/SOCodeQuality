@@ -1,0 +1,13 @@
+<p>I think the correct way to achieve the desired effect is:</p>
+
+<pre><code>mEditView.setText(""my text"", BufferType.NORMAL);
+</code></pre>
+
+<p>If you want to switch between editable and non-editable you can do the following:</p>
+
+<pre><code>// Switch to non-editable
+mEditView.setText(mEditView.getText(), BufferType.NORMAL);
+
+// Switch back to editable
+mEditView.setText(mEditView.getText(), BufferType.EDITABLE);
+</code></pre>

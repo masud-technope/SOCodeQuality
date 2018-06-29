@@ -1,0 +1,11 @@
+<p>try this </p>
+
+<pre><code>String g1=""Male"";
+    String g2=""Female"";
+    if(gender.equals(g1))
+       salutation =""Mr."";
+    if(gender.equals(g2))
+       salutation =""Ms."";
+</code></pre>
+
+<p>you were ending your if statement  <code>if(gender.equals(g1));</code> &lt;&lt;--- here by adding "";""</p>

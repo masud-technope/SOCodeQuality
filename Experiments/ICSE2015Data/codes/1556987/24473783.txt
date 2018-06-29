@@ -1,0 +1,8 @@
+BringTaskToFront
+if (Build.VERSION.SDK_INT >= 11) {
+    ActivityManager am = (ActivityManager) activity.getSystemService(Activity.ACTIVITY_SERVICE);
+    am.moveTaskToFront(MyActivity.MyActivityTaskId, ActivityManager.MOVE_TASK_WITH_HOME);
+} else {
+    Intent intent = new Intent(activity, MyActivity.class);
+    activity.startActivity(intent);
+}

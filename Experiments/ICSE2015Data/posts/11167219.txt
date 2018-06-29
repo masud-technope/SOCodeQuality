@@ -1,0 +1,12 @@
+<p>Use these two as a class variables:</p>
+
+<pre><code> public java.text.DateFormat dateFormat = new SimpleDateFormat(""dd/MM/yyyy"");
+ private Calendar mDate = null;
+</code></pre>
+
+<p>And use it like this:</p>
+
+<pre><code> mDate = Calendar.getInstance();
+ mDate.set(year,months,day);                   
+ dateFormat.format(mDate.getTime());
+</code></pre>

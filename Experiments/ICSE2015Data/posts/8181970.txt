@@ -1,0 +1,3 @@
+<p>Try taking a look at <a href=""http://stackoverflow.com/questions/3948934/synchronise-scrollview-scroll-positions-android"">this question</a> here on StackOverflow - it's not exactly the same as your question, but it gives an idea on how you can manage the scroll event of a <code>ScrollView</code>.</p>
+
+<p>Basicly you need to create your own <code>CustomScrollView</code> by extending <code>ScrollView</code> and override <code>onScrollChanged(int x, int y, int oldx, int oldy)</code>. Then you need to reference this in your layout file instead of the standard <code>ScrollView</code> like <code>com.mypackage.CustomScrollView</code>.</p>

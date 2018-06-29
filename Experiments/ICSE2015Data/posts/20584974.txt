@@ -1,0 +1,68 @@
+<p>Charlie Collins gave me a perfect answer using Application class, I was not aware of we could subclass it that easily. Here is simplified example using a custom application class.</p>
+
+<p><strong>AndroidManifest.xml</strong><br/>
+Give android:name attribute to use own application class.</p>
+
+<pre><code>...
+&lt;application android:name=""MyApplication""
+    android:allowBackup=""true""
+    android:icon=""@drawable/ic_launcher""
+    android:label=""@string/app_name""
+    android:theme=""@style/AppTheme"" &gt;
+....
+</code></pre>
+
+<p><strong>MyApplication.java</strong><br/>
+Use this as a global reference holder, it works fine within a same process.</p>
+
+<pre><code>public class MyApplication extends Application {
+    private MainActivity mainActivity;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+
+    public void setMainActivity(MainActivity activity) { this.mainActivity=activity; }
+    public MainActivity getMainActivity() { return mainActivity; }
+}
+</code></pre>
+
+<p><strong>MainActivity.java</strong><br/>
+Set global ""singleton"" reference to application instance.</p>
+
+<pre><code>public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ((MyApplication)getApplication()).setMainActivity(this);
+    }
+    ...
+
+}
+</code></pre>
+
+<p><strong>MyPreferences.java</strong><br/>
+Simple example where I use main activity from another activity instance.</p>
+
+<pre><code>public class MyPreferences extends PreferenceActivity 
+            implements SharedPreferences.OnSharedPreferenceChangeListener {
+    @SuppressWarnings(""deprecation"")
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.preferences);
+        PreferenceManager.getDefaultSharedPreferences(this)
+            .registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (!key.equals(""autostart"")) {
+            ((MyApplication)getApplication()).getMainActivity().refreshUI();
+        }
+    }
+
+}
+</code></pre>

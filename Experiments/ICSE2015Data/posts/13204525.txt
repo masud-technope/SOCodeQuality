@@ -1,0 +1,275 @@
+<p>This seems like the appropriate place to share my utility class for loading and processing images with the community, you are welcome to use it and modify it freely.</p>
+
+<pre><code>package com.emil;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+/**
+ * A class to load and process images of various sizes from input streams and file paths.
+ * 
+ * @author Emil http://stackoverflow.com/users/220710/emil
+ *
+ */
+public class ImageProcessing {
+
+    public static Bitmap getBitmap(InputStream stream, int sampleSize, Bitmap.Config bitmapConfig) throws IOException{
+        BitmapFactory.Options options=ImageProcessing.getOptionsForSampling(sampleSize, bitmapConfig);
+        Bitmap bm = BitmapFactory.decodeStream(stream,null,options);
+        if(ImageProcessing.checkDecode(options)){
+            return bm;
+        }else{
+            throw new IOException(""Image decoding failed, using stream."");
+        }
+    }
+
+    public static Bitmap getBitmap(String imgPath, int sampleSize, Bitmap.Config bitmapConfig) throws IOException{
+        BitmapFactory.Options options=ImageProcessing.getOptionsForSampling(sampleSize, bitmapConfig);
+        Bitmap bm = BitmapFactory.decodeFile(imgPath,options);
+        if(ImageProcessing.checkDecode(options)){
+            return bm;
+        }else{
+            throw new IOException(""Image decoding failed, using file path."");
+        }
+    }
+
+    public static Dimensions getDimensions(InputStream stream) throws IOException{
+        BitmapFactory.Options options=ImageProcessing.getOptionsForDimensions();
+        BitmapFactory.decodeStream(stream,null,options);
+        if(ImageProcessing.checkDecode(options)){
+            return new ImageProcessing.Dimensions(options.outWidth,options.outHeight);
+        }else{
+            throw new IOException(""Image decoding failed, using stream."");
+        }
+    }
+
+    public static Dimensions getDimensions(String imgPath) throws IOException{
+        BitmapFactory.Options options=ImageProcessing.getOptionsForDimensions();
+        BitmapFactory.decodeFile(imgPath,options);
+        if(ImageProcessing.checkDecode(options)){
+            return new ImageProcessing.Dimensions(options.outWidth,options.outHeight);
+        }else{
+            throw new IOException(""Image decoding failed, using file path."");
+        }
+    }
+
+    private static boolean checkDecode(BitmapFactory.Options options){
+        // Did decode work?
+        if( options.outWidth&lt;0 || options.outHeight&lt;0 ){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    /**
+     * Creates a Bitmap that is of the minimum dimensions necessary
+     * @param bm
+     * @param min
+     * @return
+     */
+    public static Bitmap createMinimalBitmap(Bitmap bm, ImageProcessing.Minimize min){
+        int newWidth, newHeight;
+        switch(min.type){
+        case WIDTH:
+            if(bm.getWidth()&gt;min.minWidth){
+                newWidth=min.minWidth;
+                newHeight=ImageProcessing.getScaledHeight(newWidth, bm);
+            }else{
+                // No resize
+                newWidth=bm.getWidth();
+                newHeight=bm.getHeight();
+            }
+            break;
+        case HEIGHT:
+            if(bm.getHeight()&gt;min.minHeight){
+                newHeight=min.minHeight;
+                newWidth=ImageProcessing.getScaledWidth(newHeight, bm);
+            }else{
+                // No resize
+                newWidth=bm.getWidth();
+                newHeight=bm.getHeight();
+            }
+            break;
+        case BOTH: // minimize to the maximum dimension
+        case MAX:
+            if(bm.getHeight()&gt;bm.getWidth()){
+                // Height needs to minimized
+                min.minDim=min.minDim!=null ? min.minDim : min.minHeight;
+                if(bm.getHeight()&gt;min.minDim){
+                    newHeight=min.minDim;
+                    newWidth=ImageProcessing.getScaledWidth(newHeight, bm);
+                }else{
+                    // No resize
+                    newWidth=bm.getWidth();
+                    newHeight=bm.getHeight();
+                }
+            }else{
+                // Width needs to be minimized
+                min.minDim=min.minDim!=null ? min.minDim : min.minWidth;
+                if(bm.getWidth()&gt;min.minDim){
+                    newWidth=min.minDim;
+                    newHeight=ImageProcessing.getScaledHeight(newWidth, bm);
+                }else{
+                    // No resize
+                    newWidth=bm.getWidth();
+                    newHeight=bm.getHeight();
+                }
+            }
+            break;
+        default:
+            // No resize
+            newWidth=bm.getWidth();
+            newHeight=bm.getHeight();
+        }
+        return Bitmap.createScaledBitmap(bm, newWidth, newHeight, true);
+    }
+
+    public static int getScaledWidth(int height, Bitmap bm){
+        return (int)(((double)bm.getWidth()/bm.getHeight())*height);
+    }
+
+    public static int getScaledHeight(int width, Bitmap bm){
+        return (int)(((double)bm.getHeight()/bm.getWidth())*width);
+    }
+
+    /**
+     * Get the proper sample size to meet minimization restraints
+     * @param dim
+     * @param min
+     * @param multipleOf2 for fastest processing it is recommended that the sample size be a multiple of 2
+     * @return
+     */
+    public static int getSampleSize(ImageProcessing.Dimensions dim, ImageProcessing.Minimize min, boolean multipleOf2){
+        switch(min.type){
+        case WIDTH:
+            return ImageProcessing.getMaxSampleSize(dim.width, min.minWidth, multipleOf2);
+        case HEIGHT:
+            return ImageProcessing.getMaxSampleSize(dim.height, min.minHeight, multipleOf2);
+        case BOTH:
+            int widthMaxSampleSize=ImageProcessing.getMaxSampleSize(dim.width, min.minWidth, multipleOf2);
+            int heightMaxSampleSize=ImageProcessing.getMaxSampleSize(dim.height, min.minHeight, multipleOf2);
+            // Return the smaller of the two
+            if(widthMaxSampleSize&lt;heightMaxSampleSize){
+                return widthMaxSampleSize;
+            }else{
+                return heightMaxSampleSize;
+            }
+        case MAX:
+            // Find the larger dimension and go bases on that
+            if(dim.width&gt;dim.height){
+                return ImageProcessing.getMaxSampleSize(dim.width, min.minDim, multipleOf2);
+            }else{
+                return ImageProcessing.getMaxSampleSize(dim.height, min.minDim, multipleOf2);
+            }
+        }
+        return 1;
+    }
+
+    public static int getMaxSampleSize(int dim, int min, boolean multipleOf2){
+        int add=multipleOf2 ? 2 : 1;
+        int size=0;
+        while(min&lt;(dim/(size+add))){
+            size+=add;
+        }
+        size = size==0 ? 1 : size;
+        return size;        
+    }
+
+    public static class Dimensions {
+        int width;
+        int height;
+
+        public Dimensions(int width, int height) {
+            super();
+            this.width = width;
+            this.height = height;
+        }
+
+        @Override
+        public String toString() {
+            return width+"" x ""+height;
+        }
+    }
+
+    public static class Minimize {
+        public enum Type {
+            WIDTH,HEIGHT,BOTH,MAX
+        }
+        Integer minWidth;
+        Integer minHeight;
+        Integer minDim;
+        Type type;
+
+        public Minimize(int min, Type type) {
+            super();
+            this.type = type;
+            switch(type){
+            case WIDTH:
+                this.minWidth=min;
+                break;
+            case HEIGHT:
+                this.minHeight=min;
+                break;
+            case BOTH:
+                this.minWidth=min;
+                this.minHeight=min;
+                break;
+            case MAX:
+                this.minDim=min;
+                break;
+            }
+        }
+
+        public Minimize(int minWidth, int minHeight) {
+            super();
+            this.type=Type.BOTH;
+            this.minWidth = minWidth;
+            this.minHeight = minHeight;
+        }
+
+    }
+
+    /**
+     * Estimates size of Bitmap in bytes depending on dimensions and Bitmap.Config
+     * @param width
+     * @param height
+     * @param config
+     * @return
+     */
+    public static long estimateBitmapBytes(int width, int height, Bitmap.Config config){
+        long pixels=width*height;
+        switch(config){
+        case ALPHA_8: // 1 byte per pixel
+            return pixels;
+        case ARGB_4444: // 2 bytes per pixel, but depreciated
+            return pixels*2;
+        case ARGB_8888: // 4 bytes per pixel
+            return pixels*4;
+        case RGB_565: // 2 bytes per pixel
+            return pixels*2;
+        default:
+            return pixels;
+        }
+    }
+
+    private static BitmapFactory.Options getOptionsForDimensions(){
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds=true;
+        return options;
+    }
+
+    private static BitmapFactory.Options getOptionsForSampling(int sampleSize, Bitmap.Config bitmapConfig){
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = false;
+        options.inDither = false;
+        options.inSampleSize = sampleSize;
+        options.inScaled = false;
+        options.inPreferredConfig = bitmapConfig;
+        return options;
+    }
+}
+</code></pre>

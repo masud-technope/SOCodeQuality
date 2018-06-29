@@ -1,0 +1,15 @@
+<p>maybe this will help (rotate 90 degree)(this worked for me)</p>
+
+<pre><code>private Bitmap rotateBitmap(Bitmap image){
+        int width=image.getHeight();
+        int height=image.getWidth();
+
+        Bitmap srcBitmap=Bitmap.createBitmap(width, height, image.getConfig());
+
+        for (int y=width-1;y&gt;=0;y--)
+            for(int x=0;x&lt;height;x++)
+                srcBitmap.setPixel(width-y-1, x,image.getPixel(x, y));
+        return srcBitmap;
+
+    }
+</code></pre>

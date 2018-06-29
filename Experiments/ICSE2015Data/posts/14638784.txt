@@ -1,0 +1,21 @@
+<p>The getWidth method of the Display object is deprecated. Override onSizeChanged to get the size of the WebView when it becomes available.</p>
+
+<pre><code>WebView webView = new WebView(context) {
+
+    @Override
+    protected void onSizeChanged(int w, int h, int ow, int oh) {
+
+        // if width is zero, this method will be called again
+        if (w != 0) {
+
+            Double scale = Double.valueOf(w) / Double.valueOf(WEB_PAGE_WIDTH);
+
+            scale *= 100d;
+
+            setInitialScale(scale.intValue());
+        }
+
+        super.onSizeChanged(w, h, ow, oh);
+    }
+};
+</code></pre>

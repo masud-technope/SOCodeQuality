@@ -1,0 +1,8 @@
+<p>Setting a custom font to a regular ProgressDialog/AlertDialog:</p>
+
+<pre><code>font=Typeface.createFromAsset(getAssets(),""DroidSans.ttf"");
+
+ProgressDialog dialog = ProgressDialog.show(this, ""titleText"", ""messageText"", true);
+((TextView)dialog.findViewById(Resources.getSystem().getIdentifier(""message"", ""id"", ""android""))).setTypeface(font);
+((TextView)dialog.findViewById(Resources.getSystem().getIdentifier(""alertTitle"", ""id"", ""android""))).setTypeface(font);
+</code></pre>

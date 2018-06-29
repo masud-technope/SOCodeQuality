@@ -1,0 +1,23 @@
+<p>You can use SharedPreferences....</p>
+
+<p><strong>1) Logging</strong> time store session id in sharedpreferences</p>
+
+<pre><code>SharedPreferences preferences = getSharedPreferences(""session"",getApplicationContext().MODE_PRIVATE);
+Editor editor = preferences.edit();
+editor.putString(""sessionId"", sessionId);
+editor.commit();
+</code></pre>
+
+<p><strong>2) Signout</strong> time fetch session id in sharedpreferences</p>
+
+<pre><code>SharedPreferences preferences=getSharedPreferences(""session"", getApplicationContext().MODE_PRIVATE);
+String sessionId=preferences.getString(""sessionId"",null);
+</code></pre>
+
+<p>If have not required session id  then removed sharedpreferences</p>
+
+<pre><code>SharedPreferences settings = context.getSharedPreferences(""session"", Context.MODE_PRIVATE);
+settings.edit().clear().commit();
+</code></pre>
+
+<p>that is very use full because one time you save value then retrive any where of acitivity</p>

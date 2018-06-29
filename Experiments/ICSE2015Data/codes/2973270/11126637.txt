@@ -1,0 +1,41 @@
+public class Style {
+
+  /**
+   * Style a single view.
+   */
+  public static void apply(View v) {
+    if (v.getTag() != null) {
+      try {
+        JSONObject json = new JSONObject((String)v.getTag());
+        if (json.has(""typeface"") && v instanceof TextView) {
+          ((TextView)v).setTypeface(Typeface.createFromAsset(v.getContext().getAssets(),
+                                                             json.getString(""typeface"")));
+        }
+      }
+      catch (JSONException e) {
+        // Some views have a tag without it being explicitly set!
+      }
+    }
+  }
+
+  /**
+   * Style the passed view hierarchy.
+   */
+  public static View applyTree(View v) {
+    apply(v);
+    if (v instanceof ViewGroup) {
+      ViewGroup g = (ViewGroup)v;
+      for (int i = 0; i < g.getChildCount(); i++) {
+        applyTree(g.getChildAt(i));
+      }
+    }
+    return v;
+  }
+
+  /**
+   * Inflate, style, and set the content view for the passed activity.
+   */
+  public static void setContentView(Activity activity, int resource) {
+    activity.setContentView(applyTree(activity.getLayoutInflater().inflate(resource, null)));
+  }
+}

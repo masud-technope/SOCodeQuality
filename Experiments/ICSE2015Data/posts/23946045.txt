@@ -1,0 +1,15 @@
+<p>Indeed it is interesting question and so far nobody has deserved award. I use the following code:</p>
+
+<pre><code>  boolean isRooted() {
+      try {
+                ServerSocket ss = new ServerSocket(81);
+                ss.close();
+                                    return true;
+            } catch (Exception e) {
+                // not sure
+            }
+    return false;
+  }
+</code></pre>
+
+<p>The code is certainly not bulletproof, because network can be not available so you get an exception. If this method returns true then 99% you can be sure, otherwise just 50% that not. Networking permission can also spoil the solution.</p>

@@ -1,0 +1,167 @@
+<p>This is the code that provides user current location</p>
+
+<p><strong>create Maps Activty:</strong></p>
+
+<pre><code>public class Maps extends MapActivity {
+
+    public static final String TAG = ""MapActivity"";
+    private MapView mapView;
+    private LocationManager locationManager;
+    Geocoder geocoder;
+    Location location;
+    LocationListener locationListener;
+    CountDownTimer locationtimer;
+    MapController mapController;
+    MapOverlay mapOverlay = new MapOverlay();
+
+    @Override
+    protected void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+        setContentView(R.layout.main);
+        initComponents();
+        mapView.setBuiltInZoomControls(true);
+        mapView.setSatellite(true);
+        mapView.setTraffic(true);
+        mapView.setStreetView(true);
+        mapController = mapView.getController();
+        mapController.setZoom(16);
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        if (locationManager == null) {
+            Toast.makeText(Maps.this, ""Location Manager Not Available"",
+                Toast.LENGTH_SHORT).show();
+            return;
+        }
+        location = locationManager
+                .getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if (location == null)
+            location = locationManager
+                    .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        if (location != null) {
+            double lat = location.getLatitude();
+            double lng = location.getLongitude();
+            Toast.makeText(Maps.this, ""Location Are"" + lat + "":"" + lng,
+                Toast.LENGTH_SHORT).show();
+            GeoPoint point = new GeoPoint((int) (lat * 1E6), (int) (lng * 1E6));
+            mapController.animateTo(point, new Message());
+            mapOverlay.setPointToDraw(point);
+            List&lt;Overlay&gt; listOfOverlays = mapView.getOverlays();
+            listOfOverlays.clear();
+            listOfOverlays.add(mapOverlay);
+        }
+        locationListener = new LocationListener() {
+
+            public void onStatusChanged(String arg0, int arg1, Bundle arg2) {}
+
+            public void onProviderEnabled(String arg0) {}
+
+            public void onProviderDisabled(String arg0) {}
+
+            public void onLocationChanged(Location l) {
+                location = l;
+                locationManager.removeUpdates(this);
+                if (l.getLatitude() == 0 || l.getLongitude() == 0) {
+                } else {
+                    double lat = l.getLatitude();
+                    double lng = l.getLongitude();
+                    Toast.makeText(Maps.this, ""Location Are"" + lat + "":"" + lng,
+                        Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+            locationManager.requestLocationUpdates(
+                LocationManager.GPS_PROVIDER, 1000, 10f, locationListener);
+        locationManager.requestLocationUpdates(
+            LocationManager.NETWORK_PROVIDER, 1000, 10f, locationListener);
+        locationtimer = new CountDownTimer(30000, 5000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                if (location != null) locationtimer.cancel();
+            }
+
+            @Override
+            public void onFinish() {
+                if (location == null) {
+                }
+            }
+        };
+        locationtimer.start();
+    }
+
+    public MapView getMapView() {
+        return this.mapView;
+    }
+
+    private void initComponents() {
+        mapView = (MapView) findViewById(R.id.map_container);
+        ImageView ivhome = (ImageView) this.findViewById(R.id.imageView_home);
+        ivhome.setOnClickListener(new OnClickListener() {
+
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(Maps.this, GridViewContainer.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
+    @Override
+    protected boolean isRouteDisplayed() {
+        return false;
+    }
+
+    class MapOverlay extends Overlay {
+
+        private GeoPoint pointToDraw;
+
+        public void setPointToDraw(GeoPoint point) {
+            pointToDraw = point;
+        }
+
+        public GeoPoint getPointToDraw() {
+            return pointToDraw;
+        }
+
+        @Override
+        public boolean draw(Canvas canvas, MapView mapView, boolean shadow,
+                long when) {
+            super.draw(canvas, mapView, shadow);
+            Point screenPts = new Point();
+            mapView.getProjection().toPixels(pointToDraw, screenPts);
+            Bitmap bmp = BitmapFactory.decodeResource(getResources(),
+                R.drawable.select_map);
+            canvas.drawBitmap(bmp, screenPts.x, screenPts.y - 24, null);
+            return true;
+        }
+    }
+}
+</code></pre>
+
+<p><strong>main.xml:</strong></p>
+
+<pre><code>    &lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+    &lt;LinearLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+        android:layout_width=""match_parent""
+        android:layout_height=""match_parent""
+        android:background=""@android:color/black""
+        android:orientation=""vertical"" &gt;
+
+        &lt;com.google.android.maps.MapView
+            android:id=""@+id/map_container""
+            android:layout_width=""fill_parent""
+            android:layout_height=""fill_parent""
+            android:apiKey=""yor api key""
+            android:clickable=""true""
+            android:focusable=""true"" /&gt;
+
+    &lt;/LinearLayout&gt;
+</code></pre>
+
+<p><strong>and define following permission in manifest:</strong></p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.INTERNET""/&gt;
+&lt;uses-permission android:name=""android.permission.ACCESS_COARSE_LOCATION""/&gt;
+&lt;uses-permission android:name=""android.permission.ACCESS_FINE_LOCATION""/&gt;
+</code></pre>

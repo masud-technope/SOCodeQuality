@@ -1,0 +1,15 @@
+<p>Way late to the party here, but I just have to add Android's own <a href=""http://developer.android.com/reference/android/text/TextUtils.html#isEmpty%28java.lang.CharSequence%29"" rel=""nofollow"">TextUtils.isEmpty(CharSequence str)</a> </p>
+
+<blockquote>
+  <p>Returns true if the string is null or 0-length</p>
+</blockquote>
+
+<p>So if you put your five EditTexts in a list, the full code would be:</p>
+
+<pre><code>for(EditText edit : editTextList){
+    if(TextUtils.isEmpty(edit.getText()){
+        // EditText was empty
+        // Do something fancy
+    }
+}
+</code></pre>

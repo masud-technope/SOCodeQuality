@@ -1,0 +1,5 @@
+Uri uriSms = Uri.parse(""content://sms/inbox"");
+Cursor c = getContentResolver().query(uriSms, null,null,null,null); 
+int id = c.getInt(0);
+int thread_id = c.getInt(1); //get the thread_id
+getContentResolver().delete(Uri.parse(""content://sms/conversations/"" + thread_id),null,null);

@@ -1,0 +1,9 @@
+<p>Another way is to use a public static field in which you store data, i.e.:</p>
+
+<pre><code>public class MyActivity extends Activity {
+
+  public static String SharedString;
+  public static SomeObject SharedObject;
+
+//...
+</code></pre>

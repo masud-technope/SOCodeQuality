@@ -1,0 +1,6 @@
+<p>You can also check all the EditText Strings in one If condition: like this</p>
+
+<pre><code>if (mString.matches("""") || fString.matches("""") || gender==null || docString.matches("""") || dString.matches("""")) {
+                Toast.makeText(WriteActivity.this,""Data Incomplete"", Toast.LENGTH_SHORT).show();
+            }
+</code></pre>

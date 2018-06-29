@@ -1,0 +1,16 @@
+<p>To store information</p>
+
+<pre><code>  SharedPreferences preferences = getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
+  SharedPreferences.Editor editor = preferences.edit();
+  editor.putString(""username"", username.getText().toString());
+  editor.putString(""password"", password.getText().toString());
+  editor.putString(""logged"", ""logged"");
+  editor.commit();
+</code></pre>
+
+<p>To reset your preferences</p>
+
+<pre><code>  SharedPreferences.Editor editor = preferences.edit();
+  editor.clear();
+  editor.commit();
+</code></pre>

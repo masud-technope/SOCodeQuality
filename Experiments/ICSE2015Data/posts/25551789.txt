@@ -1,0 +1,16 @@
+<pre><code>1.try to run all network Task that can take few seconds in AsyncTask 
+
+ Do not use Thread separately in your Android application. it can freeze your UI content of your application.
+check these link 
+</code></pre>
+
+<p><a href=""http://stackoverflow.com/questions/9728032/why-should-i-use-android-service-instead-of-java-thread"">why should i use android service instead of java thread</a> </p>
+
+<pre><code> Check bellow link to know about AsynTask 
+ &lt;http://developer.android.com/reference/android/os/AsyncTask.html&gt;
+
+ 2.If API version is 11 or above android:targetSDk does not allow netwrok on main thread But it works in below in HoneyComb.n 
+
+Try to  remove  android:targetSdkVersion line from your manifest.
+  I did this in 3rd party code and work for me most of time.
+</code></pre>

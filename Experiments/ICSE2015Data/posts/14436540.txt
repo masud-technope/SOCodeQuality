@@ -1,0 +1,70 @@
+<p>why not do clipping in draw()?</p>
+
+<p>Here is my solution:</p>
+
+<ul>
+<li>extend RelativeLayout with clipping</li>
+<li>put ImageView (or other views) into the layout:</li>
+</ul>
+
+<p>code:</p>
+
+<pre><code>public class RoundRelativeLayout extends RelativeLayout {
+
+private final float radius;
+
+public RoundRelativeLayout(Context context, AttributeSet attrs) {
+    super(context, attrs);
+
+    TypedArray attrArray = context.obtainStyledAttributes(attrs,
+            R.styleable.RoundRelativeLayout);
+    radius = attrArray.getDimension(
+            R.styleable.RoundRelativeLayout_radius, 0);
+}
+
+private boolean isPathValid;
+private final Path path = new Path();
+
+private Path getRoundRectPath() {
+    if (isPathValid) {
+        return path;
+    }
+
+    path.reset();
+
+    int width = getWidth();
+    int height = getHeight();
+    RectF bounds = new RectF(0, 0, width, height);
+
+    path.addRoundRect(bounds, radius, radius, Direction.CCW);
+    isPathValid = true;
+    return path;
+}
+
+@Override
+protected void dispatchDraw(Canvas canvas) {
+    canvas.clipPath(getRoundRectPath());
+    super.dispatchDraw(canvas);
+}
+
+@Override
+public void draw(Canvas canvas) {
+    canvas.clipPath(getRoundRectPath());
+    super.draw(canvas);
+}
+
+@Override
+protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+    int oldWidth = getMeasuredWidth();
+    int oldHeight = getMeasuredHeight();
+    super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+    int newWidth = getMeasuredWidth();
+    int newHeight = getMeasuredHeight();
+    if (newWidth != oldWidth || newHeight != oldHeight) {
+        isPathValid = false;
+    }
+}
+}
+</code></pre>

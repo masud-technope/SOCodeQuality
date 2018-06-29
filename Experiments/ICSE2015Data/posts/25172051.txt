@@ -1,0 +1,9 @@
+<p>Again, another alternative that people might find cleaner if they use pending intents (for instance with the <code>AlarmManager</code>: </p>
+
+<pre><code>public static boolean isRunning(Class&lt;? extends Service&gt; serviceClass) {
+    final Intent intent = new Intent(context, serviceClass);
+    return (PendingIntent.getService(context, CODE, intent, PendingIntent.FLAG_NO_CREATE) != null);
+}
+</code></pre>
+
+<p>Where <code>CODE</code> is a constant that you define privately in your class to identify the pending intents associated to your service.</p>

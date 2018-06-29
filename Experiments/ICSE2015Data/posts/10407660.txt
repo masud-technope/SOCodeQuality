@@ -1,0 +1,22 @@
+<p><strong>When the user wishes to exit all open activities</strong>, they should press a button which loads the first Activity that runs when your application starts, clear all the other activities, then have the last remaining activity finish. Have the following code run when the user presses the exit button. In my case, <code>LoginActivity</code> is the first activity in my program to run.</p>
+
+<pre><code>Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+intent.putExtra(""EXIT"", true);
+startActivity(intent);
+</code></pre>
+
+<p>The above code clears all the activities except for <code>LoginActivity</code>. Then put the following code inside the <code>LoginActivity</code>'s <code>onCreate(...)</code>, to listen for when <code>LoginActivity</code> is recreated and the 'EXIT' signal was passed:</p>
+
+<pre><code>if (getIntent().getBooleanExtra(""EXIT"", false)) {
+    finish();  
+}
+</code></pre>
+
+<p><strong>Why is making an exit button in Android so hard?</strong></p>
+
+<p>Android tries hard to discourage you from having an ""exit"" button in your application, because they want the user to never care about whether or not the programs they use are running in the background or not. </p>
+
+<p>The Android OS developers want your program to be able to survive an unexpected shutdown and power off of the phone, and when the user restarts the program, they pick up right where they left off. So the user can receive a phone call while they use your application, and open maps which requires your application to be freed for more resources. </p>
+
+<p>When the user resumes your application, they pick up right where they left off with no interruption. This exit button is usurping power from the activity manager, potentially causing problems with the automatically managed android program life cycle.</p>

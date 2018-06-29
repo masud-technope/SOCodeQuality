@@ -1,0 +1,6 @@
+<p>The current configuration, as used to determine which resources to retrieve etc, as available from the Resources' Configuration object as:</p>
+
+<pre><code>getResources().getConfiguration().orientation
+</code></pre>
+
+<p><a href=""http://developer.android.com/reference/android/content/res/Configuration.html#orientation"">http://developer.android.com/reference/android/content/res/Configuration.html#orientation</a></p>

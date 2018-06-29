@@ -1,0 +1,27 @@
+<p>EDIT: The below implementation proved to have problems on at least some HTC devices (they crashed). For that reason I don't use setclassname and stick with the action chooser menu. I strongly discourage using my old implementation.</p>
+
+<p><strong>Following is the old implementation:</strong></p>
+
+<pre><code>Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(youtubelink));
+                if(Utility.isAppInstalled(""com.google.android.youtube"", getActivity())) {
+                    intent.setClassName(""com.google.android.youtube"", ""com.google.android.youtube.WatchActivity"");
+                }
+                startActivity(intent);
+</code></pre>
+
+<p>Where Utility is my own personal utility class with following methode:</p>
+
+<pre><code>public static boolean isAppInstalled(String uri, Context context) {
+    PackageManager pm = context.getPackageManager();
+    boolean installed = false;
+    try {
+        pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+        installed = true;
+    } catch (PackageManager.NameNotFoundException e) {
+        installed = false;
+    }
+    return installed;
+}
+</code></pre>
+
+<p>First I check if youtube is installed, if it is installed, I tell android which package I prefer to open my intent.</p>

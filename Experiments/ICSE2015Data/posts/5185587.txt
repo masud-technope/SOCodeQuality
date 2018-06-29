@@ -1,0 +1,87 @@
+<p>Yes It is possible.</p>
+
+<p>You have to create a custom view which extends text view.</p>
+
+<p>In <code>attrs.xml</code> in <code>values</code> folder:</p>
+
+<pre><code>&lt;resources&gt;
+    &lt;declare-styleable name=""MyTextView""&gt;
+        &lt;attr name=""first_name"" format=""string""/&gt;
+        &lt;attr name=""last_name"" format=""string""/&gt;
+        &lt;attr name=""ttf_name"" format=""string""/&gt;
+    &lt;/declare-styleable&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p>In <code>main.xml</code>:</p>
+
+<pre><code>&lt;LinearLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+     xmlns:lht=""http://schemas.android.com/apk/res/com.lht""
+    android:orientation=""vertical""
+    android:layout_width=""fill_parent""
+    android:layout_height=""fill_parent""
+    &gt;
+    &lt;TextView  android:layout_width=""fill_parent"" 
+        android:layout_height=""wrap_content""
+        android:text=""Hello""/&gt;
+    &lt;com.lht.ui.MyTextView  
+        android:id=""@+id/MyTextView""
+        android:layout_width=""fill_parent"" 
+        android:layout_height=""wrap_content""
+        android:text=""Hello friends""
+        lht:ttf_name=""ITCBLKAD.TTF""
+        /&gt;   
+&lt;/LinearLayout&gt;
+</code></pre>
+
+<p>In <code>MyTextView.java</code>:</p>
+
+<pre class=""lang-java prettyprint-override""><code>package com.lht.ui;
+
+import android.content.Context;
+import android.graphics.Typeface;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.widget.TextView;
+
+public class MyTextView extends TextView {
+
+    Context context;
+    String ttfName;
+
+    String TAG = getClass().getName();
+
+    public MyTextView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        this.context = context;
+
+        for (int i = 0; i &lt; attrs.getAttributeCount(); i++) {
+            Log.i(TAG, attrs.getAttributeName(i));
+            /*
+             * Read value of custom attributes
+             */
+
+            this.ttfName = attrs.getAttributeValue(
+                    ""http://schemas.android.com/apk/res/com.lht"", ""ttf_name"");
+            Log.i(TAG, ""firstText "" + firstText);
+            // Log.i(TAG, ""lastText ""+ lastText);
+
+            init();
+        }
+
+    }
+
+    private void init() {
+        Typeface font = Typeface.createFromAsset(context.getAssets(), ttfName);
+        setTypeface(font);
+    }
+
+    @Override
+    public void setTypeface(Typeface tf) {
+
+        // TODO Auto-generated method stub
+        super.setTypeface(tf);
+    }
+
+}
+</code></pre>

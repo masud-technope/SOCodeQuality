@@ -1,0 +1,12 @@
+<p><a href=""http://android-developers.blogspot.com/2010/07/multithreading-for-performance.html"">Multithreading For Performance</a>, a tutorial by Gilles Debunne.</p>
+
+<p>This is from the Android Developers Blog. The suggested code uses:</p>
+
+<ul>
+<li><code>AsyncTasks</code>.</li>
+<li>A hard, limited size, <code>FIFO cache</code>.</li>
+<li>A soft, easily <code>garbage collect</code>-ed cache.</li>
+<li>A <em>placeholder</em> <code>Drawable</code> while you download.</li>
+</ul>
+
+<p><img src=""http://i.stack.imgur.com/xdEVJ.png"" alt=""enter image description here""></p>

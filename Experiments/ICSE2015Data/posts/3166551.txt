@@ -1,0 +1,7 @@
+<p>This should work.</p>
+
+<pre><code>DisplayMetrics dm = new DisplayMetrics();
+getWindowManager().getDefaultDisplay().getMetrics(dm);
+int width = dm.widthPixels; //320
+int height = dm.heightPixels; //480
+</code></pre>

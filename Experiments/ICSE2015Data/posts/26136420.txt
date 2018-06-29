@@ -1,0 +1,25 @@
+<p>In your onResume() section of the Activity you can do call the method bringKeyboard();</p>
+
+<pre><code> onResume() {
+     EditText yourEditText= (EditText) findViewById(R.id.yourEditText);
+     bringKeyboard(yourEditText);
+ }
+
+
+  protected boolean bringKeyboard(EditText view) {
+    if (view == null) {
+        return false;
+    }
+    try {
+      // Depending if edittext has some pre-filled values you can decide whether to bring up soft keyboard or not
+        String value = view.getText().toString();
+        if (value == null) {
+            WidgetUtils.showKeyboard(view);
+            return true;
+        }
+    } catch (Exception e) {
+        Log.e(TAG, ""decideFocus. Exception"", e);
+    }
+    return false;
+  }
+</code></pre>

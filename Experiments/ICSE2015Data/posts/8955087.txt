@@ -1,0 +1,5 @@
+<pre><code>public static String getFileExt(String FileName)
+{       
+     return FileName.substring((FileName.lastIndexOf(""."") + 1), FileName.length());
+}
+</code></pre>

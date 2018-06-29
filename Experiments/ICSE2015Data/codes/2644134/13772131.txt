@@ -1,0 +1,5 @@
+Window window = dialog.getWindow();
+            View view = window.getDecorView();
+            final int topPanelId = getResources().getIdentifier( ""topPanel"", ""id"", ""android"" );
+            LinearLayout topPanel = (LinearLayout) view.findViewById(topPanelId);
+            topPanel.setVisibility(View.GONE);

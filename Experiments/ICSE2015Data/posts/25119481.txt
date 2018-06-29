@@ -1,0 +1,21 @@
+<h2>The short answer</h2>
+
+<p>In your <code>OnClick</code> listener call the <code>onEditorAction</code> of the <code>EditText</code> with <code>IME_ACTION_DONE</code></p>
+
+<pre><code>button.setOnClickListener(new OnClickListener() {
+
+    @Override
+    public void onClick(View v) {
+        someEditText.onEditorAction(EditorInfo.IME_ACTION_DONE)
+    }
+});
+</code></pre>
+
+<h2>The drill-down</h2>
+
+<p>I feel this method is better, simpler and more aligned with Android's design pattern.
+In the simple example above (and usually in most of the common cases) you'll have an <code>EditText</code> that has/had focus and it also usually was the one to invoke the keyboard in the first place (it is definitely able to invoke it in many common scenarios). In that same way, <strong>it</strong> should be the one to release the keyboard, usually that can be done by an <code>ImeAction</code>. Just see how an <code>EditText</code> with <code>android:imeOptions=""actionDone""</code> behaves, you want to achieve the same behavior by the same means.</p>
+
+<hr>
+
+<p>Check this <a href=""http://stackoverflow.com/a/3449616/2837443"">related answer</a></p>

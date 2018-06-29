@@ -1,0 +1,330 @@
+<p>I have implemented a solution for:</p>
+
+<ul>
+<li>Dynamic fragment replacement inside the tab</li>
+<li>Maintenance of the history per tab</li>
+<li>Working with orientation changes</li>
+</ul>
+
+<p>The tricks to achieve this are the following:</p>
+
+<ul>
+<li>Use the notifyDataSetChanged() method to apply the fragment replacement</li>
+<li>Use the fragment manager only for back stage and no for fragament replacement</li>
+<li>Maintain the history using the memento pattern (stack)</li>
+</ul>
+
+<p>The adapter code is the following:</p>
+
+<pre><code>public class TabsAdapter extends FragmentStatePagerAdapter implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
+
+/** The sherlock fragment activity. */
+private final SherlockFragmentActivity mActivity;
+
+/** The action bar. */
+private final ActionBar mActionBar;
+
+/** The pager. */
+private final ViewPager mPager;
+
+/** The tabs. */
+private List&lt;TabInfo&gt; mTabs = new LinkedList&lt;TabInfo&gt;();
+
+/** The total number of tabs. */
+private int TOTAL_TABS;
+
+private Map&lt;Integer, Stack&lt;TabInfo&gt;&gt; history = new HashMap&lt;Integer, Stack&lt;TabInfo&gt;&gt;();
+
+/**
+ * Creates a new instance.
+ *
+ * @param activity the activity
+ * @param pager    the pager
+ */
+public TabsAdapter(SherlockFragmentActivity activity, ViewPager pager) {
+    super(activity.getSupportFragmentManager());
+    activity.getSupportFragmentManager();
+    this.mActivity = activity;
+    this.mActionBar = activity.getSupportActionBar();
+    this.mPager = pager;
+    mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+}
+
+/**
+ * Adds the tab.
+ *
+ * @param image         the image
+ * @param fragmentClass the class
+ * @param args          the arguments
+ */
+public void addTab(final Drawable image, final Class fragmentClass, final Bundle args) {
+    final TabInfo tabInfo = new TabInfo(fragmentClass, args);
+    final ActionBar.Tab tab = mActionBar.newTab();
+    tab.setTabListener(this);
+    tab.setTag(tabInfo);
+    tab.setIcon(image);
+
+    mTabs.add(tabInfo);
+    mActionBar.addTab(tab);
+
+    notifyDataSetChanged();
+}
+
+@Override
+public Fragment getItem(final int position) {
+    final TabInfo tabInfo = mTabs.get(position);
+    return Fragment.instantiate(mActivity, tabInfo.fragmentClass.getName(), tabInfo.args);
+}
+
+@Override
+public int getItemPosition(final Object object) {
+    /* Get the current position. */
+    int position = mActionBar.getSelectedTab().getPosition();
+
+    /* The default value. */
+    int pos = POSITION_NONE;
+    if (history.get(position).isEmpty()) {
+        return POSITION_NONE;
+    }
+
+    /* Checks if the object exists in current history. */
+    for (Stack&lt;TabInfo&gt; stack : history.values()) {
+        TabInfo c = stack.peek();
+        if (c.fragmentClass.getName().equals(object.getClass().getName())) {
+            pos = POSITION_UNCHANGED;
+            break;
+        }
+    }
+    return pos;
+}
+
+@Override
+public int getCount() {
+    return mTabs.size();
+}
+
+@Override
+public void onPageScrollStateChanged(int arg0) {
+}
+
+@Override
+public void onPageScrolled(int arg0, float arg1, int arg2) {
+}
+
+@Override
+public void onPageSelected(int position) {
+    mActionBar.setSelectedNavigationItem(position);
+}
+
+@Override
+public void onTabSelected(final ActionBar.Tab tab, final FragmentTransaction ft) {
+    TabInfo tabInfo = (TabInfo) tab.getTag();
+    for (int i = 0; i &lt; mTabs.size(); i++) {
+        if (mTabs.get(i).equals(tabInfo)) {
+            mPager.setCurrentItem(i);
+        }
+    }
+}
+
+@Override
+public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+}
+
+@Override
+public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+}
+
+public void replace(final int position, final Class fragmentClass, final Bundle args) {
+    /* Save the fragment to the history. */
+    mActivity.getSupportFragmentManager().beginTransaction().addToBackStack(null).commit();
+
+    /* Update the tabs. */
+    updateTabs(new TabInfo(fragmentClass, args), position);
+
+    /* Updates the history. */
+    history.get(position).push(new TabInfo(mTabs.get(position).fragmentClass, mTabs.get(position).args));
+
+    notifyDataSetChanged();
+}
+
+/**
+ * Updates the tabs.
+ *
+ * @param tabInfo
+ *          the new tab info
+ * @param position
+ *          the position
+ */
+private void updateTabs(final TabInfo tabInfo, final int position) {
+    mTabs.remove(position);
+    mTabs.add(position, tabInfo);
+    mActionBar.getTabAt(position).setTag(tabInfo);
+}
+
+/**
+ * Creates the history using the current state.
+ */
+public void createHistory() {
+    int position = 0;
+    TOTAL_TABS = mTabs.size();
+    for (TabInfo mTab : mTabs) {
+        if (history.get(position) == null) {
+            history.put(position, new Stack&lt;TabInfo&gt;());
+        }
+        history.get(position).push(new TabInfo(mTab.fragmentClass, mTab.args));
+        position++;
+    }
+}
+
+/**
+ * Called on back
+ */
+public void back() {
+    int position = mActionBar.getSelectedTab().getPosition();
+    if (!historyIsEmpty(position)) {
+        /* In case there is not any other item in the history, then finalize the activity. */
+        if (isLastItemInHistory(position)) {
+            mActivity.finish();
+        }
+        final TabInfo currentTabInfo = getPrevious(position);
+        mTabs.clear();
+        for (int i = 0; i &lt; TOTAL_TABS; i++) {
+            if (i == position) {
+                mTabs.add(new TabInfo(currentTabInfo.fragmentClass, currentTabInfo.args));
+            } else {
+                TabInfo otherTabInfo = history.get(i).peek();
+                mTabs.add(new TabInfo(otherTabInfo.fragmentClass, otherTabInfo.args));
+            }
+        }
+    }
+    mActionBar.selectTab(mActionBar.getTabAt(position));
+    notifyDataSetChanged();
+}
+
+/**
+ * Returns if the history is empty.
+ *
+ * @param position
+ *          the position
+ * @return  the flag if empty
+ */
+private boolean historyIsEmpty(final int position) {
+    return history == null || history.isEmpty() || history.get(position).isEmpty();
+}
+
+private boolean isLastItemInHistory(final int position) {
+    return history.get(position).size() == 1;
+}
+
+/**
+ * Returns the previous state by the position provided.
+ *
+ * @param position
+ *          the position
+ * @return  the tab info
+ */
+private TabInfo getPrevious(final int position) {
+    TabInfo currentTabInfo = history.get(position).pop();
+    if (!history.get(position).isEmpty()) {
+        currentTabInfo = history.get(position).peek();
+    }
+    return currentTabInfo;
+}
+
+/** The tab info class */
+private static class TabInfo {
+
+    /** The fragment class. */
+    public Class fragmentClass;
+
+    /** The args.*/
+    public Bundle args;
+
+    /**
+     * Creates a new instance.
+     *
+     * @param fragmentClass
+     *          the fragment class
+     * @param args
+     *          the args
+     */
+    public TabInfo(Class fragmentClass, Bundle args) {
+        this.fragmentClass = fragmentClass;
+        this.args = args;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        return this.fragmentClass.getName().equals(o.getClass().getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return fragmentClass.getName() != null ? fragmentClass.getName().hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return ""TabInfo{"" +
+                ""fragmentClass="" + fragmentClass +
+                '}';
+    }
+}
+</code></pre>
+
+<p>The very first time you add all tabs, we need to call the method createHistory(), to create the initial history</p>
+
+<pre><code>public void createHistory() {
+    int position = 0;
+    TOTAL_TABS = mTabs.size();
+    for (TabInfo mTab : mTabs) {
+        if (history.get(position) == null) {
+            history.put(position, new Stack&lt;TabInfo&gt;());
+        }
+        history.get(position).push(new TabInfo(mTab.fragmentClass, mTab.args));
+        position++;
+    }
+}
+</code></pre>
+
+<p>Every time you want to replace a fragment to a specific tab you call:
+replace(final int position, final Class fragmentClass, final Bundle args)</p>
+
+<pre><code>/* Save the fragment to the history. */
+    mActivity.getSupportFragmentManager().beginTransaction().addToBackStack(null).commit();
+
+    /* Update the tabs. */
+    updateTabs(new TabInfo(fragmentClass, args), position);
+
+    /* Updates the history. */
+    history.get(position).push(new TabInfo(mTabs.get(position).fragmentClass, mTabs.get(position).args));
+
+    notifyDataSetChanged();
+</code></pre>
+
+<p>On back pressed you need to call the back() method:</p>
+
+<pre><code>public void back() {
+    int position = mActionBar.getSelectedTab().getPosition();
+    if (!historyIsEmpty(position)) {
+        /* In case there is not any other item in the history, then finalize the activity. */
+        if (isLastItemInHistory(position)) {
+            mActivity.finish();
+        }
+        final TabInfo currentTabInfo = getPrevious(position);
+        mTabs.clear();
+        for (int i = 0; i &lt; TOTAL_TABS; i++) {
+            if (i == position) {
+                mTabs.add(new TabInfo(currentTabInfo.fragmentClass, currentTabInfo.args));
+            } else {
+                TabInfo otherTabInfo = history.get(i).peek();
+                mTabs.add(new TabInfo(otherTabInfo.fragmentClass, otherTabInfo.args));
+            }
+        }
+    }
+    mActionBar.selectTab(mActionBar.getTabAt(position));
+    notifyDataSetChanged();
+}
+</code></pre>
+
+<p>The solution works with sherlock action bar and with swipe gesture.</p>

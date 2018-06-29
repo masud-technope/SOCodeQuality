@@ -1,0 +1,4 @@
+<p>If you're looking for the TextView at the position of the item the person long-pressed, you can get it out using something like this:</p>
+
+<pre><code>String s = ((TextView) view.getItemAtPosition(info.position)).getText();
+</code></pre>

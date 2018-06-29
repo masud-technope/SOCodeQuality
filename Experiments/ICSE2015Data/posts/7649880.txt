@@ -1,0 +1,20 @@
+<p>This is a modification based on the above code, a simplest code:</p>
+
+<pre><code>private static int save = -1;
+
+public void onListItemClick(ListView parent, View v, int position, long id) { 
+
+    parent.getChildAt(position).setBackgroundColor(Color.BLUE);
+
+    if (save != -1 &amp;&amp; save != position){
+        parent.getChildAt(save).setBackgroundColor(Color.BLACK);
+    }
+
+    save = position;                
+
+}
+</code></pre>
+
+<p>I hope you find it useful</p>
+
+<p>greetings!</p>

@@ -1,0 +1,17 @@
+<p>This piece of code helps.</p>
+
+<pre><code>Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
+                                           R.drawable.icon_resource);
+</code></pre>
+
+<p><strong>Edit:</strong> Here a version where the image gets downloaded.</p>
+
+<pre><code>String name = c.getString(str_url);
+URL url_value = new URL(name);
+ImageView profile = (ImageView)v.findViewById(R.id.vdo_icon);
+if (profile != null) {
+    Bitmap mIcon1 =
+        BitmapFactory.decodeStream(url_value.openConnection().getInputStream());
+    profile.setImageBitmap(mIcon1);
+}
+</code></pre>

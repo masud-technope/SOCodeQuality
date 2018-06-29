@@ -1,0 +1,3 @@
+<p>its better to use arraylist</p>
+
+<pre><code>arr_fav = {""1"

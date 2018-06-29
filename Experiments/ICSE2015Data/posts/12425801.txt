@@ -1,0 +1,11 @@
+<p>If you use one <code>Activity</code> included a splash screen, then you can do this if you use <code>SherlockActionBar</code></p>
+
+<pre><code>getSupportActionBar().hide();
+</code></pre>
+
+<p>After the splash screen you can show it again with ...</p>
+
+<pre><code>getSupportActionBar().show();
+</code></pre>
+
+<p>It should be the same with native <code>ActionBar</code> of Android.</p>

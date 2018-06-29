@@ -1,0 +1,13 @@
+<p>use <a href=""https://code.google.com/p/google-gson/"" rel=""nofollow"">gson</a> to convert your object to json and pass it through intent , In the new Activity convert the json to object. 
+Example :</p>
+
+<pre><code>    Gson gson = new Gson();
+    String myJson = gson.toJson(vp);
+    intent.putExtra(""myjson"",myjson);
+</code></pre>
+
+<p>and from your new activity:</p>
+
+<pre><code>    Gson gson = new Gson();   
+    YourObject ob = gson.fromJson(getIntent().getStringExtra(""myjson""),YourObject.class);
+</code></pre>

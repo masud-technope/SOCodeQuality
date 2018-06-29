@@ -1,0 +1,13 @@
+<p>And how about this</p>
+
+<pre><code>public static void watchYoutubeVideo(String id){
+    try{
+         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(""vnd.youtube:"" + id));
+         startActivity(intent);                 
+         }catch (ActivityNotFoundException ex){
+             Intent intent=new Intent(Intent.ACTION_VIEW, 
+             Uri.parse(""http://www.youtube.com/watch?v=""+id));
+             startActivity(intent);
+         }
+}
+</code></pre>

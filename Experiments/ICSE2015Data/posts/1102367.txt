@@ -1,0 +1,40 @@
+<p>Some modified builds used to set the <a href=""http://d.android.com/reference/java/lang/System.html#getProperty%28java.lang.String,%20java.lang.String%29"">system property</a> <code>ro.modversion</code> for this purpose. Things seem to have moved on; my build from TheDude a few months ago has this:</p>
+
+<pre><code>cmb@apollo:~$ adb -d shell getprop |grep build
+[ro.build.id]: [CUPCAKE]
+[ro.build.display.id]: [htc_dream-eng 1.5 CUPCAKE eng.TheDudeAbides.20090427.235325 test-keys]
+[ro.build.version.incremental]: [eng.TheDude.2009027.235325]
+[ro.build.version.sdk]: [3]
+[ro.build.version.release]: [1.5]
+[ro.build.date]: [Mon Apr 20 01:42:32 CDT 2009]
+[ro.build.date.utc]: [1240209752]
+[ro.build.type]: [eng]
+[ro.build.user]: [TheDude]
+[ro.build.host]: [ender]
+[ro.build.tags]: [test-keys]
+[ro.build.product]: [dream]
+[ro.build.description]: [kila-user 1.1 PLAT-RC33 126986 ota-rel-keys,release-keys]
+[ro.build.fingerprint]: [tmobile/kila/dream/trout:1.1/PLAT-RC33/126986:user/ota-rel-keys,release-keys]
+[ro.build.changelist]: [17615# end build properties]
+</code></pre>
+
+<p>The emulator from the 1.5 SDK on the other hand, running the 1.5 image, also has root, is probably similar to the <a href=""http://developer.android.com/guide/developing/device.html#dev-phone-1"">Android Dev Phone 1</a> (which you presumably want to allow) and has this:</p>
+
+<pre><code>cmb@apollo:~$ adb -e shell getprop |grep build
+[ro.build.id]: [CUPCAKE]
+[ro.build.display.id]: [sdk-eng 1.5 CUPCAKE 148875 test-keys]
+[ro.build.version.incremental]: [148875]
+[ro.build.version.sdk]: [3]
+[ro.build.version.release]: [1.5]
+[ro.build.date]: [Thu May 14 18:09:10 PDT 2009]
+[ro.build.date.utc]: [1242349750]
+[ro.build.type]: [eng]
+[ro.build.user]: [android-build]
+[ro.build.host]: [undroid16.mtv.corp.google.com]
+[ro.build.tags]: [test-keys]
+[ro.build.product]: [generic]
+[ro.build.description]: [sdk-eng 1.5 CUPCAKE 148875 test-keys]
+[ro.build.fingerprint]: [generic/sdk/generic/:1.5/CUPCAKE/148875:eng/test-keys]
+</code></pre>
+
+<p>As for the retail builds, I don't have one to hand, but various searches under <code>site:xda-developers.com</code> are informative. Here is a <a href=""http://forum.xda-developers.com/showthread.php?t=477103"">G1 in the Netherlands</a>, you can see that <code>ro.build.tags</code> does not have <code>test-keys</code>, and I think that's probably the most reliable property to use.</p>

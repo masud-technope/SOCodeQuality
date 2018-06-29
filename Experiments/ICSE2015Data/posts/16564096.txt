@@ -1,0 +1,16 @@
+<p>Try following code.</p>
+
+<pre><code>LinearLayout layout = (LinearLayout) findViewById(R.id.llayout); 
+layout.setOrientation(LinearLayout.VERTICAL);
+
+Button btn = new Button(this);
+btn.setText(""Button1"");
+
+layout.add(btn);
+
+btn = new Button(this);
+btn.setText(Button2);
+layout.add(btn);
+</code></pre>
+
+<p>like this you add Buttons as per your requirements.</p>

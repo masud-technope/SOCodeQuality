@@ -1,0 +1,28 @@
+<p>To set the summary of a <code>ListPreference</code> to the value selected in a dialog you could use this code:</p>
+
+<pre><code>package yourpackage;
+
+import android.content.Context;
+import android.util.AttributeSet;
+
+public class ListPreference extends android.preference.ListPreference {
+
+    public ListPreference(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    protected void onDialogClosed(boolean positiveResult) {
+        super.onDialogClosed(positiveResult);
+        if (positiveResult) setSummary(getEntry());
+    }
+
+    protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
+        super.onSetInitialValue(restoreValue, defaultValue);
+        setSummary(getEntry());
+    }
+}
+</code></pre>
+
+<p>and reference the <code>yourpackage.ListPreference</code> object in your <code>preferences.xml</code> remembering to specify there your <code>android:defaultValue</code> as this triggers the call to <code>onSetInitialValue()</code>.</p>
+
+<p>If you want you can then modify the text before calling <code>setSummary()</code> to whatever suits your application.</p>

@@ -1,0 +1,8 @@
+This answer should be marked as the right answer. Very elegant solution to the problem, and no permission is needed to perform it.
+Thanks for this solution. I'd like to add: Instead ""com.example.MyService"" is more elegant to use MyService.class.getName().
+Personally, I went with using a static field. Although using getRunningServices() is a more robust solution, I believe there is in these two solutions a tradeoff between robustness and efficiency/simplicity. If you need to check frequently whether a service is running, looping through potentially 30+ running services is not very ideal. The rare case of a service being destroyed by the system can be handled perhaps by a try/catch block or by using START_STICKY.
+No it isn't the right answer because it's also written in the docs: ""Note: this method is only intended for debugging or implementing service management type user interfaces.""  It's not meant for control flow!
+People find it elegant to have to go through all that to check if a server is running?
+This code is incorrect/incomplete. It also needs to check for the package name, as currently there is a chance you'll find services from other packages rather than your own.
+-1. This method is not really sustainable. It does not work on Android KitKat.
+I would discourage the use of this solution. For Android L [they're removing](https://developer.android.com/preview/api-overview.html#Behaviors) ActivityManager.getRecentTasks() and it had the same note in the documentation. So be warned!

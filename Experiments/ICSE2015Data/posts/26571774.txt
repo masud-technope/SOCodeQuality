@@ -1,0 +1,52 @@
+<p>Above Answers are correct. I faced an different issue where in HTC M8 my application crashes when selecting an image from gallery. I'm getting null value for image path. I fixed and optimized with the following solution. in onActivityResult method</p>
+
+<pre><code>protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if ((requestCode == RESULT_LOAD_IMAGE) &amp;&amp; (resultCode == RESULT_OK)) {
+     if (data != null) {
+
+            Uri selectedImageUri = null;
+            selectedImageUri = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+            Cursor imageCursor = mainActivity.getContentResolver().query(
+                    selectedImageUri, filePathColumn, null, null, null);
+
+            if (imageCursor == null) {
+                return;
+            }
+
+            imageCursor.moveToFirst();
+            int columnIndex = imageCursor.getColumnIndex(filePathColumn[0]);
+            picturePath = imageCursor.getString(columnIndex);
+            if (picturePath == null) {
+                picturePath = selectedImageUri.getPath();
+                String wholeID = DocumentsContract
+                        .getDocumentId(selectedImage);
+
+                // Split at colon, use second item in the array
+                String id = wholeID.split("":"")[1];
+
+                String[] column = { MediaStore.Images.Media.DATA };
+
+                // where id is equal to
+                String sel = MediaStore.Images.Media._ID + ""=?"";
+
+                Cursor cursor = mainActivity.getContentResolver().query(
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        column, sel, new String[] { id }, null);
+
+                columnIndex = cursor.getColumnIndex(column[0]);
+
+                if (cursor.moveToFirst()) {
+                    picturePath = cursor.getString(columnIndex);
+                }
+
+                cursor.close();
+            }
+            picturePathAbs = new File(picturePath).getAbsolutePath();
+            imageCursor.close();
+        }
+</code></pre>
+
+<p>}</p>

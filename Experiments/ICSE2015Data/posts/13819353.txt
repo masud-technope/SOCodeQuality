@@ -1,0 +1,6 @@
+<p>Adding this property to the <code>EditText</code> XML works for me:</p>
+
+<pre><code>android:lines=""1""
+</code></pre>
+
+<p>It lets the users input newline characters but the <code>EditText</code> itself does not increase in height.</p>

@@ -1,0 +1,5 @@
+<p>Add following lines after <code>finish();</code> in <code>onDestroy()</code>:</p>
+
+<pre><code>android.os.Process.killProcess(android.os.Process.myPid());
+super.onDestroy();
+</code></pre>

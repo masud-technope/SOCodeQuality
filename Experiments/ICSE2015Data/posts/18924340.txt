@@ -1,0 +1,9 @@
+<p>For a simple number that is unique to the device and constant for its lifetime (barring a factory reset or hacking), use <a href=""http://developer.android.com/reference/android/provider/Settings.Secure.html"" rel=""nofollow"">Settings.Secure.ANDROID_ID</a>.</p>
+
+<pre><code>String id = Secure.getString(getContentResolver(), Secure.ANDROID_ID);
+</code></pre>
+
+<p>To use the device serial number (the one shown in ""System Settings / About / Status"") if available and fall back to Android ID:</p>
+
+<pre><code>String serialNumber = Build.SERIAL != Build.UNKNOWN ? Build.SERIAL : Secure.getString(getContentResolver(), Secure.ANDROID_ID);
+</code></pre>

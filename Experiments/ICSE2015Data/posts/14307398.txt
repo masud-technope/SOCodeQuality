@@ -1,0 +1,18 @@
+<p>This whole problem would just go away if LinearLayout had a setAdapter method, because then when you told someone to use it instead the alternative would be trivial.</p>
+
+<p>If you actually want a scrolling ListView inside another scrolling view this won't help, but otherwise this will at least give you an idea. </p>
+
+<p>You need to create a custom adapter to combine all the content you want to scroll over and set the ListView's adapter to that.</p>
+
+<p>I don't have sample code handy, but if you want something like.</p>
+
+<pre><code>&lt;ListView/&gt;
+
+(other content)
+
+&lt;ListView/&gt;
+</code></pre>
+
+<p>Then you need to create an adapter that represents all of that content.  The ListView/Adapters are smart enough to handle different types as well, but you need to write the adapter yourself.</p>
+
+<p>The android UI API just isn't as mature as pretty much everything else out there, so it doesn't have the same niceties as other platforms.  Also, when doing something on android you need to be in an android (unix) mindset where you expect that to do anything you're probably going to have to assemble functionality of smaller parts and write a bunch of your own code to get it to work.</p>

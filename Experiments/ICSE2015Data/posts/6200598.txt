@@ -1,0 +1,12 @@
+<p>You have two options:</p>
+
+<p>Option 1 (only works for bold, italic and underline):</p>
+
+<pre><code>String s = ""&lt;b&gt;Bolded text&lt;/b&gt;, &lt;i&gt;italic text&lt;/i&gt;, even &lt;u&gt;underlined&lt;/u&gt;!""
+TextView tv = (TextView)findViewById(R.id.THE_TEXTVIEW_ID);
+tv.setText(Html.fromHtml(s));
+</code></pre>
+
+<p>Option 2:</p>
+
+<p>Use a <a href=""http://developer.android.com/reference/android/text/Spannable.html"">Spannable</a>; it is more complicated, but you can dynamically modify the text attributes (not only bold/italic, also colors).</p>

@@ -1,0 +1,13 @@
+<pre><code>    EditText textView = new EditText(activity);
+    ...
+    textView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+            if(KeyEvent.KEYCODE_ENTER == keyEvent.getKeyCode()) {
+                return false;
+            }
+            ....... 
+
+        }
+    });
+</code></pre>

@@ -1,0 +1,11 @@
+<p>Meier's solution works for me too.  In my case the top level of my App is a tabHost and I want to hide the keyword when switching tabs - I get the window token from the tabHost View.</p>
+
+<pre><code>   tabHost.setOnTabChangedListener(new OnTabChangeListener()
+        {
+        public void onTabChanged(String tabId)
+            {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(tabHost.getApplicationWindowToken(), 0);
+            }
+        }
+</code></pre>

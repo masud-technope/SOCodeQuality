@@ -1,0 +1,8 @@
+<p>Top answer of @spektom works perfect. Thanks.</p>
+
+<p>If you are writing the <code>AsyncTask</code> inline and not extending as a Class, and on top of this, if there is a need to get a response out of the <code>AsyncTask</code>, one can use the <code>get()</code> method as below.</p>
+
+<pre><code>RSSFeed feed = new RetreiveFeedTask().execute(urlToRssFeed).get();
+</code></pre>
+
+<p>(from his example)</p>

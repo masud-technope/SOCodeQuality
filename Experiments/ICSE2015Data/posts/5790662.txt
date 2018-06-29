@@ -1,0 +1,30 @@
+<p>I ended up using a <code>Button</code> instead. While a <code>Button</code> is not a <code>Spinner</code>, the behavior is easy to customize.</p>
+
+<p>First create the Adapter as usual:</p>
+
+<pre><code>String[] items = new String[] {""One"", ""Two"", ""Three""};
+ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(this,
+        android.R.layout.simple_spinner_dropdown_item, items);
+</code></pre>
+
+<p>Note that I am using the <code>simple_spinner_dropdown_item</code> as the layout id. This will help create a better look when creating the alert dialog.</p>
+
+<p>In the onClick handler for my Button I have:</p>
+
+<pre><code>public void onClick(View w) {
+  new AlertDialog.Builder(this)
+  .setTitle(""the prompt"")
+  .setAdapter(adapter, new DialogInterface.OnClickListener() {
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+
+      // TODO: user specific action
+
+      dialog.dismiss();
+    }
+  }).create().show();
+}
+</code></pre>
+
+<p>And that's it!</p>

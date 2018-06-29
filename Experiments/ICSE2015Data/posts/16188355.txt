@@ -1,0 +1,29 @@
+<p>Try below code:-</p>
+
+<pre><code>SimpleDateFormat dateFormat = new SimpleDateFormat(
+                ""yyyy/MM/dd HH:mm:ss"");
+        Calendar cal = Calendar.getInstance();
+        System.out.println(""time =&gt; "" + dateFormat.format(cal.getTime()));
+
+        String time_str = dateFormat.format(cal.getTime());
+
+        String[] s = time_str.split("" "");
+
+        for (int i = 0; i &lt; s.length; i++) {
+             System.out.println(""date  =&gt; "" + s[i]);
+        }
+
+        int year_sys = Integer.parseInt(s[0].split(""/"")[0]);
+        int month_sys = Integer.parseInt(s[0].split(""/"")[1]);
+        int day_sys = Integer.parseInt(s[0].split(""/"")[2]);
+
+        int hour_sys = Integer.parseInt(s[1].split("":"")[0]);
+        int min_sys = Integer.parseInt(s[1].split("":"")[1]);
+
+        System.out.println(""year_sys  =&gt; "" + year_sys);
+        System.out.println(""month_sys  =&gt; "" + month_sys);
+        System.out.println(""day_sys  =&gt; "" + day_sys);
+
+        System.out.println(""hour_sys  =&gt; "" + hour_sys);
+        System.out.println(""min_sys  =&gt; "" + min_sys);
+</code></pre>

@@ -1,0 +1,5 @@
+<pre><code>if(gender.equals(g1)); &lt;---
+if(gender == ""Female""); &lt;---
+</code></pre>
+
+<p>You have semicolon after if.REMOVE IT.</p>

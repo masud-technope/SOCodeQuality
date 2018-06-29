@@ -1,0 +1,20 @@
+<p>I too faced a scenario and I resolved in this way.</p>
+
+<ol>
+<li>Store the values that you want to show, in a static way (Ex.POJO).</li>
+<li>Check whether the stored static variable is not null and not empty.</li>
+<li>if, its not empty / not null / its length greater than 0, set <code>dismissDropDown()</code> for that autocompleteTextView.</li>
+</ol>
+
+<p>Please find the below snippet </p>
+
+<pre><code>if(null != testText &amp;&amp; testText.length() != 0) {
+    mAutoCompleteSearch.setText(incomingActivity.toString());
+    mAutoCompleteSearch.dismissDropDown(); //Dismiss the drop down
+    } else {
+    mAutoCompleteSearchDocketActivity.setText("""");
+            // Here it(drop down) will be shown automatically
+    }
+</code></pre>
+
+<p>Hope, this would help for someone, Cheers !</p>

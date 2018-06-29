@@ -1,0 +1,20 @@
+<p>Standard way to do this is to use the custom styles.
+Ex-</p>
+
+<p>In styles.xml add the following.</p>
+
+<pre><code>&lt;resources xmlns:android=""http://schemas.android.com/apk/res/android""&gt;
+&lt;style name=""MyApp.TextAppearance.LoginText""&gt;
+    &lt;item name=""android:textStyle""&gt;bold|italic&lt;/item&gt;
+&lt;/style&gt;
+</code></pre>
+
+<p></p>
+
+<p>Apply this style to your TextView as follows.</p>
+
+<pre><code>&lt;TextView
+    android:layout_width=""wrap_content""
+    android:layout_height=""wrap_content""
+    style=""@style/MyApp.TextAppearance.LoginText"" /&gt;
+</code></pre>

@@ -1,0 +1,2 @@
+<pre><code>int PIC_WIDTH= webView.getRight()-webView.getLeft();
+</code></pre>

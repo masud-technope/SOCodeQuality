@@ -1,0 +1,4 @@
+<p>Probably the best way if you have the dimension inside values/dimen is to get the dimension directly from getDimension() method, it will return you the dimension already converted into pixel value.</p>
+
+<pre><code>context.getResources().getDimension(R.dimen.my_dimension)
+</code></pre>

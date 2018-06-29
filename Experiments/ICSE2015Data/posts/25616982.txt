@@ -1,0 +1,6 @@
+<p>Use this :</p>
+
+<pre><code>    PackageManager pm = getPackageManager();
+    Intent intent = pm.getLaunchIntentForPackage(""com.package.name"");
+    startActivity(intent);
+</code></pre>

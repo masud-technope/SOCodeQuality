@@ -1,0 +1,15 @@
+<p>hcpl's methods work perfectly pre-KitKat, but not working with the DocumentsProvider API. For that just simply follow the official Android tutorial for documentproviders: <a href=""https://developer.android.com/guide/topics/providers/document-provider.html"" rel=""nofollow"">https://developer.android.com/guide/topics/providers/document-provider.html</a> -> open a document, Bitmap section.</p>
+
+<p>Simply I used hcpl's code and extended it: if the file with the retrieved path to the image throws exception I call this function:</p>
+
+<pre><code>private Bitmap getBitmapFromUri(Uri uri) throws IOException {
+        ParcelFileDescriptor parcelFileDescriptor =
+             getContentResolver().openFileDescriptor(uri, ""r"");
+        FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+        Bitmap image = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+        parcelFileDescriptor.close();
+        return image;
+}
+</code></pre>
+
+<p>Tested on Nexus 5.</p>

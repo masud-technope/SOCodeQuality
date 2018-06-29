@@ -1,0 +1,12 @@
+<p>Following this: <a href=""http://developer.android.com/reference/android/text/format/Time.html"">http://developer.android.com/reference/android/text/format/Time.html</a></p>
+
+<p>Is better to use Android native Time class:</p>
+
+<pre><code>Time now = new Time();
+now.setToNow();
+</code></pre>
+
+<p>Then format:</p>
+
+<pre><code>Log.d(""DEBUG"", ""Time ""+now.format(""%d.%m.%Y %H.%M.%S""));
+</code></pre>

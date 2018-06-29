@@ -1,0 +1,18 @@
+<p>Using my library at <a href=""http://www.github.com/vaibhavpandeyvpz/rootbox"" rel=""nofollow"" title=""Go to github project"">rootbox</a>, it is pretty easy. Check the required code below:</p>
+
+<pre><code>    //Pass true to &lt;Shell&gt;.start(...) call to run as superuser
+    Shell shell = null;
+    try {
+            shell = Shell.start(true);
+    } catch (IOException exception) {
+            exception.printStackTrace();
+    }
+    if (shell == null)
+            // We failed to execute su binary
+            return;
+    if (shell.isRoot()) {
+            // Verified running as uid 0 (root), can continue with commands
+            ...
+    } else
+            throw Exception(""Unable to gain root access. Make sure you pressed Allow/Grant in superuser prompt."");
+</code></pre>

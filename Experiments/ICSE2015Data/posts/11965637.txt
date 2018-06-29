@@ -1,0 +1,6 @@
+<p>I tried and find one solution for this. I think it will help you..</p>
+
+<pre><code>searchView.setBackgroundColor(Color.WHITE);
+</code></pre>
+
+<p><img src=""http://i.stack.imgur.com/Hrlml.png"" alt=""enter image description here""></p>

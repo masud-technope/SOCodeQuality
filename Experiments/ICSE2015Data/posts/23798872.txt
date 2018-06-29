@@ -1,0 +1,14 @@
+<p><a href=""http://square.github.io/picasso/"" rel=""nofollow""><strong>Picasso</strong></a> allows for hassle-free image loading in your application—often in one line of code!</p>
+
+<pre><code>Picasso.with(context).load(""http://i.imgur.com/DvpvklR.png"").into(imageView);
+</code></pre>
+
+<p>Many common pitfalls of image loading on Android are handled automatically by <a href=""http://square.github.io/picasso/"" rel=""nofollow""><strong>Picasso</strong></a>:</p>
+
+<ul>
+<li>Handling ImageView recycling and download cancelation in an adapter.</li>
+<li>Complex image transformations with minimal memory use.</li>
+<li>Automatic memory and disk caching.</li>
+</ul>
+
+<p><img src=""http://i.stack.imgur.com/ILaaN.png"" alt=""enter image description here""></p>

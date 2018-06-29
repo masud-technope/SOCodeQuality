@@ -1,0 +1,23 @@
+<p>It is not complex to check Android network / internet connectivity status. The below <code>DetectConnection</code> class will help you to check this status:</p>
+
+<pre><code>import android.content.Context;
+import android.net.ConnectivityManager;
+
+public class DetectConnection {
+    public static boolean checkInternetConnection(Context context) {
+        ConnectivityManager con_manager = (ConnectivityManager) context
+                                .getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        if (con_manager.getActiveNetworkInfo() != null
+            &amp;&amp; con_manager.getActiveNetworkInfo().isAvailable()
+            &amp;&amp; con_manager.getActiveNetworkInfo().isConnected()) {
+                return true;
+        } else {
+            return false;
+        }
+    }
+}
+</code></pre>
+
+<p>For more details visit 
+<a href=""http://javasrilankansupport.blogspot.com/2012/07/how-to-check-android-network-internet.html"" rel=""nofollow"">How to Check Android Network / Internet Connectivity Status</a></p>

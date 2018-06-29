@@ -1,0 +1,34 @@
+<p>Version with exception handling and async task:</p>
+
+<pre><code>AsyncTask&lt;URL, Void, Boolean&gt; asyncTask = new AsyncTask&lt;URL, Void, Boolean&gt;() {
+    public Bitmap mIcon_val;
+    public IOException error;
+
+    @Override
+    protected Boolean doInBackground(URL... params) {
+        try {
+            mIcon_val = BitmapFactory.decodeStream(params[0].openConnection().getInputStream());
+        } catch (IOException e) {
+            this.error = e;
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    protected void onPostExecute(Boolean success) {
+        super.onPostExecute(success);
+        if (success) {
+            image.setImageBitmap(mIcon_val);
+        } else {
+            image.setImageBitmap(defaultImage);
+        }
+    }
+};
+try {
+    URL url = new URL(url);
+    asyncTask.execute(url);
+} catch (MalformedURLException e) {
+    e.printStackTrace();
+}
+</code></pre>

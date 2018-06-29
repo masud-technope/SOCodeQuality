@@ -1,0 +1,15 @@
+<p><strong>Store in SharedPreferences</strong></p>
+
+<pre><code>SharedPreferences preferences = getSharedPreferences(""temp"", getApplicationContext().MODE_PRIVATE);
+Editor editor = preferences.edit();
+editor.putString(""name"", name);
+editor.commit();
+</code></pre>
+
+<p><strong>Fetch in SharedPreferences</strong></p>
+
+<pre><code>SharedPreferences preferences=getSharedPreferences(""temp"", getApplicationContext().MODE_PRIVATE);
+String name=preferences.getString(""name"",null);
+</code></pre>
+
+<p>Note: ""temp"" is sharedpreferences name and ""name"" is input value. if value does't exit then return null </p>

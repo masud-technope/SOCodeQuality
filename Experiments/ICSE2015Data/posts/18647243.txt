@@ -1,0 +1,10 @@
+<pre><code>&lt;activity
+    ...
+    android:windowSoftInputMode=""stateVisible"" &gt;
+&lt;/activity&gt;
+</code></pre>
+
+<p>or</p>
+
+<pre><code>getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+</code></pre>

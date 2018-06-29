@@ -1,0 +1,28 @@
+<p>use a PhoneStateListener to see when the call is ended.  you will most likely need to trigger the listener actions to wait for a the call to start (wait until changed from PHONE_STATE_OFFHOOK to PHONE_STATE_IDLE again) and then write some code to bring your app back up on the IDLE state.  </p>
+
+<p>you may need to run the listener in a service to ensure it stays up and your app is restarted.  some example code:</p>
+
+<pre><code>EndCallListener callListener = new EndCallListener();
+TelephonyManager mTM = (TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
+mTM.listen(callListener, PhoneStateListener.LISTEN_CALL_STATE);
+</code></pre>
+
+<p>Listener definition:</p>
+
+<pre><code>private class EndCallListener extends PhoneStateListener {
+    @Override
+    public void onCallStateChanged(int state, String incomingNumber) {
+        if(TelephonyManager.CALL_STATE_RINGING == state) {
+            Log.i(LOG_TAG, ""RINGING, number: "" + incomingNumber);
+        }
+        if(TelephonyManager.CALL_STATE_OFFHOOK == state) {
+            //wait for phone to go offhook (probably set a boolean flag) so you know your app initiated the call.
+            Log.i(LOG_TAG, ""OFFHOOK"");
+        }
+        if(TelephonyManager.CALL_STATE_IDLE == state) {
+            //when this state occurs, and your flag is set, restart your app
+            Log.i(LOG_TAG, ""IDLE"");
+        }
+    }
+}
+</code></pre>

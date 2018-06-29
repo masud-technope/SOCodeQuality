@@ -1,0 +1,147 @@
+<h1>TL;DR: 1-2-3 dead easy steps for a global solution:</h1>
+
+<ol>
+<li>Download <a href=""https://docs.google.com/open?id=0B-Q8sq_qCRv3V1NEbk5kTlJXSm8"">this</a> class.</li>
+<li>Implement <code>OnDateSetListener</code> in your activity (or change the class to suit your needs).</li>
+<li><p>Trigger the dialog with this code (in this sample, I use it inside a <code>Fragment</code>):</p>
+
+<pre><code>Bundle b = new Bundle();
+b.putInt(DatePickerDialogFragment.YEAR, 2012);
+b.putInt(DatePickerDialogFragment.MONTH, 6);
+b.putInt(DatePickerDialogFragment.DATE, 17);
+DialogFragment picker = new DatePickerDialogFragment();
+picker.setArguments(b);
+picker.show(getActivity().getSupportFragmentManager(), ""frag_date_picker"");
+</code></pre></li>
+</ol>
+
+<p><strong>And that's all it takes!</strong> The reason I still keep my answer as ""accepted"" is because I still prefer my solution since it has a very small footprint in client code, it addresses the fundamental issue (the listener being called in the framework class), works fine across config changes and it routes the code logic to the default implementation in previous Android versions not plagued by this bug (see class source).</p>
+
+<h1><em>Original answer (kept for historical and didactic reasons):</em></h1>
+
+<p><em>--- <strong>Note: I'm using a temporary workaround. See end of answer.</strong> ---</em></p>
+
+<h1>Bug source</h1>
+
+<p>OK, looks like it's indeed a bug and someone else already filled it. <a href=""http://code.google.com/p/android/issues/detail?id=34833"">Issue 34833</a>.</p>
+
+<p>I've found that the problem is possibly in <code>DatePickerDialog.java</code>. Where it reads:</p>
+
+<pre><code>private void tryNotifyDateSet() {
+    if (mCallBack != null) {
+        mDatePicker.clearFocus();
+        mCallBack.onDateSet(mDatePicker, mDatePicker.getYear(),
+                mDatePicker.getMonth(), mDatePicker.getDayOfMonth());
+    }
+}
+
+@Override
+protected void onStop() {
+    tryNotifyDateSet();
+    super.onStop();
+}
+</code></pre>
+
+<p>I'd guess it could have been:</p>
+
+<pre><code>@Override
+protected void onStop() {
+    // instead of the full tryNotifyDateSet() call:
+    if (mCallBack != null) mDatePicker.clearFocus();
+    super.onStop();
+}
+</code></pre>
+
+<p>Now if someone can tell me how I can propose a patch/bug report to Android, I'd be glad to. Meanwhile, I suggested a possible fix (simple) as an attached version of <code>DatePickerDialog.java</code> in the Issue there.</p>
+
+<h1>Concept to avoid the bug</h1>
+
+<p><strong>Set the listener to <code>null</code> in the constructor and create your own <code>BUTTON_POSITIVE</code> button later on</strong>. That's it, details below.</p>
+
+<p>The problem happens because <code>DatePickerDialog.java</code>, as you can see in the source, calls a global variable (<code>mCallBack</code>) that stores the listener that was passed in the constructor:</p>
+
+<pre><code>    /**
+ * @param context The context the dialog is to run in.
+ * @param callBack How the parent is notified that the date is set.
+ * @param year The initial year of the dialog.
+ * @param monthOfYear The initial month of the dialog.
+ * @param dayOfMonth The initial day of the dialog.
+ */
+public DatePickerDialog(Context context,
+        OnDateSetListener callBack,
+        int year,
+        int monthOfYear,
+        int dayOfMonth) {
+    this(context, 0, callBack, year, monthOfYear, dayOfMonth);
+}
+
+    /**
+ * @param context The context the dialog is to run in.
+ * @param theme the theme to apply to this dialog
+ * @param callBack How the parent is notified that the date is set.
+ * @param year The initial year of the dialog.
+ * @param monthOfYear The initial month of the dialog.
+ * @param dayOfMonth The initial day of the dialog.
+ */
+public DatePickerDialog(Context context,
+        int theme,
+        OnDateSetListener callBack,
+        int year,
+        int monthOfYear,
+        int dayOfMonth) {
+    super(context, theme);
+
+    mCallBack = callBack;
+    // ... rest of the constructor.
+}
+</code></pre>
+
+<p>So, the trick is to provide a <code>null</code> listener to be stored as the listener, and then roll your own set of buttons (below is the original code from #1, updated):</p>
+
+<pre><code>    DatePickerDialog picker = new DatePickerDialog(
+        this,
+        null, // instead of a listener
+        2012, 6, 15);
+    picker.setCancelable(true);
+    picker.setCanceledOnTouchOutside(true);
+    picker.setButton(DialogInterface.BUTTON_POSITIVE, ""OK"",
+        new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.d(""Picker"", ""Correct behavior!"");
+            }
+        });
+    picker.setButton(DialogInterface.BUTTON_NEGATIVE, ""Cancel"", 
+        new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.d(""Picker"", ""Cancel!"");
+            }
+        });
+picker.show();
+</code></pre>
+
+<p>Now it will work because of the possible correction that I posted above. </p>
+
+<p><strong>And since <code>DatePickerDialog.java</code> checks for a <code>null</code> whenever it reads <code>mCallback</code> (<a href=""http://grepcode.com/search?query=DatePickerDialog&amp;start=0&amp;entity=type&amp;n="">since the days of API 3/1.5 it seems</a> --- can't check Honeycomb of course), it won't trigger the exception.</strong></p>
+
+<p>At first I was afraid of not calling the <code>clearFocus()</code>, but I've tested here and the Log lines were clean. So that line I proposed may not even be necessary after all, but I don't know.</p>
+
+<h1>Compatibility with previous API levels <em>(edited)</em></h1>
+
+<p>As I pointed in the comment below, that was a concept, and you can <a href=""https://docs.google.com/open?id=0B-Q8sq_qCRv3V1NEbk5kTlJXSm8"">download the class I'm using from my Google Drive account</a> or use <a href=""http://paste.ubuntu.com/6890703/"">DatePickerDialogFragment</a>. </p>
+
+<p>I took a few assumptions (button names etc.) that are suitable for my needs because I wanted to reduce boilerplate code in client classes to a minimum. Full usage example:</p>
+
+<pre><code>class YourActivity extends SherlockFragmentActivity implements OnDateSetListener
+
+// ...
+
+Bundle b = new Bundle();
+b.putInt(DatePickerDialogFragment.YEAR, 2012);
+b.putInt(DatePickerDialogFragment.MONTH, 6);
+b.putInt(DatePickerDialogFragment.DATE, 17);
+DialogFragment picker = new DatePickerDialogFragment();
+picker.setArguments(b);
+picker.show(getActivity().getSupportFragmentManager(), ""fragment_date_picker"");
+</code></pre>

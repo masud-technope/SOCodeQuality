@@ -1,0 +1,9 @@
+<p>If you want to close the soft keyboard during a unit or functional test, you can do so by clicking the ""back button"" from your test:</p>
+
+<pre><code>// Close the soft keyboard from a Test
+getInstrumentation().sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);
+</code></pre>
+
+<p>I put ""back button"" in quotes, since the above doesn't trigger the <code>onBackPressed()</code> for the Activity in question. It just closes the keyboard.</p>
+
+<p>Make sure to pause for a little while before moving on, since it takes a little while to close the back button, so subsequent clicks to Views, etc., won't be registered until after a short pause (1 second is long enough ime).</p>

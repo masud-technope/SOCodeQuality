@@ -1,0 +1,7 @@
+<p>I did the following to take the image and resize it on the fly. Hope this helps</p>
+
+<pre><code> Bitmap bm;
+ bm = Bitmap.createScaledBitmap(BitmapFactory.decodeFile(filepath),100, 100, true);
+ mPicture = new ImageView(context);
+ mPicture.setImageBitmap(bm);
+</code></pre>

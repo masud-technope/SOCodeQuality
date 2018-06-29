@@ -1,0 +1,63 @@
+<p><br>Try the below concepts.
+<br></p>
+
+<pre><code>DatePickerDialog picker = new DatePickerDialog(
+        this,
+        new OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker v, int y, int m, int d) {
+                Log.d(""Picker"", ""Set!"");
+            }
+        },
+        2012, 6, 15);
+picker.show();
+</code></pre>
+
+<p><br>the onDateSet() method calls twice (if u are checking in emulator.it calls twice.If are using real device then it will call correctly single time.If you are using emulator then use the counter.if you are working in real device then ignore counter variable.For real device its working for me.)
+<br>when user clicks the button in DatePickerDialog .<br>for this you should maintain a counter value and nothing do when the mothod calls first time and perform the operation when the method calls 2nd time.
+<br> Refer the below coding snippets</p>
+
+<pre><code>   static int counter=0;       //Counter will be declared globally.
+
+    DatePickerDialog picker = new DatePickerDialog(
+            this,
+            new OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker v, int y, int m, int d) {
+
+                   counter++;
+                   if(counter==1) return;
+                   counter=0;
+                   //Do the operations here
+
+                }
+            },
+            2012, 6, 15);
+    picker.show();
+</code></pre>
+
+<p><br>
+<br>For cancelling datepicker dilalog its working for me.For emulator its not wokring
+<br></p>
+
+<pre><code>DialogInterface.OnClickListener dialogOnClickListener=new DialogInterface.OnClickListener()
+        {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+
+                if(which==Dialog.BUTTON_NEGATIVE)
+                {
+                    Log.i(tagName, ""dialog negative button clicked"");
+                    dialog.dismiss();
+                }
+
+            }
+
+        };
+
+        mDatePickerDialog.setButton(Dialog.BUTTON_NEGATIVE, ""Cancel"", dialogOnClickListener);
+</code></pre>
+
+<p><br>Its working for me for a real device.But for emulator its not working correctly.I think its an android emulator bug.</p>

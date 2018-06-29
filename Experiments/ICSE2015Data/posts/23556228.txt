@@ -1,0 +1,14 @@
+<p>Using this <a href=""https://github.com/kcochibili/TinyDB--Android-Shared-Preferences-Turbo"" rel=""nofollow"">simple library</a>, here is how you make the calls to SharedPreferences..</p>
+
+<pre><code>TinyDB tinydb = new TinyDB(context);
+
+tinydb.putInt(""clickCount"", 2);
+
+tinydb.putString(""userName"", ""john"");
+tinydb.putBoolean(""isUserMale"", true); 
+
+tinydb.putList(""MyUsers"", mUsersArray);
+tinydb.putImagePNG(""DropBox/WorkImages"", ""MeAtlunch.png"", lunchBitmap);
+
+//These plus the corresponding get methods are all Included
+</code></pre>

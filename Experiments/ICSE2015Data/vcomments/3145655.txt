@@ -1,0 +1,14 @@
+Hi Fedor, thanks for that, it looks strikingly similar to what I ended up doing for previous projects.  And that's more or less what prompted this question: surely there must be a simpler way?!
+For the record, my understanding is that google generally recommends against using android:configChanges.  Instead I've gone with a solution that registers the timertasks and cancels them onDestroy.
+Used this class in my simple app and it works like a champ.  Thanks for posting it!
+This worked great for me!  However, the activity I used this for me checks location on resume.  If the user backs out of the activity before the location is returned the application would crash.  I fixed this by adding this method to your MyLocation 
+I call this onPause() and that fixed the crash.
+If both gps and network providers are enabled why not just use gps?
+In my case Fedor's code wasn't accurate at all without gps and I ended up using Commonsware location polling library (https://github.com/commonsguy/cwac-locpoll), which has given me much better results. I really don't know why, because both relay on the same basic code, but the accuracy improvement for network location is huge.
+How to get the location with this piece of code ? Show me just how to toast it or seomthing.
+@vNext choose what works best for you.
+Hey can I use your code in my application for commercial purpose . If you have any complaint about that please let me know.
+@TRonZ No problem, please use it in any purpose.
+Well it really looks like the code that should have been in Google's LocationManager in the first place. The important activity around this thread confirms it. Thanks for sharing @Fedor.
+@AdamVarhegyi, a Location object is returned to the gotLocation callback when the location is found so to show a Toast of the lat,long you'd just add this line: `Toast.makeText(getApplicationContext(), ""Latitude: ""+location.getLatitude()+""\n Longitude: ""+location.getLongitude() , Toast.LENGTH_SHORT).show();` after the ` //Got the location!` comment in the example.
+@Fedor, I do have a question. I know that GPS will not work in a building, but if I set it to GPS only on the location and try to locate, the app force closes. Is there anything special I need to be doing to avoid the force close with just GPS enabled and no other location services?

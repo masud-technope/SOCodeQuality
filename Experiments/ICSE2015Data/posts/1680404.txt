@@ -1,0 +1,14 @@
+<p>This is solution from my point of view:</p>
+
+<pre><code>ok.setOnClickListener(this);
+@Override
+public void onClick(View view) {
+	if(view == ok){
+		Intent intent = new Intent(Intent.ACTION_CALL);
+		intent.setData(Uri.parse(""tel:"" + num));
+		activity.startActivity(intent);
+
+	}
+</code></pre>
+
+<p>Of course in Activity (class) definition you have to implement View.OnClickListener .</p>

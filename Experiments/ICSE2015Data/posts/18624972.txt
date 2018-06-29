@@ -1,0 +1,7 @@
+<p>Alternatively to <a href=""http://stackoverflow.com/a/9494042/451962"">this all around solution</a>, if you wanted to close the soft keyboard <strong>from anywhere</strong> without having a reference to the (EditText) field that was used to open the keyboard, but still wanted to do it if the field was focused, you could use this (from an Activity):</p>
+
+<pre><code>if (getCurrentFocus() != null) {
+  InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+  imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+}
+</code></pre>

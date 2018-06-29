@@ -1,0 +1,1 @@
+<p>Your <code>gender == ""Male""</code> is actually comparing the object references for the object <code>gender</code> and a different object <code>Male</code>. What you have to use is the <code>.equals()</code> method to compare the value of the objects.</p>

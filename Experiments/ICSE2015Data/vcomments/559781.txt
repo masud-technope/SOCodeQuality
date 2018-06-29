@@ -1,0 +1,11 @@
+I think you should use SoftReferences so that your program will never cause OutOfMemoryException. As GC can clear softreferences when heap size is increasing... you can manage your own generation like after some seconds you can put your images to that list and before loading you should check that if image exists then don't  download it again rather collect it from that list and also putting it back to your softref list and after sometime you can purge your hardlist.
+Google Shelves project is an excellent example look how they did http://code.google.com/p/shelves/.
+Don't you miss a return when drawableMap contains the image ... without starting the fetching-thread?
+Yesterday I upvoted you because from your code , I learnt how to get a drawable from url, and today I learnt lazy loading from you, seriously, you are the man..... u saved my life.
+This code has several problems. Firstly you should cache Drawables, that will cause a memory leak: http://stackoverflow.com/questions/7648740/consequences-of-drawable-setcallbacknull . Secondly the cache itself is never cleared so it will grow forever, that's another memory leak.
+@James A Wilson... where do i connect it with listview to show images as thumbnails??
+this causes images to get the wrong image sources in a listview.  For example I have icon 1 , 2, and 3.  My list shows icon 1 and two 3 icons when using this drawable manager class.  Does anyone know how this is fixed from this exact code above?
+I have used this class to download my list of images from URL and then I have used the code below to clear the cache and everything seems to work great! [clear cache - here](http://stackoverflow.com/questions/6898090/how-to-clear-cache-android).
+only observation : you are starting an unknown number of threads. I would recommend using an Executor with a fixed number of threads, or AsyncTask (which are using a single Executor too).
+Why not just pass ""this"" to your logger wrapper?  Then you don't have to call getClass().getSimpleName() all over the place.
+haven't any one heard about `LRU Cache` http://developer.android.com/training/displaying-bitmaps/cache-bitmap.html.

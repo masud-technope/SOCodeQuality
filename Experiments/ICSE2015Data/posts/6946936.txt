@@ -1,0 +1,18 @@
+<p>You can try these steps:</p>
+
+<ol>
+<li><p>When setting the text, also set the Threshold value to a large value so that the dropdown doesnot come.</p>
+
+<pre><code> actv.setThreshold(1000);
+</code></pre></li>
+<li><p>Then override the OnTouch to set the threshold back to 1.</p>
+
+<pre><code>   actv.setOnTouchListener(new OnTouchListener() {
+                @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        actv.setThreshold(1);
+        return false;
+    }
+});
+</code></pre></li>
+</ol>

@@ -1,0 +1,26 @@
+<p>Actually in some devices the external sdcard default name is showing as <code>extSdCard</code> and for other it is <code>sdcard1</code>.</p>
+
+<p>This code snippet helps to find out that exact path and helps to retrieve you the path of external device.</p>
+
+<pre><code>String sdpath,sd1path,usbdiskpath,sd0path;    
+        if(new File(""/storage/extSdCard/"").exists())
+            {
+               sdpath=""/storage/extSdCard/"";
+               Log.i(""Sd Cardext Path"",sdpath);
+            }
+        if(new File(""/storage/sdcard1/"").exists())
+         {
+              sd1path=""/storage/sdcard1/"";
+              Log.i(""Sd Card1 Path"",sd1path);
+         }
+        if(new File(""/storage/usbcard1/"").exists())
+         {
+              usbdiskpath=""/storage/usbcard1/"";
+              Log.i(""USB Path"",usbdiskpath);
+         }
+        if(new File(""/storage/sdcard0/"").exists())
+         {
+              sd0path=""/storage/sdcard0/"";
+              Log.i(""Sd Card0 Path"",sd0path);
+         }
+</code></pre>

@@ -1,0 +1,5 @@
+<p>To store values in shared preferences:</p>
+
+<pre><code>  SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+  SharedPreferences.Editor editor = preferences.edit();
+  editor.putString(""Name"

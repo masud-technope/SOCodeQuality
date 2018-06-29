@@ -1,0 +1,7 @@
+<p>Hi i got one more solution to hide keyboard by :</p>
+
+<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+</code></pre>
+
+<p>Here pass HIDE_IMPLICIT_ONLY at the position of showFlag and 0 at the position of hiddenFlag. It will forcefully close soft Keyboard.</p>

@@ -1,0 +1,3 @@
+<p>To return to your <code>Activity</code>, you will need to listen to <code>TelephonyStates</code>. On that <code>listener</code> you can send an <code>Intent</code> to re-open your <code>Activity</code> once the phone is idle.</p>
+
+<p>At least thats how I will do it.</p>

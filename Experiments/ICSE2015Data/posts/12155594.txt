@@ -1,0 +1,70 @@
+<p>Based on @wize 's answer, which I found helpful and elegant, I could achieve what I wanted partially, cause I wanted the cability to go back to the first Fragment once replaced. I achieved it bit modifying a bit his code.</p>
+
+<p>This would be the FragmentPagerAdapter:</p>
+
+<pre><code>public static class MyAdapter extends FragmentPagerAdapter {
+    private final class CalendarPageListener implements
+            CalendarPageFragmentListener {
+        public void onSwitchToNextFragment() {
+            mFragmentManager.beginTransaction().remove(mFragmentAtPos0)
+                    .commit();
+            if (mFragmentAtPos0 instanceof FirstFragment){
+                mFragmentAtPos0 = NextFragment.newInstance(listener);
+            }else{ // Instance of NextFragment
+                mFragmentAtPos0 = FirstFragment.newInstance(listener);
+            }
+            notifyDataSetChanged();
+        }
+    }
+
+    CalendarPageListener listener = new CalendarPageListener();;
+    private Fragment mFragmentAtPos0;
+    private FragmentManager mFragmentManager;
+
+    public MyAdapter(FragmentManager fm) {
+        super(fm);
+        mFragmentManager = fm;
+    }
+
+    @Override
+    public int getCount() {
+        return NUM_ITEMS;
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+        if (object instanceof FirstFragment &amp;&amp; mFragmentAtPos0 instanceof NextFragment)
+            return POSITION_NONE;
+        if (object instanceof NextFragment &amp;&amp; mFragmentAtPos0 instanceof FirstFragment)
+            return POSITION_NONE;
+        return POSITION_UNCHANGED;
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        if (position == 0)
+            return Portada.newInstance();
+        if (position == 1) { // Position where you want to replace fragments
+            if (mFragmentAtPos0 == null) {
+                mFragmentAtPos0 = FirstFragment.newInstance(listener);
+            }
+            return mFragmentAtPos0;
+        }
+        if (position == 2)
+            return Clasificacion.newInstance();
+        if (position == 3)
+            return Informacion.newInstance();
+
+        return null;
+    }
+}
+
+public interface CalendarPageFragmentListener {
+    void onSwitchToNextFragment();
+}
+</code></pre>
+
+<p>To perfom the replacement, simply define a static field, of the type <code>CalendarPageFragmentListener</code> and initialized through the <code>newInstance</code> methods of the corresponding fragments and call <code>FirstFragment.pageListener.onSwitchToNextFragment()</code> or <code>NextFragment.pageListener.onSwitchToNextFragment()</code> respictevely.</p>
+
+<p>Hope it is clear and helpful.<br>
+Best Regards.</p>

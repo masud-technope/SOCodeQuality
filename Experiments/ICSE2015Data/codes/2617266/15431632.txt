@@ -1,0 +1,28 @@
+/* get your context */
+Context c = getActivity().getApplicationContext();
+
+LinearLayout l = new LinearLayout(c);
+l.setOrientation(LinearLayout.VERTICAL);
+LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 0);
+
+l.setLayoutParams(params);
+l.setBackgroundResource(R.drawable.border);
+
+TextView tv=new TextView(c);
+tv.setText("" your text here"");
+
+/* set typeface if needed */
+Typeface tf = Typeface.createFromAsset(c.getAssets(),""fonts/VERDANA.TTF"");  
+tv.setTypeface(tf);
+
+// LayoutParams lp = new LayoutParams();
+
+tv.setTextColor(Color.parseColor(""#282828""));
+
+tv.setGravity(Gravity.CENTER | Gravity.BOTTOM);
+//  tv.setLayoutParams(lp);
+
+tv.setTextSize(20);
+l.addView(tv);
+
+return l;

@@ -1,0 +1,29 @@
+<p>Don't forget to make sure that you have no special characters in your file/folder names. Happened to me with "":"" when I was setting folder names using variable(s)</p>
+
+<p>not allowed characters in file/folder names</p>
+
+<blockquote>
+  <p>"" *   /   :   &lt;   >   ?   \   |</p>
+</blockquote>
+
+<p>U may find this code helpful in such a case.</p>
+
+<p>The below code removes all "":"" and replaces them with ""-""</p>
+
+<pre><code>//actualFileName = ""qwerty:asdfg:zxcvb"" say...
+
+    String[] tempFileNames;
+    String tempFileName ="""";
+    String delimiter = "":"";
+    tempFileNames = actualFileName.split(delimiter);
+    tempFileName = tempFileNames[0];
+    for (int j = 1; j &lt; tempFileNames.length; j++){
+        tempFileName = tempFileName+"" - ""+tempFileNames[j];
+    }
+    File file = new File(Environment.getExternalStorageDirectory(), ""/MyApp/""+ tempFileName+ ""/"");
+    if (!file.exists()) {
+        if (!file.mkdirs()) {
+        Log.e(""TravellerLog :: "", ""Problem creating Image folder"");
+        }
+    }
+</code></pre>

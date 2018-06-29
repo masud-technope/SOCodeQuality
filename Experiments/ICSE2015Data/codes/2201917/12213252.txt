@@ -1,0 +1,8 @@
+Uri uri = Uri.parse(""https://www.google.com"");
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
+WebView webView = (WebView) findViewById(R.id.webView1);
+WebSettings settings = webview.getSettings();
+settings.setJavaScriptEnabled(true);
+webView.loadUrl(URL);
+settings.setSupportZoom(true);
+settings.setBuiltInZoomControls(true);

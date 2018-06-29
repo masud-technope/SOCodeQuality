@@ -1,0 +1,27 @@
+<p>I know that static is bad but it seems that we're forced to use it here. The problem with parceables/seriazables is that the two activities have duplicate instances of the same object = waste of memory and CPU.</p>
+
+<pre><code>public class IntentMailBox {
+    static Queue&lt;Object&gt; content = new LinkedList&lt;Object&gt;();
+}
+</code></pre>
+
+<hr>
+
+<p>Calling activity</p>
+
+<pre><code>IntentMailBox.content.add(level);
+Intent intent = new Intent(LevelsActivity.this, LevelActivity.class);
+startActivity(intent);
+</code></pre>
+
+<hr>
+
+<p>Called activity (note that <strong>onCreate()</strong> and <strong>onResume()</strong> may be called multiple times when the system destroys and recreates activities)</p>
+
+<pre><code>if (IntentMailBox.content.size()&gt;0)
+  level = (Level) IntentMailBox.content.poll();
+else
+  // here you reload what you have saved in onPause()
+</code></pre>
+
+<p>Another way is to declare a static field of the class that you want to pass in that very class. It will serve only for this purpose. Don't forget that it can be null in onCreate because your app package has been unloaded from memory by system and reloaded later.</p>

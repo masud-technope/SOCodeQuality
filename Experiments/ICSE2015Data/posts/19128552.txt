@@ -1,0 +1,20 @@
+<p>For some reason the android.text.LoginFilter class's constructor is package-scoped, so you can't directly extend it (even though it would be identical to this code).  But you can extend LoginFilter.UsernameFilterGeneric!  Then you just have this:</p>
+
+<pre><code>class ABCFilter extends LoginFilter.UsernameFilterGeneric {
+    public UsernameFilter() {
+        super(false); // false prevents not-allowed characters from being appended
+    }
+
+    @Override
+    public boolean isAllowed(char c) {
+        if ('A' &lt;= c &amp;&amp; c &lt;= 'C')
+            return true;
+        if ('a' &lt;= c &amp;&amp; c &lt;= 'c')
+            return true;
+
+        return false;
+    }
+}
+</code></pre>
+
+<p>This isn't really documented, but it's part of the core lib, and the <a href=""http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.3_r2.1/android/text/LoginFilter.java#LoginFilter.UsernameFilterGeneric"" rel=""nofollow"">source is straightforward</a>.  I've been using it for a while now, so far no problems, though I admit I haven't tried doing anything complex involving spannables.</p>

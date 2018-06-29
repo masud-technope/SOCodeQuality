@@ -1,0 +1,35 @@
+<p><a href=""http://stackoverflow.com/a/9494042/197359"">Saurabh Pareek</a> has the best answer so far.</p>
+
+<p>Might as well use the correct flags, though.</p>
+
+<pre><code>/* hide keyboard */
+((InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE))
+    .toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
+
+/* show keyboard */
+((InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE))
+    .toggleSoftInput(0, InputMethodManager.HIDE_IMPLICIT_ONLY);
+</code></pre>
+
+<p>Example of real use</p>
+
+<pre><code>/* click button */
+public void onClick(View view) {      
+  /* hide keyboard */
+  ((InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE))
+      .toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
+
+  /* start loader to check parameters ... */
+}
+
+/* loader finished */
+public void onLoadFinished(Loader&lt;Object&gt; loader, Object data) {
+    /* parameters not valid ... */
+
+    /* show keyboard */
+    ((InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE))
+        .toggleSoftInput(0, InputMethodManager.HIDE_IMPLICIT_ONLY);
+
+    /* parameters valid ... */
+}
+</code></pre>

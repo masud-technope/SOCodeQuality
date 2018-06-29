@@ -1,0 +1,26 @@
+<p>I have solved the same problem with this code:</p>
+
+<pre><code>contacts_search.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // TODO Auto-generated method stub
+                contacts_search.dismissDropDown();      
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                    int after) {
+                // TODO Auto-generated method stub
+                contacts_search.dismissDropDown();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+                contacts_search.dismissDropDown();
+            }
+        });
+</code></pre>
+
+<p>Here, contacts_search is my AutoCompleteTextView</p>

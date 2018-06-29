@@ -1,0 +1,58 @@
+<p>Here is the approach I take. It's very simple. It uses successive approximation to zero in on the fontsize and can generally have it figured out in less than 10 iterations. Just replace ""activityWidth"" with the width of whatever view you are using to display the text in. In my example, it's set as a private field to the screen's width. The inital fontsize of 198 is only set in the event the method generates an exception (which really should never happen):</p>
+
+<pre><code>  private float GetFontSizeForScreenWidth(String text)
+  {
+    float fontsize = 198;
+
+    try
+    {
+      Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+      paint.setColor(Color.RED);
+      Typeface typeface = Typeface.create(""Helvetica"", Typeface.BOLD);
+      paint.setTypeface(typeface);
+      paint.setTextAlign(Align.CENTER);
+
+      int lowVal = 0;
+      int highVal = 2000;
+      int currentVal = highVal;
+
+      /*
+       * Successively approximate the screen size until it is 
+       * within 2 pixels of the maximum screen width. Generally
+       * this will get you to the closest font size within about 10
+       * iterations.
+       */
+
+      do
+      {
+        paint.setTextSize(currentVal);
+        float textWidth = paint.measureText(text);
+
+        float diff = activityWidth - textWidth;
+
+        if ((diff &gt;= 0) &amp;&amp; (diff &lt;= 2))
+        {
+          fontsize = paint.getTextSize();
+          return fontsize;
+        }
+
+        if (textWidth &gt; activityWidth)
+          highVal = currentVal;
+        else if (textWidth &lt; activityWidth)
+          lowVal = currentVal;
+        else
+        {
+          fontsize = paint.getTextSize();
+          return fontsize;
+        }
+
+        currentVal = (highVal - lowVal) / 2 + lowVal;
+
+      } while (true);      
+    }
+    catch (Exception ex)
+    {
+      return fontsize;
+    }
+  }
+</code></pre>

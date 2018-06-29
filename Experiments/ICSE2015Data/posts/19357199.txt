@@ -1,0 +1,25 @@
+<pre><code>@Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        SMSData sms = (SMSData) getListAdapter().getItem(position);
+        Toast.makeText(getApplicationContext(), sms.getBody(),
+                Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), sms.getNumber(),
+                Toast.LENGTH_LONG).show();
+
+        deleteSms(sms.getId());
+
+    }
+
+    public boolean deleteSms(String smsId) {
+        boolean isSmsDeleted = false;
+        try {
+            MainActivity.this.getContentResolver().delete(
+                    Uri.parse(""content://sms/"" + smsId), null, null);
+            isSmsDeleted = true;
+
+        } catch (Exception ex) {
+            isSmsDeleted = false;
+        }
+        return isSmsDeleted;
+    }
+</code></pre>

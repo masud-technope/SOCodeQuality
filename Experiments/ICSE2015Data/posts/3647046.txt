@@ -1,0 +1,6 @@
+<p>Why not use the API?</p>
+
+<pre><code>int h = 48; // height in pixels
+int w = 48; // width in pixels    
+Bitmap scaled = Bitmap.createScaledBitmap(largeBitmap, h, w, true);
+</code></pre>

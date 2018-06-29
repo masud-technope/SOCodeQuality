@@ -1,0 +1,3 @@
+ScrollView sView = (ScrollView)findViewById(R.id.ScrollView01);
+sView.setVerticalScrollBarEnabled(false);
+sView.setHorizontalScrollBarEnabled(false);

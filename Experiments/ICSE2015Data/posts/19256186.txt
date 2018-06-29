@@ -1,0 +1,22 @@
+<p><a href=""http://stackoverflow.com/users/413127/blundell"">Blundell's</a> answer as a static helper method:</p>
+
+<pre><code>private static String getDensityName(Context context) {
+    float density = context.getResources().getDisplayMetrics().density;
+    if (density &gt;= 4.0) {
+        return ""xxxhdpi"";
+    }
+    if (density &gt;= 3.0) {
+        return ""xxhdpi"";
+    }
+    if (density &gt;= 2.0) {
+        return ""xhdpi"";
+    }
+    if (density &gt;= 1.5) {
+        return ""hdpi"";
+    }
+    if (density &gt;= 1.0) {
+        return ""mdpi"";
+    }
+    return ""ldpi"";
+}
+</code></pre>

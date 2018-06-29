@@ -1,0 +1,44 @@
+<pre><code>public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    setContentView(R.layout.main);
+    Thread myThread = null;
+
+    Runnable runnable = new CountDownRunner();
+    myThread= new Thread(runnable);   
+    myThread.start();
+
+}
+
+public void doWork() {
+    runOnUiThread(new Runnable() {
+        public void run() {
+            try{
+                TextView txtCurrentTime= (TextView)findViewById(R.id.lbltime);
+                    Date dt = new Date();
+                    int hours = dt.getHours();
+                    int minutes = dt.getMinutes();
+                    int seconds = dt.getSeconds();
+                    String curTime = hours + "":"" + minutes + "":"" + seconds;
+                    txtCurrentTime.setText(curTime);
+            }catch (Exception e) {}
+        }
+    });
+}
+
+
+class CountDownRunner implements Runnable{
+    // @Override
+    public void run() {
+            while(!Thread.currentThread().isInterrupted()){
+                try {
+                doWork();
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                }catch(Exception e){
+                }
+            }
+    }
+}
+</code></pre>

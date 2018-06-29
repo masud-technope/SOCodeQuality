@@ -1,0 +1,5 @@
+<p>You'll need to serialize your object into some kind of string representation. One possible string representation is JSON, and one of the easiest ways to serialize to/from JSON in android, if you ask me, is through <a href=""http://code.google.com/p/google-gson/"">Google GSON</a>.</p>
+
+<p>In that case you juse put the string return value from <code>(new Gson()).toJson(myObject);</code> and retrieve the string value and use <code>fromJson</code> to turn it back into your object.</p>
+
+<p>If your object isn't very complex, however, it might not be worth the overhead, and you could consider passing the separate values of the object instead.</p>

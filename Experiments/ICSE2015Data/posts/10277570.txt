@@ -1,0 +1,6 @@
+<p>If you want to retrieve the density from a Service it works like this:</p>
+
+<pre><code>WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
+DisplayMetrics metrics = new DisplayMetrics();
+wm.getDefaultDisplay().getMetrics(metrics);
+</code></pre>

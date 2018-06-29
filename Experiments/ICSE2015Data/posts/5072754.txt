@@ -1,0 +1,35 @@
+<p>Here is code snippet demo how to get screen orientation was recommend by <a href=""http://stackoverflow.com/users/236398/hackbod"">hackbod</a> and <a href=""http://stackoverflow.com/users/155137/martijn-courteaux"">Martijn</a>:</p>
+
+<p>â?¶ Trigger when change Orientation:</p>
+
+<pre><code>@Override
+public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+        int nCurrentOrientation = _getScreenOrientation();
+    _doSomeThingWhenChangeOrientation(nCurrentOrientation);
+}
+</code></pre>
+
+<p>â?· Get current orientation as <a href=""http://stackoverflow.com/users/155137/martijn-courteaux"">hackbod</a> recommend:</p>
+
+<pre><code>private int _getScreenOrientation(){    
+    return getResources().getConfiguration().orientation;
+}
+</code></pre>
+
+<p>â?¸There are alternative solution for get current screen orientation â?· follow <a href=""http://stackoverflow.com/users/155137/martijn-courteaux"">Martijn</a> solution:</p>
+
+<pre><code>private int _getScreenOrientation(){
+        Display display = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
+        return display.getOrientation();
+}
+</code></pre>
+
+<p>â˜…<strong>Note</strong>: 
+I was try both implement â?· &amp; â?¸, but on RealDevice (NexusOne SDK 2.3) Orientation it returns the wrong orientation.</p>
+
+<p>â˜…So i <strong>recommend to used solution</strong> â?· to get Screen orientation which have more advantage: clearly, simple and work like a charm. </p>
+
+<p>â˜…Check carefully return of orientation to ensure correct as our expected (May be have limited depend on physical devices specification)</p>
+
+<p>Hope it help,</p>

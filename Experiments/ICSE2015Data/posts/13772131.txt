@@ -1,0 +1,8 @@
+<p>After a bunch of hacking, I got this to work:</p>
+
+<pre><code>            Window window = dialog.getWindow();
+            View view = window.getDecorView();
+            final int topPanelId = getResources().getIdentifier( ""topPanel"", ""id"", ""android"" );
+            LinearLayout topPanel = (LinearLayout) view.findViewById(topPanelId);
+            topPanel.setVisibility(View.GONE);
+</code></pre>

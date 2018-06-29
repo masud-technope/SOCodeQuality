@@ -1,0 +1,28 @@
+<p>To <strong>edit</strong> data from sharedpreference</p>
+
+<pre><code> SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+ editor.putString(""text"", mSaved.getText().toString());
+ editor.putInt(""selection-start"", mSaved.getSelectionStart());
+ editor.putInt(""selection-end"", mSaved.getSelectionEnd());
+ editor.apply();
+</code></pre>
+
+<p>To <strong>retrieve</strong> data from shared preference</p>
+
+<pre><code>SharedPreferences prefs = getPreferences(MODE_PRIVATE); 
+String restoredText = prefs.getString(""text"", null);
+if (restoredText != null) 
+{
+  //mSaved.setText(restoredText, TextView.BufferType.EDITABLE);
+  int selectionStart = prefs.getInt(""selection-start"", -1);
+  int selectionEnd = prefs.getInt(""selection-end"", -1);
+  /*if (selectionStart != -1 &amp;&amp; selectionEnd != -1)
+  {
+     mSaved.setSelection(selectionStart, selectionEnd);
+  }*/
+}
+</code></pre>
+
+<p>Edit-</p>
+
+<p>I took this snippet from API Demo sample. It had an Edit Text box there... In this context it is not required.I am commenting the same</p>

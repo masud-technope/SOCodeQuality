@@ -1,0 +1,8 @@
+<pre><code>  Intent callIntent = new Intent(Intent.ACTION_CALL);  
+  callIntent.setData(Uri.parse(""tel:""+number));  
+   startActivity(callIntent);   
+
+ **Add permission :**
+
+ &lt;uses-permission android:name=""android.permission.CALL_PHONE"" /&gt;          
+</code></pre>

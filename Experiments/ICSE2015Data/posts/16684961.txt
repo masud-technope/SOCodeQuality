@@ -1,0 +1,63 @@
+<p>In any application, there are default preferences that can accessed through the PreferenceManager instance and its related method getDefaultSharedPreferences(Context)</p>
+
+<p>With the SharedPreference instance one can retrieve the int value of the any preference with the <strong>getInt(String key, int defVal)</strong>. The preference we are interested in this case is counter</p>
+
+<p>In our case, we can modify the SharedPreference instance in our case using the edit() and use the putInt(String key, int newVal) We increased the count for our application that presist beyond the application and displayed accordingly.</p>
+
+<p>To further demo this, restart and you application again, you will notice that the count will increase each time you restart the application. </p>
+
+<p>PreferencesDemo.java</p>
+
+<p>Code:</p>
+
+<pre><code>package org.example.preferences;
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.widget.TextView;
+
+public class PreferencesDemo extends Activity {
+   /** Called when the activity is first created. */
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
+
+    // Get the app's shared preferences
+    SharedPreferences app_preferences = 
+        PreferenceManager.getDefaultSharedPreferences(this);
+
+    // Get the value for the run counter
+    int counter = app_preferences.getInt(""counter"", 0);
+
+    // Update the TextView
+    TextView text = (TextView) findViewById(R.id.text);
+    text.setText(""This app has been started "" + counter + "" times."");
+
+    // Increment the counter
+    SharedPreferences.Editor editor = app_preferences.edit();
+    editor.putInt(""counter"", ++counter);
+    editor.commit(); // Very important
+}
+}
+</code></pre>
+
+<p><strong>main.xml</strong></p>
+
+<p><strong>Code:</strong></p>
+
+<pre><code>   &lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+   &lt;LinearLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+      android:orientation=""vertical""
+      android:layout_width=""fill_parent""
+      android:layout_height=""fill_parent""
+       &gt;
+        &lt;TextView
+    android:id=""@+id/text""  
+    android:layout_width=""fill_parent"" 
+    android:layout_height=""wrap_content"" 
+    android:text=""@string/hello""
+    /&gt;
+&lt;/LinearLayout&gt;
+</code></pre>

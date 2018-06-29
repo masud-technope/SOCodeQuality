@@ -1,0 +1,37 @@
+<p>To fix OutOfMemory you should do something like that please try this code</p>
+
+<pre><code>public Bitmap loadBitmap(String URL, BitmapFactory.Options options) {
+                Bitmap bitmap = null;
+                InputStream in = null;
+                options.inSampleSize=4;
+                try {
+                    in = OpenHttpConnection(URL);
+                    Log.e(""In====&gt;"", in+"""");
+                    bitmap = BitmapFactory.decodeStream(in, null, options);
+                    Log.e(""URL====&gt;"", bitmap+"""");
+
+                    in.close();
+                } catch (IOException e1) {
+                }
+                return bitmap;
+            }
+</code></pre>
+
+<p>and</p>
+
+<pre><code>try {
+                    BitmapFactory.Options bmOptions;
+                    bmOptions = new BitmapFactory.Options();
+                    bmOptions.inSampleSize = 1;
+                    if(studentImage != null){
+                        galleryThumbnail= loadBitmap(IMAGE_URL+studentImage, bmOptions);    
+                    }
+
+                    galleryThumbnail=getResizedBitmap(galleryThumbnail, imgEditStudentPhoto.getHeight(), imgEditStudentPhoto.getWidth());
+                    Log.e(""Image_Url==&gt;"",IMAGE_URL+studentImage+"""");
+
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+</code></pre>

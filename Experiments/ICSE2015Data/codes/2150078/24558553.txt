@@ -1,0 +1,26 @@
+// Scroll to the latest comment whenever the keyboard is shown
+commentsContent.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
+        private int oldHeight;
+
+        @Override
+        public void onGlobalLayout() {
+            int newHeight = commentsContent.getMeasuredHeight();
+            if (newHeight < oldHeight) {
+                // Check for the keyboard showing in case the height difference
+                // is a result of orientation change
+                if (isSoftKeyboardShowing(CommentsActivity.this)) {
+                    // Keyboard is showing so scroll to the latest comment
+                    scrollToLatestComment();
+                }
+            }
+            oldHeight = newHeight;
+        }
+
+    });
+
+
+public static boolean isSoftKeyboardShowing(Activity activity) {
+    InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+    return inputMethodManager.isActive();
+}

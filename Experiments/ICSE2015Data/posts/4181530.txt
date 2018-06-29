@@ -1,0 +1,8 @@
+<pre><code>    Intent videoClient = new Intent(Intent.ACTION_VIEW);
+    videoClient.setData(Uri.parse(""http://m.youtube.com/watch?v=""+videoId));
+    startActivityForResult(videoClient, 1234);
+</code></pre>
+
+<p>where videoId is the video id of the youtube video that has to be played. This code works fine on Motorola Milestone.</p>
+
+<p>But basically what we can do is to check for what activity is loaded when you start the Youtube app and accordingly substitute for the packageName and the className.</p>

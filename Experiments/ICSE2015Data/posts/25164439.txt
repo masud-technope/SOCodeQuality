@@ -1,0 +1,11 @@
+<p>You can call <code>findViewById()</code> with the <strong>Activity Object</strong> you get inside your <code>public void onAttach(Activity activity)</code> method inside your Fragment.</p>
+
+<p>Save the Activity into a variable for example:</p>
+
+<p>In the <strong>Fragment class</strong>:
+<code>private Activity mainActivity;</code>
+In the <code>onAttach()</code> method:
+<code>this.mainActivity=activity;</code></p>
+
+<p>Finally execute every findViewById through the vairable:
+<code>mainActivity.findViewById(R.id.TextView);</code></p>

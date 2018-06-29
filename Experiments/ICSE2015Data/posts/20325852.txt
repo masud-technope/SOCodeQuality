@@ -1,0 +1,33 @@
+<p>None of posted answers did not work for me. I came with my own solution:</p>
+
+<pre><code>InputFilter filter = new InputFilter() {
+    @Override
+    public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+        boolean keepOriginal = true;
+        StringBuilder sb = new StringBuilder(end - start);
+        for (int i = start; i &lt; end; i++) {
+            char c = source.charAt(i);
+            if (isCharAllowed(c)) // put your condition here
+                sb.append(c);
+            else
+                keepOriginal = false;
+        }
+        if (keepOriginal)
+            return null;
+        else {
+            if (source instanceof Spanned) {
+                SpannableString sp = new SpannableString(sb);
+                TextUtils.copySpansFrom((Spanned) source, start, sb.length(), null, sp, 0);
+                return sp;
+            } else {
+                return sb;
+            }           
+        }
+    }
+
+    private boolean isCharAllowed(char c) {
+        return Character.isLetterOrDigit(c) || Character.isSpaceChar(c);
+    }
+}
+editText.setFilters(new InputFilter[] { filter });
+</code></pre>

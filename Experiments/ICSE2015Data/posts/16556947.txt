@@ -1,0 +1,4 @@
+<pre><code>private boolean hasContent(EditText et) {
+       return (et.getText().toString().trim().length() &gt; 0);
+}
+</code></pre>

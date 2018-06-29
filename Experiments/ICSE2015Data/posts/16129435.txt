@@ -1,0 +1,16 @@
+<p><strong>Getting list of installed non-system apps</strong></p>
+
+<pre><code>public static void InstalledApps()
+{
+    List&lt;PackageInfo&gt; PackList = getPackageManager().getInstalledPackages(0);
+    for (int i=0; i &lt; PackList.size(); i++)
+    {
+        PackageInfo PackInfo = PackList.get(i);
+        if (  (PackInfo.applicationInfo.flags &amp; ApplicationInfo.FLAG_SYSTEM) == 0)
+        {
+            String AppName = PackInfo.applicationInfo.loadLabel(getPackageManager()).toString();
+            Log.e(""App № "" + Integer.toString(i), AppName);
+        }
+    }
+}
+</code></pre>

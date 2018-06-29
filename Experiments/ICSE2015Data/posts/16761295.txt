@@ -1,0 +1,48 @@
+<p>All answers here are pretty complex I tried to make it much simpler.Look at my code and decide for yourself - </p>
+
+<pre><code>int temp  = 0;
+int check = 0;
+
+editText.addTextChangedListener(new TextWatcher() {
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        if(editText.getText().toString().length()&lt;temp)
+        {
+            if(!editText.getText().toString().contains("".""))
+                editText.setFilters(new InputFilter[] { new InputFilter.LengthFilter(editText.getText().toString().length()-1) });
+            else
+                editText.setFilters(new InputFilter[] { new InputFilter.LengthFilter(editText.getText().toString().length()+1) });
+
+        }
+
+        if(!editText.getText().toString().contains("".""))
+        {
+            editText.setFilters(new InputFilter[] { new InputFilter.LengthFilter(editText.getText().toString().length()+1) });
+            check=0;
+        }
+
+
+        else if(check==0)
+        {
+            check=1;
+            editText.setFilters(new InputFilter[] { new InputFilter.LengthFilter(editText.getText().toString().length()+2) });
+        }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count,
+            int after) {
+        temp = editText.getText().toString().length();
+
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        // TODO Auto-generated method stub
+
+    }
+});
+</code></pre>

@@ -1,0 +1,30 @@
+<p>I think I found the answer. Let me tell what I have done in simple words:</p>
+
+<p>Suppose I have two activities, activity1 and activity2 and I am navigating from activity1 to activity2 (I have done some works in activity2) and again back to activity 1 by clicking on a button in activity1. Now at this stage I wanted to go back to activity2 and I want to see my activity2 in the same condition when I last left activity2.</p>
+
+<p>For the above scenario what I have done is that in the manifest I made some changes like this:</p>
+
+<pre><code>&lt;activity android:name="".activity2""
+          android:alwaysRetainTaskState=""true""      
+          android:launchMode=""singleInstance""&gt;
+&lt;/activity&gt;
+</code></pre>
+
+<p>And in the activity1 on the button click event I have done like this:</p>
+
+<pre><code>Intent intent = new Intent();
+intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+intent.setClassName(this,""com.mainscreen.activity2"");
+startActivity(intent);
+</code></pre>
+
+<p>And in activity2 on button click event I have done like this:</p>
+
+<pre><code>Intent intent=new Intent();
+intent.setClassName(this,""com.mainscreen.activity1"");
+startActivity(intent);
+</code></pre>
+
+<p>Now what will happen is that whatever the changes we have made in the activity2 will not be lost, and we can view activity2 in the same state as we left previously.</p>
+
+<p>I believe this is the answer and this works fine for me. Correct me if I am wrong.</p>

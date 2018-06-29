@@ -1,0 +1,3 @@
+With `typeFace` you can set a single style for the whole text.
+when I am trying in my custom row its not getting why?  String s1 = ""<b>You are at:</b>""; holder.address = (TextView) convertView.findViewById(R.id.address_text_view); holder.address.setText(Html.fromHtml(s1)+ track.getAddress());
+This method is great partial text styling. Like a quote inside a large textview.

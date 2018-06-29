@@ -1,0 +1,22 @@
+<p>I recently released <a href=""http://vapor-api.com"" rel=""nofollow"">Vapor API</a>, a jQuery flavored Android framework that makes all sorts of tasks like this simpler. As mentioned, <code>SharedPreferences</code> is one way you could do this.</p>
+
+<p><a href=""http://vapor-api.com/core/sharedpreferences"" rel=""nofollow""><code>VaporSharedPreferences</code></a> is implemented as Singleton so that is one option, and in Vapor API it has a heavily overloaded <code>.put(...)</code> method so you don't have to explicitly worry about the datatype you are committing - providing it is supported. It is also fluent, so you can chain calls:</p>
+
+<pre><code>$.prefs(...).put(""val1"", 123).put(""val2"", ""Hello World!"").put(""something"", 3.34);
+</code></pre>
+
+<p>It also optionally autosaves changes, and unifies the reading and writing process under-the-hood so you don't need to explicitly retrieve an Editor like you do in standard Android.</p>
+
+<p>Alternatively you could use an <code>Intent</code>. In Vapor API you can also use the chainable overloaded <code>.put(...)</code> method on a <a href=""http://vapor-api.com/core/intent"" rel=""nofollow""><code>VaporIntent</code></a>:</p>
+
+<pre><code>$.Intent().put(""data"", ""myData"").put(""more"", 568)...
+</code></pre>
+
+<p>And pass it as an extra, as mentioned in the other answers. You can retrieve extras from your <code>Activity</code>, and furthermore if you are using <a href=""http://vapor-api.com/core/activity"" rel=""nofollow""><code>VaporActivity</code></a> this is done for you automatically so you can use:</p>
+
+<pre><code>this.extras()
+</code></pre>
+
+<p>To retrieve them at the other end in the <code>Activity</code> you switch to.</p>
+
+<p>Hope that is of interest to some :)</p>

@@ -1,0 +1,13 @@
+private static int save = -1;
+
+public void onListItemClick(ListView parent, View v, int position, long id) { 
+
+    parent.getChildAt(position).setBackgroundColor(Color.BLUE);
+
+    if (save != -1 && save != position){
+        parent.getChildAt(save).setBackgroundColor(Color.BLACK);
+    }
+
+    save = position;                
+
+}

@@ -1,0 +1,25 @@
+<p>Another way to do this is to use the <code>Application</code> object (android.app.Application). You define this in you <code>AndroidManifest.xml</code> file as:</p>
+
+<pre><code>&lt;application
+    android:name="".MyApplication""
+    ...
+</code></pre>
+
+<p>You can then call this from any activity and save the object to the <code>Application</code> class.</p>
+
+<p>In the FirstActivity:</p>
+
+<pre><code>MyObject myObject = new MyObject();
+MyApplication app = (MyApplication) getApplication();
+app.setMyObject(myObject);
+</code></pre>
+
+<p>In the SecondActivity, do :</p>
+
+<pre><code>MyApplication app = (MyApplication) getApplication();
+MyObject retrievedObject = app.getMyObject(myObject);
+</code></pre>
+
+<p>This is handy if you have objects that have application level scope i.e. they have to be used throughout the application. The <code>Parcelable</code> method is still better if you want explicit control over the object scope or if the scope is limited.</p>
+
+<p>This avoid the use of <code>Intents</code> altogether, though. I don't know if they suits you. Another way I used this is to have <code>int</code> identifiers of objects send through intents and retrieve objects that I have in Maps in the <code>Application</code> object.</p>

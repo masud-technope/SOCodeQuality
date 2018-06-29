@@ -1,0 +1,60 @@
+<p>I think there can be a handier way to do it. The following class will set a custom type face for all your the components of your application (with a setting per class).</p>
+
+<pre><code>/**
+ * Base Activity of our app hierarchy.
+ * @author SNI
+ */
+public class BaseActivity extends Activity {
+
+    private static final String FONT_LOG_CAT_TAG = ""FONT"";
+    private static final boolean ENABLE_FONT_LOGGING = false;
+
+    private Typeface helloTypeface;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        helloTypeface = Typeface.createFromAsset(getAssets(), ""fonts/&lt;your type face in assets/fonts folder&gt;.ttf"");
+    }
+
+    @Override
+    public View onCreateView(String name, Context context, AttributeSet attrs) {
+        View view = super.onCreateView(name, context, attrs);
+        return setCustomTypeFaceIfNeeded(name, attrs, view);
+    }
+
+    @Override
+    public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
+        View view = super.onCreateView(parent, name, context, attrs);
+        return setCustomTypeFaceIfNeeded(name, attrs, view);
+    }
+
+    protected View setCustomTypeFaceIfNeeded(String name, AttributeSet attrs, View view) {
+        View result = null;
+        if (""TextView"".equals(name)) {
+            result = new TextView(this, attrs);
+            ((TextView) result).setTypeface(helloTypeface);
+        }
+
+        if (""EditText"".equals(name)) {
+            result = new EditText(this, attrs);
+            ((EditText) result).setTypeface(helloTypeface);
+        }
+
+        if (""Button"".equals(name)) {
+            result = new Button(this, attrs);
+            ((Button) result).setTypeface(helloTypeface);
+        }
+
+        if (result == null) {
+            return view;
+        } else {
+            if (ENABLE_FONT_LOGGING) {
+                Log.v(FONT_LOG_CAT_TAG, ""A type face was set on "" + result.getId());
+            }
+            return result;
+        }
+    }
+
+}
+</code></pre>

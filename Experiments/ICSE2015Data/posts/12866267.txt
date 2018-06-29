@@ -1,0 +1,20 @@
+<p>I modified the solution of Andre Luis IM I achieved this one:</p>
+
+<p>I created a utility method to hide the soft keyboard the same way Andre Luiz IM did:</p>
+
+<pre><code>public static void hideSoftKeyboard(Activity activity) {
+    InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+    inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+}
+</code></pre>
+
+<p>But instead of register an OnTouchListener for every view, that give a poor performance, I registered the OnTouchListener for just the root view. Since the event bubbles until it's consumed (EditText is one of the views that consumes it by default), if it arrives to the root view, it's because it wasn't consumed, so I close the soft keyboard.</p>
+
+<pre><code>findViewById(android.R.id.content).setOnTouchListener(new OnTouchListener() {
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        Utils.hideSoftKeyboard(activity);
+        return false;
+    }
+});
+</code></pre>

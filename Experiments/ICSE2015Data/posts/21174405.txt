@@ -1,0 +1,30 @@
+<p>(I tried previous answers but they lacks in some points. For example if you don't do a <code>return;</code> after finishing activity, remaining activity code runs. Also you need to edit onCreate with return. If you doesn't run super.onCreate() you will get a runtime error)</p>
+
+<p>Say you have <code>MainActivity</code> and <code>ChildActivity</code>.</p>
+
+<p>Inside ChildActivity add this:</p>
+
+<pre><code>Intent intent = new Intent(ChildActivity.this, MainActivity.class);
+intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+intent.putExtra(""EXIT"", true);
+startActivity(intent);
+return true;
+</code></pre>
+
+<p>Inside MainActivity's onCreate add this:</p>
+
+<pre><code>@Override
+public void onCreate(Bundle savedInstanceState) {
+
+    mContext = getApplicationContext();
+
+    super.onCreate(savedInstanceState);
+
+    if (getIntent().getBooleanExtra(""EXIT"", false)) {
+        finish();
+        return;
+    }
+    // your current codes
+    // your current codes
+}
+</code></pre>

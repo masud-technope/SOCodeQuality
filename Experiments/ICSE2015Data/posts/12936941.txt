@@ -1,0 +1,35 @@
+<p>I have two functions, one for sending the context and the other getting height and width in pixels:</p>
+
+<pre><code>public static int getWidth(Context mContext){
+    int width=0;
+    WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+    Display display = wm.getDefaultDisplay();
+    if(Build.VERSION.SDK_INT&gt;12){
+        Point size = new Point();
+        display.getSize(size);
+        width = size.x;
+    }
+    else{
+        width = display.getWidth();  // Deprecated
+    }
+    return width;
+}
+</code></pre>
+
+<p>and</p>
+
+<pre><code>public static int getHeight(Context mContext){
+    int height=0;
+    WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+    Display display = wm.getDefaultDisplay();
+    if(Build.VERSION.SDK_INT&gt;12){
+        Point size = new Point();
+        display.getSize(size);
+        height = size.y;
+    }
+    else{
+        height = display.getHeight();  // Deprecated
+    }
+    return height;
+}
+</code></pre>

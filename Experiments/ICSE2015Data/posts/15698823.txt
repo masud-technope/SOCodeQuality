@@ -1,0 +1,5 @@
+<p>After setting an bitmap to imageview, recycle it like this:</p>
+
+<pre><code>bitmap.recycle();
+bitmap=null;
+</code></pre>

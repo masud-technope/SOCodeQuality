@@ -1,0 +1,6 @@
+<pre><code> Display disttt = getWindowManager().getDefaultDisplay(); 
+ Point size = new Point();
+ disttt.getSize(size);
+ int width = size.x;
+ int height = size.y;
+</code></pre>

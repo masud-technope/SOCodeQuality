@@ -1,0 +1,4 @@
+<p>Use <a href=""http://developer.android.com/reference/android/app/Fragment.html#getView%28%29"">getView()</a>. This will return the root view for the fragment, with this you can call <code>findViewById()</code>.</p>
+
+<pre><code>ImageView imageView = (ImageView) getView().findViewById(R.id.foo);
+</code></pre>

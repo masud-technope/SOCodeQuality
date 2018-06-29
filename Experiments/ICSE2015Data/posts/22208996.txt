@@ -1,0 +1,11 @@
+<p>This worked for me.</p>
+
+<pre><code>    public static void hideKeyboard(Activity act, EditText et){
+    Context c = act.getBaseContext();
+    View v = et.findFocus();
+    if(v==null)
+        return;
+    InputMethodManager inputManager = (InputMethodManager) c.getSystemService(Context.INPUT_METHOD_SERVICE);
+    inputManager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+}
+</code></pre>

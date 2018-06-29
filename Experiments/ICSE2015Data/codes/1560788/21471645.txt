@@ -1,0 +1,10 @@
+private boolean isOnTheInternet() {
+    try {
+        URLConnection urlConnection = new URL(""http://yourserver"").openConnection();
+        urlConnection.setConnectTimeout(400);
+        urlConnection.connect();
+        return true;
+    } catch (Exception e) {
+        return false;
+    }
+}

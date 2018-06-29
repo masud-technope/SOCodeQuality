@@ -1,0 +1,34 @@
+<pre><code>put your code inside
+
+    new Thread(new Runnable(){
+      @Override
+       public void run() {
+          try {
+
+             //Your implementation 
+
+              } catch (Exception ex) {
+                      ex.printStackTrace();
+                }
+         } 
+     }).start();
+</code></pre>
+
+<p>or </p>
+
+<pre><code>class DemoTask extends AsyncTask&lt;Void, Void, Void&gt; {
+
+
+
+protected Void doInBackground(Void... arg0) {
+
+      //Your implementation 
+
+}
+
+protected void onPostExecute(Void result) {
+
+    // TODO: do something with the feed
+}
+}
+</code></pre>

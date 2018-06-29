@@ -1,0 +1,31 @@
+public class ListViewExpanded extends ListView
+{
+    public ListViewExpanded(Context context, AttributeSet attrs)
+    {
+        super(context, attrs);
+        setDividerHeight(0);
+    }
+
+    @Override
+    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
+    {
+        super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2, MeasureSpec.AT_MOST));
+    }
+}
+public class ScrollViewInterceptor extends ScrollView
+{
+    float startY;
+
+    public ScrollViewInterceptor(Context context, AttributeSet attrs)
+    {
+        super(context, attrs);
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent e)
+    {
+        onTouchEvent(e);
+        if (e.getAction() == MotionEvent.ACTION_DOWN) startY = e.getY();
+        return (e.getAction() == MotionEvent.ACTION_MOVE) && (Math.abs(startY - e.getY()) > 50);
+    }
+}

@@ -1,0 +1,1 @@
+<p>You can use the <code>android.text.StaticLayout</code> class for this. That's what <code>TextView</code> uses internally.</p>

@@ -1,0 +1,41 @@
+<p>You can design different images for clicked/not clicked states and set them in the onTouchListener as follows</p>
+
+<pre><code>final ImageView v = (ImageView) findViewById(R.id.button0);
+        v.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View arg0, MotionEvent arg1) {
+                switch (arg1.getAction()) {
+                case MotionEvent.ACTION_DOWN: {
+                    v.setImageBitmap(res.getDrawable(R.drawable.img_down));
+                    break;
+                }
+                case MotionEvent.ACTION_CANCEL:{
+                    v.setImageBitmap(res.getDrawable(R.drawable.img_up));
+                    break;
+                }
+                }
+                return true;
+            }
+        });
+</code></pre>
+
+<p>The better choice is that you define a selector as follows</p>
+
+<pre><code>&lt;selector xmlns:android=""http://schemas.android.com/apk/res/android""&gt;
+    &lt;item android:state_selected=""true""   
+        android:drawable=""@drawable/img_down"" /&gt;
+    &lt;item android:state_selected=""false""   
+        android:drawable=""@drawable/img_up"" /&gt;
+&lt;/selector&gt;
+</code></pre>
+
+<p>and select the image in the event:</p>
+
+<pre><code>v.setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View arg0, MotionEvent arg1) {
+                v.setSelected(arg1.getAction()==MotionEvent.ACTION_DOWN);
+                return true;
+            }
+        });
+</code></pre>

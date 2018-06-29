@@ -1,0 +1,7 @@
+<p>Think you can just use this now:</p>
+
+<pre><code>AlertDialog dialog = new AlertDialog.Builder(this)
+  .setView(view)
+  .setTitle("""")
+  .create()
+</code></pre>

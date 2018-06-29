@@ -1,0 +1,10 @@
+<p>I have had some recent luck in some simple cases with the code
+below.  I haven't finished all testing but....</p>
+
+<pre><code>EditText input = (EditText) findViewById(R.id.Input);
+input.requestFocus();    
+input.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN , 0, 0, 0));
+input.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP , 0, 0, 0));
+</code></pre>
+
+<p>And presto the keyboard shows up.</p>

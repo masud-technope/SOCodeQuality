@@ -1,0 +1,5 @@
+ExifInterface exif = new ExifInterface(filename);
+orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+Matrix matrix = new Matrix();
+matrix.postRotate(90);
+rotatedBitmap = Bitmap.createBitmap(sourceBitmap, 0, 0, sourceBitmap.getWidth(), sourceBitmap.getHeight(), matrix, true);

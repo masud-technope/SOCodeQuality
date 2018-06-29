@@ -1,0 +1,16 @@
+<p>I have work it like this,</p>
+
+<pre><code>Intent i;
+PackageManager manager = getPackageManager();
+try {
+    i = manager.getLaunchIntentForPackage(""app package name"");
+    if (i == null)
+        throw new PackageManager.NameNotFoundException();
+    i.addCategory(Intent.CATEGORY_LAUNCHER);
+    startActivity(i);
+} catch (PackageManager.NameNotFoundException e) {
+
+}
+</code></pre>
+
+<p>Hope it helps someone.</p>

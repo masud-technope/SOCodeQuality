@@ -1,0 +1,42 @@
+<p>When starting your call, it looks fine.</p>
+
+<p>There is a difference between android 11+ and down in bringing your app to the front though.</p>
+
+<p>Android 10 or less you need to start a new intent, android 11+ you simply use <code>BringTaskToFront</code></p>
+
+<p>In the call state IDLE:</p>
+
+<pre><code>if (Build.VERSION.SDK_INT &gt;= 11) {
+    ActivityManager am = (ActivityManager) activity.getSystemService(Activity.ACTIVITY_SERVICE);
+    am.moveTaskToFront(MyActivity.MyActivityTaskId, ActivityManager.MOVE_TASK_WITH_HOME);
+} else {
+    Intent intent = new Intent(activity, MyActivity.class);
+    activity.startActivity(intent);
+}
+</code></pre>
+
+<p>I set the <code>MyActivity.MyActivityTaskId</code> when making the call on my activity like so, it this doesnt work, set this variable on the parent activity page of the page you want to get back to.</p>
+
+<pre><code>MyActivity.MyActivityTaskId = this.getTaskId();
+</code></pre>
+
+<p><code>MyActivityTaskId</code> is a static variable on my activity class</p>
+
+<pre><code>public static int MyActivityTaskId = 0;
+</code></pre>
+
+<p>I hope this will work for you. I use the above code a bit differently, I open my app as soon as the call is answered sothat the user can see the details of the caller.</p>
+
+<p>I have set some stuff in the <code>AndroidManifest.xml</code> as well:</p>
+
+<pre><code>/*Dont really know if this makes a difference*/
+&lt;activity android:name=""MyActivity"" android:taskAffinity="""" android:launchMode=""singleTask"" /&gt;
+</code></pre>
+
+<p>and permissions:</p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.GET_TASKS"" /&gt;
+&lt;uses-permission android:name=""android.permission.REORDER_TASKS"" /&gt;
+</code></pre>
+
+<p>Please ask questions if or when you get stuck.</p>

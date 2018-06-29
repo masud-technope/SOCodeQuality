@@ -1,0 +1,40 @@
+<p>A simple solution would be using a boolean to skip second run</p>
+
+<pre><code>boolean isShow = false; // define global variable
+
+
+// when showing time picker
+TimePickerDialog timeDlg = new TimePickerDialog( this, new OnTimeSetListener()
+            {
+
+                @Override
+                public void onTimeSet( TimePicker view, int hourOfDay, int minute )
+                {
+                    if ( isShow )
+                    {
+                        isShow = false;
+                        // your code
+                    }
+
+                }
+            }, 8, 30, false );
+
+timeDlg.setButton( TimePickerDialog.BUTTON_NEGATIVE, ""Cancel"", new DialogInterface.OnClickListener()
+            {
+                @Override
+                public void onClick( DialogInterface dialog, int which )
+                {
+                    isShow = false;
+                }
+            } );
+timeDlg.setButton( TimePickerDialog.BUTTON_POSITIVE, ""Set"", new DialogInterface.OnClickListener()
+            {
+                @Override
+                public void onClick( DialogInterface dialog, int which )
+                {
+                    isShow = true;
+                }
+            } );
+
+timeDlg.show();
+</code></pre>

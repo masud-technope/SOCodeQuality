@@ -1,0 +1,53 @@
+<p>To help clarify this madness, I'd like to begin by apologizing on behalf of all Android users for Google's downright ridiculous treatment of the soft keyboard. The reason there are so many answers, each different, for the same simple question is because this API, like many others in Android, is horribly designed. I can think of no polite way to state it.</p>
+
+<p>I want to hide the keyboard.  I expect to provide Android with the following statement: <code>Keyboard.hide()</code>. The end. Thank you very much.  But Android has a problem.  You must use the <code>InputMethodManager</code> to hide the keyboard. OK, fine, this is Android's API to the keyboard. BUT! You are required to have a <code>Context</code> in order to get access to the IMM. Now we have a problem.  I may want to hide the keyboard from a static or utility class that has no use or need for any <code>Context</code>. or And FAR worse, the IMM requires that you specify what <code>View</code> (or even worse, what <code>Window</code>) you want to hide the keyboard FROM. </p>
+
+<p>This is what makes hiding the keyboard so challenging. Dear Google: When I'm looking up the recipe for a cake, there is no <code>RecipeProvider</code> on Earth that would refuse to provide me with the recipe unless I first answer WHO the cake will be eaten by AND where it will be eaten!! </p>
+
+<p>This sad story ends with the ugly truth: to hide the Android keyboard, you will be required to provide 2 forms of identification: a <code>Context</code> and either a <code>View</code> or a <code>Window</code>. </p>
+
+<p>I have created a static utility method which can do the job VERY solidly, provided you call it from an Activity. </p>
+
+<pre><code>public static void hide_keyboard(Activity activity) {
+    InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+    //Find the currently focused view, so we can grab the correct window token from it.
+    View view = activity.getCurrentFocus();
+    //If no view currently has focus, create a new one, just so we can grab a window token from it
+    if(view == null) {
+        view = new View(activity);
+    }
+    inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+}
+</code></pre>
+
+<p>Be aware that this utility method ONLY works when called from an Activity! The above method calls the getCurrentFocus method of the target Activity to fetch the proper window token. </p>
+
+<p>But suppose you want to hide the keyboard from an EditText hosted in a DialogFragment? You can't use the method above for that:</p>
+
+<pre><code>hide_keyboard(get_activity()); //won't work
+</code></pre>
+
+<p>This won't work because you'll be passing a reference to the Fragment's host Activity, which will have no focused control while the Fragment is shown! Wow! So, for hiding the keyboard from Fragments, I resort to the lower-level, more common, and uglier:</p>
+
+<pre><code>public static void hide_keyboard_from(Context context, View view) {
+    InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+    inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+}
+</code></pre>
+
+<p>Below is some additional information gleaned from more time wasted chasing this solution:</p>
+
+<p><strong>About windowSoftInputMode</strong></p>
+
+<p>There's yet another point of contention to be aware of. By default, Android will automatically assign initial focus to the first EditText or focusable control in your Activity.  It naturally follows that the InputMethod (typically the soft keyboard) will respond to the focus event by showing itself. The <code>windowSoftInputMode</code> attribute in <code>AndroidManifest.xml</code>, when set to <code>stateAlwaysHidden</code>, instructs the keyboard to ignore this automatically-assigned initial focus. </p>
+
+<pre><code>&lt;activity
+    android:name="".MyActivity""
+    android:windowSoftInputMode=""stateAlwaysHidden""/&gt;
+</code></pre>
+
+<p>Almost unbelievably, it appears to do nothing to prevent the keyboard from opening when you touch the control (unless <code>focusable=""false""</code> and/or <code>focusableInTouchMode=""false""</code> are assigned to the control). Apparently, the windowSoftInputMode setting applies only to automatic focus events, not to focus events triggered from touch events.</p>
+
+<p>Therefore, <code>stateAlwaysHidden</code> is VERY poorly named indeed. It should perhaps be called <code>ignoreInitialFocus</code> instead. </p>
+
+<p>Hope this helps.</p>

@@ -1,0 +1,15 @@
+<p>None of the above solutions have worked for me, instead I get every child (a checkedTextView) from the ListView and see if it is checked or not:</p>
+
+<pre><code>            ListView myListView = myViewActivity.getListView();
+        ArrayList&lt;String&gt; selectedChildren2 = new ArrayList&lt;String&gt;();
+
+        for(int i = 0;i&lt;myListView.getChildCount();i++)
+        {
+            CheckedTextView c = (CheckedTextView) myListView.getChildAt(i);
+            if(c.isChecked())
+            {
+                String child = c.getText().toString();
+                selectedChildren.add(child);
+                }
+        }
+</code></pre>

@@ -1,0 +1,18 @@
+<p>The most convenient way to pass data between activities is by passing intents. In the first activity from where you want to send data, you shoukd add code,</p>
+
+<pre><code>String str = ""My Data""; //Data you want to send
+Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);         
+intent.putExtra(""name"",str); //here you will add the data into intent to pass bw activites
+v.getContext().startActivity(intent);
+</code></pre>
+
+<p>you should also import</p>
+
+<pre><code>import android.content.Intent;
+</code></pre>
+
+<p>Then in the next Acitvity(SecondActivity), you dhould get retrieve the data from intent using the following code,</p>
+
+<pre><code>String name = this.getIntent().getStringExtra(""name"");
+</code></pre>

@@ -1,0 +1,63 @@
+<p>Like Richard I also use <strong>/proc/mounts</strong> file to get the list of available storage options</p>
+
+<pre><code>public class StorageUtils {
+
+    private static final String TAG = ""StorageUtils"";
+
+    public static class StorageInfo {
+
+        public final String path;
+        public final boolean internal;
+        public final boolean readonly;
+        public final int display_number;
+
+        StorageInfo(String path, boolean internal, boolean readonly, int display_number) {
+            this.path = path;
+            this.internal = internal;
+            this.readonly = readonly;
+            this.display_number = display_number;
+        }
+
+        public String getDisplayName() {
+            StringBuilder res = new StringBuilder();
+            if (internal) {
+                res.append(""Internal SD card"");
+            } else if (display_number &gt; 1) {
+                res.append(""SD card "" + display_number);
+            } else {
+                res.append(""SD card"");
+            }
+            if (readonly) {
+                res.append("" (Read only)"");
+            }
+            return res.toString();
+        }
+    }
+
+    public static List&lt;StorageInfo&gt; getStorageList() {
+
+        List&lt;StorageInfo&gt; list = new ArrayList&lt;StorageInfo&gt;();
+        String def_path = Environment.getExternalStorageDirectory().getPath();
+        boolean def_path_internal = !Environment.isExternalStorageRemovable();
+        String def_path_state = Environment.getExternalStorageState();
+        boolean def_path_available = def_path_state.equals(Environment.MEDIA_MOUNTED)
+                                    || def_path_state.equals(Environment.MEDIA_MOUNTED_READ_ONLY);
+        boolean def_path_readonly = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED_READ_ONLY);
+        BufferedReader buf_reader = null;
+        try {
+            HashSet&lt;String&gt; paths = new HashSet&lt;String&gt;();
+            buf_reader = new BufferedReader(new FileReader(""/proc/mounts""));
+            String line;
+            int cur_display_number = 1;
+            Log.d(TAG, ""/proc/mounts"");
+            while ((line = buf_reader.readLine()) != null) {
+                Log.d(TAG, line);
+                if (line.contains(""vfat"") || line.contains(""/mnt"")) {
+                    StringTokenizer tokens = new StringTokenizer(line, "" "");
+                    String unused = tokens.nextToken(); //device
+                    String mount_point = tokens.nextToken(); //mount point
+                    if (paths.contains(mount_point)) {
+                        continue;
+                    }
+                    unused = tokens.nextToken(); //file system
+                    List&lt;String&gt; flags = Arrays.asList(tokens.nextToken().split("

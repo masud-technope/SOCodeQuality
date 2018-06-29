@@ -1,0 +1,54 @@
+public class MyAdapter extends FragmentPagerAdapter
+{
+    static final int NUM_ITEMS = 2;
+    private final FragmentManager mFragmentManager;
+    private Fragment mFragmentAtPos0;
+
+    public MyAdapter(FragmentManager fm)
+    {
+        super(fm);
+        mFragmentManager = fm;
+    }
+
+    @Override
+    public Fragment getItem(int position)
+    {
+        if (position == 0)
+        {
+            if (mFragmentAtPos0 == null)
+            {
+                mFragmentAtPos0 = FirstPageFragment.newInstance(new FirstPageFragmentListener()
+                {
+                    public void onSwitchToNextFragment()
+                    {
+                        mFragmentManager.beginTransaction().remove(mFragmentAtPos0).commit();
+                        mFragmentAtPos0 = NextFragment.newInstance();
+                        notifyDataSetChanged();
+                    }
+                });
+            }
+            return mFragmentAtPos0;
+        }
+        else
+            return SecondPageFragment.newInstance();
+    }
+
+    @Override
+    public int getCount()
+    {
+        return NUM_ITEMS;
+    }
+
+    @Override
+    public int getItemPosition(Object object)
+    {
+        if (object instanceof FirstPageFragment && mFragmentAtPos0 instanceof NextFragment)
+            return POSITION_NONE;
+        return POSITION_UNCHANGED;
+    }
+}
+
+public interface FirstPageFragmentListener
+{
+    void onSwitchToNextFragment();
+}

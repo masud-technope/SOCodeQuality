@@ -1,0 +1,11 @@
+<p>If you are using ActionBarSherlock, then use Theme.Sherlock.NoActionBar Theme in your Activity </p>
+
+<pre><code>&lt;activity 
+    android:name="".SplashScreenActivity""
+    android:theme=""@style/Theme.Sherlock.NoActionBar""&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=""android.intent.action.MAIN"" /&gt;
+        &lt;category android:name=""android.intent.category.LAUNCHER"" /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre>

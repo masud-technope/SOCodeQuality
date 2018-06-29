@@ -1,0 +1,5 @@
+<p>I found this example <a href=""http://android-codes-examples.blogspot.com/2011/11/show-or-hide-soft-keyboard-on-opening.html"">http://android-codes-examples.blogspot.com/2011/11/show-or-hide-soft-keyboard-on-opening.html</a>. Add the following code just before <code>alert.show()</code>.</p>
+
+<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+</code></pre>

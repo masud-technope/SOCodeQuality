@@ -1,0 +1,8 @@
+<p>wwyt, I simply reused your trick with removing the Adapter and these are the bare essentials to unfocus/dismiss the dropdown.</p>
+
+<pre><code>AutoCompleteTextView tvSuburbs;
+ArrayAdapter&lt;Suburb&gt; a = (ArrayAdapter&lt;Suburb&gt;) tvSuburbs.getAdapter();
+tvSuburbs.setAdapter(null); // Remove the adapter so we don't get a dropdown
+tvSuburbs.setText(s.name); // when text is set programmatically.
+tvSuburbs.setAdapter(a); // Restore adapter
+</code></pre>

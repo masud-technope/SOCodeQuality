@@ -1,0 +1,7 @@
+<p>You don't. </p>
+
+<p>Arrays can not be resized. </p>
+
+<p>You would need to create a new (smaller) array, and copy the elements you wished to preserve into it.</p>
+
+<p>A better Idea would be to use a <code>List</code> implementation that was dynamic. An <code>ArrayList&lt;Integer&gt;</code> for example.</p>

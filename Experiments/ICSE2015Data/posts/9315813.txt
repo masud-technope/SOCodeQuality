@@ -1,0 +1,9 @@
+<p>I had an application which used a <code>ListPreference</code> where the user was required to select the location of where they wanted to save something. In that app, I scanned /proc/mounts and /system/etc/vold.fstab for sdcard mount points. I stored the mount points from each file into two separate <code>ArrayList</code>s.</p>
+
+<p>Then, I compared one list with the other and discarded items that were not in both lists. That gave me a list of root paths to each sdcard.</p>
+
+<p>From there, I tested the paths with <code>File.exists()</code>, <code>File.isDirectory()</code>, and <code>File.canWrite()</code>. If any of those tests were false, I discarded that path from the list.</p>
+
+<p>Whatever was left in the list, I converted to a <code>String[]</code> array so it could be used by the <code>ListPreference</code> values attribute.</p>
+
+<p>You can view the code here: <a href=""http://sapienmobile.com/?p=204"" rel=""nofollow"">http://sapienmobile.com/?p=204</a></p>

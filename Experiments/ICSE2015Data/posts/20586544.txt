@@ -1,0 +1,142 @@
+<p>Here,all these are cut from Eclipse sample <code>SettingsActivity</code>.
+I have to copy all these too much codes to show how these android developers choose perfectly for more generalized and stable coding style.
+<p>I left the codes for adapting the <code>PreferenceActivity</code> to tablet and greater API.</p>
+
+<pre><code>public class SettingsActivity extends PreferenceActivity {
+
+@Override
+protected void onPostCreate(Bundle savedInstanceState) {
+    super.onPostCreate(savedInstanceState);
+
+    setupSummaryUpdatablePreferencesScreen();
+}
+
+private void setupSummaryUpdatablePreferencesScreen() {
+
+    // In the simplified UI, fragments are not used at all and we instead
+    // use the older PreferenceActivity APIs.
+
+    // Add 'general' preferences.
+    addPreferencesFromResource(R.xml.pref_general);
+
+    // Bind the summaries of EditText/List/Dialog preferences to
+    // their values. When their values change, their summaries are updated
+    // to reflect the new value, per the Android Design guidelines.
+    bindPreferenceSummaryToValue(findPreference(""example_text""));
+    bindPreferenceSummaryToValue(findPreference(""example_list""));
+}
+
+/**
+ * A preference value change listener that updates the preference's summary
+ * to reflect its new value.
+ */
+private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
+
+    private String TAG = SettingsActivity.class.getSimpleName();
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object value) {
+        String stringValue = value.toString();
+
+        if (preference instanceof ListPreference) {
+            // For list preferences, look up the correct display value in
+            // the preference's 'entries' list.
+            ListPreference listPreference = (ListPreference) preference;
+            int index = listPreference.findIndexOfValue(stringValue);
+
+            // Set the summary to reflect the new value.
+            preference.setSummary(
+                index &gt;= 0
+                ? listPreference.getEntries()[index]
+                : null);
+        } else {
+            // For all other preferences, set the summary to the value's
+            // simple string representation.
+            preference.setSummary(stringValue);
+        }
+        Log.i(TAG, ""pref changed : "" + preference.getKey() + "" "" + value);
+        return true;
+    }
+};
+
+/**
+ * Binds a preference's summary to its value. More specifically, when the
+ * preference's value is changed, its summary (line of text below the
+ * preference title) is updated to reflect the value. The summary is also
+ * immediately updated upon calling this method. The exact display format is
+ * dependent on the type of preference.
+ *
+ * @see #sBindPreferenceSummaryToValueListener
+ */
+
+private static void bindPreferenceSummaryToValue(Preference preference) {
+    // Set the listener to watch for value changes.
+    preference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
+
+    // Trigger the listener immediately with the preference's
+    // current value.
+    sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
+                                                             PreferenceManager
+                                                             .getDefaultSharedPreferences(preference.getContext())
+                                                             .getString(preference.getKey(), """"));
+}
+
+}
+</code></pre>
+
+<p><code>xml/pref_general.xml</code></p>
+
+<pre><code>&lt;PreferenceScreen xmlns:android=""http://schemas.android.com/apk/res/android"" &gt;
+
+&lt;!-- NOTE: EditTextPreference accepts EditText attributes. --&gt;
+&lt;!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. --&gt;
+&lt;EditTextPreference
+android:capitalize=""words""
+android:defaultValue=""@string/pref_default_display_name""
+android:inputType=""textCapWords""
+android:key=""example_text""
+android:maxLines=""1""
+android:selectAllOnFocus=""true""
+android:singleLine=""true""
+android:title=""@string/pref_title_display_name"" /&gt;
+
+&lt;!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog todismiss it.--&gt;
+&lt;!-- NOTE: ListPreference's summary should be set to its value by the activity code. --&gt;
+&lt;ListPreference
+android:defaultValue=""-1""
+android:entries=""@array/pref_example_list_titles""
+android:entryValues=""@array/pref_example_list_values""
+android:key=""example_list""
+android:negativeButtonText=""@null""
+android:positiveButtonText=""@null""
+android:title=""@string/pref_title_add_friends_to_messages"" /&gt;
+
+&lt;/PreferenceScreen&gt;
+</code></pre>
+
+<p><code>values/strings_activity_settings.xml</code></p>
+
+<pre><code>&lt;resources&gt;
+&lt;!-- Strings related to Settings --&gt;
+
+&lt;!-- Example General settings --&gt;
+
+&lt;string name=""pref_title_display_name""&gt;Display name&lt;/string&gt;
+&lt;string name=""pref_default_display_name""&gt;John Smith&lt;/string&gt;
+
+&lt;string name=""pref_title_add_friends_to_messages""&gt;Add friends to messages&lt;/string&gt;
+&lt;string-array name=""pref_example_list_titles""&gt;
+&lt;item&gt;Always&lt;/item&gt;
+&lt;item&gt;When possible&lt;/item&gt;
+&lt;item&gt;Never&lt;/item&gt;
+&lt;/string-array&gt;
+&lt;string-array name=""pref_example_list_values""&gt;
+&lt;item&gt;1&lt;/item&gt;
+&lt;item&gt;0&lt;/item&gt;
+&lt;item&gt;-1&lt;/item&gt;
+&lt;/string-array&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p><strong>NOTE:</strong> Actually I just want to comment like ""Google's sample for PreferenceActivity is also interesting"". But I haven't enough reputation points.So please don't blame me.<p>
+(Sorry for bad English)</p>

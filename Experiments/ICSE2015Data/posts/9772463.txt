@@ -1,0 +1,7 @@
+<p>Using the following code in Activity.</p>
+
+<pre><code>DisplayMetrics metrics = new DisplayMetrics();
+getWindowManager().getDefaultDisplay().getMetrics(metrics);
+int height = metrics.heightPixels;
+int wwidth = metrics.widthPixels;
+</code></pre>

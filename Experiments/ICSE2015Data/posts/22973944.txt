@@ -1,0 +1,22 @@
+<p>The accepted answer worked so well until I copied text with line-breaks into into the EditText. So I added onTextContextMenuItem to monitor the paste action.</p>
+
+<pre><code>@Override
+public boolean onTextContextMenuItem(int id) {
+    boolean ret = super.onTextContextMenuItem(id);
+    switch (id) {
+        case android.R.id.paste:
+            onTextPaste();
+            break;
+    }
+    return ret;
+}
+
+public void onTextPaste() {
+    if (getText() == null)
+        return;
+    String text = getText().toString();
+    text = text.replaceAll(System.getProperty(""line.separator""), "" "");
+    text = text.replaceAll(""\\s+"", "" "");
+    setText(text);
+}
+</code></pre>

@@ -1,0 +1,5 @@
+<p>Other idea is to override <code>onInterceptTouchEvent</code> method on the root view for your Activity. </p>
+
+<p>The touch event goes from the front most view on the screen (where the touch event occurred) down the stack of views calling the <code>onTouch</code> method until any of the views return true, indicating that the touch event was consumed. As many of the view consumes the touch event by default (that is the case of <code>EditText</code> or <code>TextView</code>, for instance), the event does not get to the Activity's root View <code>onTouch</code> method.</p>
+
+<p>But, before do this traversal, the touch event travels another path, going from the root view down the view tree until it gets to the front most view. This traversal is done by calling <code>onInterceptTouchEvent</code>. If the method returns true, it intercepts the event... nahhh, but that is a little bit trick, I don't think you want to do that nor to know the details. What you need to know is that you can override this method on the root view for your Activity, and put there the code to hide the keyboard when necessary.</p>

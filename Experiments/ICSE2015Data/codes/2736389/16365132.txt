@@ -1,0 +1,10 @@
+public class IntentMailBox {
+    static Queue<Object> content = new LinkedList<Object>();
+}
+IntentMailBox.content.add(level);
+Intent intent = new Intent(LevelsActivity.this, LevelActivity.class);
+startActivity(intent);
+if (IntentMailBox.content.size()>0)
+  level = (Level) IntentMailBox.content.poll();
+else
+  // here you reload what you have saved in onPause()

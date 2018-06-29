@@ -1,0 +1,1 @@
+This only hides the bars I guess.. but not the effect of the scrollview

@@ -1,0 +1,24 @@
+<p>All solutions given above (<em>InputMethodManager</em> interaction in <em>OnFocusChangeListener.onFocusChange</em> listener attached to your <em>EditText</em> works fine if you have single edit in the activity.</p>
+
+<p>In my case I have two edits.</p>
+
+<pre><code> private EditText tvX, tvY;
+ protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+ tvX.setOnFocusChangeListener(this);
+    tvY.setOnFocusChangeListener(this);
+
+@Override
+public void onFocusChange(View v, boolean hasFocus) {       
+    InputMethodManager imm =  (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+    if(tvX.hasFocus() || tvY.hasFocus()) {            
+        imm.showSoftInput(v, 0);            
+    } else {
+        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);         
+    }       
+};
+</code></pre>
+
+<p>I have observed that onFocusChange is triggered for tvX with hasFocus=true (keyboard shown) but then for tvY with  hasFocus=true (keyboard hidden). In the end, no keyboard was visible.</p>
+
+<p>General solution should have correct statement in if ""show keyboard if EditText text has focus""</p>

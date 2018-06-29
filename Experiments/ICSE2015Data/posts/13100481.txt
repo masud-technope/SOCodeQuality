@@ -1,0 +1,5 @@
+<p>The passing of data between activities is mainly by means of an intent object.</p>
+
+<p>First you have to attach the data to the intent object with the use of the <code>Bundle</code> class. Then call the activity using either <code>startActivity()</code> or <code>startActivityForResult()</code> methods.</p>
+
+<p>You can find more information about it, with an example from <a href=""http://codeglympse.blogspot.in/2012/10/passing-data-to-activity.html"" rel=""nofollow"">this blogpost</a>.</p>

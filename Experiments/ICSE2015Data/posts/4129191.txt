@@ -1,0 +1,15 @@
+<p>You can also just grab the <code>WebViewClient</code> </p>
+
+<pre><code>wvClient = new WebViewClient() {
+@Override
+public boolean shouldOverrideUrlLoading(WebView view, String url) {
+  if (url.startsWith(""youtube:"")) {
+    String youtubeUrl = ""http://www.youtube.com/watch?v=""
+    + url.Replace(""youtube:"", """");
+  startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(youtubeUrl)));
+}
+return false;
+}
+</code></pre>
+
+<p>Worked fine in my app.</p>

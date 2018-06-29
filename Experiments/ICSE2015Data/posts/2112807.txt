@@ -1,0 +1,12 @@
+<p>[Posting a new answer, since I can't comment on Josef's answer.]</p>
+
+<p>The input filter works fine, but it has a subtle bug in it: typing over a selection will delete all the text.</p>
+
+<p>For example, say you have the text <code>""foo""</code> in the <code>EditText</code>.  If you select it all (e.g., by double-clicking on it) and type <code>'a'</code>, the text will disappear.  This is because the <code>InputFilter</code> will be called as:</p>
+
+<pre><code>filter(""a"", 0, 1, ""foo"", 0, 3);
+</code></pre>
+
+<p>The proposed input filter will return the empty string in this case (because <code>src.length() &lt; 1</code> is <code>false</code>), which explains the missing text.</p>
+
+<p>The solution is to simply return <code>dst.subSequence(dstart, dend)</code> in the filter function.  This will work fine even for deletions.</p>

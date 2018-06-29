@@ -1,0 +1,11 @@
+<p>In theory the combination of:</p>
+
+<pre><code>settings.setLayoutAlgorithm(LayoutAlgorithm.NARROW_COLUMNS); 
+</code></pre>
+
+<p>with </p>
+
+<pre><code>settings.setUseWideViewPort(false)
+</code></pre>
+
+<p>fixes the problem, wrapping the content and fitting to the screen. But the <em><a href=""http://developer.android.com/reference/android/webkit/WebSettings.LayoutAlgorithm.html"" rel=""nofollow"">NARROW_COLUMNS</a></em> has been deprecated. I advice you to read this thread below that explores the issue in detail: <a href=""https://code.google.com/p/android/issues/detail?id=62378"" rel=""nofollow"">https://code.google.com/p/android/issues/detail?id=62378</a></p>

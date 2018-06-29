@@ -1,0 +1,11 @@
+<p>Easiest way:</p>
+
+<p>To save:</p>
+
+<pre><code>getPreferences(MODE_PRIVATE).edit().putString(""Name of variable"",value).commit();
+</code></pre>
+
+<p>To retrieve:</p>
+
+<pre><code>""your_variable"" = getPreferences(MODE_PRIVATE).getString(""Name of variable"",default value);
+</code></pre>

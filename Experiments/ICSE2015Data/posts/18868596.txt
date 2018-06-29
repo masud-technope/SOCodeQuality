@@ -1,0 +1,38 @@
+<p>Try this code. It will work fine..</p>
+
+<pre><code>public class DynamicViewsActivity extends Activity {
+
+Button button;
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    //setContentView(R.layout.activity_dynamic_views);
+    ScrollView scrl=new ScrollView(this);
+    final LinearLayout ll=new LinearLayout(this);
+    ll.setOrientation(LinearLayout.HORIZONTAL);
+    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+    layoutParams.setMargins(100, 500, 100, 200);
+    scrl.addView(ll);
+    Button add_btn=new Button(this);
+    add_btn.setText(""Click Here"");
+
+    ll.addView(add_btn, layoutParams);
+
+
+    final Context context = this;
+
+    add_btn.setOnClickListener(new OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            // TODO Auto-generated method stub
+
+            Intent intent = new Intent(context, App2Activity.class);
+            startActivity(intent);
+        }
+    });
+    this.setContentView(scrl);
+}
+}
+</code></pre>

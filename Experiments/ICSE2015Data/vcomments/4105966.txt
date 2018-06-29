@@ -1,0 +1,4 @@
+Here are all the rotation values for the different orientations: 3: 180, 6: 90, 8: 270
+Don't use magic numbers when you can use named constants: ExifInterface.ORIENTATION_NORMAL, ExifInterface.ORIENTATION_ROTATE_90, ExifInterface.ORIENTATION_ROTATE_180,  ExifInterface.ORIENTATION_ROTATE_270.
+Watch out of `OutOfMemoryError` when use this approach as you hold two bitmaps in memory at the same time.
+9re posted this util class https://gist.github.com/9re/1990019.

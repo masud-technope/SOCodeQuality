@@ -1,0 +1,10 @@
+<p>Try:</p>
+
+<pre><code>event.putExtra(""startTime"", ""10/05/2012"");
+</code></pre>
+
+<p>And when you are accessing passed variables:</p>
+
+<pre><code>SimpleDateFormat formatter = new SimpleDateFormat(""dd/MM/yyyy"");
+Date date = formatter.parse(bundle.getString(""startTime""));
+</code></pre>

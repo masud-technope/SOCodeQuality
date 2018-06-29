@@ -1,0 +1,81 @@
+<p>I found many good solutions for this. most is working by adding an item to the end of adapter, and don't display the last item in drop-down list.
+The big problem for me was the spinner drop-down list will start from the bottom of the list. So user see the last items instead of the first items (in case of have many items to show), after touch the spinner for the first time.</p>
+
+<p>So I put the hint item to the beginning of the list. and hide the first item in drop-down list.</p>
+
+<pre><code>private void loadSpinner(){
+
+    HintArrayAdapter hintAdapter = new HintArrayAdapter&lt;String&gt;(context, 0);
+
+    hintAdapter.add(""Hint to be displayed"");
+    hintAdapter.add(""Item 1"");
+    hintAdapter.add(""Item 2"");
+            .
+            .
+    hintAdapter.add(""Item 30"");
+
+    spinner1.setAdapter(hintAdapter);
+
+    //spinner1.setSelection(0); //display hint. Actually you can ignore it, because the default is already 0
+    //spinner1.setSelection(0, false); //use this if don't want to onItemClick called for the hint
+
+    spinner1.setOnItemSelectedListener(yourListener);
+}
+
+private class HintArrayAdapter&lt;T&gt; extends ArrayAdapter&lt;T&gt; {
+
+    Context mContext;
+
+    public HintArrayAdapter(Context context, int resource) {
+        super(context, resource);
+        this.mContext = context
+    }
+
+    @Override 
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(android.R.layout.simple_spinner_item, parent, false);
+        TextView texview = (TextView) view.findViewById(android.R.id.text1);
+
+        if(position == 0) {
+            texview.setText("""");
+            texview.setHint(getItem(position).toString()); //""Hint to be displayed""
+        } else {
+            texview.setText(getItem(position).toString());
+        }
+
+        return view;
+    }
+
+    @Override
+    public View getDropDownView(int position, View convertView, ViewGroup parent) {
+
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+        View view;
+
+        if(position == 0){
+            view = inflater.inflate(R.layout.spinner_hint_list_item_layout, parent, false); // Hide first row
+        } else {
+            view = inflater.inflate(android.R.layout.simple_spinner_dropdown_item, parent, false);
+            TextView texview = (TextView) view.findViewById(android.R.id.text1);
+            texview.setText(getItem(position).toString());
+        } 
+
+        return view;
+    }
+}
+</code></pre>
+
+<p>set the below layout in @Override getDropDownView() when position is 0, to hide the first hint row.</p>
+
+<p>R.layout.spinner_hint_list_item_layout:</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;LinearLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+    xmlns:tools=""http://schemas.android.com/tools""
+    android:layout_width=""match_parent""
+    android:layout_height=""wrap_content"" &gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>

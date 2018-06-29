@@ -1,0 +1,6 @@
+What permissions are required for an app to use this?
+@ef2011 it's the double-checked locking pattern. 
+Thanks for posting.  But what is to stop someone with a rooted phone from simply editing device_id.xml to put in a new UUID of their choice?  (i.e. to circumvent a 'free trial' check) Would not it be better if the class only stored the value in a preference file if it has to resort to the random ID method?  Otherwise, there is no need to persist it between application runs; it's more secure to re-generate.
+"ANDROID_ID is the preferred solution".  Note that ANDROID_ID no longer uniquely identifies a device.
+Wat about the `TelephonyManager`, is that even available on tablets? Will it indeed give a null value for the id? Or will your code enter the exception? Did you test on a tablet?
+Why didn't you make this class final - and also ""static"" (in the sense that all its methods can be static, and its constructor private) ? Also different apps using this class might very well get different IDs in the fallback case - they read an write their _local_ copies of `PREFS_FILE`. Moreover @Peterdk is right - you might get a NPE on say a tablet with id `9774d56d682e549c` - right ?

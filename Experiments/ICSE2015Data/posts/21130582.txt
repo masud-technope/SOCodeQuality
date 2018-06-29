@@ -1,0 +1,30 @@
+<p>Sometimes raukodraug's answer won't work. I've make it in this way with some trials and errors:</p>
+
+<pre><code>public static void showKeyboard(Activity activity) {
+    if (activity != null) {
+        activity.getWindow()
+                .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+    }
+}
+
+public static void hideKeyboard(Activity activity) {
+    if (activity != null) {
+        activity.getWindow()
+                .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    }
+}
+</code></pre>
+
+<p>And the <strong>EditText</strong> part: </p>
+
+<pre><code>    editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
+            if (!hasFocus) {
+                hideKeyboard(getActivity());
+            } else {
+                showKeyboard(getActivity());
+            }
+        }
+    });
+</code></pre>

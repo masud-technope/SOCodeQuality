@@ -1,0 +1,33 @@
+<p>Thinking on the ""new"" acepted directories (values-sw600dp for example) i created this method based on the screen' width DP:</p>
+
+<pre><code> public static final int TABLET_MIN_DP_WEIGHT = 450;
+ protected static boolean isSmartphoneOrTablet(Activity act){
+    DisplayMetrics metrics = new DisplayMetrics();
+    act.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+    int dpi = 0;
+    if (metrics.widthPixels &lt; metrics.heightPixels){
+        dpi = (int) (metrics.widthPixels / metrics.density);
+    }
+    else{
+        dpi = (int) (metrics.heightPixels / metrics.density);
+    }
+
+    if (dpi &lt; TABLET_MIN_DP_WEIGHT)         return true;
+    else                                    return false;
+}
+</code></pre>
+
+<p>And on this list you can find some of the DP of popular devices and tablet sizes:</p>
+
+<p>Wdp / Hdp</p>
+
+<p>GALAXY Nexus: 360 / 567<br>
+XOOM: 1280 / 752<br>
+GALAXY NOTE: 400 / 615<br>
+NEXUS 7: 961 / 528<br>
+GALAXY TAB (>7 &amp;&amp; &lt;10): 1280 / 752<br>
+GALAXY S3: 360 / 615  </p>
+
+<p>Wdp = Width dp<br>
+Hdp = Height dp</p>

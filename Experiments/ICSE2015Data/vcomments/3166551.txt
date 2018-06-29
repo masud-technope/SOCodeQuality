@@ -1,0 +1,2 @@
+The size in pixels of the display is not the density.
+This is density independent pixels not the pixels. And that 320 you see is 320dip not 320px. The calculation of px is different see this http://stackoverflow.com/questions/6840904/how-to-get-the-screen-size-of-the-device/6841335#6841335

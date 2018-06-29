@@ -1,0 +1,14 @@
+Uri uri = Uri.parse(""content://sms"");
+
+ContentResolver contentResolver = getContentResolver();
+
+Cursor cursor = contentResolver.query(uri, null, null, null,
+  null);
+
+while (cursor.moveToNext()) {
+
+ long thread_id = cursor.getLong(1);
+ Uri thread = Uri.parse(""content://sms/conversations/""
+   + thread_id);
+ getContentResolver().delete(thread, null, null);
+}

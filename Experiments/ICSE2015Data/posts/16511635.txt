@@ -1,0 +1,16 @@
+<p>Isn't this a much better solution? <a href=""http://developer.android.com/reference/android/util/DisplayMetrics.html"">DisplayMetrics</a> comes with everything you need and works from API 1.</p>
+
+<pre><code>public void getScreenInfo(){
+    DisplayMetrics metrics = new DisplayMetrics();
+    getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+    heightPixels = metrics.heightPixels;
+    widthPixels = metrics.widthPixels;
+    density = metrics.density;
+    densityDpi = metrics.densityDpi;
+}
+</code></pre>
+
+<p>You can also get the actual display (including screen decors, such as Status Bar or software navigation bar) using <a href=""http://developer.android.com/reference/android/view/Display.html#getRealMetrics%28android.util.DisplayMetrics%29"">getRealMetrics</a>, but this works on 17+ only.</p>
+
+<p>Am I missing something?</p>

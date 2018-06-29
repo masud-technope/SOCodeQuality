@@ -1,0 +1,21 @@
+<p>@Jas:
+I don't have that code anymore, but I've found something close. I've made this to search for ""components"" of my application, they are just activities with a given category. </p>
+
+<pre><code>private List&lt;String&gt; getInstalledComponentList() {
+    Intent componentSearchIntent = new Intent();
+    componentSearchIntent.addCategory(Constants.COMPONENTS_INTENT_CATEGORY);
+    componentSearchIntent.setAction(Constants.COMPONENTS_INTENT_ACTION_DEFAULT);
+    List&lt;ResolveInfo&gt; ril = getPackageManager().queryIntentActivities(componentSearchIntent, PackageManager.MATCH_DEFAULT_ONLY);
+    List&lt;String&gt; componentList = new ArrayList&lt;String&gt;();
+    Log.d(LOG_TAG, ""Search for installed components found "" + ril.size() + "" matches."");
+    for (ResolveInfo ri : ril) {
+        if (ri.activityInfo != null) {
+            componentList.add(ri.activityInfo.packageName);// + ri.activityInfo.name);
+            Log.d(LOG_TAG, ""Found installed: "" + componentList.get(componentList.size()-1));
+        }
+    }
+    return componentList;
+}
+</code></pre>
+
+<p>I've commented the part where it gets the activity name, but it's pretty straightforward.</p>

@@ -1,0 +1,83 @@
+<p>I really liked Pinhassi's answer, but noticed that after the user had entered the specified number digits after the decimal point you could no longer enter text to the left side of the decimal point.  The problem was that the solution only tested the previous text that had been entered, not the current text being entered.  So here is my solution that inserts the new character into the original text for validation.</p>
+
+<pre><code>package com.test.test;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import android.text.InputFilter;
+import android.text.Spanned;
+import android.util.Log;
+
+public class InputFilterCurrency implements InputFilter {
+    Pattern moPattern;
+
+    public InputFilterCurrency(int aiMinorUnits) {
+        // http://www.regexplanet.com/advanced/java/index.html
+        moPattern=Pattern.compile(""[0-9]*+((\\.[0-9]{0,""+ aiMinorUnits + ""})?)||(\\.)?"");
+
+    } // InputFilterCurrency
+
+    @Override
+    public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+        String lsStart  = """";
+        String lsInsert = """";
+        String lsEnd    = """";
+        String lsText   = """";
+
+        Log.d(""debug"", moPattern.toString());
+        Log.d(""debug"", ""source: "" + source + "", start: "" + start + "", end:"" + end + "", dest: "" + dest + "", dstart: "" + dstart + "", dend: "" + dend );
+
+        lsText = dest.toString();
+
+        // If the length is greater then 0, then insert the new character
+        // into the original text for validation
+        if (lsText.length() &gt; 0) {
+
+            lsStart = lsText.substring(0, dstart);
+            Log.d(""debug"", ""lsStart : "" + lsStart);
+            // Check to see if they have deleted a character
+            if (source != """") {
+                lsInsert = source.toString();
+                Log.d(""debug"", ""lsInsert: "" + lsInsert);
+            } // if
+            lsEnd = lsText.substring(dend);
+            Log.d(""debug"", ""lsEnd   : "" + lsEnd);
+            lsText = lsStart + lsInsert + lsEnd;
+            Log.d(""debug"", ""lsText  : "" + lsText);
+
+        } // if
+
+        Matcher loMatcher = moPattern.matcher(lsText);
+        Log.d(""debug"", ""loMatcher.matches(): "" + loMatcher.matches() + "", lsText: "" + lsText);
+        if(!loMatcher.matches()) {
+            return """";
+        }
+        return null;
+
+    } // CharSequence
+
+} // InputFilterCurrency
+</code></pre>
+
+<p>And the call to set the editText filter</p>
+
+<pre><code>editText.setFilters(new InputFilter[] {new InputFilterCurrency(2)});
+
+Ouput with two decimal places
+05-22 15:25:33.434: D/debug(30524): [0-9]*+((\.[0-9]{0,2})?)||(\.)?
+05-22 15:25:33.434: D/debug(30524): source: 5, start: 0, end:1, dest: 123.4, dstart: 5, dend: 5
+05-22 15:25:33.434: D/debug(30524): lsStart : 123.4
+05-22 15:25:33.434: D/debug(30524): lsInsert: 5
+05-22 15:25:33.434: D/debug(30524): lsEnd   : 
+05-22 15:25:33.434: D/debug(30524): lsText  : 123.45
+05-22 15:25:33.434: D/debug(30524): loMatcher.matches(): true, lsText: 123.45
+
+Ouput inserting a 5 in the middle
+05-22 15:26:17.624: D/debug(30524): [0-9]*+((\.[0-9]{0,2})?)||(\.)?
+05-22 15:26:17.624: D/debug(30524): source: 5, start: 0, end:1, dest: 123.45, dstart: 2, dend: 2
+05-22 15:26:17.624: D/debug(30524): lsStart : 12
+05-22 15:26:17.624: D/debug(30524): lsInsert: 5
+05-22 15:26:17.624: D/debug(30524): lsEnd   : 3.45
+05-22 15:26:17.624: D/debug(30524): lsText  : 1253.45
+05-22 15:26:17.624: D/debug(30524): loMatcher.matches(): true, lsText: 1253.45
+</code></pre>

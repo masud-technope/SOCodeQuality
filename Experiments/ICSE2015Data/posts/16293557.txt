@@ -1,0 +1,8 @@
+<p>Anyway people ask my comment to post it as answer. i am posting.</p>
+
+<pre><code>URL newurl = new URL(photo_url_str); 
+mIcon_val = BitmapFactory.decodeStream(newurl.openConnection() .getInputStream());
+profile_photo.setImageBitmap(mIcon_val);
+</code></pre>
+
+<p>thanks.</p>

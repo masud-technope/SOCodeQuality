@@ -1,0 +1,7 @@
+if(null != testText && testText.length() != 0) {
+    mAutoCompleteSearch.setText(incomingActivity.toString());
+    mAutoCompleteSearch.dismissDropDown(); //Dismiss the drop down
+    } else {
+    mAutoCompleteSearchDocketActivity.setText("""");
+            // Here it(drop down) will be shown automatically
+    }

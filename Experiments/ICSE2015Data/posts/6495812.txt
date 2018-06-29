@@ -1,0 +1,10 @@
+<p>Both methods are useful and valid and both are best suited for different scenarios:</p>
+
+<ol>
+<li>The user terminates the application and re-opens it at a later date, but the application needs to reload data from the last session – this requires a persistent storage approach such as using SQLite.</li>
+<li>The user switches application and then comes back to the original and wants to pick up where they left off -  save and restore bundle data (such as application state data) in <code>onSaveInstanceState()</code> and <code>onRestoreInstanceState()</code> is usually adequate.</li>
+</ol>
+
+<p>If you save the state data in a persistent manner, it can be reloaded in an <code>onResume()</code> or <code>onCreate()</code> (or actually on any lifecycle call). This may or may not be desired behaviour. If you store it in a bundle in an <code>InstanceState</code>, then it is transient and is only suitable for storing data for use in the same user ‘session’ (I use the term session loosely) but not between ‘sessions’.</p>
+
+<p>It is not that one approach is better than the other, like everything, it is just important to understand what behaviour you require and to select the most appropriate approach.</p>

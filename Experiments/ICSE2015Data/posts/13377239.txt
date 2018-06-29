@@ -1,0 +1,253 @@
+<p>My implementation is a bit more complex, but comes with the following goodies:</p>
+
+<ul>
+<li>takes the available width and available height into account</li>
+<li>works with single line and multiline labels</li>
+<li>uses ellipsis in case the minimum font size is hit</li>
+<li>since the internal text representation is changed, remembers the originally set text in a separate variable</li>
+<li>ensures that the canvas is always only as big as it needs to be, while it uses all the available height of the parent</li>
+</ul>
+
+<pre class=""lang-java prettyprint-override""><code>/**
+ * Text view that auto adjusts text size to fit within the view. If the text
+ * size equals the minimum text size and still does not fit, append with an
+ * ellipsis.
+ * 
+ * Based on the original work from Chase Colburn
+ * &amp;lt;http://stackoverflow.com/a/5535672/305532&gt;
+ *
+ * @author Thomas Keller &amp;lt;me@thomaskeller.biz&gt;
+ */
+public class AutoResizeTextView extends TextView {
+
+    // in dip
+    private static final int MIN_TEXT_SIZE = 20;
+
+    private static final boolean SHRINK_TEXT_SIZE = true;
+
+    private static final char ELLIPSIS = '\u2026';
+
+    private static final float LINE_SPACING_MULTIPLIER_MULTILINE = 0.8f;
+
+    private static final float LINE_SPACING_MULTIPLIER_SINGLELINE = 1f;
+
+    private static final float LINE_SPACING_EXTRA = 0.0f;
+
+    private CharSequence mOriginalText;
+
+    // temporary upper bounds on the starting text size
+    private float mMaxTextSize;
+
+    // lower bounds for text size
+    private float mMinTextSize;
+
+    // determines whether we're currently in the process of measuring ourselves,
+    // so we do not enter onMeasure recursively
+    private boolean mInMeasure = false;
+
+    // if the text size should be shrinked or if the text size should be kept
+    // constant and only characters should be removed to hit the boundaries
+    private boolean mShrinkTextSize;
+
+    public AutoResizeTextView(Context context) {
+        this(context, null);
+        init(context, null);
+    }
+
+    public AutoResizeTextView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+        init(context, attrs);
+    }
+
+    public AutoResizeTextView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init(context, attrs);
+    }
+
+    private void init(Context context, AttributeSet attrs) {
+        // the current text size is used as maximum text size we can apply to
+        // our widget
+        mMaxTextSize = getTextSize();
+        if (attrs != null) {
+            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AutoResizeTextView);
+            mMinTextSize = a.getFloat(R.styleable.AutoResizeTextView_minFontSize, MIN_TEXT_SIZE);
+            mShrinkTextSize = a.getBoolean(R.styleable.AutoResizeTextView_shrinkTextSize, SHRINK_TEXT_SIZE);
+            a.recycle();
+        }
+    }
+
+    @Override
+    public void setTextSize(float size) {
+        mMaxTextSize = size;
+        super.setTextSize(size);
+    }
+
+    /**
+     * Returns the original, unmodified text of this widget
+     * 
+     * @return
+     */
+    public CharSequence getOriginalText() {
+        // text has not been resized yet
+        if (mOriginalText == null) {
+            return getText();
+        }
+        return mOriginalText;
+    }
+
+    @Override
+    public void setText(CharSequence text, BufferType type) {
+        if (!mInMeasure) {
+            mOriginalText = text.toString();
+        }
+        super.setText(text, type);
+    }
+
+    @SuppressLint(""DrawAllocation"")
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        mInMeasure = true;
+        try {
+            int availableWidth = MeasureSpec.getSize(widthMeasureSpec) - getCompoundPaddingLeft()
+                    - getCompoundPaddingRight();
+            int availableHeight = MeasureSpec.getSize(heightMeasureSpec) - getCompoundPaddingTop()
+                    - getCompoundPaddingBottom();
+
+            // Do not resize if the view does not have dimensions or there is no
+            // text
+            if (mOriginalText == null || mOriginalText.length() == 0 || availableWidth &lt;= 0) {
+                return;
+            }
+
+            TextPaint textPaint = getPaint();
+
+            // start with the recorded max text size
+            float targetTextSize = mMaxTextSize;
+            String originalText = mOriginalText.toString();
+            String finalText = originalText;
+
+            Rect textSize = getTextSize(originalText, textPaint, targetTextSize);
+            boolean textExceedsBounds = textSize.height() &gt; availableHeight || textSize.width() &gt; availableWidth;
+            if (mShrinkTextSize &amp;&amp; textExceedsBounds) {
+                // check whether all lines can be rendered in the available
+                // width / height without violating the bounds of the parent and
+                // without using a text size that is smaller than the minimum
+                // text size
+                float heightMultiplier = availableHeight / (float) textSize.height();
+                float widthMultiplier = availableWidth / (float) textSize.width();
+                float multiplier = Math.min(heightMultiplier, widthMultiplier);
+                targetTextSize = Math.max(targetTextSize * multiplier, mMinTextSize);
+
+                // measure again
+                textSize = getTextSize(finalText, textPaint, targetTextSize);
+            }
+
+            // we cannot shrink the height further when we hit the available
+            // height, but we can shrink the width by applying an ellipsis on
+            // each line
+            if (textSize.width() &gt; availableWidth) {
+                StringBuilder modifiedText = new StringBuilder();
+                String lines[] = originalText.split(System.getProperty(""line.separator""));
+                for (int i = 0; i &lt; lines.length; i++) {
+                    modifiedText.append(resizeLine(textPaint, lines[i], availableWidth));
+                    // add the separator back to all but the last processed line
+                    if (i != lines.length - 1) {
+                        modifiedText.append(System.getProperty(""line.separator""));
+                    }
+                }
+                finalText = modifiedText.toString();
+
+                // measure again
+                textSize = getTextSize(finalText, textPaint, targetTextSize);
+            }
+
+            textPaint.setTextSize(targetTextSize);
+            boolean isMultiline = finalText.indexOf('\n') &gt; -1;
+            // do not include extra font padding (for accents, ...) for
+            // multiline texts, this will prevent proper placement with
+            // Gravity.CENTER_VERTICAL
+            if (isMultiline) {
+                setLineSpacing(LINE_SPACING_EXTRA, LINE_SPACING_MULTIPLIER_MULTILINE);
+                setIncludeFontPadding(false);
+            } else {
+                setLineSpacing(LINE_SPACING_EXTRA, LINE_SPACING_MULTIPLIER_SINGLELINE);
+                setIncludeFontPadding(true);
+            }
+
+            // according to
+            // &lt;http://code.google.com/p/android/issues/detail?id=22493&gt;
+            // we have to add a unicode character to trigger the text centering
+            // in ICS. this particular character is known as ""zero-width"" and
+            // does no harm.
+            setText(finalText + ""\u200B"");
+
+            int measuredWidth = textSize.width() + getCompoundPaddingLeft() + getCompoundPaddingRight();
+            int measuredHeight = textSize.height() + getCompoundPaddingTop() + getCompoundPaddingBottom();
+
+            // expand the view to the parent's height in case it is smaller or
+            // to the minimum height that has been set
+            // FIXME: honor the vertical measure mode (EXACTLY vs AT_MOST) here
+            // somehow
+            measuredHeight = Math.max(measuredHeight, MeasureSpec.getSize(heightMeasureSpec));
+            setMeasuredDimension(measuredWidth, measuredHeight);
+        } finally {
+            mInMeasure = false;
+        }
+    }
+
+    private Rect getTextSize(String text, TextPaint textPaint, float textSize) {
+        textPaint.setTextSize(textSize);
+        // StaticLayout depends on a given width in which it should lay out the
+        // text (and optionally also split into separate lines).
+        // Therefor we calculate the current text width manually and start with
+        // a fake (read: maxmimum) width for the height calculation.
+        // We do _not_ use layout.getLineWidth() here since this returns
+        // slightly smaller numbers and therefor would lead to exceeded text box
+        // drawing.
+        StaticLayout layout = new StaticLayout(text, textPaint, Integer.MAX_VALUE, Alignment.ALIGN_NORMAL, 1f, 0f, true);
+        int textWidth = 0;
+        String lines[] = text.split(System.getProperty(""line.separator""));
+        for (int i = 0; i &lt; lines.length; ++i) {
+            textWidth = Math.max(textWidth, measureTextWidth(textPaint, lines[i]));
+        }
+        return new Rect(0, 0, textWidth, layout.getHeight());
+    }
+
+    private String resizeLine(TextPaint textPaint, String line, int availableWidth) {
+        checkArgument(line != null &amp;&amp; line.length() &gt; 0, ""expected non-empty string"");
+        int textWidth = measureTextWidth(textPaint, line);
+        int lastDeletePos = -1;
+        StringBuilder builder = new StringBuilder(line);
+        while (textWidth &gt; availableWidth &amp;&amp; builder.length() &gt; 0) {
+            lastDeletePos = builder.length() / 2;
+            builder.deleteCharAt(builder.length() / 2);
+            // don't forget to measure the ellipsis character as well; it
+            // doesn't matter where it is located in the line, it just has to be
+            // there, since there are no (known) ligatures that use this glyph
+            String textToMeasure = builder.toString() + ELLIPSIS;
+            textWidth = measureTextWidth(textPaint, textToMeasure);
+        }
+        if (lastDeletePos &gt; -1) {
+            builder.insert(lastDeletePos, ELLIPSIS);
+        }
+        return builder.toString();
+    }
+
+    // there are several methods in Android to determine the text width, namely
+    // getBounds() and measureText().
+    // The latter works for us the best as it gives us the best / nearest
+    // results without that our text canvas needs to wrap its text later on
+    // again.
+    private int measureTextWidth(TextPaint textPaint, String line) {
+        return Math.round(textPaint.measureText(line));
+    }
+}
+</code></pre>
+
+<p><strong>[revised on 2012-11-21]</strong></p>
+
+<ul>
+<li>fixed the placement of the ellipsis (off-by-one error)</li>
+<li>reworked text size calculation; now always the full text including line breaks is measured, to fix problems when the addition of the height of two single measured lines just didn't lead to the same result as the measurement of the height of the text as a whole</li>
+<li>instead of looping to find the smallest available text size, just calculate it after the first measurement </li>
+</ul>

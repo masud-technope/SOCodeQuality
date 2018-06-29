@@ -1,0 +1,10 @@
+<pre><code>private static boolean isThisASystemPackage(Context context, PackageInfo  packageInfo ) {
+        try {
+            PackageInfo sys = context.getPackageManager().getPackageInfo(""android"", PackageManager.GET_SIGNATURES);
+            return (packageInfo != null &amp;&amp; packageInfo.signatures != null &amp;&amp;
+                    sys.signatures[0].equals(packageInfo.signatures[0]));
+        } catch (NameNotFoundException e) {
+            return false;
+        }
+    }
+</code></pre>

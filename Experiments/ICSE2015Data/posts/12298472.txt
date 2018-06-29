@@ -1,0 +1,22 @@
+<p>try this:</p>
+
+<pre><code>for (int i = 1; i &lt;= 20; i++) {
+    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT);
+    Button btn = new Button(this);
+    btn.setId(i);
+    final int id_ = btn.getId();
+    btn.setText(""button "" + id_);
+    btn.setBackgroundColor(Color.rgb(70, 80, 90));
+    linear.addView(btn, params);
+    btn1 = ((Button) findViewById(id_));
+    btn1.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View view) {
+            Toast.makeText(view.getContext(),
+                    ""Button clicked index = "" + id_, Toast.LENGTH_SHORT)
+                    .show();
+        }
+    });
+}
+</code></pre>

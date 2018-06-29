@@ -1,0 +1,17 @@
+<p>Based on the answer from BalusC, i wrote some example-Java-Code:</p>
+
+<pre><code>    if (queryString != null)
+    {
+        final String[] arrParameters = queryString.split(""&amp;"");
+        for (final String tempParameterString : arrParameters)
+        {
+            final String[] arrTempParameter = tempParameterString.split(""="");
+            if (arrTempParameter.length &gt;= 2)
+            {
+                final String parameterKey = arrTempParameter[0];
+                final String parameterValue = arrTempParameter[1];
+                //do something with the parameters
+            }
+        }
+    }
+</code></pre>

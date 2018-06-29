@@ -1,0 +1,58 @@
+<p>This is really simple with <a href=""http://bit.ly/droidquery"" rel=""nofollow"">droidQuery</a>. For starts, consider this layout:</p>
+
+<pre><code>&lt;LinearLayout
+    android:layout_width=""wrap_content""
+    android:layout_height=""wrap_content""
+    android:orientation=""vertical"" &gt;
+    &lt;LinearLayout
+        android:id=""@+id/v1""
+        android:layout_width=""wrap_content""
+        android:layout_height=""wrap_content"" &gt;
+        &lt;TextView
+            android:layout_width=""wrap_content""
+            android:layout_height=""wrap_content"" 
+            android:text=""View 1"" /&gt;
+    &lt;/LinearLayout&gt;
+    &lt;LinearLayout
+        android:id=""@+id/v2""
+        android:layout_width=""wrap_content""
+        android:layout_height=""0dp"" &gt;
+        &lt;TextView
+            android:layout_width=""wrap_content""
+            android:layout_height=""wrap_content"" 
+            android:text=""View 2"" /&gt;
+        &lt;TextView
+            android:layout_width=""wrap_content""
+            android:layout_height=""wrap_content"" 
+            android:text=""View 3"" /&gt;
+    &lt;/LinearLayout&gt;
+&lt;/LinearLayout&gt;
+</code></pre>
+
+<p>We can animate the height to the desired value - say <code>100dp</code> - using the following code:</p>
+
+<pre><code>//convert 100dp to pixel value
+int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
+</code></pre>
+
+<p>Then use <code>droidQuery</code> to animate. The simplest way is with this:</p>
+
+<pre><code>$.animate(""{ height: "" + height + ""}"", new AnimationOptions());
+</code></pre>
+
+<p>To make the animation more appealing, consider adding an easing:</p>
+
+<pre><code>$.animate(""{ height: "" + height + ""}"", new AnimationOptions().easing($.Easing.BOUNCE));
+</code></pre>
+
+<p>You can also change the duration on <code>AnimationOptions</code> using the <code>duration()</code> method, or handle what happens when the animation ends. For a complex example, try:</p>
+
+<pre><code>$.animate(""{ height: "" + height + ""}"", new AnimationOptions().easing($.Easing.BOUNCE)
+                                                             .duration(1000)
+                                                             .complete(new Function() {
+                                                                 @Override
+                                                                 public void invoke($ d, Object... args) {
+                                                                     $.toast(context, ""finished"", Toast.LENGTH_SHORT);
+                                                                 }
+                                                             }));
+</code></pre>

@@ -1,0 +1,17 @@
+<p>You can do it using the following method..</p>
+
+<pre><code>public static String[] removeElements(String[] input, String deleteMe) {
+List result = new LinkedList();
+
+for(String item : input)
+    if(!deleteMe.equals(item))
+        result.add(item);
+
+return result.toArray(input);
+}
+</code></pre>
+
+<p>OR you could use <a href=""http://developer.oesf.biz/em/developer/reference/durian/com/android/internal/util/ArrayUtils.html"" rel=""nofollow""><code>ArrayUtils</code></a>.</p>
+
+<pre><code>array = ArrayUtils.removeElement(array, element)
+</code></pre>

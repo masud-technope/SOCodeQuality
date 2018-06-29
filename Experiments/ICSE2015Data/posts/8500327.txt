@@ -1,0 +1,9 @@
+<p>For <code>Splashscreen</code> you should use this line in <code>manifest</code> and don't use <code>getActionBar()</code></p>
+
+<pre><code>&lt;item name=""android:windowActionBar""&gt;false&lt;/item&gt;
+</code></pre>
+
+<p>and once when Splash <code>Activity</code> is finished in the main <code>Activity</code> use below or nothing</p>
+
+<pre><code>&lt;item name=""android:windowActionBar""&gt;true&lt;/item&gt;
+</code></pre>

@@ -1,0 +1,4 @@
+<p>try this to set your TextView  style by java code</p>
+
+<pre><code>txt1.setTypeface(null,Typeface.BOLD_ITALIC);
+</code></pre>

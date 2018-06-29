@@ -1,0 +1,19 @@
+<p>@Clerics solution works. But this appears to also be an issue with some of googles native apps: googles, play store, talk. Also other big apps like skype.</p>
+
+<p><strong>EDIT</strong>: Bellow solution have given me problem for actionbarsherlock on api &lt; 4.0, the reason being setTheme doesn't work pre ice cream sandwich</p>
+
+<p>Add following in your manifest within you application or activity tags:</p>
+
+<pre><code>android:theme=""@style/Theme.NoActionBar""
+</code></pre>
+
+<p>And then in your main activity:</p>
+
+<pre><code>    // Set theme
+    setTheme(R.style.YOUR_THEME);
+    getSupportActionBar().setTitle(R.string.title);
+
+    // Start regular onCreate()
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+</code></pre>

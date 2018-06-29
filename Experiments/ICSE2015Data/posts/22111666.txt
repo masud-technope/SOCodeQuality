@@ -1,0 +1,8 @@
+<pre><code>searchView = (SearchView) view.findViewById(R.id.searchView);
+
+SearchView.SearchAutoComplete searchText = (SearchView.SearchAutoComplete) searchView
+      .findViewById(org.holoeverywhere.R.id.search_src_text);
+searchText.setTextColor(Color.BLACK);
+</code></pre>
+
+<p>I am using Holoeverywhere Library. Note the <strong>org.holoeverywhere.R.id.search_src_text</strong></p>

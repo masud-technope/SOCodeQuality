@@ -1,0 +1,12 @@
+<p>// in setonclicklistener put this code:</p>
+
+<pre><code>EditText et_number=(EditText)findViewById(R.id.id_of_edittext); 
+String my_number = et_number.getText().toString().trim();
+Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse(my_number)); 
+startActivity(callIntent);
+</code></pre>
+
+<p>// give permission for call in manifest:</p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.CALL_PHONE""&gt;&lt;/uses-permission&gt;
+</code></pre>

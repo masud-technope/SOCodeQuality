@@ -1,0 +1,6 @@
+<p>This will do the job ...</p>
+
+<pre><code>List x = new ArrayList(Arrays.asList(arr_fav));
+x.remove(String.valueOf(current_id));
+arr_fav = x.toArray();
+</code></pre>

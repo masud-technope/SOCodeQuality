@@ -1,0 +1,35 @@
+<p>Additional to previous answers, if you are having problems with getting the right path(like AndroZip) you can use this:</p>
+
+<pre><code>  public String getPath(Uri uri ,ContentResolver contentResolver) {
+        String[] projection = {  MediaStore.MediaColumns.DATA};
+        Cursor cursor;
+        try{
+            cursor = contentResolver.query(uri, projection, null, null, null);
+        } catch (SecurityException e){
+            String path = uri.getPath();
+            String result = tryToGetStoragePath(path);
+            return  result;
+        }
+        if(cursor != null) {
+            //HERE YOU WILL GET A NULLPOINTER IF CURSOR IS NULL
+            //THIS CAN BE, IF YOU USED OI FILE MANAGER FOR PICKING THE MEDIA
+            cursor.moveToFirst();
+            int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
+            String filePath = cursor.getString(columnIndex);
+            cursor.close();
+            return filePath;
+        }
+        else
+            return uri.getPath();               // FOR OI/ASTRO/Dropbox etc
+    }
+
+    private String tryToGetStoragePath(String path) {
+        int actualPathStart = path.indexOf(""//storage"");
+        String result = path;
+
+        if(actualPathStart!= -1 &amp;&amp; actualPathStart&lt; path.length())
+            result = path.substring(actualPathStart+1 , path.length());
+
+        return result;
+    }
+</code></pre>

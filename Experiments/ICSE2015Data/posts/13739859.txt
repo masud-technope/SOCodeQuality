@@ -1,0 +1,10 @@
+<p>You can copy the array elements that you want into a new array</p>
+
+<pre><code> j = 0;
+ for(int i= 0;i&lt;arr_fav.length;i++)
+  {
+   if(current_id != Integer.parseInt(arr_fav[i]))
+ {
+    arr_new[j++] = arr_fav[i];
+ } }
+</code></pre>

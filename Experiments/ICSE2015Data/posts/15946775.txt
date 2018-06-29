@@ -1,0 +1,14 @@
+<p>I realise this is an old question, but the prevailing answer leaves something to be desired.</p>
+
+<p>The question is not clear what is required of <code>imageView</code> - are we passing it back as the view, or merely saving a reference for later?</p>
+
+<p>Either way, if the <code>ImageView</code> is coming from the inflated layout, the correct way to do this would be:</p>
+
+<pre><code>public class TestClass extends Fragment {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.testclassfragment, container, false);
+        ImageView imageView = (ImageView)v.findViewById(R.id.my_image);
+        return v;
+    }
+}
+</code></pre>

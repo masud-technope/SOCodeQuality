@@ -1,0 +1,27 @@
+<p>Extend TextView and override these methods:</p>
+
+<pre><code>CharSequence origText = """";
+int maxLines = 2;
+
+@Override
+public void setText(CharSequence text, BufferType type) {
+    super.setText(text, type);
+    origText = text;
+}
+
+@Override
+protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+    super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+    CharSequence text = origText;
+    onPreDraw();
+
+    while(getLineCount() &gt; maxLines) {
+        text = text.subSequence(0, text.length()-1);
+        super.setText(text + ""..."");
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        onPreDraw();
+    }
+
+}
+</code></pre>

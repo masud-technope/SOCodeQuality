@@ -1,0 +1,23 @@
+<p>If you want the display dimensions in pixels you can use <a href=""http://developer.android.com/reference/android/view/Display.html#getSize%28android.graphics.Point%29""><code>getSize</code></a>:</p>
+
+<pre><code>Display display = getWindowManager().getDefaultDisplay();
+Point size = new Point();
+display.getSize(size);
+int width = size.x;
+int height = size.y;
+</code></pre>
+
+<p>If you're not in an <code>Activity</code> you can get the default <code>Display</code> via <code>WINDOW_SERVICE</code>:</p>
+
+<pre><code>WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+Display display = wm.getDefaultDisplay();
+</code></pre>
+
+<p>Before <code>getSize</code> was introduced (in API level 13), you could use the <code>getWidth</code> and <code>getHeight</code> methods that are now deprecated:</p>
+
+<pre><code>Display display = getWindowManager().getDefaultDisplay(); 
+int width = display.getWidth();  // deprecated
+int height = display.getHeight();  // deprecated
+</code></pre>
+
+<p>For the use case you're describing however, a margin/padding in the layout seems more appropriate.</p>

@@ -1,0 +1,21 @@
+<p>I found Three Way to do this ></p>
+
+<p>1) Using requestWindowFeature</p>
+
+<pre><code>Dialog dialog = new Dialog(this);
+dialog.requestWindowFeature(dialog.getWindow().FEATURE_NO_TITLE); 
+</code></pre>
+
+<p>2) Using style (style.xml)</p>
+
+<pre><code>&lt;style name=""FullHeightDialog"" parent=""android:style/Theme.Dialog""&gt;
+   &lt;item name=""android:windowNoTitle""&gt;true&lt;/item&gt;
+&lt;/style&gt;
+
+Dialog dialog = new Dialog(context, R.style.FullHeightDialog);
+</code></pre>
+
+<p>3) Using XML theme in AndroidManifest.xml</p>
+
+<pre><code> android:theme=""@android:style/Theme.NoTitleBar""
+</code></pre>

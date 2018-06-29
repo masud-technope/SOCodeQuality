@@ -1,0 +1,7 @@
+This should be picked as the answer. Thank you George!
+Sure, I don't see why not?
+Awesome stuff !
+It doesnot work for all the devices.Do I need change anywhere ?
+It takes nearly 0.03 second to do that for a 200*200 picture, so I do think that's not best solution.
+@vinc3m1 solution here https://github.com/makeramen/RoundedImageView works really well! also see his answer (http://stackoverflow.com/a/15032283/2048266).
+Not working well when trying to set imageview's scaletype, only fitXY is working, centerCrop and other are showing unpredictable results, anyone here got same issues?

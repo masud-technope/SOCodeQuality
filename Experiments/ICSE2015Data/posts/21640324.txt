@@ -1,0 +1,50 @@
+<p>In combination with all the answers above, I wanted the ImageView to be pressed and changed state but if the user moved then ""cancel"" and not perform an onClickListener.</p>
+
+<p>I ended up making a Point object within the class and setting its coordinates according to when the user pushed down on the ImageView. On the MotionEvent.ACTION_UP I recording a new point and compared the points.</p>
+
+<p>I can only explain it so well, but here is what I did.</p>
+
+<pre><code>// set the ontouch listener
+weatherView.setOnTouchListener(new OnTouchListener() {
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        // Determine what action with a switch statement
+        switch (event.getAction()) {
+
+        // User presses down on the ImageView, record the original point
+        // and set the color filter
+        case MotionEvent.ACTION_DOWN: {
+            ImageView view = (ImageView) v;
+
+            // overlay is black with transparency of 0x77 (119)
+            view.getDrawable().setColorFilter(0x77000000,
+                    PorterDuff.Mode.SRC_ATOP);
+            view.invalidate();
+
+            p = new Point((int) event.getX(), (int) event.getY());
+            break;
+        }
+
+        // Once the user releases, record new point then compare the
+        // difference, if within a certain range perform onCLick
+        // and or otherwise clear the color filter
+        case MotionEvent.ACTION_UP: {
+            ImageView view = (ImageView) v;
+            Point f = new Point((int) event.getX(), (int) event.getY());
+            if ((Math.abs(f.x - p.x) &lt; 15)
+                    &amp;&amp; ((Math.abs(f.x - p.x) &lt; 15))) {
+                view.performClick();
+            }
+            // clear the overlay
+            view.getDrawable().clearColorFilter();
+            view.invalidate();
+            break;
+        }
+        }
+        return true;
+    }
+});
+</code></pre>
+
+<p>I have an onClickListener set on the imageView, but this can be an method.</p>

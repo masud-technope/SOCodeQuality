@@ -1,0 +1,4 @@
+<p>Sample for deleting one SMS, not conversation:</p>
+
+<pre><code>getContentResolver().delete(Uri.parse(""content://sms/conversations/"" + threadID), ""_id = ?"", new String[]{id});
+</code></pre>

@@ -1,0 +1,11 @@
+<pre><code>public class MyClass implements Serializable{
+ here your instance variable
+}
+
+Now You want to pass Object of this class in startActivity then simple use this
+Bundle b = new Bundle();
+b.putSerializable(""name"",myClassObject);
+intent.putExtras(b);
+</code></pre>
+
+<p>This is Work here because MyClass is Implements Serializable</p>

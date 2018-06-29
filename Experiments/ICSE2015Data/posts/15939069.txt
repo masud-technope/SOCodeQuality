@@ -1,0 +1,19 @@
+<p>This works well for me.<br>
+Close all the previous activities as follows:</p>
+
+<pre><code>    Intent intent = new Intent(this, MainActivity.class);
+    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    intent.putExtra(""Exit me"", true);
+    startActivity(intent);
+    finish();
+</code></pre>
+
+<p>Then in MainActivity onCreate() method add this to finish the MainActivity</p>
+
+<pre><code>    setContentView(R.layout.main_layout);
+
+    if( getIntent().getBooleanExtra(""Exit me"", false)){
+        finish();
+        return; // add this to prevent from doing unnecessary stuffs
+    }
+</code></pre>

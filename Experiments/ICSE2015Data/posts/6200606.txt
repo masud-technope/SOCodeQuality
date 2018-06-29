@@ -1,0 +1,8 @@
+<p>It would be </p>
+
+<pre><code>yourTextView.setTypeface(null,Typeface.DEFAULT_BOLD);
+</code></pre>
+
+<p>and italic should be able to be with replacing Typeface.DEFAULT_BOLD with Typeface.DEFAULT_ITALC.</p>
+
+<p>Let me know how it works.</p>

@@ -1,0 +1,6 @@
+<p>Try this to set textview style to bold and italic</p>
+
+<pre><code>textView.setTypeface(textView.getTypeface(), Typeface.BOLD);
+textView.setTypeface(textView.getTypeface(), Typeface.ITALIC);
+textView.setTypeface(textView.getTypeface(), Typeface.BOLD_ITALIC);
+</code></pre>

@@ -1,0 +1,14 @@
+<p>An alternative using <code>SearchView</code> would be to use this code:</p>
+
+<pre><code>searchView = (SearchView) searchItem.getActionView();    
+searchView.setOnQueryTextListener(new OnQueryTextListener() {
+
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    InputMethodManager imm = (InputMethodManager)
+                            getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(searchView.getApplicationWindowToken(), 0);
+    }
+</code></pre>
+
+<p>This is a SearchView search box in the ActionBar that when the text from the query is submitted (the user presses either <code>Enter</code> key or a search button/icon), then the <code>InputMethodManager</code> code gets activated and makes your soft keyboard go down. This code was put in my <code>onCreateOptionsMenu()</code>. <code>searchItem</code> is from <code>MenuItem</code> which is part of the default code for the <code>onCreateOptionsmenu()</code>. Thanks to @mckoss for a good chunk of this code!</p>

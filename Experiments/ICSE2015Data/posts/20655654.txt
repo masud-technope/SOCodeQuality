@@ -1,0 +1,5 @@
+<pre><code>DisplayMetrics dimension = new DisplayMetrics();
+getWindowManager().getDefaultDisplay().getMetrics(dimension);
+int w = dimension.widthPixels;
+int h = dimension.heightPixels;
+</code></pre>

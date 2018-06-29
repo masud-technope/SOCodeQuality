@@ -1,0 +1,25 @@
+<p>To obtain shared preferences, use the following method
+In your activity:</p>
+
+<pre><code>SharedPreferences prefs = this.getSharedPreferences(
+      ""com.example.app"", Context.MODE_PRIVATE);
+</code></pre>
+
+<p>To read preferences:</p>
+
+<pre><code>String dateTimeKey = ""com.example.app.datetime"";
+
+// use a default value using new Date()
+long l = prefs.getLong(dateTimeKey, new Date().getTime()); 
+</code></pre>
+
+<p>To edit and save preferences</p>
+
+<pre><code>Date dt = getSomeDate();
+prefs.edit().putLong(dateTimeKey, dt.getTime()).apply();
+</code></pre>
+
+<p>The android sdk's sample directory contains an example of retrieving and storing shared preferences. Its located in the:</p>
+
+<pre><code>&lt;android-sdk-home&gt;/samples/android-&lt;platformversion&gt;/ApiDemos directory
+</code></pre>

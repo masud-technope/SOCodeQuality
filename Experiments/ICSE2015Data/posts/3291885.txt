@@ -1,0 +1,25 @@
+<p>I found this solution:</p>
+
+<pre><code>String[] items = new String[] {""Select One"", ""Two"", ""Three""};
+Spinner spinner = (Spinner) findViewById(R.id.mySpinner);
+ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(this,
+            android.R.layout.simple_spinner_item, items);
+adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+spinner.setAdapter(adapter);
+
+spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+    @Override
+    public void onItemSelected(AdapterView&lt;?&gt; arg0, View arg1, int position, long id) {
+        items[0] = ""One"";
+        selectedItem = items[position];
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView&lt;?&gt; arg0) {
+    }
+});
+</code></pre>
+
+<p>Just change the array[0] with ""Select One"" and then in the onItemSelected, rename it to ""One"".</p>
+
+<p>Not a classy solution, but it works :D</p>

@@ -1,0 +1,64 @@
+<p>For a simple case like you described, you can probably get away with overriding fling method in your custom scroll view. Fling method gets called to perform ""deceleration"" every time user raises his finger from the screen. </p>
+
+<p>So what you should do is something like this:</p>
+
+<ol>
+<li><p>Subclass ScrollView.  </p>
+
+<pre><code>public class MyScrollView extends ScrollView { 
+
+    private Scroller scroller;  
+    private Runnable scrollerTask; 
+
+    //...
+
+    public MyScrollView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+
+        scroller = new Scroller(getContext()); //or OverScroller for 3.0+
+        scrollerTask = new Runnable() {
+            @Override
+            public void run() {
+                scroller.computeScrollOffset();
+                scrollTo(0, scroller.getCurrY());
+
+                if (!scroller.isFinished()) {
+                    MyScrollView.this.post(this);
+                } else {
+                    //deceleration ends here, do your code
+                }
+            }
+        };
+        //...
+    }
+}
+</code></pre></li>
+<li><p>Subclass fling method and DO NOT call superclass implementation.</p>
+
+<pre><code>@Override  
+public void fling(int velocityY) {  
+    scroller.fling(getScrollX(), getScrollY(), 0, velocityY, 0, 0, 0, container.getHeight());
+    post(scrollerTask);  
+
+    //add any extra functions you need from android source code:
+    //show scroll bars
+    //change focus
+    //etc.
+}
+</code></pre></li>
+<li><p>Fling will not trigger if the user stops scrolling before raising up his finger (velocityY == 0). In case you want to intercept this sort of events aswell, override onTouchEvent.</p>
+
+<pre><code>@Override
+public boolean onTouchEvent(MotionEvent ev) {
+    boolean eventConsumed = super.onTouchEvent(ev);
+    if (eventConsumed &amp;&amp; ev.getAction() == MotionEvent.ACTION_UP) {
+        if (scroller.isFinished()) {
+            //do your code
+        }
+    }
+    return eventConsumed;
+}
+</code></pre></li>
+</ol>
+
+<p><em>NOTE</em> Although this works, overriding fling method might be a bad idea. It is public, but its barely designed for subclassing. Right now it does 3 things - it initiates fling for private mScroller, handles possible focus changes and shows scroll bars. This might change in future android release. For instance, private mScroller instance changed its class from Scroller to OvershootScroller between 2.3 and 3.0. You have to keep in mind all this small differences. In any case, be ready for unforeseen consequences in the future.</p>

@@ -1,0 +1,17 @@
+<p>try this : </p>
+
+<pre><code>EditText txtUserName = (EditText) findViewById(R.id.txtUsername);
+String strUserName = usernameEditText.getText().toString();
+if (strUserName.trim().equals("""")) {
+    Toast.makeText(this, ""plz enter your name "", Toast.LENGTH_SHORT).show();
+    return;
+}
+</code></pre>
+
+<p>or use the <a href=""http://developer.android.com/reference/android/text/TextUtils.html"">TextUtils</a> class like this : </p>
+
+<pre><code>if(TextUtils.isEmpty(strUserName) {
+    Toast.makeText(this, ""plz enter your name "", Toast.LENGTH_SHORT).show();
+    return;
+}
+</code></pre>

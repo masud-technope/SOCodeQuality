@@ -1,0 +1,147 @@
+<p>I was able to do this in a centralized way, here is the result:</p>
+
+<p><img src=""http://i.stack.imgur.com/w3kkz.png"" alt=""enter image description here""></p>
+
+<p>I have following <code>Activity</code> and I extend from it if I need custom fonts:</p>
+
+<pre><code>import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.LayoutInflater.Factory;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+
+public class CustomFontActivity extends Activity {
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    getLayoutInflater().setFactory(new Factory() {
+
+        @Override
+        public View onCreateView(String name, Context context,
+                AttributeSet attrs) {
+            View v = tryInflate(name, context, attrs);
+            if (v instanceof TextView) {
+                setTypeFace((TextView) v);
+            }
+            return v;
+        }
+    });
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+}
+
+private View tryInflate(String name, Context context, AttributeSet attrs) {
+    LayoutInflater li = LayoutInflater.from(context);
+    View v = null;
+    try {
+        v = li.createView(name, null, attrs); 
+    } catch (Exception e) {
+        try {
+            v = li.createView(""android.widget."" + name, null, attrs);
+        } catch (Exception e1) {
+        }
+    }
+    return v;
+}
+
+private void setTypeFace(TextView tv) {
+    tv.setTypeface(FontUtils.getFonts(this, ""MTCORSVA.TTF""));
+}
+}
+</code></pre>
+
+<p>But if I am using an activity from support package e.g. <code>FragmentActivity</code> then I use this <code>Activity</code>: </p>
+
+<pre><code>import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+
+public class CustomFontFragmentActivity extends FragmentActivity {
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+}
+
+// we can't setLayout Factory as its already set by FragmentActivity so we
+// use this approach
+@Override
+public View onCreateView(String name, Context context, AttributeSet attrs) {
+    View v = super.onCreateView(name, context, attrs);
+    if (v == null) {
+        v = tryInflate(name, context, attrs);
+        if (v instanceof TextView) {
+            setTypeFace((TextView) v);
+        }
+    }
+    return v;
+}
+
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+@Override
+public View onCreateView(View parent, String name, Context context,
+        AttributeSet attrs) {
+    View v = super.onCreateView(parent, name, context, attrs);
+    if (v == null) {
+        v = tryInflate(name, context, attrs);
+        if (v instanceof TextView) {
+            setTypeFace((TextView) v);
+        }
+    }
+    return v;
+}
+
+private View tryInflate(String name, Context context, AttributeSet attrs) {
+    LayoutInflater li = LayoutInflater.from(context);
+    View v = null;
+    try {
+        v = li.createView(name, null, attrs);
+    } catch (Exception e) {
+        try {
+            v = li.createView(""android.widget."" + name, null, attrs);
+        } catch (Exception e1) {
+        }
+    }
+    return v;
+}
+
+private void setTypeFace(TextView tv) {
+    tv.setTypeface(FontUtils.getFonts(this, ""MTCORSVA.TTF""));
+}
+}
+</code></pre>
+
+<p>I haven't tested this code with <code>Fragment</code>s yet, but hopefully it will work. </p>
+
+<p>My <code>FontUtils</code> is simple which also solves the pre-ICS issue mentioned here <a href=""https://code.google.com/p/android/issues/detail?id=9904"" rel=""nofollow"">https://code.google.com/p/android/issues/detail?id=9904</a>:</p>
+
+<pre><code>import java.util.HashMap;
+import java.util.Map;
+
+import android.content.Context;
+import android.graphics.Typeface;
+
+public class FontUtils {
+
+private static Map&lt;String, Typeface&gt; TYPEFACE = new HashMap&lt;String, Typeface&gt;();
+
+public static Typeface getFonts(Context context, String name) { 
+    Typeface typeface = TYPEFACE.get(name);
+    if (typeface == null) {
+        typeface = Typeface.createFromAsset(context.getAssets(), ""fonts/""
+                + name);
+        TYPEFACE.put(name, typeface);
+    }
+    return typeface;
+}
+}
+</code></pre>

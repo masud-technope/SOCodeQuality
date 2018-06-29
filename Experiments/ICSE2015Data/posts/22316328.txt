@@ -1,0 +1,16 @@
+<p>A <code>SearchView</code> object extends from <code>LinearLayout</code>, so it holds other views. The trick is to find the view holding the hint text and change the colour programmatically. The problem with trying to find the view by id is that the id is dependent from the theme used in the application. So depending on the theme used, the <code>findViewById(int id)</code> method might return <code>null</code>. A better approach that works with every theme is to traverse the view hierarchy and find the widget containing the hint text:</p>
+
+<pre><code>// get your SearchView with its id
+SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+// traverse the view to the widget containing the hint text
+LinearLayout ll = (LinearLayout)searchView.getChildAt(0);
+LinearLayout ll2 = (LinearLayout)ll.getChildAt(2);
+LinearLayout ll3 = (LinearLayout)ll2.getChildAt(1);
+SearchView.SearchAutoComplete autoComplete = (SearchView.SearchAutoComplete)ll3.getChildAt(0);
+// set the hint text color
+autoComplete.setHintTextColor(getResources().getColor(Color.WHITE));
+// set the text color
+autoComplete.setTextColor(Color.BLUE);
+</code></pre>
+
+<p>Using this method, you can also change the look of other widgets in the <code>SearchView</code> hierarchy, such as the <code>EditText</code> holding the search query. Unless Google decides to change the view hierarchy of a <code>SearchView</code> shortly, you should be able to change the appearance of the widget with this method for some time.</p>

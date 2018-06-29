@@ -1,0 +1,14 @@
+<p>The title bar can be removed in two ways as mentioned on the developer Android page:</p>
+
+<p>In the <code>manifest.xml</code> file:</p>
+
+<ol>
+<li><p>Add the following in <code>application</code> if you want to remove it for all the activities in an app:</p>
+
+<pre><code>&lt;application android:theme=""@android:style/Theme.Black.NoTitleBar""&gt;
+</code></pre></li>
+<li><p>Or for a particular activity:</p>
+
+<pre><code>&lt;activity android:theme=""@android:style/Theme.Black.NoTitleBar""&gt;
+</code></pre></li>
+</ol>

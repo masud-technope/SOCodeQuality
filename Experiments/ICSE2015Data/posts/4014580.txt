@@ -1,0 +1,15 @@
+<p>I still do not know why, but in my scenario, getCheckedItemPositions() returns false values for all items. I cannot see a way to use the methods on the ListView to get the boolean values out. The SparseBooleanArray object seems to have no real-world data in it. I suspect this may be because of some quirk of my implementation, perhaps that I've subclassed ArrayAdapter. It's frustrating, issues like this are a real time-drain.</p>
+
+<p>Anyway, the solution I have used is to to attach a handler to each Checkbox individually as ListView rows are created. So from ListView.getView() I call this method:</p>
+
+<pre><code>private void addClickHandlerToCheckBox(CheckBox checkbox)
+{
+    checkbox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+    public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+        CheckBox checkbox = (CheckBox)arg0; 
+        boolean isChecked = checkbox.isChecked();
+        // Store the boolean value somewhere durable
+    }
+      }
+);
+</code></pre>

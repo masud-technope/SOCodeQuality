@@ -1,0 +1,10 @@
+<p>The smart solution is to create WebView and get User-Agent from him. Then check if he contain ""Mobile"".</p>
+
+<pre><code>public static boolean isTablet(Context context) {
+    String user_agent = new WebView(context).getSettings().getUserAgentString();
+    boolean mobile = user_agent.contains(""Mobile"");
+    return ((context.getResources().getConfiguration().screenLayout
+        &amp; Configuration.SCREENLAYOUT_SIZE_MASK)
+        &gt;= Configuration.SCREENLAYOUT_SIZE_LARGE)&amp;&amp;(!mobile);
+}
+</code></pre>

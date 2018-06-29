@@ -1,0 +1,9 @@
+<p>Here is a simpler solution. Override the <code>onTouch()</code> for the <code>ScrollView</code> <code>OnTouchListener</code> and return false if you want to bypass the scroll by touch. The programmatic scrolling still works and no need to extend the <code>ScrollView</code> class.</p>
+
+<pre><code>mScroller.setOnTouchListener(new OnTouchListener() {
+@Override
+public boolean onTouch(View v, MotionEvent event) {
+  return isScrollable;
+}
+});
+</code></pre>

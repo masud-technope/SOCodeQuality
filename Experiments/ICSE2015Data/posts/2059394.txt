@@ -1,0 +1,7 @@
+<p>Also useful for hiding the soft keyboard is:</p>
+
+<pre><code>getWindow().setSoftInputMode(
+      WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+</code></pre>
+
+<p>This can be used to suppress the keyboard until the user actually touches the edittext view.</p>

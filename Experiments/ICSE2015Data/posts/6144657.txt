@@ -1,0 +1,3 @@
+<p>We had the same problem and managed to solve it by using a <code>PhoneStateListener</code> to identify when the call ends, but additionally we had to <code>finish()</code> the original activity before starting it again with <code>startActivity</code>, otherwise the call log would be in front of it. </p>
+
+<p>There's an example code demonstrating how it works <a href=""http://umamao.com/questions/Como-fazer-uma-app-de-Android-chamar-o-discador-e-faz%C3%AA-lo-retornar-%C3%A0-app-ap%C3%B3s-o-t%C3%A9rmino-da-chamada"">here</a>.</p>

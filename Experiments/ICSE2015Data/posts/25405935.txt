@@ -1,0 +1,26 @@
+<p>This snippet is copied from the <a href=""https://developer.android.com/guide/components/intents-common.html#Storage"" rel=""nofollow"">official</a> documentation:</p>
+
+<hr>
+
+<p><strong>Example intent to get a photo:</strong></p>
+
+<pre><code>static final int REQUEST_IMAGE_GET = 1;
+
+public void selectImage() {
+    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+    intent.setType(""image/*"");
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivityForResult(intent, REQUEST_IMAGE_GET);
+    }
+}
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == REQUEST_IMAGE_GET &amp;&amp; resultCode == RESULT_OK) {
+        Bitmap thumbnail = data.getParcelable(""data"");
+        Uri fullPhotoUri = data.getData();
+        // Do work with photo saved at fullPhotoUri
+        ...
+    }
+}
+</code></pre>

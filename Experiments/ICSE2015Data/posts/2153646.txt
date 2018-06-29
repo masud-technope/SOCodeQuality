@@ -1,0 +1,1 @@
+<p>Try writing a file to <code>/data</code> &mdash; it's one of the few writable file systems on the device, and that particular path can only be written to by root.</p>

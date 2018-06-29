@@ -1,0 +1,5 @@
+<p>Use this code:</p>
+
+<pre><code>Bitmap bitmap= BitmapFactory.decodeResource(context.getResources(), 
+    R.drawable.icon_name);
+</code></pre>

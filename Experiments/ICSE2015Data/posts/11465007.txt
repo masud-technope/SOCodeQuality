@@ -1,0 +1,3 @@
+<pre><code>TextView text = (TextView)findViewById(R.layout.textName);
+text.setTypeface(null,Typeface.BOLD);
+</code></pre>

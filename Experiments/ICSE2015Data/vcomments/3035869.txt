@@ -1,0 +1,4 @@
+Hi Praveen. The drawable I want to set as the wallpaper is not in R.drawable. It is a drawable I downloaded from the web and keep it in an arrayList of type Drawable along with other drawables.
+i think you have the url values. then my edited answer should help.
+I think I found something: if ""draw"" is the drawable I want to convert to a bitmap then does the trick!
+@Rob : if your Drawable is a BitmapDrawable only. (which means that your Drawable is but a wrapper around a Bitmap, actually) not working for layer-list on 4.2

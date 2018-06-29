@@ -1,0 +1,7 @@
+<p>In 2.3, I had better luck with</p>
+
+<pre><code>final Intent intent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url));
+activity.startActivity(intent);
+</code></pre>
+
+<p>The difference being the use of <code>Intent.ACTION_VIEW</code> rather than the String <code>""android.intent.action.VIEW""</code></p>

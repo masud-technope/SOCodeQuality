@@ -1,0 +1,17 @@
+<p>It works for me..</p>
+
+<pre><code>EditText editText=(EditText)findViewById(R.id.edittext1);
+</code></pre>
+
+<p>put below line of code in onClick()</p>
+
+<pre><code>editText.setFocusable(false);
+editText.setFocusableInTouchMode(true);
+</code></pre>
+
+<p>here hide the keyboard when we click the Button and when we touch the EditText keyboard will be display.</p>
+
+<p><strong>(OR)</strong></p>
+
+<pre><code>getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+</code></pre>

@@ -1,0 +1,39 @@
+public class MyApplication extends Application {
+    private MainActivity mainActivity;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+
+    public void setMainActivity(MainActivity activity) { this.mainActivity=activity; }
+    public MainActivity getMainActivity() { return mainActivity; }
+}
+public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ((MyApplication)getApplication()).setMainActivity(this);
+    }
+
+}
+public class MyPreferences extends PreferenceActivity 
+            implements SharedPreferences.OnSharedPreferenceChangeListener {
+    @SuppressWarnings(""deprecation"")
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.preferences);
+        PreferenceManager.getDefaultSharedPreferences(this)
+            .registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (!key.equals(""autostart"")) {
+            ((MyApplication)getApplication()).getMainActivity().refreshUI();
+        }
+    }
+
+}

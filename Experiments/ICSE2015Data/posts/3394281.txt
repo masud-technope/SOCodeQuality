@@ -1,0 +1,6 @@
+<p>you can remove title by</p>
+
+<pre><code>dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+</code></pre>
+
+<p>where dialog is name of my dialog .</p>

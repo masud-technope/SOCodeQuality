@@ -1,0 +1,2 @@
+<p>you could try with <code>android:background=""@android:drawable/list_selector_background""</code>
+to get the same effect as the ""Add alarm"" in the default ""Alarm Clock"" (now Desk Clock)</p>

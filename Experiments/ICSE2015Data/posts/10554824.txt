@@ -1,0 +1,37 @@
+<p>hey I had a similar issue. I wanted to display a list view that didn't scroll and I found that manipulating the parameters worked but was inefficient and would behave differently on different devices.. as a result, this is a piece of my schedule code which actually does this very efficiently.</p>
+
+<pre><code>db = new dbhelper(this);
+
+ cursor = db.dbCursor();
+int count = cursor.getCount();
+if (count &gt; 0)
+{    
+LinearLayout linearLayout = (LinearLayout) findViewById(R.id.layoutId);
+startManagingCursor(YOUR_CURSOR);
+
+YOUR_ADAPTER(**or SimpleCursorAdapter **) adapter = new YOUR_ADAPTER(this,
+    R.layout.itemLayout, cursor, arrayOrWhatever, R.id.textViewId,
+    this.getApplication());
+
+int i;
+for (i = 0; i &lt; count; i++){
+  View listItem = adapter.getView(i,null,null);
+  linearLayout.addView(listItem);
+   }
+}
+</code></pre>
+
+<p>Note: if you use this, <code>notifyDataSetChanged();</code> will not work as intended as the views will not be redrawn.
+Do this if you need a work around</p>
+
+<pre><code>adapter.registerDataSetObserver(new DataSetObserver() {
+
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                removeAndRedrawViews();
+
+            }
+
+        });
+</code></pre>

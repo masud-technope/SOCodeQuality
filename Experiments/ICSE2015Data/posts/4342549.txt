@@ -1,0 +1,5 @@
+<p>On Android:</p>
+
+<pre><code>Uri uri=Uri.parse(url_string);
+uri.getQueryParameter(""para1"");
+</code></pre>

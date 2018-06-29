@@ -1,0 +1,4 @@
+<p>I had an ArrayList of ArrayLists as my data source for the CustomAdapter, so I use </p>
+
+<pre><code>menu.setHeaderTitle(Messages.get(info.position).getUserName());
+</code></pre>

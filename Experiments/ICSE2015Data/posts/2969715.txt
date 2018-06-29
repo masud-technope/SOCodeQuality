@@ -1,0 +1,26 @@
+<p>Here is <a href=""http://stackoverflow.com/questions/1667278/parsing-query-strings-in-java/1667624#1667624"">BalusC's answer</a>, but it compiles and returns results:</p>
+
+<pre><code>public static Map&lt;String, List&lt;String&gt;&gt; getUrlParameters(String url)
+        throws UnsupportedEncodingException {
+    Map&lt;String, List&lt;String&gt;&gt; params = new HashMap&lt;String, List&lt;String&gt;&gt;();
+    String[] urlParts = url.split(""\\?"");
+    if (urlParts.length &gt; 1) {
+        String query = urlParts[1];
+        for (String param : query.split(""&amp;"")) {
+            String pair[] = param.split(""="");
+            String key = URLDecoder.decode(pair[0], ""UTF-8"");
+            String value = """";
+            if (pair.length &gt; 1) {
+                value = URLDecoder.decode(pair[1], ""UTF-8"");
+            }
+            List&lt;String&gt; values = params.get(key);
+            if (values == null) {
+                values = new ArrayList&lt;String&gt;();
+                params.put(key, values);
+            }
+            values.add(value);
+        }
+    }
+    return params;
+}
+</code></pre>

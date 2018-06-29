@@ -1,0 +1,14 @@
+<p>You must use the following code to hide the soft keyboard :                 </p>
+
+<pre><code>private void hideKeyboard() {
+    InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+
+    // check if no view has focus:
+    View view = this.getCurrentFocus();
+    if (view != null) {
+        inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+}
+</code></pre>
+
+<p>Where <code>this</code> is the Activity.</p>

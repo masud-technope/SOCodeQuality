@@ -1,0 +1,32 @@
+private void setTime(){
+final Calendar c = Calendar.getInstance();
+int hour = c.get(Calendar.HOUR_OF_DAY);
+int minute = c.get(Calendar.MINUTE);
+
+final TimePickerDialog timepicker = new TimePickerDialog(this.getActivity(),
+        timePickerListener,
+        hour, 
+        minute, 
+        DateFormat.is24HourFormat(getActivity()));
+
+timepicker.setButton(DialogInterface.BUTTON_POSITIVE, ""Print"", new    
+    android.content.DialogInterface.OnClickListener(){
+        @Override
+        public void onClick(DialogInterface dialog,int which) {
+            print = true;
+            timepicker.dismiss();           
+        }
+});
+
+timepicker.setButton(DialogInterface.BUTTON_NEGATIVE, ""Cancel"", new 
+    android.content.DialogInterface.OnClickListener(){
+        @Override
+        public void onClick(DialogInterface dialog,int which){
+            print = false;
+            timepicker.dismiss();       
+        }
+});
+
+timepicker.setCancelable(false);
+timepicker.show();
+}

@@ -1,0 +1,11 @@
+<p>To cause the keyboard to appear, use</p>
+
+<pre><code>getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+</code></pre>
+
+<p>This method is more reliable than invoking the InputMethodManager directly.</p>
+
+<p>To close it, use</p>
+
+<pre><code>getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+</code></pre>

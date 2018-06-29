@@ -1,0 +1,4 @@
+<p>The Android SDK can tell you this just fine:</p>
+
+<pre><code>getResources().getConfiguration().orientation
+</code></pre>

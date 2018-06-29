@@ -1,0 +1,9 @@
+<p>First load the XML file and then write this code:</p>
+
+<pre><code>setContentView(R.layout.main);      
+Display display = getWindowManager().getDefaultDisplay();
+final int width = (display.getWidth());
+final int height = (display.getHeight());
+</code></pre>
+
+<p>Show width and height according your screen resolution.</p>

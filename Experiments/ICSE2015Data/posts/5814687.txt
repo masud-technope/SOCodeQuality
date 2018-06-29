@@ -1,0 +1,9 @@
+<p>In this method you will get the item related to your list item.</p>
+
+<pre><code>@Override
+public boolean onContextItemSelected(MenuItem aItem) {
+  AdapterContextMenuInfo menuInfo = (AdapterContextMenuInfo) aItem.getMenuInfo();
+  Object entity =  (Object) todoList.getAdapter().getItem(menuInfo.position);
+  switch (aItem.getItemId()) {}
+}
+</code></pre>

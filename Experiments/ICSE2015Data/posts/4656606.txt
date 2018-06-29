@@ -1,0 +1,22 @@
+<p>Found at and modified (!) from this <a href=""http://blogingtutorials.blogspot.com/2011/01/check-internet-connection-in-android.html"">link</a> :</p>
+
+<p>In your manifest file add at least:</p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.ACCESS_NETWORK_STATE"" /&gt;
+</code></pre>
+
+<p>You probably already have the INTERNET permission if you are accessing it. Then a boolean function that allows to test for connectivity is:</p>
+
+<pre><code>private boolean checkInternetConnection() {
+    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    // test for connection
+    if (cm.getActiveNetworkInfo() != null
+            &amp;&amp; cm.getActiveNetworkInfo().isAvailable()
+            &amp;&amp; cm.getActiveNetworkInfo().isConnected()) {
+        return true;
+    } else {
+        Log.v(TAG, ""Internet Connection Not Present"");
+        return false;
+    }
+}
+</code></pre>

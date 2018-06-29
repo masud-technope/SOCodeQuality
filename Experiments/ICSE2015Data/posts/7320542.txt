@@ -1,0 +1,8 @@
+<p>Another solution is to clear the focus before setting the text:</p>
+
+<pre><code>mContactTxt.setFocusable(false);
+mContactTxt.setFocusableInTouchMode(false);
+mContactTxt.setText("""");            
+mContactTxt.setFocusable(true);
+mContactTxt.setFocusableInTouchMode(true);
+</code></pre>

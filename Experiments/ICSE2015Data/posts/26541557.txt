@@ -1,0 +1,3 @@
+<p>When we place <code>ListView</code> inside <code>ScrollView</code> two problems arise. One is <code>ScrollView</code> measures its children in UNSPECIFIED mode, so <code>ListView</code> sets its own height to accommodate only one item(I don't know why), another is <code>ScrollView</code> intercepts the touch event so <code>ListView</code> does not scrolls.</p>
+
+<p>But we <em>can</em> place <code>ListView</code> inside <code>ScrollView</code> with some workaround. <a href=""http://durgadasss.blogspot.in/2014/10/scroll-inside-scrollthis-project-shows.html"" rel=""nofollow"">This post</a>, by me, explains the workaround. By this workaround we can also retain <code>ListView</code>'s recycling feature as well.</p>

@@ -1,0 +1,41 @@
+<p>I liked the approach of calling <code>dispatchTouchEvent</code> made by htafoya, but:</p>
+
+<ul>
+<li>I didn't understand the timer part (don't know why measuring the downtime should be necessary?)</li>
+<li>I don't like to register/unregister all EditTexts with every view-change (could be quite a lot of viewchanges and edittexts in complex hierarchies)</li>
+</ul>
+
+<p>So, I made this somewhat easier solution:</p>
+
+<pre><code>@Override
+public boolean dispatchTouchEvent(final MotionEvent ev) {
+    // all touch events close the keyboard before they are processed except EditText instances.
+    // if focus is an EditText we need to check, if the touchevent was inside the focus editTexts
+    final View currentFocus = getCurrentFocus();
+    if (!(currentFocus instanceof EditText) || !isTouchInsideView(ev, currentFocus)) {
+        ((InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE))
+            .hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+    return super.dispatchTouchEvent(ev);
+}
+
+/**
+ * determine if the given motionevent is inside the given view.
+ * 
+ * @param ev
+ *            the given view
+ * @param currentFocus
+ *            the motion event.
+ * @return if the given motionevent is inside the given view
+ */
+private boolean isTouchInsideView(final MotionEvent ev, final View currentFocus) {
+    final int[] loc = new int[2];
+    currentFocus.getLocationOnScreen(loc);
+    return ev.getRawX() &gt; loc[0] &amp;&amp; ev.getRawY() &gt; loc[1] &amp;&amp; ev.getRawX() &lt; (loc[0] + currentFocus.getWidth())
+        &amp;&amp; ev.getRawY() &lt; (loc[1] + currentFocus.getHeight());
+}
+</code></pre>
+
+<p>There is one disadvantage:</p>
+
+<p>Switching from one <code>EditText</code> to another <code>EditText</code> makes the keyboard hide and reshow - in my case it's desired that way, because it shows that you switched between two input components.</p>

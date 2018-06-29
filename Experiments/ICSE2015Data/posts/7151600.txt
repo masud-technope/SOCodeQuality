@@ -1,0 +1,6 @@
+<p>or you could just do</p>
+
+<pre><code>MimeTypeMap.getFileExtensionFromUrl(myfile.toURL().toString() );
+</code></pre>
+
+<p>Note: this method is not very reliable though..</p>

@@ -1,0 +1,8 @@
+<p>the most easiest solution i found is..
+to create a class with static data members with getters setters.</p>
+
+<p>set from one activity and get from another activity that object.</p>
+
+<p>activity A</p>
+
+<pre><code>mytestclass.staticfunctionSet("""

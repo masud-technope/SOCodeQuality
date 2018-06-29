@@ -1,0 +1,5 @@
+<p>You can use the following code to achieve this:</p>
+
+<pre><code>requestWindowFeature(Window.FEATURE_NO_TITLE); 
+setContentView(R.layout.activity_main);
+</code></pre>

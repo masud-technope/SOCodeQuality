@@ -1,0 +1,6 @@
+<p>In the v21 of the Support library there is now a solution to this, its called <a href=""http://developer.android.com/reference/android/support/v4/graphics/drawable/RoundedBitmapDrawable.html"" rel=""nofollow"">RoundedBitmapDrawable</a></p>
+
+<p>its basically just like a normal ImageView except you give it a corner radius for the clipping with</p>
+
+<pre><code>setCornerRadius(float cornerRadius)
+</code></pre>

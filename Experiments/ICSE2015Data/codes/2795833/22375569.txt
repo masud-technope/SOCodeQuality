@@ -1,0 +1,24 @@
+private void initActivityScreenOrientPortrait()
+    {
+        // Avoid screen rotations (use the manifests android:screenOrientation setting)
+        // Set this to nosensor or potrait
+
+        // Set window fullscreen
+        this.activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        this.activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+         // Test if it is VISUAL in portrait mode by simply checking it's size
+        boolean bIsVisualPortrait = ( metrics.heightPixels >= metrics.widthPixels ); 
+
+        if( !bIsVisualPortrait )
+        { 
+            // Swap the orientation to match the VISUAL portrait mode
+            if( this.activity.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT )
+             { this.activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); }
+            else { this.activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT ); }
+        }
+        else { this.activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR); }
+
+    }

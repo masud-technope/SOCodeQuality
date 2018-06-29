@@ -1,0 +1,23 @@
+<pre><code>int ot = getResources().getConfiguration().orientation;
+switch(ot)
+        {
+
+        case  Configuration.ORIENTATION_LANDSCAPE:
+
+            Log.d(""my orient"" ,""ORIENTATION_LANDSCAPE"");
+        break;
+        case Configuration.ORIENTATION_PORTRAIT:
+            Log.d(""my orient"" ,""ORIENTATION_PORTRAIT"");
+            break;
+
+        case Configuration.ORIENTATION_SQUARE:
+            Log.d(""my orient"" ,""ORIENTATION_SQUARE"");
+            break;
+        case Configuration.ORIENTATION_UNDEFINED:
+            Log.d(""my orient"" ,""ORIENTATION_UNDEFINED"");
+            break;
+            default:
+            Log.d(""my orient"", ""default val"");
+            break;
+        }
+</code></pre>

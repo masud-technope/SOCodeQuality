@@ -1,0 +1,3 @@
+it works for me , thanks.
+This allways returns null.
+Also, what I actually wanted to change was the SearchView hint text color, which is done easily via textView.setHintTextColor().

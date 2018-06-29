@@ -1,0 +1,10 @@
+<p>Try this, it works for me, I have 4 lines and it adds the ""..."" to the end of the last/fourth line.  Its the same as morale's answer but i have singeLine=""false"" in there.</p>
+
+<pre><code>&lt;TextView 
+android:layout_width=""fill_parent"" 
+android:layout_height=""wrap_content"" 
+android:maxLines=""4"" 
+android:ellipsize=""marquee"" 
+android:singleLine=""false"" 
+android:text=""Hi make this a very long string that wraps at least 4 lines, seriously make it really really long so it gets cut off at the fourth line not joke.  Just do it!"" /&gt;
+</code></pre>

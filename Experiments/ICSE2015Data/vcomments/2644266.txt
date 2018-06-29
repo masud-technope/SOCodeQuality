@@ -1,0 +1,3 @@
+I think you may have misread the Question? Janusz already has the custom dialog displaying and just requires information on removing the title
+Well, according to the official documentation, ""A dialog made with the base Dialog class must have a title. If you don't call setTitle(), then the space used for the title remains empty, but still visible. If you don't want a title at all, then you should create your custom dialog using the AlertDialog class."" I haven't personally experimented with it, but that would suggest that even using a custom dialog layout or themes, it's impossible to remove the title space.
+@SteveHaley, No it is possible to hide it using the following line 'dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)'.

@@ -1,0 +1,8 @@
+<pre><code>Display display = getActivity().getWindowManager().getDefaultDisplay(); 
+int screenWidth = display.getWidth();
+int screenHeight = display.getHeight();
+Log.d(""Tag"", ""Getting Width &gt;&gt; "" + screenWidth);
+Log.d(""Tag"", ""Getting Height &gt;&gt; "" + screenHeight);
+</code></pre>
+
+<p>This worked properly in my application</p>

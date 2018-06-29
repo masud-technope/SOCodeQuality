@@ -1,0 +1,15 @@
+<p>Network based operations cannot be run on Main Thread. You need to run all network based task on a child thread or implement AsyncTask.</p>
+
+<p>This is how you run a ask in child thread : </p>
+
+<pre><code>new Thread(new Runnable(){
+    @Override
+    public void run() {
+        try {
+            //Your implementation goes here
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+}).start();
+</code></pre>

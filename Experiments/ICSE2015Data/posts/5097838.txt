@@ -1,0 +1,15 @@
+<p>Here's a cleaner way using the packageManager</p>
+
+<pre><code>final PackageManager pm = getPackageManager();
+//get a list of installed apps.
+List&lt;ApplicationInfo&gt; packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+
+for (ApplicationInfo packageInfo : packages) {
+    Log.d(TAG, ""Installed package :"" + packageInfo.packageName);
+    Log.d(TAG, ""Source dir : "" + packageInfo.sourceDir);
+    Log.d(TAG, ""Launch Activity :"" + pm.getLaunchIntentForPackage(packageInfo.packageName)); 
+}
+// the getLaunchIntentForPackage returns an intent that you can use with startActivity() 
+</code></pre>
+
+<p>More info here <a href=""http://qtcstation.com/2011/02/how-to-launch-another-app-from-your-app/"">http://qtcstation.com/2011/02/how-to-launch-another-app-from-your-app/</a></p>

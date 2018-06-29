@@ -1,0 +1,5 @@
+<p>My 2 cents: i solved my OOM errors with bitmaps by:</p>
+
+<p>a) scaling my images by a factor of 2</p>
+
+<p>b) using <a href=""http://square.github.io/picasso/"" rel=""nofollow"" title=""Picasso"">Picasso</a> library in my custom Adapter for a ListView, with a one-call in getView like this: <code>Picasso.with(context).load(R.id.myImage).into(R.id.myImageView);</code></p>

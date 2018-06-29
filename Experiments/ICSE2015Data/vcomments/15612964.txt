@@ -1,0 +1,2 @@
+This fails on devices that doesn't have 2 SD cards. It assumes 1st found is internal, and 2nd found is external.
+/system/etc/vold.fstab is not accessible in android 4.3+

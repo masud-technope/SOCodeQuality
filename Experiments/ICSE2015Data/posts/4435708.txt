@@ -1,0 +1,4 @@
+<p>Had the same problem and just want to add that AndroidManifest.xml also needs this permission:</p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.WRITE_EXTERNAL_STORAGE"" /&gt;
+</code></pre>

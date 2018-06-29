@@ -1,0 +1,1 @@
+Hi, there are some edge cases still not being handled well. For instance, after I type 2.45, I tend to ""move cursor to the front most of the text"". I wish to produce text 12.45, it won't allow.

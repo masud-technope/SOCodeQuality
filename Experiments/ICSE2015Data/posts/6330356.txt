@@ -1,0 +1,6 @@
+<p>If you log in the user in <code>screen 1</code> and from there you go to the other screens, use </p>
+
+<pre><code>Intent intent = new Intent(this, Screen1.class);
+intent.addFlags(FLAG_ACTIVITY_CLEAR_TOP);
+startActivity(intent);
+</code></pre>

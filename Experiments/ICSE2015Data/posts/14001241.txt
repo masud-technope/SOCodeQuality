@@ -1,0 +1,70 @@
+<p>There are problems with all the above approaches.  At Google i/o Reto Meier released a robust answer to how to approach this which should meet most developers needs to track users across installations.  </p>
+
+<p>This approach will give you an anonymous, secure user ID which will be persistent for the user across different devices (including tablets, based on primary Google account) and across installs on the same device.  The basic approach is to generate a random user ID and to store this in the apps shared preferences.  You then use Google's backup agent to store the shared preferences linked to the Google account in the cloud.</p>
+
+<p>Lets go through the full approach.  First we need to create a backup for our SharedPreferences using the Android Backup Service.  Start by registering your app via this link: <a href=""http://developer.android.com/google/backup/signup.html"" rel=""nofollow"">http://developer.android.com/google/backup/signup.html</a></p>
+
+<p>Google will give you a backup service key which you need to add to the manifest.  You also need to tell the application to use the BackupAgent as follows:</p>
+
+<pre><code>&lt;application android:label=""MyApplication""
+         android:backupAgent=""MyBackupAgent""&gt;
+    ...
+    &lt;meta-data android:name=""com.google.android.backup.api_key""
+        android:value=""your_backup_service_key"" /&gt;
+&lt;/application&gt;
+</code></pre>
+
+<p>Then you need to create the backup agent and tell it to use the helper agent for sharedpreferences:</p>
+
+<pre><code>public class MyBackupAgent extends BackupAgentHelper {
+    // The name of the SharedPreferences file
+    static final String PREFS = ""user_preferences"";
+
+    // A key to uniquely identify the set of backup data
+    static final String PREFS_BACKUP_KEY = ""prefs"";
+
+    // Allocate a helper and add it to the backup agent
+    @Override
+    public void onCreate() {
+        SharedPreferencesBackupHelper helper = new SharedPreferencesBackupHelper(this,          PREFS);
+        addHelper(PREFS_BACKUP_KEY, helper);
+    }
+}
+</code></pre>
+
+<p>To complete the backup you need to create an instance of BackupManager in your main Activity:</p>
+
+<pre><code>BackupManager backupManager = new BackupManager(context);
+</code></pre>
+
+<p>Finally create a user ID, if it doesn't already exist, and store it in the SharedPreferences:</p>
+
+<pre><code>  public static String getUserID(Context context) {
+            private static String uniqueID = null;
+        private static final String PREF_UNIQUE_ID = ""PREF_UNIQUE_ID"";
+    if (uniqueID == null) {
+        SharedPreferences sharedPrefs = context.getSharedPreferences(
+                MyBackupAgent.PREFS, Context.MODE_PRIVATE);
+        uniqueID = sharedPrefs.getString(PREF_UNIQUE_ID, null);
+        if (uniqueID == null) {
+            uniqueID = UUID.randomUUID().toString();
+            Editor editor = sharedPrefs.edit();
+            editor.putString(PREF_UNIQUE_ID, uniqueID);
+            editor.commit();
+
+            //backup the changes
+            BackupManager mBackupManager = new BackupManager(context);
+            mBackupManager.dataChanged();
+        }
+    }
+
+    return uniqueID;
+}
+</code></pre>
+
+<p>This User_ID will now be persistent across installations, even if the user switches devices.</p>
+
+<p>For more information on this approach see Reto's talk here <a href=""http://www.google.com/events/io/2011/sessions/android-protips-advanced-topics-for-expert-android-app-developers.html"" rel=""nofollow"">http://www.google.com/events/io/2011/sessions/android-protips-advanced-topics-for-expert-android-app-developers.html</a></p>
+
+<p>And for full details of how to implement the backup agent see the developer site here: <a href=""http://developer.android.com/guide/topics/data/backup.html"" rel=""nofollow"">http://developer.android.com/guide/topics/data/backup.html</a> 
+I particularly recommend the section at the bottom on testing as the backup does not happen instantaneously and so to test you have to force the backup. </p>

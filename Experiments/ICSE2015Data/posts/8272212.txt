@@ -1,0 +1,26 @@
+<p>More elegant way would be using a regular expression ( regex ) as follows:</p>
+
+<pre><code>public class DecimalDigitsInputFilter implements InputFilter {
+
+Pattern mPattern;
+
+public DecimalDigitsInputFilter(int digitsBeforeZero,int digitsAfterZero) {
+    mPattern=Pattern.compile(""[0-9]{0,"" + (digitsBeforeZero-1) + ""}+((\\.[0-9]{0,"" + (digitsAfterZero-1) + ""})?)||(\\.)?"");
+}
+
+@Override
+public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+
+        Matcher matcher=mPattern.matcher(dest);       
+        if(!matcher.matches())
+            return """";
+        return null;
+    }
+
+}
+</code></pre>
+
+<p>To use it do: </p>
+
+<pre><code>editText.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,2)});
+</code></pre>

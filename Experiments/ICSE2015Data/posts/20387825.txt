@@ -1,0 +1,37 @@
+<p>There is no need to handle the checking/unchecking of items within the ListView. It already does it on its own.</p>
+
+<p>What does not seem documented is that the ListView will only do this if:</p>
+
+<ol>
+<li>a <code>ListAdapter</code> is set and </li>
+<li>the choice mode is CHOICE_MODE_MULTIPLE and</li>
+<li>the ids used by the <code>ListAdapter</code> are <strong>stable</strong>.</li>
+</ol>
+
+<p>The third point was what drove me crazy for a while.</p>
+
+<p>I am not sure what 'stable' means (I guess that the ids don't ever change while the list is displayed). 
+As far as the ListView is concerned, it means that the method <code>hasStableIds()</code> in <code>ListAdapter</code> returns true.</p>
+
+<p>I created a simple subclass of <code>ArrayAdapter</code> like this:</p>
+
+<pre><code>public class StableArrayAdapter&lt;T&gt; extends ArrayAdapter&lt;T&gt; {
+
+    public StableArrayAdapter(Context context, int textViewResourceId, List&lt;T&gt; objects) {
+        super(context, textViewResourceId, objects);
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        return true;
+    }
+}
+</code></pre>
+
+<p>(You already have your subclass, so just add the <code>hasStableIds</code> override)</p>
+
+<p>Of course, one needs to add the constructor that one was using with <code>ArrayAdapter</code>.</p>
+
+<p>Once you use this class as your <code>ListAdapter</code>, <code>getCheckedItemPositions()</code> behaves as expected.</p>
+
+<p>One last note: <code>setChoiceMode</code> must be called AFTER setting the list adapter.</p>

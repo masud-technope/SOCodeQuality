@@ -1,0 +1,1 @@
+<p>Simple way to resolve the issues is to set after <code>oncreate</code> <code>StrictMode.enableDefaults();</code></p>

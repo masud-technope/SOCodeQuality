@@ -1,0 +1,64 @@
+<p>Here is an example code.
+Put this into your activity class:</p>
+
+<pre><code>  /* put this into your activity class */
+  private SensorManager mSensorManager;
+  private float mAccel; // acceleration apart from gravity
+  private float mAccelCurrent; // current acceleration including gravity
+  private float mAccelLast; // last acceleration including gravity
+
+  private final SensorEventListener mSensorListener = new SensorEventListener() {
+
+    public void onSensorChanged(SensorEvent se) {
+      float x = se.values[0];
+      float y = se.values[1];
+      float z = se.values[2];
+      mAccelLast = mAccelCurrent;
+      mAccelCurrent = (float) Math.sqrt((double) (x*x + y*y + z*z));
+      float delta = mAccelCurrent - mAccelLast;
+      mAccel = mAccel * 0.9f + delta; // perform low-cut filter
+    }
+
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    }
+  };
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+  }
+
+  @Override
+  protected void onPause() {
+    mSensorManager.unregisterListener(mSensorListener);
+    super.onPause();
+  }
+</code></pre>
+
+<p>And add this to your onCreate method:</p>
+
+<pre><code>    /* do this in onCreate */
+    mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+    mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+    mAccel = 0.00f;
+    mAccelCurrent = SensorManager.GRAVITY_EARTH;
+    mAccelLast = SensorManager.GRAVITY_EARTH;
+</code></pre>
+
+<p>You can then ask ""mAccel"" wherever you want in your application for the current acceleration, independent from the axis and cleaned from static acceleration such as gravity.
+It will be approx. 0 if there is no movement, and, lets say >2 if the device is shaked.</p>
+
+<p>Based on the comments - to test this:</p>
+
+<pre><code>if (mAccel &gt; 12) {
+    Toast toast = Toast.makeText(getApplicationContext(), ""Device has shaken."", Toast.LENGTH_LONG);
+    toast.show();
+}
+</code></pre>
+
+<p>Notes:</p>
+
+<p>The accelometer should be deactivated <em>onPause</em> and activated <em>onResume</em> to save resources (CPU, Battery).
+The code assumes we are on planet Earth ;-) and initializes the acceleration to earth gravity. Otherwise you would get a strong ""shake"" when the application starts and ""hits"" the ground from free-fall. However, the code gets used to the gravitation due to the low-cut filter and would work also on other planets or in free space, once it is initialized.
+(you never know how long your application will be in use...;-)</p>

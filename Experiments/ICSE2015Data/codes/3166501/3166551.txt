@@ -1,0 +1,4 @@
+DisplayMetrics dm = new DisplayMetrics();
+getWindowManager().getDefaultDisplay().getMetrics(dm);
+int width = dm.widthPixels; //320
+int height = dm.heightPixels; //480

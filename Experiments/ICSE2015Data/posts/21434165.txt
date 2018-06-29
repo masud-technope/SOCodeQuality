@@ -1,0 +1,5 @@
+<p>Add </p>
+
+<p><code>&lt;item name=""android:windowNoTitle""&gt;true&lt;/item&gt;</code></p>
+
+<p>inside AppTheme (styles.xml)</p>

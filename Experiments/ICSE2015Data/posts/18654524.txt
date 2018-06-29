@@ -1,0 +1,23 @@
+<p>Well, the best solution that worked for me is quite simple:</p>
+
+<pre><code>private boolean isTabletDevice(Resources resources) {   
+    int screenLayout = resources.getConfiguration().screenLayout &amp; Configuration.SCREENLAYOUT_SIZE_MASK;
+    boolean isScreenLarge = (screenLayout == Configuration.SCREENLAYOUT_SIZE_LARGE);
+    boolean isScreenXlarge = (screenLayout == Configuration.SCREENLAYOUT_SIZE_XLARGE);
+    return (isScreenLarge || isScreenXlarge);
+}
+</code></pre>
+
+<p>Used like this:</p>
+
+<pre><code>public void onCreate(Bundle savedInstanceState) {
+    [...]
+    if (this.isTabletDevice(this.getResources()) == true) {
+        [...]
+    }
+}
+</code></pre>
+
+<p>I really don't want to look at the pixels sizes but only rely on the screen size.</p>
+
+<p>Works well as Nexus 7 (LARGE) is detected as a tablet, but not Galaxy S3 (NORMAL).</p>

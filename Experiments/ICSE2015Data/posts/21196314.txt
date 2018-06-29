@@ -1,0 +1,7 @@
+<p>In my app, I had similar problem: 2 line of string and, eventually, add ""..."" if the string was too long.
+I used this code in xml file into textview tag:</p>
+
+<pre><code>android:maxLines=""2""
+android:ellipsize=""end""
+android:singleLine=""false""
+</code></pre>

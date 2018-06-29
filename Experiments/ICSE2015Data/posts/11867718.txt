@@ -1,0 +1,169 @@
+<p><strong>Shaker.java</strong>        </p>
+
+<pre><code>    import java.util.ArrayList;
+    import android.content.Context;
+    import android.hardware.Sensor;
+    import android.hardware.SensorEvent;
+    import android.hardware.SensorEventListener;
+    import android.hardware.SensorManager;
+
+    public class Shaker implements SensorEventListener{
+
+        private static final String SENSOR_SERVICE = Context.SENSOR_SERVICE;
+        private SensorManager sensorMgr;
+        private Sensor mAccelerometer;
+        private boolean accelSupported;
+        private long timeInMillis;
+        private long threshold;
+        private OnShakerTreshold listener;
+        ArrayList&lt;Float&gt; valueStack;
+
+        public Shaker(Context context, OnShakerTreshold listener, long timeInMillis, long threshold) {
+            try {
+                this.timeInMillis = timeInMillis;
+                this.threshold = threshold;
+                this.listener = listener;
+                if (timeInMillis&lt;100){
+                    throw new Exception(""timeInMillis &lt; 100ms"");
+                }
+                valueStack = new ArrayList&lt;Float&gt;((int)(timeInMillis/100));
+                sensorMgr = (SensorManager) context.getSystemService(SENSOR_SERVICE);
+                mAccelerometer = sensorMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        public void start() {
+            try {
+                accelSupported = sensorMgr.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_GAME); 
+                if (!accelSupported) {
+                    stop();
+                    throw new Exception(""Sensor is not supported"");
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        public void stop(){
+            try {
+                sensorMgr.unregisterListener(this, mAccelerometer);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected void finalize() throws Throwable {
+            try {
+                stop();
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+            super.finalize();
+        }
+
+        long lastUpdate = 0;
+        private float last_x;
+        private float last_y;
+        private float last_z;
+
+public void onSensorChanged(SensorEvent event) {
+    try {
+        if (event.sensor == mAccelerometer) {
+            long curTime = System.currentTimeMillis();
+            if ((curTime-lastUpdate)&gt;getNumberOfMeasures()){
+
+                lastUpdate = System.currentTimeMillis();
+                float[] values = event.values;
+                if (valueStack.size()&gt;(int)getNumberOfMeasures())
+                    valueStack.remove(0);
+                float x = (int)(values[SensorManager.DATA_X]);
+                float y = (int)(values[SensorManager.DATA_Y]);
+                float z = (int)(values[SensorManager.DATA_Z]);
+                float speed = Math.abs((x+y+z) - (last_x + last_y + last_z));
+
+                valueStack.add(speed);
+
+                String posText = String.format(""X:%4.0f Y:%4.0f Z:%4.0f"", (x-last_x), (y-last_y), (z-last_z));
+
+                last_x = (x);
+                last_y = (y);
+                last_z = (z);
+
+                float sumOfValues = 0;
+                float avgOfValues = 0;
+
+                for (float f : valueStack){
+                        sumOfValues = (sumOfValues+f);
+                }
+                avgOfValues = sumOfValues/(int)getNumberOfMeasures();
+
+                if (avgOfValues&gt;=threshold){
+                    listener.onTreshold();
+                    valueStack.clear();
+                }
+
+                System.out.println(String.format(""M: %+4d A: %5.0f V: %4.0f %s"", valueStack.size(),avgOfValues,speed,posText));
+
+            }
+        }
+    } catch (Exception e){
+        e.printStackTrace();
+    }
+}
+
+
+        private long getNumberOfMeasures() {
+            return timeInMillis/100;
+        }
+
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {}
+
+        public interface OnShakerTreshold {
+            public void onTreshold();
+        }
+    }
+</code></pre>
+
+<p><strong>MainActivity.java</strong></p>
+
+<pre><code>public class MainActivity extends Activity implements OnShakerTreshold{
+
+
+    private Shaker s;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        s = new Shaker(getApplicationContext(), this, 5000, 20);
+        // 5000 = 5 second of shaking
+        // 20 = minimal threshold (very angry shaking :D)
+        // beware screen rotation reset counter
+    }
+
+    @Override
+    protected void onResume() {
+        s.start();
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        s.stop();
+        super.onPause();
+    }
+
+    public void onTreshold() {
+        System.out.println(""FIRE LISTENER"");
+        RingtoneManager.getRingtone(getApplicationContext(), RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)).play();
+    }
+
+
+}
+</code></pre>
+
+<p>Have fun.</p>

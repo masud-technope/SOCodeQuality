@@ -1,0 +1,23 @@
+<p>Another way is to use /sys/class/android_usb/android0/iSerial in an App with no permissions whatsoever.</p>
+
+<pre><code>user@creep:~$ adb shell ls -l /sys/class/android_usb/android0/iSerial
+-rw-r--r-- root     root         4096 2013-01-10 21:08 iSerial
+user@creep:~$ adb shell cat /sys/class/android_usb/android0/iSerial
+0A3CXXXXXXXXXX5
+</code></pre>
+
+<p>To do this in java one would just use a FileInputStream to open the iSerial file and read out the characters. Just be sure you wrap it in an exception handler because not all devices have this file. </p>
+
+<p>At least the following devices are known to have this file world-readable:</p>
+
+<ul>
+<li>Galaxy Nexus</li>
+<li>Nexus S</li>
+<li>Motorola Xoom 3g</li>
+<li>Toshiba AT300</li>
+<li>HTC One V</li>
+<li>Mini MK802</li>
+<li>Samsung Galaxy S II</li>
+</ul>
+
+<p>You can also see my blog post here: <a href=""http://insitusec.blogspot.com/2013/01/leaking-android-hardware-serial-number.html"" rel=""nofollow"">http://insitusec.blogspot.com/2013/01/leaking-android-hardware-serial-number.html</a> where I discuss what other files are available for info.</p>

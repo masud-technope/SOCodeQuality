@@ -1,0 +1,12 @@
+<p>There is a non-deprecated way to do this using DisplayMetrics (API 1), that avoids the try/catch messiness:</p>
+
+<pre><code> // initialize the DisplayMetrics object
+ DisplayMetrics deviceDisplayMetrics = new DisplayMetrics();
+
+ // populate the DisplayMetrics object with the display characteristics
+ getWindowManager().getDefaultDisplay().getMetrics(deviceDisplayMetrics);
+
+ // get the width and height
+ screenWidth = deviceDisplayMetrics.widthPixels;
+ screenHeight = deviceDisplayMetrics.heightPixels;
+</code></pre>

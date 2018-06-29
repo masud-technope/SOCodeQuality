@@ -1,0 +1,8 @@
+<p>Inside PhoneStateListener after seeing the call is finished better use:</p>
+
+<pre><code>Intent intent = new Intent(CallDispatcherActivity.this, CallDispatcherActivity.class);
+intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+startActivity(intent);
+</code></pre>
+
+<p>Where CallDispatcherActivity is the activity where the user has launched a call (to a taxi service dispatcher, in my case). This just removes Android telephony app from the top, the user gets back instead of ugly code I saw here.</p>

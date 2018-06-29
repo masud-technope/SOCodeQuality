@@ -1,0 +1,33 @@
+<p>try this, this works for me, I forgot where I found it, somewhere in stack overflow, 
+i'm not here to explained it why it doesn't work, but this is the answer :).</p>
+
+<pre><code>    final ListView AturIsiPulsaDataIsiPulsa = (ListView) findViewById(R.id.listAturIsiPulsaDataIsiPulsa);
+    AturIsiPulsaDataIsiPulsa.setOnTouchListener(new ListView.OnTouchListener() 
+    {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) 
+        {
+            int action = event.getAction();
+            switch (action) 
+            {
+                case MotionEvent.ACTION_DOWN:
+                // Disallow ScrollView to intercept touch events.
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                break;
+
+                case MotionEvent.ACTION_UP:
+                // Allow ScrollView to intercept touch events.
+                v.getParent().requestDisallowInterceptTouchEvent(false);
+                break;
+            }
+
+            // Handle ListView touch events.
+            v.onTouchEvent(event);
+            return true;
+        }
+    });
+    AturIsiPulsaDataIsiPulsa.setClickable(true);
+    AturIsiPulsaDataIsiPulsa.setAdapter(AturIsiPulsaDataIsiPulsaAdapter);
+</code></pre>
+
+<p>EDIT !, I finally found out where I got the code. here ! : <a href=""http://stackoverflow.com/questions/6210895/listview-inside-scrollview-is-not-scrolling-on-android?rq=1"">Listview inside ScrollView is not scrolling on Android</a></p>

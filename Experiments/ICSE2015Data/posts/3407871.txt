@@ -1,0 +1,21 @@
+<p>FEATURE_NO_TITLE works when creating a dialog from scratch, as in:</p>
+
+<pre><code>Dialog dialog = new Dialog(context);
+dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+</code></pre>
+
+<p>But it doesn't work when creating an AlertDialog (or using the Builder), because it already disables the title and use a custom one internally.</p>
+
+<p>I have looked at the SDK sources, and I think that it can't be worked around. So to remove the top spacing, the only solution is to create a custom dialog from scratch IMO, by using the Dialog class directly.</p>
+
+<p>Also, one can do that with a style, eg in styles.xml:</p>
+
+<pre><code>&lt;style name=""FullHeightDialog"" parent=""android:style/Theme.Dialog""&gt;
+   &lt;item name=""android:windowNoTitle""&gt;true&lt;/item&gt;
+&lt;/style&gt;
+</code></pre>
+
+<p>And then:</p>
+
+<pre><code>Dialog dialog = new Dialog(context, R.style.FullHeightDialog);
+</code></pre>

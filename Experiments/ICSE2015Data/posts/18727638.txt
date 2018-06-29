@@ -1,0 +1,6 @@
+<p>Just add code in your activity</p>
+
+<pre><code>Textview.setEllipsize(TextUtils.TruncateAt.END)
+</code></pre>
+
+<p>this will add ellipsis at the end of the textview</p>

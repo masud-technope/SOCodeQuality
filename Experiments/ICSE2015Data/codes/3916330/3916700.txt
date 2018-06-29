@@ -1,0 +1,10 @@
+private int getScale(){
+    Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay(); 
+    int width = display.getWidth(); 
+    Double val = new Double(width)/new Double(PIC_WIDTH);
+    val = val * 100d;
+    return val.intValue();
+}
+WebView web = new WebView(this);
+web.setPadding(0, 0, 0, 0);
+web.setInitialScale(getScale());

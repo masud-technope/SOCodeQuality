@@ -1,0 +1,156 @@
+public class MyFragment extends Fragment implements
+LoaderManager.LoaderCallbacks<Cursor>{
+
+private static final String SPINNER_INIT_VALUE = ""Select A Widget"";
+private Spinner mSpinner;
+private int mSpinnerPosition;
+private boolean mSpinnerDropDownShowing = false;
+private View mSpinnerDropDown;
+
+private MyCursorAdapter mCursorAdapter;
+
+...
+
+@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+...
+
+mCursorAdapter = new MyCursorAdapter(getActivity());
+
+mSpinner = (Spinner) rootView.findViewById(R.id.theSpinner);
+mSpinner.setOnTouchListener(mSpinnerTouchListener);
+mSpinner.setAdapter(mCursorAdapter);
+
+...
+}
+
+//Capture the touch events to toggle the spinner's dropdown visibility
+private OnTouchListener mSpinnerTouchListener = new View.OnTouchListener() {
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if(mSpinnerDropDown != null && mSpinnerDropDownShowing == false){
+            mSpinnerDropDownShowing = true;
+            mSpinnerDropDown.setVisibility(View.VISIBLE);
+        }
+        return false;
+    }
+};
+
+//Capture the click event on the spinner drop down items
+protected OnClickListener spinnerItemClick = new OnClickListener(){
+
+    @Override
+    public void onClick(View view) {
+        String widget = ((TextView) view.findViewById(android.R.id.text1)).getText().toString();
+
+        if(!widget.equals(SPINNER_INIT_VALUE)){
+            if(mCursorAdapter != null){
+                Cursor cursor = mCursorAdapter.getCursor();
+                if(cursor.moveToFirst()){
+                    while(!cursor.isAfterLast()){
+                        if(widget.equals(cursor.getString(WidgetQuery.WIDGET_NAME))){
+
+                            ...
+
+                            //Set the spinner to the correct item
+                            mSpinnerPosition = cursor.getPosition() + 1;
+                            mSpinner.setSelection(mSpinnerPosition);
+                            break;
+                        }
+                        cursor.moveToNext();
+                    }
+                }
+            }
+        }
+
+        //Hide the drop down. Not the most elegent solution but it is the only way I could hide/dismiss the drop down
+        mSpinnerDropDown = view.getRootView();
+        mSpinnerDropDownShowing = false;
+        mSpinnerDropDown.setVisibility(View.GONE);
+    }
+};
+
+private class MyCursorAdapter extends CursorAdapter {
+
+    private final int DISPLACEMENT = 1;
+    private final int DEFAULT_ITEM_ID = Integer.MAX_VALUE;
+
+    private Activity mActivity;
+
+    public MyCursorAdapter(Activity activity) {
+            super(activity, null, false);
+            mActivity = activity;
+    }
+
+    //When loading the regular views, inject the defualt item
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if(position == 0){
+            if(convertView == null){
+                convertView = mActivity.getLayoutInflater().inflate(R.layout.list_item_widget, parent, false);
+            }
+            return getDefaultItem(convertView);
+        }
+        return super.getView(position - DISPLACEMENT, convertView, parent);
+    }
+
+    //When loading the drop down views, set the onClickListener for each view
+    @Override
+    public View getDropDownView(int position, View convertView, ViewGroup parent){
+        View view = super.getDropDownView(position, convertView, parent);
+        view.setOnClickListener(spinnerItemClick);
+        return view;
+    }
+
+    //The special default item that is being injected
+    private View getDefaultItem(View convertView){
+        TextView text = (TextView) convertView.findViewById(android.R.id.text1);
+        text.setText(SPINNER_INIT_VALUE);
+        return convertView;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        if (position == 0) {
+            return DEFAULT_ITEM_ID;
+        }
+        return super.getItemId(position - DISPLACEMENT);
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
+        return position == 0 ? true : super.isEnabled(position - DISPLACEMENT);
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return super.getViewTypeCount() + DISPLACEMENT;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 0) {
+            return super.getViewTypeCount();
+        }
+
+        return super.getItemViewType(position - DISPLACEMENT);
+    }
+
+    @Override
+    public View newView(Context context, Cursor cursor, ViewGroup parent) {
+        return mActivity.getLayoutInflater().inflate(R.layout.list_item_widget, parent, false);
+    }
+
+    @Override
+    public void bindView(View view, Context context, Cursor cursor){
+
+        if(cursor.isAfterLast()){
+            return;
+        }
+
+        TextView text = (TextView) view.findViewById(android.R.id.text1);
+        String WidgetName = cursor.getString(WidgetQuery.WIDGET_NAME);
+        text.setText(WidgetName);
+    }
+}
+}

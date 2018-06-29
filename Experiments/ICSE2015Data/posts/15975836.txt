@@ -1,0 +1,38 @@
+<p>I know this post has been here for almost a year but I thought I should post my findings.
+You could still keep the listener(instead of setting it to mull) and still have this work as expected. The key is to implicitly set the ""OK"" or(and) the ""cancel"" buttons. I tested it and it works gratefully for me. The listener does not get fired twice.</p>
+
+<p>Look at this example,</p>
+
+<pre><code>private void setTime(){
+final Calendar c = Calendar.getInstance();
+int hour = c.get(Calendar.HOUR_OF_DAY);
+int minute = c.get(Calendar.MINUTE);
+
+final TimePickerDialog timepicker = new TimePickerDialog(this.getActivity(),
+        timePickerListener,
+        hour, 
+        minute, 
+        DateFormat.is24HourFormat(getActivity()));
+
+timepicker.setButton(DialogInterface.BUTTON_POSITIVE, ""Print"", new    
+    android.content.DialogInterface.OnClickListener(){
+        @Override
+        public void onClick(DialogInterface dialog,int which) {
+            print = true;
+            timepicker.dismiss();           
+        }
+});
+
+timepicker.setButton(DialogInterface.BUTTON_NEGATIVE, ""Cancel"", new 
+    android.content.DialogInterface.OnClickListener(){
+        @Override
+        public void onClick(DialogInterface dialog,int which){
+            print = false;
+            timepicker.dismiss();       
+        }
+});
+
+timepicker.setCancelable(false);
+timepicker.show();
+}
+</code></pre>

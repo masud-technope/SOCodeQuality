@@ -1,0 +1,13 @@
+<p>You can create a focus listener on the <code>EditText</code> on the <code>AlertDialog</code>, then get the <code>AlertDialog</code>'s <code>Window</code>. From there you can make the soft keyboard show by calling <code>setSoftInputMode</code>.</p>
+
+<pre><code>final AlertDialog dialog = ...;
+
+editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (hasFocus) {
+            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+    }
+});
+</code></pre>

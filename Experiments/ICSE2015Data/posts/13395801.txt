@@ -1,0 +1,6 @@
+<p>that's not true. /mnt/sdcard/external_sd can exist even if the SD card is not mounted. your application will crash when you try to write to /mnt/sdcard/external_sd when it's not mounted.</p>
+
+<p>you need to check if the SD card is mounted first using:</p>
+
+<pre><code>boolean isSDPresent = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+</code></pre>

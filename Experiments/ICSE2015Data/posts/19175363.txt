@@ -1,0 +1,13 @@
+<p>This method will always always work at any cost. Just Use it wherever you want to hide the keyboard</p>
+
+<pre><code>public static void hideSoftKeyboard(Context mContext,EditText username){
+        if(((Activity) mContext).getCurrentFocus()!=null &amp;&amp; ((Activity) mContext).getCurrentFocus() instanceof EditText){
+            InputMethodManager imm = (InputMethodManager)mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(username.getWindowToken(), 0);
+        }
+    }
+</code></pre>
+
+<p>Use it like this :</p>
+
+<p>Whatever is the version of Android. This method will surely work</p>

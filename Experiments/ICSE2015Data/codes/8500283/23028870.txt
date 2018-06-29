@@ -1,0 +1,5 @@
+public void onCreate(Bundle savedInstanceState) {
+getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+super.onCreate(savedInstanceState);
+getActionBar().show();
+}

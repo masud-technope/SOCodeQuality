@@ -1,0 +1,18 @@
+<p>You could also do it in the onActivityCreated Method. </p>
+
+<pre><code>public void onActivityCreated(Bundle savedInstanceState) { 
+      super.onActivityCreated(savedInstanceState);
+}
+</code></pre>
+
+<p>Like they do here: <a href=""http://developer.android.com/reference/android/app/Fragment.html"">http://developer.android.com/reference/android/app/Fragment.html</a></p>
+
+<pre><code>getView().findViewById(R.id.foo);
+</code></pre>
+
+<p>and</p>
+
+<pre><code>getActivity().findViewById(R.id.foo);
+</code></pre>
+
+<p>are possible.</p>

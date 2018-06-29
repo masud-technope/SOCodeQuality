@@ -1,0 +1,54 @@
+<p>Well I manage to somewhat solve the problem, I overrode the dispatchTouchEvent on my activity, there I am using the following to hide the keyboard.</p>
+
+<pre><code> /**
+ * Called to process touch screen events. 
+ */
+@Override
+public boolean dispatchTouchEvent(MotionEvent ev) {
+
+    switch (ev.getAction()){
+        case MotionEvent.ACTION_DOWN:
+            touchDownTime = SystemClock.elapsedRealtime();
+            break;
+
+        case MotionEvent.ACTION_UP:
+            //to avoid drag events
+            if (SystemClock.elapsedRealtime() - touchDownTime &lt;= 150){  
+
+                EditText[] textFields = this.getFields();
+                if(textFields != null &amp;&amp; textFields.length &gt; 0){
+
+                    boolean clickIsOutsideEditTexts = true;
+
+                    for(EditText field : textFields){
+                        if(isPointInsideView(ev.getRawX(), ev.getRawY(), field)){
+                            clickIsOutsideEditTexts = false;
+                            break;
+                        }
+                    }
+
+                    if(clickIsOutsideEditTexts){
+                        this.hideSoftKeyboard();
+                    }               
+                } else {
+                    this.hideSoftKeyboard();
+                }
+            }
+            break;
+    }
+
+    return super.dispatchTouchEvent(ev);
+}
+</code></pre>
+
+<hr>
+
+<p><strong>EDIT:</strong> The getFields() method is just a method that returns an array with the textfields in the view. To avoid creating this array on every touch, I created an static array called sFields, which is returned at the getFields() method. This array is initialized on the onStart() methods such as:</p>
+
+<p><code>sFields = new EditText[] {mUserField, mPasswordField};</code></p>
+
+<hr>
+
+<p>It is not perfect, The drag event time is only based on heuristics so sometimes it doesnt hide when performing long clics, and I also finished by creating a method to get all the editTexts per view; else the keyboard would hide and show when clicking other EditText.</p>
+
+<p>Still, cleaner and shorter solutions are welcome</p>

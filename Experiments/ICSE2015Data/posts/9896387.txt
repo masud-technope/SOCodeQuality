@@ -1,0 +1,20 @@
+<p>I've spent the entire day testing these solutions and the only thing that worked for me is the above approaches for getting the image and manually calling the GC, which I know is not supposed to be necessary, but it is the only thing that worked when I put my app under heavy load testing switching between activities.  My app has a list of thumbnail images in a listview in (lets say activity A) and when you click on one of those images it takes you to another activity (lets say activity B) that shows a main image for that item.  When I would switch back and forth between the two activities, I would eventually get the OOM error and the app would force close.  </p>
+
+<p>When I would get half way down the listview it would crash.</p>
+
+<p>Now when I implement the following in activity B, I can go through the entire listview with no issue and keep going and going and going...and its plenty fast.</p>
+
+<pre><code>@Override
+public void onDestroy()
+{   
+    Cleanup();
+    super.onDestroy();
+}
+
+private void Cleanup()
+{    
+    bitmap.recycle();
+    System.gc();
+    Runtime.getRuntime().gc();  
+}
+</code></pre>

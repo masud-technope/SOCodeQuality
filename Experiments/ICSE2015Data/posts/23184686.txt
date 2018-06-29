@@ -1,0 +1,14 @@
+<p>This is best achieved through custom styles.  Overload the action bar widget style with your own custom style.  For holo light with dark action bar, put this in your own styles file such as <code>res/values/styles_mytheme.xml</code>:</p>
+
+<pre><code>&lt;style name=""Theme.MyTheme"" parent=""@android:style/Theme.Holo.Light.DarkActionBar""&gt;
+    &lt;item name=""android:actionBarWidgetTheme""&gt;@style/Theme.MyTheme.Widget&lt;/item&gt;
+    &lt;!-- your other custom styles --&gt;
+&lt;/style&gt;
+
+&lt;style name=""Theme.MyTheme.Widget"" parent=""@android:style/Theme.Holo""&gt;
+    &lt;item name=""android:textColorHint""&gt;@android:color/white&lt;/item&gt;
+    &lt;!-- your other custom widget styles --&gt;
+&lt;/style&gt;
+</code></pre>
+
+<p>Make sure your application is using theme custom theme as described in <a href=""https://developer.android.com/guide/topics/ui/themes.html#ApplyATheme"" rel=""nofollow"">enter link description here</a></p>

@@ -1,0 +1,9 @@
+<p>I find the accepted answer a bit complicated.</p>
+
+<p>Here's my solution. Add an onTouchListener to your main layout (ie. findViewById(R.id.mainLayout).setOnTouchListener(this)) and put the following code in the onTouch method.</p>
+
+<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+</code></pre>
+
+<p>This way you don't have to iterate over all views.</p>

@@ -1,0 +1,23 @@
+private ScrollView scrollListener;
+private volatile long milesec;
+
+private Handler scrollStopDetector;
+private Thread scrollcalled = new Thread() {
+
+    @Override
+    public void run() { 
+        if (System.currentTimeMillis() - milesec > 200) {
+            //scroll stopped - put your code here
+        }
+    }
+};
+scrollListener = (ScrollView) findViewById(R.id.scroll);
+
+    scrollListener.getViewTreeObserver().addOnScrollChangedListener(new OnScrollChangedListener() {
+
+        @Override
+        public void onScrollChanged() {
+            milesec = System.currentTimeMillis();
+            scrollStopDetector.postDelayed(scrollcalled, 200);
+        }
+    });

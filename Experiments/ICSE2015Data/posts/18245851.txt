@@ -1,0 +1,22 @@
+<p>I know this is not directly an answer to your question, but other answers here give a good idea of how to identify screen size. You wrote in your question that you got problems with the tilting and this just happened to me as well.</p>
+
+<p>If you run the gyroscope (or rotation sensor) on a smartphone the x- and y-axis can be differently defined than on a tablet, according to the default orientation of that device (e.g. Samsung GS2 is default portrait, Samsung GT-7310 is default landscape, new Google Nexus 7 is default portrait, although it is a tablet!).</p>
+
+<p>Now if you want to use Gyroscope you might end up with a working solution for smartphones, but axis-confusion on some tablets or the other way round.</p>
+
+<p>If you use one of the solutions from above to only go for screen-size and then apply</p>
+
+<pre><code>SensorManager.remapCoordinateSystem(inputRotationMatrix, SensorManager.AXIS_X, 
+    SensorManager.AXIS_Y, outputRotationMatrix);
+</code></pre>
+
+<p>to flip the axis if it has a large or xlarge screen-size this might work in 90% of the cases but for example on the Nexus 7 it will cause troubles (because it has default portrait orientation and a large screen-size).</p>
+
+<p>The simplest way to fix this is provided in the RotationVectorSample that ships with the API demos by setting the sceenOrientation to <code>nosensor</code> in your manifest:</p>
+
+<pre><code>&lt;activity
+    ...
+    android:screenOrientation=""nosensor""&gt;
+...
+&lt;/activity&gt;
+</code></pre>

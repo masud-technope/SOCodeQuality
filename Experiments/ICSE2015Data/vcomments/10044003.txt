@@ -1,0 +1,1 @@
+All this does is cast a drawable to a bitmap drawable, how is this even useful?

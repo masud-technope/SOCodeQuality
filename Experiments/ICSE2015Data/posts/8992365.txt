@@ -1,0 +1,11 @@
+<p>Believe or not my problem with Soft Keyboard was resolved when I discovered that the Activities animations can disable the Soft Keyboard. When you call the intent with the </p>
+
+<pre><code>i.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+</code></pre>
+
+<p>and </p>
+
+<pre><code>overridePendingTransition(0, 0);
+</code></pre>
+
+<p>It can hide the Soft Keyboard and there isn't a way to show it.</p>

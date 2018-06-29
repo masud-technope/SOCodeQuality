@@ -1,0 +1,18 @@
+<p>Works with modification</p>
+
+<p>You need to set the text view size like this because otherwise setTextSize assumes the value is in SP units:</p>
+
+<pre><code>setTextSize(TypedValue.COMPLEX_UNIT_PX, trySize);
+</code></pre>
+
+<p>And you needed to explicitly add this code.</p>
+
+<pre><code>@Override
+protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
+{
+    super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    int parentWidth = MeasureSpec.getSize(widthMeasureSpec);
+    int parentHeight = MeasureSpec.getSize(heightMeasureSpec);
+    refitText(this.getText().toString(), parentWidth);
+}
+</code></pre>

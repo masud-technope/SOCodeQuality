@@ -1,0 +1,41 @@
+<p>Using suggestions from others, I think I got it to work:</p>
+
+<p>(using SDK v1 R2)</p>
+
+<p>It's not perfect, since i need to delete the entire conversation, but for our purposes, it's a sufficient compromise as we will at least know all messages will be looked at and verified.  Our flow will probably need to then listen for the message, capture for the message we want, do a query to get the thread_id of the recently inbounded message and do the delete() call.</p>
+
+<p>In our Activity:</p>
+
+<pre><code>Uri uriSms = Uri.parse(""content://sms/inbox"");
+Cursor c = getContentResolver().query(uriSms, null,null,null,null); 
+int id = c.getInt(0);
+int thread_id = c.getInt(1); //get the thread_id
+getContentResolver().delete(Uri.parse(""content://sms/conversations/"" + thread_id),null,null);
+</code></pre>
+
+<p>Note:  I wasn't able to do a delete on content://sms/inbox/ or content://sms/all/</p>
+
+<p>Looks like the thread takes precedence, which makes sense, but the error message only emboldened me to be angrier.  When trying the delete on sms/inbox/ or sms/all/, you will probably get:</p>
+
+<pre><code>java.lang.IllegalArgumentException: Unknown URL
+    at com.android.providers.telephony.SmsProvider.delete(SmsProvider.java:510)
+    at android.content.ContentProvider$Transport.delete(ContentProvider.java:149)
+    at android.content.ContentProviderNative.onTransact(ContentProviderNative.java:149)
+</code></pre>
+
+<p>For additional reference too, make sure to put this into your manifest for your intent receiver:</p>
+
+<pre><code>&lt;receiver android:name="".intent.MySmsReceiver""&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=""android.provider.Telephony.SMS_RECEIVED""&gt;&lt;/action&gt;
+    &lt;/intent-filter&gt;
+&lt;/receiver&gt;
+</code></pre>
+
+<p>Note the receiver tag does not look like this:</p>
+
+<pre><code>&lt;receiver android:name="".intent.MySmsReceiver"" 
+    android:permission=""android.permission.RECEIVE_SMS""&gt;
+</code></pre>
+
+<p>When I had those settings, android gave me some crazy permissions exceptions that didn't allow android.phone to hand off the received SMS to my intent.  So, DO NOT put that RECEIVE_SMS permission attribute in your intent!  Hopefully someone wiser than me can tell me why that was the case.</p>

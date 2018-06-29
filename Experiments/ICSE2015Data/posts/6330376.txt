@@ -1,0 +1,1 @@
+<p>If you are using <code>startActivityForResult()</code> in your previous activities, just override <code>OnActivityResult()</code> and call the <code>finish();</code> method inside it in all activities.. This will do the job...</p>

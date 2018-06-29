@@ -1,0 +1,123 @@
+<p>We could not use two scrolling simulteniuosly.We will have get total length of ListView and expand listview with the total height .Then we can add ListView in ScrollView directly or using LinearLayout because ScrollView have directly one child .
+copy  setListViewHeightBasedOnChildren(lv) method in your code and expand listview then you can use listview inside scrollview.
+\layout xml file</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;LinearLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+android:layout_width=""match_parent""
+android:layout_height=""match_parent""
+android:orientation=""vertical"" &gt;
+ &lt;ScrollView
+
+        android:layout_width=""fill_parent""
+        android:layout_height=""fill_parent""
+         android:background=""#1D1D1D""
+        android:orientation=""vertical""
+        android:scrollbars=""none"" &gt;
+
+        &lt;LinearLayout
+            android:layout_width=""fill_parent""
+            android:layout_height=""fill_parent""
+            android:background=""#1D1D1D""
+            android:orientation=""vertical"" &gt;
+
+            &lt;TextView
+                android:layout_width=""fill_parent""
+                android:layout_height=""40dip""
+                android:background=""#333""
+                android:gravity=""center_vertical""
+                android:paddingLeft=""8dip""
+                android:text=""First ListView""
+                android:textColor=""#C7C7C7""
+                android:textSize=""20sp"" /&gt;
+
+            &lt;ListView
+                android:id=""@+id/first_listview""
+                android:layout_width=""260dp""
+                android:layout_height=""wrap_content""
+                android:divider=""#00000000""
+               android:listSelector=""#ff0000""
+                android:scrollbars=""none"" /&gt;
+
+               &lt;TextView
+                android:layout_width=""fill_parent""
+                android:layout_height=""40dip""
+                android:background=""#333""
+                android:gravity=""center_vertical""
+                android:paddingLeft=""8dip""
+                android:text=""Second ListView""
+                android:textColor=""#C7C7C7""
+                android:textSize=""20sp"" /&gt;
+
+            &lt;ListView
+                android:id=""@+id/secondList""
+                android:layout_width=""260dp""
+                android:layout_height=""wrap_content""
+                android:divider=""#00000000""
+                android:listSelector=""#ffcc00""
+                android:scrollbars=""none"" /&gt;
+  &lt;/LinearLayout&gt;
+  &lt;/ScrollView&gt;
+
+   &lt;/LinearLayout&gt;
+</code></pre>
+
+<p>onCreate method in Activity class:</p>
+
+<pre><code> import java.util.ArrayList;
+  import android.app.Activity;
+ import android.os.Bundle;
+ import android.view.Menu;
+ import android.view.View;
+ import android.view.ViewGroup;
+ import android.widget.ArrayAdapter;
+ import android.widget.ListAdapter;
+  import android.widget.ListView;
+
+   public class MainActivity extends Activity {
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.listview_inside_scrollview);
+    ListView list_first=(ListView) findViewById(R.id.first_listview);
+    ListView list_second=(ListView) findViewById(R.id.secondList);
+    ArrayList&lt;String&gt; list=new ArrayList&lt;String&gt;();
+    for(int x=0;x&lt;30;x++)
+    {
+        list.add(""Item ""+x);
+    }
+
+       ArrayAdapter&lt;String&gt; adapter=new ArrayAdapter&lt;String&gt;(getApplicationContext(), 
+          android.R.layout.simple_list_item_1,list);               
+      list_first.setAdapter(adapter);
+
+     setListViewHeightBasedOnChildren(list_first);
+
+      list_second.setAdapter(adapter);
+
+    setListViewHeightBasedOnChildren(list_second);
+   }
+
+
+
+   public static void setListViewHeightBasedOnChildren(ListView listView) {
+    ListAdapter listAdapter = listView.getAdapter();
+    if (listAdapter == null) {
+        // pre-condition
+        return;
+    }
+
+    int totalHeight = 0;
+    for (int i = 0; i &lt; listAdapter.getCount(); i++) {
+        View listItem = listAdapter.getView(i, null, listView);
+        listItem.measure(0, 0);
+        totalHeight += listItem.getMeasuredHeight();
+    }
+
+    ViewGroup.LayoutParams params = listView.getLayoutParams();
+    params.height = totalHeight
+            + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+    listView.setLayoutParams(params);
+      }
+</code></pre>

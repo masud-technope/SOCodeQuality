@@ -1,0 +1,8 @@
+<p>I don't know if it changes the whole app, but I have managed to change some components that couldn't otherwise be changed by doing this:</p>
+
+<pre><code>Typeface tf = Typeface.createFromAsset(getAssets(), ""fonts/Lucida Sans Unicode.ttf"");
+Typeface.class.getField(""DEFAULT"").setAccessible(true);
+Typeface.class.getField(""DEFAULT_BOLD"").setAccessible(true);
+Typeface.class.getField(""DEFAULT"").set(null, tf);
+Typeface.class.getField(""DEFAULT_BOLD"").set(null, tf);
+</code></pre>

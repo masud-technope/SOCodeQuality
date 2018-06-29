@@ -1,0 +1,24 @@
+<p>here's my solution, which, using ""<a href=""http://nineoldandroids.com/"" rel=""nofollow""><strong>nineOldAndroids</strong></a>"" library, support old APIs too:</p>
+
+<pre><code>rootView.setOnTouchListener(new OnTouchListener() {
+
+@Override
+public boolean onTouch(final View v, final MotionEvent event) {
+    switch (event.getAction()) {
+    case MotionEvent.ACTION_UP:
+    case MotionEvent.ACTION_CANCEL:
+        v.setBackgroundResource(R.drawable.listview_normal);
+        ViewHelper.setAlpha(imageView, 1);
+        break;
+    case MotionEvent.ACTION_DOWN:
+        v.setBackgroundResource(0);
+        v.setBackgroundColor(getResources().getColor(R.color.listview_pressed));
+        ViewHelper.setAlpha(imageView, 0.75f);
+        break;
+    }
+    return false;
+}
+});
+</code></pre>
+
+<p>it assumes the rootView is the cell itself (the layout), and that it has a single imageView that you wish to be affected by the color that you wish to apply to the whole cell.</p>

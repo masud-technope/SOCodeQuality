@@ -1,0 +1,31 @@
+<p>Simple solution of how to store login value in by <code>SharedPreferences</code>.</p>
+
+<p>You can extend the <code>MainActivity</code> class or other class where you will store the ""value of something you want to keep"". Put this into writer and reader classes:</p>
+
+<pre><code>public static final String GAME_PREFERENCES_LOGIN = ""Login"";
+</code></pre>
+
+<p>Here <code>InputClass</code> is input and <code>OutputClass</code> is output class, respectively.</p>
+
+<pre><code>// This is a storage, put this in a class which you can extend or in both classes:
+//(input and output)
+public static final String GAME_PREFERENCES_LOGIN = ""Login"";
+
+// String from the text input (can be from anywhere)
+String login = inputLogin.getText().toString();
+
+// then to add a value in InputCalss ""SAVE"",
+SharedPreferences example = getSharedPreferences(GAME_PREFERENCES_LOGIN, 0);
+Editor editor = example.edit();
+editor.putString(""value"", login);
+editor.commit();
+</code></pre>
+
+<p>Now you can use it somewhere else, like other class. The following is <code>OutputClass</code>.</p>
+
+<pre><code>SharedPreferences example = getSharedPreferences(GAME_PREFERENCES_LOGIN, 0);
+String userString = example.getString(""value"", ""defValue"");
+
+// the following will print it out in console
+Logger.getLogger(""Name of a OutputClass"".class.getName()).log(Level.INFO, userString);
+</code></pre>

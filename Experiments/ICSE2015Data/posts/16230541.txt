@@ -1,0 +1,16 @@
+<p>Or if you want to hide/show the title bar at any point:</p>
+
+<pre><code>private void toggleFullscreen(boolean fullscreen)
+{
+    WindowManager.LayoutParams attrs = getWindow().getAttributes();
+    if (fullscreen)
+    {
+        attrs.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+    }
+    else
+    {
+        attrs.flags &amp;= ~WindowManager.LayoutParams.FLAG_FULLSCREEN;
+    }
+    getWindow().setAttributes(attrs);
+}
+</code></pre>

@@ -1,0 +1,30 @@
+<p>Well, image loading time from the Internet has many solutions. You may also use the library <a href=""https://code.google.com/p/android-query/wiki/ImageLoading"" rel=""nofollow"">Android-Query</a>. It will give you all the required activity. Make sure what you want to do and read the library wiki page. And solve the image loading restriction.</p>
+
+<p>This is my code:</p>
+
+<pre><code>    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View v = convertView;
+        if (v == null) {
+            LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            v = vi.inflate(R.layout.row, null);
+        }
+
+        ImageView imageview = (ImageView) v.findViewById(R.id.icon);
+        AQuery aq = new AQuery(convertView);
+
+        String imageUrl = ""http://www.vikispot.com/z/images/vikispot/android-w.png"";
+
+        aq.id(imageview).progress(this).image(imageUrl, true, true, 0, 0, new BitmapAjaxCallback(){
+
+            @Override
+            public void callback(String url, ImageView iv, Bitmap bm, AjaxStatus status){
+                iv.setImageBitmap(bm);
+            }
+        });
+    }
+    return v;
+}
+</code></pre>
+
+<p>It should be solve your lazy loading problem.</p>

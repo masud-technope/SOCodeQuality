@@ -1,0 +1,43 @@
+<p>From <a href=""http://developer.aiwgame.com/imageview-show-image-from-url-on-android-4-0.html"">Android developer</a>:</p>
+
+<pre><code>// show The Image
+new DownloadImageTask((ImageView) findViewById(R.id.imageView1))
+            .execute(""http://java.sogeti.nl/JavaBlog/wp-content/uploads/2009/04/android_icon_256.png"");
+}
+
+public void onClick(View v) {
+    startActivity(new Intent(this, IndexActivity.class));
+    finish();
+
+}
+
+private class DownloadImageTask extends AsyncTask&lt;String, Void, Bitmap&gt; {
+    ImageView bmImage;
+
+    public DownloadImageTask(ImageView bmImage) {
+        this.bmImage = bmImage;
+    }
+
+    protected Bitmap doInBackground(String... urls) {
+        String urldisplay = urls[0];
+        Bitmap mIcon11 = null;
+        try {
+            InputStream in = new java.net.URL(urldisplay).openStream();
+            mIcon11 = BitmapFactory.decodeStream(in);
+        } catch (Exception e) {
+            Log.e(""Error"", e.getMessage());
+            e.printStackTrace();
+        }
+        return mIcon11;
+    }
+
+    protected void onPostExecute(Bitmap result) {
+        bmImage.setImageBitmap(result);
+    }
+}
+</code></pre>
+
+<p>Make sure you have the following permissions set in your <code>AndroidManifest.xml</code> to access the internet.</p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.INTERNET"" /&gt;
+</code></pre>

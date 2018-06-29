@@ -1,0 +1,13 @@
+<p>In your Custom_Dialog.java class add <code>requestWindowFeature(Window.FEATURE_NO_TITLE);
+</code></p>
+
+<pre><code>public class Custom_Dialog extends Dialog {
+
+protected Custom_Dialog(Context context, int theme) {
+    super(context, theme);
+    // TODO Auto-generated constructor stub
+    requestWindowFeature(Window.FEATURE_NO_TITLE); //This line 
+}
+</code></pre>
+
+<p>}</p>

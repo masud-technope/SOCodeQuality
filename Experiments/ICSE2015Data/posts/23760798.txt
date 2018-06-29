@@ -1,0 +1,28 @@
+<p>for me it worked something like this. has the improvement that only changes the text in SOME options, not in all.</p>
+
+<p>First i take the names of the spinner and create the arrayadapter with a customize view, but it doesn't matter now, the key is override the getView, and inside change the values u need to change. In my case was only the first one, the rest i leave the original</p>
+
+<pre><code>public void rellenarSpinnerCompeticiones(){
+        spinnerArrayCompeticiones = new ArrayList&lt;String&gt;();
+        for(Competicion c: ((Controlador)getApplication()).getCompeticiones()){
+            spinnerArrayCompeticiones.add(c.getNombre());
+        }
+        //ArrayAdapter&lt;String&gt; spinnerArrayAdapter = new ArrayAdapter&lt;String&gt;(this,R.layout.spinner_item_competicion,spinnerArrayCompeticiones);
+        ArrayAdapter&lt;String&gt; spinnerArrayAdapter = new ArrayAdapter&lt;String&gt;(this, R.layout.spinner_item_competicion, spinnerArrayCompeticiones){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                final View v = vi.inflate(R.layout.spinner_item_competicion, null);
+                final TextView t = (TextView)v.findViewById(R.id.tvCompeticion);
+                if(spinnerCompeticion.getSelectedItemPosition()&gt;0){
+                    t.setText(spinnerArrayCompeticiones.get(spinnerCompeticion.getSelectedItemPosition()));
+                }else{
+                    t.setText(""Competiciones"");
+                }
+                return v;
+            }
+        };
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCompeticion.setAdapter(spinnerArrayAdapter);
+    }
+</code></pre>

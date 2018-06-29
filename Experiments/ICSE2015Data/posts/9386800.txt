@@ -1,0 +1,21 @@
+<p>E.g. have one important difference (at least for my program) between the phone and tablet. It is the default orientation of the device. Phone has a portrait orientation, the tablet - landscape. And respectively method to determine the device:</p>
+
+<pre><code>private static boolean isLandscapeDefault(Display display) {
+    Log.d(TAG, ""isTablet()"");
+    final int width = display.getWidth();
+    final int height = display.getHeight();
+
+    switch (display.getOrientation()) {
+    case 0: case 2:
+        if(width &gt; height) return true;
+        break;
+    case 1: case 3:
+        if(width &lt; height) return true;
+        break;
+    }
+    return false;
+}
+</code></pre>
+
+<p>EDITED:
+Following the discussions with Dan Hulme changed the name of the method.</p>

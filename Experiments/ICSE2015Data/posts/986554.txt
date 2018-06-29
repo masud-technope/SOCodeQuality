@@ -1,0 +1,39 @@
+<p>I couldn't get it to work using dmyung's solution, it gave me an exception when getting either the message id or thread id.</p>
+
+<p>In the end, I've used the following method to get the thread id:</p>
+
+<pre><code>private long getThreadId(Context context) {
+	long threadId = 0;
+
+	String SMS_READ_COLUMN = ""read"";
+    String WHERE_CONDITION = SMS_READ_COLUMN + "" = 0"";
+    String SORT_ORDER = ""date DESC"";
+    int count = 0;
+
+    Cursor cursor = context.getContentResolver().query(
+                    SMS_INBOX_CONTENT_URI,
+          new String[] { ""_id"", ""thread_id"", ""address"", ""person"", ""date"", ""body"" },
+                    WHERE_CONDITION,
+                    null,
+                    SORT_ORDER);
+
+    if (cursor != null) {
+            try {
+                count = cursor.getCount();
+                if (count &gt; 0) {
+                    cursor.moveToFirst();
+                    threadId = cursor.getLong(1);                              
+                }
+            } finally {
+                    cursor.close();
+            }
+    }
+
+
+	return threadId;
+}
+</code></pre>
+
+<p>Then I could delete it. However, as Doug said, the notification is still there, even the message is displayed when opening the notification panel. Only when tapping the message I could actually see that it's empty. </p>
+
+<p>So I guess the only way this would work would be to actually somehow intercept the SMS before it's delivered to the system, before it even reaches the inbox. However, I highly doubt this is doable. Please correct me if I'm wrong.</p>

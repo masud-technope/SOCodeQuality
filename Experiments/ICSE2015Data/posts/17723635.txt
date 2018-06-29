@@ -1,0 +1,10 @@
+<p>You can try this :</p>
+
+<pre><code>                    mEditText.setFocusable(false);
+        mEditText.setClickable(false);
+        mEditText.setFocusableInTouchMode(false);
+        mEditText.setLongClickable(false);
+        mEditText.setInputType(InputType.TYPE_NULL);
+</code></pre>
+
+<p>This will completely disable EditText, disable long press if you don't want user to open edit text options</p>

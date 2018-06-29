@@ -1,0 +1,29 @@
+<p>I found this thread by having the same problem but I think I have come up with a workaround that worked for me for unkown reasons. Whenever I tried getting a value I got nothing but if I loop through the list setting all to false it started working just like intended.</p>
+
+<p>This was actually a feature I had implemented where the user could either ""Select All"" or ""Unselect All"". I run this method in my onCreate.</p>
+
+<pre><code>private void selectNone() {
+    ListView lv = getListView();
+    for (int i = 0; i &lt; lv.getCount(); i++) {
+        lv.setItemChecked(i, false);
+    }
+}
+</code></pre>
+
+<p>Now all my values are correct. For getting the values, in my case, just Strings.</p>
+
+<pre><code>private void importSelected() {     
+    ListView lv = getListView();
+    SparseBooleanArray selectedItems = lv.getCheckedItemPositions();
+
+    for (int i = 0; i &lt; selectedItems.size(); i++) {
+        if (selectedItems.get(i)) {
+            String item =  lv.getAdapter().getItem(selectedItems.keyAt(i)).toString();
+        }
+    }
+
+    selectNone(); //Reset
+}
+</code></pre>
+
+<p>I hope this helps someone.</p>

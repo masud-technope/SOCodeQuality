@@ -1,0 +1,7 @@
+<p>USe this code it will tell dimensions of screen</p>
+
+<pre><code>DisplayMetrics metrics = new DisplayMetrics();
+getWindowManager().getDefaultDisplay().getMetrics(metrics);
+int h = metrics.heightPixels;
+int w = metrics.widthPixels;
+</code></pre>

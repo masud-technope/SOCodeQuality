@@ -1,0 +1,13 @@
+<p>This Exception occurs due to the any heavy task performed on the main thread.
+If that performing task takes too much time.
+To avoid this we can handle it using <strong>Threads</strong> or <strong>Executers</strong></p>
+
+<p>Executors.newSingleThreadExecutor().submit(new Runnable() {</p>
+
+<pre><code>        @Override
+        public void run() {
+            //You can performed your task here.
+
+        }
+    });
+</code></pre>

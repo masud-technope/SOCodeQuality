@@ -1,0 +1,21 @@
+log_in.setOnClickListener(new OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // TODO Auto-generated method stub
+        username=user_name.getText().toString();
+        password=pass_word.getText().toString();
+        if(username.equals(""""))
+        {
+            user_name.setError(""Enter username"");
+        }
+        else if(password.equals(""""))
+        {
+            pass_word.setError(""Enter your password"");
+        }
+        else
+        {
+            Intent intent=new Intent(MainActivity.this,Scan_QRActivity.class);
+            startActivity(intent);
+        }
+    }
+});

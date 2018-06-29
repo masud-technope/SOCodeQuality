@@ -1,0 +1,16 @@
+<p>This works for me.</p>
+
+<pre><code>Bitmap myBitmap;
+
+BitmapFactory.Options options = new BitmapFactory.Options(); 
+options.InPurgeable = true;
+options.OutHeight = 50;
+options.OutWidth = 50;
+options.InSampleSize = 4;
+
+File imgFile = new File(filepath);
+myBitmap = BitmapFactory.DecodeFile(imgFile.AbsolutePath, options);
+</code></pre>
+
+<p>and this is on C# monodroid.
+you can easily change the path of the image. what important here is the options to be set.</p>

@@ -1,0 +1,18 @@
+runOnUiThread(new Runnable(){
+            public void run() {
+                //use your code here
+               try{
+                URL url = new URL(urlToRssFeed);
+                SAXParserFactory factory = SAXParserFactory.newInstance();
+                SAXParser parser = factory.newSAXParser();
+                XMLReader xmlreader = parser.getXMLReader();
+                RssHandler theRSSHandler = new RssHandler();
+                xmlreader.setContentHandler(theRSSHandler);
+                InputSource is = new InputSource(url.openStream());
+                xmlreader.parse(is);
+                return theRSSHandler.getFeed();
+                }catch(Exception e){
+                e.printStackTrace();
+                }
+            }
+        });

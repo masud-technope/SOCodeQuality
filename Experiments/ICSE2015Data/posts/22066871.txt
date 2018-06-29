@@ -1,0 +1,74 @@
+<p>to start, i used the Code posted posted in the first Comment but i changed it like this:</p>
+
+<pre><code>    public class LockableScrollView extends ScrollView {
+
+    public LockableScrollView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        // TODO Auto-generated constructor stub
+    }
+    public LockableScrollView(Context context, AttributeSet attrs) 
+    {
+        super(context, attrs);
+    }
+
+    public LockableScrollView(Context context) 
+    {
+        super(context);
+    }
+
+    // true if we can scroll (not locked)
+    // false if we cannot scroll (locked)
+    private boolean mScrollable = true;
+
+    public void setScrollingEnabled(boolean enabled) {
+        mScrollable = enabled;
+    }
+
+    public boolean isScrollable() {
+        return mScrollable;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                // if we can scroll pass the event to the superclass
+                if (mScrollable) return super.onTouchEvent(ev);
+                // only continue to handle the touch event if scrolling enabled
+                return mScrollable; // mScrollable is always false at this point
+            default:
+                return super.onTouchEvent(ev);
+        }
+    }
+
+
+
+@Override  
+public boolean onInterceptTouchEvent(MotionEvent ev) {
+    switch (ev.getAction()) {     
+    case MotionEvent.ACTION_DOWN:         
+        // if we can scroll pass the event to the superclass      
+        if (mScrollable) return super.onInterceptTouchEvent(ev);      
+        // only continue to handle the touch event if scrolling enabled    
+        return mScrollable; // mScrollable is always false at this point     
+        default:          
+            return super.onInterceptTouchEvent(ev);      
+            }
+    }
+
+}
+</code></pre>
+
+<p>then i called it in by this way</p>
+
+<pre><code>((LockableScrollView)findViewById(R.id.scrollV)).setScrollingEnabled(false);
+</code></pre>
+
+<p>because i tried </p>
+
+<pre><code>((LockableScrollView)findViewById(R.id.scrollV)).setIsScrollable(false);
+</code></pre>
+
+<p>but it said that <strong>setIsScrollable</strong> is undefined</p>
+
+<p>i hope this will help you</p>

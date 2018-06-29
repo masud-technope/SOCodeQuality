@@ -1,0 +1,17 @@
+
+
+<h2>Use a Utility to do the Heavy Lifting.</h2>
+
+<p><a href=""https://gist.github.com/9re"" rel=""nofollow"">9re</a> created a simple utility to handle the heavy lifting of dealing with EXIF data and rotating images to their correct orientation. </p>
+
+<p><strong>You can find the utility code here: <a href=""https://gist.github.com/9re/1990019"" rel=""nofollow"">https://gist.github.com/9re/1990019</a></strong></p>
+
+<p>Simply download this, add it to your project <code>src</code> directory (perhaps under a <code>utilities</code> package name) and use <code>ExifUtil.rotateBitmap()</code> to get the correct orientation, like so: </p>
+
+<pre><code>// photoFile is a File object for the image with EXIF data I want to rotate.
+
+String imagePath = photoFile.getAbsolutePath();
+Bitmap myBitmap  = BitmapFactory.decodeFile(imagePath);
+
+Bitmap orientedBitmap = ExifUtil.rotateBitmap(imagePath, myBitmap);
+</code></pre>

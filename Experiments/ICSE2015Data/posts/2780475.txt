@@ -1,0 +1,17 @@
+<p>Firstly, the concept of ""application"" in Android is slightly an extended one.</p>
+
+<p>An application - technically a process - can have multiple activities, services, content providers and/or broadcast listeners. If at least one of them is running, the application is up and running (the process).</p>
+
+<p>So, what you have to identify is how do you want to ""start the application"".</p>
+
+<p>Ok... here's what you can try out:</p>
+
+<ol>
+<li>Create an intent with <code>action=MAIN</code> and <code>category=LAUNCHER</code></li>
+<li>Get the <code>PackageManager</code> from the current context using <code>context.getPackageManager</code></li>
+<li><code>packageManager.queryIntentActivity(&amp;lt;intent&amp;gt;, 0)</code> where intent has <code>category=LAUNCHER</code>, <code>action=MAIN</code> or <code>packageManager.resolveActivity(&amp;lt;intent&amp;gt;, 0)</code> to get the first activity with main/launcher</li>
+<li>Get the<code>ActivityInfo</code> you're interested in</li>
+<li>From the <code>ActivityInfo</code>, get the <code>packageName</code> and <code>name</code></li>
+<li>Finally, create another intent with with <code>category=LAUNCHER</code>, <code>action=MAIN</code>, <code>componentName = new ComponentName(packageName, name)</code> and <code>setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)</code></li>
+<li>Finally, <code>context.startActivity(newIntent)</code></li>
+</ol>

@@ -1,0 +1,5 @@
+<pre><code>String formattedDate = new SimpleDateFormat(""yyyy-MM-dd HH:mm:ss"").format(Calendar.getInstance().getTime()); 
+</code></pre>
+
+<p>Use <code>formattedDate</code> as your <code>String</code> filled with the date.<br>
+In my case: <code>mDateButton.setText(formattedDate);</code></p>

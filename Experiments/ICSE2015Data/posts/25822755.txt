@@ -1,0 +1,21 @@
+<pre><code>/*if you are from transferring datas from one class that doesno't extends activity class then you need to do some thing like that*/ 
+
+public class abc{
+    Context context;   
+   public abc(Context context)
+   {
+     this.context = context;
+    }   
+
+   public void something()
+   {
+
+    context.startactivity(new Intent(context,anyone.class).putextra(""key"", value));
+
+   }  
+
+
+
+
+} 
+</code></pre>

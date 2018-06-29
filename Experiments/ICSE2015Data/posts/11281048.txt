@@ -1,0 +1,26 @@
+<p>I guess to use the external sdcard you need to use this:</p>
+
+<pre><code>new File(""/mnt/external_sd/"")
+</code></pre>
+
+<p>OR </p>
+
+<pre><code>new File(""/mnt/extSdCard/"")
+</code></pre>
+
+<p>in your case...</p>
+
+<p>in replace of <code>Environment.getExternalStorageDirectory()</code></p>
+
+<p>Works for me. You should check whats in the directory mnt first and work from there..</p>
+
+<hr>
+
+<p>You should use some type of selection method to choose which sdcard to use:</p>
+
+<pre><code>File storageDir = new File(""/mnt/"");
+if(storageDir.isDirectory()){
+    String[] dirList = storageDir.list();
+    //TODO some type of selecton method?
+}
+</code></pre>

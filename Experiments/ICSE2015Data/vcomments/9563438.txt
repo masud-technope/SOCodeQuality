@@ -1,0 +1,2 @@
+http://stackoverflow.com/a/5960030/480850 worked better for me px->dp.
+Use 'Resources.getSystem().getDisplayMetrics()' if you don't have a Context handy.

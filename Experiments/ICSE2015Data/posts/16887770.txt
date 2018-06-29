@@ -1,0 +1,26 @@
+<p>Hi I have a simple solution by using 2 themes</p>
+
+<ol>
+<li><p>Splash screen theme (add it to the manifest):  </p>
+
+<p><code>&lt;style name=""SplashTheme"" parent=""@android:style/Theme.Holo.NoActionBar""&gt;
+    &lt;item name=""android:windowBackground""&gt;@color/red&lt;/item&gt;
+&lt;/style&gt;</code></p></li>
+<li><p>normal theme (add it in your activity by setTheme(R.style.Theme)):</p>
+
+<p><code>&lt;style name=""Theme"" parent=""@style/Theme.Holo""&gt; &lt;item name=""android:windowBackground""&gt;@color/blue&lt;/item&gt;
+&lt;/style&gt;</code></p></li>
+</ol>
+
+<p>To support SDK 10:</p>
+
+<pre><code>@Override    
+public void onCreate(Bundle savedInstanceState) {
+
+    setTheme(R.style.Theme);      
+    super.onCreate(savedInstanceState);
+
+      ...........
+      ...........
+}
+</code></pre>

@@ -1,0 +1,21 @@
+File[] files = null;
+    File file = new File(""/storage"");// /storage/emulated
+if (file.exists()) {
+        files = file.listFiles();
+            }
+            if (null != files)
+                for (int j = 0; j < files.length; j++) {
+                    Log.e(TAG, """" + files[j]);
+                    Log.e(TAG, ""//--//--// "" +             files[j].exists());
+
+                    if (files[j].toString().replaceAll(""_"", """")
+                            .toLowerCase().contains(""extsdcard"")) {
+                        external_path = files[j].toString();
+                        break;
+                    } else if (files[j].toString().replaceAll(""_"", """")
+                            .toLowerCase()
+                            .contains(""sdcard"".concat(Integer.toString(j)))) {
+                        // external_path = files[j].toString();
+                    }
+                    Log.e(TAG, ""--///--///--  "" + external_path);
+                }

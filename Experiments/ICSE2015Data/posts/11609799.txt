@@ -1,0 +1,23 @@
+<p>You can override default Preference classes and implement the feature.</p>
+
+<pre><code>public class MyListPreference extends ListPreference  {
+    public MyListPreference(Context context) { super(context); }
+    public MyListPreference(Context context, AttributeSet attrs) { super(context, attrs); }
+    @Override
+    public void setValue(String value) {
+        super.setValue(value);
+        setSummary(getEntry());
+    }
+}
+</code></pre>
+
+<p>Later in you xml you can use custom preference like </p>
+
+<pre><code>&lt;your.package.name.MyListPreference 
+    android:key=""noteInterval""
+    android:defaultValue=""60""
+    android:title=""Notification Interval""
+    android:entries=""@array/noteInterval""
+    android:entryValues=""@array/noteIntervalValues""
+    /&gt;
+</code></pre>

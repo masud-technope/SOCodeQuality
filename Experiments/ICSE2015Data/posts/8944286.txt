@@ -1,0 +1,11 @@
+<p>If you already have the package name you wish to activate, you can use the following code which is a bit more generic:</p>
+
+<pre><code>PackageManager pm = context.getPackageManager();
+Intent appStartIntent = pm.getLaunchIntentForPackage(appPackageName);
+if (null != appStartIntent)
+{
+    context.startActivity(appStartIntent);
+}
+</code></pre>
+
+<p>I found that it works better for cases where the main activity was not found by the regular method of start the MAIN activity.</p>

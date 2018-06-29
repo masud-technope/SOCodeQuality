@@ -1,0 +1,6 @@
+<p>Try using:</p>
+
+<pre><code>finish();
+</code></pre>
+
+<p>at the end of activity. It will redirect you to your previous activity.</p>

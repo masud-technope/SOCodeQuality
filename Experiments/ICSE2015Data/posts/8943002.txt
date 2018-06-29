@@ -1,0 +1,7 @@
+<p>I would like to add something to the very helpful <a href=""http://stackoverflow.com/a/5122460/426213"">answer above</a>. If you don't know the height you'll end up with since your views .getHeight() returns 0 you can do the following to get the height:</p>
+
+<pre><code>contentView.measure(DUMMY_HIGH_DIMENSION, DUMMY_HIGH_DIMENSION);
+int finalHeight = view.getMeasuredHeight();
+</code></pre>
+
+<p>Where DUMMY_HIGH_DIMENSIONS is the width/height (in pixels) your view is constrained to ... having this a huge number is reasonable when the view is encapsulated with a ScrollView.</p>

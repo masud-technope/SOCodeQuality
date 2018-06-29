@@ -1,0 +1,52 @@
+<p>This is good sample for you :</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;LinearLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+    android:layout_width=""match_parent""
+    android:layout_height=""match_parent""
+    android:orientation=""vertical"" &gt;
+
+    &lt;ScrollView
+        android:id=""@+id/scrollID""
+        android:layout_width=""fill_parent""
+        android:layout_height=""0dip""
+        android:layout_weight=""1"" &gt;
+
+        &lt;LinearLayout
+            android:id=""@+id/test""
+            android:layout_width=""match_parent""
+            android:layout_height=""wrap_content""
+            android:orientation=""vertical"" &gt;
+        &lt;/LinearLayout&gt;
+    &lt;/ScrollView&gt;
+
+    &lt;LinearLayout
+        android:layout_width=""match_parent""
+        android:layout_height=""wrap_content""
+        android:baselineAligned=""true""
+        android:orientation=""horizontal""
+        android:paddingBottom=""5dp""
+        android:paddingLeft=""5dp""
+        android:paddingRight=""5dp""
+        android:weightSum=""1"" &gt;
+
+        &lt;EditText
+            android:id=""@+id/txtInpuConversation""
+            android:layout_width=""0dip""
+            android:layout_height=""wrap_content""
+            android:layout_weight=""0.5""
+            android:hint=""@string/edt_Conversation"" &gt;
+
+            &lt;requestFocus /&gt;
+        &lt;/EditText&gt;
+
+        &lt;Button
+            android:id=""@+id/btnSend""
+            android:layout_width=""0dip""
+            android:layout_height=""wrap_content""
+            android:layout_weight=""0.5""
+            android:text=""@string/btn_Conversation"" /&gt;
+    &lt;/LinearLayout&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>

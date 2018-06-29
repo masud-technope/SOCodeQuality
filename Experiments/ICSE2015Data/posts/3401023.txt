@@ -1,0 +1,7 @@
+<p>This will do it: </p>
+
+<pre><code>Date date = new Date();
+java.text.DateFormat dateFormat =
+    android.text.format.DateFormat.getDateFormat(getApplicationContext());
+mTimeText.setText(""Time: "" + dateFormat.format(date));
+</code></pre>

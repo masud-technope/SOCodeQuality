@@ -1,0 +1,25 @@
+<p>You say ""Java"" but ""not Java EE"". Do you mean you are using JSP and/or servlets but not a full Java EE stack? If that's the case, then you should still have request.getParameter() available to you.</p>
+
+<p>If you mean you are writing Java but you are not writing JSPs nor servlets, or that you're just using Java as your reference point but you're on some other platform that doesn't have built-in parameter parsing ... Wow, that just sounds like an unlikely question, but if so, the principle would be:</p>
+
+<pre><code>xparm=0
+word=""""
+loop
+  get next char
+  if no char
+    exit loop
+  if char=='='
+    param_name[xparm]=word
+    word=""""
+  else if char=='&amp;'
+    param_value[xparm]=word
+    word=""""
+    xparm=xparm+1
+  else if char=='%'
+    read next two chars
+    word=word+interpret the chars as hex digits to make a byte
+  else
+    word=word+char
+</code></pre>
+
+<p>(I could write Java code but that would be pointless, because if you have Java available, you can just use request.getParameters.)</p>

@@ -1,0 +1,7 @@
+<p>Actualy we can use the two providers both. And they just share a public listener:</p>
+
+<pre><code>locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10 * 1000, (float) 10.0, listener);
+locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 90 * 1000, (float) 10.0, listener);
+</code></pre>
+
+<p>This is necessary because the OnLocationChanged() method always need to be called in time.</p>

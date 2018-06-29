@@ -1,0 +1,28 @@
+<p>For me it was not a good practice to check the connection state in the Activity class, because </p>
+
+<pre><code>ConnectivityManager cm =
+    (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+</code></pre>
+
+<p>should be called there, or you need to push down your Activity instance (context) to the connection handler class to able to check the connection state there
+When no available connection (wifi, network) I catch the <strong>UnknownHostException</strong> exception:</p>
+
+<pre><code>JSONObject jObj = null;
+Boolean responded = false;
+HttpGet requestForTest = new HttpGet(""http://myserver.com"");
+try {
+    new DefaultHttpClient().execute(requestForTest);
+    responded = true;
+} catch (UnknownHostException e) {
+    jObj = new JSONObject();
+    try {
+        jObj.put(""answer_code"", 1);
+        jObj.put(""answer_text"", ""No available connection"");
+    } catch (Exception e1) {}
+    return jObj;
+} catch (IOException e) {
+    e.printStackTrace();
+}
+</code></pre>
+
+<p>In this way I can handle this case along with the other cases in the same class (my server always response back with a json string)</p>

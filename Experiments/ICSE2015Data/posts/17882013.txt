@@ -1,0 +1,6 @@
+<p>Just create an empty view at the top of linearlayout</p>
+
+<pre><code>&lt;View android:layout_width=""fill_parent"" android:id=""@+id/focus_view"" android:layout_height=""0dp"" android:focusable=""true"" android:focusableInTouchMode=""true""&gt;&lt;requestFocus/&gt;&lt;/View&gt;
+</code></pre>
+
+<p>Single line solves the problem</p>

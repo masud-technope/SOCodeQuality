@@ -1,0 +1,10 @@
+<p>To editText is empty try another this simple way :</p>
+
+<blockquote>
+  <p><code>
+      String star=editText.getText().toString();
+      if(star.equalsIgnoreCase(""""))
+      {
+      Toast.makeText(getApplicationContext(), ""Please Set start no"", Toast.LENGTH_LONG).show();
+      }</code></p>
+</blockquote>

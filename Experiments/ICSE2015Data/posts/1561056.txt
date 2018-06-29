@@ -1,0 +1,27 @@
+<p>Take a look at the ConnectivityManager class. You can use this class to get information on the active connections on a host. <a href=""http://developer.android.com/reference/android/net/ConnectivityManager.html"">http://developer.android.com/reference/android/net/ConnectivityManager.html</a></p>
+
+<p>EDIT: You can use     </p>
+
+<pre><code>Context.getSystemService(Context.CONNECTIVITY_SERVICE)
+    .getNetworkInfo(ConnectivityManager.TYPE_MOBILE) 
+</code></pre>
+
+<p>or</p>
+
+<pre><code>Context.getSystemService(Context.CONNECTIVITY_SERVICE)
+    .getNetworkInfo(ConnectivityManager.TYPE_WIFI) 
+</code></pre>
+
+<p>and parse the DetailedState enum of the returned NetworkInfo object</p>
+
+<p>EDIT EDIT: To find out whether you can access a host, you can use </p>
+
+<pre><code>Context.getSystemService(Context.CONNECTIVITY_SERVICE)
+    .requestRouteToHost(TYPE_WIFI, int hostAddress)
+</code></pre>
+
+<p>Obviously, I'm using Context.getSystemService(Context.CONNECTIVITY_SERVICE) as a proxy to say</p>
+
+<pre><code>ConnectivityManager cm = Context.getSystemService(Context.CONNECTIVITY_SERVICE);
+cm.yourMethodCallHere();
+</code></pre>

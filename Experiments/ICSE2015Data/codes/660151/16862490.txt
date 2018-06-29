@@ -1,0 +1,16 @@
+configuration = new Configuration(this.getSharedPreferences(Configuration.SHARED_PREFERENCES_FILE_NAME, Context.MODE_PRIVATE));
+    manualSettingsMode = configuration.isManualSettingsMode();
+    if(manualSettingsMode){
+        setContentView(R.layout.editableconfigurationsettings);
+    }else {
+        setContentView(R.layout.configurationsettings);
+    }
+private void setManualEditing(){
+    configuration.set_isManualSettingsMode(true);
+    this.recreate();
+}
+
+private void setAutoEditing(){
+    configuration.set_isManualSettingsMode(false);
+    this.recreate();
+}

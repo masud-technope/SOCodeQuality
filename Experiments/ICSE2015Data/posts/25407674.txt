@@ -1,0 +1,38 @@
+<p>Basic idea of <a href=""http://developer.android.com/reference/android/content/SharedPreferences.html"" rel=""nofollow"">SharedPreferences</a> is to store things on XML file. </p>
+
+<ol>
+<li><p>Declare your xml file path.(if you don't have this file, Android will create it. If you have this file, Android will access it.)</p>
+
+<pre><code>SharedPreferences prefs = this.getSharedPreferences(""com.example.app"", Context.MODE_PRIVATE);
+</code></pre></li>
+<li><p>Write value to Shared Preferences</p>
+
+<pre><code>prefs.edit().putLong(""preference_file_key"", 1010101).apply();
+</code></pre>
+
+<p>the <code>preference_file_key</code> is the name of shared preference files. And the <code>1010101</code> is the value you need to store. </p>
+
+<p><code>apply()</code> at last is to save the changes. If you get error from <code>apply()</code>, change it to <code>commit()</code>. So this alternative sentence is</p>
+
+<pre><code>prefs.edit().putLong(""preference_file_key"", 1010101).commit();
+</code></pre></li>
+<li><p>Read from Shared Preferences</p>
+
+<pre><code>SharedPreferences sp = this.getSharedPreferences(""com.example.app"", Context.MODE_PRIVATE);
+long lsp = sp.getLong(""preference_file_key"", -1);
+</code></pre>
+
+<p><code>lsp</code> will be <code>-1</code> if <code>preference_file_key</code> has no value. If 'preference_file_key' has a value, it will return the value of this.</p></li>
+</ol>
+
+<p>The whole code for writing is</p>
+
+<pre><code>    SharedPreferences prefs = this.getSharedPreferences(""com.example.app"", Context.MODE_PRIVATE);    // Declare xml file
+    prefs.edit().putLong(""preference_file_key"", 1010101).apply();    // Write the value to key.
+</code></pre>
+
+<p>The code for reading is</p>
+
+<pre><code>    SharedPreferences sf = this.getSharedPreferences(""com.example.app"", Context.MODE_PRIVATE);    // Declare xml file
+    long lsp = sp.getLong(""preference_file_key"", -1);    // Read the key and store in lsp
+</code></pre>

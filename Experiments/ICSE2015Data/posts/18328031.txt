@@ -1,0 +1,8 @@
+<pre><code>EditText txtUserID = (EditText) findViewById(R.id.txtUserID);
+
+String UserID = txtUserID.getText().toString();
+
+if (UserID.equals("""")) 
+
+{
+    Log.d(""value"

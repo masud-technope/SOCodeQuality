@@ -1,0 +1,19 @@
+<p>Try this:</p>
+
+<pre><code>Uri uri = Uri.parse(""https://www.google.com"");
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
+</code></pre>
+
+<p>or if you want then web browser open in your activity then do like this:</p>
+
+<pre><code>WebView webView = (WebView) findViewById(R.id.webView1);
+WebSettings settings = webview.getSettings();
+settings.setJavaScriptEnabled(true);
+webView.loadUrl(URL);
+</code></pre>
+
+<p>and if you want to use zoom control in your browser then you can use:</p>
+
+<pre><code>settings.setSupportZoom(true);
+settings.setBuiltInZoomControls(true);
+</code></pre>

@@ -1,0 +1,15 @@
+<p>The method <b>getView()</b> wont work on fragments outside OnCreate and similar methods.</p>
+
+<p>You have two ways, pass the view to the function on the oncreate (what means you can only run your functions when the view is being created) or set the view as a variable:</p>
+
+<pre><code>    private View rootView;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        Bundle savedInstanceState) {
+    rootView = inflater.inflate(R.layout.fragment_contatos, container, false);
+    }
+
+    public void doSomething () {
+    ImageView thumbnail = (ImageView) rootView.findViewById(R.id.someId);
+    }
+</code></pre>

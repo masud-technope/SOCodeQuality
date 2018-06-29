@@ -1,0 +1,9 @@
+<p>I don't have enough points to comment on an answer, but I wanted to say that mikec's answer worked for me except that I had to change it to return !isScrollable like so:</p>
+
+<pre><code>mScroller.setOnTouchListener(new OnTouchListener() {
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+      return !isScrollable;
+    }
+});
+</code></pre>

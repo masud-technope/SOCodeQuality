@@ -1,0 +1,7 @@
+<p>If we simply use the dialog without the <code>setTitle()</code>,then is that gonna work in removing the space of the title ?</p>
+
+<pre><code>mUSSDDialog = new AlertDialog.Builder(context).setView(dialogView)
+.setPositiveButton(R.string.send_button,DialogListener)
+.setNegativeButton(R.string.cancel,DialogListener)
+.setCancelable(false).create();
+</code></pre>

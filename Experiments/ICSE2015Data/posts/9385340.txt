@@ -1,0 +1,57 @@
+<p>This is a snippet that I used to resize the width of a view (LinearLayout) with animation. </p>
+
+<p>The code is supposed to do expand or shrink according the target size. If you want a fill_parent width, you will have to pass the parent .getMeasuredWidth as target width while setting the flag to true.</p>
+
+<p>Hope it helps some of you.</p>
+
+<pre><code>public class WidthResizeAnimation extends Animation {
+int targetWidth;
+int originaltWidth;
+View view;
+boolean expand;
+int newWidth = 0;
+boolean fillParent;
+
+public WidthResizeAnimation(View view, int targetWidth, boolean fillParent) {
+    this.view = view;
+    this.originaltWidth = this.view.getMeasuredWidth();
+    this.targetWidth = targetWidth;
+    newWidth = originaltWidth;
+    if (originaltWidth &gt; targetWidth) {
+        expand = false;
+    } else {
+        expand = true;
+    }
+    this.fillParent = fillParent;
+}
+
+@Override
+protected void applyTransformation(float interpolatedTime, Transformation t) {
+    if (expand &amp;&amp; newWidth &lt; targetWidth) {
+        newWidth = (int) (newWidth + (targetWidth - newWidth) * interpolatedTime);
+    }
+
+    if (!expand &amp;&amp; newWidth &gt; targetWidth) {
+        newWidth = (int) (newWidth - (newWidth - targetWidth) * interpolatedTime);
+    }
+    if (fillParent &amp;&amp; interpolatedTime == 1.0) {
+        view.getLayoutParams().width = -1;
+
+    } else {
+        view.getLayoutParams().width = newWidth;
+    }
+    view.requestLayout();
+}
+
+@Override
+public void initialize(int width, int height, int parentWidth, int parentHeight) {
+    super.initialize(width, height, parentWidth, parentHeight);
+}
+
+@Override
+public boolean willChangeBounds() {
+    return true;
+}
+</code></pre>
+
+<p>}</p>

@@ -1,0 +1,29 @@
+<p>Old post I know. Whatever the orientation may be or is swapped etc. I designed this function that is used to set the device in the right orientation without the need to know how the portrait and landscape features are organised on the device.</p>
+
+<pre><code>   private void initActivityScreenOrientPortrait()
+    {
+        // Avoid screen rotations (use the manifests android:screenOrientation setting)
+        // Set this to nosensor or potrait
+
+        // Set window fullscreen
+        this.activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        this.activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+         // Test if it is VISUAL in portrait mode by simply checking it's size
+        boolean bIsVisualPortrait = ( metrics.heightPixels &gt;= metrics.widthPixels ); 
+
+        if( !bIsVisualPortrait )
+        { 
+            // Swap the orientation to match the VISUAL portrait mode
+            if( this.activity.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT )
+             { this.activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); }
+            else { this.activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT ); }
+        }
+        else { this.activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR); }
+
+    }
+</code></pre>
+
+<p>Works like a charm!</p>

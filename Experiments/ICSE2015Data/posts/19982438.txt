@@ -1,0 +1,22 @@
+<p>i use static fields in a class, and get,set them:</p>
+
+<p>like:</p>
+
+<pre><code>public class Info 
+{
+    public static int ID      = 0;
+    public static String NAME = ""TEST"";
+}
+</code></pre>
+
+<p>for get value use this in a Activity :</p>
+
+<pre><code>Info.ID
+Info.NAME
+</code></pre>
+
+<p>for set value :</p>
+
+<pre><code>Info.ID = 5;
+Info.NAME = ""USER!"";
+</code></pre>

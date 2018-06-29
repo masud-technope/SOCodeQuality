@@ -1,0 +1,53 @@
+<p>Thanks for this tip!</p>
+
+<p>I have one preference screen and want to show the value for each list preference as the summary.</p>
+
+<p>This is my way now:</p>
+
+<pre><code>public class Preferences extends PreferenceActivity implements OnSharedPreferenceChangeListener {
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.preferences);
+}
+
+@Override
+protected void onResume() {
+    super.onResume();
+
+    // Set up initial values for all list preferences
+    Map&lt;String, ?&gt; sharedPreferencesMap = getPreferenceScreen().getSharedPreferences().getAll();
+    Preference pref;
+    ListPreference listPref;
+    for (Map.Entry&lt;String, ?&gt; entry : sharedPreferencesMap.entrySet()) {
+        pref = findPreference(entry.getKey());
+        if (pref instanceof ListPreference) {
+            listPref = (ListPreference) pref;
+            pref.setSummary(listPref.getEntry());
+        }
+    }
+
+    // Set up a listener whenever a key changes            
+    getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+}
+
+@Override
+protected void onPause() {
+    super.onPause();
+
+    // Unregister the listener whenever a key changes            
+    getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);    
+}
+
+public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+    Preference pref = findPreference(key);
+
+    if (pref instanceof ListPreference) {
+        ListPreference listPref = (ListPreference) pref;
+        pref.setSummary(listPref.getEntry());
+    }
+}
+</code></pre>
+
+<p>This works for me, but I'm wondering what is the best solution (performance, stability, scalibility): the one Koem is showing or this one?</p>

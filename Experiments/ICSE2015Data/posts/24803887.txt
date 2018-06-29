@@ -1,0 +1,3 @@
+<pre><code>Intent getWebPage = new Intent(Intent.ACTION_VIEW, Uri.parse(MyLink));          
+startActivity(getWebPage);
+</code></pre>

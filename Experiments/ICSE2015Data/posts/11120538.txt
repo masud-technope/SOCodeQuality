@@ -1,0 +1,43 @@
+<p>I made a singleton helper class that holds temporary objects.</p>
+
+<pre><code>public class IntentHelper {
+
+    private static IntentHelper _instance;
+    private Hashtable&lt;String, Object&gt; _hash;
+
+    private IntentHelper() {
+        _hash = new Hashtable&lt;String, Object&gt;();
+    }
+
+    private static IntentHelper getInstance() {
+        if(_instance==null) {
+            _instance = new IntentHelper();
+        }
+        return _instance;
+    }
+
+    public static void addObjectForKey(Object object, String key) {
+        getInstance()._hash.put(key, object);
+    }
+
+    public static Object getObjectForKey(String key) {
+        IntentHelper helper = getInstance();
+        Object data = helper._hash.get(key);
+        helper._hash.remove(key);
+        helper = null;
+        return data;
+    }
+}
+</code></pre>
+
+<p>Instead of putting your objects within Intent, use IntentHelper:</p>
+
+<pre><code>IntentHelper.addObjectForKey(obj, ""key"");
+</code></pre>
+
+<p>Inside your new Activity, you can get the object:</p>
+
+<pre><code>Object obj = (Object) IntentHelper.getObjectForKey(""key"");
+</code></pre>
+
+<p>Bear in mind that once loaded, the object is removed to avoid unnecessary references. </p>

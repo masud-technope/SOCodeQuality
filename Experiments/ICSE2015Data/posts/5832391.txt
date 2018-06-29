@@ -1,0 +1,17 @@
+<p>there is no difference. You should define what you think is the difference, and check for that. Is a galaxy tab a phone? or a tablet? and why?</p>
+
+<p>You should define what specific features you are looking for, and code for that.</p>
+
+<p>It seems you are looking for 'tilt'. I think this is the same as the accelerometer (is that a word?). You can just check if the device supports it, using:</p>
+
+<pre><code>public class Accel extends Activity implements SensorListener {
+...
+  SensorManager sensorMgr = (SensorManager) getSystemService(SENSOR_SERVICE);
+  boolean accelSupported = sensorMgr.registerListener(this,
+        SENSOR_ACCELEROMETER,
+        SENSOR_DELAY_UI);
+...
+}
+</code></pre>
+
+<p>(from <a href=""http://stuffthathappens.com/blog/2009/03/15/android-accelerometer/"">http://stuffthathappens.com/blog/2009/03/15/android-accelerometer/</a> . i have not tested it)</p>

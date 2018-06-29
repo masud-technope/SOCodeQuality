@@ -1,0 +1,56 @@
+<p>Here is what I did for my application and it works like, wait for it, perfect!</p>
+
+<p>First here is the code that simply hides the keyboard:</p>
+
+<pre><code>public static void hideSoftKeyboard(Activity activity) {
+    InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+    inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+}
+</code></pre>
+
+<p>You can put this up in a utility class, or if you are defining it within an activity, avoid the activity parameter, or call <code>hideSoftKeyboard(this)</code>.</p>
+
+<p>The trickiest part is when to call it. You can write a method that iterates through every <code>View</code> in your activity, and check if it is an <code>instanceof EditText</code> if it is not register a <code>setOnTouchListener</code> to that component and everything will fall in place. In case you are wondering how to do that, it is in fact quite simple. Here is what you do, you write a recursive method like the following, in fact you can use this to do anything, like setup custom typefaces etc... Here is the method</p>
+
+<pre><code>public void setupUI(View view) {
+
+    //Set up touch listener for non-text box views to hide keyboard.
+    if(!(view instanceof EditText)) {
+
+        view.setOnTouchListener(new OnTouchListener() {
+
+            public boolean onTouch(View v, MotionEvent event) {
+                hideSoftKeyboard(MyActivity.this);
+                return false;
+            }
+
+        });
+    }
+
+    //If a layout container, iterate over children and seed recursion.
+    if (view instanceof ViewGroup) {
+
+        for (int i = 0; i &lt; ((ViewGroup) view).getChildCount(); i++) {
+
+            View innerView = ((ViewGroup) view).getChildAt(i);
+
+            setupUI(innerView);
+        }
+    }
+}
+</code></pre>
+
+<p>That is all, just call this method after you <code>setContentView</code> in your activity. In case you are wondering what parameter you would pass, it is the <code>id</code> of the parent container. Assign an <code>id</code> to your parent container like</p>
+
+<p><code>&lt;RelativeLayoutPanel android:id=""@+id/parent""&gt; ... &lt;/RelativeLayout&gt;</code></p>
+
+<p>and call <code>setupUI(findViewById(R.id.parent))</code>, that is all.</p>
+
+<p>If you want to use this effectively, you may create an extended <code>Activity</code> and put this method in, and make all other activities in your application extend this activity and call its <code>setupUI()</code> in the <code>onCreate()</code> method.</p>
+
+<p>Hope it helps.</p>
+
+<p>If you use more than 1 activity define common id to parent layout like 
+<code>&lt;RelativeLayout android:id=""@+id/main_parent""&gt; ... &lt;/RelativeLayout&gt;</code></p>
+
+<p>Then extend a class from <code>Activity</code> and define <code>setupUI(findViewById(R.id.main_parent))</code> Within its <code>OnResume()</code> and extend this class instead of ``Activity<code>in your program</code></p>

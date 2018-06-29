@@ -1,0 +1,6 @@
+When you do V.findViewById(R.id.someid),surely that will only work for all the widgets that are in the inflated view. What if the imageView he is trying to inflate is outside the inflated view?
+Then the class that ""owns"" and inflated the imageView needs to provide public access to it. That is very bad practice though. Fragments should only have access to the UI elements present in their layout.
+This works perfectly, thanks a lot!
+This answer should be accepted, it helped me after hours of frustration!
++1 for your answer,Works exactly the way I want. This should be accepted.
+Looks like there's something wrong in your code (updating UI from a background thread), not mine.

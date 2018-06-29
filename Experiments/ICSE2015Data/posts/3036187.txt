@@ -1,0 +1,5 @@
+<p>This converts a BitmapDrawable to a Bitmap.</p>
+
+<pre><code>Drawable d = ImagesArrayList.get(0);  
+Bitmap bitmap = ((BitmapDrawable)d).getBitmap();
+</code></pre>

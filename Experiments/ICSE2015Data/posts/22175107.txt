@@ -1,0 +1,11 @@
+<p>Inside Fragment class you will get <a href=""http://developer.android.com/reference/android/app/Fragment.html#onViewCreated%28android.view.View,android.os.Bundle%29"">onViewCreated()</a> override method where you should always initialize your views as in this method you get view object using which you can find your views like :</p>
+
+<pre><code>@Override
+public void onViewCreated(View view, Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    view.findViewById(R.id.yourId).setOnClickListener(this);
+    //or
+    getActivity().findViewById(R.id.yourId).setOnClickListener(this);
+
+}
+</code></pre>

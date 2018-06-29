@@ -1,0 +1,20 @@
+<p>hey guys i have simple solution for this problem and this solution can be used for simple registration or login form.
+my solution is same as i implemented in ios setontouch listener to Main view </p>
+
+<p>activity_main.xml add ID to your main relative layout <code>android:id=""@+id/mainlayout""</code></p>
+
+<p>and add this code to your activity </p>
+
+<pre><code>  RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainlayout);
+  mainLayout.setOnTouchListener(new OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO Auto-generated method stub
+                 Log.d(""Json Response"", ""Touch outside"");
+                  InputMethodManager inputMethodManager = (InputMethodManager)  MainActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(MainActivity.this.getCurrentFocus().getWindowToken(), 0);
+                return false;
+            }
+        });
+</code></pre>

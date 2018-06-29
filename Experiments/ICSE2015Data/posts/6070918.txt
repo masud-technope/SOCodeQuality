@@ -1,0 +1,39 @@
+<p>I would like to propose a small complement to this old thread.</p>
+
+<p>My goal is to know wether a service is running without actualy running it if it is not running.</p>
+
+<p>Calling bindService or calling an intent that can be caught by the service is not a good idea then as it will start the service if it is not running.</p>
+
+<p>So, as miracle2k suggested, the best is to have a static field in the service class to know whether the service has been started or not.</p>
+
+<p>To make it even cleaner, I suggest to transform the service in a singleton with a very very lazy fetching : i.e the is no istanciation at all of the singleton instance through static methods. The static getInstance method of your service/singleton just return the instance of the singleton if it has been created. But it doesn't actualy start or instanciate the singleton itself. The service is only started through normal service start methods.</p>
+
+<p>It would then be even cleaner to modify the singleton design pattern to rename the confusing getInstance method into something like isInstanceCreated() : boolean method.</p>
+
+<p>The code will look like : </p>
+
+<pre><code>public class MyService extends Service 
+{
+   private static MyService instance = null;
+
+   public static boolean isInstanceCreated() { 
+      return instance != null; 
+   }//met
+
+   @Override 
+   public void onCreate()
+   {
+      instance = this;
+      ....
+   }//met
+
+   @Override 
+   public void onDestroy() 
+   {
+      instance = null;
+      ...
+   }//met
+}//class
+</code></pre>
+
+<p>This solution is elegant but only relevant if you have access to the service class and only for classes iside the app/package of the service. If your classes are outside of the service app/package then you could query the ActivityManager with limitations underlined by Pieter-Jan Van Robays.</p>

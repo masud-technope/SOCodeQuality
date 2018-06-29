@@ -1,0 +1,77 @@
+<p>This code will help to load large bitmap from drawable</p>
+
+<pre><code>public class BitmapUtilsTask extends AsyncTask&lt;Object, Void, Bitmap&gt; {
+
+Context context;
+
+public BitmapUtilsTask(Context context) {
+    this.context = context;
+}
+
+/**
+ * Loads a bitmap from the specified url.
+ * 
+ * @param url The location of the bitmap asset
+ * @return The bitmap, or null if it could not be loaded
+ * @throws IOException
+ * @throws MalformedURLException
+ */
+public Bitmap getBitmap() throws MalformedURLException, IOException {       
+
+    // Get the source image's dimensions
+    int desiredWidth = 1000;
+    BitmapFactory.Options options = new BitmapFactory.Options();
+    options.inJustDecodeBounds = true;
+
+    BitmapFactory.decodeResource(context.getResources(), R.drawable.green_background , options);
+
+    int srcWidth = options.outWidth;
+    int srcHeight = options.outHeight;
+
+    // Only scale if the source is big enough. This code is just trying
+    // to fit a image into a certain width.
+    if (desiredWidth &gt; srcWidth)
+        desiredWidth = srcWidth;
+
+    // Calculate the correct inSampleSize/scale value. This helps reduce
+    // memory use. It should be a power of 2
+    int inSampleSize = 1;
+    while (srcWidth / 2 &gt; desiredWidth) {
+        srcWidth /= 2;
+        srcHeight /= 2;
+        inSampleSize *= 2;
+    }
+    // Decode with inSampleSize
+    options.inJustDecodeBounds = false;
+    options.inDither = false;
+    options.inSampleSize = inSampleSize;
+    options.inScaled = false;
+    options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+    options.inPurgeable = true;
+    Bitmap sampledSrcBitmap;
+
+    sampledSrcBitmap =  BitmapFactory.decodeResource(context.getResources(), R.drawable.green_background , options);
+
+    return sampledSrcBitmap;
+}
+
+/**
+ * The system calls this to perform work in a worker thread and delivers
+ * it the parameters given to AsyncTask.execute()
+ */
+@Override
+protected Bitmap doInBackground(Object... item) {
+
+    try 
+    { 
+      return getBitmap();
+    } catch (MalformedURLException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    return null;
+ }
+</code></pre>
+
+<p>}</p>

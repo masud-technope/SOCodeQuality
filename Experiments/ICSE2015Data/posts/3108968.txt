@@ -1,0 +1,9 @@
+<p>The simplest would be to just use the following where the item is a string:</p>
+
+<pre><code>intent.putextra(""selected_item"",item)
+</code></pre>
+
+<p>For receiving:</p>
+
+<pre><code>String name = data.getStringExtra(""selected_item"");
+</code></pre>

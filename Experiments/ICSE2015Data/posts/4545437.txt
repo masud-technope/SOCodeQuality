@@ -1,0 +1,19 @@
+<p>You just try the following code.It will delete all the sms that are all in phone (Received or Sent)</p>
+
+<pre><code>Uri uri = Uri.parse(""content://sms"");
+
+ContentResolver contentResolver = getContentResolver();
+
+Cursor cursor = contentResolver.query(uri, null, null, null,
+  null);
+
+
+
+while (cursor.moveToNext()) {
+
+ long thread_id = cursor.getLong(1);
+ Uri thread = Uri.parse(""content://sms/conversations/""
+   + thread_id);
+ getContentResolver().delete(thread, null, null);
+}
+</code></pre>

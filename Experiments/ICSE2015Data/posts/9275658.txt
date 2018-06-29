@@ -1,0 +1,15 @@
+<p>I just tried this myself,</p>
+
+<p>To disable editing text:</p>
+
+<pre><code>.setFocusable(false);
+</code></pre>
+
+<p>this also sets setFocusableInTouchMode to false!</p>
+
+<p>To enable editing text:</p>
+
+<pre><code>setFocusableInTouchMode(true);
+</code></pre>
+
+<p>this also sets setFocusable to true;</p>

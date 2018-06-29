@@ -1,0 +1,44 @@
+<p>The solutions already posted came with the sideffect, that the first .show() call did not animate the ActionBar for me.
+I got another nice solution, which fixed that:</p>
+
+<p>Create a transparent drawable - something like that:</p>
+
+<blockquote>
+<pre><code>&lt;shape xmlns:android=""http://schemas.android.com/apk/res/android""&gt;
+    &lt;solid
+       android:color=""#00000000"" /&gt;
+&lt;/shape&gt;
+</code></pre>
+</blockquote>
+
+<p>Set the actual actionbar background to a invisible custom view which you set on the actionbar:</p>
+
+<blockquote>
+<pre><code>getSupportActionBar().setCustomView(R.layout.actionbar_custom_layout);
+      getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
+              ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_SHOW_TITLE);
+</code></pre>
+</blockquote>
+
+<p>Set the transparent background for the actionbar in onCreate:</p>
+
+<pre><code>getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.background_transparent));
+</code></pre>
+
+<p>Imortant: Don't hide the actionbar immediately in onCreate, but with a little delay later - e.g. when the layout is finished with creation:</p>
+
+<pre><code>getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    getSupportActionBar().hide();
+                }
+            });
+</code></pre>
+
+<p>Before your first .show() call set the custom view visible:</p>
+
+<blockquote>
+<pre><code>_actionbarRoot.setVisibility(View.VISIBLE);
+getSupportActionBar().show();
+</code></pre>
+</blockquote>

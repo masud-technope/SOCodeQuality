@@ -1,0 +1,17 @@
+<p>You can send serializable object through intent</p>
+
+<pre><code>// send where details is object
+ClassName details = new ClassName();
+Intent i = new Intent(context, EditActivity.class);
+i.putExtra(""Editing"", details);
+startActivity(i);
+
+
+//receive
+ClassName model = (ClassName) getIntent().getSerializableExtra(""Editing"");
+
+And 
+
+Class ClassName implements Serializable {
+} 
+</code></pre>

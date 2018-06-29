@@ -1,0 +1,6 @@
+<p>use that line of code </p>
+
+<pre><code>this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  
+</code></pre>
+
+<p>in ur activity oncreate method</p>

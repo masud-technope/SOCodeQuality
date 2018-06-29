@@ -1,0 +1,6 @@
+You can even use.  "moveTaskToBack(true);"
+great stuff works prefect!
+will it dealocate all the resources? Because when I exit the app this way and after some time I click the app icon again. It starts from where I left it. That means the app was still running in the background.
+Activity.finish();
+This keeps your app in the background, so it does not exit the application.
+This answer will just make the home screen appear and will not exit/close the application completely as the OP wants.

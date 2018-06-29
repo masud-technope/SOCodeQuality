@@ -1,0 +1,26 @@
+<p>It does works for me:</p>
+
+<p>To verify network availability:</p>
+
+<pre><code>private Boolean isNetworkAvailable() {
+ConnectivityManager connectivityManager 
+      = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+return activeNetworkInfo != null &amp;&amp; activeNetworkInfo.isConnectedOrConnecting();}
+</code></pre>
+
+<p>To verify internet access:</p>
+
+<pre><code>public Boolean isOnline() {
+    try {
+        Process p1 = java.lang.Runtime.getRuntime().exec(""ping -c 1 www.google.com"");
+        int returnVal = p1.waitFor();
+        boolean reachable = (returnVal==0);
+        return reachable;
+    } catch (Exception e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    return false;
+}
+</code></pre>

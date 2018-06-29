@@ -1,0 +1,14 @@
+<p>Try this</p>
+
+<pre><code>if(gender.equals(""Male""))
+ salutation =""Mr."";
+if(gender.equals(""Female""))
+ salutation =""Ms."";
+</code></pre>
+
+<p>Also remove <code>;</code>(semi-colon ) in your if statement</p>
+
+<pre><code>if(gender.equals(g1));
+</code></pre>
+
+<p>In Java, one of the most common mistakes newcomers meet is using == to compare Strings. You have to remember, == compares the object references, not the content.</p>

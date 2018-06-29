@@ -1,0 +1,53 @@
+<p>My approach for this question is to use a timer to check for the following 2 ""events"". </p>
+
+<p>1) onScrollChanged() stopped being called</p>
+
+<p>2) User's finger is lift from the scrollview</p>
+
+<pre><code>public class CustomScrollView extends HorizontalScrollView {
+
+public CustomScrollView(Context context, AttributeSet attrs) {
+    super(context, attrs);
+}
+
+Timer ntimer = new Timer();
+MotionEvent event;
+
+@Override
+protected void onScrollChanged(int l, int t, int oldl, int oldt) 
+{
+    checkAgain();
+    super.onScrollChanged(l, t, oldl, oldt);
+}
+
+public void checkAgain(){
+    try{
+        ntimer.cancel();
+        ntimer.purge();
+    }
+    catch(Exception e){}
+    ntimer = new Timer();
+    ntimer.schedule(new TimerTask() {
+
+        @Override
+        public void run() {
+
+            if(event.getAction() == MotionEvent.ACTION_UP){
+                // ScrollView Stopped Scrolling and Finger is not on the ScrollView
+            }
+            else{
+                // ScrollView Stopped Scrolling But Finger is still on the ScrollView
+                checkAgain();
+            }
+        }
+    },100);
+
+}
+
+@Override
+public boolean onTouchEvent(MotionEvent event) {
+    this.event = event; 
+    return super.onTouchEvent(event);
+    }
+}
+</code></pre>

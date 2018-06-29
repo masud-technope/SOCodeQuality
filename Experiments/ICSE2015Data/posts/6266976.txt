@@ -1,0 +1,4 @@
+<p>If you are going to use a listener you will need to add this permission to the manifest as well.</p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.READ_PHONE_STATE"" /&gt;
+</code></pre>

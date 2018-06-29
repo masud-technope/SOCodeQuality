@@ -1,0 +1,13 @@
+<p>None of the other answers did the trick perfectly for me, but here's what I found that does.</p>
+
+<p>Lock orientation to current...</p>
+
+<pre><code>if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+} else setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+</code></pre>
+
+<p>When changing orientation should be allowed again, set back to default...</p>
+
+<pre><code>setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+</code></pre>

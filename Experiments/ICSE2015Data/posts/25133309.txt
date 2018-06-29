@@ -1,0 +1,53 @@
+<p>For me, it doesnt worked to override ScrollView onTouch. Also does not worked     android:descendantFocusability=""beforeDescendants"" 
+android:focusableInTouchMode=""true"" 
+This and other mentioned solutions only worked for the first time - only when EditText is not selected, but once you select it, scrollview autoscrolls again.</p>
+
+<p>Because I was already written a code to hide a keyboard when touching other views, I just added two lines of code and it worked like a champ:</p>
+
+<pre><code>public static void setupUI(final Activity activity, final View view) {
+    //view is the parent view in your layout
+    OnTouchListener mTouchListener = new OnTouchListener() {
+        public boolean onTouch(View v, MotionEvent event) {
+            try {
+                View vFocused = null;
+                vFocused = activity.getCurrentFocus();
+
+                if (vFocused != null) {
+                    hideSoftKeyboard(activity, v);
+                    if (vFocused instanceof EditText) {
+                        vFocused.clearFocus();//this is the trick to avoid ScrollView autoscroll
+                    }
+                }
+            } catch (Exception e) {
+            }
+            return false;
+        }
+    };
+
+    // Set up touch listener for non-text box views to hide keyboard.
+    if (!(view instanceof EditText) &amp;&amp; !(view instanceof ViewGroup)) {
+        view.setOnTouchListener(mTouchListener);
+    }
+
+    // If a layout container, iterate over children and seed recursion.
+    if (view instanceof ViewGroup) {
+        view.setOnTouchListener(mTouchListener);
+        for (int i = 0; i &lt; ((ViewGroup) view).getChildCount(); i++) {
+            View innerView = ((ViewGroup) view).getChildAt(i);
+            setupUI(activity, innerView);
+        }
+    }
+}
+public static void hideSoftKeyboard(Context context, View v) {
+    InputMethodManager inputMethodManager = (InputMethodManager) context
+            .getSystemService(Activity.INPUT_METHOD_SERVICE);
+    inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
+}
+</code></pre>
+
+<p>also added this in root view:</p>
+
+<pre><code>android:descendantFocusability=""beforeDescendants"" android:focusableInTouchMode=""true""
+</code></pre>
+
+<p>Maybe its not really nice solution, but its working.</p>

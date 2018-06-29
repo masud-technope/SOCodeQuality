@@ -1,0 +1,9 @@
+<p>This one works for me:</p>
+
+<pre><code>&lt;EditText
+    android:inputType=""textShortMessage|textMultiLine""
+    android:minLines=""3""
+    ... /&gt;
+</code></pre>
+
+<p>It shows a smiley instead of the Enter key.</p>

@@ -1,0 +1,38 @@
+<p>Assuming you have an <em>image</em> folder in your SD card directory for images only.</p>
+
+<pre><code>Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+// tells your intent to get the contents
+// opens the URI for your image directory on your sdcard
+intent.setType(""file:///sdcard/image/*""); 
+startActivityForResult(intent, 1);
+</code></pre>
+
+<p>Then you can decide with what you would like to do with the content back in your activity. </p>
+
+<p>This was an example to retrieve the path name for the image, test this with your code just to make sure you can handle the results coming back. You can change the code as needed to better fit your needs.</p>
+
+<pre><code>protected final void onActivityResult(final int requestCode, final int
+                     resultCode, final Intent i) {
+    super.onActivityResult(requestCode, resultCode, i);
+
+  // this matches the request code in the above call
+  if (requestCode == 1) {
+      Uri _uri = i.getData();
+
+    // this will be null if no image was selected...
+    if (_uri != null) {
+      // now we get the path to the image file
+     cursor = getContentResolver().query(_uri, null,
+                                      null, null, null);
+     cursor.moveToFirst();
+     String imageFilePath = cursor.getString(0);
+     cursor.close();
+     }
+   }
+</code></pre>
+
+<p>My advice is to try to get retrieving images working correctly, I think the problem is the content of accessing the images on the sdcard. Take a look at <a href=""http://mihaifonoage.blogspot.com/2009/09/displaying-images-from-sd-card-in.html""><strong>Displaying images on sd card</strong></a>. </p>
+
+<p>If you can get that up and running, probably by the example supplying a correct provider, you should be able to figure out a work-around for your code.</p>
+
+<p>Keep me updated by updating this question with your progress. Good luck</p>

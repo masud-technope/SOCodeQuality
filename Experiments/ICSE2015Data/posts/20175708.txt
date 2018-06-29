@@ -1,0 +1,8 @@
+<p>This method is a recommend by Google. I see this code in Google Offical Android App <code>iosched</code></p>
+
+<pre><code>public static boolean isTablet(Context context) {
+        return (context.getResources().getConfiguration().screenLayout
+                &amp; Configuration.SCREENLAYOUT_SIZE_MASK)
+                &gt;= Configuration.SCREENLAYOUT_SIZE_LARGE;
+}
+</code></pre>

@@ -1,0 +1,4 @@
+<p>Found it:  </p>
+
+<pre><code>03-18 12:40:02.842: INFO/ActivityManager(68): Starting activity: Intent { action=android.intent.action.VIEW data=(URL TO A FLV FILE OF THE VIDEO) type=video/* comp={com.google.android.youtube/com.google.android.youtube.YouTubePlayer} (has extras) }
+</code></pre>

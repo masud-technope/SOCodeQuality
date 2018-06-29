@@ -1,0 +1,9 @@
+<p>Change color of typed text:</p>
+
+<pre><code>   ((EditText)((SearchView)findViewById(R.id.searchView)).findViewById(((SearchView)findViewById(R.id.searchView)).getContext().getResources().getIdentifier(""android:id/search_src_text"", null, null))).setTextColor(Color.WHITE);
+</code></pre>
+
+<p>Change color of hint text:</p>
+
+<pre><code>    ((EditText)((SearchView)findViewById(R.id.searchView)).findViewById(((SearchView)findViewById(R.id.searchView)).getContext().getResources().getIdentifier(""android:id/search_src_text"", null, null))).setHintTextColor(Color.LTGRAY);
+</code></pre>

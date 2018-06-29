@@ -1,0 +1,40 @@
+<p>This worked for me for all the bizarre keyboard behavior</p>
+
+<pre><code>    private boolean isKeyboardVisible() {
+    Rect r = new Rect();
+    //r will be populated with the coordinates of your view that area still visible.
+    mRootView.getWindowVisibleDisplayFrame(r);
+
+    int heightDiff = mRootView.getRootView().getHeight() - (r.bottom - r.top);
+    return heightDiff &gt; 100; // if more than 100 pixels, its probably a keyboard...
+
+}
+
+protected void showKeyboard() {
+    if (isKeyboardVisible())
+        return;
+    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+    if (getCurrentFocus() == null) {
+        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+    } else {
+        View view = getCurrentFocus();
+        inputMethodManager.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+
+    }
+}
+
+protected void hideKeyboard() {
+    if (!isKeyboardVisible())
+        return;
+    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+    View view = getCurrentFocus();
+    if (view == null) {
+        if (inputMethodManager.isAcceptingText())
+            inputMethodManager.toggleSoftInput(InputMethodManager.HIDE_NOT_ALWAYS, 0);
+    } else {
+        if (view instanceof EditText)
+            ((EditText) view).setText(((EditText) view).getText().toString()); // reset edit text bug on some keyboards bug
+        inputMethodManager.hideSoftInputFromInputMethod(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+}
+</code></pre>

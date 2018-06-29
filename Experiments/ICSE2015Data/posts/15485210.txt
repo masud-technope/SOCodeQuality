@@ -1,0 +1,45 @@
+<p>In my application I was checking if device is rooted or not by executing ""su"" command. But today I've removed this part of my code. Why? </p>
+
+<p>Because my application became a memory killer. How? Let me tell you my story.</p>
+
+<p>There were some complaints that my application was slowing down devices(Of course I thought that can not be true). I tried to figure out why. So I used MAT to get heap dumps and analyze, and everything seemed perfect. But after relaunching my app many times I realized that device is really getting slower and stopping my application didn't make it faster (unless I restart device). I analyzed dump files again while device is very slow. But everything was still perfect for dump file.
+Then I did what must be done at first. I listed processes.</p>
+
+<pre><code>$ adb shell ps
+</code></pre>
+
+<p>Surprize; there were many processes for my application (with my application's process tag at manifest). Some of them was zombie some of them not.</p>
+
+<p>With a sample application which has a single Activity and executes just ""su"" command, I realized that a zombie process is being created on every launch of application. At first these zombies allocate 0KB but than something happens and zombie processes are holding nearly same KBs as my application's main process and they became standart processes.</p>
+
+<p>There is a bug report for same issue on bugs.sun.com: <a href=""http://bugs.sun.com/view_bug.do?bug_id=6474073"">http://bugs.sun.com/view_bug.do?bug_id=6474073</a> this explains if command is not found zombies are going to be created with exec() method. But I still don't understand why and how can they become standart processes and hold significant KBs. (This is not happening all the time)</p>
+
+<p>You can try if you want with code sample below;</p>
+
+<pre><code>String commandToExecute = ""su"";
+executeShellCommand(commandToExecute);
+</code></pre>
+
+<p>Simple command execution method;</p>
+
+<pre><code>private boolean executeShellCommand(String command){
+    Process process = null;            
+    try{
+        process = Runtime.getRuntime().exec(command);
+        return true;
+    } catch (Exception e) {
+        return false;
+    } finally{
+        if(process != null){
+            try{
+                process.destroy();
+            }catch (Exception e) {
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>To sum up; I have no advice for you to determine if device is rooted or not. But if I were you I would not use Runtime.getRuntime().exec().</p>
+
+<p>By the way; RootTools.isRootAvailable() causes same problem.</p>

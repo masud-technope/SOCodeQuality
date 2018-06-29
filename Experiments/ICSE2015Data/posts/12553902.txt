@@ -1,0 +1,8 @@
+<p>This code is tested, it is completely working.</p>
+
+<pre><code>URL req = new URL(
+""http://java.sogeti.nl/JavaBlog/wp-content/uploads/2009/04/android_icon_256.png""
+);
+Bitmap mIcon_val = BitmapFactory.decodeStream(req.openConnection()
+                  .getInputStream());
+</code></pre>

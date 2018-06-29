@@ -1,0 +1,39 @@
+<p>You can implement like this class to change font color and image :: </p>
+
+<pre><code>import com.actionbarsherlock.widget.SearchView;
+import com.actionbarsherlock.widget.SearchView.SearchAutoComplete;
+
+
+public class MySearchView {
+    public static SearchView getSearchView(Context context, String strHint) {
+        SearchView searchView = new SearchView(context);
+        searchView.setQueryHint(strHint);
+        searchView.setFocusable(true);
+        searchView.setFocusableInTouchMode(true);
+        searchView.requestFocus();
+        searchView.requestFocusFromTouch();
+
+         ImageView searchBtn = (ImageView) searchView.findViewById(R.id.abs__search_button);
+         searchBtn.setImageResource(R.drawable.ic_menu_search);
+
+
+         ImageView searchBtnClose = (ImageView) searchView.findViewById(R.id.abs__search_close_btn);
+         searchBtnClose.setImageResource(R.drawable.ic_cancel_search_bar);
+
+
+         SearchAutoComplete searchText = (SearchAutoComplete) searchView.findViewById(R.id.abs__search_src_text);
+
+        searchText.setTextColor(context.getResources().getColor(color.white));
+
+        return searchView;
+    }
+
+
+    public static SearchView getSearchView(Context context, int strHintRes) {
+        return getSearchView(context, context.getString(strHintRes));
+    }
+}
+</code></pre>
+
+<p>I hope it can help you guys.
+:D</p>

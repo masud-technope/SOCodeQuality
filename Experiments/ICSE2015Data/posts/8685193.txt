@@ -1,0 +1,14 @@
+<p>We can write a custom ScrollView and override the <em>onScrollChanged</em> method and clear the focus from the focused view and optionally hide the keyboard.</p>
+
+<pre><code>@Override
+protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+    View v = getFocusedChild();
+    if (v != null) {
+        InputMethodManager imm = (InputMethodManager) getContext()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+        v.clearFocus();
+    }
+    super.onScrollChanged(l, t, oldl, oldt);
+}
+</code></pre>

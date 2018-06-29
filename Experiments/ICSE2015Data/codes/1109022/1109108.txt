@@ -1,0 +1,5 @@
+EditText myEditText = (EditText) findViewById(R.id.myEditText);  
+InputMethodManager imm = (InputMethodManager)getSystemService(
+      Context.INPUT_METHOD_SERVICE);
+imm.hideSoftInputFromWindow(myEditText.getWindowToken(), 0);
+InputMethodManager.HIDE_IMPLICIT_ONLY

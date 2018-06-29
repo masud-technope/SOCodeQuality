@@ -1,0 +1,16 @@
+<p>If you want to show user a dialoge with all browser list, so he can choose preferred, here is sample code: </p>
+
+<pre><code>private static final String HTTPS = ""https://"";
+private static final String HTTP = ""http://"";
+
+public static void openBrowser(final Context context, String url) {
+
+     if (!url.startsWith(HTTP) &amp;&amp; !url.startsWith(HTTPS)) {
+            url = HTTP + url;
+     }
+
+     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+     context.startActivity(Intent.createChooser(intent, ""Chose browser""));
+
+}
+</code></pre>

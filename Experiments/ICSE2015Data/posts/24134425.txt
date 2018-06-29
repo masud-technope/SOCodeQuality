@@ -1,0 +1,52 @@
+<p><strong>Try this way,hope this will help you to solve your problem.</strong></p>
+
+<p>Here I explain about how to use ""AndroidQuery"" external library for load image from url/server in asyncTask manner with also cache loaded image to device file or cache area.</p>
+
+<ul>
+<li>Download ""AndroidQuery"" library <a href=""https://code.google.com/p/android-query/"" rel=""nofollow"">from here</a> </li>
+<li>Copy/Paste this jar to project lib folder and add this library to project build-path</li>
+<li>Now I show demo to how to use it.</li>
+</ul>
+
+<p><strong>activity_main.xml</strong></p>
+
+<pre><code>&lt;LinearLayout xmlns:android=""http://schemas.android.com/apk/res/android""
+        android:layout_width=""match_parent""
+        android:layout_height=""match_parent""
+        android:gravity=""center""&gt;
+
+        &lt;FrameLayout
+            android:layout_width=""wrap_content""
+            android:layout_height=""wrap_content""&gt;
+
+            &lt;ImageView
+                android:id=""@+id/imageFromUrl""
+                android:layout_width=""wrap_content""
+                android:layout_height=""wrap_content""
+                android:adjustViewBounds=""true""/&gt;
+            &lt;ProgressBar
+                android:id=""@+id/pbrLoadImage""
+                android:layout_width=""wrap_content""
+                android:layout_height=""wrap_content""
+                android:layout_gravity=""center""/&gt;
+
+        &lt;/FrameLayout&gt;
+    &lt;/LinearLayout&gt;
+</code></pre>
+
+<p><strong>MainActivity.java</strong></p>
+
+<pre><code>public class MainActivity extends Activity {
+
+private AQuery aQuery;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    aQuery = new AQuery(this);
+    aQuery.id(R.id.imageFromUrl).progress(R.id.pbrLoadImage).image(""http://itechthereforeiam.com/wp-content/uploads/2013/11/android-gone-packing.jpg"",true,true);
+ }
+}
+
+Note : Here I just implemented common method to load image from url/server but you can use various types of method which can be provided by ""AndroidQuery""to load your image easily.
+</code></pre>

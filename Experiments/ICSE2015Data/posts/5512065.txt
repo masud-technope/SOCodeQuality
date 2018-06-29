@@ -1,0 +1,16 @@
+<p>Thanks all.  I modified Pilot_51's solution, to make sure I restored to the previous state.  I also threw in a change to support non-landscape and non-portrait screens (but haven't tested it on such a screen).</p>
+
+<pre><code>prevOrientation = getRequestedOrientation();
+if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+} else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+} else {
+    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+}
+</code></pre>
+
+<p>Then to restore it</p>
+
+<pre><code>setRequestedOrientation(prevOrientation);
+</code></pre>

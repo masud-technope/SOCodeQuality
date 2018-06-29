@@ -1,0 +1,1 @@
+<p>Try via <code>context.getResources().getDisplayMetrics()</code> if you have a context available.</p>

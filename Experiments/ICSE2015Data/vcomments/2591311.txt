@@ -1,0 +1,6 @@
+Great answer. You don't have to do both though, removing the notification bar may be overkill.
+Thanks but that is not in XML.
+Be certain to put it *before* the call to setContentView(R.id.x), otherwise it will crash.  The reason wasn't immediately obvious to me.
+08-13 12:47:33.561 E/AndroidRuntime( 9125): java.lang.RuntimeException: Unable to start activity ComponentInfo{com.myapp/com.myapp.SplashActivity}: android.util.AndroidRuntimeException: requestFeature() must be called before adding content.
+You should really mention that when using requestWindowFeature(), a force-close will occur if you execute this line after adding **any** content. And on a side note, the XML method is much safer and it also separates page structure from your code, (which is the _entire_ purpose of the XMLs in the first place).
+the XML / theme method is inferior as it resets the entire theme of your app. i.e., if you are on honeycomb+, doing what others have suggested with android:theme will reset the theme for your entire app to non-holo.

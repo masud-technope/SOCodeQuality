@@ -1,0 +1,132 @@
+<p>There are times when you need to know the precise dimensions of the available space for a layout when in an activity's onCreate.
+After some thought I worked out this way of doing it.</p>
+
+<pre><code>public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        startActivityForResult(new Intent(this, Measure.class), 1);
+        // Return without setting the layout, that will be done in onActivityResult.
+    }
+
+    @Override
+    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+        // Probably can never happen, but just in case.
+        if (resultCode == RESULT_CANCELED) {
+            finish();
+            return;
+        }
+        int width = data.getIntExtra(""Width"", -1);
+        // Width is now set to the precise available width, and a layout can now be created.            ...
+    }
+}
+
+public final class Measure extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+       // Create a LinearLayout with a MeasureFrameLayout in it.
+        // Just putting a subclass of LinearLayout in works fine, but to future proof things, I do it this way.
+        LinearLayout linearLayout = new LinearLayout(this);
+        LinearLayout.LayoutParams matchParent = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        MeasureFrameLayout measureFrameLayout = new MeasureFrameLayout(this);
+        measureFrameLayout.setLayoutParams(matchParent);
+        linearLayout.addView(measureFrameLayout);
+        this.addContentView(linearLayout, matchParent);
+        // measureFrameLayout will now request this second activity to finish, sending back the width.
+    }
+
+    class MeasureFrameLayout extends FrameLayout {
+        boolean finished = false;
+        public MeasureFrameLayout(Context context) {
+            super(context);
+        }
+
+        @SuppressLint(""DrawAllocation"")
+        @Override
+        protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+            if (finished) {
+                return;
+            }
+            finished = true;
+            // Send the width back as the result.
+            Intent data = new Intent().putExtra(""Width"", MeasureSpec.getSize(widthMeasureSpec));
+            Measure.this.setResult(Activity.RESULT_OK, data);
+            // Tell this activity to finish, so the result is passed back.
+            Measure.this.finish();
+        }
+    }
+}
+</code></pre>
+
+<p>If for some reason you don't want to add another activity to the Android manifest, you can do it this way:</p>
+
+<pre><code>public class MainActivity extends Activity {
+    static Activity measuringActivity;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        Bundle extras = getIntent().getExtras();
+        if (extras == null) {
+            extras = new Bundle();
+        }
+        int width = extras.getInt(""Width"", -2);
+        if (width == -2) {
+            // First time in, just start another copy of this activity.
+            extras.putInt(""Width"", -1);
+            startActivityForResult(new Intent(this, MainActivity.class).putExtras(extras), 1);
+            // Return without setting the layout, that will be done in onActivityResult.
+            return;
+        }
+        if (width == -1) {
+            // Second time in, here is where the measurement takes place.
+            // Create a LinearLayout with a MeasureFrameLayout in it.
+            // Just putting a subclass of LinearLayout in works fine, but to future proof things, I do it this way.
+            LinearLayout linearLayout = new LinearLayout(measuringActivity = this);
+            LinearLayout.LayoutParams matchParent = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+            MeasureFrameLayout measureFrameLayout = new MeasureFrameLayout(this);
+            measureFrameLayout.setLayoutParams(matchParent);
+            linearLayout.addView(measureFrameLayout);
+            this.addContentView(linearLayout, matchParent);
+            // measureFrameLayout will now request this second activity to finish, sending back the width.
+        }
+    }
+
+    @Override
+    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+        // Probably can never happen, but just in case.
+        if (resultCode == RESULT_CANCELED) {
+            finish();
+            return;
+        }
+        int width = data.getIntExtra(""Width"", -3);
+        // Width is now set to the precise available width, and a layout can now be created. 
+        ...
+    }
+
+class MeasureFrameLayout extends FrameLayout {
+    boolean finished = false;
+    public MeasureFrameLayout(Context context) {
+        super(context);
+    }
+
+    @SuppressLint(""DrawAllocation"")
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        if (finished) {
+            return;
+        }
+        finished = true;
+        // Send the width back as the result.
+        Intent data = new Intent().putExtra(""Width"", MeasureSpec.getSize(widthMeasureSpec));
+        MainActivity.measuringActivity.setResult(Activity.RESULT_OK, data);
+        // Tell the (second) activity to finish.
+        MainActivity.measuringActivity.finish();
+    }
+}    
+</code></pre>

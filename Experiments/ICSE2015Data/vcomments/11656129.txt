@@ -1,0 +1,4 @@
+Great Answer.
+Shouldn't be very hard? I'm out of Android programming right now, so correct me if I am wrong. You could somehow track the focused EditText at any moment, and just request it to lose it's focus during an OnTouchEvent ?
+Not sure if anyone else has run across this issue, but this causes the app to crash when you call hideSoftKeyboard if nothing is focused. You can solve this by surrounding the second line of the method with 'if(activity.getCurrentFocus() != null) {...}'.
+The problem with this approach is that it assumes that all other views won't ever need to set an `OnTouchListener` for them. You could just set that logic in a `ViewGroup.onInterceptTouchEvent(MotionEvent)` to a root view.

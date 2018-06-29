@@ -1,0 +1,13 @@
+<p>I'm recommend android library 'caffeine' That's contain get Phone or tablet, and 10inch~!</p>
+
+<p>very easy use. </p>
+
+<p>the library is here. </p>
+
+<p><a href=""https://github.com/ShakeJ/Android-Caffeine-library"" rel=""nofollow"">https://github.com/ShakeJ/Android-Caffeine-library</a></p>
+
+<p>and use </p>
+
+<pre><code>DisplayUtil.isTablet(this);
+DisplayUtil.isTenInch(this);
+</code></pre>

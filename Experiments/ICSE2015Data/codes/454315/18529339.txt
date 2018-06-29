@@ -1,0 +1,30 @@
+/**
+* This method will format the data from the android Time class (eg. myTime.setToNow())   into the format
+* Date: dd.mm.yy Time: hh.mm.ss
+*/
+private String formatTime(String time)
+{
+    String fullTime= """";
+    String[] sa = new String[2];
+
+    if(time.length()>1)
+    {
+        Time t = new Time(Time.getCurrentTimezone());
+        t.parse(time);
+        // or t.setToNow();
+        String formattedTime = t.format(""%d.%m.%Y %H.%M.%S"");
+        int x = 0;
+
+        for(String s : formattedTime.split(""\\s"",2))
+        {   
+            System.out.println(""Value = "" + s);
+            sa[x] = s;
+            x++;
+        }
+        fullTime = ""Date: "" + sa[0] + "" Time: "" + sa[1];
+    }
+    else{
+        fullTime = ""No time data"";
+    }
+    return fullTime;
+}

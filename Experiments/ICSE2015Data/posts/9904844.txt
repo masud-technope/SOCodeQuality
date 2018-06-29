@@ -1,0 +1,9 @@
+<p>You can therefore use the following formulator to calculate the right amount of pixels from a dimension specified in dp</p>
+
+<pre><code>public int convertToPx(int dp) {
+    // Get the screen's density scale
+    final float scale = getResources().getDisplayMetrics().density;
+    // Convert the dps to pixels, based on density scale
+    return (int) (dp * scale + 0.5f);
+}
+</code></pre>

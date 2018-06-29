@@ -1,0 +1,27 @@
+<p>I implemented dispatchTouchEvent in Activity to do this:</p>
+
+<pre><code>private EditText mEditText;
+private Rect mRect = new Rect();
+@Override
+public boolean dispatchTouchEvent(MotionEvent ev) {
+    final int action = MotionEventCompat.getActionMasked(ev);
+
+    int[] location = new int[2];
+    mEditText.getLocationOnScreen(location);
+    mRect.left = location[0];
+    mRect.top = location[1];
+    mRect.right = location[0] + mEditText.getWidth();
+    mRect.bottom = location[1] + mEditText.getHeight();
+
+    int x = (int) ev.getX();
+    int y = (int) ev.getY();
+
+    if (action == MotionEvent.ACTION_DOWN &amp;&amp; !mRect.contains(x, y)) {
+        InputMethodManager input = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        input.hideSoftInputFromWindow(mEditText.getWindowToken(), 0);
+    }
+    return super.dispatchTouchEvent(ev);
+}
+</code></pre>
+
+<p>and I tested it, works perfect!</p>

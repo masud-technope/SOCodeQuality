@@ -1,0 +1,40 @@
+<p>I created a layout partially from xml and partially from a custom layout engine, which is all handled in-code. The only thing that worked for me was to keep track of whether or not the keyboard was open, and use the keyboard toggle method as follows:</p>
+
+<pre><code>public class MyActivity extends Activity
+{
+    /** This maintains true if the keyboard is open. Otherwise, it is false. */
+    private boolean isKeyboardOpen = false;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        LayoutInflater inflater;
+        inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(context.getResources().getIdentifier(""main"", ""layout"", getPackageName()), null);
+
+        setContentView(contentView);
+        contentView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() 
+        {
+            public void onGlobalLayout() 
+            {
+                Rect r = new Rect();
+                contentView.getWindowVisibleDisplayFrame(r);
+                int heightDiff = contentView.getRootView().getHeight() - (r.bottom - r.top);
+                if (heightDiff &gt; 100) 
+                    isKeyboardVisible = true;
+                else
+                    isKeyboardVisible = false;
+             });
+         }
+    }
+
+    public void closeKeyboardIfOpen()
+    {
+        InputMethodManager imm;
+        imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (isKeyboardVisible)
+            imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+    }   
+}
+</code></pre>

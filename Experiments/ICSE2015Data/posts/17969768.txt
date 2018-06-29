@@ -1,0 +1,38 @@
+<p>You can override onCancel() and use setOnDismissListener() to detect negative user actions. And with a DatePickerDialog.BUTTON_POSITIVE you know that the user wants to set a new date.</p>
+
+<pre><code> DatePickerDialog mDPD = new DatePickerDialog(
+                      getActivity(), mOnDateSetListener, mYear, mMonth, mDay);
+ mDPD.setOnCancelListener(new OnCancelListener() {
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        // do something onCancek
+        setDate = false;
+    }
+ });
+
+ mDPD.setOnDismissListener(new OnDismissListener() {
+    @Override
+    public void onDismiss(DialogInterface arg0) {
+        // do something onDismiss
+        setDate = false;
+    }
+});
+
+mDPD.setButton(DatePickerDialog.BUTTON_POSITIVE, ""Finish"", new DatePickerDialog.OnClickListener() {
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        // user set new date
+        setDate = true;
+    }
+});
+</code></pre>
+
+<p>then check for setDate:</p>
+
+<pre><code>public void onDateSet(DatePicker view, int year, int month, int day) {
+    if(setDate){
+        //do something with new date
+    }
+}
+</code></pre>

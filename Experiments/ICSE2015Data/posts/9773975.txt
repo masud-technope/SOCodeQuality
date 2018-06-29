@@ -1,0 +1,14 @@
+<p>Guava's Multimap is better suited for this. Here is a short clean version:</p>
+
+<pre><code>Multimap&lt;String, String&gt; getUrlParameters(String url) {
+        try {
+            Multimap&lt;String, String&gt; ret = ArrayListMultimap.create();
+            for (NameValuePair param : URLEncodedUtils.parse(new URI(url), ""UTF-8"")) {
+                ret.put(param.getName(), param.getValue());
+            }
+            return ret;
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+    }
+</code></pre>

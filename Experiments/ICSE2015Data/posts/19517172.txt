@@ -1,0 +1,24 @@
+<p>Here is better resolution</p>
+
+<pre><code>public static Bitmap drawableToBitmap (Drawable drawable) {
+    if (drawable instanceof BitmapDrawable) {
+        return ((BitmapDrawable)drawable).getBitmap();
+    }
+
+    Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Config.ARGB_8888);
+    Canvas canvas = new Canvas(bitmap); 
+    drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+    drawable.draw(canvas);
+
+    return bitmap;
+}
+
+public static InputStream bitmapToInputStream(Bitmap bitmap) {
+    int size = bitmap.getHeight() * bitmap.getRowBytes();
+    ByteBuffer buffer = ByteBuffer.allocate(size);
+    bitmap.copyPixelsToBuffer(buffer);
+    return new ByteArrayInputStream(buffer.array());
+}
+</code></pre>
+
+<p>Code from <a href=""http://stackoverflow.com/questions/6341770/how-to-read-drawable-bits-as-inputstream/6341899#6341899"">How to read drawable bits as InputStream</a></p>

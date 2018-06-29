@@ -1,0 +1,4 @@
+Thanks fixed. It worked perfectly.
+No problem. Happy to help.
+don't forget to add to the AndroidManifest.xml the right to write  http://stackoverflow.com/a/4435708/579646.
+It seams this is not working if I have an sub-sub folder, like /sdcard/com.my.code/data? How could I solve this?

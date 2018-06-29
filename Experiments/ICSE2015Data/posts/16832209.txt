@@ -1,0 +1,22 @@
+<p>try this  </p>
+
+<pre><code>private void createLayoutDynamically(int n) {
+
+    for (int i = 0; i &lt; n; i++) {
+        Button myButton = new Button(this);
+        myButton.setText(""Button :""+i);
+        myButton.setId(i);
+        final int id_ = myButton.getId();
+
+        LinearLayout layout = (LinearLayout) findViewById(R.id.myDynamicLayout);
+        layout.addView(myButton);
+
+        myButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Toast.makeText(DynamicLayout.this,
+                        ""Button clicked index = "" + id_, Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
+    }
+</code></pre>

@@ -1,0 +1,14 @@
+<p>I found two reasons why this error might occur.</p>
+
+<p><strong>One.</strong> The Window flags are set already set inside <code>super.onCreate(savedInstanceState);</code> in which case you may want to use the following order of commands:</p>
+
+<pre><code>this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);      
+
+super.onCreate(savedInstanceState);
+</code></pre>
+
+<p><strong>Two.</strong> You have the Back/Up button inside the TitleBar, meaning that the current activity is a hierarchical child of another activity, in which case you might want to comment out or remove this line of code from inside the <code>onCreate</code> method.</p>
+
+<pre><code>getActionBar().setDisplayHomeAsUpEnabled(true);
+</code></pre>

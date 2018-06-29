@@ -1,0 +1,7 @@
+<p>For API level 3+, nothing more then one line of code:</p>
+
+<p><code>
+Intent intent = context.getPackageManager().getLaunchIntentForPackage(""name.of.package"");
+</code></p>
+
+<p>Return a CATEGORY_INFO launch Intent (apps with no launcher activity, wallpapers for example, often use this to provide some information about app) and, if no find it, returns the CATEGORY_LAUNCH of package, if exists. </p>

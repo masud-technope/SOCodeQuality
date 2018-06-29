@@ -1,0 +1,15 @@
+<pre><code>public String getExtension(File file) {
+        String fileName = file.getName();
+        try {
+            if (fileName.contains(""\\."")) {
+                String filenameArray[] = fileName.split(""\\."");
+                extension = filenameArray[filenameArray.length - 1];
+            } else {
+                extension = ""dir"";
+            }
+        } catch (Exception e) {
+            extension = ""err"";
+        }
+        return extension;
+    }
+</code></pre>

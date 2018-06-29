@@ -1,0 +1,32 @@
+<p>Try this, it works for me:</p>
+
+<p>Below gets rid of activity's title bar</p>
+
+<pre><code> requestWindowFeature(Window.FEATURE_NO_TITLE);
+</code></pre>
+
+<p>Below eliminates the notification bar to make the activity go full-screen</p>
+
+<pre><code> getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+        WindowManager.LayoutParams.FLAG_FULLSCREEN);
+</code></pre>
+
+<p>(Full Example Below)
+Take note: These methods were called before we set the content view of our activity</p>
+
+<pre><code>@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Sets Application to full screen by removing action bar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);    
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+        WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        setContentView(R.layout.activity_main); 
+
+        // without this check, we would create a new fragment at each orientation change!
+        if (null == savedInstanceState)
+            createFragment();
+    }
+</code></pre>

@@ -1,0 +1,8 @@
+<pre><code>DisplayMetrics dm = getResources().getDisplayMetrics();
+float fwidth = dm.density * dm.widthPixels;
+float fheight = dm.density * dm.heightPixels;
+</code></pre>
+
+<p>If <code>getSize</code> gets you an error due to your minSDKVersion and you don't want to use deprecated methods (<code>getWidth</code> &amp; <code>getHeight</code>), the <code>getMetrics</code> solution was originally posted on 2011 by Balaji.K... And Nik added a comment explaining <code>getDisplayMetrics</code> also considers the status bar size.</p>
+
+<p>Some other comments refer to multiply by the scale (<strong>density</strong>) in order to get the precise float value of the dimensions. Tested in Android v2.2 (API 8) and v4.0 with good results and <strong>no errors/warnings</strong>.</p>

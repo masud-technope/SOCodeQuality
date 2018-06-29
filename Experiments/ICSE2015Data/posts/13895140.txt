@@ -1,0 +1,18 @@
+<pre><code>public boolean deleteSms(String smsId) {
+        boolean isSmsDeleted = false;
+        try {
+            mActivity.getContentResolver().delete(
+                    Uri.parse(""content://sms/"" + smsId), null, null);
+            isSmsDeleted = true;
+
+        } catch (Exception ex) {
+            isSmsDeleted = false;
+        }
+        return isSmsDeleted;
+    }
+</code></pre>
+
+<p>use this permission in AndroidManifiest</p>
+
+<pre><code>&lt;uses-permission android:name=""android.permission.WRITE_SMS""/&gt;
+</code></pre>

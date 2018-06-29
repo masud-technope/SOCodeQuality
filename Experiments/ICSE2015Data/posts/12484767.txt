@@ -1,0 +1,35 @@
+<p>while I do not believe I have tried every variation described here, here is the one that has worked for me :)</p>
+
+<pre><code>        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) 
+        {
+
+            CheckedTextView retView = (CheckedTextView) convertView;
+...
+            retView.setOnClickListener(new View.OnClickListener() 
+            {
+                public void onClick(View v)
+                {
+                    CheckedTextView chkVw = (CheckedTextView) v; 
+//                  chkVw.toggle();
+//                  chkVw.setChecked(!chkVw.isChecked());
+                    mLstVwWordingSets.setItemChecked(position + 1, !chkVw.isChecked());
+                }
+            });
+...
+       }
+</code></pre>
+
+<p>And later</p>
+
+<pre><code>        SparseBooleanArray checkedItemsArray = mLstVwWordingSets.getCheckedItemPositions();
+        for (int i = 1; i &lt;  mLstVwWordingSets.getCount(); i++)         //skip the header view
+        {
+            if (checkedItemsArray.get(i, false))
+                Log.d(_TAG, ""checked item: "" + i);
+        }
+</code></pre>
+
+<p>I am accessing position + 1 due to a header view that my list has in place. </p>
+
+<p>HTH</p>

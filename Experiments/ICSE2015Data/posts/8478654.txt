@@ -1,0 +1,1 @@
+<p>It is possible to use <code>setOnKeyListener</code>. In this method, we can customize the input <code>edittext</code> !</p>

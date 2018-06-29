@@ -1,0 +1,6 @@
+<p>This is the method that i use :</p>
+
+<pre><code>public static boolean isTablet(Context ctx){    
+    return = (ctx.getResources().getConfiguration().screenLayout &amp; Configuration.SCREENLAYOUT_SIZE_MASK) &gt;= Configuration.SCREENLAYOUT_SIZE_LARGE; 
+}
+</code></pre>

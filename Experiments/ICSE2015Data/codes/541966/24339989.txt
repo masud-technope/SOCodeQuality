@@ -1,0 +1,27 @@
+Thread pics_thread = new Thread(new Runnable(){
+
+                            @Override
+                            public void run() {
+
+                            Bitmap bitmap = getPicture(url);
+
+                            if(bitmap!=null){
+
+                                runOnUiThread(new Runnable(){
+
+                                        @Override
+                                        public void run() {
+
+                                        holder.imageview.setImageBitmap(bitmap)
+                                        adapter.notifyDataSetChanged();
+
+                                        }
+
+                                });
+
+                            }
+
+
+                        });
+
+                        pics_thread.start();

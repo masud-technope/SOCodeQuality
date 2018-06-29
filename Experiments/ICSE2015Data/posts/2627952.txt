@@ -1,0 +1,10 @@
+<p>I now did the following. </p>
+
+<p>I declared a style inheriting everything from my general style and then disabling the titleBar.</p>
+
+<pre><code>&lt;style name=""generalnotitle"" parent=""general""&gt;
+    &lt;item name=""android:windowNoTitle""&gt;true&lt;/item&gt;
+&lt;/style&gt;
+</code></pre>
+
+<p>Now I can set this style to every Activity in which I want to hide the title bar overwriting the application wide style and inheriting all the other style informations, therefor no duplication in the style code.</p>

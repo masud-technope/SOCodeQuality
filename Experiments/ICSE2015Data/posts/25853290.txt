@@ -1,0 +1,19 @@
+<p>You can Override <code>setPressed</code> in the ImageView and do the color filtering there, instead of creating onTouchEvent listeners: </p>
+
+<pre><code>@Override
+public void setPressed(boolean pressed) {
+    super.setPressed(pressed);
+
+    if(getDrawable() == null)
+        return;
+
+    if(pressed) {
+        getDrawable().setColorFilter(0x44000000, PorterDuff.Mode.SRC_ATOP);
+        invalidate();
+    }
+    else {
+        getDrawable().clearColorFilter();
+        invalidate();
+    }
+}
+</code></pre>

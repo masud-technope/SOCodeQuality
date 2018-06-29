@@ -1,0 +1,32 @@
+<p>Best result to me was to create an activity with ThemeNoTitleBar and without content as launcher. Then this activity call directly to the other. </p>
+
+<p>Of course if you want you can add content to the Splash Activity but in my case I just wanted to show application directly.</p>
+
+<p>Manifest:</p>
+
+<pre><code>&lt;activity
+        android:name=""com.package.SplashActivity""
+        android:theme=""@android:style/Theme.Black.NoTitleBar"" &gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name=""android.intent.action.MAIN"" /&gt;
+            &lt;category android:name=""android.intent.category.LAUNCHER"" /&gt;
+        &lt;/intent-filter&gt;
+    &lt;/activity&gt;
+</code></pre>
+
+<p>Activity:</p>
+
+<pre><code>public class SplashActivity extends Activity{
+
+@Override
+protected void onCreate(Bundle savedInstanceState){
+    super.onCreate(savedInstanceState);
+
+    //start StartActivity
+    Intent intent = new Intent(this, StartActivity.class);
+    startActivity(intent);
+    finish();
+}
+</code></pre>
+
+<p>}</p>

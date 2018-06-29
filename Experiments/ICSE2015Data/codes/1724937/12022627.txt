@@ -1,0 +1,6 @@
+getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            HashMap m = (HashMap) getListView().getItemAtPosition(position);
+            System.out.println(""itemClick: position = "" + position + "", id = "" + id + "" o = "" + m.get(""YOUR_KEY""));
+        }
+    });

@@ -1,0 +1,37 @@
+<p>When extending <code>SpinnerAdapter</code>, you override two <code>View</code>-producing methods, <code>getView(int, View, ViewGroup)</code> and <code>getDropDownView(int, View, ViewGroup)</code>.  The first one supplies the <code>View</code> inserted into the <code>Spinner</code> itself; the second supplies the <code>View</code> in the drop-down list (as the name suggests).  You can override the <code>getView(...)</code> so that, until an item has been selected, it displays a <code>TextView</code> containing a prompt; then, when you detect an item has been selected, you change it to display a <code>TextView</code> corresponding to that.</p>
+
+<pre><code>public class PromptingAdapter extends SpinnerAdapter {
+
+    //... various code ...
+
+    private boolean selectionmade = false;
+
+    //call this method from the OnItemSelectedListener for your Spinner
+    public setSelectionState(boolean b) {
+        selectionmade = b;
+    }
+
+    @Override
+    public View getView(int position, View recycle, ViewGroup container) {
+        if(selectionmade) {
+            //your existing code to supply a View for the Spinner
+            //you could even put ""return getDropDownView(position, recycle, container);""
+        }
+        else {
+            View output;
+            if(recycle instanceof TextView) {
+                 output = recycle;
+            }
+            else {
+                 output = new TextView();
+                 //and layout stuff
+            }
+            output.setText(R.string.please_select_one);
+            //put a string ""please_select_one"" in res/values/strings.xml
+            return output;
+        }
+    }
+
+//...
+}
+</code></pre>

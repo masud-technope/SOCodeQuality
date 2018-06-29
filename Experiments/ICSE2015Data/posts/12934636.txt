@@ -1,0 +1,68 @@
+<p>Here is my formulation.</p>
+
+<pre><code>    public class AutoFitTextView extends TextView {
+    public static final String TAG = ""AutoFitTextView"";
+
+    private float mDesiredTextSize;
+
+
+
+    public AutoFitTextView(Context context) {
+        super(context);
+
+        init();
+    }
+
+    public AutoFitTextView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+
+        init();
+    }
+
+    public AutoFitTextView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+
+        init();
+    }
+
+
+
+    private void init() {
+        this.mDesiredTextSize = getTextSize();
+
+        setSingleLine();
+        setEllipsize(TruncateAt.END);
+    }
+
+
+
+    @Override
+    protected void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
+        super.onTextChanged(text, start, lengthBefore, lengthAfter);
+
+        if (mDesiredTextSize &gt; 0 &amp;&amp; text != null &amp;&amp; text.length() &gt; 0) {
+            setTextSize(TypedValue.COMPLEX_UNIT_PX, mDesiredTextSize);
+            final Layout layout = getLayout();
+            if (layout != null) {
+                final int lineCount = layout.getLineCount();
+                if (lineCount &gt; 0) {
+                    final int ellipsisCount = layout.getEllipsisCount(lineCount - 1);
+                    if (ellipsisCount &gt; 0) {
+                        boolean resize = true;
+                        while (resize) {
+                            float textWidth = getPaint().measureText(getText().toString()); 
+                            int viewWidth = getWidth();
+                            if (textWidth &lt;= viewWidth) {
+                                resize = false;
+                            } else {
+                                final float textSize = getTextSize();
+                                setTextSize(TypedValue.COMPLEX_UNIT_PX, (textSize - 1));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre>

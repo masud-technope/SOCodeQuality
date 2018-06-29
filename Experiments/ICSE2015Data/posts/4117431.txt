@@ -1,0 +1,1 @@
+<p>Use this <code>bitmap.recycle();</code> Its solve the problem 100%. Without any image quality issue.</p>

@@ -1,0 +1,18 @@
+<p>To force the soft keyboard to appear, you can use</p>
+
+<pre><code>EditText yourEditText= (EditText) findViewById(R.id.yourEditText);
+InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.showSoftInput(yourEditText, InputMethodManager.SHOW_IMPLICIT);
+</code></pre>
+
+<p>And for removing the focus on <code>EditText</code>, saddly you need to have a dummy <code>View</code> to grab focus.</p>
+
+<p>I hope this helps</p>
+
+<hr>
+
+<p>To close it you can use</p>
+
+<pre><code>InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.hideSoftInputFromWindow(yourEditText.getWindowToken(), 0);
+</code></pre>

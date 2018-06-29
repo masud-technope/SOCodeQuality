@@ -1,0 +1,60 @@
+<p>So this is my final example ""all-in"" for a button-spinner</p>
+
+<p>In <strong>activity_my_form.xml</strong></p>
+
+<pre><code>    &lt;Button
+        android:id=""@+id/btnSpinnerPlanets""
+        android:layout_width=""fill_parent""
+        android:layout_height=""wrap_content""
+        android:gravity=""left|center_vertical""
+        android:singleLine=""true""
+        android:text=""@string/selectAPlanet""
+        android:textSize=""10sp""
+        android:background=""@android:drawable/btn_dropdown""&gt;
+    &lt;/Button&gt;
+</code></pre>
+
+<p>In <strong>strings.xml</strong></p>
+
+<pre><code>&lt;string name=""selectAPlanet""&gt;Select planet&amp;#8230;&lt;/string&gt;
+
+&lt;string-array name=""planets__entries""&gt;
+    &lt;item&gt;The Sun with a name very long so long long long long longThe Sun with a name very long so long long long long longThe Sun with a name very long so long long long long long&lt;/item&gt;
+    &lt;item&gt;Mercury&lt;/item&gt;
+    &lt;item&gt;Venus&lt;/item&gt;
+    &lt;item&gt;Earth&lt;/item&gt;
+    &lt;item&gt;Mars&lt;/item&gt;
+    &lt;item&gt;Jupiter&lt;/item&gt;
+    &lt;item&gt;Saturn&lt;/item&gt;
+    &lt;item&gt;Uranus&lt;/item&gt;
+    &lt;item&gt;Neptune&lt;/item&gt;
+&lt;/string-array&gt;
+</code></pre>
+
+<p>In <strong>MyFormActivity.java</strong></p>
+
+<pre><code>public class MyFormActivity extends Activity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        ((Button) findViewById(R.id.btnSpinnerPlanets)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String[] items = view.getResources().getStringArray(R.array.planets__entries);
+                ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(MyFormActivity.this, android.R.layout.simple_spinner_dropdown_item, items);
+                new AlertDialog.Builder(MyFormActivity.this).setTitle(""the prompt"").setAdapter(adapter, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ((Button) findViewById(R.id.btnSpinnerPlanets)).setText(items[which]);
+                        dialog.dismiss();
+                    }
+                }).create().show();
+            }
+        });     
+
+    }
+
+}   
+</code></pre>
+
+<p>Finally I obtained a font size configurable no first item selectable button spinner!!!
+<em>Thanks to HRJ</em></p>

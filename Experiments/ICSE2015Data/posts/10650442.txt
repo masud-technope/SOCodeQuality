@@ -1,0 +1,16 @@
+<p>I've seen all voted answers show how to set the summary with the exact current value, but the asker wanted also something like:</p>
+
+<blockquote>
+  <p>""Clean up messages after <strong>x</strong> days""* &lt;- summary where <strong>x</strong> is the current Preference value </p>
+</blockquote>
+
+<p><strong>Here is my answer for achieving that</strong></p>
+
+<p>As <a href=""http://developer.android.com/reference/android/preference/ListPreference.html#getSummary%28%29"" rel=""nofollow"">documentation</a> says about <code>ListPreference.getSummary()</code>:</p>
+
+<blockquote>
+  <p>Returns the summary of this ListPreference. If the summary has a String formatting marker in it (i.e. ""%s"" or ""%1$s""), then the current
+  entry value will be substituted in its place.</p>
+</blockquote>
+
+<p>However, I tried in several devices and it doesn't seem to work. With some research I found a good solution in <a href=""http://stackoverflow.com/a/7018053/824430"">this answer</a>. It simply consists of extend every <code>Preference</code> you use and override <code>getSummary()</code> to work as specified by Android documentation.</p>

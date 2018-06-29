@@ -1,0 +1,7 @@
+<p>Create a theme as below.</p>
+
+<pre><code> &lt;!-- Variation on the Light theme that turns off the title --&gt;
+&lt;style name=""MyTheme"" parent=""android:style/Theme.Black""&gt;
+    &lt;item name=""android:windowNoTitle""&gt;true&lt;/item&gt;
+&lt;/style&gt;
+</code></pre>

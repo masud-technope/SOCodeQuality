@@ -1,0 +1,4 @@
+<pre><code>dialog=new Dialog(YourActivity.this, 1);  // to make dialog box full screen with out title.
+dialog.setContentView(layoutReference);
+dialog.setContentView(R.layout.layoutexample);
+</code></pre>

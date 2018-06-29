@@ -1,0 +1,18 @@
+<p>My simple solution. When you want to get it firing again just run ""resetFired"" (say when opening the dialog again).</p>
+
+<pre><code>private class FixedDatePickerDialogListener implements DatePickerDialog.OnDateSetListener{
+    private boolean fired = false;
+
+    public void resetFired(){
+        fired = false;
+    }
+
+    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        if (fired) {
+            Log.i(""DatePicker"", ""Double fire occurred."");
+            return;
+        } 
+        fired = true;//first time fired
+    }
+}
+</code></pre>

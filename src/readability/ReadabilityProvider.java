@@ -16,6 +16,15 @@ public class ReadabilityProvider {
 		//return new HealsteadComplexityProvider(codeFragment).getHalsteadReadabilityScore();
 	}
 	
+	
+	protected static void collectSampleReadability()
+	{
+		String srcFile="F:/MyWorks/Thesis Works/Data_Mining_Works/SO-CodeQuality2018/SCAM2015-Experiment/high/552.txt";
+		String code=ContentLoader.loadFileContent(srcFile);
+		double read=raykernel.apps.readability.eval.Main.getReadability(code);
+		System.out.println(read);
+	}
+	
 	protected void collectReadabilities()
 	{
 		//collecting readability measures for code fragments
@@ -43,6 +52,7 @@ public class ReadabilityProvider {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new ReadabilityProvider().collectReadabilities();
+		//new ReadabilityProvider().collectReadabilities();
+		ReadabilityProvider.collectSampleReadability();
 	}
 }

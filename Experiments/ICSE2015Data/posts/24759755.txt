@@ -1,0 +1,17 @@
+<p>If you want to add dynamically buttons try this:</p>
+
+<pre><code>public class MainActivity extends Activity {
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main2);
+    for (int i = 1; i &lt;= 5; i++) {
+        LinearLayout layout = (LinearLayout) findViewById(R.id.myLinearLayout);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        Button btn = new Button(this);
+        btn.setText(""    "");
+        layout.addView(btn);
+    }
+
+}
+</code></pre>

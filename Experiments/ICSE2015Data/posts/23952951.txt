@@ -1,0 +1,39 @@
+<p><a href=""http://code.google.com/p/roottools/"">http://code.google.com/p/roottools/</a></p>
+
+<p><strong>If you do not want to use the jar file</strong> just use the code:</p>
+
+<pre><code>public static boolean findBinary(String binaryName) {
+        boolean found = false;
+        if (!found) {
+            String[] places = { ""/sbin/"", ""/system/bin/"", ""/system/xbin/"",
+                    ""/data/local/xbin/"", ""/data/local/bin/"",
+                    ""/system/sd/xbin/"", ""/system/bin/failsafe/"", ""/data/local/"" };
+            for (String where : places) {
+                if (new File(where + binaryName).exists()) {
+                    found = true;
+
+                    break;
+                }
+            }
+        }
+        return found;
+    }
+</code></pre>
+
+<p>Program will try to find su folder:</p>
+
+<pre><code>private static boolean isRooted() {
+        return findBinary(""su"");
+    }
+</code></pre>
+
+<p><strong><em>Example:</em></strong></p>
+
+<pre><code>if (isRooted() == true ){
+textView.setText(""Device Rooted"");
+
+}
+else{
+textView.setText(""Device Unrooted"");
+}
+</code></pre>

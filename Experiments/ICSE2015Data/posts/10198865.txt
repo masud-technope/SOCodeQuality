@@ -1,0 +1,80 @@
+<p>I recently had to implement the function you described. What i did was to have a Runnable checking out if the ScrollView had stopped scrolling by comparing the value returned by getScrollY() when the onTouchEvent is first triggered with the value returned after a time defined by the variable <strong>newCheck</strong>. </p>
+
+<p>See code below (working solution):</p>
+
+<pre><code>public class MyScrollView extends ScrollView{
+
+private Runnable scrollerTask;
+private int initialPosition;
+
+private int newCheck = 100;
+private static final String TAG = ""MyScrollView"";
+
+public interface OnScrollStoppedListener{
+    void onScrollStopped();
+}
+
+private OnScrollStoppedListener onScrollStoppedListener;
+
+public MyScrollView(Context context, AttributeSet attrs) {
+    super(context, attrs);
+
+    scrollerTask = new Runnable() {
+
+        public void run() {
+
+            int newPosition = getScrollY();
+            if(initialPosition - newPosition == 0){//has stopped
+
+                if(onScrollStoppedListener!=null){
+
+                    onScrollStoppedListener.onScrollStopped();
+                }
+            }else{
+                initialPosition = getScrollY();
+                MyScrollView.this.postDelayed(scrollerTask, newCheck);
+            }
+        }
+    };
+}
+
+public void setOnScrollStoppedListener(MyScrollView.OnScrollStoppedListener listener){
+    onScrollStoppedListener = listener;
+}
+
+public void startScrollerTask(){
+
+    initialPosition = getScrollY();
+    MyScrollView.this.postDelayed(scrollerTask, newCheck);
+}
+
+}
+</code></pre>
+
+<p>Then i have:</p>
+
+<pre><code>scroll.setOnTouchListener(new OnTouchListener() {
+
+        public boolean onTouch(View v, MotionEvent event) {
+
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+
+                scroll.startScrollerTask();
+            }
+
+            return false;
+        }
+});
+scroll.setOnScrollStoppedListener(new OnScrollStoppedListener() {
+
+        public void onScrollStopped() {
+
+            Log.i(TAG, ""stopped"");
+
+        }
+});
+</code></pre>
+
+<p>BTW i used i few ideas from other replies to do this in my app.
+Hope this helps. Any questions feel free to ask. 
+Cheers.</p>

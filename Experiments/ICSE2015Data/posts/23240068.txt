@@ -1,0 +1,15 @@
+<p>It's Right, the best way to go about it to fix it in the XML Layout itself using:</p>
+
+<pre><code>&lt;EditText
+android:inputType=""text""
+android:digits=""0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"" /&gt;
+</code></pre>
+
+<p>as rightly pointed by Florian Fröhlich, it works well for text views even.</p>
+
+<pre><code>&lt;TextView
+android:inputType=""text""
+android:digits=""0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"" /&gt;
+</code></pre>
+
+<p>Just a word of caution, the characters mentioned in the <code>android:digits</code> will only be displayed, so just be careful not to miss some out    :)</p>

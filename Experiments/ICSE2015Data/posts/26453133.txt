@@ -1,0 +1,76 @@
+<p>@majinboo's answer is revised for performance and memory management. Any more than one font need related Activity can use this Font class by giving the constructor itself as a parameter.</p>
+
+<pre><code>@Override
+public void onCreate(Bundle savedInstanceState)
+{
+    Font font = new Font(this);
+}
+</code></pre>
+
+<p>Revised Fonts class is as below:</p>
+
+<pre><code>public class Fonts
+{
+    private HashMap&lt;AssetTypefaces, Typeface&gt; hashMapFonts;
+
+    private enum AssetTypefaces
+    {
+        RobotoLight,
+        RobotoThin,
+        RobotoCondensedBold,
+        RobotoCondensedLight,
+        RobotoCondensedRegular
+    }
+
+    public Fonts(Context context)
+    {
+        AssetManager mngr = context.getAssets();
+
+        hashMapFonts = new HashMap&lt;AssetTypefaces, Typeface&gt;();
+        hashMapFonts.put(AssetTypefaces.RobotoLight, Typeface.createFromAsset(mngr, ""fonts/Roboto-Light.ttf""));
+        hashMapFonts.put(AssetTypefaces.RobotoThin, Typeface.createFromAsset(mngr, ""fonts/Roboto-Thin.ttf""));
+        hashMapFonts.put(AssetTypefaces.RobotoCondensedBold, Typeface.createFromAsset(mngr, ""fonts/RobotoCondensed-Bold.ttf""));
+        hashMapFonts.put(AssetTypefaces.RobotoCondensedLight, Typeface.createFromAsset(mngr, ""fonts/RobotoCondensed-Light.ttf""));
+        hashMapFonts.put(AssetTypefaces.RobotoCondensedRegular, Typeface.createFromAsset(mngr, ""fonts/RobotoCondensed-Regular.ttf""));
+    }
+
+    private Typeface getTypeface(String fontName)
+    {
+        try
+        {
+            AssetTypefaces typeface = AssetTypefaces.valueOf(fontName);
+            return hashMapFonts.get(typeface);
+        }
+        catch (IllegalArgumentException e)
+        {
+            // e.printStackTrace();
+            return Typeface.DEFAULT;
+        }
+    }
+
+    public void setupLayoutTypefaces(View v)
+    {
+        try
+        {
+            if (v instanceof ViewGroup)
+            {
+                ViewGroup vg = (ViewGroup) v;
+                for (int i = 0; i &lt; vg.getChildCount(); i++)
+                {
+                    View child = vg.getChildAt(i);
+                    setupLayoutTypefaces(child);
+                }
+            }
+            else if (v instanceof TextView)
+            {
+                ((TextView) v).setTypeface(getTypeface(v.getTag().toString()));
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            // ignore
+        }
+    }
+}
+</code></pre>

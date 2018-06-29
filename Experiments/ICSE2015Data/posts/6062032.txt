@@ -1,0 +1,9 @@
+<p>It seems that this is a very long running problem, with a lot of differing explanations.  I took the advice of the two most common presented answers here, but neither one of these solved my problems of the VM claiming it couldn't afford the bytes to perform the <strong>decoding</strong> part of the process.  After some digging I learned that the real problem here is the decoding process taking away from the <strong>NATIVE</strong> heap.  </p>
+
+<p>See here: <a href=""http://stackoverflow.com/questions/1955410/bitmapfactory-oom-driving-me-nuts/5493182#5493182"">BitmapFactory OOM driving me nuts</a></p>
+
+<p>That lead me to another discussion thread where I found a couple more solutions to this problem.  One is to call<code>System.gc();</code> manually after your image is displayed.  But that actually makes your app use MORE memory, in an effort to reduce the native heap.  The better solution as of the release of 2.0 (Donut) is to use the BitmapFactory option ""inPurgeable"".  So I simply added <code>o2.inPurgeable=true;</code> just after <code>o2.inSampleSize=scale;</code>.</p>
+
+<p>More on that topic here: <a href=""http://groups.google.com/group/android-developers/browse_thread/thread/146a3a354ce3e8e3/61e113036089d696"">Is the limit of memory heap only 6M? </a></p>
+
+<p>Now, having said all of this, I am a complete dunce with Java and Android too.  So if you think this is a terrible way to solve this problem, you are probably right.  ;-)  But this has worked wonders for me, and I have found it impossible to run the VM out of heap cache now.  The only drawback I can find is that you are trashing your cached drawn image.  Which means if you go RIGHT back to that image, you are redrawing it each and every time.  In the case of how my application works, that is not really a problem.  Your mileage may vary.</p>

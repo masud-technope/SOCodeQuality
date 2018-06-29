@@ -1,0 +1,8 @@
+<p>Get first the fragment view and then get from this view your ImageView.</p>
+
+<pre><code>public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    View view = inflater.inflate(R.layout.testclassfragment, container, false);
+    ImageView imageView = (ImageView) view.findViewById(R.id.my_image);
+    return view;
+}
+</code></pre>

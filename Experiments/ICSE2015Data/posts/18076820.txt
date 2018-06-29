@@ -1,0 +1,8 @@
+<p>The best tutorial on this can be found <a href=""http://www.oneminuteinfo.com/2012/12/android-set-selection-color-in-listview.html"" rel=""nofollow"">here</a>. </p>
+
+<p>Key sections:</p>
+
+<ol>
+<li>Surely call <code>view.setSelected(true)</code> in <code>onItemClick</code>, otherwise the you can't see the selected item background</li>
+<li>Preserve the order of states in your selector otherwise you'll see unpredictable behavior in background colors (<code>state_selected</code> followed by <code>state_pressed</code>)</li>
+</ol>

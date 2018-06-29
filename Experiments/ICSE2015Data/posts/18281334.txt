@@ -1,0 +1,29 @@
+<p>I use <a href=""http://bit.ly/droidQuery"" rel=""nofollow"">droidQuery</a>. There are two mechanisms for loading an image from a URL. The first (shorthand) is simply:</p>
+
+<pre><code>$.with(myView).image(url);
+</code></pre>
+
+<p>This can be added into an <code>ArrayAdapter</code>'s <code>getView(...)</code> method very easily.</p>
+
+<hr>
+
+<p>The longhand method will give a lot more control, and has options not even discussed here (such as cacheing and callbacks), but a basic implementation that specifies the output size as 200px x 200px can be found here:</p>
+
+<pre><code>$.ajax(new AjaxOptions().url(url)
+                        .type(""GET"")
+                        .dataType(""image"")
+                        .imageWidth(200).imageHeight(200)
+                        .success(new Function() {
+                            @Override
+                            public void invoke($ droidQuery, Object... params) {
+                                myImageView.setImageBitmap((Bitmap) params[0]);
+                            }
+                        })
+                        .error(new Function() {
+                            @Override
+                            public void invoke($ droidQuery, Object... params) {
+                                AjaxError e = (AjaxError) params[0];
+                                Log.e(""$"", ""Error "" + e.status + "": "" + e.error);
+                            }
+                        }));
+</code></pre>

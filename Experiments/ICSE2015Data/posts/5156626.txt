@@ -1,0 +1,3 @@
+<p>With API 8 and greater, the location of the SD card has changed. @fiXedd's answer is good, but for safer code, you should use <code>Environment.getExternalStorageState()</code> to check if the media is available. Then you can use <code>getExternalFilesDir()</code> to navigate to the directory you want (assuming you're using API 8 or greater).</p>
+
+<p>You can read more in the <a href=""http://developer.android.com/guide/topics/data/data-storage.html#filesExternal"">SDK documentation</a>.</p>

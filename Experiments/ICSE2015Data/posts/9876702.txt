@@ -1,0 +1,43 @@
+<p>I subclassed (Horizontal)ScrollView and did something like this:</p>
+
+<pre><code>@Override
+protected void onScrollChanged(int x, int y, int oldX, int oldY) {
+    if (Math.abs(x - oldX) &gt; SlowDownThreshold) {  
+        currentlyScrolling = true;
+    } else {
+        currentlyScrolling = false;
+        if (!currentlyTouching) {
+            //scrolling stopped...handle here
+        }
+    }
+    super.onScrollChanged(x, y, oldX, oldY);
+}
+</code></pre>
+
+<p>I used a value of 1 for the SlowDownThreshold since it always seems to be the difference of the last onScrollChanged event.</p>
+
+<p>In order to make this behave correctly when dragging slowly, I had to do this:</p>
+
+<pre><code>@Override
+public boolean onInterceptTouchEvent(MotionEvent event) {
+    switch (event.getAction()) {
+        case MotionEvent.ACTION_DOWN:
+            currentlyTouching = true;
+    }
+    return super.onInterceptTouchEvent(event);
+}
+
+@Override
+public boolean onTouch(View view, MotionEvent event) {
+    switch (event.getAction()) {
+        case MotionEvent.ACTION_UP:
+        case MotionEvent.ACTION_CANCEL:
+            currentlyTouching = false;
+            if (!currentlyScrolling) {
+                //I handle the release from a drag here
+                return true;
+            }
+    }
+    return false;
+}
+</code></pre>

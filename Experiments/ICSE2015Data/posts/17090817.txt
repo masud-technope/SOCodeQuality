@@ -1,0 +1,6 @@
+<p>I have been using NetworkImageView from the new Android Volley Library <code>com.android.volley.toolbox.NetworkImageView</code>, and it seems to be working pretty well. Apparently, this is the same view that is used in <a href=""http://en.wikipedia.org/wiki/Google_Play"" rel=""nofollow"">Google Play</a> and other new Google applications. Definitely worth checking out.</p>
+
+<ul>
+<li><p><a href=""http://blogs.captechconsulting.com/blog/raymond-robinson/google-io-2013-volley-image-cache-tutorial"" rel=""nofollow"">Google I/O 2013 volley image cache tutorial</a></p></li>
+<li><p><a href=""https://developers.google.com/events/io/sessions/325304728"" rel=""nofollow"">Developers Google events</a></p></li>
+</ul>

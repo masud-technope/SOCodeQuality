@@ -1,0 +1,10 @@
+SparseBooleanArray checkedItems = categorySelector.getCheckedItemPositions();
+if (checkedItems != null) {
+    for (int i=0; i<checkedItems.size(); i++) {
+        if (checkedItems.valueAt(i)) {
+            String item = categorySelector.getAdapter().getItem(
+                                  checkedItems.keyAt(i)).toString();
+            Log.i(TAG,item + "" was selected"");
+        }
+    }
+}

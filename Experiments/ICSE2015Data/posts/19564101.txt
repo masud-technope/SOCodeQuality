@@ -1,0 +1,16 @@
+<p>This works for me :</p>
+
+<pre><code> @Override
+ public boolean dispatchTouchEvent(MotionEvent event) {
+View v = getCurrentFocus();
+boolean ret = super.dispatchTouchEvent(event);
+
+if (v instanceof EditText) {
+    View w = getCurrentFocus();
+    int scrcoords[] = new int[2];
+    w.getLocationOnScreen(scrcoords);
+    float x = event.getRawX() + w.getLeft() - scrcoords[0];
+    float y = event.getRawY() + w.getTop() - scrcoords[1];
+
+    Log.d(""Activity"",
+            ""Touch event "" + event.getRawX() + "

@@ -1,0 +1,9 @@
+<p>I come from iOS experience and I was frustrated to discover such a pathetic issue with something so basic as loading and showing an image. After all, everyone that is having this issue is trying to display reasonably sized images. Anyway, here are the two changes that fixed my problem (and made my app very responsive).</p>
+
+<p>1) Every time you do <code>BitmapFactory.decodeXYZ()</code>, make sure to pass in a <code>BitmapFactory.Options</code> with <code>inPurgeable</code> set to <code>true</code> (and preferably with <code>inInputShareable</code> also set to <code>true</code>).</p>
+
+<p>2) NEVER use <code>Bitmap.createBitmap(width, height, Config.ARGB_8888)</code>. I mean NEVER! I've never had that thing not raise memory error after few passes. No amount of <code>recycle()</code>, <code>System.gc()</code>, whatever helped. It always raised exception. The one other way that actually works is to have a dummy image in your drawables (or another Bitmap that you decoded using step 1 above), rescale that to whatever you want, then manipulate the resulting Bitmap (such as passing it on to a Canvas for more fun). So, what you should use instead is: <code>Bitmap.createScaledBitmap(srcBitmap, width, height, false)</code>. If for whatever reason you MUST use the brute force create method, then at least pass <code>Config.ARGB_4444</code>. </p>
+
+<p>This is almost guaranteed to save you hours if not days. All that talk about scaling the image, etc. does not really work (unless you consider getting wrong size or degraded image a solution). </p>
+
+<p>But google, seriously?</p>

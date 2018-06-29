@@ -1,0 +1,9 @@
+<pre><code>String g1=""Male"";
+String g2=""Female"";
+String salutation="""";
+String gender=""Male"";
+if(gender.toLowerCase().trim().equals(g1.toLowerCase().trim()));
+   salutation =""Mr."";
+if(gender.toLowerCase().trim().equals(g2.toLowerCase().trim()));
+   salutation =""Ms."";
+</code></pre>

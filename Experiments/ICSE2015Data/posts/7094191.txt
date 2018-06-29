@@ -1,0 +1,7 @@
+<p>Simplest way:</p>
+
+<pre><code>//Show soft-keyboard:
+getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+//hide keyboard :
+ getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+</code></pre>

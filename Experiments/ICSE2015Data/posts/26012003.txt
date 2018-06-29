@@ -1,0 +1,8 @@
+<p>You can try to force the soft keyboard to appear, it works for me:</p>
+
+<pre><code>...
+dialog.show();
+input.requestFocus();
+InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+</code></pre>

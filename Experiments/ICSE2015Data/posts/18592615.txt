@@ -1,0 +1,5 @@
+<p>You can try the <strong><em>Aquery</em> Android</strong> library for lazy loading image and listview... The below code may help you..... <a href=""http://code.google.com/p/android-query/downloads/detail?name=android-query-full.0.25.10.jar"" rel=""nofollow"">download library from here</a>.</p>
+
+<pre><code>AQuery aq = new AQuery(mContext);
+aq.id(R.id.image1).image(""http://data.whicdn.com/images/63995806/original.jpg"");
+</code></pre>

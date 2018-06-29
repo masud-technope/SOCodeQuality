@@ -1,0 +1,7 @@
+public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+             View V = inflater.inflate(R.layout.testclassfragment, container, false);
+             ImageView imageView = (ImageView)V.findViewById(R.id.my_image);
+
+             return V;
+    }

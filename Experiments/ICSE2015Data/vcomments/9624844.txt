@@ -1,0 +1,3 @@
+I  really disagree. This is a method to find a certain screen size. Again, as I have answered, there IS NO difference between a tablet and a phone. This is not an answer to the question. It is not possible to differentiate because there is no 1 difference. If you need to code for certain features (like you seem to do for certain screen sizes), then do so, but do not call it tablet vs phone. Topic starter seemed to put the line @ certain tilt functionality. Read @commonware 's comment on the question thourougly.
+Helton,  thx for this.  Thought I'd say that this returns:
+Kindle Fire : false, Moto Xoom (v1) : true, Galaxy Note : false, Galaxy Tab 10.1 limited : true

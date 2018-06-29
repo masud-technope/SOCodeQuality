@@ -1,0 +1,10 @@
+<p>Well this is not listed but a combo of some that is already posted:</p>
+
+<pre><code>if (Build.VERSION.SDK_INT &gt;= 11) {
+    recreate();   
+} else {
+    Intent intent = getIntent();
+    finish();
+    startActivity(intent);
+}
+</code></pre>

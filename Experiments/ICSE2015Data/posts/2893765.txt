@@ -1,0 +1,4 @@
+<p>Really <code>onSaveInstance</code> state callen when the Activity goes to background</p>
+
+<p>Quote from the docs:
+""the method <code>onSaveInstanceState(Bundle)</code>  is called before placing the activity in such a background state""</p>

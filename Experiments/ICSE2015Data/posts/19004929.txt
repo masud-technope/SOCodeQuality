@@ -1,0 +1,34 @@
+<p>I had the same problem in various different situations, and the solutions i have found work in some but dont work in others so here is a combine solution that works in most situations i have found:</p>
+
+<pre><code>public static void showVirtualKeyboard(Context context, final View view) {
+    if (context != null) {
+        final InputMethodManager imm =  (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        view.clearFocus();
+
+        if(view.isShown()) {
+            imm.showSoftInput(view, 0);
+            view.requestFocus();
+        } else {
+            view.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+                @Override
+                public void onViewAttachedToWindow(View v) {
+                    view.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            view.requestFocus();
+                            imm.showSoftInput(view, 0);
+                        }
+                    });
+
+                    view.removeOnAttachStateChangeListener(this);
+                }
+
+                @Override
+                public void onViewDetachedFromWindow(View v) {
+                    view.removeOnAttachStateChangeListener(this);
+                }
+            });
+        }
+    }
+}
+</code></pre>

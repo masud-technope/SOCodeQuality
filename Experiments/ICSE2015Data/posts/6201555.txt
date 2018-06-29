@@ -1,0 +1,9 @@
+<pre><code>TextView text = (TextView)findViewById(R.id.THE_TEXTVIEW_ID);
+</code></pre>
+
+<p>now set the textview properties..</p>
+
+<pre><code>text.setTypeface(null, Typeface.BOLD);  //-- for only bold the text
+text.setTypeface(null, Typeface.BOLD_ITALIC);  //-- for  bold &amp; italic the text
+text.setTypeface(null, Typeface.ITALIC);  // -- for  italic the text
+</code></pre>

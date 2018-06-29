@@ -1,0 +1,14 @@
+<p>Use: </p>
+
+<pre><code>Intent intent = new Intent(getApplicationContext(), Home.class);
+intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+startActivity(intent);
+</code></pre>
+
+<p>This will clear all the activities on top of home. </p>
+
+<p>Assuming you are finishing the login screen when the user logs in and home is created and afterwards all the screens from 1 to 5 on top of that one. The code i posted will return you to home screen finishing all the other activites. You can add an extra in the intent and read that in the home screen activity and finish it also (maybe launch login screen again from there or something).</p>
+
+<p>I am not sure but you can also try going to login with this flag. I don't know how the activities will be ordered in that case. So don't know if it will clear the ones below the screen you are on including the one you are currently on but its definitely the way to go.</p>
+
+<p>Hope this helps. </p>

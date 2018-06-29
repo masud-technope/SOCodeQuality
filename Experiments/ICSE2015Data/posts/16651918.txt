@@ -1,0 +1,17 @@
+<p>using Guava:</p>
+
+<pre><code>Multimap&lt;String,String&gt; parseQueryString(String queryString, String encoding) {
+    LinkedListMultimap&lt;String, String&gt; result = LinkedListMultimap.create();
+
+    for(String entry : Splitter.on(""&amp;"").omitEmptyStrings().split(queryString)) {
+        String pair [] = entry.split(""="", 2);
+        try {
+            result.put(URLDecoder.decode(pair[0], encoding), pair.length == 2 ? URLDecoder.decode(pair[1], encoding) : null);
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    return result;
+}
+</code></pre>

@@ -1,0 +1,8 @@
+<p>You can use this</p>
+
+<pre><code>    WebView browser = (WebView) findViewById(R.id.webview);
+    browser.getSettings().setLoadWithOverviewMode(true);
+    browser.getSettings().setUseWideViewPort(true);
+</code></pre>
+
+<p>this fixes size based on screen size.</p>

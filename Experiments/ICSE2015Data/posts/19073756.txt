@@ -1,0 +1,17 @@
+<p>I did the following to get acces to all the external sd cards.</p>
+
+<p>With:</p>
+
+<pre><code>File primaryExtSd=Environment.getExternalStorageDirectory();
+</code></pre>
+
+<p>you get the path to the primary external SD
+Then with:</p>
+
+<pre><code>File parentDir=new File(primaryExtSd.getParent());
+</code></pre>
+
+<p>you get the parent dir of the primary external storage, and it is also the parent of all the external sd. 
+Now, you can list all the storage and select the one that you want.</p>
+
+<p>Hope it is usefull.</p>

@@ -1,0 +1,23 @@
+<p>Let me point some additional info to the solution of yuku, because I found it hard to get this working! How do I get the AlertDialog object from my AlertDialog.Builder? well, it's the result of my alert.show() execution:</p>
+
+<pre><code>    final AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+
+    final EditText input = new EditText(getActivity());
+
+    alert.setView(input);
+
+    // do what you need, like setting positive and negative buttons...
+
+    final AlertDialog dialog = alert.show();
+
+    input.setOnFocusChangeListener( new OnFocusChangeListener() {
+
+       @Override
+       public void onFocusChange(View v, boolean hasFocus) {
+          if(hasFocus) {
+             dialog.getWindow().setSoftInputMode(     WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+  }
+</code></pre>
+
+<p>}
+});</p>

@@ -1,0 +1,6 @@
+<p>If you're calling this outside of an Activity, you'll need to pass the context in (or get it through some other call).  Then use that to get your display metrics:</p>
+
+<pre><code>DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+int width = metrics.widthPixels;
+int height = metrics.heightPixels;
+</code></pre>

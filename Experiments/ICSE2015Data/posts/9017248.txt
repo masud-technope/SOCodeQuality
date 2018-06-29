@@ -1,0 +1,8 @@
+<p>Code worked very well! You can overload onSizeChanged method, if not only Text has to be Changed.</p>
+
+<pre><code>@Override
+protected void onSizeChanged (int w, int h, int oldw, int oldh) {
+    isStale = true;
+    super.onSizeChanged(w, h, oldw, oldh);
+}
+</code></pre>

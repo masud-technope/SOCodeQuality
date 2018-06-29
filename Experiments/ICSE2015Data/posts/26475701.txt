@@ -1,0 +1,39 @@
+<p>This code has been tested and works on Android 4.4</p>
+
+<p><img src=""http://i.stack.imgur.com/onnOf.png"" alt=""enter image description here""></p>
+
+<pre><code>Spinner spinner = (Spinner) activity.findViewById(R.id.spinner);
+ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(activity, android.R.layout.simple_spinner_dropdown_item) {
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+
+                View v = super.getView(position, convertView, parent);
+                if (position == getCount()) {
+                    ((TextView)v.findViewById(android.R.id.text1)).setText("""");
+                    ((TextView)v.findViewById(android.R.id.text1)).setHint(getItem(getCount())); //""Hint to be displayed""
+                }
+
+                return v;
+            }       
+
+            @Override
+            public int getCount() {
+                return super.getCount()-1; // you dont display last item. It is used as hint.
+            }
+
+        };
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.add(""Daily"");
+        adapter.add(""Two Days"");
+        adapter.add(""Weekly"");
+        adapter.add(""Monthly"");
+        adapter.add(""Three Months"");
+        adapter.add(""HINT_TEXT_HERE""); //This is the text that will be displayed as hint.
+
+
+        spinner.setAdapter(adapter);
+        spinner.setSelection(adapter.getCount()); //set the hint the default selection so it appears on launch.
+        spinner.setOnItemSelectedListener(this);
+</code></pre>

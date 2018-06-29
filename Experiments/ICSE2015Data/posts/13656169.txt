@@ -1,0 +1,38 @@
+<p>I think best way to avoid the <code>OutOfMemoryError</code> is to face it and understand it.</p>
+
+<p>I made an <a href=""https://play.google.com/store/apps/details?id=net.coocood.oomresearch"">app</a> to intentionally cause <code>OutOfMemoryError</code>, and monitor memory usage.</p>
+
+<p>After I've done a lot of experiments with this App, I've got the following conclusions:</p>
+
+<p>I'm gonna talk about SDK versions before Honey Comb first.</p>
+
+<ol>
+<li><p>Bitmap is stored in native heap, but it will get garbage collected automatically, calling recycle() is needless.</p></li>
+<li><p>If {VM heap size} + {allocated native heap memory} >= {VM heap size limit for the device}, and you are trying to create bitmap, OOM will be thrown.</p>
+
+<p>NOTICE: VM HEAP SIZE is counted rather than VM ALLOCATED MEMORY.</p></li>
+<li><p>VM Heap size will never shrink after grown, even if the allocated VM memory is shrinked. </p></li>
+<li><p>So you have to keep the peak VM memory as low as possible to keep VM Heap Size from growing too big to save available memory for Bitmaps.</p></li>
+<li><p>Manually call System.gc() is meaningless, the system will call it first before trying to grow the heap size.</p></li>
+<li><p>Native Heap Size will never shrink too, but it's not counted for OOM, so no need to worry about it.</p></li>
+</ol>
+
+<p>Then, let's talk about SDK Starts from Honey Comb.</p>
+
+<ol>
+<li><p>Bitmap is stored in VM heap, Native memory is not counted for OOM.</p></li>
+<li><p>The condition for OOM is much simpler: {VM heap size} >= {VM heap size limit for the device}. </p></li>
+<li><p>So you have more available memory to create bitmap with the same heap size limit,  OOM is less likely to be thrown.</p></li>
+</ol>
+
+<p>Here is some of my observations about Garbage Collection and Memory Leak.</p>
+
+<p>You can see it yourself in the App. If an Activity executed an AsyncTask that was still running after the Activity was destroyed, the Activity will not get garbage collected until the AsyncTask finish.</p>
+
+<p>This is because AsyncTask is an instance of an anonymous inner class, it holds a reference of the Activity.</p>
+
+<p>Calling AsyncTask.cancel(true) will not stop the execution if the task is blocked in an IO operation in background thread.</p>
+
+<p>Callbacks are anonymous inner classes too, so if a static instance in your project holds them and do not release them, memory would be leaked.</p>
+
+<p>If you scheduled a repeating or delayed task, for example a Timer, and you do not call cancel() and purge() in onPause(), memory would be leaked.</p>

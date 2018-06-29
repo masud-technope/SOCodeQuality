@@ -1,0 +1,2 @@
+It was really helpfull for me. Thanks... But when receiving the passed object, the syntax Should be [ Deneme dene = (Deneme)i.getSerializableExtra(""sampleObject"");
+@AliHassan you are welcome

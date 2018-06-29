@@ -1,0 +1,15 @@
+<p>There is a simpler approach, based on iPhone same issue. Simply override the background's layout on touch event, where the edit text is contained. Just use this code in the activity's OnCreate (login_fondo is the root layout):</p>
+
+<pre><code>    final LinearLayout llLogin = (LinearLayout)findViewById(R.id.login_fondo);
+    llLogin.setOnTouchListener(
+            new OnTouchListener()
+            {
+                @Override
+                public boolean onTouch(View view, MotionEvent ev) {
+                    InputMethodManager imm = (InputMethodManager) mActivity.getSystemService(
+                            android.content.Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(mActivity.getCurrentFocus().getWindowToken(), 0);
+                    return false;
+                }
+            });
+</code></pre>

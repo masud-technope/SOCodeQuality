@@ -1,0 +1,5 @@
+<pre><code>String deviceId = Settings.System.getString(getContentResolver(),
+                                Settings.System.ANDROID_ID);
+</code></pre>
+
+<p>Although, it is not guaranteed that the Android ID will be an unique identifier.</p>

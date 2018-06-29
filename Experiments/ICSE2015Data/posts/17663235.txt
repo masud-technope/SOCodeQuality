@@ -1,0 +1,101 @@
+<p>Here's my solution:</p>
+
+<h2>Build a preference type 'getter' method.</h2>
+
+<pre><code>protected String getPreference(Preference x) {
+    // http://stackoverflow.com/questions/3993982/how-to-check-type-of-variable-in-java
+    if (x instanceof CheckBoxPreference)
+        return ""CheckBoxPreference"";
+    else if (x instanceof EditTextPreference)
+        return ""EditTextPreference"";
+    else if (x instanceof ListPreference)
+        return ""ListPreference"";
+    else if (x instanceof MultiSelectListPreference)
+        return ""MultiSelectListPreference"";
+    else if (x instanceof RingtonePreference)
+        return ""RingtonePreference"";
+    else if (x instanceof SwitchPreference)
+        return ""SwitchPreference"";
+    else if (x instanceof TwoStatePreference)
+        return ""TwoStatePreference"";
+    else if (x instanceof DialogPreference) // Needs to be after ListPreference
+        return ""DialogPreference"";
+    else
+        return ""undefined"";
+}
+</code></pre>
+
+<h2>Build a 'setSummaryInit' method.</h2>
+
+<pre><code>public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        Log.i(TAG, ""+ onSharedPreferenceChanged(prefs:"" + prefs + "", key:"" + key + "")"");
+        if( key != null ) {
+            updatePreference(prefs, key);
+            setSummary(key);
+        } else {
+            Log.e(TAG, ""Preference without key!"");
+        }
+        Log.i(TAG, ""- onSharedPreferenceChanged()"");
+    }
+
+    protected boolean setSummary() {
+        return _setSummary(null);
+    }
+
+    protected boolean setSummary(String sKey) {
+        return _setSummary(sKey);
+    }
+
+    private boolean _setSummary(String sKey) {
+        if (sKey == null) Log.i(TAG, ""Initializing"");
+        else Log.i(TAG, sKey);
+
+        // Get Preferences
+        SharedPreferences sharedPrefs = PreferenceManager
+                .getDefaultSharedPreferences(this);
+
+        // Iterate through all Shared Preferences
+        // http://stackoverflow.com/questions/9310479/how-to-iterate-through-all-keys-of-shared-preferences
+        Map&lt;String, ?&gt; keys = sharedPrefs.getAll();
+        for (Map.Entry&lt;String, ?&gt; entry : keys.entrySet()) {
+            String key = entry.getKey();
+            // Do work only if initializing (null) or updating specific preference key
+            if ( (sKey == null) || (sKey.equals(key)) ) {
+                String value = entry.getValue().toString();
+                Preference pref = findPreference(key);
+                String preference = getPreference(pref);
+                Log.d(""map values"", key + "" | "" + value + "" | "" + preference);
+                pref.setSummary(key + "" | "" + value + "" | "" + preference);
+                if (sKey != null) return true;
+            }
+        }
+        return false;
+    }
+
+    private void updatePreference(SharedPreferences prefs, String key) {
+        Log.i(TAG, ""+ updatePreference(prefs:"" + prefs + "", key:"" + key + "")"");
+        Preference pref = findPreference(key);
+        String preferenceType = getPreference(pref);
+        Log.i(TAG, ""preferenceType = "" + preferenceType);
+        Log.i(TAG, ""- updatePreference()"");
+    }
+</code></pre>
+
+<h2>Initialize</h2>
+
+<p>Create public class that PreferenceActivity and implements OnSharedPreferenceChangeListener</p>
+
+<pre><code>protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    PreferenceManager.setDefaultValues(this, R.xml.global_preferences,
+    false);
+    this.addPreferencesFromResource(R.xml.global_preferences);
+    this.getPreferenceScreen().getSharedPreferences()
+        .registerOnSharedPreferenceChangeListener(this);
+}
+
+protected void onResume() {
+    super.onResume();
+    setSummary();
+}
+</code></pre>

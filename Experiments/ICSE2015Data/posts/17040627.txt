@@ -1,0 +1,9 @@
+<p>Following is the code from my <code>Utils</code> class:</p>
+
+<pre><code>public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivityManager 
+              = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null &amp;&amp; activeNetworkInfo.isConnected();
+}
+</code></pre>

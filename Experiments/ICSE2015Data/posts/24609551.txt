@@ -1,0 +1,9 @@
+<p>Following code worked for me absolutely as expected, regardless of the screensize and density of the devices.</p>
+
+<pre><code>        String userAgent = new WebView(YourActivity.this).getSettings().getUserAgentString();
+    if (userAgent.contains(""Mobile"")) {
+        // It is a Mobile
+    } else {
+        // It is a Tablet
+    }
+</code></pre>

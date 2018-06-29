@@ -1,0 +1,28 @@
+<p>While the above answer works, Romain Guy (a core Android developer) shows <a href=""http://www.curious-creature.org/2012/12/11/android-recipe-1-image-with-rounded-corners/"" rel=""nofollow"">a better method</a> in his blog which uses less memory by using a shader not creating a copy of the bitmap. The general gist of the functionality is here:</p>
+
+<pre><code>BitmapShader shader;
+shader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+
+Paint paint = new Paint();
+paint.setAntiAlias(true);
+paint.setShader(shader);
+
+RectF rect = new RectF(0.0f, 0.0f, width, height);
+
+// rect contains the bounds of the shape
+// radius is the radius in pixels of the rounded corners
+// paint contains the shader that will texture the shape
+canvas.drawRoundRect(rect, radius, radius, paint);
+</code></pre>
+
+<p>The advantages of this over other methods is that it:</p>
+
+<ul>
+<li><strong>does not create a separate copy of the bitmap,</strong> which uses a lot of memory with large images [vs most of the other answers here]</li>
+<li>supports <strong>antialisasing</strong> [vs clipPath method]</li>
+<li>supports <strong>alpha</strong> [vs xfermode+porterduff method]</li>
+<li>supports <strong>hardware acceleration</strong> [vs clipPath method]</li>
+<li>only <strong>draws once to the canvas</strong> [vs xfermode and clippath methods]</li>
+</ul>
+
+<p>I've created a <a href=""https://github.com/makeramen/RoundedImageView"" rel=""nofollow"">RoundedImageView</a> based off this code that wraps this logic into an ImageView and adds proper <code>ScaleType</code> support and an optional rounded border.</p>

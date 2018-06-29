@@ -1,0 +1,14 @@
+<p>For situations where you know you will be passing data within an application, use ""globals"" (like static Classes)</p>
+
+<p><a href=""http://groups.google.com/group/android-developers/browse_thread/thread/235b3063a1656cf2/19afa9c47cc5bbd8"">Here</a> is what <a href=""https://plus.google.com/105051985738280261832/about"">Dianne Hackborn</a> (hackbod - a Google Android Software Engineer) had to say on the matter:</p>
+
+<blockquote>
+  <p>For situations where you know the activities are running in the same
+  process, you can just share data through globals.  For example, you
+  could have a global <code>HashMap&lt;String, WeakReference&lt;MyInterpreterState&gt;&gt;</code>
+  and when you make a new MyInterpreterState come up with a unique name
+  for it and put it in the hash map; to send that state to another
+  activity, simply put the unique name into the hash map and when the
+  second activity is started it can retrieve the MyInterpreterState from
+  the hash map with the name it receives.</p>
+</blockquote>

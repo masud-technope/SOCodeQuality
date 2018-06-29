@@ -1,0 +1,35 @@
+<p>As it has been mentioned before, you do not want to check whether the device is a tablet or a phone but you want to know about the features of the device,</p>
+
+<p>Most of the time, the difference between a tablet and a phone is the screen size which is why you want to use different layout files. These files are stored in the <code>res/layout-&lt;qualifiers&gt;</code> directories. You can create an XML file in the directoy <code>res/values-&lt;same qualifiers&gt;</code> for each of your layouts and put an int/bool/string resource into it to distinguish between the layouts you use.</p>
+
+<h3>Example:</h3>
+
+<p>File <code>res/values/screen.xml</code> (assuming <code>res/layout/</code> contains your layout files for handsets)</p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;resources&gt;
+  &lt;string name=""screen_type""&gt;phone&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p><br/>
+File <code>res/values-sw600dp/screen.xml</code> (assuming <code>res/layout-sw600dp/</code> contains your layout files for small tablets like the Nexus 7) </p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;resources&gt;
+  &lt;string name=""screen_type""&gt;7-inch-tablet&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p><br/>
+File <code>res/values-sw720dp/screen.xml</code> (assuming <code>res/layout-sw720dp/</code> contains your layout files for large tablets like the Nexus 10): </p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;
+&lt;resources&gt;
+  &lt;string name=""screen_type""&gt;10-inch-tablet&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p><br/></p>
+
+<p>Now the screen type is accessible via the <code>R.string.screen_type</code> constant.</p>

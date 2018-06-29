@@ -1,0 +1,15 @@
+<p>Try this:</p>
+
+<pre><code>Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(""http://www.google.com""));
+startActivity(browserIntent);
+</code></pre>
+
+<p>That works fine for me.</p>
+
+<p>As for the missing ""http://"" I'd just do something like this:</p>
+
+<pre><code>if (!url.startsWith(""http://"") &amp;&amp; !url.startsWith(""https://""))
+   url = ""http://"" + url;
+</code></pre>
+
+<p>I would also probably pre-populate your EditText that the user is typing a URL in with ""http://"".</p>

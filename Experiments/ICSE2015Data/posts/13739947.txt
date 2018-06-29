@@ -1,0 +1,5 @@
+<p>set </p>
+
+<pre><code>    array_fav[1]=array_fav[2];
+    array_fav[2]=null;
+</code></pre>

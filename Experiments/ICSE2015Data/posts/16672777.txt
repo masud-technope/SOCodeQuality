@@ -1,0 +1,21 @@
+<p>Here is my solution:</p>
+
+<pre><code>     yourEditText.addTextChangedListener(new TextWatcher() {
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            NumberFormat formatter = new DecimalFormat(""#.##"");
+            double doubleVal = Double.parseDouble(s.toString());
+            yourEditText.setText(formatter.format(doubleVal));
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count,int after) {}
+
+        @Override
+        public void afterTextChanged(Editable s) {}
+    });
+</code></pre>
+
+<p>If the user enters a number with more than two numbers after the decimal point, it will be automatically corrected.</p>
+
+<p>I hope I have helped!</p>

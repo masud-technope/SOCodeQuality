@@ -1,0 +1,10 @@
+<pre><code>public void onRestart() {
+    super.onRestart();
+    Intent intent=new Intent();
+    intent.setClass(act, act.getClass());
+    finish();
+    act.startActivity(intent);
+}
+</code></pre>
+
+<p>try to use this ..</p>

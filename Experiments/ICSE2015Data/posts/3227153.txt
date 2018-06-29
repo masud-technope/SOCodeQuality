@@ -1,0 +1,2 @@
+<p>If you want to end an activity you can simply call <code>finish()</code>.
+It is however bad practice to have an exit button on the screen.</p>

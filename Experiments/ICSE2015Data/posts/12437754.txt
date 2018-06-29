@@ -1,0 +1,7 @@
+<pre><code>    String img_url= //url of the image
+    URL url=new URL(img_url);
+    Bitmap bmp; 
+    bmp=BitmapFactory.decodeStream(url.openConnection().getInputStream());
+    ImageView iv=(ImageView)findviewById(R.id.imageview);
+    iv.setImageBitmap(bmp);
+</code></pre>

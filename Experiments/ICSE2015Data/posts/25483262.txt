@@ -1,0 +1,19 @@
+<p>Since I want to use a custom font only conjunction of several answers works for me. Obviously  settings in my <code>layout.xml</code> like <code>android:textStlyle=""italic""</code> was ignored by AOS. So finally I had to do as follows:
+in <code>strings.xml</code> the target string was declared as:</p>
+
+<pre><code>&lt;string name=""txt_sign""&gt;&lt;i&gt;The information blah blah ...&lt;/i&gt;&lt;/string&gt;
+</code></pre>
+
+<p>then additionally in code:</p>
+
+<pre><code>TextView textSign = (TextView) findViewById(R.id.txt_sign);
+FontHelper.setSomeCustomFont(textSign);
+textSign.setTypeface(textSign.getTypeface(), Typeface.ITALIC);
+</code></pre>
+
+<p>I didn't try the <code>Spannable</code> option (which I assume MUST work) but</p>
+
+<pre><code>textSign.setText(Html.fromHtml(getString(R.string.txt_sign))) 
+</code></pre>
+
+<p>had no effect. Also if I remove the <code>italic tag</code> from <code>strings.xml</code> leaving the <code>setTypeface()</code> all alone it has no effect either. Tricky Android...</p>

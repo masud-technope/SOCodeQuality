@@ -1,0 +1,42 @@
+<p>I'm using a custom keyboard to input an Hex number so I can't have the IMM keyboard show up...</p>
+
+<p>In v3.2.4_r1 <code>setSoftInputShownOnFocus(boolean show)</code> was added to control weather or not to display the keyboard when a TextView gets focus, but its still hidden so reflection must be used:</p>
+
+<pre><code>if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB_MR2) {
+    try {
+        Method method = TextView.class.getMethod(""setSoftInputShownOnFocus"", boolean.class);
+        method.invoke(mEditText, false);
+    } catch (Exception e) {
+        // Fallback to the second method
+    }
+}
+</code></pre>
+
+<hr>
+
+<p>For older versions, I got very good results (but far from perfect) with a <code>OnGlobalLayoutListener</code>, added with the aid of a <code>ViewTreeObserver</code> from my root view and then checking if the keyboard is shown like this:</p>
+
+<pre><code>@Override
+public void onGlobalLayout() {
+    Configuration config = getResources().getConfiguration();
+
+    // Dont allow the default keyboard to show up
+    if (config.keyboardHidden != Configuration.KEYBOARDHIDDEN_YES) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(mRootView.getWindowToken(), 0);
+    }
+}
+</code></pre>
+
+<p>This last solution may show the keyboard for a split second and messes with the selection handles.</p>
+
+<p>When in the keyboard enters full screen, onGlobalLayout isn't called. To avoid that, use <a href=""https://developer.android.com/reference/android/widget/TextView.html#setImeOptions%28int%29"">TextView#setImeOptions(int)</a> or in the TextView XML declaration:</p>
+
+<pre><code>android:imeOptions=""actionNone|actionUnspecified|flagNoFullscreen|flagNoExtractUi""
+</code></pre>
+
+<p><strong>Update:</strong> Just found what dialogs use to never show the keyboard and works in all versions:</p>
+
+<pre><code>getWindow().setFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM,
+        WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+</code></pre>

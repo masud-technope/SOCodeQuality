@@ -1,0 +1,21 @@
+<p>Thanks, Reto, for the detailed explanation!</p>
+
+<p>In case this is of any help to anyone, I had to change the code proposed by Reto Meier to make it work with the SDK for Android 1.5</p>
+
+<pre><code>@Override
+protected void onResume() {
+    super.onResume();
+
+    // Setup the initial values
+    mListPreference.setSummary(""Current value is "" + mListPreference.getEntry().toString()); 
+
+    // Set up a listener whenever a key changes            
+    ...
+}
+</code></pre>
+
+<p>The same change applies for the callback function <code>onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)</code> </p>
+
+<p>Cheers,</p>
+
+<p>Chris</p>

@@ -1,0 +1,55 @@
+<p>Just create the following class which checks for an internet connection:</p>
+
+<pre><code>public class ConnectionStatus {
+
+    private Context _context;
+
+    public ConnectionStatus(Context context) {
+        this._context = context;
+    }
+
+    public boolean isConnectionAvailable() {
+        ConnectivityManager connectivity = (ConnectivityManager) _context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivity != null) {
+            NetworkInfo[] info = connectivity.getAllNetworkInfo();
+            if (info != null)
+                for (int i = 0; i &lt; info.length; i++)
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED) {
+                        return true;
+                    }
+        }
+        return false;
+    }
+}
+</code></pre>
+
+<p>This class simply contains a method which returns the boolean value of the connection status. Therefore in simple terms, if the method finds a valid connection to the Internet, the return value is <code>true</code>, otherwise <code>false</code> if no valid connection is found.</p>
+
+<p>The following method in the MainActivity then calls the result from the method previously described, and prompts the user to act accordingly:</p>
+
+<pre><code>public void addListenerOnWifiButton() {
+        Button btnWifi = (Button)findViewById(R.id.btnWifi);
+
+        iia = new ConnectionStatus(getApplicationContext());
+
+        isConnected = iia.isConnectionAvailable();
+        if (!isConnected) {
+            btnWifi.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                    Toast.makeText(getBaseContext(), ""Please connect to a hotspot"",
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else {
+            btnWifi.setVisibility(4);
+            warning.setText(""This app may use your mobile data to update events and get their details."");
+        }
+    }
+</code></pre>
+
+<p>In the above code, if the result is false, (therefore there is no internet connection, the user is taken to the Android wi-fi panel, where he is prompted to connect to a wi-fi hotspot.</p>

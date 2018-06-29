@@ -1,0 +1,8 @@
+<p>Try it in XML...</p>
+
+<pre><code>&lt;TextView  
+android:layout_width=""fill_parent"" 
+android:layout_height=""wrap_content""
+android:autoText=""false""
+/&gt;
+</code></pre>

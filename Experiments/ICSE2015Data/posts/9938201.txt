@@ -1,0 +1,7 @@
+<p>Android <a href=""http://developer.android.com/reference/android/preference/ListPreference.html#getSummary%28%29"">documentation</a> says one can use a String formatting marker in <code>getSummary()</code>:</p>
+
+<blockquote>
+  <p>If the summary has a String formatting marker in it (i.e. ""%s"" or ""%1$s""), then the current entry value will be substituted in its place.</p>
+</blockquote>
+
+<p>Simply specifying <code>android:summary=""Clean up messages after %s days""</code> in ListPreference xml declaration worked for me.</p>

@@ -1,0 +1,102 @@
+<p>I went through the solution from @hcpl &amp; @mad. hcpl's solution supports well for local image in the gallery &amp; mad provided a better solution on top of that - it helps to load OI/Astro/Dropbox image as well. But in my app, while working on <strong>picasa library</strong> that's now integrated in Android Gallery, both solution fail.</p>
+
+<p>I searched &amp; analyzed a bit &amp; eventually have come with a better &amp; elegant solution that overcomes this limitation. Thanks to <a href=""http://dimitar.me/how-to-get-picasa-images-using-the-image-picker-on-android-devices-running-any-os-version/""><strong>Dimitar Darazhanski</strong></a> for his blog, that helped me in this case, I modified a bit to make it easier to understand. Here is my solution goes -</p>
+
+<pre><code>public class BrowsePicture extends Activity {
+
+//YOU CAN EDIT THIS TO WHATEVER YOU WANT
+private static final int SELECT_PICTURE = 1;
+
+private String selectedImagePath;
+//ADDED
+private String filemanagerstring;
+
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
+
+    ((Button) findViewById(R.id.Button01))
+    .setOnClickListener(new OnClickListener() {
+
+        public void onClick(View arg0) {
+
+            // in onCreate or any event where your want the user to
+            // select a file
+            Intent intent = new Intent();
+            intent.setType(""image/*"");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent,
+                    ""Select Picture""), SELECT_PICTURE);
+        }
+    });
+}
+
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (resultCode == RESULT_OK) {
+        if (requestCode == SELECT_PICTURE) {
+            Uri selectedImageUri = data.getData();
+            Log.d(""URI VAL"", ""selectedImageUri = "" + selectedImageUri.toString());
+            selectedImagePath = getPath(selectedImageUri);
+
+            if(selectedImagePath!=null){         
+                // IF LOCAL IMAGE, NO MATTER IF ITS DIRECTLY FROM GALLERY (EXCEPT PICASSA ALBUM),
+                // OR OI/ASTRO FILE MANAGER. EVEN DROPBOX IS SUPPORTED BY THIS BECAUSE DROPBOX DOWNLOAD THE IMAGE 
+                // IN THIS FORM - file:///storage/emulated/0/Android/data/com.dropbox.android/...
+                System.out.println(""local image""); 
+            }
+            else{
+                System.out.println(""picasa image!"");
+                loadPicasaImageFromGallery(selectedImageUri);
+            }
+        }
+    }
+}
+
+
+// NEW METHOD FOR PICASA IMAGE LOAD
+private void loadPicasaImageFromGallery(final Uri uri) {
+    String[] projection = {  MediaColumns.DATA, MediaColumns.DISPLAY_NAME };
+    Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+    if(cursor != null) {
+        cursor.moveToFirst();
+
+        int columnIndex = cursor.getColumnIndex(MediaColumns.DISPLAY_NAME);
+        if (columnIndex != -1) {
+            new Thread(new Runnable() {
+                // NEW THREAD BECAUSE NETWORK REQUEST WILL BE MADE THAT WILL BE A LONG PROCESS &amp; BLOCK UI
+                // IF CALLED IN UI THREAD 
+                public void run() {
+                    try {
+                        Bitmap bitmap = android.provider.MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                        // THIS IS THE BITMAP IMAGE WE ARE LOOKING FOR.
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+    }
+    cursor.close();
+}
+
+
+public String getPath(Uri uri) {
+    String[] projection = {  MediaColumns.DATA};
+    Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+    if(cursor != null) {
+        //HERE YOU WILL GET A NULLPOINTER IF CURSOR IS NULL
+        //THIS CAN BE, IF YOU USED OI FILE MANAGER FOR PICKING THE MEDIA
+        cursor.moveToFirst();
+        int columnIndex = cursor.getColumnIndexOrThrow(MediaColumns.DATA);
+        String filePath = cursor.getString(columnIndex);
+        cursor.close();
+        return filePath;
+    }
+    else 
+        return uri.getPath();               // FOR OI/ASTRO/Dropbox etc
+}
+</code></pre>
+
+<p>Check it &amp; let me know if there's some issue with it. I have tested it &amp; it works well in every case.</p>
+
+<p>Hope this will help everyone.</p>

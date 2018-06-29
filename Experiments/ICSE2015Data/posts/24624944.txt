@@ -1,0 +1,8 @@
+<p>Other answers are correct but do it in a short way like</p>
+
+<pre><code>if(editText.getText().toString().isEmpty()) {
+     // editText is empty
+} else {
+     // editText is not empty
+}
+</code></pre>

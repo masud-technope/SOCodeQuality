@@ -1,0 +1,20 @@
+<p>There are many ways people recommend how to use <strong>SharedPreferences</strong>. I have made a <a href=""https://github.com/akhgupta/Android-PreferenceDemo"" rel=""nofollow""><strong>demo project here</strong></a>. Key point in sample is to use <strong>ApplicationContext &amp; single sharedpreferences object</strong>. This demonstrates how to use <strong>SharedPreferences</strong> with following features:-</p>
+
+<ul>
+<li>Using singelton class to access/update SharedPreferences</li>
+<li>No need to pass context always for read/write SharedPreferences</li>
+<li>It uses apply() instead of commit()</li>
+<li>apply() is asynchronus save, doesn't return anything, it update value in memory first &amp; changes are written to disk later
+asynchronusly.</li>
+<li>commit() is synchronus save, it return true/false based on outcome. Changes are written to disk synchronusly</li>
+<li>works on android 2.3+ versions</li>
+</ul>
+
+<p>Usage example as below:-</p>
+
+<pre><code>MyAppPreference.getInstance().setSampleStringKey(""some_value"");
+String value= MyAppPreference.getInstance().getSampleStringKey();
+</code></pre>
+
+<p><a href=""https://github.com/akhgupta/Android-PreferenceDemo"" rel=""nofollow""><strong>Get source code here</strong></a>
+&amp; Detailed API's can be found <a href=""http://developer.android.com/reference/android/content/SharedPreferences.Editor.html"" rel=""nofollow""><strong>here</strong></a> on developer.android.com </p>

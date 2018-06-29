@@ -1,0 +1,11 @@
+<p>There's a built-in setting for it. On the ScrollView:</p>
+
+<pre><code>android:fillViewport=""true""
+</code></pre>
+
+<p>In Java,</p>
+
+<pre><code>mScrollView.setFillViewport(true);
+</code></pre>
+
+<p>Romain Guy explains it in depth here: <a href=""http://www.curious-creature.org/2010/08/15/scrollviews-handy-trick/"" rel=""nofollow"">http://www.curious-creature.org/2010/08/15/scrollviews-handy-trick/</a></p>

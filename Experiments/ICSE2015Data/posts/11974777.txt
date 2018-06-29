@@ -1,0 +1,275 @@
+<p>Some of the presented solutions helped me a lot to partially solve the problem but there is still one important thing missing in the solutions which has produced unexpected exceptions and black page content instead of fragment content in some cases.</p>
+
+<p>The thing is that <em>FragmentPagerAdapter</em> class is using item ID to store cached fragments to <em>FragmentManager</em>. For this reason, you need to override also the <em>getItemId(int position)</em> method so that it returns e. g. <em>position</em> for top-level pages and <em>100 + position</em> for details pages. Otherwise the previously created top-level fragment would be returned from the cache instead of detail-level fragment.</p>
+
+<p>Furthermore, I'm sharing here a complete example how to implement tabs-like activity with <em>Fragment</em> pages using <em>ViewPager</em> and tab buttons using <em>RadioGroup</em> that allows replacement of top-level pages with detailed pages and also supports back button. This implementation supports only one level of back stacking (item list - item details) but multi-level back stacking implementation is straightforward. This example works pretty well in normal cases except of it is throwing a <em>NullPointerException</em> in case when you switch to e. g. second page, change the fragment of the first page (while not visible) and return back to the first page. I'll post a solution to this issue once I'll figure it out:</p>
+
+<pre><code>public class TabsActivity extends FragmentActivity {
+
+  public static final int PAGE_COUNT = 3;
+  public static final int FIRST_PAGE = 0;
+  public static final int SECOND_PAGE = 1;
+  public static final int THIRD_PAGE = 2;
+
+  /**
+   * Opens a new inferior page at specified tab position and adds the current page into back
+   * stack.
+   */
+  public void startPage(int position, Fragment content) {
+    // Replace page adapter fragment at position.
+    mPagerAdapter.start(position, content);
+  }
+
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // Initialize basic layout.
+    this.setContentView(R.layout.tabs_activity);
+
+    // Add tab fragments to view pager.
+    {
+      // Create fragments adapter.
+      mPagerAdapter = new PagerAdapter(pager);
+      ViewPager pager = (ViewPager) super.findViewById(R.id.tabs_view_pager);
+      pager.setAdapter(mPagerAdapter);
+
+      // Update active tab in tab bar when page changes.
+      pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int index, float value, int nextIndex) {
+          // Not used.
+        }
+
+        @Override
+        public void onPageSelected(int index) {
+          RadioGroup tabs_radio_group = (RadioGroup) TabsActivity.this.findViewById(
+            R.id.tabs_radio_group);
+          switch (index) {
+            case 0: {
+              tabs_radio_group.check(R.id.first_radio_button);
+            }
+            break;
+            case 1: {
+              tabs_radio_group.check(R.id.second_radio_button);
+            }
+            break;
+            case 2: {
+              tabs_radio_group.check(R.id.third_radio_button);
+            }
+            break;
+          }
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int index) {
+          // Not used.
+        }
+      });
+    }
+
+    // Set ""tabs"" radio group on checked change listener that changes the displayed page.
+    RadioGroup radio_group = (RadioGroup) this.findViewById(R.id.tabs_radio_group);
+    radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+      @Override
+      public void onCheckedChanged(RadioGroup radioGroup, int id) {
+        // Get view pager representing tabs.
+        ViewPager view_pager = (ViewPager) TabsActivity.this.findViewById(R.id.tabs_view_pager);
+        if (view_pager == null) {
+          return;
+        }
+
+        // Change the active page.
+        switch (id) {
+          case R.id.first_radio_button: {
+            view_pager.setCurrentItem(FIRST_PAGE);
+          }
+          break;
+          case R.id.second_radio_button: {
+            view_pager.setCurrentItem(SECOND_PAGE);
+          }
+          break;
+          case R.id.third_radio_button: {
+            view_pager.setCurrentItem(THIRD_PAGE);
+          }
+          break;
+        }
+      });
+    }
+  }
+
+  @Override
+  public void onBackPressed() {
+    if (!mPagerAdapter.back()) {
+      super.onBackPressed();
+    }
+  }
+
+  /**
+   * Serves the fragments when paging.
+   */
+  private class PagerAdapter extends FragmentPagerAdapter {
+
+    public PagerAdapter(ViewPager container) {
+      super(TabsActivity.this.getSupportFragmentManager());
+
+      mContainer = container;
+      mFragmentManager = TabsActivity.this.getSupportFragmentManager();
+
+      // Prepare ""empty"" list of fragments.
+      mFragments = new ArrayList&lt;Fragment&gt;(){};
+      mBackFragments = new ArrayList&lt;Fragment&gt;(){};
+      for (int i = 0; i &lt; PAGE_COUNT; i++) {
+        mFragments.add(null);
+        mBackFragments.add(null);
+      }
+    }
+
+    /**
+     * Replaces the view pager fragment at specified position.
+     */
+    public void replace(int position, Fragment fragment) {
+      // Get currently active fragment.
+      Fragment old_fragment = mFragments.get(position);
+      if (old_fragment == null) {
+        return;
+      }
+
+      // Replace the fragment using transaction and in underlaying array list.
+      // NOTE .addToBackStack(null) doesn't work
+      this.startUpdate(mContainer);
+      mFragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+        .remove(old_fragment).add(mContainer.getId(), fragment)
+        .commit();
+      mFragments.set(position, fragment);
+      this.notifyDataSetChanged();
+      this.finishUpdate(mContainer);
+    }
+
+    /**
+     * Replaces the fragment at specified position and stores the current fragment to back stack
+     * so it can be restored by #back().
+     */
+    public void start(int position, Fragment fragment) {
+      // Remember current fragment.
+      mBackFragments.set(position, mFragments.get(position));
+
+      // Replace the displayed fragment.
+      this.replace(position, fragment);
+    }
+
+    /**
+     * Replaces the current fragment by fragment stored in back stack. Does nothing and returns
+     * false if no fragment is back-stacked.
+     */
+    public boolean back() {
+      int position = mContainer.getCurrentItem();
+      Fragment fragment = mBackFragments.get(position);
+      if (fragment == null) {
+        // Nothing to go back.
+        return false;
+      }
+
+      // Restore the remembered fragment and remove it from back fragments.
+      this.replace(position, fragment);
+      mBackFragments.set(position, null);
+      return true;
+    }
+
+    /**
+     * Returns fragment of a page at specified position.
+     */
+    @Override
+    public Fragment getItem(int position) {
+      // If fragment not yet initialized, create its instance.
+      if (mFragments.get(position) == null) {
+        switch (position) {
+          case FIRST_PAGE: {
+            mFragments.set(FIRST_PAGE, new DefaultFirstFragment());
+          }
+          break;
+          case SECOND_PAGE: {
+            mFragments.set(SECOND_PAGE, new DefaultSecondFragment());
+          }
+          break;
+          case THIRD_PAGE: {
+            mFragments.set(THIRD_PAGE, new DefaultThirdFragment());
+          }
+          break;
+        }
+      }
+
+      // Return fragment instance at requested position.
+      return mFragments.get(position);
+    }
+
+    /**
+     * Custom item ID resolution. Needed for proper page fragment caching.
+     * @see FragmentPagerAdapter#getItemId(int).
+     */
+    @Override
+    public long getItemId(int position) {
+      // Fragments from second level page hierarchy have their ID raised above 100. This is
+      // important to FragmentPagerAdapter because it is caching fragments to FragmentManager with
+      // this item ID key.
+      Fragment item = mFragments.get(position);
+      if (item != null) {
+        if ((item instanceof NewFirstFragment) || (item instanceof NewSecondFragment) ||
+          (item instanceof NewThirdFragment)) {
+          return 100 + position;
+        }
+      }
+
+      return position;
+    }
+
+    /**
+     * Returns number of pages.
+     */
+    @Override
+    public int getCount() {
+      return mFragments.size();
+    }
+
+    @Override
+    public int getItemPosition(Object object)
+    {
+      int position = POSITION_UNCHANGED;
+      if ((object instanceof DefaultFirstFragment) || (object instanceof NewFirstFragment)) {
+        if (object.getClass() != mFragments.get(FIRST_PAGE).getClass()) {
+          position = POSITION_NONE;
+        }
+      }
+      if ((object instanceof DefaultSecondragment) || (object instanceof NewSecondFragment)) {
+        if (object.getClass() != mFragments.get(SECOND_PAGE).getClass()) {
+          position = POSITION_NONE;
+        }
+      }
+      if ((object instanceof DefaultThirdFragment) || (object instanceof NewThirdFragment)) {
+        if (object.getClass() != mFragments.get(THIRD_PAGE).getClass()) {
+          position = POSITION_NONE;
+        }
+      }
+      return position;
+    }
+
+    private ViewPager mContainer;
+    private FragmentManager mFragmentManager;
+
+    /**
+     * List of page fragments.
+     */
+    private List&lt;Fragment&gt; mFragments;
+
+    /**
+     * List of page fragments to return to in onBack();
+     */
+    private List&lt;Fragment&gt; mBackFragments;
+  }
+
+  /**
+   * Tab fragments adapter.
+   */
+  private PagerAdapter mPagerAdapter;
+}
+</code></pre>

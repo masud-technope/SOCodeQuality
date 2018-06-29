@@ -1,0 +1,101 @@
+<p>I did it with observer mode.</p>
+
+<p>Observer interface</p>
+
+<pre><code>public interface Observer {
+public void update(Subject subject);
+}
+</code></pre>
+
+<p>Base Subject</p>
+
+<pre><code>public class Subject {
+private List&lt;Observer&gt; observers = new ArrayList&lt;Observer&gt;();
+
+public void attach(Observer observer){
+    observers.add(observer);
+}
+
+public void detach(Observer observer){
+    observers.remove(observer);
+}
+
+protected void notifyObservers(){
+    for(Observer observer : observers){
+        observer.update(this);
+    }
+}
+}
+</code></pre>
+
+<p>Child Subject implements the exit method</p>
+
+<pre><code>public class ApplicationSubject extends Subject {
+public void exit(){
+    notifyObservers();
+}
+}
+</code></pre>
+
+<p>MyApplication which your application should extends it</p>
+
+<pre><code>public class MyApplication extends Application {
+
+private static ApplicationSubject applicationSubject;
+
+public ApplicationSubject getApplicationSubject() {
+            if(applicationSubject == null) applicationSubject = new ApplicationSubject();
+    return applicationSubject;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>Base Activity</p>
+
+<pre><code>public abstract class BaseActivity extends Activity implements Observer {
+
+public MyApplication app;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    // TODO Auto-generated method stub
+    super.onCreate(savedInstanceState);
+    app = (MyApplication) this.getApplication();
+    app.getApplicationSubject().attach(this);
+}
+
+@Override
+public void finish() {
+    // TODO Auto-generated method stub
+            app.getApplicationSubject().detach(this);
+    super.finish();
+}
+
+/**
+ * exit the app
+ */
+public void close() {
+    app.getApplicationSubject().exit();
+};
+
+@Override
+public void update(Subject subject) {
+    // TODO Auto-generated method stub
+    this.finish();
+}
+
+}
+</code></pre>
+
+<p>let's test it</p>
+
+<pre><code>public class ATestActivity extends BaseActivity {
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    // TODO Auto-generated method stub
+    super.onCreate(savedInstanceState);
+    close(); //invoke 'close'
+}
+}
+</code></pre>

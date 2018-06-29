@@ -1,0 +1,25 @@
+<p>@JosephEarl +1 He has a great solution here that worked perfectly for me with some minor modifications for doing it programmatically.</p>
+
+<hr>
+
+<p>Here are the minor changes I made:</p>
+
+<p><strong>LockableScrollView Class:</strong></p>
+
+<pre><code>public boolean setScrollingEnabled(boolean enabled) {
+    mScrollable = enabled;
+    return mScrollable;
+}
+</code></pre>
+
+<p><strong>MainActivity:</strong></p>
+
+<pre><code>LockableScrollView sv;
+
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    sv = new LockableScrollView(this);
+    sv.setScrollingEnabled(false);
+}
+</code></pre>

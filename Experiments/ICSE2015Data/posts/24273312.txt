@@ -1,0 +1,52 @@
+<p>The recommended way to do this is to use <code>LocationClient</code>:</p>
+
+<p>First, define location update interval values. Adjust this to your needs.</p>
+
+<pre><code>private static final int MILLISECONDS_PER_SECOND = 1000;
+private static final long UPDATE_INTERVAL = MILLISECONDS_PER_SECOND * UPDATE_INTERVAL_IN_SECONDS;
+private static final int FASTEST_INTERVAL_IN_SECONDS = 1;
+private static final long FASTEST_INTERVAL = MILLISECONDS_PER_SECOND * FASTEST_INTERVAL_IN_SECONDS;
+</code></pre>
+
+<p>Have your <code>Activity</code> implement <code>GooglePlayServicesClient.ConnectionCallbacks</code>, <code>GooglePlayServicesClient.OnConnectionFailedListener</code>, and <code>LocationListener</code>.</p>
+
+<pre><code>public class LocationActivity extends Activity implements 
+GooglePlayServicesClient.ConnectionCallbacks, GooglePlayServicesClient.OnConnectionFailedListener, LocationListener {}
+</code></pre>
+
+<p>Then, set up a <code>LocationClient</code>in the <code>onCreate()</code> method of your <code>Activity</code>:</p>
+
+<pre><code>public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    mLocationClient = new LocationClient(this, this, this);
+
+    mLocationRequest = LocationRequest.create();
+    mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+    mLocationRequest.setInterval(UPDATE_INTERVAL);
+    mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
+}
+</code></pre>
+
+<p>Add the required methods to your <code>Activity</code>; <code>onConnected()</code> is the method that is called when the <code>LocationClient</code>connects. <code>onLocationChanged()</code> is where you'll retrieve the most up-to-date location.</p>
+
+<pre><code>@Override
+public void onConnectionFailed(ConnectionResult connectionResult) {
+    Log.w(TAG, ""Location client connection failed"");
+}
+
+@Override
+public void onConnected(Bundle dataBundle) {
+    Log.d(TAG, ""Location client connected"");
+    mLocationClient.requestLocationUpdates(mLocationRequest, this); 
+}
+
+@Override
+public void onDisconnected() {
+    Log.d(TAG, ""Location client disconnected"");
+}
+
+@Override
+public void onLocationChanged(Location location) {
+    if (location != null) {
+        Log.d(TAG, ""Updated Location: "" + Double.toString(location.getLatitude()) + "

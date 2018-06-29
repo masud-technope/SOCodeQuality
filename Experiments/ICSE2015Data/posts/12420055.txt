@@ -1,0 +1,7 @@
+<pre><code>EditText edt=(EditText)findViewById(R.id.Edt);
+
+String data=edt.getText().toString();
+
+if(data=="""" || data==null){
+
+ Log.e(""edit text is null?"

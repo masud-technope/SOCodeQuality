@@ -1,0 +1,6 @@
+Thanks for combining all the feedback. I see that the solution takes **only width** into consideration. My problem is that the fond exceeds the height.
+Oh, it seems to partially work at runtime. On a device ot emulator, the text is cut half way up. On the Eclipse layout editor it looks fine. Any ideas?
+this post looks like it will do the trick (adding custom xml attributes for hi/lo): http://stackoverflow.com/a/8090772/156611
+Sorry - here it is: http://ppl.ug/zXulLOCCZig
+This was a great solution! In case anyone else is new to android development and doesn't quite know how to implement an extended view in XML, it looks like this:
+ 

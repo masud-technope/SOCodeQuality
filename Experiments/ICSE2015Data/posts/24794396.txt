@@ -1,0 +1,6 @@
+<p>All you need to do is simply</p>
+
+<pre><code>webView.getSettings().setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
+webView.getSettings().setLoadWithOverviewMode(true);
+webView.getSettings().setUseWideViewPort(true);
+</code></pre>

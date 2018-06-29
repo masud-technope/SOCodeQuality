@@ -1,0 +1,15 @@
+<p>Note that it is <strong><em>NOT</em></strong> safe to use <code>onSaveInstanceState</code> and <code>onRestoreInstanceState</code>, according to the documentation on Activity states in <a href=""http://developer.android.com/reference/android/app/Activity.html"">http://developer.android.com/reference/android/app/Activity.html</a>.</p>
+
+<p>The document states (in the 'Activity Lifecycle' section):</p>
+
+<blockquote>
+  <p>Note that it is important to save
+  persistent data in <code>onPause()</code> instead
+  of <code>onSaveInstanceState(Bundle)</code>
+  because the later is not part of the
+  lifecycle callbacks, so will not be
+  called in every situation as described
+  in its documentation.</p>
+</blockquote>
+
+<p>In other words, put your save/restore code in <code>onPause()</code> and <code>onResume()</code> instead!</p>

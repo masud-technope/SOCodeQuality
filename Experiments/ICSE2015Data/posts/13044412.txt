@@ -1,0 +1,13 @@
+<p>You disable the strict mode using following code:</p>
+
+<pre><code>if (android.os.Build.VERSION.SDK_INT &gt; 9) {
+StrictMode.ThreadPolicy policy = 
+        new StrictMode.ThreadPolicy.Builder().permitAll().build();
+StrictMode.setThreadPolicy(policy);
+}
+</code></pre>
+
+<p>Again that is not recommended. Use AsyncTask interface.</p>
+
+<p>Full code for both the methods:
+<a href=""http://www.javaexperience.com/android-create-non-blocking-user-interface/"" rel=""nofollow"">http://www.javaexperience.com/android-create-non-blocking-user-interface/</a></p>

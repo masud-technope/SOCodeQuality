@@ -1,0 +1,11 @@
+<pre><code>String serial = null; 
+
+try {
+    Class&lt;?&gt; c = Class.forName(""android.os.SystemProperties"");
+    Method get = c.getMethod(""get"", String.class);
+    serial = (String) get.invoke(c, ""ro.serialno"");
+} catch (Exception ignored) {
+}
+</code></pre>
+
+<p>This code returns device serial number using a hidden Android API.</p>

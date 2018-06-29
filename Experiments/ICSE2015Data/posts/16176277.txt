@@ -1,0 +1,67 @@
+<p>I'm aware that this thread is quite old, the correct answer seems valid and there are a lot of working solutions out there, but I think the approach stated bellow might have an additional benefit regarding efficiency and elegance.</p>
+
+<p>I need this behavior for all of my activities, so I created a class <em>CustomActivity</em> inheriting from the class <em>Activity</em> and ""hooked"" the <em>dispatchTouchEvent</em> function. There are mainly two conditions to take care of:</p>
+
+<ol>
+<li>If focus is unchanged and someone is tapping outside of the current input field, then dismiss the IME</li>
+<li>If focus has changed and the next focused element isn't an instance of any kind of an input field, then dismiss the IME</li>
+</ol>
+
+<p>This is my result:</p>
+
+<pre><code>@Override
+public boolean dispatchTouchEvent(MotionEvent ev) {
+    if(ev.getAction() == MotionEvent.ACTION_UP) {
+        final View view = getCurrentFocus();
+
+        if(view != null) {
+            final boolean consumed = super.dispatchTouchEvent(ev);
+
+            final View viewTmp = getCurrentFocus();
+            final View viewNew = viewTmp != null ? viewTmp : view;
+
+            if(viewNew.equals(view)) {
+                final Rect rect = new Rect();
+                final int[] coordinates = new int[2];
+
+                view.getLocationOnScreen(coordinates);
+
+                rect.set(coordinates[0], coordinates[1], coordinates[0] + view.getWidth(), coordinates[1] + view.getHeight());
+
+                final int x = (int) ev.getX();
+                final int y = (int) ev.getY();
+
+                if(rect.contains(x, y)) {
+                    return consumed;
+                }
+            }
+            else if(viewNew instanceof EditText || viewNew instanceof CustomEditText) {
+                return consumed;
+            }
+
+            final InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+            inputMethodManager.hideSoftInputFromWindow(viewNew.getWindowToken(), 0);
+
+            viewNew.clearFocus();
+
+            return consumed;
+        }
+    }       
+
+    return super.dispatchTouchEvent(ev);
+}
+</code></pre>
+
+<p>Side note: Additionally I assign these attributes to the root view making it possible to clear focus on every input field and preventing input fields gaining focus on activity startup (making the content view the ""focus catcher""):</p>
+
+<pre><code>@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    final View view = findViewById(R.id.content);
+
+    view.setFocusable(true);
+    view.setFocusableInTouchMode(true);
+}
+</code></pre>

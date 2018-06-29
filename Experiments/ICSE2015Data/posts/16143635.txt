@@ -1,0 +1,9 @@
+<p>In Java we don't compare string as you are doing above...
+Here is String comparison...</p>
+
+<pre><code>    if (gender.equalsIgnoreCase(""Male"")) {
+        salutation = ""Mr."";
+    } else if (gender.equalsIgnoreCase(""Female"")) {
+        salutation = ""Ms."";
+    }
+</code></pre>

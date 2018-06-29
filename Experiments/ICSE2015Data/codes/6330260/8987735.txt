@@ -1,0 +1,3 @@
+final Intent intent = new Intent(getBaseContext(), LoginScreen.class);
+intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+context.startActivity(intent);

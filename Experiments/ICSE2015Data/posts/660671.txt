@@ -1,0 +1,8 @@
+<p>I do not see a related method for that attribute in the EditText
+class.  However, there are other similar things you could use such as
+<code>android:focus/setFocusable(boolean)</code> or create another TextView whose
+<code>android:editable=""false""</code> and use <code>setVisiblilty()</code> to switch between the
+editable and not editable views.  If you use <code>View.GONE</code> the user will
+never know there are two EditTexts.</p>
+
+<p>If your feeling ambitious you could probably do something with the EditText's <code>onTextChanged</code> listener like having it react with a <code>setText</code>.</p>

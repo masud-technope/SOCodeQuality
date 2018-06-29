@@ -1,0 +1,8 @@
+<pre><code> Bitmap yourBitmap;
+ Bitmap resized = Bitmap.createScaledBitmap(yourBitmap, newWidth, newHeight, true);
+</code></pre>
+
+<p>or:</p>
+
+<pre><code> resized = Bitmap.createScaledBitmap(yourBitmap,(int)(yourBitmap.getWidth()*0.8), (int)(yourBitmap.getHeight()*0.8), true);
+</code></pre>

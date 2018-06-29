@@ -1,0 +1,45 @@
+<p><strong>Following way very slowly in the running</strong></p>
+
+<pre><code>mAgendaListView.setOnItemClickListener(new OnItemClickListener() {
+public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+//view.setBackgroundColor(Color.RED);
+
+for(int i=0; i&lt;parent.getChildCount(); i++)
+{
+     if(i == position)
+     {
+               parent.getChildAt(i).setBackgroundColor(Color.BLUE);
+     }
+     else
+     {
+               parent.getChildAt(i).setBackgroundColor(Color.BLACK);
+     }
+
+ }
+</code></pre>
+
+<p><strong>Replaced by the following</strong></p>
+
+<pre><code>int pos = 0;
+int save = -1;
+    @Override
+    public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position,
+            long id) {
+            //Always set the item clicked blue background
+            view.setBackgroundColor(Color.BLUE);
+
+            if (pos == 0) {
+                if (save != -1) {
+                    parent.getChildAt(save).setBackgroundColor(Color.BLACK);
+                }
+                save = position;
+                pos++;
+                Log.d(""Pos = 0"", ""Running"");
+
+            } else {
+                parent.getChildAt(save).setBackgroundColor(Color.BLACK);
+                save = position;
+                pos = 0;
+                Log.d(""Pos # 0"", ""Running"");
+            }
+</code></pre>
